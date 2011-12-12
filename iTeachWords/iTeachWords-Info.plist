@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.vitalyt</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>dataBaseName</key>
+	<string>iTeachWordDataBase</string>
+	<key>LessonResouce</key>
+	<string>/Documents/Lessons/</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>myResource</key>
+	<string>/Documents/</string>
+	<key>NSMainNibFile</key>
+	<string>MainWindow</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>FeedbackMailAddress</key>
+	<string>vitaly.todorovych@yandex.ru</string>
+	<key>TestTeamToken</key>
+	<string>8c5fde62f2d9d0623e6dab1f50fd0e94_NDQwMTYyMDExLTExLTI5IDA0OjMxOjAxLjE0NzgwNA</string>
+	<key>TranslateAppId</key>
+	<string>519419FC66883A8820ED0F76C5AC4B9E70F63425</string>
+</dict>
+</plist>

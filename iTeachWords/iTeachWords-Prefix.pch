@@ -1,0 +1,47 @@
+//
+// Prefix header for all source files of the 'iTeachWords' target in the 'iTeachWords' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import <QuartzCore/QuartzCore.h>
+
+    #import "TestFlight.h"
+#endif
+
+
+#import "UIAlertView+Interaction.h"
+#import "iTeachWordsAppDelegate.h"
+#import "MyPlayer.h"
+
+#import "NSString+Interaction.h"
+#import "NSManagedObjectContext+Interaction.h"
+#import "NSArray+Interaction.h"
+#import "NSNumber+Interaction.h"
+#import "NSDate+Interaction.h"
+
+typedef enum {
+	TEXT = 0,
+	TRANSLATE
+} SoundType;
+
+#define CONTEXT [iTeachWordsAppDelegate sharedContext]
+#define BACKEND [iTeachWordsAppDelegate sharedEngine]
+#define DOCUMENTS [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+#define INFO [[NSBundle mainBundle] infoDictionary]
+#define NATIVE_COUNTRY_CODE @"nativeCountryCode"
+#define TRANSLATE_COUNTRY_CODE @"translateCountryCode"
+#define NATIVE_COUNTRY @"nativeCountry"
+#define TRANSLATE_COUNTRY @"translateCountry"
+
+#define DEFAULT_FONT_SIZE ([[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"])?[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"] intValue]:10
+#define DEFAULT_FONT_NAME [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontName"]
+#define FONT_TEXT [UIFont fontWithName:DEFAULT_FONT_NAME size:DEFAULT_FONT_SIZE]
