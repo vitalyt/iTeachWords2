@@ -25,8 +25,8 @@
 - (void) setWord:(Words *)_word{
     if (currentWord != _word) {
         [iTeachWordsAppDelegate clearUdoManager];
-        currentWord = _word;
-        wordType = _word.type;
+        currentWord = [_word retain];
+        wordType = [_word.type retain];
     }
 }
 

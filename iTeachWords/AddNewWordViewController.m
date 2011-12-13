@@ -231,8 +231,7 @@
 }
 
 - (IBAction) showMyPickerView{
-    [translateFid resignFirstResponder];
-    [textFld resignFirstResponder];
+    [self closeAllKeyboard];
     if (!myPicker) {
         myPicker = [[MyPickerViewContrller alloc] initWithNibName:@"MyPicker" bundle:nil];
         myPicker.delegate = self;
@@ -269,6 +268,7 @@
 }
 
 - (void) back{
+    [self closeAllKeyboard];
 	if (flgSave) {
         DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         [DELEGATE.navigationController popViewControllerAnimated:YES];
