@@ -54,32 +54,29 @@
 }
 
 - (void) back{
-	if (wordsView.flgSave) {
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-        [self.navigationController popViewControllerAnimated:YES];
-	}
-	else {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want save word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cansel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
-        [actionSheet showInView:self.view];
-	}
+	[wordsView back];
 }
 
-#pragma mark Alert functions
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-	if (buttonIndex == 1) {
-		[wordsView save];
-	}
-	else if (buttonIndex == 0){
-        [wordsView.dataModel.wordType removeWordsObject:wordsView.dataModel.currentWord];
-        
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-        [self.navigationController popViewControllerAnimated:YES];
-	}
-	else if (buttonIndex == 0){
-		return;
-	}
-}
+//#pragma mark Alert functions
+//
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+//	if (buttonIndex == 1) {
+//		[wordsView save];
+//	}
+//	else if (buttonIndex == 0){
+//        [wordsView.dataModel.wordType removeWordsObject:wordsView.dataModel.currentWord];
+//        NSError *_error;
+//        if (![CONTEXT save:&_error]) {
+//            [UIAlertView displayError:@"Data is not saved."];
+//        }
+//        
+//        self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+//        [self.navigationController popViewControllerAnimated:YES];
+//	}
+//	else if (buttonIndex == 0){
+//		return;
+//	}
+//}
 
 - (void)setThemeName{
     [self.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",wordsView.dataModel.wordType.name]];

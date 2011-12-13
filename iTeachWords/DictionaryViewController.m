@@ -86,9 +86,8 @@
 	NSSortDescriptor *name = [[NSSortDescriptor alloc] initWithKey:@"text" ascending:YES 
                                                           selector:@selector(caseInsensitiveCompare:)];
     self.data = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:name, nil]];
-    NSLog(@"%d",[searchedData retainCount]);
     self.searchedData = [NSMutableArray arrayWithArray:data];
-    NSLog(@"%d",[searchedData retainCount]);
+    NSLog(@"%@",searchedData);
 	[table reloadData];
 }
 

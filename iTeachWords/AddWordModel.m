@@ -24,22 +24,39 @@
 
 - (void) setWord:(Words *)_word{
     if (currentWord != _word) {
-        self.currentWord = _word;
-        self.wordType = _word.type;
+        [iTeachWordsAppDelegate clearUdoManager];
+        currentWord = _word;
+        wordType = _word.type;
     }
 }
 
 - (void) createWord{
     if (!currentWord) {
+        [iTeachWordsAppDelegate clearUdoManager];
         self.currentWord = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
                                                     inManagedObjectContext:CONTEXT];
         [currentWord setCreateDate:[NSDate date]];
     }
+    [currentWord setType:wordType];
+    [currentWord setTypeID:wordType.typeID];
     [currentWord setChangeDate:[NSDate date]];
 }
 
+- (void)saveWord{    
+    NSError *_error;
+    if (![CONTEXT save:&_error]) {
+        [UIAlertView displayError:@"Data is not saved."];
+    }else{
+        NSLog(@"Word saved->%@",self.currentWord);
+        [iTeachWordsAppDelegate clearUdoManager];
+    }
+}
+
+- (void)undoChngesWord{
+    [CONTEXT rollback];
+}
+
 -(void) createUrls{
-    
 	url = [[NSString alloc] initWithFormat: @"https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=%@&langpair=%@|%@",currentWord.text,
           [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
           [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]];

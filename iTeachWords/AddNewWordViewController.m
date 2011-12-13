@@ -24,6 +24,7 @@
     if (self) {
         // Custom initialization
         dataModel = [[AddWordModel alloc]init];
+
     }
     return self;
 }
@@ -110,7 +111,6 @@
             [self showMyPickerView];
         }
     }else if(dataModel.currentWord && dataModel.wordType){
-        editingWord = YES;
         textFld.text = dataModel.currentWord.text;
         translateFid.text = dataModel.currentWord.translate;
         [self textFieldDidChange:textFld];
@@ -259,6 +259,14 @@
     }
 }
 
+- (BOOL)viewWillDisappear{
+    if (!flgSave) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want save word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cansel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
+        [actionSheet showInView:self.view];
+        return NO;
+    }
+    return YES;
+}
 
 - (void) back{
 	if (flgSave) {
@@ -266,8 +274,16 @@
         [DELEGATE.navigationController popViewControllerAnimated:YES];
 	}
 	else {
+        NSLog(@"text->%@",dataModel.currentWord.text);
+        NSLog(@"translate->%@",dataModel.currentWord.translate);
+        if (!isDataChanged) {
+            [self removeChanges];
+            DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+            [DELEGATE.navigationController popViewControllerAnimated:YES];
+            return;
+        }
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want save word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cansel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
-        [actionSheet showInView:self.view];
+        [actionSheet showInView:DELEGATE.view];
 	}
 }
 
@@ -288,25 +304,24 @@
 }
 
 - (void)removeChanges{
-    [dataModel.wordType removeWordsObject:dataModel.currentWord];
+    [dataModel undoChngesWord];
 }
 
 - (IBAction) save
 {
     [self closeAllKeyboard];
+    if (!dataModel.wordType) {
+        [self showMyPickerView];
+        return;
+    }
     [dataModel.currentWord setDescriptionStr:dataModel.wordType.name];
     [dataModel.currentWord setText:textFld.text];
     [dataModel.currentWord setTranslate:translateFid.text];
-    NSError *_error;
-    if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"Data is not saved."];
-    }else{
-        // [UIAlertView displayMessage:@"Data is saved."];
-        dataModel.currentWord = nil;
-        [dataModel createWord];
-    }
+    [dataModel saveWord];
 	self.flgSave = YES;
     //[self back];
+    
+    //make button animation
     [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -326,7 +341,13 @@
 }
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField{
+    
+    if (self.flgSave) {
+        dataModel.currentWord = nil;
+        [dataModel createWord];
+    }
     self.flgSave = NO;
+    isDataChanged = YES;
 }
 
 
@@ -341,7 +362,6 @@
     if ([DELEGATE respondsToSelector:@selector(showWebLoadingView)]) {
         [DELEGATE performSelector:@selector(showWebLoadingView)];
     }
-    self.flgSave = NO;
     UIButton *recButton = ((UIButton*)textField.rightView);
     if ([textField.text length]==0) {
         [recButton setEnabled:NO];

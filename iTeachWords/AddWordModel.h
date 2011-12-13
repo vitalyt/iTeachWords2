@@ -7,19 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
-@class WordTypes,Words,WBEngine;
+@class WordTypes,Words;
 
 @interface AddWordModel : NSObject {
     NSString				*url;
 	NSString				*urlShow; 
-	BOOL					flgSave;
+	BOOL					isNeedToSave;
 	UIAlertView				*alert;
 	//Variables setup for access in the class:
     WordTypes               *wordType;
     Words                   *currentWord;
-    WBEngine                *wbEngine;
 }
 
 @property (nonatomic, retain) NSString *url,*urlShow;
@@ -27,6 +24,8 @@
 @property (nonatomic, retain) Words     *currentWord;
 
 - (void)     createWord;
+- (void)     saveWord;
+- (void)     undoChngesWord;
 - (void)     setWord:(Words *)_word;
 - (void)	 createUrls;
 
