@@ -38,7 +38,6 @@
 }
 */
 
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self createMenu];
@@ -48,9 +47,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
+                                              initWithTitle:@"Back" style:UIBarButtonItemStyleBordered
+                                              target:self action:@selector(back)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                initWithTitle:NSLocalizedString(@"Add word", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(showAddWordView)] autorelease];
     [self addWebView];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) back{
+	[wordsView back];
 }
 
 - (void)addWebView{
@@ -130,21 +149,6 @@
         [UIAlertView displayMessage:translate];
     }
 }
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
 
 - (void) saveData{
 	if (!wordsView.flgSave) {

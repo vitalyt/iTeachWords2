@@ -83,6 +83,10 @@ documentsDirectory = [paths objectAtIndex:0];
     [urlFld setText:url];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
 - (void)setUrl:(NSString *)_url{
     if (url == _url) {
         return;

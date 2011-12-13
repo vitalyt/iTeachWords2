@@ -35,6 +35,7 @@
 + (BOOL) isNetwork;
 - (void) checkDatabase;
 + (NSManagedObjectContext *) sharedContext;
++ (void)clearUdoManager;
 + (iTeachWordsViewController *) sharedDelegate;
 - (NSManagedObjectContext *) managedObjectContext;
 + (NSDictionary *)sharedSettings;

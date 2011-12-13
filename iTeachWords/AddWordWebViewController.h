@@ -10,7 +10,7 @@
 #import "AddNewWordViewController.h"
 
 @interface AddWordWebViewController : WebViewController<UIActionSheetDelegate>{
-        AddNewWordViewController    *wordsView;
+    AddNewWordViewController    *wordsView;
     BOOL    isWordsViewShowing;
 }
 
@@ -18,5 +18,6 @@
 - (void)showAddWordView;
 - (void)createMenu;
 - (void)parceTranslateWord;
-- (void) saveData;
+- (void)saveData;
+- (void)back;
 @end

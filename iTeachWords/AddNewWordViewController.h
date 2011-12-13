@@ -30,6 +30,7 @@
     
     AddWordModel            *dataModel;
     bool                    flgSave;
+    bool                    *isDataChanged;
     bool                    editingWord;
 }
 
@@ -41,6 +42,7 @@
 - (void)     loadData;
 - (IBAction) showMyPickerView;
 
+- (void)     back;
 - (IBAction) save;
 - (IBAction) recordPressed:(id)sender;
 

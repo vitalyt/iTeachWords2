@@ -181,6 +181,17 @@
 	return [[iTeachWordsAppDelegate sharedDelegate] managedObjectContext];
 }
 
++ (void)clearUdoManager{
+    NSUndoManager *um = [CONTEXT undoManager];
+    if (um) {
+        [um removeAllActions];
+    }else{
+        um = [[NSUndoManager  alloc] init];
+        [CONTEXT setUndoManager:um];
+        [um release];
+    }
+}
+
 #pragma mark - my external function
 
 - (void) checkDatabase
