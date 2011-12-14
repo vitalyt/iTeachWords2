@@ -197,6 +197,7 @@
     [self loadData];
 }
 
+
 - (void) deleteWord
 {
     UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Are you sure you want to delete the word?" 
