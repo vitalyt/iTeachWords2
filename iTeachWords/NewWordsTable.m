@@ -32,7 +32,6 @@
     if (self) {
         // Custom initialization
         cellStyle = UITableViewCellStyleValue1;
-        
         //[self findTranslateOfWord:nil];
     }
     return self;
@@ -183,7 +182,7 @@
             [table reloadData];	
         }else{
             AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil]; 
-            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
+            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"") style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
             [[self navigationItem] setBackBarButtonItem: newBackButton];
             [self.navigationController pushViewController:myAddWordView animated:YES];
             [myAddWordView setText:[sortedKeys objectAtIndex:indexPath.row]];
@@ -344,8 +343,8 @@
     UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" 
                                                      message:NSLocalizedString(@"Select", @"")
                                                     delegate:self 
-                                           cancelButtonTitle:NSLocalizedString(@"Cansel", @"")
-                                           otherButtonTitles:NSLocalizedString(@"all words", @""),NSLocalizedString(@"learned words", @""), nil] autorelease];
+                                           cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+                                           otherButtonTitles:NSLocalizedString(@"All words", @""),NSLocalizedString(@"Learned words", @""), nil] autorelease];
     
     [alert show];
 }
@@ -443,7 +442,7 @@
         [table setAllowsSelectionDuringEditing:YES];
         [table setEditing:YES animated:YES];
         self.navigationItem.rightBarButtonItem =
-        [[[UIBarButtonItem alloc] initWithTitle:@"take words"
+        [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Use words", @"")
                                           style: UIBarButtonItemStyleBordered
                                          target:self
                                          action:@selector(showMyPickerView)] autorelease];

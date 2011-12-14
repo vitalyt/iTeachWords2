@@ -45,3 +45,4 @@ typedef enum {
 #define DEFAULT_FONT_SIZE ([[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"])?[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"] intValue]:10
 #define DEFAULT_FONT_NAME [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontName"]
 #define FONT_TEXT [UIFont fontWithName:DEFAULT_FONT_NAME size:DEFAULT_FONT_SIZE]
+#define BACK_BUTTON [[[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease]

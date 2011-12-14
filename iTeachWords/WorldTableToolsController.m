@@ -90,7 +90,7 @@
         return;
     }
 	TestGameController *testController = [[TestGameController alloc] initWithNibName:@"TestGameController" bundle:nil];
-    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
+    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
 	[self.navigationController pushViewController:testController animated:YES ];
 	testController.data = [NSMutableArray arrayWithArray:self.data];
@@ -102,7 +102,7 @@
 - (void) clickTestOneOfSix{
 	TestOneOfSix *testController = [[TestOneOfSix alloc] initWithNibName:@"TestOneOfSix" bundle:nil];
     testController.data = [NSMutableArray arrayWithArray:self.data];
-    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
+    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
 	[self.navigationController pushViewController:testController animated:YES ];
 	[testController release];
@@ -113,7 +113,7 @@
 	testOrthographyView.data = [NSMutableArray arrayWithArray:self.data];
 	//testOrthographyView.lessonName = lessonName;
 	//testOrthographyView.exerciseIndex = exerciseIndex;
-    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
+    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
     [self.navigationController pushViewController:testOrthographyView animated:YES ];
 	[testOrthographyView release];

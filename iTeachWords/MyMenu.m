@@ -34,7 +34,7 @@
     if (self ) {
         // Custom initialization
         [self.navigationItem setTitle:NSLocalizedString(@"Menu", @"")];
-        data = [[NSArray alloc] initWithObjects:@"Word book",@"Lessons",@"Add new word",@"Text parser",@"Web",@"Dictionary",@"Settings", nil];
+        data = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Word book", @""),NSLocalizedString(@"Lessons", @""),NSLocalizedString(@"Add new word", @""),NSLocalizedString(@"Text parser", @""),NSLocalizedString(@"Web", @""),NSLocalizedString(@"Dictionary", @""),NSLocalizedString(@"Settings", @""), nil];
         contentImageArray = [[NSArray alloc] initWithObjects:@"folder_library",@"folder_private",@"Add new word",@"folder_documents-1", nil];
     }
     return self;

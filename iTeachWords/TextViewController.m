@@ -23,7 +23,7 @@
     if (self) {
         // Custom initialization
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
-                                                   initWithTitle:@"Parse text" style:UIBarButtonItemStyleBordered 
+                                                   initWithTitle:NSLocalizedString(@"Parse text", @"") style:UIBarButtonItemStyleBordered 
                                                    target:self 
                                                    action:@selector(showTable)] autorelease];
         [self createMenu];
@@ -99,7 +99,7 @@
 - (void) createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:@"Translate"
+    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
                                                        action:@selector(translateText)] autorelease];
     [menuItemsMutableArray addObject:menuItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];

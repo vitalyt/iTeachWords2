@@ -46,10 +46,10 @@
     [TestFlight passCheckpoint:@"User gone to the Settings view"];
     [TestFlight openFeedbackView];
     barItem.frame = CGRectMake(0, self.view.frame.size.height+barItem.frame.size.height, barItem.frame.size.width, barItem.frame.size.height);
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isSettingsMessage"]) {
-        [UIAlertView displayMessage:NSLocalizedString(@"You are for the first time registering a card.\n Please make your self known in order for us to be able to E-mail address validate your membership.", @"")];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isSettingsMessage"];
-    }
+//    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isSettingsMessage"]) {
+//        [UIAlertView displayMessage:NSLocalizedString(@"You are for the first time registering a card.\n Please make your self known in order for us to be able to E-mail address validate your membership.", @"")];
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isSettingsMessage"];
+//    }
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -86,8 +86,8 @@
         [self.values setObject:[NSString stringWithFormat:@"%d",fontSize] forKey:@"fontSize"];
     }
     
-    titles = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"Fill in the following fields in order to validate added cards to your wallet", @""), nil];
-    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Password",@""), nil];
+    titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
+    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""), nil];
     NSArray *elements1 = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Password",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
@@ -107,9 +107,6 @@
                 break;
             case 2:
                 key = @"fontName";
-                break;
-            case 3:
-                key = @"Password";
                 break;
                 
             default:

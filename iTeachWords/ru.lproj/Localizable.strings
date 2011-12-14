@@ -5,3 +5,30 @@
   Created by Vitaly Todorovych on 9/15/11.
   Copyright 2011 OSDN. All rights reserved.
 */
+
+"Menu"          = "Меню";
+"Word book"     = "Слова";
+"Lessons"       = "Уроки";
+"Add new word"  = "Добавить новое слово";
+"Text parser"   = "Text parser";
+"Web"           = "Интернет";
+"Dictionary"    = "Словарь";
+"Settings"      = "Настройки";
+"Touch to change"           = "Коснитесь, чтобы изменить";
+"Touch to find"             = "Коснитесь, для поиска";
+"Native language"           = "Я знаю";
+"Diffrent language"         = "Я изучаю";
+"Data is not completly"     = "Заполните все поля";
+"Font size"                 = "Размер шрифта";
+"Font name"                 = "Шрифт";
+"Parse text"                = "Разобрать текст";
+"Translate"                 = "Перевести";
+"next %d words"             = "следующие %d слов";
+"There is problem with saving data."           = "Проблемы с сохранением данных";
+"Select"                    = "Выбрать";
+"Cancel"                    = "Отмена";
+"All words"                 = "Все слова";
+"Learned words"             = "Выученные слова";
+"Use words"                = "Использовать слова";
+"Web"           = "Web";
+"Web"           = "Web";

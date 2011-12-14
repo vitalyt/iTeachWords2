@@ -127,10 +127,13 @@
     translateCountry = [dict objectForKey:TRANSLATE_COUNTRY];
     limit = 50;
     offset = 50;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
-                                               initWithTitle:@"Word book" style:UIBarButtonSystemItemCompose 
-                                               target:self 
-                                               action:@selector(showMyPickerView)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMyPickerView)] autorelease];
+    UIImage *image = [UIImage imageNamed:@"bookmark.png"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );    
+    [button setImage:image forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(showMyPickerView) forControlEvents:UIControlEventTouchUpInside];    
+    //self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     
     [self showToolsView];
     [table setAllowsSelectionDuringEditing:YES];

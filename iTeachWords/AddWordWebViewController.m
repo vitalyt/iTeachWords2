@@ -48,7 +48,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
-                                              initWithTitle:@"Back" style:UIBarButtonItemStyleBordered
+                                              initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
                                               target:self action:@selector(back)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                initWithTitle:NSLocalizedString(@"Add word", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(showAddWordView)] autorelease];

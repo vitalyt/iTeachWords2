@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    mySearchBar.placeholder = NSLocalizedString(@"Touch to find", @"");
     // Do any additional setup after loading the view from its nib.
 }
 

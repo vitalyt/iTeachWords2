@@ -27,7 +27,7 @@
         // Custom initialization
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
-                                                  initWithTitle:@"Back" style:UIBarButtonItemStyleBordered
+                                                  initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
                                                   target:self action:@selector(back)] autorelease];
         wordsView = [[AddNewWordViewController alloc] initWithNibName:@"AddNewWordViewController" bundle:nil];
         [wordsView setDelegate:self];

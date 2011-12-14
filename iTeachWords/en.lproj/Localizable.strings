@@ -5,3 +5,31 @@
   Created by Vitaly Todorovych on 9/15/11.
   Copyright 2011 OSDN. All rights reserved.
 */
+
+"Menu"          = "Menu";
+"Word book"     = "Word book";
+"Lessons"       = "Lessons";
+"Add new word"  = "Add new word";
+"Text parser"   = "Text parser";
+"Web"           = "Web";
+"Dictionary"    = "Dictionary";
+"Settings"      = "Settings";
+"Touch to change"           = "Touch to change";
+"Touch to find"             = "Touch to find";
+"Native language"           = "I know";
+"Diffrent language"         = "I learn";
+"Data is not completly"     = "Data is not completly";
+"Font size"                 = "Font size";
+"Font name"                 = "Font name";
+"Parse text"                = "Parse text";
+"Translate"                 = "Translate";
+"next %d words"             = "next %d words";
+"There is problem with saving data."           = "There is problem with saving data.";
+"Cancel"                    = "Cancel";
+"All words"                 = "All words";
+"Learned words"             = "Learned words";
+"Use words"                = "Use words";
+"Select"                    = "Select";
+"Select"                    = "Select";
+"Select"                    = "Select";
+"Select"                    = "Select";

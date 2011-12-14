@@ -43,9 +43,9 @@
     
     // start of your application:didFinishLaunchingWithOptions 
     // ...
-    NSString *testTeamToken = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"TestTeamToken"];
-    NSLog(@"TestTeamToken is %@",testTeamToken);
-    [TestFlight takeOff:testTeamToken];
+//    NSString *testTeamToken = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"TestTeamToken"];
+//    NSLog(@"TestTeamToken is %@",testTeamToken);
+//    [TestFlight takeOff:testTeamToken];
     // The rest of your application:didFinishLaunchingWithOptions method
 
     

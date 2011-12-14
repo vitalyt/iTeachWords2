@@ -352,11 +352,11 @@
 
 
 - (void)textFieldDidChange:(UITextField*)textField {
-    [saveButton setFrame:CGRectMake(self.view.frame.size.width/2+11,11,0,0)];
+//    [saveButton setFrame:CGRectMake(self.view.frame.size.width/2+11,11,0,0)];
 //    [UIView beginAnimations:@"SButtonAnimation" context:nil];
 //    [UIView setAnimationDuration:0.5];
 //    [UIView setAnimationBeginsFromCurrentState:YES];
-    [saveButton setFrame:CGRectMake(self.view.frame.size.width/2+11,11,self.view.frame.size.width/2-22,37)];
+    [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,11,35,35)];
 //    [UIView commitAnimations];
     
     if ([DELEGATE respondsToSelector:@selector(showWebLoadingView)]) {
