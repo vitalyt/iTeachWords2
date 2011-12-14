@@ -99,7 +99,7 @@
         if (types && [types count]>0) {
             dataModel.wordType = [[types objectAtIndex:0] retain];
             //[DELEGATE.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]];
-            [themeLbl setText:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]];
+            [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
             [dataModel createWord];
             if (dataModel.currentWord) {
                 [dataModel.currentWord setText:textFld.text];
@@ -116,7 +116,7 @@
         [self textFieldDidChange:textFld];
         [self textFieldDidChange:translateFid];
         //[DELEGATE.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]]; 
-        [themeLbl setText:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]];
+        [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
     }
 }
 
@@ -198,14 +198,14 @@
     if (((UIButton *)sender).tag == 101) {
         currentTextField = translateFid;
         if (!dataModel.currentWord.translate || [dataModel.currentWord.translate length] == 0) {
-            [UIAlertView displayError:@"You must enter a word or choose a theme before recording."];
+            [UIAlertView displayError:NSLocalizedString(@"You must choose a theme and enter a word before recording.", @"")];
             return;
         }
         sounType = TRANSLATE;
     }else{
         currentTextField = textFld;
         if (!dataModel.currentWord.text || [dataModel.currentWord.text length] == 0) {
-            [UIAlertView displayError:@"You must enter a word before recording."];
+            [UIAlertView displayError:NSLocalizedString(@"You must enter a word before recording.", @"")];
             return;
         }
         sounType = TEXT;
@@ -244,7 +244,7 @@
     dataModel.wordType = _wordType;
     [dataModel createWord];
     //[DELEGATE.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]]; 
-    [themeLbl setText:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]];
+    [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
     if (dataModel.currentWord) {
         [dataModel.currentWord setType:dataModel.wordType];
         [dataModel.currentWord setTypeID:dataModel.wordType.typeID];
@@ -282,7 +282,7 @@
             [DELEGATE.navigationController popViewControllerAnimated:YES];
             return;
         }
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want save word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cansel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want to save canges?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
         [actionSheet showInView:DELEGATE.view];
 	}
 }
@@ -391,9 +391,9 @@
 - (void)createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:@"use as translate"
+    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
                                                        action:@selector(parceTranslateWord)] autorelease];
-    UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:@"Parse text"
+    UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
                                                                 action:@selector(parseText)] autorelease];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];

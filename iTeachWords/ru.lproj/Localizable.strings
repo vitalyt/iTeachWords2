@@ -6,6 +6,7 @@
   Copyright 2011 OSDN. All rights reserved.
 */
 
+"Back"          = "Назад";
 "Menu"          = "Меню";
 "Word book"     = "Слова";
 "Lessons"       = "Уроки";
@@ -29,6 +30,11 @@
 "Cancel"                    = "Отмена";
 "All words"                 = "Все слова";
 "Learned words"             = "Выученные слова";
-"Use words"                = "Использовать слова";
-"Web"           = "Web";
-"Web"           = "Web";
+"Use words"                 = "Использовать слова";
+"Current theme is %@"       = "Текущая тема: %@";
+"You must choose a theme and enter a word before recording."    = "Вы должны выбрать тему и ввести слово перед записью.";
+"You must enter a word before recording."                       = "Вы должны ввести слово перед записью.";
+"Do you want to save canges?"                                   = "Вы хотите сохранить изменения?";
+"Save changes"              = "Сохранить изменения";
+"Delete canges"             = "Удалить изменения";
+"Use as translate"          = "Использовать как перевод";

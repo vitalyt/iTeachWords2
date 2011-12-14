@@ -6,6 +6,7 @@
   Copyright 2011 OSDN. All rights reserved.
 */
 
+"Back"          = "Back";
 "Menu"          = "Menu";
 "Word book"     = "Word book";
 "Lessons"       = "Lessons";
@@ -25,11 +26,15 @@
 "Translate"                 = "Translate";
 "next %d words"             = "next %d words";
 "There is problem with saving data."           = "There is problem with saving data.";
+"Select"                    = "Select";
 "Cancel"                    = "Cancel";
 "All words"                 = "All words";
 "Learned words"             = "Learned words";
-"Use words"                = "Use words";
-"Select"                    = "Select";
-"Select"                    = "Select";
-"Select"                    = "Select";
-"Select"                    = "Select";
+"Use words"                 = "Use words";
+"Current theme is %@"       = "Current theme is %@";
+"You must choose a theme and enter a word before recording."    = "You must choose a theme and enter a word before recording.";
+"You must enter a word before recording."                       = "You must enter a word before recording.";
+"Do you want to save canges?"                                 = "Do you want to save canges?";
+"Save changes"              = "Save changes";
+"Delete canges"             = "Delete canges";
+"Use as translate"          = "Use as translate";

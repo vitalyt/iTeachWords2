@@ -79,7 +79,7 @@
 //}
 
 - (void)setThemeName{
-    [self.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",wordsView.dataModel.wordType.name]];
+    [self.navigationItem setPrompt:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),wordsView.dataModel.wordType.name]];
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -107,7 +107,7 @@
 - (void)createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:@"Use as translate"
+    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
                                                        action:@selector(parceTranslateWord)] autorelease];
     [menuItemsMutableArray addObject:menuItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
