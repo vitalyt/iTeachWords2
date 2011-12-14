@@ -280,8 +280,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "233"
          endingLineNumber = "233"
-         landmarkName = "-pickerDone:"
-         landmarkType = "5">
+         landmarkName = "@implementation WorldTableToolsController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
