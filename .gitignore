@@ -1,2 +1,4 @@
-build/.
-iTeachWords.xcodeproj/.
+build/*
+iTeachWords.xcodeproj/*
+iTeachWords.xcodeproj
+iTeachWords.xcodeproj/
