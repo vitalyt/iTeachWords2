@@ -11,6 +11,12 @@
 		280318B81439923A00E87F1F /* HeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280318B61439923A00E87F1F /* HeadViewController.xib */; };
 		280318D41439D19000E87F1F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280318D31439D19000E87F1F /* SettingsViewController.m */; };
 		280318D71439D32600E87F1F /* InputTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280318D61439D32500E87F1F /* InputTableController.m */; };
+		2811984914A0940000399D44 /* DMVocalizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811984714A0940000399D44 /* DMVocalizerViewController.m */; };
+		2811984A14A0940000399D44 /* DMVocalizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2811984814A0940000399D44 /* DMVocalizerViewController.xib */; };
+		2811984C14A094B800399D44 /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984B14A094B800399D44 /* SpeechKit.framework */; };
+		2811984E14A0951100399D44 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984D14A0951100399D44 /* AudioToolbox.framework */; };
+		2811985014A095BA00399D44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984F14A095BA00399D44 /* Security.framework */; };
+		2811985214A095C300399D44 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811985114A095C300399D44 /* CFNetwork.framework */; };
 		28122CFD1396752E00D5F906 /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28122CFA1396752E00D5F906 /* TextViewController.xib */; };
 		28122CFE1396752E00D5F906 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28122CFC1396752E00D5F906 /* TextViewController.m */; };
 		28122D031396763C00D5F906 /* StringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 28122D021396763C00D5F906 /* StringTools.m */; };
@@ -140,6 +146,11 @@
 		285E2C5A1495FDF60058082A /* WordTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E2C591495FDF60058082A /* WordTypes.m */; };
 		285E2C5B149600E30058082A /* CountryNameCode2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 282E99791410C014009FE9E7 /* CountryNameCode2.txt */; };
 		2863B2FF139F746600B40EE5 /* AddWordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2863B2FE139F746600B40EE5 /* AddWordModel.m */; };
+		2866E1F114A099E3002823E6 /* DMRecognizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2866E1EF14A099E3002823E6 /* DMRecognizerViewController.m */; };
+		2866E1F214A099E3002823E6 /* DMRecognizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2866E1F014A099E3002823E6 /* DMRecognizerViewController.xib */; };
+		2866E1F714A09FA6002823E6 /* earcon_cancel.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2866E1F414A09FA6002823E6 /* earcon_cancel.wav */; };
+		2866E1F814A09FA6002823E6 /* earcon_done_listening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2866E1F514A09FA6002823E6 /* earcon_done_listening.wav */; };
+		2866E1F914A09FA6002823E6 /* earcon_listening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2866E1F614A09FA6002823E6 /* earcon_listening.wav */; };
 		286F826E13E13BD90047953A /* Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 286F826D13E13BD90047953A /* Statistic.m */; };
 		286F827113E13BDA0047953A /* StatisticType.m in Sources */ = {isa = PBXBuildFile; fileRef = 286F827013E13BDA0047953A /* StatisticType.m */; };
 		28797B1C13A2352900D21722 /* NewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B1B13A2352800D21722 /* NewTableCell.m */; };
@@ -434,6 +445,13 @@
 		280318D31439D19000E87F1F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		280318D51439D32500E87F1F /* InputTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTableController.h; sourceTree = "<group>"; };
 		280318D61439D32500E87F1F /* InputTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTableController.m; sourceTree = "<group>"; };
+		2811984614A0940000399D44 /* DMVocalizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMVocalizerViewController.h; sourceTree = "<group>"; };
+		2811984714A0940000399D44 /* DMVocalizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMVocalizerViewController.m; sourceTree = "<group>"; };
+		2811984814A0940000399D44 /* DMVocalizerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMVocalizerViewController.xib; sourceTree = "<group>"; };
+		2811984B14A094B800399D44 /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = ../../Downloads/DragonMobileSDK_1.3.1/SpeechKit.framework; sourceTree = "<group>"; };
+		2811984D14A0951100399D44 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		2811984F14A095BA00399D44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		2811985114A095C300399D44 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		28122CFA1396752E00D5F906 /* TextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
 		28122CFB1396752E00D5F906 /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
 		28122CFC1396752E00D5F906 /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
@@ -622,6 +640,12 @@
 		285E2C591495FDF60058082A /* WordTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordTypes.m; sourceTree = "<group>"; };
 		2863B2FD139F746600B40EE5 /* AddWordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWordModel.h; sourceTree = "<group>"; };
 		2863B2FE139F746600B40EE5 /* AddWordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWordModel.m; sourceTree = "<group>"; };
+		2866E1EE14A099E3002823E6 /* DMRecognizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRecognizerViewController.h; sourceTree = "<group>"; };
+		2866E1EF14A099E3002823E6 /* DMRecognizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRecognizerViewController.m; sourceTree = "<group>"; };
+		2866E1F014A099E3002823E6 /* DMRecognizerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMRecognizerViewController.xib; sourceTree = "<group>"; };
+		2866E1F414A09FA6002823E6 /* earcon_cancel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = earcon_cancel.wav; sourceTree = "<group>"; };
+		2866E1F514A09FA6002823E6 /* earcon_done_listening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = earcon_done_listening.wav; sourceTree = "<group>"; };
+		2866E1F614A09FA6002823E6 /* earcon_listening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = earcon_listening.wav; sourceTree = "<group>"; };
 		286F826C13E13BD90047953A /* Statistic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statistic.h; sourceTree = "<group>"; };
 		286F826D13E13BD90047953A /* Statistic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statistic.m; sourceTree = "<group>"; };
 		286F826F13E13BDA0047953A /* StatisticType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticType.h; sourceTree = "<group>"; };
@@ -951,6 +975,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2811985214A095C300399D44 /* CFNetwork.framework in Frameworks */,
+				2811985014A095BA00399D44 /* Security.framework in Frameworks */,
+				2811984E14A0951100399D44 /* AudioToolbox.framework in Frameworks */,
+				2811984C14A094B800399D44 /* SpeechKit.framework in Frameworks */,
 				28BDB6941483880300BC2688 /* iAd.framework in Frameworks */,
 				28C61F2B146BDD7A0065E75A /* CoreGraphics.framework in Frameworks */,
 				28C61F29146BDD6D0065E75A /* UIKit.framework in Frameworks */,
@@ -989,6 +1017,25 @@
 				280318B61439923A00E87F1F /* HeadViewController.xib */,
 			);
 			name = HeadView;
+			sourceTree = "<group>";
+		};
+		2811984214A093B200399D44 /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				2866E1ED14A099B4002823E6 /* Recognizer */,
+				2811984514A093CC00399D44 /* Vocalizer */,
+			);
+			name = Siri;
+			sourceTree = "<group>";
+		};
+		2811984514A093CC00399D44 /* Vocalizer */ = {
+			isa = PBXGroup;
+			children = (
+				2811984614A0940000399D44 /* DMVocalizerViewController.h */,
+				2811984714A0940000399D44 /* DMVocalizerViewController.m */,
+				2811984814A0940000399D44 /* DMVocalizerViewController.xib */,
+			);
+			name = Vocalizer;
 			sourceTree = "<group>";
 		};
 		28122CF91396751400D5F906 /* TextParser */ = {
@@ -1109,6 +1156,7 @@
 		28296B1913812EDC000129E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2811984214A093B200399D44 /* Siri */,
 				285758A4148E08F60045F63B /* WebView */,
 				28C61EF2146BCB0D0065E75A /* Info */,
 				280318A914398E1B00E87F1F /* Settings */,
@@ -1358,6 +1406,10 @@
 		284092CA1381242700864711 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2811985114A095C300399D44 /* CFNetwork.framework */,
+				2811984F14A095BA00399D44 /* Security.framework */,
+				2811984D14A0951100399D44 /* AudioToolbox.framework */,
+				2811984B14A094B800399D44 /* SpeechKit.framework */,
 				28BDB6931483880300BC2688 /* iAd.framework */,
 				28C61F2A146BDD790065E75A /* CoreGraphics.framework */,
 				28C61F28146BDD6C0065E75A /* UIKit.framework */,
@@ -1397,6 +1449,7 @@
 		284092D21381242700864711 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2866E1F314A09F91002823E6 /* sounds */,
 				28A088291421CDBF00F292F9 /* Localizable.strings */,
 				28E32ED3140F9F6B00ABC7D5 /* CountryNameCode.txt */,
 				282E99791410C014009FE9E7 /* CountryNameCode2.txt */,
@@ -1560,6 +1613,26 @@
 				2863B2FE139F746600B40EE5 /* AddWordModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		2866E1ED14A099B4002823E6 /* Recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				2866E1EE14A099E3002823E6 /* DMRecognizerViewController.h */,
+				2866E1EF14A099E3002823E6 /* DMRecognizerViewController.m */,
+				2866E1F014A099E3002823E6 /* DMRecognizerViewController.xib */,
+			);
+			name = Recognizer;
+			sourceTree = "<group>";
+		};
+		2866E1F314A09F91002823E6 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2866E1F414A09FA6002823E6 /* earcon_cancel.wav */,
+				2866E1F514A09FA6002823E6 /* earcon_done_listening.wav */,
+				2866E1F614A09FA6002823E6 /* earcon_listening.wav */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 		28BA9963138E74B500311400 /* Orthography */ = {
@@ -2354,6 +2427,11 @@
 				281A7FBA1498BEC90055B55F /* line-globe.png in Resources */,
 				281A7FBE1498C1390055B55F /* email.png in Resources */,
 				281A7FC21498C2F40055B55F /* glasses.png in Resources */,
+				2811984A14A0940000399D44 /* DMVocalizerViewController.xib in Resources */,
+				2866E1F214A099E3002823E6 /* DMRecognizerViewController.xib in Resources */,
+				2866E1F714A09FA6002823E6 /* earcon_cancel.wav in Resources */,
+				2866E1F814A09FA6002823E6 /* earcon_done_listening.wav in Resources */,
+				2866E1F914A09FA6002823E6 /* earcon_listening.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2453,6 +2531,8 @@
 				285758C1148E0C260045F63B /* NSDate+Interaction.m in Sources */,
 				285758C4148E0D7D0045F63B /* AddWordWebViewController.m in Sources */,
 				285E2C5A1495FDF60058082A /* WordTypes.m in Sources */,
+				2811984914A0940000399D44 /* DMVocalizerViewController.m in Sources */,
+				2866E1F114A099E3002823E6 /* DMRecognizerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2540,6 +2620,10 @@
 				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: OSDN BV";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
 				INFOPLIST_FILE = "iTeachWords/iTeachWords-Info.plist";
@@ -2602,6 +2686,10 @@
 				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
@@ -2631,6 +2719,10 @@
 				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
 				INFOPLIST_FILE = "iTeachWords/iTeachWords-Info.plist";
