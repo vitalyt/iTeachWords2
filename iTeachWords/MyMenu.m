@@ -21,6 +21,8 @@
 #import "InfoViewController.h"
 #import "SpeachView.h"
 #import "AddWordWebViewController.h"
+#import "DMVocalizerViewController.h"
+#import "DMRecognizerViewController.h"
 
 @implementation MyMenu
 
@@ -34,7 +36,7 @@
     if (self ) {
         // Custom initialization
         [self.navigationItem setTitle:NSLocalizedString(@"Menu", @"")];
-        data = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Word book", @""),NSLocalizedString(@"Lessons", @""),NSLocalizedString(@"Add new word", @""),NSLocalizedString(@"Text parser", @""),NSLocalizedString(@"Web", @""),NSLocalizedString(@"Dictionary", @""),NSLocalizedString(@"Settings", @""), nil];
+        data = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Word book", @""),NSLocalizedString(@"Lessons", @""),NSLocalizedString(@"Add new word", @""),NSLocalizedString(@"Text parser", @""),NSLocalizedString(@"Web", @""),NSLocalizedString(@"Dictionary", @""),NSLocalizedString(@"Settings", @""),NSLocalizedString(@"Vocalizer", @""),NSLocalizedString(@"Recognizer", @""), nil];
         contentImageArray = [[NSArray alloc] initWithObjects:@"folder_library",@"folder_private",@"Add new word",@"folder_documents-1", nil];
     }
     return self;
@@ -188,6 +190,16 @@
             SettingsViewController *languageView = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
             [self.navigationController pushViewController:languageView animated:YES];
             [languageView release];
+        }  
+            break;      
+        case 7:{
+            self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+            [self showVocalizerView];
+        }  
+            break;      
+        case 8:{
+            self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+            [self showRecognizerView];
         }
             break;
         default:
@@ -206,6 +218,20 @@
 	[self.navigationController pushViewController:webViewController animated:YES];
 	[webViewController release];
 }
+
+- (void)showVocalizerView{
+    DMVocalizerViewController *vocalizerView = [[DMVocalizerViewController alloc] initWithNibName:@"DMVocalizerViewController" bundle:nil];
+    [self.navigationController pushViewController:vocalizerView animated:YES];
+    [vocalizerView release];
+}
+
+
+- (void)showRecognizerView{
+    DMRecognizerViewController *recognizerView = [[DMRecognizerViewController alloc] initWithNibName:@"DMRecognizerViewController" bundle:nil];
+    [self.navigationController pushViewController:recognizerView animated:YES];
+    [recognizerView release];
+}
+
 
 @end
 

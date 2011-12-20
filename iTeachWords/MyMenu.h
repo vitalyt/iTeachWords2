@@ -18,5 +18,7 @@
 - (void)addInfoButton;
 - (void)showInfoView;
 - (void)showWebView;
+- (void)showVocalizerView;
+- (void)showRecognizerView;
 
 @end
