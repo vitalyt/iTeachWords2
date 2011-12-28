@@ -54,6 +54,7 @@
     }else{
         [self createMenu];
     }
+    [saveButton setHidden:YES];
     [textFld setDelegate:self];
     [translateFid setDelegate:self];   
     [textFld setFont:FONT_TEXT];
@@ -321,12 +322,7 @@
 	self.flgSave = YES;
     //[self back];
     
-    //make button animation
-    [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [saveButton setFrame:CGRectMake(themeButton.center.x,themeButton.center.y,0,0)];
-    [UIView commitAnimations];
+    [self hiddeSaveButton];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -352,12 +348,7 @@
 
 
 - (void)textFieldDidChange:(UITextField*)textField {
-//    [saveButton setFrame:CGRectMake(self.view.frame.size.width/2+11,11,0,0)];
-//    [UIView beginAnimations:@"SButtonAnimation" context:nil];
-//    [UIView setAnimationDuration:0.5];
-//    [UIView setAnimationBeginsFromCurrentState:YES];
-    [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,11,35,35)];
-//    [UIView commitAnimations];
+    [self showSaveButton];
     
     if ([DELEGATE respondsToSelector:@selector(showWebLoadingView)]) {
         [DELEGATE performSelector:@selector(showWebLoadingView)];
@@ -407,6 +398,24 @@
     [menuItemsMutableArray release];
 }
 
+- (void)showSaveButton{
+    //    [saveButton setFrame:CGRectMake(self.view.frame.size.width/2+11,11,0,0)];
+    //    [UIView beginAnimations:@"SButtonAnimation" context:nil];
+    //    [UIView setAnimationDuration:0.5];
+    //    [UIView setAnimationBeginsFromCurrentState:YES];
+        [saveButton setHidden:NO];
+        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,11,35,35)];
+    //    [UIView commitAnimations];
+}
+
+- (void)hiddeSaveButton{
+    //make button animation
+    [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [saveButton setFrame:CGRectMake(themeButton.center.x,themeButton.center.y,0,0)];
+    [UIView commitAnimations];
+}
 
 - (void)dealloc {
     if (myPicker) {

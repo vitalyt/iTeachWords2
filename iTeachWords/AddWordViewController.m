@@ -6,11 +6,12 @@
 //  Copyright (c) 2011 OSDN. All rights reserved.
 //
 
-#import "AddWordWebViewController.h"
+#import "AddWordViewController.h"
 #import "AddNewWordViewController.h"
 #import "TextViewController.h"
+#import "NewWordsTable.h"
 
-@implementation AddWordWebViewController
+@implementation AddWordViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -80,6 +81,7 @@
     CGRect frame = CGRectMake(10, -wordsView.view.frame.size.height, self.view.frame.size.width - 20, wordsView.view.frame.size.height);
     [wordsView.view setFrame:frame];
     [self.view addSubview:wordsView.view];
+    [self.view bringSubviewToFront:wordsView.view];
     isWordsViewShowing = NO;
 }
 
@@ -90,6 +92,7 @@
         //[self saveData];
         [wordsView closeAllKeyboard];
     }
+    [self.view bringSubviewToFront:wordsView.view];
     [UIView beginAnimations:@"MoveWebView" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -114,7 +117,7 @@
     [menuItemsMutableArray addObject:menuTextParseItem];
     [menuItemsMutableArray addObject:menuTextTranslateItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
-    [menuController setTargetRect: self.webView.frame
+    [menuController setTargetRect: self.view.superview.frame
                            inView:self.view];
     menuController.menuItems = menuItemsMutableArray;
     [menuController setMenuVisible:YES
@@ -123,27 +126,30 @@
     [menuItemsMutableArray release];
 }
 
+//needs to be redirect in delegate
+- (NSString *)getSelectedText{
+    NSString *selectedText = @"";//[webView stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];
+    return selectedText;
+}
+
 - (void)parceTranslateWord{
     if (!isWordsViewShowing) {
         [self showAddWordView];
     }
-    NSString *selectedText = [webView stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];
+    NSString *selectedText = [self getSelectedText];
     [wordsView setText:selectedText];
     [wordsView setTranslate:[selectedText translateString]];
 }
 
 - (void)parseText{
-    NSString *selectedText = [webView stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];
+    NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
-        TextViewController *myTextView = [[TextViewController alloc] initWithNibName:@"TextViewController" bundle:nil];
-        [self.navigationController pushViewController:myTextView animated:YES];
-        [myTextView setText:selectedText];
-        [myTextView release];
+        [self showParsedWordTable];
     }
 }
 
 -(void) translateText{
-    NSString *selectedText = [webView stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];
+    NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         NSString* translate = [selectedText translateString];
         [UIAlertView displayMessage:translate];
@@ -155,6 +161,13 @@
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want save word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cansel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
         [actionSheet showInView:self.view];
 	}
+}
+
+- (void) showParsedWordTable{
+	NewWordsTable *parsedWordTableView = [[NewWordsTable alloc] initWithNibName:@"NewWordsTable" bundle:nil];
+    [self.navigationController pushViewController:parsedWordTableView animated:YES];
+    [parsedWordTableView loadDataWithString:[self getSelectedText]];
+    [parsedWordTableView release];
 }
 
 #pragma mark Alert functions

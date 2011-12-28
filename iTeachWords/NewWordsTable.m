@@ -71,6 +71,11 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

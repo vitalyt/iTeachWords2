@@ -45,7 +45,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     myTextView.layer.cornerRadius = radius;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -59,6 +59,11 @@
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
 	return YES;
+}
+
+- (void) back{
+    [self saveText];
+	[super back];
 }
 
 - (IBAction) showTable{
@@ -96,34 +101,39 @@
     }
 }
 
-- (void) createMenu{
-    [self becomeFirstResponder];
-    NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
-                                                       action:@selector(translateText)] autorelease];
-    [menuItemsMutableArray addObject:menuItem];
-    UIMenuController *menuController = [UIMenuController sharedMenuController];
-    [menuController setTargetRect: CGRectMake(0, 0, 320, 200)
-                           inView:self.view];
-    menuController.menuItems = menuItemsMutableArray;
-    [menuController setMenuVisible:YES
-                          animated:YES];
-    [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
-    [menuItemsMutableArray release];
-}
+//- (void) createMenu{
+//    [self becomeFirstResponder];
+//    NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
+//    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
+//                                                       action:@selector(translateText)] autorelease];
+//    [menuItemsMutableArray addObject:menuItem];
+//    UIMenuController *menuController = [UIMenuController sharedMenuController];
+//    [menuController setTargetRect: CGRectMake(0, 0, 320, 200)
+//                           inView:self.view];
+//    menuController.menuItems = menuItemsMutableArray;
+//    [menuController setMenuVisible:YES
+//                          animated:YES];
+//    [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
+//    [menuItemsMutableArray release];
+//}
+//
+//-(void) translateText{
+//    //[textView resignFirstResponder];
+//    NSString *selectedText = [self getSelectedText];
+//    if ([selectedText length] > 0) {
+//        NSLog(@"%@",selectedText);
+//        NSString *translate = [selectedText translateString];
+//        if (translate) {
+//            [UIAlertView displayMessage:translate];
+//        }
+//    }
+//}
 
--(void) translateText{
-    //[textView resignFirstResponder];
+- (NSString *)getSelectedText{
     range = myTextView.selectedRange;
-    if (range.length > 0) {
-        NSMutableString *text = [NSMutableString stringWithString:myTextView.text];
-        NSString *selectedWord = [text substringWithRange:range];
-        NSLog(@"%@",selectedWord);
-        NSString *translate = [selectedWord translateString];
-        if (translate) {
-            [UIAlertView displayMessage:translate];
-        }
-    }
+    NSMutableString *text = [NSMutableString stringWithString:myTextView.text];
+    NSString *selectedText = [text substringWithRange:range];
+    return selectedText;
 }
 
 #pragma mark textview delegate functions
@@ -145,10 +155,17 @@
     [myTextView setText:text];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
+    [myTextView release];
+    myTextView = nil;
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc {
+    [myTextView release];
 	[array release];
     [super dealloc];
 }

@@ -9,7 +9,7 @@
 #import "iTeachWordsAppDelegate.h"
 
 #import "iTeachWordsViewController.h"
-#import "MyMenu.h"
+#import "MenuViewController.h"
 #import "FilesManagerViewController.h"
 #import "MyPlayer.h"
 #import "Reachability.h"
@@ -96,7 +96,7 @@
 #pragma mark shoving functions
 
 - (void) showMenuView{
-    MyMenu *myMenu = [[MyMenu alloc] initWithNibName:@"MyMenu" bundle:nil];
+    MenuViewController *myMenu = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:myMenu];
     //navigationController.navigationBar.delegate = self;
     [navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];

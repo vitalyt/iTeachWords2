@@ -58,4 +58,7 @@
 - (void)setThemeName;
 - (void)removeChanges;
 
+
+- (void)showSaveButton;
+- (void)hiddeSaveButton;
 @end

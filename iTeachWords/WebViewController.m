@@ -151,10 +151,16 @@ documentsDirectory = [paths objectAtIndex:0];
     [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML = \"\";"];
 //    [webView loadHTMLString:@"<html><head></head><body></body></html>" baseURL:nil];
 }
+//
+//-(void)back
+//{
+//    
+//	[self dismissModalViewControllerAnimated:YES];
+//}
 
--(void)back
-{
-	[self dismissModalViewControllerAnimated:YES];
+- (NSString *)getSelectedText{
+    NSString *selectedText = [webView stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];
+    return selectedText;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

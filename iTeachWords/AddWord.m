@@ -46,7 +46,7 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]];
     [self.view addSubview:wordsView.view];
-    [wordsView loadData];
+    //[wordsView loadData];
 }
 
 - (IBAction) showMyPickerView{

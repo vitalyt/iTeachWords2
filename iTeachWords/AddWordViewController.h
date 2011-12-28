@@ -6,18 +6,19 @@
 //  Copyright (c) 2011 OSDN. All rights reserved.
 //
 
-#import "WebViewController.h"
 #import "AddNewWordViewController.h"
 
-@interface AddWordWebViewController : WebViewController<UIActionSheetDelegate>{
+@interface AddWordViewController : UIViewController <UIActionSheetDelegate>{
     AddNewWordViewController    *wordsView;
     BOOL    isWordsViewShowing;
 }
 
+- (NSString *)getSelectedText;
 - (void)addWebView;
 - (void)showAddWordView;
 - (void)createMenu;
 - (void)parceTranslateWord;
 - (void)saveData;
 - (void)back;
+- (void) showParsedWordTable;
 @end

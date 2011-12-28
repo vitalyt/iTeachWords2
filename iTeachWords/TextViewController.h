@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TableViewController.h"
-#import "LMTextViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AddWordViewController.h"
 
-@interface TextViewController : LMTextViewController <UITextViewDelegate, UIAlertViewDelegate>{
+@interface TextViewController : AddWordViewController <UITextViewDelegate, UIAlertViewDelegate>{
+    IBOutlet UITextView *myTextView;
+    
+    NSRange             range;
+    
 	NSArray				*array;
 	NSDictionary		*arrayCount;
 }
