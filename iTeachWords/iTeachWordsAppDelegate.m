@@ -47,7 +47,7 @@
 //    NSLog(@"TestTeamToken is %@",testTeamToken);
 //    [TestFlight takeOff:testTeamToken];
     // The rest of your application:didFinishLaunchingWithOptions method
-
+    [self activateNotification];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
     player = [[MyPlayer alloc] initWithNibName:@"MyPlayer" bundle:nil];
@@ -91,6 +91,64 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+#pragma mark 
+- (void)activateNotification{
+    UIApplication *app                = [UIApplication sharedApplication];
+    NSArray *oldNotifications         = [app scheduledLocalNotifications];
+    
+    //    if ([oldNotifications count] > 0) {
+    //        [app cancelAllLocalNotifications];
+    //    }
+    
+    NSLog(@"%@",oldNotifications);
+    for (UILocalNotification *aNotif in oldNotifications) {
+        NSLog(@"Info->%@",aNotif.userInfo);
+        NSLog(@"%@",aNotif);
+        if([[aNotif.userInfo objectForKey:@"ID"] isEqualToString:@"2"]) {
+            [app cancelLocalNotification:aNotif];
+        }
+    }
+    
+    UILocalNotification *notification = [UILocalNotification new];
+    notification.timeZone  = [NSTimeZone systemTimeZone];
+    notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:5.0f];
+    notification.alertAction = @"More info"; 
+    notification.alertBody = @"iMaladec Local Notification example";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"0" forKey:@"id"]; 
+    notification.userInfo = infoDict; 
+    
+    [app scheduleLocalNotification:notification];
+    [notification release];
+    
+    notification = [UILocalNotification new];
+    notification.timeZone  = [NSTimeZone systemTimeZone];
+    notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:15.0f];
+    notification.alertAction = @"More info"; 
+    notification.alertBody = @"iMaladec Local Notification example";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    infoDict = [NSDictionary dictionaryWithObject:@"1" forKey:@"id"]; 
+    notification.userInfo = infoDict; 
+    
+    [app scheduleLocalNotification:notification];
+    [notification release];
+    
+    notification = [UILocalNotification new];
+    notification.timeZone  = [NSTimeZone systemTimeZone];
+    notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:30.0f];
+    notification.alertAction = @"More info"; 
+    notification.alertBody = @"iMaladec Local Notification example";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    infoDict = [NSDictionary dictionaryWithObject:@"2" forKey:@"id"]; 
+    notification.userInfo = infoDict; 
+    
+    [app scheduleLocalNotification:notification];
+    [notification release];
 }
 
 #pragma mark shoving functions

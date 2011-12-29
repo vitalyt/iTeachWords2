@@ -43,4 +43,5 @@
 
 - (void) playSound:(NSData *)_data inView:(UIView *)_view;
 - (void) showMenuView;
+- (void)activateNotification;
 @end
