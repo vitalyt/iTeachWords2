@@ -6,12 +6,12 @@
 //  Copyright (c) 2011 OSDN. All rights reserved.
 //
 
-#import "AddWordViewController.h"
+#import "AddWordOptionsView.h"
 #import "AddNewWordViewController.h"
 #import "TextViewController.h"
 #import "NewWordsTable.h"
 
-@implementation AddWordViewController
+@implementation AddWordOptionsView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

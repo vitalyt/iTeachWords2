@@ -122,14 +122,22 @@
 }
 
 - (void)setText:(NSString*)text{
-    [dataModel createWord];
+    if (self.flgSave) {
+        dataModel.currentWord = nil;
+        [dataModel createWord];
+    }
+    self.flgSave = NO;
     textFld.text = text;
     [dataModel.currentWord setText:text];
     [self textFieldDidChange:textFld];
 }
 
 - (void)setTranslate:(NSString*)text{
-    [dataModel createWord];
+    if (self.flgSave) {
+        dataModel.currentWord = nil;
+        [dataModel createWord];
+    }
+    self.flgSave = NO;
     translateFid.text = text;
     [dataModel.currentWord setTranslate:text];
     [self textFieldDidChange:translateFid];
@@ -275,8 +283,6 @@
         [DELEGATE.navigationController popViewControllerAnimated:YES];
 	}
 	else {
-        NSLog(@"text->%@",dataModel.currentWord.text);
-        NSLog(@"translate->%@",dataModel.currentWord.translate);
         if (!isDataChanged) {
             [self removeChanges];
             DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
@@ -336,8 +342,7 @@
 	return YES;
 }
 
-- (void) textFieldDidBeginEditing:(UITextField *)textField{
-    
+- (void) textFieldDidBeginEditing:(UITextField *)textField{    
     if (self.flgSave) {
         dataModel.currentWord = nil;
         [dataModel createWord];
@@ -348,8 +353,7 @@
 
 
 - (void)textFieldDidChange:(UITextField*)textField {
-    [self showSaveButton];
-    
+    [self showSaveButton];    
     if ([DELEGATE respondsToSelector:@selector(showWebLoadingView)]) {
         [DELEGATE performSelector:@selector(showWebLoadingView)];
     }

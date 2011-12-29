@@ -22,6 +22,7 @@
     self  = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
                                                    initWithTitle:NSLocalizedString(@"Parse text", @"") style:UIBarButtonItemStyleBordered 
                                                    target:self 
@@ -47,6 +48,11 @@
     myTextView.layer.cornerRadius = radius;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -137,6 +143,28 @@
 }
 
 #pragma mark textview delegate functions
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if (textView.frame.size.height>195.0) {
+        [UIView beginAnimations:@"Changing size of textView" context:nil];
+        [UIView setAnimationDuration:0.3];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width, 195.0)];
+        [UIView commitAnimations];
+    }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if (textView.frame.size.height<395.0) {
+        [UIView beginAnimations:@"Changing size of textView" context:nil];
+        [UIView setAnimationDuration:0.3];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width,  395.0)];
+        [UIView commitAnimations];
+    }
+}
 
 - (BOOL)textView:(UITextView *)_textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if([text isEqualToString:@"\n"]) {

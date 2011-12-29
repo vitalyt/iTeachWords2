@@ -8,7 +8,7 @@
 
 #import "AddNewWordViewController.h"
 
-@interface AddWordViewController : UIViewController <UIActionSheetDelegate>{
+@interface AddWordOptionsView : UIViewController <UIActionSheetDelegate>{
     AddNewWordViewController    *wordsView;
     BOOL    isWordsViewShowing;
 }

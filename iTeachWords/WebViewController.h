@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
-#import "AddWordViewController.h"
+#import "AddWordOptionsView.h"
 
-@interface WebViewController : AddWordViewController <UIWebViewDelegate,UITextFieldDelegate,UIWebViewDelegate>
+@interface WebViewController : AddWordOptionsView <UIWebViewDelegate,UITextFieldDelegate,UIWebViewDelegate>
 {
     IBOutlet UIToolbar *toolbar;
     IBOutlet UIToolbar *urlToolbar;
