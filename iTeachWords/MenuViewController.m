@@ -208,12 +208,13 @@
 
 - (void)showAddingWordView{
     AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
+//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+//                                   initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
+//                                   target:myAddWordView action:@selector(back)];
+//    [[self navigationItem] setBackBarButtonItem: [backButton autorelease]];
     
-    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
-    [[self navigationItem] setBackBarButtonItem: newBackButton];
     [self.navigationController pushViewController:myAddWordView animated:YES];
     [myAddWordView release]; 
-    [newBackButton release];
 }
 
 - (void)showTextParserView{

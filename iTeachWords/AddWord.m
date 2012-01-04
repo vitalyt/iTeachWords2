@@ -26,9 +26,10 @@
     if (self) {
         // Custom initialization
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
-                                                  initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
-                                                  target:self action:@selector(back)] autorelease];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                        initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
+                                        target:self action:@selector(back)];
+        self.navigationItem.leftBarButtonItem = [backButton autorelease];
         wordsView = [[AddNewWordViewController alloc] initWithNibName:@"AddNewWordViewController" bundle:nil];
         [wordsView setDelegate:self];
     }

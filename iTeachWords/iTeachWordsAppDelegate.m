@@ -47,7 +47,8 @@
 //    NSLog(@"TestTeamToken is %@",testTeamToken);
 //    [TestFlight takeOff:testTeamToken];
     // The rest of your application:didFinishLaunchingWithOptions method
-    [self activateNotification];
+    
+    //[self activateNotification];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
     player = [[MyPlayer alloc] initWithNibName:@"MyPlayer" bundle:nil];
