@@ -279,13 +279,13 @@
 - (void) back{
     [self closeAllKeyboard];
 	if (flgSave) {
-        DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         [DELEGATE.navigationController popViewControllerAnimated:YES];
 	}
 	else {
         if (!isDataChanged) {
             [self removeChanges];
-            DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+            //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
             [DELEGATE.navigationController popViewControllerAnimated:YES];
             return;
         }
@@ -302,7 +302,7 @@
 	}
 	else if (buttonIndex == 0){
         [self removeChanges];
-        DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         [DELEGATE.navigationController popViewControllerAnimated:YES];
 	}
 	else if (buttonIndex == 2){
