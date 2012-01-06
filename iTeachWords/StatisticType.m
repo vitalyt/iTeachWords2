@@ -2,8 +2,8 @@
 //  StatisticType.m
 //  iTeachWords
 //
-//  Created by Vitaly Todorovych on 7/28/11.
-//  Copyright (c) 2011 OSDN. All rights reserved.
+//  Created by Edwin Zuydendorp on 1/6/12.
+//  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
 #import "StatisticType.h"
@@ -11,9 +11,12 @@
 
 
 @implementation StatisticType
-@dynamic descriptionStr;
+
 @dynamic statisticTypeID;
+@dynamic descriptionStr;
 @dynamic statistics;
+@dynamic statisticsLearning;
+
 
 - (void)addStatisticsObject:(Statistic *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
@@ -42,6 +45,5 @@
     [[self primitiveValueForKey:@"statistics"] minusSet:value];
     [self didChangeValueForKey:@"statistics" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
-
 
 @end

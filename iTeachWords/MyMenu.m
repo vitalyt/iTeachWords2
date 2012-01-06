@@ -103,6 +103,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]);
     if (![[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] || ![[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]){
         LanguagePickerController *languageView = [[LanguagePickerController alloc] initWithNibName:@"LanguagePickerController" bundle:nil];

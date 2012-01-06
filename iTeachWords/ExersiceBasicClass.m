@@ -9,23 +9,27 @@
 #import "ExersiceBasicClass.h"
 #import "StatisticViewController.h"
 #import "Statistic.h"
+#import "RepeatModel.h"
 
 #define WORD(array,index) ((Words *)[array objectAtIndex:index])
 
 @implementation ExersiceBasicClass
 
 @synthesize data,textBox,lblWordEng,lblWordRus,bannerIsVisible,doneButton;
+@synthesize wordType;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(back)] autorelease];
     }
     return self;
 }
 
 - (void) dealloc{
+    [wordType release];
     [lblWordEng release];
     [lblWordRus release];
     [textBox release];
@@ -93,8 +97,17 @@
     
 }
 
-- (void) back{    
+- (void) back{ 
+    [self registerRepeat];
 	[self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)registerRepeat{
+    if (wordType) {
+        RepeatModel *repeatModel = [[RepeatModel alloc] initWithWordType:wordType];
+        [repeatModel registerRepeat];
+        [repeatModel release];
+    }
 }
 
 - (void) showTestMessageResultat:(bool)rightFlg{

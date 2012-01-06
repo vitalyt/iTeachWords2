@@ -22,6 +22,8 @@
 #import "DMVocalizerViewController.h"
 #import "DMRecognizerViewController.h"
 
+#import "RepeatModel.h"
+
 @implementation MenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -62,12 +64,26 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]);
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] || ![[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]){
+        LanguagePickerController *languageView = [[LanguagePickerController alloc] initWithNibName:@"LanguagePickerController" bundle:nil];
+        [self.navigationController pushViewController:languageView animated:YES];
+        [languageView release];
+    }
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setTitles];
     [self addInfoButton];
+    
+    RepeatModel *repeatModel = [[RepeatModel alloc] init];
+    NSArray *delayedTheme = [repeatModel getDelayedTheme];
+    NSLog(@"%d",[delayedTheme count]);
+    [repeatModel release];
     // Do any additional setup after loading the view from its nib.
 }
 

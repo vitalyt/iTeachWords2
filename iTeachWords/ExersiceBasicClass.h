@@ -12,7 +12,7 @@
 #import "MyPlayerProtocol.h"
 #import "MultiPlayer.h"
 
-@class StatisticViewController,MultiPlayer;
+@class StatisticViewController,MultiPlayer,WordTypes;
 
 @interface ExersiceBasicClass : UIViewController <UITextFieldDelegate,MyPlayerProtocol,ADBannerViewDelegate> {
 	IBOutlet UITextField *textBox;
@@ -21,6 +21,7 @@
 	IBOutlet UIButton	*doneButton;
     
     NSMutableArray      *data;
+    WordTypes           *wordType;
     StatisticViewController *statisticView;
     MultiPlayer             *multiPlayer;
     
@@ -29,10 +30,10 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITextField  *textBox;
-@property (nonatomic, retain) IBOutlet UIButton  *doneButton;
-@property (nonatomic, retain) IBOutlet UILabel      *lblWordEng,*lblWordRus;
-
-@property (nonatomic, retain) NSMutableArray         *data;
+@property (nonatomic, retain) IBOutlet UIButton   *doneButton;
+@property (nonatomic, retain) IBOutlet UILabel    *lblWordEng,*lblWordRus;
+@property (nonatomic, retain) WordTypes           *wordType;
+@property (nonatomic, retain) NSMutableArray      *data;
 @property (nonatomic,assign) BOOL bannerIsVisible;
 
 - (void) createStatisticsView;
@@ -44,5 +45,6 @@
 - (NSArray *)getStatisticIndexesArrayWithWords:(NSArray*)wordsArray;
 - (void)createBunnerView;
 - (void)moveViewObjects;
+- (void)registerRepeat;
 
 @end

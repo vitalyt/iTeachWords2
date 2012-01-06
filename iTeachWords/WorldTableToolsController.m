@@ -90,6 +90,7 @@
         return;
     }
 	TestGameController *testController = [[TestGameController alloc] initWithNibName:@"TestGameController" bundle:nil];
+    testController.wordType = wordType;
     UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
 	[self.navigationController pushViewController:testController animated:YES ];
@@ -101,6 +102,7 @@
 
 - (void) clickTestOneOfSix{
 	TestOneOfSix *testController = [[TestOneOfSix alloc] initWithNibName:@"TestOneOfSix" bundle:nil];
+    testController.wordType = wordType;
     testController.data = [NSMutableArray arrayWithArray:self.data];
     UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
@@ -110,6 +112,7 @@
 
 - (void) clickTest1{
 	TestOrthography *testOrthographyView = [[TestOrthography alloc] initWithNibName:@"TestOrthography" bundle:nil];
+    testOrthographyView.wordType = wordType;
 	testOrthographyView.data = [NSMutableArray arrayWithArray:self.data];
 	//testOrthographyView.lessonName = lessonName;
 	//testOrthographyView.exerciseIndex = exerciseIndex;
