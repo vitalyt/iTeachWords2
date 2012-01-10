@@ -114,9 +114,9 @@
 - (int)getRepeatStatusByIntervalSeconds:(int)intervalSeconds{
     NSLog(@"interval->%d",intervalSeconds);    
     int _repeatStatus = 0;
-    if (0<intervalSeconds && intervalSeconds<=900) {//<15 min
+    if (0<intervalSeconds && intervalSeconds<=30) {//<15 min
         _repeatStatus = 1;
-    }else if (900<intervalSeconds && intervalSeconds<=3600) {//<1 h
+    }else if (30<intervalSeconds && intervalSeconds<=3600) {//<1 h
         _repeatStatus = 2;
     }else if (3600<intervalSeconds && intervalSeconds<=604800) {//<7 d      86400 -> 1d
         _repeatStatus = 3;

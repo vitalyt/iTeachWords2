@@ -122,15 +122,22 @@
 #pragma mark Custom Badge
 
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame{
-    CustomBadge *customBadge1 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",badgeCount] 
-												   withStringColor:[UIColor whiteColor] 
-													withInsetColor:[UIColor redColor] 
-													withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor whiteColor] 
-														 withScale:1.0
-													   withShining:YES];
-    [customBadge1 setFrame:CGRectMake(objectFrame.origin.x+objectFrame.size.width-customBadge1.frame.size.width/2, objectFrame.origin.y-customBadge1.frame.size.height/2, customBadge1.frame.size.width, customBadge1.frame.size.height)];
-	[self.view addSubview:customBadge1];
+    if (customBadge1) {
+        [customBadge1 removeFromSuperview];
+        customBadge1 = nil;
+    }
+    if (badgeCount>0) {
+        customBadge1 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",badgeCount] 
+                                          withStringColor:[UIColor whiteColor] 
+                                           withInsetColor:[UIColor redColor] 
+                                           withBadgeFrame:YES 
+                                      withBadgeFrameColor:[UIColor whiteColor] 
+                                                withScale:1.0
+                                              withShining:YES];
+        [customBadge1 setTag:111];
+        [customBadge1 setFrame:CGRectMake(objectFrame.origin.x+objectFrame.size.width-customBadge1.frame.size.width/2, objectFrame.origin.y-customBadge1.frame.size.height/2, customBadge1.frame.size.width, customBadge1.frame.size.height)];
+        [self.view addSubview:customBadge1];
+    }
 }
 
 #pragma mark my functios
@@ -146,10 +153,7 @@
                 ++repeatDelayedThemesCount;
             }
         }
-        NSLog(@"%d",repeatDelayedThemesCount);
-        if (repeatDelayedThemesCount>0) {
-            [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
-        }
+        [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
     } 
     [repeatDelayedThemes release];
 }

@@ -142,19 +142,23 @@
 - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
     // Handle the notificaton when the app is running
     NSLog(@"Recieved Notification %@",notif.userInfo);
-    
-    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lastItem"];
-    [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithString:[notif.userInfo objectForKey:@"themeName"]] forKey:@"lastTheme"];
-    NSLog(@"%d",[navigationController.viewControllers count]);
-    for (int i=0;i<[navigationController.viewControllers count];i++){
-        if ([[navigationController.viewControllers objectAtIndex:i] isKindOfClass:[MenuViewController class]]) {
-            MenuViewController *menuView = [navigationController.viewControllers objectAtIndex:i];
-            if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] || [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE])
-            {
-                [menuView performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
+    UIApplicationState state = [app applicationState];
+    if(state == UIApplicationStateInactive){
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lastItem"];
+        [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithString:[notif.userInfo objectForKey:@"themeName"]] forKey:@"lastTheme"];
+        NSLog(@"%d",[navigationController.viewControllers count]);
+        for (int i=0;i<[navigationController.viewControllers count];i++){
+            if ([[navigationController.viewControllers objectAtIndex:i] isKindOfClass:[MenuViewController class]]) {
+                MenuViewController *menuView = [navigationController.viewControllers objectAtIndex:i];
+                if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] || [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE])
+                {
+                    [menuView performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
+                    return;
+                }
             }
         }
     }
+
 
 
 }

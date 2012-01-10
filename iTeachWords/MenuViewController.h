@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class CustomBadge;
 @interface MenuViewController : UIViewController {
 @private
     IBOutlet UILabel *titleLbl1;
@@ -23,6 +23,8 @@
     IBOutlet UILabel *titleLbl9;
     
     IBOutlet UIButton *menuBtn1;
+    
+    CustomBadge *customBadge1;
 }
 
 - (void)setTitles;
