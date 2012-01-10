@@ -36,29 +36,47 @@
     if (_wordType != wordType) {
         [wordType release];
         wordType = [_wordType retain];
-        [self updateLastThemeLearningDate];
+        statisticsLearningArray = [[self loadAllStatisticsLearningWithWordType:wordType] retain];
+//        lastThemeLearningDate = [[self getLastThemeLearningDate] retain];
     }
 }
 
-- (void)updateLastThemeLearningDate{
-    NSArray *statisticLearningArray = [NSArray arrayWithArray:[wordType.statisticLearning allObjects]];
+- (NSArray*)loadAllThemes{
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
+    NSFetchedResultsController *fetches = [NSManagedObjectContext 
+                                           getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:predicate];
+    NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
+	NSArray *companies = [fetches fetchedObjects];
+	companies = [companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:date, nil]];
+    return companies;
+}
+
+- (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType{
+    NSArray *_statisticLearningArray = [NSArray arrayWithArray:[_wordType.statisticLearning allObjects]];
     NSSortDescriptor *status = [[NSSortDescriptor alloc] initWithKey:@"repeatStatus" ascending:YES];
-    statisticLearningArray = [statisticLearningArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:status, nil]];
-    lastThemeLearningDate = [((StatisticLearning *)[statisticLearningArray objectAtIndex:0]).lastLearningDate retain];  
+    _statisticLearningArray = [_statisticLearningArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:status, nil]]; 
+    return _statisticLearningArray;
+}
+
+- (NSDate *)getLastThemeLearningDateWithStatisticsArray:(NSArray*)_statisticsLearningArray{
+    if (_statisticsLearningArray) {
+        NSDate *_lastThemeLearningDate = ((StatisticLearning *)[_statisticsLearningArray lastObject]).lastLearningDate; 
+        NSLog(@"lastLearningDate->%@",_lastThemeLearningDate);
+        return _lastThemeLearningDate;
+    } 
+    return nil;
 }
 
 - (void)registerRepeat{
     if (wordType) {
-        NSArray *statisticLearningArray = [NSArray arrayWithArray:[wordType.statisticLearning allObjects]];
-        NSSortDescriptor *status = [[NSSortDescriptor alloc] initWithKey:@"repeatStatus" ascending:YES];
-        statisticLearningArray = [statisticLearningArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:status, nil]];
-        StatisticLearning *statisticLearning = [statisticLearningArray lastObject];
-        
+        StatisticLearning *statisticLearning = [statisticsLearningArray lastObject];
         if (!statisticLearning) {
             statisticLearning = [self createStatisticLearningWithRepeatStatus:1];
         }else{
             [self setNewRepeatStatusToStatisticLearning:statisticLearning];
         }
+        
+        [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
         [self saveChanges];
     }
 }
@@ -77,13 +95,16 @@
 }
 
 - (void)setNewRepeatStatusToStatisticLearning:(StatisticLearning*)statisticLearning{
-    NSDate *currentDate = [NSDate date];    
+    NSDate *currentDate = [NSDate date];
+    NSDate *_lastThemeLearningDate = [self getLastThemeLearningDateWithStatisticsArray:statisticsLearningArray];
     if (statisticLearning) {
-        int intervall = (int) [currentDate timeIntervalSinceDate:lastThemeLearningDate];//imterval is in secconds
+        int intervall = (int) [currentDate timeIntervalSinceDate:_lastThemeLearningDate];//imterval is in secconds
         NSLog(@"status->%@",statisticLearning.repeatStatus);
-        NSLog(@"lastLearningDate->%@",lastThemeLearningDate);
+        NSLog(@"lastLearningDate->%@",_lastThemeLearningDate);
         NSLog(@"currentDate->%@",currentDate);
+        NSLog(@"interval->%d",intervall);
         int _repeatStatus = [self getRepeatStatusByIntervalSeconds:intervall];
+        NSLog(@"new status->%d",_repeatStatus);
         if (_repeatStatus > statisticLearning.repeatStatus.intValue) {
             statisticLearning = [self createStatisticLearningWithRepeatStatus:_repeatStatus];
         }
@@ -97,11 +118,11 @@
         _repeatStatus = 1;
     }else if (900<intervalSeconds && intervalSeconds<=3600) {//<1 h
         _repeatStatus = 2;
-    }else if (3600<intervalSeconds && intervalSeconds<=10800) {//<3 d
+    }else if (3600<intervalSeconds && intervalSeconds<=604800) {//<7 d      86400 -> 1d
         _repeatStatus = 3;
-    }else if (10800<intervalSeconds && intervalSeconds<=324000) {//<1 m
+    }else if (604800<intervalSeconds && intervalSeconds<=2592000) {//<1 m
         _repeatStatus = 4;
-    }else if (324000<intervalSeconds) {//>1 m
+    }else if (2592000<intervalSeconds) {//>1 m
         _repeatStatus = 5;
     }
     return _repeatStatus;
@@ -117,53 +138,65 @@
 }
 
 - (NSArray*)getDelayedTheme{
-    NSArray *themes = [[NSArray alloc] init];
-    themes = [self loadAllThemes];
+    NSArray *themes = [[NSArray alloc] initWithArray:[self loadAllThemes]];
     NSMutableArray *content = [[NSMutableArray alloc] init];
     for (int i=0;i<[themes count];i++){
         WordTypes *_wordType = [themes objectAtIndex:i];
+        NSArray *_statisticsLearningArray = [self loadAllStatisticsLearningWithWordType:_wordType];
+        int intervalToNexLearning = [self getTimeIntervalToNexLearning:_statisticsLearningArray];
+        NSLog(@"intervalToNexLearning->%d",intervalToNexLearning);
         
-        NSArray *statisticLearningArray = [NSArray arrayWithArray:[_wordType.statisticLearning allObjects]];
-        NSSortDescriptor *status = [[NSSortDescriptor alloc] initWithKey:@"repeatStatus" ascending:YES];
-        statisticLearningArray = [statisticLearningArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:status, nil]];
-        StatisticLearning *statisticLearning = [statisticLearningArray lastObject];
-        lastThemeLearningDate = [((StatisticLearning *)[statisticLearningArray objectAtIndex:0]).lastLearningDate retain]; 
-        
-        if ([self isStatisticLearningDelayed:statisticLearning]) {
-            [content addObject:_wordType];
+        if (intervalToNexLearning>0) {
+            NSDate *currentDate = [NSDate date];
+            NSDate *_lastThemeLearningDate = [self getLastThemeLearningDateWithStatisticsArray:_statisticsLearningArray];
+            int currentIntervall = (int) [currentDate timeIntervalSinceDate:_lastThemeLearningDate];//interval is in secconds
+            NSLog(@"realCurrentIntervall->%d",currentIntervall);
+            
+            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+            [dict setObject:_wordType forKey:@"wordType"];
+            [dict setObject:[NSNumber numberWithInt:intervalToNexLearning-currentIntervall] forKey:@"intervalToNexLearning"];
+            [content addObject:dict];
+            [dict release];
         }
     }
+    [themes release];
     return [content autorelease];
 }
 
-- (bool)isStatisticLearningDelayed:(StatisticLearning*)statisticLearning{
-    NSDate *currentDate = [NSDate date];    
-    if (statisticLearning) {
-        int intervall = (int) [currentDate timeIntervalSinceDate:lastThemeLearningDate];//imterval is in secconds
-        NSLog(@"status->%@",statisticLearning.repeatStatus);
-        NSLog(@"lastLearningDate->%@",lastThemeLearningDate);
-        NSLog(@"currentDate->%@",currentDate);
-        int _repeatStatus = [self getRepeatStatusByIntervalSeconds:intervall];
-        if (_repeatStatus > statisticLearning.repeatStatus.intValue) {
-            return YES;
+- (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray{
+    StatisticLearning *_statisticLearning = [_statisticsLearningArray lastObject];
+    int intervallToNextRepeat = 0;
+    if (_statisticLearning) {
+        int _repeatStatus = [_statisticLearning.repeatStatus intValue];
+        NSLog(@"_repeatStatus->%d",_repeatStatus);
+        switch (_repeatStatus) {
+            case 0:
+                intervallToNextRepeat = 0;
+            case 1:
+                intervallToNextRepeat = 30;//1200;   //20 min
+                break;
+            case 2:
+                intervallToNextRepeat = 86400;   //1d
+                break;
+            case 3:
+                intervallToNextRepeat = 1209600; //2 w
+                break;
+            case 4:
+                intervallToNextRepeat = 5184000; //2 m
+                break;
+                
+            default:
+                intervallToNextRepeat = 5184000;
+                break;
         }
     }
-    return NO;
-}
-
-- (NSArray*)loadAllThemes{
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
-    NSFetchedResultsController *fetches = [NSManagedObjectContext 
-                                           getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:predicate];
-    NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
-	NSArray *companies = [fetches fetchedObjects];
-	companies = [companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:date, nil]];
-    return companies;
+    return intervallToNextRepeat;
 }
 
 - (void)dealloc {
+    statisticsLearningArray = nil;
     wordType = nil;
-    lastThemeLearningDate = nil;
+//    lastThemeLearningDate = nil;
     [super dealloc];
 }
 

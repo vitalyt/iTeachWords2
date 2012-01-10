@@ -59,7 +59,8 @@
 
 - (IBAction)close:(id)sender {
     if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:@selector(editingSubViewDidClose:)])) {
-		[self.toolsViewDelegate editingSubViewDidClose:self];
+        
+		[self.toolsViewDelegate performSelector:@selector(editingSubViewDidClose:) withObject:self];
 	}
 }
 

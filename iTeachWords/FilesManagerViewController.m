@@ -80,7 +80,7 @@
 			//значение для UIProgressView
 			[info setObject:[NSString stringWithFormat:@"%f", searchProgress] forKey:@"object"];
 			// вызываем обработчик запуска нотификации из основного потока
-			[[self class] performSelectorOnMainThread:@selector(_postNotificationName:) withObject:info waitUntilDone:wait];
+			[[self class] performSelectorOnMainThread:@selector(_postNotificationName:) withObject:info waitUntilDone:YES];
 			[info release];
 		}
 		else
@@ -96,7 +96,7 @@
 	{
 		NSMutableDictionary *info = [[NSMutableDictionary allocWithZone:nil] init];
 		[info setObject:@"copyEnd" forKey:@"name"];
-		[[self class] performSelectorOnMainThread:@selector(_postNotificationName:) withObject:info waitUntilDone:wait];
+		[[self class] performSelectorOnMainThread:@selector(_postNotificationName:) withObject:info waitUntilDone:YES];
 		[info release];
 	}
 	else

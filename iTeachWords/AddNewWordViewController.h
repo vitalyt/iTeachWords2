@@ -30,7 +30,7 @@
     
     AddWordModel            *dataModel;
     bool                    flgSave;
-    bool                    *isDataChanged;
+    bool                    isDataChanged;
     bool                    editingWord;
 }
 

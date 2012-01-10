@@ -27,7 +27,7 @@
 	}
 }
 
-- (void) loadData{    
+- (void) loadData{ 
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
     NSLog(@"%@",predicate);
     NSFetchedResultsController *fetches = [NSManagedObjectContext 

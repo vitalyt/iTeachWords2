@@ -6,9 +6,6 @@
 //  Copyright 2011 OSDN. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
-
 @class iTeachWordsViewController,MyPlayer;
 
 @interface iTeachWordsAppDelegate : NSObject <UIApplicationDelegate, UINavigationBarDelegate,UINavigationControllerDelegate> {
@@ -44,4 +41,7 @@
 - (void) playSound:(NSData *)_data inView:(UIView *)_view;
 - (void) showMenuView;
 - (void)activateNotification;
+-(NSArray*)loadRepeatDelayedTheme;
+
+
 @end

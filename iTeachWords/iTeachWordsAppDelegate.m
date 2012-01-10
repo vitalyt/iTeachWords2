@@ -14,7 +14,8 @@
 #import "MyPlayer.h"
 #import "Reachability.h"
 #import "LanguagePickerController.h"
-
+#import "RepeatModel.h"
+#import "WordTypes.h"
 
 @implementation iTeachWordsAppDelegate
 
@@ -48,7 +49,7 @@
 //    [TestFlight takeOff:testTeamToken];
     // The rest of your application:didFinishLaunchingWithOptions method
     
-    //[self activateNotification];
+    [self activateNotification];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
     player = [[MyPlayer alloc] initWithNibName:@"MyPlayer" bundle:nil];
@@ -99,57 +100,80 @@
     UIApplication *app                = [UIApplication sharedApplication];
     NSArray *oldNotifications         = [app scheduledLocalNotifications];
     
-    //    if ([oldNotifications count] > 0) {
-    //        [app cancelAllLocalNotifications];
-    //    }
-    
-    NSLog(@"%@",oldNotifications);
-    for (UILocalNotification *aNotif in oldNotifications) {
-        NSLog(@"Info->%@",aNotif.userInfo);
-        NSLog(@"%@",aNotif);
-        if([[aNotif.userInfo objectForKey:@"ID"] isEqualToString:@"2"]) {
-            [app cancelLocalNotification:aNotif];
-        }
+    if ([oldNotifications count] > 0) {
+        [app cancelAllLocalNotifications];
     }
     
-    UILocalNotification *notification = [UILocalNotification new];
-    notification.timeZone  = [NSTimeZone systemTimeZone];
-    notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:5.0f];
-    notification.alertAction = @"More info"; 
-    notification.alertBody = @"iMaladec Local Notification example";
-    notification.soundName = UILocalNotificationDefaultSoundName;
+    NSLog(@"%@",oldNotifications);
+//    for (UILocalNotification *aNotif in oldNotifications) {
+//        NSLog(@"Info->%@",aNotif.userInfo);
+//        NSLog(@"%@",aNotif);
+//        if([[aNotif.userInfo objectForKey:@"ID"] isEqualToString:@"2"]) {
+//            [app cancelLocalNotification:aNotif];
+//        }
+//    }
     
-    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"0" forKey:@"id"]; 
-    notification.userInfo = infoDict; 
     
-    [app scheduleLocalNotification:notification];
-    [notification release];
+    NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[self loadRepeatDelayedTheme]];
+    for (int i=0;i<[repeatDelayedThemes count];i++){
+        NSDictionary *dict = [repeatDelayedThemes objectAtIndex:i];
+        int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+        NSLog(@"%d",interval);
+        WordTypes *wordType = [dict objectForKey:@"wordType"];
+//        NSManagedObjectID *objectID = wordType.objectID;
+        if (interval > 0) {
+            NSDictionary *infoDict = [NSDictionary dictionaryWithObject:wordType.name forKey:@"themeName"];
+            UILocalNotification *notification = [UILocalNotification new];
+            notification.timeZone  = [NSTimeZone systemTimeZone];
+            notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:interval];
+            notification.alertAction = wordType.name; 
+            notification.alertBody = [NSString stringWithFormat:@"The %@ needs to be repeate",wordType.name];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            
+            notification.userInfo = infoDict; 
+            
+            [app scheduleLocalNotification:notification];
+            [notification release];
+        }
+    }
+    [repeatDelayedThemes release];
+}
+
+- (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
+    // Handle the notificaton when the app is running
+    NSLog(@"Recieved Notification %@",notif.userInfo);
     
-    notification = [UILocalNotification new];
-    notification.timeZone  = [NSTimeZone systemTimeZone];
-    notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:15.0f];
-    notification.alertAction = @"More info"; 
-    notification.alertBody = @"iMaladec Local Notification example";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    
-    infoDict = [NSDictionary dictionaryWithObject:@"1" forKey:@"id"]; 
-    notification.userInfo = infoDict; 
-    
-    [app scheduleLocalNotification:notification];
-    [notification release];
-    
-    notification = [UILocalNotification new];
-    notification.timeZone  = [NSTimeZone systemTimeZone];
-    notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:30.0f];
-    notification.alertAction = @"More info"; 
-    notification.alertBody = @"iMaladec Local Notification example";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    
-    infoDict = [NSDictionary dictionaryWithObject:@"2" forKey:@"id"]; 
-    notification.userInfo = infoDict; 
-    
-    [app scheduleLocalNotification:notification];
-    [notification release];
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lastItem"];
+    [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithString:[notif.userInfo objectForKey:@"themeName"]] forKey:@"lastTheme"];
+    NSLog(@"%d",[navigationController.viewControllers count]);
+    for (int i=0;i<[navigationController.viewControllers count];i++){
+        if ([[navigationController.viewControllers objectAtIndex:i] isKindOfClass:[MenuViewController class]]) {
+            MenuViewController *menuView = [navigationController.viewControllers objectAtIndex:i];
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] || [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE])
+            {
+                [menuView performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
+            }
+        }
+    }
+
+
+}
+
+-(NSArray*)loadRepeatDelayedTheme{
+    RepeatModel *repeatModel = [[RepeatModel alloc] init];
+    NSArray *delayedTheme = [[repeatModel getDelayedTheme] retain];
+    if ([delayedTheme count]>0) {
+        for (int i=0;i<[delayedTheme count];i++){
+            NSDictionary *dict = [delayedTheme objectAtIndex:i];
+            NSLog(@"%@", dict);    
+            NSDate *currentDate = [NSDate date];
+            int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+            NSDate *newDate = [currentDate dateByAddingTimeInterval:interval];
+            NSLog(@"%@",newDate);
+        }
+    }
+    [repeatModel release];
+    return [delayedTheme autorelease];
 }
 
 #pragma mark shoving functions
@@ -297,11 +321,9 @@
     }
 }
 
-
 + (BOOL) isNetwork{
     //[UIAlertView displayError:@"Network connection is not avalable."];
     //return NO;
-    
     Reachability *hostReach = [Reachability reachabilityForInternetConnection];	
 	NetworkStatus netStatus = [hostReach currentReachabilityStatus];
 	if (netStatus == NotReachable) {
@@ -318,8 +340,7 @@
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:
                       [[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]];
     path = [path stringByAppendingPathComponent:@"/WordRecords/"];
- 
-        _fileName = @"tmp";
+    _fileName = @"tmp";
 
     path = [path stringByAppendingPathComponent:
             [NSString stringWithFormat: @"%@.%@", _fileName, @"flac"]  ];
@@ -330,12 +351,6 @@
     NSString* requestDataLengthString = [[NSString alloc] initWithFormat:@"%d", [data length]];
 
 	NSMutableString *params = [[NSMutableString alloc] init];
-//	[params appendFormat:@"login=%@", [[self account] objectForKey:@"login"]];
-//	[params appendFormat:@"&imei=%@", [self imei]];
-//	[params appendFormat:@"&zipcode=%@", [[self account] objectForKey: @"zipcode"]];
-//	[params appendFormat:@"&housenumber=%@", [[self account] objectForKey:@"housenumber"]];
-//	[params appendFormat:@"&dateofbirth=%@", [[self account] objectForKey:@"dateofbirth"]];
-	
 	NSString *u = [NSString stringWithFormat:@"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=ru-RU"];
     
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];

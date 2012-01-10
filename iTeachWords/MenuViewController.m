@@ -21,8 +21,10 @@
 #import "WebViewController.h"
 #import "DMVocalizerViewController.h"
 #import "DMRecognizerViewController.h"
+#import "WordTypes.h"
 
 #import "RepeatModel.h"
+#import "CustomBadge.h"
 
 @implementation MenuViewController
 
@@ -46,6 +48,7 @@
     [titleLbl7 release];
     [titleLbl8 release];
     [titleLbl9 release];
+    [menuBtn1 release];
     [super dealloc];
 }
 
@@ -62,6 +65,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    [self checkDelayedThemes];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -80,10 +84,7 @@
     [self setTitles];
     [self addInfoButton];
     
-    RepeatModel *repeatModel = [[RepeatModel alloc] init];
-    NSArray *delayedTheme = [repeatModel getDelayedTheme];
-    NSLog(@"%d",[delayedTheme count]);
-    [repeatModel release];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -105,6 +106,8 @@
     titleLbl8 = nil;
     [titleLbl9 release];
     titleLbl9 = nil;
+    [menuBtn1 release];
+    menuBtn1 = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -116,8 +119,40 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark Custom Badge
+
+- (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame{
+    CustomBadge *customBadge1 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",badgeCount] 
+												   withStringColor:[UIColor whiteColor] 
+													withInsetColor:[UIColor redColor] 
+													withBadgeFrame:YES 
+											   withBadgeFrameColor:[UIColor whiteColor] 
+														 withScale:1.0
+													   withShining:YES];
+    [customBadge1 setFrame:CGRectMake(objectFrame.origin.x+objectFrame.size.width-customBadge1.frame.size.width/2, objectFrame.origin.y-customBadge1.frame.size.height/2, customBadge1.frame.size.width, customBadge1.frame.size.height)];
+	[self.view addSubview:customBadge1];
+}
+
 #pragma mark my functios
 
+- (void)checkDelayedThemes{
+    NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[[iTeachWordsAppDelegate sharedDelegate] loadRepeatDelayedTheme]];
+    int repeatDelayedThemesCount = 0;
+    if ([repeatDelayedThemes count]>0) {
+        for (int i=0;i<[repeatDelayedThemes count];i++){
+            NSDictionary *dict = [repeatDelayedThemes objectAtIndex:i];
+            int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+            if (interval < 0) {
+                ++repeatDelayedThemesCount;
+            }
+        }
+        NSLog(@"%d",repeatDelayedThemesCount);
+        if (repeatDelayedThemesCount>0) {
+            [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
+        }
+    } 
+    [repeatDelayedThemes release];
+}
 
 - (void)addInfoButton{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];

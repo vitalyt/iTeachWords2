@@ -11,8 +11,9 @@
 @class WordTypes,StatisticLearning;
 @interface RepeatModel : NSObject {
 @private
-    NSDate *lastThemeLearningDate;
-    WordTypes *wordType;
+    NSArray     *statisticsLearningArray;
+//    NSDate      *lastThemeLearningDate;
+    WordTypes   *wordType;
 }
 
 - (id)initWithWordType:(WordTypes*)_wordType;
@@ -25,8 +26,10 @@
 - (int)getRepeatStatusByIntervalSeconds:(int)intervalSeconds;
 
 - (NSArray*)getDelayedTheme;
-- (bool)isStatisticLearningDelayed:(StatisticLearning*)statisticLearning;
-- (void)updateLastThemeLearningDate;
+- (NSDate *)getLastThemeLearningDateWithStatisticsArray:(NSArray*)_statisticsLearningArray;
+- (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray;
+
 - (NSArray*)loadAllThemes;
+- (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType;
 
 @end

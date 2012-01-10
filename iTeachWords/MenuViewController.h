@@ -21,6 +21,8 @@
     IBOutlet UILabel *titleLbl7;
     IBOutlet UILabel *titleLbl8;
     IBOutlet UILabel *titleLbl9;
+    
+    IBOutlet UIButton *menuBtn1;
 }
 
 - (void)setTitles;
@@ -39,5 +41,8 @@
 - (void)showWebView;
 - (void)showVocalizerView;
 - (void)showRecognizerView;
+
+- (void)checkDelayedThemes;
+- (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame;
 
 @end

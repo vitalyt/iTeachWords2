@@ -61,7 +61,7 @@
 
 - (IBAction)close:(id)sender {
     if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:@selector(optionsSubViewDidClose:)])) {
-		[self.toolsViewDelegate optionsSubViewDidClose:self];
+		[self.toolsViewDelegate performSelector:@selector(optionsSubViewDidClose:) withObject:self];
 	}
 }
 

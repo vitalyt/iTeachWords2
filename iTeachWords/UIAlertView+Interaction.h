@@ -5,6 +5,9 @@
 //  Created by Yalantis on 14.01.10.
 //  Copyright 2010 Yalantis. All rights reserved.
 //
+
+#import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
 #define DEFAULT_VIEWTAG			2000
 
 #define DEFAULT_DELAY			0.9
