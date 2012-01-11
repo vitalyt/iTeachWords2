@@ -154,6 +154,8 @@
                     ++repeatDelayedThemesCount;
                 }
             }
+            UIApplication* app = [UIApplication sharedApplication];
+            app.applicationIconBadgeNumber = repeatDelayedThemesCount;
             [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
         } 
         [repeatDelayedThemes release];
@@ -162,7 +164,10 @@
             [customBadge1 removeFromSuperview];
             customBadge1 = nil;
         }
+        UIApplication* app = [UIApplication sharedApplication];
+        app.applicationIconBadgeNumber = 0;
     }
+    
 }
 
 - (void)addInfoButton{

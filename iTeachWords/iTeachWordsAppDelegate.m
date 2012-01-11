@@ -97,6 +97,7 @@
 
 #pragma mark 
 - (void)activateNotification{
+    
     [[NSUserDefaults standardUserDefaults]  setBool:NO forKey:@"isNotShowRepeatList"];
     UIApplication *app                = [UIApplication sharedApplication];
     NSArray *oldNotifications         = [app scheduledLocalNotifications];
@@ -112,7 +113,7 @@
 //            [app cancelLocalNotification:aNotif];
 //        }
 //    }
-    
+     
     if (IS_REPEAT_OPTION_ON) {
         NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[self loadRepeatDelayedTheme]];
         for (int i=0;i<[repeatDelayedThemes count];i++){
@@ -136,12 +137,14 @@
                 [notification release];
             }
         }
+        
         [repeatDelayedThemes release];
     }
 }
 
 - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
     // Handle the notificaton when the app is running
+    
     [[NSUserDefaults standardUserDefaults]  setBool:NO forKey:@"isNotShowRepeatList"];
     NSLog(@"Recieved Notification %@",notif.userInfo);
     UIApplicationState state = [app applicationState];
