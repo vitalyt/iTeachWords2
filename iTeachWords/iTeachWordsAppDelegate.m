@@ -97,6 +97,7 @@
 
 #pragma mark 
 - (void)activateNotification{
+    [[NSUserDefaults standardUserDefaults]  setBool:NO forKey:@"isNotShowRepeatList"];
     UIApplication *app                = [UIApplication sharedApplication];
     NSArray *oldNotifications         = [app scheduledLocalNotifications];
     
@@ -104,7 +105,6 @@
         [app cancelAllLocalNotifications];
     }
     
-    NSLog(@"%@",oldNotifications);
 //    for (UILocalNotification *aNotif in oldNotifications) {
 //        NSLog(@"Info->%@",aNotif.userInfo);
 //        NSLog(@"%@",aNotif);
@@ -113,34 +113,36 @@
 //        }
 //    }
     
-    
-    NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[self loadRepeatDelayedTheme]];
-    for (int i=0;i<[repeatDelayedThemes count];i++){
-        NSDictionary *dict = [repeatDelayedThemes objectAtIndex:i];
-        int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
-        NSLog(@"%d",interval);
-        WordTypes *wordType = [dict objectForKey:@"wordType"];
-//        NSManagedObjectID *objectID = wordType.objectID;
-        if (interval > 0) {
-            NSDictionary *infoDict = [NSDictionary dictionaryWithObject:wordType.name forKey:@"themeName"];
-            UILocalNotification *notification = [UILocalNotification new];
-            notification.timeZone  = [NSTimeZone systemTimeZone];
-            notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:interval];
-            notification.alertAction = wordType.name; 
-            notification.alertBody = [NSString stringWithFormat:@"The %@ needs to be repeate",wordType.name];
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            
-            notification.userInfo = infoDict; 
-            
-            [app scheduleLocalNotification:notification];
-            [notification release];
+    if (IS_REPEAT_OPTION_ON) {
+        NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[self loadRepeatDelayedTheme]];
+        for (int i=0;i<[repeatDelayedThemes count];i++){
+            NSDictionary *dict = [repeatDelayedThemes objectAtIndex:i];
+            int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+            NSLog(@"%d",interval);
+            WordTypes *wordType = [dict objectForKey:@"wordType"];
+            //        NSManagedObjectID *objectID = wordType.objectID;
+            if (interval > 0) {
+                NSDictionary *infoDict = [NSDictionary dictionaryWithObject:wordType.name forKey:@"themeName"];
+                UILocalNotification *notification = [UILocalNotification new];
+                notification.timeZone  = [NSTimeZone systemTimeZone];
+                notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:interval];
+                notification.alertAction = wordType.name; 
+                notification.alertBody = [NSString stringWithFormat:@"The %@ needs to be repeate",wordType.name];
+                notification.soundName = UILocalNotificationDefaultSoundName;
+                
+                notification.userInfo = infoDict; 
+                
+                [app scheduleLocalNotification:notification];
+                [notification release];
+            }
         }
+        [repeatDelayedThemes release];
     }
-    [repeatDelayedThemes release];
 }
 
 - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
     // Handle the notificaton when the app is running
+    [[NSUserDefaults standardUserDefaults]  setBool:NO forKey:@"isNotShowRepeatList"];
     NSLog(@"Recieved Notification %@",notif.userInfo);
     UIApplicationState state = [app applicationState];
     if(state == UIApplicationStateInactive){
@@ -158,9 +160,6 @@
             }
         }
     }
-
-
-
 }
 
 -(NSArray*)loadRepeatDelayedTheme{

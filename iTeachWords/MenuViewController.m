@@ -143,19 +143,26 @@
 #pragma mark my functios
 
 - (void)checkDelayedThemes{
-    NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[[iTeachWordsAppDelegate sharedDelegate] loadRepeatDelayedTheme]];
-    int repeatDelayedThemesCount = 0;
-    if ([repeatDelayedThemes count]>0) {
-        for (int i=0;i<[repeatDelayedThemes count];i++){
-            NSDictionary *dict = [repeatDelayedThemes objectAtIndex:i];
-            int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
-            if (interval < 0) {
-                ++repeatDelayedThemesCount;
+    if (IS_REPEAT_OPTION_ON) {
+        NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[[iTeachWordsAppDelegate sharedDelegate] loadRepeatDelayedTheme]];
+        int repeatDelayedThemesCount = 0;
+        if ([repeatDelayedThemes count]>0) {
+            for (int i=0;i<[repeatDelayedThemes count];i++){
+                NSDictionary *dict = [repeatDelayedThemes objectAtIndex:i];
+                int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+                if (interval < 0) {
+                    ++repeatDelayedThemesCount;
+                }
             }
+            [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
+        } 
+        [repeatDelayedThemes release];
+    }else{
+        if (customBadge1) {
+            [customBadge1 removeFromSuperview];
+            customBadge1 = nil;
         }
-        [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
-    } 
-    [repeatDelayedThemes release];
+    }
 }
 
 - (void)addInfoButton{

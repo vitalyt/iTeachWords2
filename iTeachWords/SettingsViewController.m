@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "LanguagePickerController.h"
 #import "TextFieldLanguagesCell.h"
+#import "SwitchingCell.h"
 
 #define FONT_OF_HEAD_LABEL [UIFont fontWithName:@"Helvetica-Bold" size:16]
 
@@ -78,6 +79,7 @@
     NSString *language = [[NSUserDefaults standardUserDefaults] stringForKey:@"Language"];
     NSString *fontName = DEFAULT_FONT_NAME;
     int fontSize = DEFAULT_FONT_SIZE;
+    bool isRepeatNotifications = IS_REPEAT_OPTION_ON;
     if (language) {
         [self.values setObject:language forKey:@"Language"];
     }
@@ -87,9 +89,10 @@
     if (fontSize) {
         [self.values setObject:[NSString stringWithFormat:@"%d",fontSize] forKey:@"fontSize"];
     }
+    [self.values setObject:[NSNumber numberWithBool:isRepeatNotifications] forKey:@"isRepeatNotifications"];
     
     titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
-    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""), nil];
+    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notifications",@""), nil];
     NSArray *elements1 = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Password",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
@@ -110,6 +113,9 @@
             case 2:
                 key = @"fontName";
                 break;
+            case 3:
+                key = @"isRepeatNotifications";
+                break;
                 
             default:
                 break;
@@ -126,8 +132,10 @@
                 return @"TextFieldLanguagesCell";
                 break;
             case 2:
-            case 3:
                 return @"TextFieldCell";
+                break;
+            case 3:
+                return @"SwitchingCell";
                 break;
             default:
                 break;
@@ -236,6 +244,17 @@
         _cell.titleLabel.text = NSLocalizedString(@"Native language", @""); 
         _cell.titleLabel2.text = NSLocalizedString(@"Diffrent language", @"");
         [self setImageFlagInCell:_cell];
+    }else if([cell isKindOfClass:[SwitchingCell class]]){
+        SwitchingCell* _cell = (SwitchingCell *)cell; 
+        NSString *key = [self keyForIndexPath:indexPath];
+        NSString *title = [[data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        bool _value = [[self.values objectForKey:key] boolValue];
+        _cell.titleLabel.text = title;
+        [_cell setDelegate:self];
+        NSLog(@"%d",_value);
+        NSLog(@"%@",key);
+        [_cell.switcher setOn:_value];
+        //[self.values setValue:[NSNumber numberWithInt:value] forKey:key];
     }
 }
 
@@ -300,18 +319,28 @@
 	}
     NSString *key;
     NSString *value;
+    key = [self keyForIndexPath:indexPath];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         TextFieldCell *_cell = (TextFieldCell*)cell;
         value = _cell.textField.text;
         
         if (indexPath.section == 0) {
-            key = [self keyForIndexPath:indexPath];
             [self.values setObject:value forKey:key];
             if (indexPath.row == 1) {
                 [[NSUserDefaults standardUserDefaults] setInteger:[value intValue] forKey:@"defaultFontZise"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }
         }
+    }else if([cell isKindOfClass:[SwitchingCell class]]){
+        SwitchingCell* _cell = (SwitchingCell *)cell; 
+        _cell.titleLabel.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        [_cell setDelegate:self];
+        bool _value = _cell.switcher.on;
+        [values setObject:[NSNumber numberWithBool:_value] forKey:key];
+        [[NSUserDefaults standardUserDefaults] setBool:_value forKey:@"isRepeatOptionOn"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
+        [table reloadData];
     }
 }   
 

@@ -261,12 +261,7 @@
 
 
 - (void) showTableHeadView{
-    if (!tableHeadView) {
-        tableHeadView = [[HeadViewController alloc] initWithNibName:@"HeadViewController" bundle:nil];
-    }
-    self.navigationItem.titleView = tableHeadView.view;
-    tableHeadView.titleLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastTheme"];
-    tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"total: %d",[self.data count]];
+    [super showTableHeadView];
     if (isStatisticShowing) {
         [tableHeadView generateStatisticViewWithWords:wordType.words];
     }else{

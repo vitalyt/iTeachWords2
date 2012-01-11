@@ -13,6 +13,7 @@
 #import "EditTableViewController.h"
 #import "MyPickerViewProtocol.h"
 #import "ManagerViewProtocol.h"
+#import "AlertTableView.h"
 
 typedef enum {
 	SHOW_ENG		,
@@ -21,9 +22,9 @@ typedef enum {
 } ShowingWordType;
 
 @class MyPickerViewContrller,WordTypes,ToolsViewController,MultiPlayer;
-@class HeadViewController;
+@class HeadViewController,AlertTableViewDelegate;
 
-@interface WorldTableViewController : EditTableViewController <MyPickerViewProtocol,MyPlayerProtocol,ManagerViewProtocol> {
+@interface WorldTableViewController : EditTableViewController <MyPickerViewProtocol,MyPlayerProtocol,ManagerViewProtocol,AlertTableViewDelegate,AlertTableViewDelegate> {
     MyPickerViewContrller   *wordTypePicker;
     WordTypes               *wordType;
     ToolsViewController     *toolsView; 
@@ -43,5 +44,8 @@ typedef enum {
 - (void) showMyPickerView;
 - (void) showToolsView;
 - (void) showTableHeadView;
+
+- (void)checkDelayedThemes;
+- (void)showTableAlertViewWithElements:(NSArray *)elements;
 
 @end

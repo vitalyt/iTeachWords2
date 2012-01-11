@@ -110,11 +110,49 @@
 	wordTypePicker.delegate = self;
 	[wordTypePicker openViewWithAnimation:self.navigationController.view];
 }
+
 - (void) pickerDone:(WordTypes *)_wordType{
     wordType = [_wordType retain];
     [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithString:wordType.name] forKey:@"lastTheme"];
     self.title = wordType.name;
     [self loadData];
+}
+
+# pragma mark alert table functions
+
+- (void)checkDelayedThemes{
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"isNotShowRepeatList"] boolValue] && IS_REPEAT_OPTION_ON) {
+        NSMutableArray *delayedElements = [[NSMutableArray alloc] init];
+        NSArray *_repeatDelayedThemes = [[NSArray alloc] initWithArray:[[iTeachWordsAppDelegate sharedDelegate] loadRepeatDelayedTheme]];
+        if ([_repeatDelayedThemes count]>0) {
+            for (int i=0;i<[_repeatDelayedThemes count];i++){
+                NSDictionary *dict = [_repeatDelayedThemes objectAtIndex:i];
+                int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+                if (interval < 0) {
+                    [delayedElements addObject:dict];
+                }
+            }
+        }
+        [_repeatDelayedThemes release];
+        if ([delayedElements count]>0) {
+            [self showTableAlertViewWithElements:[delayedElements autorelease]];
+        }
+    }
+}
+
+- (void)showTableAlertViewWithElements:(NSArray *)elements{
+    AlertTableView *alertTableView = [[AlertTableView alloc] initWithCaller:self data:elements title:@"Please repeat the themes from thelist" andContext:@"context identificator"];
+    [alertTableView show];
+    [alertTableView autorelease];
+}
+
+-(void)didSelectRowAtIndex:(NSInteger)row withContext:(id)context{
+    NSLog(@"Alert view index is ->%d",row);    
+    if (context && row>=0) {
+        WordTypes *_wordType = [context objectForKey:@"wordType"];
+        wordType = [_wordType retain];
+        [self loadData];
+    }
 }
 
 #pragma mark - View lifecycle
@@ -138,6 +176,8 @@
     [self showToolsView];
     [table setAllowsSelectionDuringEditing:YES];
     showingType = 1;
+    
+    [self performSelector:@selector(checkDelayedThemes) withObject:nil afterDelay:.5];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -222,7 +262,6 @@
             indicator.image = notSelectedImg;
             [cell setSelected:NO];
         }
-        
         if(isStatisticShowing){
             [((TableCellController *)cell) generateStatisticView];
             [((TableCellController *)cell).statisticViewController setWord:word];
@@ -230,13 +269,10 @@
         else{
             [((TableCellController *)cell) removeStatisticView];
         }
-        
     }else{
         [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
         cell.textLabel.text = [NSString stringWithFormat:@"next %d words",offset];
     }
-
-
 }
 
 
@@ -247,7 +283,6 @@
 {
     if (indexPath.row < limit - 1) {
         Words *word = [data objectAtIndex:indexPath.row];
-        
         if (tableView.isEditing)
         {
             //[(TableCellController *)tableView.delegate updateSelectionCount];
@@ -272,7 +307,6 @@
         limit += offset;
         [self loadData];
     }
-
 }
 
 - (void) playSoundWithIndex:(NSIndexPath *)indexPath{
@@ -327,7 +361,7 @@
         tableHeadView = [[HeadViewController alloc] initWithNibName:@"HeadViewController" bundle:nil];
     }
     self.navigationItem.titleView = tableHeadView.view;
-    tableHeadView.titleLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastTheme"];
+    tableHeadView.titleLabel.text = wordType.name;
     tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"total: %d",[self.data count]];
 }
 

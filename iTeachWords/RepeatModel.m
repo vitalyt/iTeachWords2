@@ -69,6 +69,7 @@
 
 - (void)registerRepeat{
     if (wordType) {
+        [[NSUserDefaults standardUserDefaults]  setBool:NO forKey:@"isNotShowRepeatList"];
         StatisticLearning *statisticLearning = [statisticsLearningArray lastObject];
         if (!statisticLearning) {
             statisticLearning = [self createStatisticLearningWithRepeatStatus:1];

@@ -160,6 +160,10 @@
 		28BDB6941483880300BC2688 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BDB6931483880300BC2688 /* iAd.framework */; };
 		28BE257513E01856006B46F4 /* Outdent 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BE257413E01856006B46F4 /* Outdent 16x16.png */; };
 		28BE257A13E0338F006B46F4 /* Check 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BE257913E0338F006B46F4 /* Check 16x16.png */; };
+		28C0502914BD75AE006442B4 /* AlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0502814BD75AE006442B4 /* AlertTableView.m */; };
+		28C0503314BD79D6006442B4 /* MyUIViewWhiteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0503214BD79D6006442B4 /* MyUIViewWhiteClass.m */; };
+		28C0505914BDC4E0006442B4 /* SwitchingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0505714BDC4DD006442B4 /* SwitchingCell.m */; };
+		28C0505A14BDC4E0006442B4 /* SwitchingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28C0505814BDC4E0006442B4 /* SwitchingCell.xib */; };
 		28C61EF7146BCB360065E75A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C61EF5146BCB360065E75A /* InfoViewController.m */; };
 		28C61EF8146BCB360065E75A /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28C61EF6146BCB360065E75A /* InfoViewController.xib */; };
 		28C61EFA146BCCEC0065E75A /* Mail 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C61EF9146BCCEC0065E75A /* Mail 24x24.png */; };
@@ -666,6 +670,13 @@
 		28BDB6931483880300BC2688 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/iAd.framework; sourceTree = DEVELOPER_DIR; };
 		28BE257413E01856006B46F4 /* Outdent 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdent 16x16.png"; sourceTree = "<group>"; };
 		28BE257913E0338F006B46F4 /* Check 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check 16x16.png"; sourceTree = "<group>"; };
+		28C0502714BD75AE006442B4 /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertTableView.h; sourceTree = "<group>"; };
+		28C0502814BD75AE006442B4 /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertTableView.m; sourceTree = "<group>"; };
+		28C0503114BD79D6006442B4 /* MyUIViewWhiteClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIViewWhiteClass.h; sourceTree = "<group>"; };
+		28C0503214BD79D6006442B4 /* MyUIViewWhiteClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIViewWhiteClass.m; sourceTree = "<group>"; };
+		28C0505614BDC4DD006442B4 /* SwitchingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchingCell.h; sourceTree = "<group>"; };
+		28C0505714BDC4DD006442B4 /* SwitchingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchingCell.m; sourceTree = "<group>"; };
+		28C0505814BDC4E0006442B4 /* SwitchingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchingCell.xib; sourceTree = "<group>"; };
 		28C61EF4146BCB360065E75A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		28C61EF5146BCB360065E75A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		28C61EF6146BCB360065E75A /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
@@ -1167,6 +1178,7 @@
 		28296B1913812EDC000129E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				28C0502514BD755D006442B4 /* AlertTableView */,
 				2811984214A093B200399D44 /* Siri */,
 				285758A4148E08F60045F63B /* WebView */,
 				28C61EF2146BCB0D0065E75A /* Info */,
@@ -1182,7 +1194,6 @@
 				28296B4C13814C4A000129E8 /* Tools */,
 				28296B3B13814968000129E8 /* Pickers */,
 				28296B3513814940000129E8 /* AddWord */,
-				28296B1A13812EE9000129E8 /* Menu */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1447,6 +1458,7 @@
 				284092FB1381257000864711 /* Model */,
 				284092EC1381244A00864711 /* UI */,
 				28296B1913812EDC000129E8 /* Views */,
+				28296B1A13812EE9000129E8 /* Menu */,
 				284092DA1381242700864711 /* iTeachWordsAppDelegate.h */,
 				284092DB1381242700864711 /* iTeachWordsAppDelegate.m */,
 				284092DD1381242700864711 /* MainWindow.xib */,
@@ -1667,6 +1679,17 @@
 			name = Orthography;
 			sourceTree = "<group>";
 		};
+		28C0502514BD755D006442B4 /* AlertTableView */ = {
+			isa = PBXGroup;
+			children = (
+				28C0503114BD79D6006442B4 /* MyUIViewWhiteClass.h */,
+				28C0503214BD79D6006442B4 /* MyUIViewWhiteClass.m */,
+				28C0502714BD75AE006442B4 /* AlertTableView.h */,
+				28C0502814BD75AE006442B4 /* AlertTableView.m */,
+			);
+			name = AlertTableView;
+			sourceTree = "<group>";
+		};
 		28C61EF2146BCB0D0065E75A /* Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,6 +1731,9 @@
 				28CA774F1456ABD60046259F /* TextFieldCell.h */,
 				28CA77501456ABD60046259F /* TextFieldCell.m */,
 				28CA77511456ABD60046259F /* TextFieldCell.xib */,
+				28C0505614BDC4DD006442B4 /* SwitchingCell.h */,
+				28C0505714BDC4DD006442B4 /* SwitchingCell.m */,
+				28C0505814BDC4E0006442B4 /* SwitchingCell.xib */,
 				28D3C2E91386686C00B35FC7 /* MultiSelectTableViewCell.h */,
 				28D3C2EA1386686C00B35FC7 /* MultiSelectTableViewCell.m */,
 				28D3C2EB1386686C00B35FC7 /* TableCellController.h */,
@@ -2448,6 +2474,7 @@
 				2866E1F814A09FA6002823E6 /* earcon_done_listening.wav in Resources */,
 				2866E1F914A09FA6002823E6 /* earcon_listening.wav in Resources */,
 				28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */,
+				28C0505A14BDC4E0006442B4 /* SwitchingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2553,6 +2580,9 @@
 				2823B8A214B6F19700FDB12D /* StatisticLearning.m in Sources */,
 				2823B8A614B6FA7700FDB12D /* RepeatModel.m in Sources */,
 				286401FA14BC7B0800591679 /* CustomBadge.m in Sources */,
+				28C0502914BD75AE006442B4 /* AlertTableView.m in Sources */,
+				28C0503314BD79D6006442B4 /* MyUIViewWhiteClass.m in Sources */,
+				28C0505914BDC4E0006442B4 /* SwitchingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
