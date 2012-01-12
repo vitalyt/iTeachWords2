@@ -250,6 +250,10 @@
     
 }
 
+- (IBAction) clickEdit{
+    
+}
+
 - (void)dealloc {
     if(recordingView != nil){
         [recordingView release];

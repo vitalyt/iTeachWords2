@@ -138,7 +138,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(back)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"?" style:UIBarButtonSystemItemDone target:self action:@selector(help)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"?" style:UIBarButtonItemStyleDone target:self action:@selector(help)] autorelease];
     statisticView = [[StatisticViewController alloc] initWithNibName:@"StatisticViewController" bundle:NULL];
     statisticView.total = [words count];
     self.navigationItem.titleView = statisticView.view;

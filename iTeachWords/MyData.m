@@ -60,7 +60,7 @@
 	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"LessonResouce"]];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@/",_lesson]];
 	path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"1.TXT"]  ];
-	NSString *str = [[NSString alloc] initWithContentsOfFile:path ];
+	NSString *str = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	NSLog(@"path->%@",path);
 	NSLog(@"str->%@",str);
 	NSArray *chapters = [str componentsSeparatedByString: @"<"];

@@ -269,4 +269,8 @@
     }
 }
 
+- (void)generateThemeStatistic{
+    
+}
+
 @end

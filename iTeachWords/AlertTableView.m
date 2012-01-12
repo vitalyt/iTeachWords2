@@ -29,7 +29,7 @@ const float cellHeight = 53;
         tableHeight = 105;
     }
     
-    if(self = [super initWithTitle:_title message:messageString delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",@"Don't show anymore",nil]){
+    if(self = [super initWithTitle:_title message:messageString delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"OK", @""),NSLocalizedString(@"Don't show anymore", @""),nil]){
         self.caller = _caller;
         self.context = _context;
         self.data = _data;

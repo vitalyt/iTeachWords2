@@ -24,16 +24,18 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>dataBaseName</key>
-	<string>iTeachWordDataBase</string>
-	<key>LessonResouce</key>
-	<string>/Documents/Lessons/</string>
+	<key>FeedbackMailAddress</key>
+	<string>vitaly.todorovych@yandex.ru</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>myResource</key>
-	<string>/Documents/</string>
+	<key>LessonResouce</key>
+	<string>/Documents/Lessons/</string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+	<key>TestTeamToken</key>
+	<string>8c5fde62f2d9d0623e6dab1f50fd0e94_NDQwMTYyMDExLTExLTI5IDA0OjMxOjAxLjE0NzgwNA</string>
+	<key>TranslateAppId</key>
+	<string>519419FC66883A8820ED0F76C5AC4B9E70F63425</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
@@ -42,11 +44,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>FeedbackMailAddress</key>
-	<string>vitaly.todorovych@yandex.ru</string>
-	<key>TestTeamToken</key>
-	<string>8c5fde62f2d9d0623e6dab1f50fd0e94_NDQwMTYyMDExLTExLTI5IDA0OjMxOjAxLjE0NzgwNA</string>
-	<key>TranslateAppId</key>
-	<string>519419FC66883A8820ED0F76C5AC4B9E70F63425</string>
+	<key>dataBaseName</key>
+	<string>iTeachWordDataBase</string>
+	<key>myResource</key>
+	<string>/Documents/</string>
 </dict>
 </plist>

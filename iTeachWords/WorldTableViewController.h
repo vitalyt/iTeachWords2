@@ -24,7 +24,7 @@ typedef enum {
 @class MyPickerViewContrller,WordTypes,ToolsViewController,MultiPlayer;
 @class HeadViewController,AlertTableViewDelegate;
 
-@interface WorldTableViewController : EditTableViewController <MyPickerViewProtocol,MyPlayerProtocol,ManagerViewProtocol,AlertTableViewDelegate,AlertTableViewDelegate> {
+@interface WorldTableViewController : EditTableViewController <MyPickerViewProtocol,MyPlayerProtocol,AlertTableViewDelegate,AlertTableViewDelegate> {
     MyPickerViewContrller   *wordTypePicker;
     WordTypes               *wordType;
     ToolsViewController     *toolsView; 

@@ -132,7 +132,7 @@
 - (void)saveChanges{    
     NSError *_error;
     if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"Data is not saved."];
+        [UIAlertView displayError:NSLocalizedString(@"Data is not saved.", @"")];
     }else{
         [iTeachWordsAppDelegate clearUdoManager];
     }

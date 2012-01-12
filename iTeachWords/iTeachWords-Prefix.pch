@@ -31,7 +31,7 @@
 typedef enum {
 	TEXT = 0,
 	TRANSLATE
-} SoundType;
+}SoundType;
 
 #define CONTEXT [iTeachWordsAppDelegate sharedContext]
 #define BACKEND [iTeachWordsAppDelegate sharedEngine]

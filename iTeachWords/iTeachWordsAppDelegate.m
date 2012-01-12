@@ -253,7 +253,7 @@
 
 + (iTeachWordsViewController*) sharedDelegate
 {
-	return (iTeachWordsViewController*)[[UIApplication sharedApplication] delegate];
+	return ((iTeachWordsViewController*)[[UIApplication sharedApplication] delegate]);
 }
 
 - (void) playSound:(NSData *)_data inView:(UIView *)_view{
@@ -390,9 +390,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 	
-    NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+    //NSLog(@"Connection failed! Error - %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -416,10 +414,10 @@
             [NSString stringWithFormat: @"%@.%@", _fileName, @"caf"]  ];
     recordedTmpFile = [[NSURL alloc] initFileURLWithPath:path];
     NSLog(@"Using File called: %@",recordedTmpFile);
-    NSData *data;
-    data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
-    [[iTeachWordsAppDelegate sharedDelegate] playSound:data inView:nil];
-    [data release];
+    NSData *_data;
+    _data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
+    [[iTeachWordsAppDelegate sharedDelegate] playSound:_data inView:nil];
+    [_data release];
 }
 
 + (NSDictionary *) sharedSettings{

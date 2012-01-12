@@ -55,7 +55,6 @@
 - (void)addRecButtonOnTextField:(UITextField*)textField;
 - (void)createMenu;
 - (void)textFieldDidChange:(UITextField*)textField;
-- (void)setThemeName;
 - (void)removeChanges;
 
 
