@@ -17,6 +17,7 @@
 #import "NewTableCell.h"
 #import "StringTools.h"
 #import "Statistic.h"
+#import "NSString+Interaction.h"
 
 #define SELECTION_INDICATOR_TAG 54321
 #define TEXT_LABEL_TAG 54322
@@ -45,6 +46,9 @@
     if (workingThread) {
         [workingThread release];
     }
+    if (wordType) {
+        [wordType release];
+    }
     if (wordTypePicker) {
         [wordTypePicker release];
         wordTypePicker = nil;
@@ -56,6 +60,7 @@
         [toolsView closeView];
         [toolsView release];
     }
+    [stringTools release];
     [selectedWords release];
     [contentArray release];
     [super dealloc];
@@ -106,11 +111,12 @@
 - (void) loadDataWithString:(NSString *)string{
     [string retain];
     table.hidden = YES;
-    StringTools *myStringTools = [[StringTools alloc] init];
-	[myStringTools printString:string];
-	contentArray = myStringTools.arrayWords;
+    if (!stringTools) {
+        stringTools = [[StringTools alloc] init];
+    }
+	[stringTools printString:string];
+	contentArray = stringTools.arrayWords;
     sortedKeys = [[NSMutableArray alloc] initWithArray:[contentArray keysSortedByValueUsingSelector:@selector(compare:)]];
-	[myStringTools release];
     [table reloadData];
     table.hidden = NO;
     [string release];
@@ -215,11 +221,11 @@
     NSError *error;
     NSDate *createDate = [[NSDate alloc]init];
     createDate = [[NSDate date] retain];
-    WordTypes *wordType;
-    wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
+    WordTypes *_wordType;
+    _wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
                                              inManagedObjectContext:CONTEXT];
-    [wordType setName:@"EngRusDictionari"];
-    [wordType setCreateDate:createDate];
+    [_wordType setName:@"EngRusDictionari"];
+    [_wordType setCreateDate:createDate];
     
     for (int i = 0 ; i< [ar count]; i++) {
         if ((i%100) == 0) {
@@ -236,8 +242,8 @@
         [word setChangeDate:createDate];
         [word setText:[ar2 objectAtIndex:0]];
         [word setTranslate:[ar2 objectAtIndex:1]];
-        [word setDescriptionStr:wordType.name];
-        [wordType addWordsObject:word];
+        [word setDescriptionStr:_wordType.name];
+        [_wordType addWordsObject:word];
     }
     if (![CONTEXT save:&error]) {
         [UIAlertView displayError:@"There is problem with saving data."];
@@ -250,8 +256,18 @@
     return nil;
 }
 
-- (void) parseWordsToTheme:(WordTypes *)wordType{
-    [wordType retain];
+
+
+- (void) translateWords{
+    if (!wordType) {
+        [self showMyPickerView];
+        return;
+    }
+    //[self loadLocalTranslateWords:selectedWords];
+    [self loadTranslateWords:selectedWords];
+}
+
+- (void)loadLocalTranslateWords:(NSArray*)wordsArray{
     NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
     NSMutableSet *ar = [[NSMutableSet alloc] init];
     
@@ -292,8 +308,69 @@
     [pool drain];
     [loadingView.view removeFromSuperview];
     
-    [wordType release];
     [table reloadData];
+}
+
+- (void)loadTranslateWords:(NSArray*)wordsArray{
+    if (!wordType) {
+        [self showMyPickerView];
+        return;
+    }
+    if (!stringTools) {
+        stringTools = [[StringTools alloc] init];
+    }
+    [stringTools loadTranslateForWords:selectedWords withDelegate:self];
+}
+
+-(void)didLoadTranslate:(NSArray*)translate{
+    [self addWords:selectedWords withTranslate:translate toWordType:wordType];
+}
+
+- (void)addWords:(NSArray*)words withTranslate:(NSArray*)translates toWordType:(WordTypes*)_wordType{
+    [translates retain];
+    [words retain];
+    NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
+    NSMutableSet *ar = [[NSMutableSet alloc] init];
+    @try {
+        [iTeachWordsAppDelegate clearUdoManager];
+        for (int i=0;i<[words count];i++){
+            if ([translates count]>i) {
+                NSString *text = [words objectAtIndex:i];
+                NSString *translate = [NSString stringWithString:[translates objectAtIndex:i]];
+                [text removeSpaces];
+                NSLog(@"%@",translate);
+                [translate removeSpaces];
+                NSLog(@"%@",translate);
+                Words *currentWord = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
+                                                                   inManagedObjectContext:CONTEXT];
+                [currentWord setCreateDate:[NSDate date]];
+                [currentWord setType:_wordType];
+                [currentWord setTypeID:_wordType.typeID];
+                [currentWord setChangeDate:[NSDate date]];
+                [currentWord setText:text];
+                [currentWord setTranslate:translate];
+                
+                [ar addObject:currentWord];
+            }
+        }
+        [_wordType addWords:ar];
+        NSError *_error;
+        if (![CONTEXT save:&_error]) {
+            [UIAlertView displayError:@"Data is not saved."];
+        }else{
+            [iTeachWordsAppDelegate clearUdoManager];
+        }
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        [ar release];
+        [pool drain];
+        [translates release];
+        [words release];
+    }
+
 }
 
 -(void) filteringList{
@@ -428,15 +505,18 @@
 
 #pragma mark picker protocol
 
-- (void) pickerDone:(WordTypes *)wordType{
+- (void) pickerDone:(WordTypes *)_wordType{
     if (!loadingView) {
         loadingView = [[LoadingViewController alloc]initWithNibName:@"LoadingViewController" bundle:nil];
         loadingView.total = [selectedWords count];
     }
-    [self.view addSubview:loadingView.view];
-    loadingView.view.frame = CGRectMake(0.0, 44.0, loadingView.view.frame.size.width, loadingView.view.frame.size.height);
-    workingThread = [[NSThread alloc] initWithTarget:self selector:@selector(parseWordsToTheme:) object:wordType];
-    [workingThread start];
+    wordType = [_wordType retain];
+//    [self.view addSubview:loadingView.view];
+//    loadingView.view.frame = CGRectMake(0.0, 44.0, loadingView.view.frame.size.width, loadingView.view.frame.size.height);
+    [self translateWords];
+
+//    workingThread = [[NSThread alloc] initWithTarget:self selector:@selector(translateWords) object:nil];
+//    [workingThread start];
 
 }
 

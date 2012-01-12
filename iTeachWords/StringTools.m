@@ -7,14 +7,21 @@
 //
 
 #define slash @" ,.\t\n\r{}*:;"
+#define translateSlash @"~"
 
 #import "StringTools.h"
+#import "WBEngine.h"
+#import "WBRequest.h"
+#import "WBConnection.h"
+#import "JSON.h"
+#import "XMLReader.h"
 
 @implementation StringTools
 
 @synthesize arrayWords;
 @synthesize arrayWordsSorting;
 @synthesize myText;
+@synthesize caller; 
 
 - (void) printString:(NSString *) str{
 	myText = @"You’ve encountered string objects in your programs before.Whenever you enclosed a se- quence of character strings inside a pair of double quotes, as in Programming is fun	you created a character string object in Objective-C.The Foundation framework supports a class called NSString for working with character string objects.Whereas C-style strings consist of char characters, NSString objects consist of unichar characters. A unichar character is a multibyte character according to the Unicode standard.This enables you to work with character sets that can contain literally millions of characters. Luckily, you don’t have to worry about the internal representation of the characters in your strings because the NSString class automatically handles this for you.1 By using the methods from this class, you can more easily develop applications that can be localized—that is, made to work in different languages all over the world. 	1 Currently, unichar characters occupy 16 bits, but the Unicode standard provides for characters larger than that size. So in the future, unichar characters might be larger than 16 bits. The bottom line is to never make an assumption about the size of a Unicode character.	As you know, you create a constant character string object in Objective-C by putting the @ character in front of the string of double-quoted characters. So the expression	@”Programming is fun” creates a constant character string object. In particular, it is a constant character string that belongs to the class NSConstantString. NSConstantString is a subclass of the string ob- ject class NSString.To use string objects in your program, include the following line: More on the NSLog Function Program 15.2, which follows, shows how to define an NSString object and assign an ini- tial value to it. It also shows how to use the format characters %@ to display an NSString object.";
@@ -40,6 +47,72 @@
     }
 }
 
+- (void)loadTranslateForWords:(NSArray*)wordsArray withDelegate:(id)_caller{
+    self.caller = _caller;
+    NSString *wordsRequestString = [[NSString alloc] initWithFormat:@"%@",
+                                    [wordsArray componentsJoinedByString:translateSlash]];
+    [wordsRequestString removeSpaces];
+    NSLog(@"%@",wordsRequestString);
+    [self sendRequestWitchText:[wordsRequestString autorelease]];
+}
+
+#pragma mark loading data functions
+
+- (void)sendRequestWitchText:(NSString*)wordsText
+{
+    if (!wbEngine) {
+        wbEngine = [[WBEngine alloc] init];
+    }
+    NSString *url = [[NSString stringWithFormat:@"http://api.microsofttranslator.com/v2/http.svc/translate?appId=%@&text=%@&from=%@&to=%@",
+                      [[[NSBundle mainBundle] infoDictionary] objectForKey:@"TranslateAppId"],
+                      wordsText,
+                      [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
+                      [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"url-->%@",[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
+    NSLog(@"url->%@",url);
+    WBRequest * _request = [WBRequest getRequestWithURL:url delegate:self];
+    [wbEngine performRequest:_request];
+    [UIAlertView removeMessage];
+    [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Loading...", @"")];
+}
 
 
+#pragma mark - WBRequest functions
+
+- (void) connectionDidFinishLoading: (WBConnection*)connection {
+    [UIAlertView removeMessage];
+	NSData *value = [connection data];
+    NSString *response = [[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding];
+    NSLog(@"responseText->%@",response);
+    @try
+    {
+        NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
+        if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
+            NSLog(@"%@",[result objectForKey:@"string"]);
+            NSString *translateText = [[result objectForKey:@"string"] objectForKey:@"text"];
+            NSLog(@"%@",translateText);
+            [caller didLoadTranslate:[translateText componentsSeparatedByString:translateSlash]];
+        }else{
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"", @"") 
+                                                             message:NSLocalizedString(@"No results found", @"")  
+                                                            delegate:self 
+                                                   cancelButtonTitle:NSLocalizedString(@"OK", @"") 
+                                                   otherButtonTitles: nil] autorelease];
+            [alert show];
+        }
+    }
+    @finally
+    {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [response release];
+    }
+}
+
+- (void)dealloc {
+    self.caller = nil;
+    if (wbEngine) {
+        [wbEngine release];
+    }
+    [super dealloc];
+}
 @end

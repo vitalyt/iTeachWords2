@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "EditTableViewController.h"
 #import "MyPickerViewProtocol.h"
+#import "StringTools.h"
 
 @class MyPickerViewContrller,LoadingViewController,ToolsViewController;
-@interface NewWordsTable : EditTableViewController <MyPickerViewProtocol,UIAlertViewDelegate> {
+@interface NewWordsTable : EditTableViewController <MyPickerViewProtocol,UIAlertViewDelegate,StringToolsViewDelegate> {
     NSDictionary    *contentArray;
     MyPickerViewContrller   *wordTypePicker;
     NSThread        *workingThread;
@@ -20,17 +21,24 @@
     NSMutableArray  *selectedWords;
     ToolsViewController *toolsView;
     IBOutlet UIActivityIndicatorView *loadingViewAnimation;
+    
+    WordTypes   *wordType;
+    StringTools *stringTools;
 }
 
 @property (nonatomic,retain) NSDictionary   *contentArray;
 
 - (NSString *) findTranslateOfWord:(NSString *)word;
 - (void) showMyPickerView;
-- (void) parseWordsToTheme:(WordTypes *)wordType;
+- (void) translateWords;
 - (void) showToolsView;
 - (void) loadDataWithString:(NSString *)string;
 -(void) selectAllWords;
 -(void) deselectAllWords;
 -(void) filteringList;
+
+- (void)loadLocalTranslateWords:(NSArray*)wordsArray;
+- (void)loadTranslateWords:(NSArray*)wordsArray;
+- (void)addWords:(NSArray*)words withTranslate:(NSArray*)translates toWordType:(WordTypes*)_wordType;
 
 @end

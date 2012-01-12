@@ -42,15 +42,20 @@ documentsDirectory = [paths objectAtIndex:0];
                                          UIViewAutoresizingFlexibleTopMargin |  
                                          UIViewAutoresizingFlexibleBottomMargin);
     } 
+    
+	NSURLRequest *urlRequest = [_webView request];
+	NSURL *u = [urlRequest mainDocumentURL];
+    urlFld.text = [u absoluteString];
     [_webView addSubview:progressView];
     [progressView startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)_webView{
 	NSURLRequest *urlRequest = [_webView request];
 	NSURL *u = [urlRequest mainDocumentURL];
+    [[NSUserDefaults standardUserDefaults] setValue:[u absoluteString] forKey:@"LastUrl"];
 	if (isUpdatedData) {
         isUpdatedData = NO;
-		[OsdnDataBase addWebBaseWithURL:self.url data:u];		
+		[OsdnDataBase addWebBaseWithURL:[u absoluteString] data:u];		
 	}
     [progressView removeFromSuperview];  
     //[progressView release];    	
