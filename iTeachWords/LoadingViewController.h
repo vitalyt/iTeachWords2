@@ -20,4 +20,7 @@
 @property (nonatomic, assign) float                     total;
 
 - (void)updateDataCurrentIndex:(NSNumber *) currentIndex;
+- (void)showLoadingView;
+- (void)closeLoadingView;
+
 @end

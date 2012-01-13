@@ -17,7 +17,6 @@
     
     MyPlayer                *player;
     NSMutableData           *_mutableData;
-    
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -43,5 +42,6 @@
 - (void)activateNotification;
 -(NSArray*)loadRepeatDelayedTheme;
 
++ (void)saveDB;
 
 @end

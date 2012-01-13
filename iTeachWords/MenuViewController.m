@@ -49,6 +49,10 @@
     [titleLbl8 release];
     [titleLbl9 release];
     [menuBtn1 release];
+    if (customBadge1) {
+        [customBadge1 removeFromSuperview];
+        customBadge1 = nil;
+    }
     [super dealloc];
 }
 

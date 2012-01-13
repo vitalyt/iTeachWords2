@@ -33,7 +33,6 @@
     if (self) {
         // Custom initialization
         cellStyle = UITableViewCellStyleValue1;
-        //[self findTranslateOfWord:nil];
     }
     return self;
 }
@@ -85,6 +84,11 @@
     [super viewDidAppear:animated];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -92,6 +96,7 @@
     offset = 50;
     cellStyle = UITableViewCellStyleValue1;
     [self showToolsView];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -211,69 +216,62 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (NSString *) findTranslateOfWord:(NSString *)_word{
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/enrus.txt"];
-    NSString *text = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    //NSLog(@"%@",text);
-    NSArray *ar = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:@"\n"]];
-    
-    NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
-    NSError *error;
-    NSDate *createDate = [[NSDate alloc]init];
-    createDate = [[NSDate date] retain];
-    WordTypes *_wordType;
-    _wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
-                                             inManagedObjectContext:CONTEXT];
-    [_wordType setName:@"EngRusDictionari"];
-    [_wordType setCreateDate:createDate];
-    
-    for (int i = 0 ; i< [ar count]; i++) {
-        if ((i%100) == 0) {
-            if (![CONTEXT save:&error]) {
-                [UIAlertView displayError:@"There is problem with saving data."];
-            }
-            [pool drain];
-            pool= [[NSAutoreleasePool alloc] init];
-        }
-        NSArray *ar2 = [NSArray arrayWithArray:[[ar objectAtIndex:i] componentsSeparatedByString:@"="]];
-        Words *word = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
-                                                    inManagedObjectContext:CONTEXT];
-        [word setCreateDate:createDate];
-        [word setChangeDate:createDate];
-        [word setText:[ar2 objectAtIndex:0]];
-        [word setTranslate:[ar2 objectAtIndex:1]];
-        [word setDescriptionStr:_wordType.name];
-        [_wordType addWordsObject:word];
+- (NSString *)stripDoubleSpaceFrom:(NSString *)str {
+    //NSString *lastObj = [NSString stringWithFormat:@"%c",[str characterAtIndex:str]]];
+    //NSLog(@"%@%d",lastObj,[str rangeOfString:lastObj].length);
+    while ([str rangeOfString:@"\n"].length > 0) {
+        str = [str stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     }
-    if (![CONTEXT save:&error]) {
-        [UIAlertView displayError:@"There is problem with saving data."];
-    }
-    
-    [createDate release];
-    [createDate release];
-    [ar release];
-    [pool drain];
-    return nil;
+    return str;
 }
 
-
+- (void)save{
+    NSError *_error;
+    if (![CONTEXT save:&_error]) {
+        [UIAlertView displayError:@"There is problem with saving data."];
+    }else{
+        [iTeachWordsAppDelegate clearUdoManager];
+    }
+}
 
 - (void) translateWords{
     if (!wordType) {
         [self showMyPickerView];
         return;
     }
-    //[self loadLocalTranslateWords:selectedWords];
-    [self loadTranslateWords:selectedWords];
+    if ([iTeachWordsAppDelegate isNetwork]) {
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" 
+                                                         message:NSLocalizedString(@"Where do you want to search translations?", @"")
+                                                        delegate:self 
+                                               cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+                                               otherButtonTitles:NSLocalizedString(@"In my database", @""),NSLocalizedString(@"In the network", @""), nil] autorelease];
+        [alert setTag:666];
+        [alert show];
+    }else{
+        [self loadLocalTranslateWords:selectedWords];
+    }
+
 }
+
+
 
 - (void)loadLocalTranslateWords:(NSArray*)wordsArray{
     NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
     NSMutableSet *ar = [[NSMutableSet alloc] init];
-    
+    [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
     int count = [selectedWords count];
+    [loadingView setTotal:count];
     for (int i = 0; i < count; i++) {
-        NSAutoreleasePool *pool1= [[NSAutoreleasePool alloc] init];
+        if ((i%100) == 0) {
+            [wordType addWords:ar];
+            [ar removeAllObjects];
+            [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
+            
+            [self performSelectorOnMainThread:@selector(save) withObject:nil waitUntilDone:YES];
+            //[iTeachWordsAppDelegate saveDB];
+            [pool drain];
+            pool= [[NSAutoreleasePool alloc] init];
+        }
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text = %@", [[selectedWords objectAtIndex:i] lowercaseString]];
         NSError *error;
         NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
@@ -284,7 +282,8 @@
         NSArray *_data = [[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error];
         
         if ([_data count] > 0) {
-            Words *_word = [_data objectAtIndex:0];     
+            Words *_word = ((Words*)[_data objectAtIndex:0]);  
+            [_word setType:wordType];
             [ar addObject:_word];
             [sortedKeys removeObject:[selectedWords objectAtIndex:i]];
             [selectedWords removeObjectAtIndex:i];
@@ -294,20 +293,13 @@
             --count;
             --i;
         }
-        
         [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
-        [pool1 drain];
     }
-    
     [wordType addWords:ar];
-    NSError *_error;
-    if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"Data is not saved."];
-    }
-    //[ar release];
+    [self performSelectorOnMainThread:@selector(save) withObject:nil waitUntilDone:YES];
+    [ar release];
     [pool drain];
-    [loadingView.view removeFromSuperview];
-    
+    [loadingView closeLoadingView];
     [table reloadData];
 }
 
@@ -431,7 +423,7 @@
                                                     delegate:self 
                                            cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
                                            otherButtonTitles:NSLocalizedString(@"All words", @""),NSLocalizedString(@"Learned words", @""), nil] autorelease];
-    
+    [alert setTag:555];
     [alert show];
 }
 
@@ -461,16 +453,30 @@
 #pragma mark allert funktions
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 1:
-            [self selectAllWords];
-            break;
-        case 2:
-            [self selectAllWords];
-            [self filteringList];
-            break;           
-        default:
-            break;
+    //selecting words
+    if (alertView.tag == 555) {
+        switch (buttonIndex) {
+            case 1:
+                [self selectAllWords];
+                break;
+            case 2:
+                [self selectAllWords];
+                [self filteringList];
+                break;           
+            default:
+                break;
+        }
+    }else if(alertView.tag == 666){//laoding translates
+        switch (buttonIndex) {
+            case 1:
+                [self loadLocalTranslateWords:selectedWords];
+                break;
+            case 2:
+                [self loadTranslateWords:selectedWords];
+                break;           
+            default:
+                break;
+        }
     }
 }
 
@@ -506,22 +512,18 @@
 #pragma mark picker protocol
 
 - (void) pickerDone:(WordTypes *)_wordType{
+    wordType = [_wordType retain];
+    [self translateWords];
+}
+
+#pragma mark - showing functions
+- (void)showLoadingView{
     if (!loadingView) {
         loadingView = [[LoadingViewController alloc]initWithNibName:@"LoadingViewController" bundle:nil];
         loadingView.total = [selectedWords count];
     }
-    wordType = [_wordType retain];
-//    [self.view addSubview:loadingView.view];
-//    loadingView.view.frame = CGRectMake(0.0, 44.0, loadingView.view.frame.size.width, loadingView.view.frame.size.height);
-    [self translateWords];
-
-//    workingThread = [[NSThread alloc] initWithTarget:self selector:@selector(translateWords) object:nil];
-//    [workingThread start];
-
+    [loadingView showLoadingView];
 }
-
-#pragma mark - showing functions
-
 
 - (void) clickEdit{	
     if (![table isEditing]) {

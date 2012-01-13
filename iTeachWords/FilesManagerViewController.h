@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class WordTypes;
+@class WordTypes,LoadingViewController;
 @interface FilesManagerViewController : UIViewController {
 	IBOutlet UIProgressView	*myProgressView;
 	IBOutlet UILabel		*myLabel;
 	NSString				*file;
 	NSThread * progressThread;
 	float searchProgress;
+    
+    LoadingViewController   *loadingView;
 }
 
 @property (nonatomic, retain) IBOutlet UIProgressView	*myProgressView;
@@ -32,4 +34,9 @@
 - (bool) addSoundWithFile:(NSString *)_fileName;
 - (bool) addThemeWithFile:(NSString *)_fileName;
 - (void) loadWordsFromFile:(NSString *)fileName toTheme:(WordTypes *)wordType;
+
+- (void)loadDictionary;
+- (void)loadDictionaryWithFile:(NSString*)fileName;
+
+- (void)showLoadingView;
 @end

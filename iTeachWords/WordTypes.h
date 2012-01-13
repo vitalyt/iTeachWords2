@@ -35,7 +35,7 @@
 - (void)addStatisticLearning:(NSSet *)values;
 - (void)removeStatisticLearning:(NSSet *)values;
 - (void)addWordsObject:(Words *)value;
-- (void)removeWordsObject:(Words *)value;
+- (void)removeWordsObject:(NSManagedObject *)value;
 - (void)addWords:(NSSet *)values;
 - (void)removeWords:(NSSet *)values;
 @end

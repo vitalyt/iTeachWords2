@@ -44,14 +44,15 @@ documentsDirectory = [paths objectAtIndex:0];
     } 
     
 	NSURLRequest *urlRequest = [_webView request];
-	NSURL *u = [urlRequest mainDocumentURL];
-    urlFld.text = [u absoluteString];
+	//NSURL *u = [urlRequest mainDocumentURL];
+    urlFld.text = self.url;
     [_webView addSubview:progressView];
     [progressView startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)_webView{
 	NSURLRequest *urlRequest = [_webView request];
 	NSURL *u = [urlRequest mainDocumentURL];
+    [urlFld setText:[u absoluteString]];
     [[NSUserDefaults standardUserDefaults] setValue:[u absoluteString] forKey:@"LastUrl"];
 	if (isUpdatedData) {
         isUpdatedData = NO;
@@ -73,6 +74,7 @@ documentsDirectory = [paths objectAtIndex:0];
 -(void)viewDidLoad 
 {
 	[super viewDidLoad];
+    //self.url = [[NSUserDefaults standardUserDefaults] setValue:_url forKey:@"LastUrl"];
     if (!webView) {
         webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, urlToolbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
         webView.delegate = self;
@@ -102,9 +104,7 @@ documentsDirectory = [paths objectAtIndex:0];
     if (![_url hasPrefix:@"http://"]) {
         _url = [NSString stringWithFormat:@"http://%@",_url];
     }
-    [[NSUserDefaults standardUserDefaults] setValue:_url forKey:@"LastUrl"];
-    url = [_url retain]; 
-    [urlFld setText:url];
+    url = [_url retain];
     [self loadContent];
 }
 

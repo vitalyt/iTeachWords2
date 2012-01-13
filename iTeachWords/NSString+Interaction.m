@@ -43,6 +43,18 @@
 
 - (void) removeSpaces{
     NSMutableString *str = [[NSMutableString alloc]initWithString:self];
+    while ([str hasPrefix:@"\n"]) {
+        NSRange range;
+        range.location = 0;
+        range.length = 1;
+        [str replaceCharactersInRange:range withString:@""];
+    }
+    while ([str hasSuffix:@"\n"]) {
+        NSRange range;
+        range.location = [str length]-1;
+        range.length = 1;
+        [str replaceCharactersInRange:range withString:@""];
+    }
     while ([str hasPrefix:@" "]) {
         NSRange range;
         range.location = 0;

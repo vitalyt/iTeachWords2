@@ -10,6 +10,7 @@
 #import "WordTypes.h"
 #import "Words.h"
 #import "Sounds.h"
+#import "LoadingViewController.h"
 
 #define RESOUCE [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]]
 
@@ -355,6 +356,115 @@
     [_content release];
 }
 
+#pragma mark load Dictionary
+- (void)loadDictionary{
+    progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadDictionaryWithFile:) object:@"/enrus.txt"];
+    [progressThread start];
+}
+
+- (void)loadDictionaryWithFile:(NSString*)fileName{
+    [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
+    NSString *text = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
+    @try {
+        NSMutableString *mutStr = [NSMutableString stringWithString:@""];
+        unichar ch;
+        int index = 0;
+        ch = [text characterAtIndex:index];
+        while (ch!='.') {
+            [mutStr appendString:[NSString stringWithFormat:@"%c",ch]];
+            ++index;
+            ch = [text characterAtIndex:index];
+        }
+        NSLog(@"%@|",mutStr);
+        NSString *globalSlash = mutStr;
+        NSArray *wordsArray = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:globalSlash]];
+        [loadingView setTotal:[wordsArray count]];
+        //wordsArray = [NSArray arrayWithArray:[text componentsSeparatedByString:globalSlash]];
+        NSDate *createDate = [[NSDate date] retain];
+        NSString *themeName = [wordsArray objectAtIndex:2];
+        NSString *slash = [wordsArray objectAtIndex:3];
+        NSArray *languageObjects = [[wordsArray objectAtIndex:4] componentsSeparatedByString:slash];
+        
+        NSLog(@"globalSlash->%@",globalSlash);
+        NSLog(@"themeName->%@",themeName);
+        NSLog(@"slash->%@|",slash);
+        NSLog(@"languageObjects->%@",languageObjects);
+        
+        NSString *nativeLanguage = [languageObjects objectAtIndex:1];
+        NSString *translateLanguage = [languageObjects objectAtIndex:0];
+        
+        WordTypes *_wordType;
+        _wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
+                                                  inManagedObjectContext:CONTEXT];
+        [_wordType setName:themeName];
+        [_wordType setCreateDate:createDate];
+        
+        [_wordType setNativeCountryCode:nativeLanguage];
+        [_wordType setTranslateCountryCode:translateLanguage];
+        
+        @try {   
+            NSMutableSet* wordsAr = [[NSMutableSet alloc]init];
+            for (int i = 5 ; i< [wordsArray count]; i++) {
+                if ((i%1000) == 0) {
+                    [_wordType addWords:wordsAr];
+                    [wordsAr removeAllObjects];
+                    [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
+                    
+                    [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
+                    //[iTeachWordsAppDelegate saveDB];
+                    [pool drain];
+                    pool= [[NSAutoreleasePool alloc] init];
+                }
+                NSArray *ar2 = [NSArray arrayWithArray:[[wordsArray objectAtIndex:i] componentsSeparatedByString:@"="]];
+                if ([ar2 count]<2) {
+                    continue;
+                }
+                Words *word = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
+                                                            inManagedObjectContext:CONTEXT];
+                [word setCreateDate:createDate];
+                [word setChangeDate:createDate];
+                [word setText:[ar2 objectAtIndex:0]];
+                [word setTranslate:[ar2 objectAtIndex:1]];
+                [word setDescriptionStr:_wordType.name];
+                [word setType:_wordType];
+                [wordsAr addObject:word];
+                //
+            }
+            [_wordType addWords:wordsAr];
+            [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
+            [wordsAr release];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@",exception);
+            [UIAlertView showMessage:NSLocalizedString(@"There was some error within parse words", @"")];
+        }
+        @finally {
+            [wordsArray release];
+            [createDate release];
+        }
+        
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+        [UIAlertView showMessage:NSLocalizedString(@"There was some error within parse options informdtion (line 1->4)", @"")];
+    }
+    @finally {
+        [pool drain];
+        [text release];
+        [loadingView closeLoadingView];
+    }
+}
+
+#pragma mark - showing functions
+- (void)showLoadingView{
+    if (!loadingView) {
+        loadingView = [[LoadingViewController alloc]initWithNibName:@"LoadingViewController" bundle:nil];
+    }
+    [loadingView showLoadingView];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -384,6 +494,7 @@
 
 
 - (void)dealloc {
+    [loadingView release];
 	[myLabel release];
 	[myProgressView release];
     [super dealloc];

@@ -34,7 +34,7 @@
     [changedObjects release];
 }
 
-- (void)removeWordsObject:(Words *)value {
+- (void)removeWordsObject:(NSManagedObject *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"words" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"words"] removeObject:value];

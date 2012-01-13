@@ -8,6 +8,7 @@
 
 #import "LoadingViewController.h"
 
+#define LOADING_VIEWTAG 998
 
 @implementation LoadingViewController
 
@@ -24,6 +25,7 @@
 
 - (void)dealloc
 {
+    [self closeLoadingView];
     [titleLabel release];
     [myProgressView release];
     [super dealloc];
@@ -63,6 +65,20 @@
     if (total != 0 && currentIndex != 0) {
         [myProgressView setProgress:(100.0/total*[currentIndex floatValue])/100.0];
     }
+}
+
+- (void)showLoadingView{
+    UIView* _baseView = [[UIApplication sharedApplication] keyWindow];
+    if ([_baseView viewWithTag:LOADING_VIEWTAG] != nil) {
+		return;
+	}
+    [self.view setTag:LOADING_VIEWTAG];
+	[_baseView addSubview:self.view];
+    [_baseView bringSubviewToFront:self.view];
+}
+
+- (void)closeLoadingView{
+    [[self view] removeFromSuperview];
 }
 
 @end

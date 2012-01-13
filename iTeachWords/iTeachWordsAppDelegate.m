@@ -81,9 +81,16 @@
 //	NSArray *files =[[NSFileManager defaultManager] contentsOfDirectoryAtPath:DOCUMENTS error:nil];
 //	if ([files count]>0) {
 //		FilesManagerViewController *progressView = [[FilesManagerViewController alloc] initWithNibName:@"FilesManagerViewController" bundle:nil];
-//		[navigationController.view addSubview:progressView.view];
+//        [progressView loadDictionary];
+//		//[navigationController.view addSubview:progressView.view];
 //		[progressView release];
 //	}
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] && [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]){
+//        FilesManagerViewController *progressView = [[FilesManagerViewController alloc] init];
+//        [progressView loadDictionary];
+//        [progressView release];
+//    }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -418,6 +425,15 @@
     _data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
     [[iTeachWordsAppDelegate sharedDelegate] playSound:_data inView:nil];
     [_data release];
+}
+
++ (void)saveDB{
+    NSError *_error;
+    if (![CONTEXT save:&_error]) {
+        [UIAlertView displayError:@"There is problem with saving data."];
+    }else{
+        [iTeachWordsAppDelegate clearUdoManager];
+    }
 }
 
 + (NSDictionary *) sharedSettings{

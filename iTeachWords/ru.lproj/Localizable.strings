@@ -40,3 +40,6 @@
 "Use as translate"          = "Использовать как перевод";
 "Don't show anymore"        = "Больше не спрашивать";
 "Data is not saved."        = "Інформация не была сохранена.";
+"Where do you want to search translations?" = "Где вы хотите искать переводы?";
+"In my database"            = "В моей базе данных";
+"In the network"            = "В интернете";

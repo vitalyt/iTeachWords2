@@ -1,3 +1,8 @@
+﻿
+.
+EngRusDictionari
+=
+EN=RU
 a few=несколько
 a little=немного
 aaron=Арон	библ.) Аарон

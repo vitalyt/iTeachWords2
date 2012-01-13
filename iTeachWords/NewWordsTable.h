@@ -27,8 +27,6 @@
 }
 
 @property (nonatomic,retain) NSDictionary   *contentArray;
-
-- (NSString *) findTranslateOfWord:(NSString *)word;
 - (void) showMyPickerView;
 - (void) translateWords;
 - (void) showToolsView;
@@ -40,5 +38,6 @@
 - (void)loadLocalTranslateWords:(NSArray*)wordsArray;
 - (void)loadTranslateWords:(NSArray*)wordsArray;
 - (void)addWords:(NSArray*)words withTranslate:(NSArray*)translates toWordType:(WordTypes*)_wordType;
+- (void)showLoadingView;
 
 @end
