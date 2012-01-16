@@ -26,6 +26,7 @@
 #import "RepeatModel.h"
 #import "CustomBadge.h"
 
+#import "DetailViewController.h"
 @implementation MenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -192,8 +193,9 @@
 
 
 - (void)showInfoView{
-    InfoViewController *infoView = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
-    [self.navigationController pushViewController:infoView animated:YES];
+    DetailViewController *infoView = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    [self.navigationController presentModalViewController:infoView animated:YES];
+//    [self.navigationController pushViewController:infoView animated:YES];
     [infoView release];
 }
 

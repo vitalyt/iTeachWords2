@@ -48,10 +48,6 @@
 //    NSLog(@"TestTeamToken is %@",testTeamToken);
 //    [TestFlight takeOff:testTeamToken];
     // The rest of your application:didFinishLaunchingWithOptions method
-    bool b = NO;
-    if ((b)?b:YES) {
-        NSLog(@"ffffffff");
-    }
     
     [self activateNotification];
     
@@ -116,15 +112,6 @@
     if ([oldNotifications count] > 0) {
         [app cancelAllLocalNotifications];
     }
-    
-//    for (UILocalNotification *aNotif in oldNotifications) {
-//        NSLog(@"Info->%@",aNotif.userInfo);
-//        NSLog(@"%@",aNotif);
-//        if([[aNotif.userInfo objectForKey:@"ID"] isEqualToString:@"2"]) {
-//            [app cancelLocalNotification:aNotif];
-//        }
-//    }
-     
     if (IS_REPEAT_OPTION_ON) {
         NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[self loadRepeatDelayedTheme]];
         for (int i=0;i<[repeatDelayedThemes count];i++){
