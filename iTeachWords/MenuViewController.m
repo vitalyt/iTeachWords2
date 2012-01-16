@@ -147,6 +147,12 @@
 #pragma mark my functios
 
 - (void)checkDelayedThemes{
+    if (customBadge1) {
+        [customBadge1 removeFromSuperview];
+        customBadge1 = nil;
+    }
+    UIApplication* app = [UIApplication sharedApplication];
+    app.applicationIconBadgeNumber = 0;
     if (IS_REPEAT_OPTION_ON) {
         NSArray *repeatDelayedThemes = [[NSArray alloc] initWithArray:[[iTeachWordsAppDelegate sharedDelegate] loadRepeatDelayedTheme]];
         int repeatDelayedThemesCount = 0;
@@ -163,13 +169,6 @@
             [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
         } 
         [repeatDelayedThemes release];
-    }else{
-        if (customBadge1) {
-            [customBadge1 removeFromSuperview];
-            customBadge1 = nil;
-        }
-        UIApplication* app = [UIApplication sharedApplication];
-        app.applicationIconBadgeNumber = 0;
     }
     
 }

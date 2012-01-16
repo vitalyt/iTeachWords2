@@ -24,4 +24,6 @@
 - (void)showFontPicker:(id)sender;
 - (void)showToolbar;
 
+- (void)showNotificationTableView;
+
 @end

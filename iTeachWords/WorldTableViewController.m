@@ -121,7 +121,9 @@
 # pragma mark alert table functions
 
 - (void)checkDelayedThemes{
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"isNotShowRepeatList"] boolValue] && IS_REPEAT_OPTION_ON) {
+    NSLog(@"%d",[[NSUserDefaults standardUserDefaults] boolForKey:@"isNotShowRepeatList"]);
+    NSLog(@"%d",IS_REPEAT_OPTION_ON);
+    if (IS_REPEAT_OPTION_ON && (![[NSUserDefaults standardUserDefaults] boolForKey:@"isNotShowRepeatList"])) {
         NSMutableArray *delayedElements = [[NSMutableArray alloc] init];
         NSArray *_repeatDelayedThemes = [[NSArray alloc] initWithArray:[[iTeachWordsAppDelegate sharedDelegate] loadRepeatDelayedTheme]];
         if ([_repeatDelayedThemes count]>0) {

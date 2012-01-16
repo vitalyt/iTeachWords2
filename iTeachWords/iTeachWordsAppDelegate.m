@@ -48,6 +48,10 @@
 //    NSLog(@"TestTeamToken is %@",testTeamToken);
 //    [TestFlight takeOff:testTeamToken];
     // The rest of your application:didFinishLaunchingWithOptions method
+    bool b = NO;
+    if ((b)?b:YES) {
+        NSLog(@"ffffffff");
+    }
     
     [self activateNotification];
     
@@ -126,7 +130,7 @@
         for (int i=0;i<[repeatDelayedThemes count];i++){
             NSDictionary *dict = [repeatDelayedThemes objectAtIndex:i];
             int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
-            NSLog(@"%d",interval);
+            //NSLog(@"%d",interval);
             WordTypes *wordType = [dict objectForKey:@"wordType"];
             //        NSManagedObjectID *objectID = wordType.objectID;
             if (interval > 0) {
@@ -178,11 +182,11 @@
     if ([delayedTheme count]>0) {
         for (int i=0;i<[delayedTheme count];i++){
             NSDictionary *dict = [delayedTheme objectAtIndex:i];
-            NSLog(@"%@", dict);    
+           // NSLog(@"%@", dict);    
             NSDate *currentDate = [NSDate date];
             int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
             NSDate *newDate = [currentDate dateByAddingTimeInterval:interval];
-            NSLog(@"%@",newDate);
+            //NSLog(@"%@",newDate);
         }
     }
     [repeatModel release];

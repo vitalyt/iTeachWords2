@@ -45,6 +45,7 @@ const float cellHeight = 53;
         switch (buttonIndex) {
             case 1:
                 [[NSUserDefaults standardUserDefaults]  setBool:YES forKey:@"isNotShowRepeatList"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 break;
                 
             default:

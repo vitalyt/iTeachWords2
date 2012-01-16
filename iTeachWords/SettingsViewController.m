@@ -10,6 +10,7 @@
 #import "LanguagePickerController.h"
 #import "TextFieldLanguagesCell.h"
 #import "SwitchingCell.h"
+#import "NotificationTableView.h"
 
 #define FONT_OF_HEAD_LABEL [UIFont fontWithName:@"Helvetica-Bold" size:16]
 
@@ -89,10 +90,10 @@
     if (fontSize) {
         [self.values setObject:[NSString stringWithFormat:@"%d",fontSize] forKey:@"fontSize"];
     }
-    [self.values setObject:[NSNumber numberWithBool:isRepeatNotifications] forKey:@"isRepeatNotifications"];
+    [self.values setObject:[NSNumber numberWithBool:isRepeatNotifications] forKey:@"isRepeatOptionOn"];
     
     titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
-    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notifications",@""), nil];
+    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notifications",@""),NSLocalizedString(@"Notifications",@""), nil];
     NSArray *elements1 = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Password",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
@@ -114,7 +115,7 @@
                 key = @"fontName";
                 break;
             case 3:
-                key = @"isRepeatNotifications";
+                key = @"isRepeatOptionOn";
                 break;
                 
             default:
@@ -136,6 +137,9 @@
                 break;
             case 3:
                 return @"SwitchingCell";
+                break;
+            case 4:
+                return nil;
                 break;
             default:
                 break;
@@ -202,16 +206,18 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         [((TextFieldCell *)cell).textField becomeFirstResponder];
+    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 4) {
+        [self showNotificationTableView];
     }
 }
 
 - (void) configureCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath {
+    NSString *titleText = [[data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         TextFieldCell* _cell = (TextFieldCell *)cell;
         _cell.textField.placeholder = NSLocalizedString(@"Touch to change", @""); 
         [_cell setDelegate:self];
-        NSString *title = [[data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-        [_cell.titleLabel setText:title];
+        [_cell.titleLabel setText:titleText];
         NSString *value = [self.values objectForKey:[self keyForIndexPath:indexPath]];
         if (value) {
             _cell.textField.text = value;
@@ -247,14 +253,16 @@
     }else if([cell isKindOfClass:[SwitchingCell class]]){
         SwitchingCell* _cell = (SwitchingCell *)cell; 
         NSString *key = [self keyForIndexPath:indexPath];
-        NSString *title = [[data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         bool _value = [[self.values objectForKey:key] boolValue];
-        _cell.titleLabel.text = title;
+        _cell.titleLabel.text = titleText;
         [_cell setDelegate:self];
         NSLog(@"%d",_value);
         NSLog(@"%@",key);
         [_cell.switcher setOn:_value];
         //[self.values setValue:[NSNumber numberWithInt:value] forKey:key];
+    }else if([cell isMemberOfClass:[UITableViewCell class]]){
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        cell.textLabel.text = titleText;
     }
 }
 
@@ -356,6 +364,16 @@
         [UIAlertView displayError:NSLocalizedString(@"Data is not completly", @"")];
         return;
     }
+}
+
+- (void)showNotificationTableView{
+    
+     NotificationTableView *notificationViewController = [[NotificationTableView alloc] initWithNibName:@"NotificationTableView" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:notificationViewController animated:YES];
+     [notificationViewController release];
+     
 }
 
 - (void)showToolbar{

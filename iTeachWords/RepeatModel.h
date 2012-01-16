@@ -32,4 +32,5 @@
 - (NSArray*)loadAllThemes;
 - (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType;
 
++ (NSString*)keyForStatus:(int)status;
 @end
