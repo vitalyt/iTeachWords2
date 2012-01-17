@@ -90,7 +90,6 @@
     }
     [contentView addSubview:webView];
     [webView setFrame:webViewFrame];
-    [self setUrl:@"www.google.com"];
 }
 
 - (IBAction)close:(id)sender{

@@ -8,6 +8,7 @@
 
 #import "NotificationTableView.h"
 #import "SwitchingCell.h"
+#import "DetailViewController.h"
 
 #define FONT_OF_HEAD_LABEL [UIFont fontWithName:@"Helvetica-Bold" size:16]
 
@@ -272,13 +273,37 @@
      */
 }
 
-- (void)changedNotification{ 
+- (void)changedNotification{
     NSString *key = @"isRepeatOptionOn";
     bool _value = onOffSwitcher.on;
+    if (!_value) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"", @"") message:NSLocalizedString(@"Are you sure? The closes of this funtionality is not recomended", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Show detail info", @""), nil];
+        [alert show];
+        [alert autorelease];
+    }
     [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
     [table reloadData];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 1:
+            [self showInfoView];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)showInfoView{
+    DetailViewController *infoView = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    [self.navigationController presentModalViewController:infoView animated:YES];
+    [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
+    //    [self.navigationController pushViewController:infoView animated:YES];
+    [infoView release];
 }
 
 - (void)dealloc {

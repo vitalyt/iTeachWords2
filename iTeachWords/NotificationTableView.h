@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "InputTableController.h"
 
-@interface NotificationTableView : InputTableController{
+@interface NotificationTableView : InputTableController<UIAlertViewDelegate>{
     UISwitch *onOffSwitcher;
 }
 
 - (NSString*)keyForIndexPath:(NSIndexPath*)indexPath;
 
 - (void)changedNotification;
+- (void)showInfoView;
 
 @end
