@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SimpleWebViewController.h"
 
-@interface DetailViewController : UIViewController
+@class MyUIViewClass;
+@interface DetailViewController : SimpleWebViewController{
+    
+    IBOutlet MyUIViewClass *contentView;
+}
 
-
+- (void)showWebView;
 - (IBAction)close:(id)sender;
 
 @end

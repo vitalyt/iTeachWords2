@@ -34,4 +34,5 @@
 - (IBAction)redo:(id)sender;
 - (IBAction)refresh:(id)sender;
 - (IBAction)showInSafari:(id)sender;
+
 @end

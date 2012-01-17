@@ -33,6 +33,7 @@ documentsDirectory = [paths objectAtIndex:0];
 	return self;
 }
 
+
 - (void)webViewDidStartLoad:(UIWebView *)_webView{
     if (!progressView) {
         progressView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2-12, self.view.frame.size.height/2-12, 25, 25)];  

@@ -7,6 +7,9 @@
 //
 
 #import "DetailViewController.h"
+#import "WebViewController.h"
+#import "MyUIViewClass.h"
+#import "SimpleWebViewController.h"
 
 @implementation DetailViewController
 
@@ -32,27 +35,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self showWebView];
     // Do any additional setup after loading the view from its nib.
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     // grab an image of our parent view
-    UIView *parentView = self.parentViewController.view;
+//    UIView *parentView = self.parentViewController.view;
     
     // For iOS 5 you need to use presentingViewController:
     // UIView *parentView = self.presentingViewController.view;
     
-    UIGraphicsBeginImageContext(parentView.bounds.size);
-    [parentView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *parentViewImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    // insert an image view with a picture of the parent view at the back of our view's subview stack...
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, parentView.bounds.size.width, parentView.bounds.size.height)];
-    imageView.image = parentViewImage;
-    [self.view insertSubview:imageView atIndex:0];
-    [imageView release];
+//    UIGraphicsBeginImageContext(parentView.bounds.size);
+//    [parentView.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *parentViewImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    // insert an image view with a picture of the parent view at the back of our view's subview stack...
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, parentView.bounds.size.width, parentView.bounds.size.height)];
+//    imageView.image = parentViewImage;
+    //[self.view insertSubview:imageView atIndex:0];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+    //[imageView release];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -65,6 +70,8 @@
 
 - (void)viewDidUnload
 {
+    [contentView release];
+    contentView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -76,9 +83,24 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
+- (void)showWebView{
+    CGRect webViewFrame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
+    if (!webView) {
+        webView = [[UIWebView alloc] initWithFrame:webViewFrame];
+    }
+    [contentView addSubview:webView];
+    [webView setFrame:webViewFrame];
+    [self setUrl:@"www.google.com"];
+}
 
 - (IBAction)close:(id)sender{
+    
+    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75]];
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)dealloc {
+    [contentView release];
+    [super dealloc];
 }
 @end
