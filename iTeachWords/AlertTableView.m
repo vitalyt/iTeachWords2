@@ -112,10 +112,11 @@ const float cellHeight = 53;
     NSDictionary *dict = [data objectAtIndex:indexPath.row];
     WordTypes *_wordType = [dict objectForKey:@"wordType"];
     cell.textLabel.text = _wordType.name;
-    
     int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+    NSLog(@"%@",[[((StatisticLearning*)[[[_wordType statisticLearning] allObjects] lastObject]) lastLearningDate] stringWithFormat:@"dd.MM.YYYY  HH:mm"]);
+    NSLog(@"%d",interval);
     NSDate *newDate = [[NSDate date] dateByAddingTimeInterval:interval];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[newDate stringWithFormat:@"dd.MM.YYYY  HH:MM"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[newDate stringWithFormat:@"dd.MM.YYYY  HH:mm"]];
     [cell.detailTextLabel setTextColor:[UIColor redColor]];
     
     return cell;

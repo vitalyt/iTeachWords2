@@ -398,8 +398,6 @@
     [UIAlertView displayMessage:information];
 	[_mutableData release];
     
-    
-    
     NSString *_fileName;
     NSURL           *recordedTmpFile;
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:

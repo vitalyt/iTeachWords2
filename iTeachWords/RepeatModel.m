@@ -92,6 +92,8 @@
     [statisticLearning setRepeatStatus:[NSNumber numberWithInt:_repeatStatus]];
     [statisticLearning setChangeDate:[NSDate date]];
     [statisticLearning setLastLearningDate:[NSDate date]];
+    NSLog(@"%@",[[NSDate date] stringWithFormat:@"dd.MM.YYYY  HH:mm"]);
+    NSLog(@"%@",[[statisticLearning lastLearningDate] stringWithFormat:@"dd.MM.YYYY  HH:mm"]);
     return statisticLearning;
 }
 
