@@ -10,7 +10,7 @@
 #import "MyPickerViewContrller.h"
 #import "WordTypes.h"
 #import "Words.h"
-#import "RecordingViewController.h"
+#import "RecordingWordViewController.h"
 
 #define DELEGATE ((UIViewController*)delegate)
 
@@ -223,7 +223,7 @@
         [recordView saveSound];
         [recordView release];
     }
-    recordView = [[RecordingViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
+    recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
     recordView.delegate = self;
     [self.view.superview addSubview:recordView.view];
     [recordView.view setFrame:CGRectMake(currentTextField.frame.origin.x+currentTextField.frame.size.width-currentTextField.rightView.frame.size.width, currentTextField.frame.origin.y, currentTextField.rightView.frame.size.width, currentTextField.rightView.frame.size.height)];

@@ -13,7 +13,7 @@
 #import "WBEngine.h"
 #import "WBRequest.h"
 #import "WBConnection.h"
-#import "RecordingViewController.h"
+#import "RecordingWordViewController.h"
 #import "AddNewWordViewController.h"
 //#define radius 10
 

@@ -2,46 +2,26 @@
 //  RecordingViewController.h
 //  iTeachWords
 //
-//  Created by Edwin Zuydendorp on 1/20/11.
-//  Copyright 2011 OSDN. All rights reserved.
+//  Created by Edwin Zuydendorp on 1/19/12.
+//  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
-#import <CoreAudio/CoreAudioTypes.h>
+#import "RecordModel.h"
 #import "ToolsViewProtocol.h"
-#import "RecordingViewProtocol.h"
-#import "WBEngine.h"
 
-@class Words,Sounds;
-@interface RecordingViewController : UIViewController <AVAudioRecorderDelegate> {
-@private
+@interface RecordingViewController : RecordModel{
     IBOutlet UIActivityIndicatorView *activityIndicatorView;
-    NSString        *fileName;
-    NSURL           *recordedTmpFile;
-    AVAudioRecorder *recorder;
-	NSError			*error;
+    IBOutlet UIView *vuMeter;
     
-    Sounds          *currentSound;
-    Words           *word;
-    id	<ToolsViewProtocol> toolsViewDelegate;
     id	<RecordingViewProtocol> delegate;
-    
-    SoundType       soundType;
-    WBEngine                *wbEngine;
+    id	<ToolsViewProtocol> toolsViewDelegate;
 }
-@property (nonatomic,retain) NSString *fileName;
-@property (nonatomic,retain) id <ToolsViewProtocol>  toolsViewDelegate;
-@property (nonatomic,retain) id <RecordingViewProtocol>  delegate;
-@property (nonatomic,assign) SoundType    soundType;
+
+@property (nonatomic,assign) id <RecordingViewProtocol>  delegate;
+@property (nonatomic,assign) id <ToolsViewProtocol>  toolsViewDelegate;
 
 - (IBAction)record:(id)sender;
 - (IBAction)play:(id)sender;
 - (IBAction)close:(id)sender;
-- (IBAction) saveSound;
 
-- (void) setWord:(Words *)_word withType:(SoundType)type;
-- (void) createRecirdingFile:(NSString *)_fileName;
-- (void) startRecordInFile:(NSString *)fileName;
-- (IBAction) loadFromNetwork;
 @end

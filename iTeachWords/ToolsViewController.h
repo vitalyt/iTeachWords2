@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ToolsViewProtocol.h"
 #import "QuartzCore/QuartzCore.h"
-#import "RecordingViewProtocol.h"
 #import "TestsViewProtocol.h"
+#import "RecordingViewController.h"
 
-@class  RecordingViewController,
-        TestsViewController,
+@class  TestsViewController,
         EditingView,
         ManagerViewController;
 @interface ToolsViewController : UIViewController <RecordingViewProtocol,TestsViewProtocol,ToolsViewProtocol> {

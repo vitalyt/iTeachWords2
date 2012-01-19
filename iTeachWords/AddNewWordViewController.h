@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
-#import "RecordingViewProtocol.h"
 #import "AddWordModel.h"
+#import "RecordModel.h"
 
-@class MyPickerViewContrller,MyUIViewClass,RecordingViewController,AddWordModel,WBEngine;
+@class MyPickerViewContrller,MyUIViewClass,RecordingWordViewController,AddWordModel,WBEngine;
 
 @interface AddNewWordViewController : UIViewController <UITextFieldDelegate, RecordingViewProtocol, UIActionSheetDelegate>{
 	IBOutlet UIPickerView	*myPickerView;
@@ -24,7 +24,7 @@
     IBOutlet MyUIViewClass  *myToolbarView;
 	MyPickerViewContrller	*myPicker;
     IBOutlet UIButton       *recordButtonView;
-    RecordingViewController *recordView;
+    RecordingWordViewController *recordView;
     
     id                      delegate;
     

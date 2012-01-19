@@ -78,7 +78,7 @@
 		28296B44138149A6000129E8 /* deleteImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 28296B43138149A6000129E8 /* deleteImg.png */; };
 		28296B47138149F9000129E8 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28296B45138149F8000129E8 /* CoreAudio.framework */; };
 		28296B48138149F9000129E8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28296B46138149F9000129E8 /* CoreFoundation.framework */; };
-		28296B5113814C61000129E8 /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28296B4F13814C61000129E8 /* RecordingViewController.m */; };
+		28296B5113814C61000129E8 /* RecordingWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28296B4F13814C61000129E8 /* RecordingWordViewController.m */; };
 		28296B5213814C61000129E8 /* RecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28296B5013814C61000129E8 /* RecordingViewController.xib */; };
 		28296B5713814C77000129E8 /* Play 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28296B5413814C77000129E8 /* Play 16x16.png */; };
 		28296B5813814C77000129E8 /* Record 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28296B5513814C77000129E8 /* Record 16x16.png */; };
@@ -105,6 +105,8 @@
 		282EAF85139E47E10057F316 /* Check 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF84139E47E10057F316 /* Check 24x24.png */; };
 		282FEDD6147F813B0065A2F9 /* ARFontPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282FEDD5147F813B0065A2F9 /* ARFontPickerViewController.m */; };
 		2830DEF3148CC7D900BA1964 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2830DEF2148CC7D900BA1964 /* XMLReader.m */; };
+		2837B68F14C84DC90053C275 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2837B68E14C84DC90053C275 /* RecordModel.m */; };
+		2837B69A14C8538D0053C275 /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2837B69914C8538D0053C275 /* RecordingViewController.m */; };
 		283B1F0E1383EDA9004EB5D4 /* RecordFullView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283B1F0D1383EDA9004EB5D4 /* RecordFullView.xib */; };
 		283B1F2C1384EE01004EB5D4 /* WorldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B1F2A1384EE01004EB5D4 /* WorldTableViewController.m */; };
 		283B1F2D1384EE01004EB5D4 /* WorldTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283B1F2B1384EE01004EB5D4 /* WorldTableViewController.xib */; };
@@ -554,9 +556,8 @@
 		28296B43138149A6000129E8 /* deleteImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteImg.png; sourceTree = "<group>"; };
 		28296B45138149F8000129E8 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		28296B46138149F9000129E8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		28296B4D13814C61000129E8 /* RecordingViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewProtocol.h; sourceTree = "<group>"; };
-		28296B4E13814C61000129E8 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewController.h; sourceTree = "<group>"; };
-		28296B4F13814C61000129E8 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingViewController.m; sourceTree = "<group>"; };
+		28296B4E13814C61000129E8 /* RecordingWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingWordViewController.h; sourceTree = "<group>"; };
+		28296B4F13814C61000129E8 /* RecordingWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingWordViewController.m; sourceTree = "<group>"; };
 		28296B5013814C61000129E8 /* RecordingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingViewController.xib; sourceTree = "<group>"; };
 		28296B5413814C77000129E8 /* Play 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play 16x16.png"; sourceTree = "<group>"; };
 		28296B5513814C77000129E8 /* Record 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Record 16x16.png"; sourceTree = "<group>"; };
@@ -592,6 +593,10 @@
 		282FEDD5147F813B0065A2F9 /* ARFontPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFontPickerViewController.m; sourceTree = "<group>"; };
 		2830DEF1148CC7D900BA1964 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		2830DEF2148CC7D900BA1964 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		2837B68D14C84DC90053C275 /* RecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
+		2837B68E14C84DC90053C275 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		2837B69814C8538D0053C275 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewController.h; sourceTree = "<group>"; };
+		2837B69914C8538D0053C275 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingViewController.m; sourceTree = "<group>"; };
 		283B1F0D1383EDA9004EB5D4 /* RecordFullView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordFullView.xib; sourceTree = "<group>"; };
 		283B1F291384EE01004EB5D4 /* WorldTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldTableViewController.h; sourceTree = "<group>"; };
 		283B1F2A1384EE01004EB5D4 /* WorldTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldTableViewController.m; sourceTree = "<group>"; };
@@ -1353,7 +1358,6 @@
 				28D3C2DE138665CF00B35FC7 /* Exercises */,
 				28D3C2D7138664CE00B35FC7 /* Editing */,
 				CE6C776A13C0F65100ACDC2E /* Manager */,
-				28296B5B13814E10000129E8 /* Recording */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -1361,10 +1365,13 @@
 		28296B5B13814E10000129E8 /* Recording */ = {
 			isa = PBXGroup;
 			children = (
-				28296B4D13814C61000129E8 /* RecordingViewProtocol.h */,
-				28296B4E13814C61000129E8 /* RecordingViewController.h */,
-				28296B4F13814C61000129E8 /* RecordingViewController.m */,
+				2837B68D14C84DC90053C275 /* RecordModel.h */,
+				2837B68E14C84DC90053C275 /* RecordModel.m */,
+				2837B69814C8538D0053C275 /* RecordingViewController.h */,
+				2837B69914C8538D0053C275 /* RecordingViewController.m */,
 				28296B5013814C61000129E8 /* RecordingViewController.xib */,
+				28296B4E13814C61000129E8 /* RecordingWordViewController.h */,
+				28296B4F13814C61000129E8 /* RecordingWordViewController.m */,
 				283B1F0D1383EDA9004EB5D4 /* RecordFullView.xib */,
 			);
 			name = Recording;
@@ -1480,6 +1487,7 @@
 			children = (
 				2821ECC41484DED80025621D /* TestFlight */,
 				281F88E5139E0ADA00431DAD /* Network */,
+				28296B5B13814E10000129E8 /* Recording */,
 				282A3BCA1385234500F7D68E /* Player */,
 				28296B20138132E5000129E8 /* Update */,
 				284092FB1381257000864711 /* Model */,
@@ -2532,7 +2540,7 @@
 				28296B2C13814109000129E8 /* iTeachWordsDataModel.xcdatamodeld in Sources */,
 				28296B391381494E000129E8 /* AddWord.m in Sources */,
 				28296B4013814978000129E8 /* MyPickerViewContrller.m in Sources */,
-				28296B5113814C61000129E8 /* RecordingViewController.m in Sources */,
+				28296B5113814C61000129E8 /* RecordingWordViewController.m in Sources */,
 				28296B6113814E40000129E8 /* ToolsViewController.m in Sources */,
 				283B1F2C1384EE01004EB5D4 /* WorldTableViewController.m in Sources */,
 				282A3BD01385236800F7D68E /* MyPlayer.m in Sources */,
@@ -2622,6 +2630,8 @@
 				2818000714C40C3F00C75BEB /* NotificationTableView.m in Sources */,
 				2872FE5D14C4754F0010AFA1 /* DetailViewController.m in Sources */,
 				2862E3C114C57D20003CC14C /* SimpleWebViewController.m in Sources */,
+				2837B68F14C84DC90053C275 /* RecordModel.m in Sources */,
+				2837B69A14C8538D0053C275 /* RecordingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
