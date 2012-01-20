@@ -5,10 +5,11 @@
 //  Created by Vitaly Todorovych on 5/16/11.
 //  Copyright 2011 OSDN. All rights reserved.
 //
+#import "FileManagerProtocol.h"
 
 @class iTeachWordsViewController,MyPlayer;
 
-@interface iTeachWordsAppDelegate : NSObject <UIApplicationDelegate, UINavigationBarDelegate,UINavigationControllerDelegate> {
+@interface iTeachWordsAppDelegate : NSObject <UIApplicationDelegate, UINavigationBarDelegate,UINavigationControllerDelegate,FileManagerProtocol> {
     
     NSManagedObjectModel            *managedObjectModel;
     NSManagedObjectContext          *managedObjectContext;	    
@@ -17,6 +18,7 @@
     
     MyPlayer                *player;
     NSMutableData           *_mutableData;
+    bool                    isUpdating;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -30,6 +32,7 @@
 
 + (BOOL) isNetwork;
 - (void) checkDatabase;
+- (void)updateData;
 + (NSManagedObjectContext *) sharedContext;
 + (void)clearUdoManager;
 + (iTeachWordsViewController *) sharedDelegate;
@@ -43,5 +46,6 @@
 -(NSArray*)loadRepeatDelayedTheme;
 
 + (void)saveDB;
+
 
 @end

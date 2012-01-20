@@ -597,6 +597,7 @@
 		2837B68E14C84DC90053C275 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
 		2837B69814C8538D0053C275 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewController.h; sourceTree = "<group>"; };
 		2837B69914C8538D0053C275 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingViewController.m; sourceTree = "<group>"; };
+		2837B6D014C9B0940053C275 /* FileManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerProtocol.h; sourceTree = "<group>"; };
 		283B1F0D1383EDA9004EB5D4 /* RecordFullView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordFullView.xib; sourceTree = "<group>"; };
 		283B1F291384EE01004EB5D4 /* WorldTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldTableViewController.h; sourceTree = "<group>"; };
 		283B1F2A1384EE01004EB5D4 /* WorldTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldTableViewController.m; sourceTree = "<group>"; };
@@ -1245,6 +1246,7 @@
 		28296B20138132E5000129E8 /* Update */ = {
 			isa = PBXGroup;
 			children = (
+				2837B6D014C9B0940053C275 /* FileManagerProtocol.h */,
 				28296B21138132F5000129E8 /* FilesManagerViewController.h */,
 				28296B22138132F5000129E8 /* FilesManagerViewController.m */,
 				28296B23138132F5000129E8 /* FilesManagerViewController.xib */,

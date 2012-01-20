@@ -27,16 +27,23 @@
 	}
 }
 
-- (void) loadData{ 
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
-    NSLog(@"%@",predicate);
-    NSFetchedResultsController *fetches = [NSManagedObjectContext 
-                                           getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:predicate];
++ (NSArray*)loadAllThemeWithPredicate:(NSPredicate*)_predicate{
+    NSLog(@"%@",_predicate);
+    NSFetchedResultsController *_fetches = [NSManagedObjectContext 
+                                            getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:_predicate];
     
-	NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
-	NSArray *companies = [fetches fetchedObjects];
-	self.data = [companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:date, nil]];
-    [date release];
+	NSSortDescriptor *_data = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
+	NSArray *_companies = [_fetches fetchedObjects];
+    return [_companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:[_data autorelease], nil]];
+}
+
++ (NSArray*)loadAllTheme{
+    NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
+    return [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
+}
+
+- (void) loadData{ 
+	self.data = [MyPickerViewContrller loadAllTheme];
 	[pickerView reloadAllComponents];
     
     NSString *lastTheme  = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastTheme"];

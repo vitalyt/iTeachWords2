@@ -112,6 +112,7 @@
             [self showMyPickerView];
         }
     }else if(dataModel.currentWord && dataModel.wordType){
+        NSLog(@"%@",((WordTypes*)dataModel.wordType));
         textFld.text = dataModel.currentWord.text;
         translateFid.text = dataModel.currentWord.translate;
         [self textFieldDidChange:textFld];

@@ -13,12 +13,18 @@
     IBOutlet UIActivityIndicatorView *activityIndicatorView;
     IBOutlet UIView *vuMeter;
     
+    NSTimer *meterTimer;
+    
     id	<RecordingViewProtocol> delegate;
     id	<ToolsViewProtocol> toolsViewDelegate;
 }
 
 @property (nonatomic,assign) id <RecordingViewProtocol>  delegate;
 @property (nonatomic,assign) id <ToolsViewProtocol>  toolsViewDelegate;
+
+- (void)runTimer;
+- (float)materViewWidth;
+- (void)setVUMeterWidth:(float)width;
 
 - (IBAction)record:(id)sender;
 - (IBAction)play:(id)sender;

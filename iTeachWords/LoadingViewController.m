@@ -72,12 +72,15 @@
     if ([_baseView viewWithTag:LOADING_VIEWTAG] != nil) {
 		return;
 	}
+    [self updateDataCurrentIndex:0];
     [self.view setTag:LOADING_VIEWTAG];
 	[_baseView addSubview:self.view];
     [_baseView bringSubviewToFront:self.view];
 }
 
 - (void)closeLoadingView{
+    UIView* _baseView = [[UIApplication sharedApplication] keyWindow];
+    [[_baseView viewWithTag:LOADING_VIEWTAG] removeFromSuperview];
     [[self view] removeFromSuperview];
 }
 

@@ -36,6 +36,7 @@
         self.currentWord = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
                                                     inManagedObjectContext:CONTEXT];
         [currentWord setCreateDate:[NSDate date]];
+        [wordType addWordsObject:currentWord];
     }
     [currentWord setType:wordType];
     [currentWord setTypeID:wordType.typeID];

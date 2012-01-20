@@ -1,4 +1,4 @@
-//
+ //
 //  FilesManagerViewController.m
 //  Untitled
 //
@@ -11,12 +11,13 @@
 #import "Words.h"
 #import "Sounds.h"
 #import "LoadingViewController.h"
+#import "MyPickerViewContrller.h"
 
 #define RESOUCE [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]]
 
 @implementation FilesManagerViewController
 
-@synthesize myProgressView,myLabel;
+@synthesize myProgressView,myLabel,delegate;
 
 
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -28,17 +29,17 @@
 }
 
 - (void) onCopy{
-	// Теперь важное. Подписываемся на нотификации от движка, это своего рода аналог events в других языках
-	// Нотификация об изменении прогресса поиска. На нее мы меняем значение контрола UIProgressView
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(updateProgress:)
-												 name:@"progressChanged"
-											   object:nil];
-	// нотификация о том, что поиск полностью окончен
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(processCopyResult)
-												 name:@"copyEnd"
-											   object:nil];
+//	// Теперь важное. Подписываемся на нотификации от движка, это своего рода аналог events в других языках
+//	// Нотификация об изменении прогресса поиска. На нее мы меняем значение контрола UIProgressView
+//	[[NSNotificationCenter defaultCenter] addObserver:self
+//											 selector:@selector(updateProgress:)
+//												 name:@"progressChanged"
+//											   object:nil];
+//	// нотификация о том, что поиск полностью окончен
+//	[[NSNotificationCenter defaultCenter] addObserver:self
+//											 selector:@selector(processCopyResult)
+//												 name:@"copyEnd"
+//											   object:nil];
 	// стартуем поиск
 	[self threadStart];
 }
@@ -72,7 +73,6 @@
 		// проверяем, находимся ли мы в Main потоке
 		if( !pthread_main_np() )
 		{
-			
 			// если нет, то нам сделать расширенную нотификацию
 			// создаем массив аргументов нотификации
 			NSMutableDictionary *info = [[NSMutableDictionary allocWithZone:nil] init];
@@ -135,16 +135,27 @@
 	}
 	[[NSFileManager defaultManager] removeItemAtPath:pathOfResource error:nil];
 	NSLog(@"files:%@",files2);
+    [loadingView setTotal:[files2 count]];
 	for (int i=0; i<[files2 count]; i++) {
         NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
-		//NSString *pathOfResource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/MyResource/"];
+        
+        [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
+        [loadingView performSelectorOnMainThread:@selector(setTotal:) withObject:[NSNumber numberWithInt:[files2 count]] waitUntilDone:YES];
+        [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
+        
 		[self reviewFile:[files2 objectAtIndex:i]inFolder:(NSString *)pathOfResource2];
-		searchProgress = (float)i/([files2 count]-1);
-		if (i+1<[files2 count]) {
-			file = [files2 objectAtIndex:i+1];
-		}
-		[self doMessage:nil];
+//		searchProgress = (float)i/([files2 count]-1);
+//		if (i+1<[files2 count]) {
+//			file = [files2 objectAtIndex:i+1];
+//		}
+//		[self doMessage:nil];
         [pool drain];
+	}
+    
+    [loadingView closeLoadingView];
+    SEL selector = @selector(dataDidUpdate);
+	if ([delegate respondsToSelector:selector]) {
+		[delegate performSelector:selector];
 	}
 }
 
@@ -252,7 +263,8 @@
 	
 	subRange = [[fileName lowercaseString] rangeOfString:@".txt"];
 	if (subRange.length != 0) {
-        if ([self addThemeWithFile:fileName]) {
+        NSString *pathToFile = [RESOUCE stringByAppendingPathComponent:fileName];
+        if ([self loadDictionaryWithFile:pathToFile]) {
             [fileManager removeItemAtPath:[RESOUCE stringByAppendingPathComponent:fileName] error:nil];
         }
 		return;
@@ -358,15 +370,19 @@
 
 #pragma mark load Dictionary
 - (void)loadDictionary{
-    progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadDictionaryWithFile:) object:@"/enrus.txt"];
+    NSString *pathToFile = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/enrus.txt"];
+    progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadDictionaryWithFile:) object:pathToFile];
     [progressThread start];
 }
 
-- (void)loadDictionaryWithFile:(NSString*)fileName{
+- (bool)loadDictionaryWithFile:(NSString*)fileName{
+    NSLog(@"Parsing the %@ file...",fileName);
+    
+    NSAutoreleasePool *poolRoot= [[NSAutoreleasePool alloc] init];
+    bool returnValue = YES;
     [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
-    NSString *text = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
+    NSString *text = [[NSString alloc]initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
+    [iTeachWordsAppDelegate clearUdoManager];
     @try {
         NSMutableString *mutStr = [NSMutableString stringWithString:@""];
         unichar ch;
@@ -377,11 +393,9 @@
             ++index;
             ch = [text characterAtIndex:index];
         }
-        NSLog(@"%@|",mutStr);
         NSString *globalSlash = mutStr;
         NSArray *wordsArray = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:globalSlash]];
         [loadingView setTotal:[wordsArray count]];
-        //wordsArray = [NSArray arrayWithArray:[text componentsSeparatedByString:globalSlash]];
         NSDate *createDate = [[NSDate date] retain];
         NSString *themeName = [wordsArray objectAtIndex:2];
         NSString *slash = [wordsArray objectAtIndex:3];
@@ -394,33 +408,52 @@
         
         NSString *nativeLanguage = [languageObjects objectAtIndex:1];
         NSString *translateLanguage = [languageObjects objectAtIndex:0];
+       
+        //Checking whether there is dictionary with the same name 
+        while (YES) {
+            NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@ && name = %@",
+                                       [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], 
+                                       [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
+                                       themeName];
+            NSArray *allTheme = [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
+            if ([allTheme count]>0) {
+                themeName = [NSString stringWithFormat:@"%@ (%d)",themeName,[allTheme count]];
+            } else{
+                break;
+            }
+        }
         
+        //Parsing words
         WordTypes *_wordType;
         _wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
                                                   inManagedObjectContext:CONTEXT];
         [_wordType setName:themeName];
         [_wordType setCreateDate:createDate];
-        
         [_wordType setNativeCountryCode:nativeLanguage];
         [_wordType setTranslateCountryCode:translateLanguage];
         
         @try {   
             NSMutableSet* wordsAr = [[NSMutableSet alloc]init];
-            for (int i = 5 ; i< [wordsArray count]; i++) {
-                if ((i%1000) == 0) {
+            int linesCount = [wordsArray count];
+            int breakPoints = ((linesCount<1000)?(linesCount/10):1000);
+            
+            NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
+            for (int i = 5 ; i< linesCount; i++) {
+                if ((i%breakPoints) == 0) {
                     [_wordType addWords:wordsAr];
                     [wordsAr removeAllObjects];
                     [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
-                    
+//                    
                     [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
-                    //[iTeachWordsAppDelegate saveDB];
+//                    //[iTeachWordsAppDelegate saveDB];
                     [pool drain];
                     pool= [[NSAutoreleasePool alloc] init];
                 }
-                NSArray *ar2 = [NSArray arrayWithArray:[[wordsArray objectAtIndex:i] componentsSeparatedByString:@"="]];
+                NSArray *ar2 = [NSArray arrayWithArray:[[wordsArray objectAtIndex:i] componentsSeparatedByString:slash]];
                 if ([ar2 count]<2) {
                     continue;
                 }
+                //NSLog(@"ar2->%@",ar2);
                 Words *word = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
                                                             inManagedObjectContext:CONTEXT];
                 [word setCreateDate:createDate];
@@ -435,26 +468,38 @@
             [_wordType addWords:wordsAr];
             [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
             [wordsAr release];
+            [pool drain];
+            
         }
         @catch (NSException *exception) {
+            returnValue = NO;
             NSLog(@"%@",exception);
-            [UIAlertView showMessage:NSLocalizedString(@"There was some error within parse words", @"")];
+            [UIAlertView displayError:NSLocalizedString(@"There was some error within parse words", @"")];
         }
         @finally {
+            if (!returnValue) {
+                [CONTEXT rollback];
+            }
             [wordsArray release];
             [createDate release];
         }
         
     }
     @catch (NSException *exception) {
+        returnValue = NO;
         NSLog(@"%@",exception);
-        [UIAlertView showMessage:NSLocalizedString(@"There was some error within parse options informdtion (line 1->4)", @"")];
+        [UIAlertView displayError:NSLocalizedString(@"There was some error within parse options informdtion (line 1->4)", @"")];
     }
     @finally {
-        [pool drain];
         [text release];
         [loadingView closeLoadingView];
+        [poolRoot drain];
     }
+    return returnValue;
+}
+
+- (void)removeFileOfName:(NSString*)_fileName{
+    
 }
 
 #pragma mark - showing functions
@@ -468,16 +513,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self onCopy];
+	//[self onCopy];
 }
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

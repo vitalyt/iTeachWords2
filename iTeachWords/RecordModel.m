@@ -33,10 +33,17 @@
     }
     recordedTmpFile = [[NSURL alloc] initFileURLWithPath:path];
     NSLog(@"Using File called: %@",recordedTmpFile);
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance]; 
+    [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];    
 }
 
 - (void) startRecordInFile:(NSString *)_fileName{	
     [self createRecirdingFile:_fileName];
+    
+//    AVAudioSession * audioSession = [AVAudioSession sharedInstance];
+//    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error: &error];
+//    [audioSession setActive:YES error: &error];
+    
     NSMutableDictionary* recordSetting = [[NSMutableDictionary alloc] init];
     [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatAppleIMA4] forKey:AVFormatIDKey];
     [recordSetting setValue:[NSNumber numberWithFloat:8000.0] forKey:AVSampleRateKey]; 
@@ -50,6 +57,7 @@
                                             settings:recordSetting error:&error];
     [recordSetting release];
     [recorder setDelegate:self];
+    [recorder setMeteringEnabled:YES];
     [recorder prepareToRecord];
     [recorder record];	
 }

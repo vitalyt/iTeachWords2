@@ -17,10 +17,12 @@
 	float searchProgress;
     
     LoadingViewController   *loadingView;
+    id                      delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UIProgressView	*myProgressView;
 @property (nonatomic, retain) IBOutlet UILabel			*myLabel;
+@property (nonatomic, assign) id                        delegate;
 
 - (void) threadStart;
 - (void) updateProgress:(NSNotification *)progressNotification;
@@ -36,7 +38,8 @@
 - (void) loadWordsFromFile:(NSString *)fileName toTheme:(WordTypes *)wordType;
 
 - (void)loadDictionary;
-- (void)loadDictionaryWithFile:(NSString*)fileName;
+- (bool)loadDictionaryWithFile:(NSString*)fileName;
 
 - (void)showLoadingView;
+- (void) onCopy;
 @end

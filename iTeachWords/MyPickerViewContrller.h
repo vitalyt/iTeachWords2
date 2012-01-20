@@ -27,6 +27,8 @@
 @property (nonatomic, retain) NSArray               *data;
 
 - (WordTypes *) getType;
++ (NSArray*)loadAllThemeWithPredicate:(NSPredicate*)_predicate;
++ (NSArray*)loadAllTheme;
 - (void) loadData;
 - (void) initArray;
 - (void) openViewWithAnimation:(UIView *) superView;

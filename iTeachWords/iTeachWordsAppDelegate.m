@@ -54,13 +54,139 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
     player = [[MyPlayer alloc] initWithNibName:@"MyPlayer" bundle:nil];
     [self checkDatabase];
+    [self updateData];
     [self showMenuView];
     navigationController.delegate = self;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
-    
+//    NSThread *progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(qqq) object:nil];
+//    [progressThread start];
     //[self doRegistrationProcess];
     return YES;
+}
+
+- (void)qqq{
+    NSString *fileName = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/enrus.txt"];
+    NSLog(@"Parsing the %@ file...",fileName);
+    
+    NSAutoreleasePool *poolRoot= [[NSAutoreleasePool alloc] init];
+    bool returnValue = YES;
+    //[self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
+    NSString *text = [[NSString alloc]initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
+    [iTeachWordsAppDelegate clearUdoManager];
+    @try {
+        NSMutableString *mutStr = [NSMutableString stringWithString:@""];
+        unichar ch;
+        int index = 0;
+        ch = [text characterAtIndex:index];
+        while (ch!='.') {
+            [mutStr appendString:[NSString stringWithFormat:@"%c",ch]];
+            ++index;
+            ch = [text characterAtIndex:index];
+        }
+        NSString *globalSlash = mutStr;
+        NSArray *wordsArray = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:globalSlash]];
+        //[loadingView setTotal:[wordsArray count]];
+        NSDate *createDate = [[NSDate date] retain];
+        NSString *themeName = [wordsArray objectAtIndex:2];
+        NSString *slash = [wordsArray objectAtIndex:3];
+        NSArray *languageObjects = [[wordsArray objectAtIndex:4] componentsSeparatedByString:slash];
+        
+        NSLog(@"globalSlash->%@",globalSlash);
+        NSLog(@"themeName->%@",themeName);
+        NSLog(@"slash->%@|",slash);
+        NSLog(@"languageObjects->%@",languageObjects);
+        
+        NSString *nativeLanguage = [languageObjects objectAtIndex:1];
+        NSString *translateLanguage = [languageObjects objectAtIndex:0];
+        
+        //Checking whether there is dictionary with the same name 
+        //            while (YES) {
+        //                NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@ && name = %@",
+        //                                           [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], 
+        //                                           [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
+        //                                           themeName];
+        //                NSArray *allTheme = [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
+        //                if ([allTheme count]>0) {
+        //                    themeName = [NSString stringWithFormat:@"%@ (%d)",themeName,[allTheme count]];
+        //                } else{
+        //                    break;
+        //                }
+        //            }
+        
+        //Parsing words
+        WordTypes *_wordType;
+        _wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
+                                                  inManagedObjectContext:CONTEXT];
+        [_wordType setName:themeName];
+        [_wordType setCreateDate:createDate];
+        [_wordType setNativeCountryCode:nativeLanguage];
+        [_wordType setTranslateCountryCode:translateLanguage];
+        
+        @try {   
+            NSMutableSet* wordsAr = [[NSMutableSet alloc]init];
+            int linesCount = [wordsArray count];
+            int breakPoints = ((linesCount<1000)?(linesCount/10):1000);
+            
+            NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
+            for (int i = 5 ; i< linesCount; i++) {
+                if ((i%breakPoints) == 0) {
+                    [_wordType addWords:wordsAr];
+                    [wordsAr removeAllObjects];
+                    NSLog(@"%d",i);
+                    //[loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
+                    //                    
+                    [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
+                    //                    //[iTeachWordsAppDelegate saveDB];
+                    [pool drain];
+                    pool= [[NSAutoreleasePool alloc] init];
+                }
+                NSArray *ar2 = [NSArray arrayWithArray:[[wordsArray objectAtIndex:i] componentsSeparatedByString:slash]];
+                if ([ar2 count]<2) {
+                    continue;
+                }
+                //NSLog(@"ar2->%@",ar2);
+                Words *word = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
+                                                            inManagedObjectContext:CONTEXT];
+                [word setCreateDate:createDate];
+                [word setChangeDate:createDate];
+                [word setText:[ar2 objectAtIndex:0]];
+                [word setTranslate:[ar2 objectAtIndex:1]];
+                [word setDescriptionStr:_wordType.name];
+                [word setType:_wordType];
+                [wordsAr addObject:word];
+                //
+            }
+            [_wordType addWords:wordsAr];
+            [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
+            [wordsAr release];
+            [pool drain];
+            
+        }
+        @catch (NSException *exception) {
+            returnValue = NO;
+            NSLog(@"%@",exception);
+            [UIAlertView displayError:NSLocalizedString(@"There was some error within parse words", @"")];
+        }
+        @finally {
+            if (!returnValue) {
+                [CONTEXT rollback];
+            }
+            [wordsArray release];
+            [createDate release];
+        }
+        
+    }
+    @catch (NSException *exception) {
+        returnValue = NO;
+        NSLog(@"%@",exception);
+        [UIAlertView displayError:NSLocalizedString(@"There was some error within parse options informdtion (line 1->4)", @"")];
+    }
+    @finally {
+        [text release];
+        //[loadingView closeLoadingView];
+        [poolRoot drain];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -77,19 +203,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    //NSFileManager *fileManager = [NSFileManager defaultManager];
-//	NSArray *files =[[NSFileManager defaultManager] contentsOfDirectoryAtPath:DOCUMENTS error:nil];
-//	if ([files count]>0) {
-//		FilesManagerViewController *progressView = [[FilesManagerViewController alloc] initWithNibName:@"FilesManagerViewController" bundle:nil];
-//        [progressView loadDictionary];
-//		//[navigationController.view addSubview:progressView.view];
-//		[progressView release];
-//	}
-//    if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] && [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]){
-//        FilesManagerViewController *progressView = [[FilesManagerViewController alloc] init];
-//        [progressView loadDictionary];
-//        [progressView release];
-//    }
 
 }
 
@@ -100,6 +213,30 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (void)updateData{
+    //NSFileManager *fileManager = [NSFileManager defaultManager];
+    isUpdating = YES;
+	NSArray *files =[[NSFileManager defaultManager] contentsOfDirectoryAtPath:DOCUMENTS error:nil];
+	if ([files count]>0) {
+		FilesManagerViewController *progressView = [[FilesManagerViewController alloc] initWithNibName:@"FilesManagerViewController" bundle:nil];
+        [progressView onCopy];
+		//[navigationController.view addSubview:progressView.view];
+		[progressView release];
+	}
+    //    if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] && [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]){
+    //        FilesManagerViewController *progressView = [[FilesManagerViewController alloc] init];
+    //        [progressView loadDictionary];
+    //        [progressView release];
+    //    }
+
+}
+
+#pragma mark FileManagerProtocol
+
+- (void) dataDidUpdate{
+    isUpdating = NO;
 }
 
 #pragma mark 
@@ -166,16 +303,16 @@
 -(NSArray*)loadRepeatDelayedTheme{
     RepeatModel *repeatModel = [[RepeatModel alloc] init];
     NSArray *delayedTheme = [[repeatModel getDelayedTheme] retain];
-    if ([delayedTheme count]>0) {
-        for (int i=0;i<[delayedTheme count];i++){
-            NSDictionary *dict = [delayedTheme objectAtIndex:i];
-           // NSLog(@"%@", dict);    
-            NSDate *currentDate = [NSDate date];
-            int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
-            NSDate *newDate = [currentDate dateByAddingTimeInterval:interval];
-            //NSLog(@"%@",newDate);
-        }
-    }
+//    if ([delayedTheme count]>0) {
+//        for (int i=0;i<[delayedTheme count];i++){
+//            NSDictionary *dict = [delayedTheme objectAtIndex:i];
+//           // NSLog(@"%@", dict);    
+//            NSDate *currentDate = [NSDate date];
+//            int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
+//            //NSDate *newDate = [currentDate dateByAddingTimeInterval:interval];
+//            //NSLog(@"%@",newDate);
+//        }
+//    }
     [repeatModel release];
     return [delayedTheme autorelease];
 }
@@ -189,7 +326,7 @@
     [navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     [myMenu release];
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] || [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE])
+    if (!isUpdating && ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] && [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]))
     {
         [myMenu performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
     }
