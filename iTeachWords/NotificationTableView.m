@@ -136,11 +136,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-        if (section == 0) {
-            if (!onOffSwitcher.on) {
+    if (section == 0) {
+        NSString *key = @"isRepeatOptionOn";
+        bool _value = [[NSUserDefaults standardUserDefaults] boolForKey:key];
+        if (!_value) {
                 return 0;
-            }
-       }
+        }
+    }
 
     return [[data objectAtIndex:section] count];
 }

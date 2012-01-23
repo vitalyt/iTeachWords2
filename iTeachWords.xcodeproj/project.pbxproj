@@ -13,7 +13,6 @@
 		280318D71439D32600E87F1F /* InputTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280318D61439D32500E87F1F /* InputTableController.m */; };
 		2811984914A0940000399D44 /* DMVocalizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811984714A0940000399D44 /* DMVocalizerViewController.m */; };
 		2811984A14A0940000399D44 /* DMVocalizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2811984814A0940000399D44 /* DMVocalizerViewController.xib */; };
-		2811984C14A094B800399D44 /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984B14A094B800399D44 /* SpeechKit.framework */; };
 		2811984E14A0951100399D44 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984D14A0951100399D44 /* AudioToolbox.framework */; };
 		2811985014A095BA00399D44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984F14A095BA00399D44 /* Security.framework */; };
 		2811985214A095C300399D44 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811985114A095C300399D44 /* CFNetwork.framework */; };
@@ -426,6 +425,7 @@
 		28E3307E140F9FDA00ABC7D5 /* ZW.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32FAA140F9FDA00ABC7D5 /* ZW.png */; };
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
+		8428579614CE01CC00D4724E /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8428579514CE01CC00D4724E /* SpeechKit.framework */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -462,7 +462,6 @@
 		2811984614A0940000399D44 /* DMVocalizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMVocalizerViewController.h; sourceTree = "<group>"; };
 		2811984714A0940000399D44 /* DMVocalizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMVocalizerViewController.m; sourceTree = "<group>"; };
 		2811984814A0940000399D44 /* DMVocalizerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMVocalizerViewController.xib; sourceTree = "<group>"; };
-		2811984B14A094B800399D44 /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = ../../Downloads/DragonMobileSDK_1.3.1/SpeechKit.framework; sourceTree = "<group>"; };
 		2811984D14A0951100399D44 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		2811984F14A095BA00399D44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		2811985114A095C300399D44 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
@@ -974,6 +973,7 @@
 		28FAAB4F14A9FA9E001F9214 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		28FAAB5014A9FA9E001F9214 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		8428579514CE01CC00D4724E /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = ../../../Downloads/DragonMobileSDK_1.3.1/SpeechKit.framework; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
 		CE6C773513C0C79E00ACDC2E /* Test15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test15.h; sourceTree = "<group>"; };
@@ -1018,10 +1018,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8428579614CE01CC00D4724E /* SpeechKit.framework in Frameworks */,
 				2811985214A095C300399D44 /* CFNetwork.framework in Frameworks */,
 				2811985014A095BA00399D44 /* Security.framework in Frameworks */,
 				2811984E14A0951100399D44 /* AudioToolbox.framework in Frameworks */,
-				2811984C14A094B800399D44 /* SpeechKit.framework in Frameworks */,
 				28BDB6941483880300BC2688 /* iAd.framework in Frameworks */,
 				28C61F2B146BDD7A0065E75A /* CoreGraphics.framework in Frameworks */,
 				28C61F29146BDD6D0065E75A /* UIKit.framework in Frameworks */,
@@ -1460,6 +1460,7 @@
 		284092BC1381242700864711 = {
 			isa = PBXGroup;
 			children = (
+				8428579514CE01CC00D4724E /* SpeechKit.framework */,
 				284092D11381242700864711 /* iTeachWords */,
 				284092CA1381242700864711 /* Frameworks */,
 				284092C81381242700864711 /* Products */,
@@ -1480,7 +1481,6 @@
 				2811985114A095C300399D44 /* CFNetwork.framework */,
 				2811984F14A095BA00399D44 /* Security.framework */,
 				2811984D14A0951100399D44 /* AudioToolbox.framework */,
-				2811984B14A094B800399D44 /* SpeechKit.framework */,
 				28BDB6931483880300BC2688 /* iAd.framework */,
 				28C61F2A146BDD790065E75A /* CoreGraphics.framework */,
 				28C61F28146BDD6C0065E75A /* UIKit.framework */,
@@ -2753,6 +2753,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
@@ -2826,6 +2827,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2860,6 +2862,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";

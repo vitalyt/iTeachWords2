@@ -62,7 +62,7 @@
     [super viewDidAppear:animated];
     // grab an image of our parent view    
     // For iOS 5 you need to use presentingViewController:
-    UIView *parentView = self.parentViewController.view;
+    UIView *parentView = self.presentingViewController.view;
     
     UIGraphicsBeginImageContext(parentView.bounds.size);
     [parentView.layer renderInContext:UIGraphicsGetCurrentContext()];
