@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSDictionary *arrayCount;
 
 - (IBAction) showTable;
+- (IBAction) showVoiceRecordView;
 - (NSString *) loadText;
 - (void) saveText;
 - (void)setText:(NSString*)text;

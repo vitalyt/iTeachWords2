@@ -106,12 +106,22 @@
     if (recorder) {
         [recorder updateMeters];
         float level = [recorder peakPowerForChannel:0];
-        
+        static bool startFlg;
+//        NSLog(@"%f",level);
         float width = [self materViewWidth];
         float scale = width/50;
         [vuMeter setFrame:CGRectMake(vuMeter.frame.origin.x, vuMeter.frame.origin.y, width+scale*level, vuMeter.frame.size.height)];
-        
-        [self performSelector:@selector(updateMeterView) withObject:nil afterDelay:0.05];
+        if (level<-35 && startFlg) {
+            ++status;
+            if (status>=30) {
+                [self close:nil];
+            }
+            NSLog(@"%d",status);
+        }else{
+            startFlg = YES;
+            status = 0;
+        }
+//        [self performSelector:@selector(updateMeterView) withObject:nil afterDelay:0.05];
     }
 }
 
@@ -119,18 +129,22 @@
 
 - (IBAction)record:(id)sender {
     NSString *imageName;
-    if(activityIndicatorView.hidden == YES){
+    if(!isRecording){
+        isRecording = YES;
         activityIndicatorView.hidden = NO;
+        [vuMeter setHidden:NO];
         [activityIndicatorView startAnimating];
         imageName = @"Stop 16x16.png";
         [self startRecordInFile:fileName];
         //if (vuMeter) {
-        //[self runTimer];
-        [self updateMeterView];
+        [self runTimer];
+        //[self updateMeterView];
         //}
     }
     else{
+        isRecording = NO;
         activityIndicatorView.hidden = YES;
+        [vuMeter setHidden:YES];
         [activityIndicatorView stopAnimating];
         imageName = @"Record 16x16.png"; 
         if ([meterTimer isValid]) {
@@ -154,7 +168,7 @@
 }
 
 - (IBAction)close:(id)sender {
-    if(activityIndicatorView.hidden == NO){
+    if(isRecording){
         [self record:nil];
     }
     if ((self.toolsViewDelegate)&&([(id)self.toolsViewDelegate respondsToSelector:@selector(optionsSubViewDidClose:)])) {

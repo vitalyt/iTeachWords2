@@ -13,6 +13,9 @@
     IBOutlet UIActivityIndicatorView *activityIndicatorView;
     IBOutlet UIView *vuMeter;
     
+    bool    isRecording;
+    int     status;
+    
     NSTimer *meterTimer;
     
     id	<RecordingViewProtocol> delegate;

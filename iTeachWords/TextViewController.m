@@ -11,6 +11,7 @@
 //#import "myButtonPlayer.h"
 #import "LanguagePickerController.h"
 #import "NewWordsTable.h"
+#import "VoiceRecordingViewController.h"
 
 #define radius 10
 
@@ -78,7 +79,13 @@
     [self.navigationController pushViewController:table animated:YES];
     [table loadDataWithString:myTextView.text];
 }
-					 
+
+- (IBAction) showVoiceRecordView{
+	VoiceRecordingViewController *voiceView = [[VoiceRecordingViewController alloc] initWithNibName:@"VoiceRecordingViewController" bundle:nil];
+    [self.navigationController presentModalViewController:voiceView animated:YES];
+    [voiceView release];
+}
+
 - (NSString *) loadText{
 	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]];
 	path = [path stringByAppendingPathComponent:@"myText.doc"];
