@@ -42,4 +42,8 @@
 
 - (void)showLoadingView;
 - (void) onCopy;
+- (void)saveDB;
+
+- (void)mergeChanges:(NSNotification *)notification;
+
 @end

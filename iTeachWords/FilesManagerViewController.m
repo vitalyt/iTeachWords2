@@ -117,30 +117,31 @@
     
 	NSString *pathOfResource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/MyResource/"];
 	NSString *pathOfResource2 =[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/"];
-	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:pathOfResource error:nil];
+//	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:pathOfResource error:nil];
 	NSArray *files2 =[[NSFileManager defaultManager] contentsOfDirectoryAtPath:pathOfResource2 error:nil];
-	myProgressView.progress = 0.0;
-	NSLog(@"files:%@",files);
-	for (int i=0; i<[files count]; i++) {
-        
-        NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
-		//NSString *pathOfResource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/MyResource/"];
-		[self reviewFile:[files objectAtIndex:i]inFolder:(NSString *)pathOfResource];
-		searchProgress = (float)i/([files count]+[files2 count]-1);
-		if (i+1<[files count]) {
-			file = [files objectAtIndex:i+1];
-		}
-		[self doMessage:nil];
-        [pool drain];
-	}
+	//myProgressView.progress = 0.0;
+//	NSLog(@"files:%@",files);
+//	for (int i=0; i<[files count]; i++) {
+//        
+//        NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
+//		//NSString *pathOfResource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/MyResource/"];
+//		[self reviewFile:[files objectAtIndex:i]inFolder:(NSString *)pathOfResource];
+//		searchProgress = (float)i/([files count]+[files2 count]-1);
+//		if (i+1<[files count]) {
+//			file = [files objectAtIndex:i+1];
+//		}
+//		[self doMessage:nil];
+//        [pool drain];
+//	}
 	[[NSFileManager defaultManager] removeItemAtPath:pathOfResource error:nil];
 	NSLog(@"files:%@",files2);
-    [loadingView setTotal:[files2 count]];
+//    [loadingView setTotal:[files2 count]];
 	for (int i=0; i<[files2 count]; i++) {
         NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
         
         [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
-        [loadingView performSelectorOnMainThread:@selector(setTotal:) withObject:[NSNumber numberWithInt:[files2 count]] waitUntilDone:YES];
+        loadingView.total = [files2 count];
+//        [loadingView performSelectorOnMainThread:@selector(setTotal:) withObject:[NSNumber numberWithInt:[files2 count]] waitUntilDone:YES];
         [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
         
 		[self reviewFile:[files2 objectAtIndex:i]inFolder:(NSString *)pathOfResource2];
@@ -160,8 +161,8 @@
 }
 
 - (void) reviewFile:(NSString *)fileName inFolder:(NSString *)pathOfResource{
-	BOOL success;
-    NSError *error;
+//	BOOL success;
+//    NSError *error;
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	//NSString *pathOfResource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/MyResource/"];
 	NSString *pathOfDocuments = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]];
@@ -169,47 +170,10 @@
 		[fileManager createDirectoryAtPath:pathOfDocuments withIntermediateDirectories:YES attributes:nil error:nil];
 	NSRange subRange;
 	
-	NSLog(@"fileName->%@",fileName );
-	subRange = [fileName rangeOfString:@"LESSON"];
-	if (subRange.length != 0) {
-		NSString *writableDBPath = [pathOfDocuments stringByAppendingPathComponent:fileName];
-		NSString *defaultDBPath = [pathOfResource stringByAppendingPathComponent:fileName];
-		if ([fileManager fileExistsAtPath:writableDBPath]) {
-			[fileManager removeItemAtPath:defaultDBPath error:nil];
-			return;
-		}
-				
-		success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];//copy file from defaultDBPath to writableDBPath
-		if (!success) {
-			NSAssert1(NO, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
-		}
-		[fileManager removeItemAtPath:defaultDBPath error:nil];
-		return;
-	}
-	
-//	subRange = [fileName rangeOfString:@"words"];
+//	NSLog(@"fileName->%@",fileName );
+//	subRange = [fileName rangeOfString:@"LESSON"];
 //	if (subRange.length != 0) {
-//		NSString *writableDBPath = [pathOfDocuments stringByAppendingPathComponent:[NSString stringWithFormat:@"/WordRecords/%@",fileName]];
-//		NSString *defaultDBPath = [pathOfResource stringByAppendingPathComponent:fileName];
-//		if ([fileManager fileExistsAtPath:writableDBPath]) {
-//			//[fileManager removeItemAtPath:defaultDBPath error:nil];
-//			return;
-//		}
-//		NSString *path = [pathOfDocuments stringByAppendingPathComponent:@"/WordRecords/"];
-//		if ([fileManager fileExistsAtPath:path] == NO)
-//			[fileManager createDirectoryAtPath:path attributes:nil];
-//		
-//		success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];//copy file from defaultDBPath to writableDBPath
-//		if (!success) {
-//			NSAssert1(NO, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
-//		}
-//		[fileManager removeItemAtPath:defaultDBPath error:nil];
-//		return;
-//	}
-	
-//	subRange = [fileName rangeOfString:@"WordBooks"];
-//	if (subRange.length != 0) {
-//		NSString *writableDBPath = [pathOfDocuments stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",fileName]];
+//		NSString *writableDBPath = [pathOfDocuments stringByAppendingPathComponent:fileName];
 //		NSString *defaultDBPath = [pathOfResource stringByAppendingPathComponent:fileName];
 //		if ([fileManager fileExistsAtPath:writableDBPath]) {
 //			[fileManager removeItemAtPath:defaultDBPath error:nil];
@@ -222,8 +186,8 @@
 //		}
 //		[fileManager removeItemAtPath:defaultDBPath error:nil];
 //		return;
-//	}	
-	
+//	}
+
 	subRange = [[fileName lowercaseString] rangeOfString:@".caf"];
 	if (subRange.length != 0) {
         if ([self addSoundWithFile:fileName]) {
@@ -231,28 +195,6 @@
         }
 		return;
 	}
-    
-//	
-//	subRange = [fileName rangeOfString:@"_Theme"];
-//	if (subRange.length != 0) {
-//		NSString *writableDBPath = [pathOfDocuments stringByAppendingPathComponent:[NSString stringWithFormat:@"/WordBooks/%@",fileName]];
-//		NSString *defaultDBPath = [pathOfResource stringByAppendingPathComponent:fileName];
-//		if ([fileManager fileExistsAtPath:writableDBPath]) {
-//			[fileManager removeItemAtPath:defaultDBPath error:nil];
-//			return;
-//		}
-//		NSString *path = [pathOfDocuments stringByAppendingPathComponent:@"/WordBooks/"];
-//		if ([fileManager fileExistsAtPath:path] == NO)
-//			[fileManager createDirectoryAtPath:path attributes:nil];
-//		
-//		success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];//copy file from defaultDBPath to writableDBPath
-//		if (!success) {
-//			NSAssert1(NO, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
-//		}
-//		[fileManager removeItemAtPath:defaultDBPath error:nil];
-//		return;
-//	}
-	
 	subRange = [[fileName lowercaseString] rangeOfString:@".wav"];
 	if (subRange.length != 0) {
         if ([self addSoundWithFile:fileName]) {
@@ -271,7 +213,179 @@
 	}
 }
 
+- (void)mergeChanges:(NSNotification *)notification
+{
+	NSManagedObjectContext *mainContext = [[iTeachWordsAppDelegate sharedDelegate] managedObjectContext];
+	
+	// Merge changes into the main context on the main thread
+	[mainContext performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:)	
+                                  withObject:notification
+                               waitUntilDone:YES];	
+}
+
+#pragma mark load Dictionary
+- (void)loadDictionary{
+    NSString *pathToFile = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/enrus.txt"];
+    progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadDictionaryWithFile:) object:pathToFile];
+    [progressThread start];
+}
+
+- (bool)loadDictionaryWithFile:(NSString*)fileName{
+    NSLog(@"Parsing the %@ file...",fileName);
+    
+    // Create context on background thread
+	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] init];
+	[ctx setUndoManager:nil];
+	[ctx setPersistentStoreCoordinator: [[iTeachWordsAppDelegate sharedDelegate] persistentStoreCoordinator]];
+
+	// Register context with the notification center
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc addObserver:self
+           selector:@selector(mergeChanges:) 
+               name:NSManagedObjectContextDidSaveNotification
+             object:ctx];
+
+    NSAutoreleasePool *poolRoot= [[NSAutoreleasePool alloc] init];
+    bool returnValue = YES;
+    [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
+    NSString *text = [[NSString alloc]initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
+    [iTeachWordsAppDelegate clearUdoManager];
+    @try {
+        NSMutableString *mutStr = [NSMutableString stringWithString:@""];
+        unichar ch;
+        int index = 0;
+        ch = [text characterAtIndex:index];
+        while (ch!='.') {
+            [mutStr appendString:[NSString stringWithFormat:@"%c",ch]];
+            ++index;
+            ch = [text characterAtIndex:index];
+        }
+        NSString *globalSlash = mutStr;
+        NSArray *wordsArray = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:globalSlash]];
+        loadingView.total = [wordsArray count];
+        NSDate *createDate = [[NSDate date] retain];
+        NSString *themeName = [wordsArray objectAtIndex:2];
+        NSString *slash = [wordsArray objectAtIndex:3];
+        NSArray *languageObjects = [[wordsArray objectAtIndex:4] componentsSeparatedByString:slash];
+        
+        NSLog(@"globalSlash->%@",globalSlash);
+        NSLog(@"themeName->%@",themeName);
+        NSLog(@"slash->%@|",slash);
+        NSLog(@"languageObjects->%@",languageObjects);
+        
+        NSString *nativeLanguage = [languageObjects objectAtIndex:1];
+        NSString *translateLanguage = [languageObjects objectAtIndex:0];
+        
+        //Checking whether there is dictionary with the same name 
+        while (YES) {
+            NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@ && name = %@",
+                                       [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], 
+                                       [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
+                                       themeName];
+            NSArray *allTheme = [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
+            if ([allTheme count]>0) {
+                themeName = [NSString stringWithFormat:@"%@ (%d)",themeName,[allTheme count]];
+            } else{
+                break;
+            }
+        }
+        
+        //Parsing words
+
+        WordTypes *_wordType;                
+        _wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
+                                                                                       inManagedObjectContext:ctx];
+        [_wordType setName:themeName];
+        [_wordType setCreateDate:createDate];
+        [_wordType setNativeCountryCode:nativeLanguage];
+        [_wordType setTranslateCountryCode:translateLanguage];
+        
+        @try {   
+            NSMutableSet* wordsAr = [[NSMutableSet alloc]init];
+            
+            int linesCount = [wordsArray count];
+            int breakPoints = ((linesCount<1000)?(linesCount/10):1000);
+            for (int i = 5 ; i< linesCount; i++) {
+                NSArray *ar2 = [NSArray arrayWithArray:[[wordsArray objectAtIndex:i] componentsSeparatedByString:slash]];
+                if ([ar2 count]<2) {
+                    continue;
+                }
+                Words *word = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
+                                                            inManagedObjectContext:ctx];
+                [word setCreateDate:createDate];
+                [word setChangeDate:createDate];
+                [word setText:[ar2 objectAtIndex:0]];
+                [word setTranslate:[ar2 objectAtIndex:1]];
+                [word setDescriptionStr:_wordType.name];
+                [word setType:_wordType];
+                [wordsAr addObject:word];
+                //
+                if ((i%breakPoints) == 0) {
+                    [_wordType addWords:wordsAr];
+                    [wordsAr removeAllObjects];
+                      
+                    [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
+                    NSError *error = nil;
+                    [ctx save:&error];
+                    
+                    if (error) {
+                        NSLog(@"%@",error); 
+                    }
+                    
+//                    [ctx reset];
+                    
+                    //                    [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
+                    //                    [iTeachWordsAppDelegate saveDB];
+                    [poolRoot drain];
+                    poolRoot= [[NSAutoreleasePool alloc] init];
+                }
+            }
+            [_wordType addWords:wordsAr];
+            // Clean up any final imports
+            NSError *error = nil;
+            [ctx save:&error];
+            
+            if (error) {
+                NSLog(@"%@",error);
+            }
+            
+            [ctx reset];
+            
+            // Release context
+            [ctx release];
+            [wordsAr release];
+            
+        }
+        @catch (NSException *exception) {
+            returnValue = NO;
+            NSLog(@"%@",exception);
+            [UIAlertView displayError:NSLocalizedString(@"There was some error within parse words", @"")];
+        }
+        @finally {
+            if (!returnValue) {
+                [CONTEXT rollback];
+            }
+            [wordsArray release];
+            [createDate release];
+        }
+        
+    }
+    @catch (NSException *exception) {
+        returnValue = NO;
+        NSLog(@"%@",exception);
+        [UIAlertView displayError:NSLocalizedString(@"There was some error within parse options informdtion (line 1->4)", @"")];
+    }
+    @finally {
+        [text release];
+        [loadingView closeLoadingView];
+        [poolRoot drain];
+    }
+    return returnValue;
+}
+
 - (bool) addSoundWithFile:(NSString *)_fileName{
+    
+    NSAutoreleasePool *poolRoot= [[NSAutoreleasePool alloc] init];
     NSMutableString *fileName = [NSMutableString stringWithString:_fileName];
     [fileName replaceCharactersInRange:[[fileName lowercaseString] rangeOfString:@".wav"] withString:@""];
     
@@ -300,6 +414,7 @@
     
     [soundData release];
     [data release];
+    [poolRoot drain];
     return YES;
 }
 
@@ -368,134 +483,14 @@
     [_content release];
 }
 
-#pragma mark load Dictionary
-- (void)loadDictionary{
-    NSString *pathToFile = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/enrus.txt"];
-    progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadDictionaryWithFile:) object:pathToFile];
-    [progressThread start];
-}
 
-- (bool)loadDictionaryWithFile:(NSString*)fileName{
-    NSLog(@"Parsing the %@ file...",fileName);
-    
-    NSAutoreleasePool *poolRoot= [[NSAutoreleasePool alloc] init];
-    bool returnValue = YES;
-    [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
-    NSString *text = [[NSString alloc]initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
-    [iTeachWordsAppDelegate clearUdoManager];
-    @try {
-        NSMutableString *mutStr = [NSMutableString stringWithString:@""];
-        unichar ch;
-        int index = 0;
-        ch = [text characterAtIndex:index];
-        while (ch!='.') {
-            [mutStr appendString:[NSString stringWithFormat:@"%c",ch]];
-            ++index;
-            ch = [text characterAtIndex:index];
-        }
-        NSString *globalSlash = mutStr;
-        NSArray *wordsArray = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:globalSlash]];
-        [loadingView setTotal:[wordsArray count]];
-        NSDate *createDate = [[NSDate date] retain];
-        NSString *themeName = [wordsArray objectAtIndex:2];
-        NSString *slash = [wordsArray objectAtIndex:3];
-        NSArray *languageObjects = [[wordsArray objectAtIndex:4] componentsSeparatedByString:slash];
-        
-        NSLog(@"globalSlash->%@",globalSlash);
-        NSLog(@"themeName->%@",themeName);
-        NSLog(@"slash->%@|",slash);
-        NSLog(@"languageObjects->%@",languageObjects);
-        
-        NSString *nativeLanguage = [languageObjects objectAtIndex:1];
-        NSString *translateLanguage = [languageObjects objectAtIndex:0];
-       
-        //Checking whether there is dictionary with the same name 
-        while (YES) {
-            NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@ && name = %@",
-                                       [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], 
-                                       [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
-                                       themeName];
-            NSArray *allTheme = [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
-            if ([allTheme count]>0) {
-                themeName = [NSString stringWithFormat:@"%@ (%d)",themeName,[allTheme count]];
-            } else{
-                break;
-            }
-        }
-        
-        //Parsing words
-        WordTypes *_wordType;
-        _wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
-                                                  inManagedObjectContext:CONTEXT];
-        [_wordType setName:themeName];
-        [_wordType setCreateDate:createDate];
-        [_wordType setNativeCountryCode:nativeLanguage];
-        [_wordType setTranslateCountryCode:translateLanguage];
-        
-        @try {   
-            NSMutableSet* wordsAr = [[NSMutableSet alloc]init];
-            int linesCount = [wordsArray count];
-            int breakPoints = ((linesCount<1000)?(linesCount/10):1000);
-            
-            NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
-            for (int i = 5 ; i< linesCount; i++) {
-                if ((i%breakPoints) == 0) {
-                    [_wordType addWords:wordsAr];
-                    [wordsAr removeAllObjects];
-                    [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
-//                    
-                    [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
-//                    //[iTeachWordsAppDelegate saveDB];
-                    [pool drain];
-                    pool= [[NSAutoreleasePool alloc] init];
-                }
-                NSArray *ar2 = [NSArray arrayWithArray:[[wordsArray objectAtIndex:i] componentsSeparatedByString:slash]];
-                if ([ar2 count]<2) {
-                    continue;
-                }
-                //NSLog(@"ar2->%@",ar2);
-                Words *word = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
-                                                            inManagedObjectContext:CONTEXT];
-                [word setCreateDate:createDate];
-                [word setChangeDate:createDate];
-                [word setText:[ar2 objectAtIndex:0]];
-                [word setTranslate:[ar2 objectAtIndex:1]];
-                [word setDescriptionStr:_wordType.name];
-                [word setType:_wordType];
-                [wordsAr addObject:word];
-                //
-            }
-            [_wordType addWords:wordsAr];
-            [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
-            [wordsAr release];
-            [pool drain];
-            
-        }
-        @catch (NSException *exception) {
-            returnValue = NO;
-            NSLog(@"%@",exception);
-            [UIAlertView displayError:NSLocalizedString(@"There was some error within parse words", @"")];
-        }
-        @finally {
-            if (!returnValue) {
-                [CONTEXT rollback];
-            }
-            [wordsArray release];
-            [createDate release];
-        }
-        
+- (void)saveDB{
+    NSError *_error;
+    if (![CONTEXT save:&_error]) {
+        [UIAlertView displayError:@"There is problem with saving data."];
+    }else{
+        //[iTeachWordsAppDelegate clearUdoManager];
     }
-    @catch (NSException *exception) {
-        returnValue = NO;
-        NSLog(@"%@",exception);
-        [UIAlertView displayError:NSLocalizedString(@"There was some error within parse options informdtion (line 1->4)", @"")];
-    }
-    @finally {
-        [text release];
-        [loadingView closeLoadingView];
-        [poolRoot drain];
-    }
-    return returnValue;
 }
 
 - (void)removeFileOfName:(NSString*)_fileName{

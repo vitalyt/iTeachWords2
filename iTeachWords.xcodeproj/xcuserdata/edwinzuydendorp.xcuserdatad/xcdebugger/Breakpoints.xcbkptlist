@@ -50,20 +50,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/LoadingViewController.m"
-         timestampString = "348154264.902516"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
-         landmarkName = "-updateDataCurrentIndex:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "iTeachWords/WBRequest.m"
          timestampString = "329221838.536385"
          startingColumnNumber = "9223372036854775807"
@@ -457,7 +443,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
-         timestampString = "348767393.475589"
+         timestampString = "349002565.755298"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "243"
@@ -638,20 +624,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/LoadingViewController.m"
-         timestampString = "348154264.902516"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
-         landmarkName = "-showLoadingView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "iTeachWords/NewWordsTable.m"
          timestampString = "348158247.641589"
          startingColumnNumber = "9223372036854775807"
@@ -673,20 +645,6 @@
          startingLineNumber = "264"
          endingLineNumber = "264"
          landmarkName = "-loadLocalTranslateWords:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348763748.349715"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "372"
-         endingLineNumber = "372"
-         landmarkName = "-loadDictionary"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -779,7 +737,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
-         timestampString = "348767393.475589"
+         timestampString = "349002565.755298"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "283"
@@ -807,7 +765,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
-         timestampString = "348767393.475589"
+         timestampString = "349002565.755298"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "303"
@@ -919,25 +877,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348766004.509758"
+         timestampString = "349019493.037605"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "419"
-         endingLineNumber = "419"
-         landmarkName = "-loadDictionaryWithFile:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348763748.349715"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "278"
-         endingLineNumber = "278"
+         startingLineNumber = "392"
+         endingLineNumber = "392"
          landmarkName = "-addSoundWithFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -947,53 +891,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348766004.509758"
+         timestampString = "349019493.037605"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "452"
-         endingLineNumber = "452"
-         landmarkName = "-loadDictionaryWithFile:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/LoadingViewController.m"
-         timestampString = "348754435.52444"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
-         landmarkName = "-showLoadingView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/LoadingViewController.m"
-         timestampString = "348754363.260539"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
-         landmarkName = "-showLoadingView"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348763748.349715"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "266"
-         endingLineNumber = "266"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
          landmarkName = "-reviewFile:inFolder:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1012,7 +914,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -1031,54 +933,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348763748.349715"
+         timestampString = "349019493.037605"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
          landmarkName = "-createEditableCopyOfDatabaseIfNeeded"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348763748.349715"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
-         landmarkName = "-createEditableCopyOfDatabaseIfNeeded"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348766004.509758"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "489"
-         endingLineNumber = "489"
-         landmarkName = "-loadDictionaryWithFile:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348766004.509758"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "483"
-         endingLineNumber = "483"
-         landmarkName = "-loadDictionaryWithFile:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1152,16 +1012,58 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "348766013.463581"
+         timestampString = "349019493.037605"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "475"
-         endingLineNumber = "475"
+         startingLineNumber = "216"
+         endingLineNumber = "216"
+         landmarkName = "-mergeChanges:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/iTeachWordsAppDelegate.m"
+         timestampString = "349016558.932999"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "366"
+         endingLineNumber = "366"
+         landmarkName = "-persistentStoreCoordinator"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/RepeatModel.m"
+         timestampString = "349018309.994485"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
+         landmarkName = "-getDelayedTheme"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/FilesManagerViewController.m"
+         timestampString = "349019493.037605"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "328"
+         endingLineNumber = "328"
          landmarkName = "-loadDictionaryWithFile:"
          landmarkType = "5">
       </FileBreakpoint>
