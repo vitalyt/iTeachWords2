@@ -52,6 +52,8 @@
     [recognitionType setTitle:NSLocalizedString(@"Search", @"") forSegmentAtIndex:0];
     [recognitionType setTitle:NSLocalizedString(@"Dictation", @"") forSegmentAtIndex:1];    
     
+//    [recordButton setTitle:NSLocalizedString(@"Cancel", @"") forState:UIControlStateNormal];
+    [helpBtn setTitle:NSLocalizedString(@"Help", @"") forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad
@@ -74,6 +76,10 @@
     languageCodeLbl = nil;
     [majorView release];
     majorView = nil;
+    [helpBtn release];
+    helpBtn = nil;
+    [exitBtn release];
+    exitBtn = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -130,12 +136,15 @@
 
 - (void)showHideToolsView{
     CGRect majorViewFrame = [self getFrameForMajorView];
+    CGRect exitBtnFrame = exitBtn.frame;
+    exitBtnFrame.origin.y = majorViewFrame.origin.y-exitBtn.frame.size.height/2;
     
     //make button animation
     [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [majorView setFrame:majorViewFrame];
+    [exitBtn setFrame:exitBtnFrame];
     [UIView commitAnimations];
     if (!isToolsViewShowing) {
         [majorView addSubview:toolsView];
@@ -158,7 +167,7 @@
     if (CGRectIsEmpty(majorViewOriginFrame)) {
         majorViewOriginFrame = majorView.frame;
     }
-    majorViewExtendedFrame = CGRectMake(majorViewOriginFrame.origin.x, majorViewOriginFrame.origin.y, 
+    majorViewExtendedFrame = CGRectMake(majorViewOriginFrame.origin.x, majorViewOriginFrame.origin.y-toolsView.frame.size.height/2, 
                                         majorViewOriginFrame.size.width, majorViewOriginFrame.size.height + toolsView.frame.size.height);
     frame = (!isToolsViewShowing)?majorViewExtendedFrame:majorViewOriginFrame;
     return frame;
@@ -201,10 +210,10 @@
     long numOfResults = [results.results count];
     
     transactionState = TS_IDLE;
-    [recordButton setTitle:@"Record" forState:UIControlStateNormal];
+    [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     
-    if (numOfResults > 0){
+    if (0 < numOfResults <= 1){
         [self didSelectRowAtIndex:0 withContext:[results firstResult]];
         searchBox.text = [results firstResult];
     }else if (numOfResults > 1) {
@@ -254,6 +263,8 @@
     [recordingTypeLbl release];
     [languageCodeLbl release];
     [majorView release];
+    [helpBtn release];
+    [exitBtn release];
     [super dealloc];
 }
 @end

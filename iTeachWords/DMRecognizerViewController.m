@@ -238,7 +238,7 @@
     NSLog(@"Recording started.");
     
     transactionState = TS_RECORDING;
-    [recordButton setTitle:@"Recording..." forState:UIControlStateNormal];
+    [recordButton setTitle:NSLocalizedString(@"Stop", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Speak now", @"")];
     [self performSelector:@selector(updateVUMeter) withObject:nil afterDelay:0.05];
 }
@@ -261,7 +261,7 @@
     long numOfResults = [results.results count];
     
     transactionState = TS_IDLE;
-    [recordButton setTitle:@"Record" forState:UIControlStateNormal];
+    [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     
     if (numOfResults > 0)
@@ -290,7 +290,7 @@
     NSLog(@"Got error.");
     
     transactionState = TS_IDLE;
-    [recordButton setTitle:@"Record" forState:UIControlStateNormal];
+    [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"

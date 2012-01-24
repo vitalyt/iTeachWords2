@@ -21,6 +21,8 @@
     IBOutlet UIView *toolsView;
     IBOutlet UILabel *recordingTypeLbl;
     IBOutlet UILabel *languageCodeLbl;
+    IBOutlet UIButton *helpBtn;
+    IBOutlet UIButton *exitBtn;
     
     id<MyRecognizerDelegate> caller;
     
