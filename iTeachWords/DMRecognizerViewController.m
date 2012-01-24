@@ -53,6 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+    [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     [SpeechKit setupWithID:SPEECH_ID
                       host:@"sandbox.nmdp.nuancemobility.net"
                       port:443
@@ -143,13 +144,17 @@
             recoType = SKDictationRecognizerType; /* Optimize recognition performance for dictation or message text. */
         }
 		
+        
         langType = [self getLangType];
+        [[NSUserDefaults standardUserDefaults] setInteger:recognitionType.selectedSegmentIndex forKey:@"lastRecognitionType"];
+        [[NSUserDefaults standardUserDefaults] setInteger:languageType.selectedSegmentIndex forKey:@"lastLangType"];
         /* Nuance can also create a custom recognition type optimized for your application if neither search nor dictation are appropriate. */
         
         NSLog(@"Recognizing type:'%@' Language Code: '%@' using end-of-speech detection:%d.", recoType, langType, detectionType);
 
         if (voiceSearch) [voiceSearch release];
 		
+        
         voiceSearch = [[SKRecognizer alloc] initWithType:recoType
                                                detection:detectionType
                                                 language:langType 

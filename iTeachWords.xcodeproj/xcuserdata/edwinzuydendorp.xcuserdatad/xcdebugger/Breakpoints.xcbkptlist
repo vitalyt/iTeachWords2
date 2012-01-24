@@ -1101,11 +1101,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MyRecognizerViewController.m"
-         timestampString = "349099358.903274"
+         timestampString = "349101931.548164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "89"
+         endingLineNumber = "89"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1115,11 +1115,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/DMRecognizerViewController.m"
-         timestampString = "349099103.493587"
+         timestampString = "349101883.836578"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "252"
-         endingLineNumber = "252"
+         startingLineNumber = "257"
+         endingLineNumber = "257"
          landmarkName = "-recognizer:didFinishWithResults:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1129,11 +1129,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/DMRecognizerViewController.m"
-         timestampString = "349099103.493587"
+         timestampString = "349101883.836578"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "241"
-         endingLineNumber = "241"
+         startingLineNumber = "246"
+         endingLineNumber = "246"
          landmarkName = "-recognizerDidFinishRecording:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1143,11 +1143,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/DMRecognizerViewController.m"
-         timestampString = "349099103.493587"
+         timestampString = "349101883.836578"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "283"
-         endingLineNumber = "283"
+         startingLineNumber = "288"
+         endingLineNumber = "288"
          landmarkName = "-recognizer:didFinishWithError:suggestion:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1157,11 +1157,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/DMRecognizerViewController.m"
-         timestampString = "349096781.154552"
+         timestampString = "349101883.836578"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1171,11 +1171,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/DMRecognizerViewController.m"
-         timestampString = "349099100.02761"
+         timestampString = "349101883.836578"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
          landmarkName = "-recordButtonAction:"
          landmarkType = "5">
       </FileBreakpoint>

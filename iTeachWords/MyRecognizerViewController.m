@@ -54,7 +54,10 @@
 {
     [super viewDidLoad];
     [vuMeter setFrame:CGRectMake(vuMeter.frame.origin.x, vuMeter.frame.origin.y, 0.0, vuMeter.frame.size.height)];
+    [languageType setSelectedSegmentIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastLangType"]];
+    [recognitionType setSelectedSegmentIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastRecognitionType"]];
     // Do any additional setup after loading the view from its nib.
+    [self recordButtonAction:nil];
 }
 
 - (void)viewDidUnload
@@ -130,6 +133,8 @@
         [majorView addSubview:toolsView];
         [majorView sendSubviewToBack:toolsView];
     }else{
+        [[NSUserDefaults standardUserDefaults] setInteger:recognitionType.selectedSegmentIndex forKey:@"lastRecognitionType"];
+        [[NSUserDefaults standardUserDefaults] setInteger:languageType.selectedSegmentIndex forKey:@"lastLangType"];
         [toolsView performSelector:@selector(removeFromSuperview)withObject:nil afterDelay:0.5];
     }
     CGRect toolsViewFrame = [self getFrameForToolsView];
@@ -167,7 +172,6 @@
 
 - (NSString*)getLangType{
     NSString* langType;
-    
     switch (languageType.selectedSegmentIndex) {
         case 0:{
             NSDictionary *translateCountryInfo = TRANSLATE_COUNTRY_INFO;
