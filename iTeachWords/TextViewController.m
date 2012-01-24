@@ -11,7 +11,7 @@
 //#import "myButtonPlayer.h"
 #import "LanguagePickerController.h"
 #import "NewWordsTable.h"
-#import "VoiceRecordingViewController.h"
+#import "MyRecognizerViewController.h"
 
 #define radius 10
 
@@ -81,7 +81,7 @@
 }
 
 - (IBAction) showVoiceRecordView{
-	VoiceRecordingViewController *voiceView = [[VoiceRecordingViewController alloc] initWithNibName:@"VoiceRecordingViewController" bundle:nil];
+	MyRecognizerViewController *voiceView = [[MyRecognizerViewController alloc] initWithNibName:@"MyRecognizerViewController" bundle:nil];
     [self.navigationController presentModalViewController:voiceView animated:YES];
     [voiceView release];
 }

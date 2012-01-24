@@ -9,10 +9,10 @@
 #import "RecordingViewController.h"
 
 @interface VoiceRecordingViewController : RecordingViewController{
-    
     IBOutlet UIView *recordingView;
+    int     status;
+
 }
 
-- (IBAction)cancel:(id)sender;
 - (IBAction)help:(id)sender;
 @end

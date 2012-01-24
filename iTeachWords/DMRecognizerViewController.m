@@ -30,7 +30,7 @@
 
 
 @implementation DMRecognizerViewController
-@synthesize recordButton,searchBox,serverBox,portBox,alternativesDisplay,vuMeter,voiceSearch;
+@synthesize recordButton,searchBox,serverBox,portBox,alternativesDisplay,vuMeter,voiceSearch,messageLbl;
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -105,6 +105,7 @@
     [vuMeter release];
     [recognitionType release];
 	[languageType release];
+    [messageLbl release];
     
     [voiceSearch release];
 	
@@ -142,23 +143,7 @@
             recoType = SKDictationRecognizerType; /* Optimize recognition performance for dictation or message text. */
         }
 		
-		switch (languageType.selectedSegmentIndex) {
-			case 0:
-				langType = @"en_US";
-				break;
-			case 1:
-				langType = @"en_GB";
-				break;
-			case 2:
-				langType = @"fr_FR";
-				break;
-			case 3:
-				langType = @"de_DE";
-				break;
-			default:
-				langType = @"en_US";
-				break;
-		}
+        langType = [self getLangType];
         /* Nuance can also create a custom recognition type optimized for your application if neither search nor dictation are appropriate. */
         
         NSLog(@"Recognizing type:'%@' Language Code: '%@' using end-of-speech detection:%d.", recoType, langType, detectionType);
@@ -184,6 +169,21 @@
 
 #pragma mark -
 #pragma mark VU Meter
+
+- (NSString*)getLangType{
+    NSString* langType;
+    switch (languageType.selectedSegmentIndex) {
+        case 0:{
+            langType = @"en_US";
+        }
+            break;
+        case 1:{
+            langType = @"en_US";
+        }
+            break;
+    }
+    return langType;
+}
 
 - (void)setVUMeterWidth:(float)width {
     if (width < 0)
@@ -234,6 +234,7 @@
     
     transactionState = TS_RECORDING;
     [recordButton setTitle:@"Recording..." forState:UIControlStateNormal];
+    [messageLbl setText:NSLocalizedString(@"Speak now", @"")];
     [self performSelector:@selector(updateVUMeter) withObject:nil afterDelay:0.05];
 }
 
@@ -245,6 +246,7 @@
     [self setVUMeterWidth:0.];
     transactionState = TS_PROCESSING;
     [recordButton setTitle:@"Processing..." forState:UIControlStateNormal];
+    [messageLbl setText:NSLocalizedString(@"Processing...", @"")];
 }
 
 - (void)recognizer:(SKRecognizer *)recognizer didFinishWithResults:(SKRecognition *)results
@@ -255,6 +257,7 @@
     
     transactionState = TS_IDLE;
     [recordButton setTitle:@"Record" forState:UIControlStateNormal];
+    [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     
     if (numOfResults > 0)
         searchBox.text = [results firstResult];
@@ -283,7 +286,8 @@
     
     transactionState = TS_IDLE;
     [recordButton setTitle:@"Record" forState:UIControlStateNormal];
-
+    [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                     message:[error localizedDescription]
                                                    delegate:nil

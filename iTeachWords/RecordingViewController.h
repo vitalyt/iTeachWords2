@@ -14,7 +14,6 @@
     IBOutlet UIView *vuMeter;
     
     bool    isRecording;
-    int     status;
     
     NSTimer *meterTimer;
     

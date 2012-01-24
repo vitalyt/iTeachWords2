@@ -157,6 +157,8 @@
 		286F826E13E13BD90047953A /* Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 286F826D13E13BD90047953A /* Statistic.m */; };
 		2872FE5D14C4754F0010AFA1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872FE5B14C4754F0010AFA1 /* DetailViewController.m */; };
 		2872FE5E14C4754F0010AFA1 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2872FE5C14C4754F0010AFA1 /* DetailViewController.xib */; };
+		287340E414CEA2010085B72C /* MyRecognizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287340E214CEA2010085B72C /* MyRecognizerViewController.m */; };
+		287340E514CEA2010085B72C /* MyRecognizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287340E314CEA2010085B72C /* MyRecognizerViewController.xib */; };
 		28797B1C13A2352900D21722 /* NewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B1B13A2352800D21722 /* NewTableCell.m */; };
 		28797B1E13A2355E00D21722 /* NewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28797B1D13A2355D00D21722 /* NewTableCell.xib */; };
 		28797B3113A24CC700D21722 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B3013A24CC700D21722 /* MenuView.m */; };
@@ -678,6 +680,9 @@
 		2872FE5A14C4754F0010AFA1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2872FE5B14C4754F0010AFA1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		2872FE5C14C4754F0010AFA1 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		287340E114CEA2010085B72C /* MyRecognizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRecognizerViewController.h; sourceTree = "<group>"; };
+		287340E214CEA2010085B72C /* MyRecognizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRecognizerViewController.m; sourceTree = "<group>"; };
+		287340E314CEA2010085B72C /* MyRecognizerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRecognizerViewController.xib; sourceTree = "<group>"; };
 		28797B1A13A2352800D21722 /* NewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTableCell.h; sourceTree = "<group>"; };
 		28797B1B13A2352800D21722 /* NewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTableCell.m; sourceTree = "<group>"; };
 		28797B1D13A2355D00D21722 /* NewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTableCell.xib; sourceTree = "<group>"; };
@@ -1706,6 +1711,9 @@
 				2866E1EE14A099E3002823E6 /* DMRecognizerViewController.h */,
 				2866E1EF14A099E3002823E6 /* DMRecognizerViewController.m */,
 				2866E1F014A099E3002823E6 /* DMRecognizerViewController.xib */,
+				287340E114CEA2010085B72C /* MyRecognizerViewController.h */,
+				287340E214CEA2010085B72C /* MyRecognizerViewController.m */,
+				287340E314CEA2010085B72C /* MyRecognizerViewController.xib */,
 			);
 			name = Recognizer;
 			sourceTree = "<group>";
@@ -2546,6 +2554,7 @@
 				289C63A214CDA50B0003C5BF /* 1327328477_Microphone.png in Resources */,
 				289C63A314CDA50B0003C5BF /* siri-icon.png in Resources */,
 				289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */,
+				287340E514CEA2010085B72C /* MyRecognizerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2660,6 +2669,7 @@
 				2837B68F14C84DC90053C275 /* RecordModel.m in Sources */,
 				2837B69A14C8538D0053C275 /* RecordingViewController.m in Sources */,
 				289C63A914CDA5BF0003C5BF /* VoiceRecordingViewController.m in Sources */,
+				287340E414CEA2010085B72C /* MyRecognizerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

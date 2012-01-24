@@ -62,7 +62,12 @@
     [super viewDidAppear:animated];
     // grab an image of our parent view    
     // For iOS 5 you need to use presentingViewController:
-    UIView *parentView = self.presentingViewController.view;
+    UIView *parentView = self.presentedViewController.view;
+    if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 5.0) {
+        parentView = self.presentingViewController.view;
+    }else{
+        parentView = self.parentViewController.view;
+    }
     
     UIGraphicsBeginImageContext(parentView.bounds.size);
     [parentView.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -73,10 +78,10 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, parentView.bounds.size.width, parentView.bounds.size.height)];
     imageView.image = parentViewImage;
     [self.view insertSubview:imageView atIndex:0];
-//    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75]];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9]];
     [imageView release];
     
-    [self record:nil];
+//    [self record:nil];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -84,11 +89,46 @@
     [recordingView release];
     [super dealloc];
 }
-- (IBAction)cancel:(id)sender {
-    [super close:nil];
+
+
+- (IBAction)close:(id)sender {
+    if(isRecording){
+        [self record:nil];
+    }
     [self dismissModalViewControllerAnimated:YES];
+    if ((self.toolsViewDelegate)&&([(id)self.toolsViewDelegate respondsToSelector:@selector(optionsSubViewDidClose:)])) {
+		[self.toolsViewDelegate optionsSubViewDidClose:self];
+	}
 }
 
 - (IBAction)help:(id)sender {
 }
+
+#pragma suoerclass function
+
+
+-(void) updateMeterView{
+    //get volume levels
+    if (recorder) {
+        [recorder updateMeters];
+        float level = [recorder peakPowerForChannel:0];
+        static bool startFlg;
+        //        NSLog(@"%f",level);
+        float width = [self materViewWidth];
+        float scale = width/50;
+        [vuMeter setFrame:CGRectMake(vuMeter.frame.origin.x, vuMeter.frame.origin.y, width+scale*level, vuMeter.frame.size.height)];
+        if (level<-35 && startFlg) {
+            ++status;
+            if (status>=20) {
+                [self close:nil];
+            }
+            NSLog(@"%d",status);
+        }else{
+            startFlg = YES;
+            status = 0;
+        }
+        //        [self performSelector:@selector(updateMeterView) withObject:nil afterDelay:0.05];
+    }
+}
+
 @end

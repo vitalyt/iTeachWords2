@@ -58,9 +58,18 @@
         NSArray *elements = [country componentsSeparatedByString:@"\t"];
         NSString *_counry = [NSString stringWithString:[elements objectAtIndex:0]];
         NSString *_code = [NSString stringWithString:[elements objectAtIndex:2]];
+        //remove dots within prefix of code
+        NSMutableString *_codeExpended = [NSMutableString stringWithString:[elements objectAtIndex:6]];
+        while ([_codeExpended hasPrefix:@"."]) {
+            NSRange range;
+            range.location = 0;
+            range.length = 1;
+            [_codeExpended replaceCharactersInRange:range withString:@""];
+        }
+        
         if (([_code length] > 0)&&([_counry length] > 0)) {
             NSDictionary *country_code = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                          _counry,@"country",_code, @"code", nil]; 
+                                          _counry,@"country",_code, @"code", _codeExpended, @"codeExpended",nil]; 
             [content addObject:country_code];
             [country_code release];
         }
@@ -198,9 +207,11 @@
     NSLog(@"%@",[dict  objectForKey:@"code"]);
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastTheme"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastThemeInAddView"];
+    [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"nativeCountryInfo"];
     [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"code"] forKey:NATIVE_COUNTRY_CODE];
     [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"country"] forKey:NATIVE_COUNTRY];
     dict = [content objectAtIndex:[pickerView selectedRowInComponent:1]];
+    [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"translateCountryInfo"];
     [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"code"] forKey:TRANSLATE_COUNTRY_CODE];
     [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"country"] forKey:TRANSLATE_COUNTRY];
     [self.navigationController popViewControllerAnimated:YES];

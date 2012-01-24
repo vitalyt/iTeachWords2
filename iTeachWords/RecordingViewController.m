@@ -106,22 +106,11 @@
     if (recorder) {
         [recorder updateMeters];
         float level = [recorder peakPowerForChannel:0];
-        static bool startFlg;
 //        NSLog(@"%f",level);
         float width = [self materViewWidth];
         float scale = width/50;
         [vuMeter setFrame:CGRectMake(vuMeter.frame.origin.x, vuMeter.frame.origin.y, width+scale*level, vuMeter.frame.size.height)];
-        if (level<-35 && startFlg) {
-            ++status;
-            if (status>=30) {
-                [self close:nil];
-            }
-            NSLog(@"%d",status);
-        }else{
-            startFlg = YES;
-            status = 0;
-        }
-//        [self performSelector:@selector(updateMeterView) withObject:nil afterDelay:0.05];
+//      [self performSelector:@selector(updateMeterView) withObject:nil afterDelay:0.05];
     }
 }
 

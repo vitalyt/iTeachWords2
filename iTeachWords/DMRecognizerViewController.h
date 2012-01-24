@@ -32,6 +32,7 @@
     IBOutlet UITextField* serverBox;
     IBOutlet UITextField* portBox;
     IBOutlet UITextView* alternativesDisplay;
+    IBOutlet UILabel*     messageLbl;
     IBOutlet UIView* vuMeter;
     IBOutlet UISegmentedControl* recognitionType;
     IBOutlet UISegmentedControl* languageType;
@@ -49,12 +50,14 @@
 @property(nonatomic,retain) IBOutlet UITextField* searchBox;
 @property(nonatomic,retain) IBOutlet UITextField* serverBox;
 @property(nonatomic,retain) IBOutlet UITextField* portBox;
+@property(nonatomic,retain) IBOutlet UILabel*     messageLbl;
 @property(nonatomic,retain) IBOutlet UITextView* alternativesDisplay;
 @property(nonatomic,retain) IBOutlet UIView* vuMeter;
 @property(readonly)         SKRecognizer* voiceSearch;
 
 - (IBAction)recordButtonAction: (id)sender;
 - (IBAction)serverUpdateButtonAction: (id)sender;
+- (NSString*)getLangType;
 
 @end
 
