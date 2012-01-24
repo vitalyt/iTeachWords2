@@ -18,6 +18,7 @@
     
 	NSArray				*array;
 	NSDictionary		*arrayCount;
+    NSString            *currentTextLanguage;
 }
 
 @property (nonatomic, retain) NSArray *array;
@@ -25,8 +26,12 @@
 
 - (IBAction) showTable;
 - (IBAction) showVoiceRecordView;
+- (IBAction)selectAll:(id)sender;
+- (IBAction)clearAll:(id)sender;
 - (NSString *) loadText;
 - (void) saveText;
 - (void)setText:(NSString*)text;
+- (NSString*)detectCurrentTextLanguage;
+- (void)setCurrentTextLanguage:(NSString*)_textLanguage;
 
 @end

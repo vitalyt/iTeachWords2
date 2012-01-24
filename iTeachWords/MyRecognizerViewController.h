@@ -12,7 +12,7 @@
 
 @protocol MyRecognizerDelegate
 @required
--(void)didRecognizeText:(NSString*)text;
+-(void)didRecognizeText:(NSString*)text languageCode:(NSString*)textLanguageCode;
 @end
 
 @interface MyRecognizerViewController : DMRecognizerViewController<AlertTableViewDelegate>{

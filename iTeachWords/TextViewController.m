@@ -87,9 +87,23 @@
     [voiceView release];
 }
 
+- (IBAction)selectAll:(id)sender {
+    [myTextView selectAll:self];
+    [[UIMenuController sharedMenuController] setIsAccessibilityElement:NO];
+//    [UIMenuController can]
+//    [UIMenuController sharedMenuController].menuVisible = YES;
+//    [myTextView setSelectedRange:NSRangeFromString(myTextView.text)];
+}
+
+- (IBAction)clearAll:(id)sender {
+    [myTextView setText:@""];
+}
+
 #pragma mark MyRecognize delegate
 
--(void)didRecognizeText:(NSString*)text{
+-(void)didRecognizeText:(NSString*)text languageCode:(NSString*)textLanguageCode{
+    NSArray *languageCode = [textLanguageCode componentsSeparatedByString:@"-"];
+    [self setCurrentTextLanguage:[[languageCode objectAtIndex:0] lowercaseString]];
     [myTextView setText:text];
 }
 
@@ -156,6 +170,11 @@
     return selectedText;
 }
 
+- (NSString *)detectCurrentTextLanguage{
+    NSArray *languageCode = [[[UITextInputMode currentInputMode] primaryLanguage] componentsSeparatedByString:@"-"];
+    return [[languageCode objectAtIndex:0] lowercaseString];
+}
+
 #pragma mark textview delegate functions
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -185,8 +204,22 @@
         [_textView resignFirstResponder];
         return NO;
     }
+    [self setCurrentTextLanguage:[self detectCurrentTextLanguage]];
     return YES;
 }
+
+- (void)setCurrentTextLanguage:(NSString*)_textLanguage{
+    if (_textLanguage != currentTextLanguage) {
+        if (currentTextLanguage) {
+            [currentTextLanguage release];
+        }
+        currentTextLanguage = [_textLanguage retain];
+    }
+}
+
+//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+//    return YES;
+//}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -207,6 +240,7 @@
 }
 
 - (void)dealloc {
+    [currentTextLanguage release];
     [myTextView release];
 	[array release];
     [super dealloc];

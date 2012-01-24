@@ -251,7 +251,7 @@
     if (context && row>=0) {
         if (caller) {
             [self close:nil];
-            [caller didRecognizeText:context];
+            [caller didRecognizeText:context languageCode:[self getLangType]];
         }
     }
 }
