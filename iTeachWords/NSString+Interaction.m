@@ -99,6 +99,40 @@
     return nil;
 }
 
+- (NSString *) translateStringWithLanguageCode:(NSString*)code{
+    if ([iTeachWordsAppDelegate isNetwork]) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        NSString* translateCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE];
+        NSString* nativeCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
+        
+        NSString* fromLanguage = [code uppercaseString];
+        NSString* toLanguage = ([nativeCountryCode isEqualToString:fromLanguage])?translateCountryCode:nativeCountryCode;
+        NSString *url = [[NSString stringWithFormat:@"http://api.microsofttranslator.com/v2/http.svc/translate?appId=%@&text=%@&from=%@&to=%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"TranslateAppId"],
+                          self,
+                          [fromLanguage uppercaseString],
+                          [toLanguage uppercaseString]
+                          ] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"url->%@",url);
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"responseText->%@",response);
+        @try
+        {
+            NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
+            if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
+                return [[result objectForKey:@"string"] objectForKey:@"text"];
+            }
+        }
+        @finally
+        {
+            [response release];
+        }
+        return NSLocalizedString(@"", @"");
+    }
+    return nil;
+}
+
 - (NSDate *) dateWithFormat:(NSString *)format{
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];    
     [df setDateFormat:format]; 

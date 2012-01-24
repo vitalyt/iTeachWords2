@@ -175,6 +175,18 @@
     return [[languageCode objectAtIndex:0] lowercaseString];
 }
 
+
+-(void) translateText{
+    NSString *selectedText = [self getSelectedText];
+    if (selectedText.length > 0) {
+        if (!currentTextLanguage) {
+            [self setCurrentTextLanguage:[self detectCurrentTextLanguage]];
+        }
+        NSString* translate = [selectedText translateStringWithLanguageCode:currentTextLanguage];
+        [UIAlertView displayMessage:translate];
+    }
+}
+
 #pragma mark textview delegate functions
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
