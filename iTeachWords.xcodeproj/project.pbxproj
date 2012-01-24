@@ -168,6 +168,7 @@
 		289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */; };
 		28A0882B1421CDBF00F292F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28A088291421CDBF00F292F9 /* Localizable.strings */; };
 		28A194A114862FDD005B343A /* SpeachView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A194A014862FDD005B343A /* SpeachView.m */; };
+		28B5506614CEE1DB0067B618 /* RecognizerAlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B5506514CEE1DB0067B618 /* RecognizerAlertTableView.m */; };
 		28BA996F138E753100311400 /* TestOrthography.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BA996D138E753100311400 /* TestOrthography.m */; };
 		28BDB691148387C500BC2688 /* BannerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDB690148387C500BC2688 /* BannerTableViewController.m */; };
 		28BDB6941483880300BC2688 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BDB6931483880300BC2688 /* iAd.framework */; };
@@ -697,6 +698,8 @@
 		28A0882C1421CE2000F292F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28A1949F14862FDD005B343A /* SpeachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeachView.h; sourceTree = "<group>"; };
 		28A194A014862FDD005B343A /* SpeachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeachView.m; sourceTree = "<group>"; };
+		28B5506414CEE1DB0067B618 /* RecognizerAlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerAlertTableView.h; sourceTree = "<group>"; };
+		28B5506514CEE1DB0067B618 /* RecognizerAlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizerAlertTableView.m; sourceTree = "<group>"; };
 		28BA996C138E753100311400 /* TestOrthography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestOrthography.h; sourceTree = "<group>"; };
 		28BA996D138E753100311400 /* TestOrthography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestOrthography.m; sourceTree = "<group>"; };
 		28BDB68F148387C500BC2688 /* BannerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerTableViewController.h; sourceTree = "<group>"; };
@@ -1755,6 +1758,8 @@
 				28C0503214BD79D6006442B4 /* MyUIViewWhiteClass.m */,
 				28C0502714BD75AE006442B4 /* AlertTableView.h */,
 				28C0502814BD75AE006442B4 /* AlertTableView.m */,
+				28B5506414CEE1DB0067B618 /* RecognizerAlertTableView.h */,
+				28B5506514CEE1DB0067B618 /* RecognizerAlertTableView.m */,
 			);
 			name = AlertTableView;
 			sourceTree = "<group>";
@@ -2670,6 +2675,7 @@
 				2837B69A14C8538D0053C275 /* RecordingViewController.m in Sources */,
 				289C63A914CDA5BF0003C5BF /* VoiceRecordingViewController.m in Sources */,
 				287340E414CEA2010085B72C /* MyRecognizerViewController.m in Sources */,
+				28B5506614CEE1DB0067B618 /* RecognizerAlertTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

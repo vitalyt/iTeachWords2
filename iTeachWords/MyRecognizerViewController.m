@@ -10,6 +10,16 @@
 
 @implementation MyRecognizerViewController
 
+@synthesize caller;
+
+- (id)initWithDelegate:(id)_caller{
+    self = [super initWithNibName:@"MyRecognizerViewController" bundle:nil];
+    if(self){
+        self.caller = _caller;
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,12 +43,6 @@
     [super loadView];
     NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY];
     NSString *translateCountry = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY];
-    
-//    NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
-//    NSString *translateCountry = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE];
-//    [languageType setTitle:[NSString stringWithFormat:@"%@_%@",[translateCountry lowercaseString],[translateCountry uppercaseString]] forSegmentAtIndex:0];
-//    [languageType setTitle:[NSString stringWithFormat:@"%@_%@", [nativeCountry lowercaseString],[nativeCountry uppercaseString]] 
-//         forSegmentAtIndex:1];
     
     [languageCodeLbl setText:NSLocalizedString(@"Language Code", @"")];
     [languageType setTitle:[NSString stringWithFormat:@"%@",translateCountry] forSegmentAtIndex:0];
@@ -113,6 +117,10 @@
 }
 
 - (IBAction)close:(id)sender {
+    if (transactionState == TS_RECORDING) {
+        [voiceSearch stopRecording];
+        [voiceSearch cancel];
+    }
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -157,16 +165,11 @@
 }
 
 - (CGRect)getFrameForToolsView{
-    CGRect frame;
     static CGRect toolsViewOriginFrame;
-    static CGRect toolsViewExtendedFrame;
     if (CGRectIsEmpty(toolsViewOriginFrame)) {
         toolsViewOriginFrame = CGRectMake(0, 178, majorView.frame.size.width, toolsView.frame.size.height);//toolsView.frame;
 
     }
-    //    majorViewExtendedFrame = CGRectMake(majorViewOriginFrame.origin.x, majorViewOriginFrame.origin.y, 
-//                                        majorViewOriginFrame.size.width, majorViewOriginFrame.size.height + toolsView.frame.size.height);
-//    frame = (!isToolsViewShowing)?majorViewExtendedFrame:majorViewOriginFrame;
     return toolsViewOriginFrame;
 }
 
@@ -184,10 +187,69 @@
         }
             break;
     }
+    NSLog(@"%@",langType);
     return langType;
 }
 
+#pragma mark -
+#pragma mark SKRecognizerDelegate methods
+
+- (void)recognizer:(SKRecognizer *)recognizer didFinishWithResults:(SKRecognition *)results
+{
+    NSLog(@"Got results.");
+    
+    long numOfResults = [results.results count];
+    
+    transactionState = TS_IDLE;
+    [recordButton setTitle:@"Record" forState:UIControlStateNormal];
+    [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
+    
+    if (numOfResults > 0){
+        [self didSelectRowAtIndex:0 withContext:[results firstResult]];
+        searchBox.text = [results firstResult];
+    }else if (numOfResults > 1) {
+        [self showTableAlertViewWithElements:results.results];
+		alternativesDisplay.text = [[results.results subarrayWithRange:NSMakeRange(1, numOfResults-1)] componentsJoinedByString:@"\n"];
+    }
+    
+    if (results.suggestion) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Suggestion"
+                                                        message:results.suggestion
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];        
+        [alert show];
+        [alert release];
+        
+    }
+    
+	[voiceSearch release];
+	voiceSearch = nil;
+}
+
+#pragma mark alert table functions
+
+- (void)showTableAlertViewWithElements:(NSArray *)elements{
+    AlertTableView *alertTableView = [[AlertTableView alloc] initWithCaller:self data:elements title:NSLocalizedString(@"Alternatives", @"") andContext:@"context identificator"];
+    [alertTableView show];
+    [alertTableView autorelease];
+}
+
+#pragma mark alert table delegate
+
+-(void)didSelectRowAtIndex:(NSInteger)row withContext:(id)context{
+    NSLog(@"Alert view index is ->%d",row);    
+    if (context && row>=0) {
+        if (caller) {
+            [self close:nil];
+            [caller didRecognizeText:context];
+        }
+    }
+}
+
+
 - (void)dealloc {
+    self.caller = nil;
     [toolsView release];
     [recordingTypeLbl release];
     [languageCodeLbl release];

@@ -31,4 +31,5 @@
 
 @interface AlertTableView(HIDDEN)
 -(void)prepare;
+-(float)cellHeight;
 @end

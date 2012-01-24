@@ -11,7 +11,6 @@
 //#import "myButtonPlayer.h"
 #import "LanguagePickerController.h"
 #import "NewWordsTable.h"
-#import "MyRecognizerViewController.h"
 
 #define radius 10
 
@@ -80,10 +79,18 @@
     [table loadDataWithString:myTextView.text];
 }
 
+#pragma mark MyRecognize functions
+
 - (IBAction) showVoiceRecordView{
-	MyRecognizerViewController *voiceView = [[MyRecognizerViewController alloc] initWithNibName:@"MyRecognizerViewController" bundle:nil];
+	MyRecognizerViewController *voiceView = [[MyRecognizerViewController alloc] initWithDelegate:self];
     [self.navigationController presentModalViewController:voiceView animated:YES];
     [voiceView release];
+}
+
+#pragma mark MyRecognize delegate
+
+-(void)didRecognizeText:(NSString*)text{
+    [myTextView setText:text];
 }
 
 - (NSString *) loadText{
@@ -168,7 +175,7 @@
         [UIView beginAnimations:@"Changing size of textView" context:nil];
         [UIView setAnimationDuration:0.3];
         [UIView setAnimationBeginsFromCurrentState:YES];
-        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width,  395.0)];
+        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width,  332)];
         [UIView commitAnimations];
     }
 }

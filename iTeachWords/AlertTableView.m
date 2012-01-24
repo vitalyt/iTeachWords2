@@ -15,8 +15,6 @@
 
 @implementation AlertTableView
 
-const float cellHeight = 53;
-
 @synthesize  caller, context, data;
 
 -(id)initWithCaller:(id)_caller data:(NSArray*)_data title:(NSString*)_title andContext:(id)_context{
@@ -25,20 +23,24 @@ const float cellHeight = 53;
     if([_data count] < 2){
         for(int i = 0; i < [_data count]; i++){
             [messageString appendString:@"\n\n"];
-            tableHeight += cellHeight;
+            tableHeight += [self cellHeight];
         }
     }else{
         [messageString setString:@"\n\n\n\n\n"];
         tableHeight = 105;
     }
     
-    if(self = [super initWithTitle:_title message:messageString delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"OK", @""),NSLocalizedString(@"Don't show anymore", @""),nil]){
+    if(self = [super initWithTitle:_title message:messageString delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"OK", @""),nil]){
         self.caller = _caller;
         self.context = _context;
         self.data = _data;
         [self prepare];
     }
     return self;
+}
+
+-(float)cellHeight{
+    return 53;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -99,7 +101,9 @@ const float cellHeight = 53;
 }
 
 - (void)willPresentAlertView:(UIAlertView *)alertView{
-    int offset = alertView.frame.size.height - (234+[self.message length]*20);
+    int buttonsCount = (([alertView numberOfButtons]<=2)?1:[alertView numberOfButtons]);
+    int offset = alertView.frame.size.height - (buttonsCount*50 + tableHeight + ((buttonsCount>2)?15:0) +[self.message length]*(([data count]<2)?20:14));
+    
     CGRect tableFrame = CGRectMake(11, 50+offset, 261, tableHeight);
     [baseCornerRadiusView setFrame:tableFrame];
 }
@@ -134,7 +138,7 @@ const float cellHeight = 53;
 }
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return cellHeight;
+    return [self cellHeight];
 }
 
 -(void)dealloc{

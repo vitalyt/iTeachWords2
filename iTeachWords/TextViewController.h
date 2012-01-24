@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AddWordOptionsView.h"
+#import "MyRecognizerViewController.h"
 
-@interface TextViewController : AddWordOptionsView <UITextViewDelegate, UIAlertViewDelegate>{
+@interface TextViewController : AddWordOptionsView <UITextViewDelegate, UIAlertViewDelegate, RecordingViewProtocol>{
     IBOutlet UITextView *myTextView;
     
     NSRange             range;
