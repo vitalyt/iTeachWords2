@@ -126,7 +126,7 @@
     }else if (2592000<intervalSeconds) {//>1 m
         _repeatStatus = 5;
     }
-    bool availability = [[NSUserDefaults standardUserDefaults] boolForKey:[RepeatModel keyForStatus:_repeatStatus]];
+    bool availability = [self getRepeatTimeIntervalAvailableWithStatus:_repeatStatus];
 
     if (!availability) {
         return 0;
@@ -170,7 +170,7 @@
 }
 
 
-+ (NSString*)keyForStatus:(int)status{
+- (NSString*)keyForStatus:(int)status{
     NSString *key = @"";
     switch (status) {
         case 2:
@@ -192,6 +192,13 @@
     return key;
 }
 
+- (BOOL)getRepeatTimeIntervalAvailableWithStatus:(int)status{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:[self keyForStatus:status]]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[self keyForStatus:status]];
+    }
+    return [[NSUserDefaults standardUserDefaults] boolForKey:[self keyForStatus:status]];
+}
+
 - (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray{
     StatisticLearning *_statisticLearning = [_statisticsLearningArray lastObject];
     int intervallToNextRepeat = 0;
@@ -199,7 +206,7 @@
         int _repeatStatus = [_statisticLearning.repeatStatus intValue];
         int nexStatus = _repeatStatus+1;
         while (nexStatus<=5) {
-            bool availability = [[NSUserDefaults standardUserDefaults] boolForKey:[RepeatModel keyForStatus:nexStatus]];
+            bool availability = [self getRepeatTimeIntervalAvailableWithStatus:nexStatus];
             if (availability) {
                 break;
             }

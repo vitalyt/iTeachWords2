@@ -32,5 +32,6 @@
 - (NSArray*)loadAllThemes;
 - (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType;
 
-+ (NSString*)keyForStatus:(int)status;
+- (NSString*)keyForStatus:(int)status;
+- (BOOL)getRepeatTimeIntervalAvailableWithStatus:(int)status;
 @end

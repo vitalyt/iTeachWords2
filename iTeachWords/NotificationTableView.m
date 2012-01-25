@@ -9,6 +9,7 @@
 #import "NotificationTableView.h"
 #import "SwitchingCell.h"
 #import "DetailViewController.h"
+#import "RepeatModel.h"
 
 #define FONT_OF_HEAD_LABEL [UIFont fontWithName:@"Helvetica-Bold" size:16]
 
@@ -76,8 +77,9 @@
     [elements release];
     for (int i=0;i<[elements count];i++){
         NSString *_key = [self keyForIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        bool boolValue = ([[NSUserDefaults standardUserDefaults] objectForKey:_key])?[[[NSUserDefaults standardUserDefaults] objectForKey:_key] boolValue]:YES;
+        bool boolValue = ([[NSUserDefaults standardUserDefaults] objectForKey:_key])?[[NSUserDefaults standardUserDefaults] boolForKey:_key]:YES;
         [self.values setObject:[NSNumber numberWithBool:boolValue] forKey:_key];
+        [[NSUserDefaults standardUserDefaults] setBool:boolValue forKey:_key];
     }
     [self.table reloadData];
 }
@@ -108,24 +110,6 @@
 
 #pragma mark table view delegate
 - (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath {
-//    if (indexPath.section == 0) {
-//        switch (indexPath.row) {
-//            case 0:
-//            case 1:
-//            case 1:
-//            case 1:
-//                return @"SwitchingCell";
-//                break;
-//            case 1:
-//                return @"SwitchingCell";
-//                break;
-//            case 3:
-//                return @"SwitchingCell";
-//                break;
-//            default:
-//                break;
-//        }
-//    }
     return @"SwitchingCell";   
 }
 
