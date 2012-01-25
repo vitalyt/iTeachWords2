@@ -37,12 +37,11 @@ typedef enum {
 #define BACKEND [iTeachWordsAppDelegate sharedEngine]
 #define DOCUMENTS [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
 #define INFO [[NSBundle mainBundle] infoDictionary]
-#define NATIVE_COUNTRY_CODE @"nativeCountryCode"
-#define TRANSLATE_COUNTRY_CODE @"translateCountryCode"
-#define NATIVE_COUNTRY @"nativeCountry"
-#define TRANSLATE_COUNTRY @"translateCountry"
+
 #define NATIVE_COUNTRY_INFO [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"nativeCountryInfo"]
 #define TRANSLATE_COUNTRY_INFO [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"translateCountryInfo"]
+#define NATIVE_LANGUAGE_CODE ([[[NSUserDefaults standardUserDefaults] stringForKey:@"nativeCountryCode"] uppercaseString])
+#define TRANSLATE_LANGUAGE_CODE ([[[NSUserDefaults standardUserDefaults] stringForKey:@"translateCountryCode"] uppercaseString])
 
 #define DEFAULT_FONT_SIZE (([[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"])?[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"] intValue]:10)
 #define DEFAULT_FONT_NAME [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontName"]

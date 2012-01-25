@@ -59,8 +59,8 @@
     [translateFid setDelegate:self];   
     [textFld setFont:FONT_TEXT];
     [translateFid setFont:FONT_TEXT];    
-    textFld.placeholder = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY];
-    translateFid.placeholder = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY];
+    textFld.placeholder = [[NSUserDefaults standardUserDefaults] objectForKey:@"translateCountry"];
+    translateFid.placeholder = [[NSUserDefaults standardUserDefaults] objectForKey:@"nativeCountry"];
     [textFld addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [translateFid addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
@@ -157,10 +157,10 @@
 - (void) setImageFlag{
     [self addRecButtonOnTextField:textFld];
     [self addRecButtonOnTextField:translateFid];
-    NSString *path = [NSString stringWithFormat:@"%@.png", [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
+    NSString *path = [NSString stringWithFormat:@"%@.png", TRANSLATE_LANGUAGE_CODE];
 	UIImageView *objImageEng = [[UIImageView alloc]initWithImage:[UIImage imageNamed:path]];
     [objImageEng setFrame:CGRectMake(0.0, 0.0, 20, 20)];
-    path = [NSString stringWithFormat:@"%@.png", [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]];
+    path = [NSString stringWithFormat:@"%@.png", NATIVE_LANGUAGE_CODE];
 	UIImageView *objImageRus = [[UIImageView alloc]initWithImage:[UIImage imageNamed:path]];
     [objImageRus setFrame:CGRectMake(0.0, 0.0, 20, 18)];
 	[textFld setLeftView:objImageEng];
@@ -374,11 +374,11 @@
     }
     if (textField.tag == 100) {
         if ([translateFid.text length] == 0) {
-            [dataModel loadTranslateText:text fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] withDelegate:self];
+            [dataModel loadTranslateText:text fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:self];
         }
     }else if (textField.tag == 101){
         if ([textFld.text length] == 0) {
-            [dataModel loadTranslateText:text fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] withDelegate:self];
+            [dataModel loadTranslateText:text fromLanguageCode:NATIVE_LANGUAGE_CODE toLanguageCode:TRANSLATE_LANGUAGE_CODE withDelegate:self];
         }
     }
     if (textField == textFld) {
@@ -433,7 +433,7 @@
     if (translateText == nil) { 
         return;
     }
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] isEqualToString:_activeTranslateLanguageCode]) {
+    if ([TRANSLATE_LANGUAGE_CODE isEqualToString:_activeTranslateLanguageCode]) {
         [self setText:translateText];
     }else{
         [self setTranslate:translateText];

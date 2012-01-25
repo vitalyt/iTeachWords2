@@ -38,7 +38,7 @@
 }
 
 + (NSArray*)loadAllTheme{
-    NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
+    NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",NATIVE_LANGUAGE_CODE, TRANSLATE_LANGUAGE_CODE];
     return [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
 }
 
@@ -196,8 +196,8 @@
         wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
                                                 inManagedObjectContext:CONTEXT];
         [wordType setName:typeName];
-        [wordType setNativeCountryCode:[[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] uppercaseString]];
-        [wordType setTranslateCountryCode:[[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] uppercaseString]];
+        [wordType setNativeCountryCode:[NATIVE_LANGUAGE_CODE uppercaseString]];
+        [wordType setTranslateCountryCode:[TRANSLATE_LANGUAGE_CODE uppercaseString]];
         [wordType setCreateDate:[NSDate date]];
         if (![CONTEXT save:&error]) {
             [UIAlertView displayError:@"There is problem with saving data."];

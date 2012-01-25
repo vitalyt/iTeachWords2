@@ -245,8 +245,8 @@
         TextFieldLanguagesCell* _cell = (TextFieldLanguagesCell *)cell;
         _cell.textField.placeholder = NSLocalizedString(@"Touch to change", @""); 
         _cell.textField2.placeholder = NSLocalizedString(@"Touch to change", @""); 
-        _cell.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:NATIVE_COUNTRY];
-        _cell.textField2.text = [[NSUserDefaults standardUserDefaults] stringForKey:TRANSLATE_COUNTRY];
+        _cell.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"nativeCountry"];
+        _cell.textField2.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"translateCountry"];
         _cell.titleLabel.text = NSLocalizedString(@"Native language", @""); 
         _cell.titleLabel2.text = NSLocalizedString(@"Diffrent language", @"");
         [self setImageFlagInCell:_cell];
@@ -267,10 +267,10 @@
 }
 
 - (void) setImageFlagInCell:(TextFieldLanguagesCell *)_cell{
-    NSString *path = [NSString stringWithFormat:@"%@.png", [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
+    NSString *path = [NSString stringWithFormat:@"%@.png", TRANSLATE_LANGUAGE_CODE];
 	UIImageView *objImageEng = [[UIImageView alloc]initWithImage:[UIImage imageNamed:path]];
     [objImageEng setFrame:CGRectMake(0.0, 0.0, 20, 20)];
-    path = [NSString stringWithFormat:@"%@.png", [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]];
+    path = [NSString stringWithFormat:@"%@.png", NATIVE_LANGUAGE_CODE];
 	UIImageView *objImageRus = [[UIImageView alloc]initWithImage:[UIImage imageNamed:path]];
     [objImageRus setFrame:CGRectMake(0.0, 0.0, 20, 18)];
 	[_cell.textField2 setLeftView:objImageEng];

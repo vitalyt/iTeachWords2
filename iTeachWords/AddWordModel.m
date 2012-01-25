@@ -81,13 +81,13 @@
 
 -(void) createUrls{
 //	url = [[NSString alloc] initWithFormat: @"https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=%@&langpair=%@|%@",currentWord.text,
-//          [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
-//          [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]];
+//          TRANSLATE_LANGUAGE_CODE,
+//          NATIVE_LANGUAGE_CODE];
     
     self.urlShow = [[NSString alloc] initWithFormat: @"http://translate.google.com/?hl=%@&sl=%@&tl=%@&ie=UTF-8&prev=_m&q=%@",
-               [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE],
-           [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
-           [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE],currentWord.text];
+               NATIVE_LANGUAGE_CODE,
+           TRANSLATE_LANGUAGE_CODE,
+           NATIVE_LANGUAGE_CODE,currentWord.text];
     NSLog(@"%@",urlShow);
 }
 
@@ -107,14 +107,14 @@
         NSString *url = [[NSString stringWithFormat:@"http://api.microsofttranslator.com/v2/http.svc/translate?appId=%@&text=%@&from=%@&to=%@"
                           ,[[[NSBundle mainBundle] infoDictionary] objectForKey:@"TranslateAppId"],
                           text,
-                          fromLanguageCode,
-                          toLanguageCode] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                          [fromLanguageCode uppercaseString],
+                          [toLanguageCode uppercaseString]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [self setCurrentTranslateLanguageCode:toLanguageCode];
         NSLog(@"%@",text);
         NSLog(@"url->%@",url);
 //        NSString *url = [[NSString alloc] initWithFormat: @"https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=%@&langpair=%@|%@",currentWord.text,
-//                         [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
-//                         [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]];
+//                         TRANSLATE_LANGUAGE_CODE,
+//                         NATIVE_LANGUAGE_CODE];
         WBRequest * _request = [WBRequest getRequestWithURL:url delegate:self];
         [wbEngine performRequest:_request];
     }

@@ -41,8 +41,8 @@
 
 - (void)loadView{
     [super loadView];
-    NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY];
-    NSString *translateCountry = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY];
+    NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] objectForKey:@"nativeCountry"];
+    NSString *translateCountry = [[NSUserDefaults standardUserDefaults] objectForKey:@"translateCountry"];
     
     [languageCodeLbl setText:NSLocalizedString(@"Language Code", @"")];
     [languageType setTitle:[NSString stringWithFormat:@"%@",translateCountry] forSegmentAtIndex:0];

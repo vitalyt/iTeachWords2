@@ -180,7 +180,7 @@
         if (!currentTextLanguage) {
             [self setCurrentTextLanguage:[[NSUserDefaults standardUserDefaults] stringForKey:@"lastTextLanguageInTextParseView"]];
         }
-        NSString *translateLangusgeCode = ([[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] isEqualToString:[currentTextLanguage uppercaseString]])?[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
+        NSString *translateLangusgeCode = ([NATIVE_LANGUAGE_CODE isEqualToString:[currentTextLanguage uppercaseString]])?TRANSLATE_LANGUAGE_CODE:NATIVE_LANGUAGE_CODE;
         
         [wordsView.dataModel setDelegate:self];
         [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:currentTextLanguage toLanguageCode:translateLangusgeCode withDelegate:self];
@@ -246,7 +246,7 @@
     NSLog(@"%@",[UITextInputMode activeInputModes]);
     NSLog(@"%@",[UITextInputMode currentInputMode]);
     if ([UITextInputMode currentInputMode] == nil) {
-        return [[NSUserDefaults standardUserDefaults] stringForKey:TRANSLATE_COUNTRY_CODE];
+        return TRANSLATE_LANGUAGE_CODE;
     }
     NSArray *languageCode = [[[UITextInputMode currentInputMode] primaryLanguage] componentsSeparatedByString:@"-"];
     return [[languageCode objectAtIndex:0] lowercaseString];

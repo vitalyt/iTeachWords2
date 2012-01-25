@@ -279,8 +279,8 @@
         //Checking whether there is dictionary with the same name 
         while (YES) {
             NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@ && name = %@",
-                                       [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], 
-                                       [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
+                                       NATIVE_LANGUAGE_CODE, 
+                                       TRANSLATE_LANGUAGE_CODE,
                                        themeName];
             NSArray *allTheme = [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
             if ([allTheme count]>0) {

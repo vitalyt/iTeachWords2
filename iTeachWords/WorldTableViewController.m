@@ -163,8 +163,8 @@
 {
     [super viewDidLoad];
     NSDictionary *dict = [iTeachWordsAppDelegate sharedSettings];
-    nativeCountry = [dict objectForKey:NATIVE_COUNTRY];
-    translateCountry = [dict objectForKey:TRANSLATE_COUNTRY];
+    nativeCountry = [dict objectForKey:@"nativeCountry"];
+    translateCountry = [dict objectForKey:@"translateCountry"];
     limit = 50;
     offset = 50;
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMyPickerView)] autorelease];

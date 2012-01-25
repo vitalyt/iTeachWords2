@@ -142,7 +142,7 @@
     }
     NSString *selectedText = [self getSelectedText];
     [wordsView setText:selectedText];
-    [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] withDelegate:wordsView];
+    [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:wordsView];
     //[self translateText];
 }
 
@@ -156,7 +156,7 @@
 -(void) translateText{
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
-        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] withDelegate:self];
+        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:self];
     }
 }
 

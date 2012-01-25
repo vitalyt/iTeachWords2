@@ -76,8 +76,8 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         NSString *url = [[NSString stringWithFormat:@"http://api.microsofttranslator.com/v2/http.svc/translate?appId=%@&text=%@&from=%@&to=%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"TranslateAppId"],
                           self,
-                          [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
-                          [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                          TRANSLATE_LANGUAGE_CODE,
+                          NATIVE_LANGUAGE_CODE] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSLog(@"url->%@",url);
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -102,8 +102,8 @@
 - (NSString *) translateStringWithLanguageCode:(NSString*)code{
     if ([iTeachWordsAppDelegate isNetwork]) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        NSString* translateCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE];
-        NSString* nativeCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
+        NSString* translateCountryCode = TRANSLATE_LANGUAGE_CODE;
+        NSString* nativeCountryCode = NATIVE_LANGUAGE_CODE;
         
         NSString* fromLanguage = [code uppercaseString];
         NSString* toLanguage = ([nativeCountryCode isEqualToString:fromLanguage])?translateCountryCode:nativeCountryCode;

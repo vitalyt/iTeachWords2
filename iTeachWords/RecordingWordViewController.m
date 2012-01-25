@@ -132,9 +132,9 @@
     NSString *text = currentSound.descriptionStr;
     NSString *language;
     if (self.soundType == TRANSLATE) {
-        language = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
+        language = NATIVE_LANGUAGE_CODE;
     }else{
-        language = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE];
+        language = TRANSLATE_LANGUAGE_CODE;
     }
     NSString *urlString = [NSString stringWithFormat:@"http://translate.google.com/translate_tts?tl=%@&q=%@",
                            language,

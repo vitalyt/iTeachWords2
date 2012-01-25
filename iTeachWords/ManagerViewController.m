@@ -41,8 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [segmentControll setTitle:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] forSegmentAtIndex:0];
-    [segmentControll setTitle:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] forSegmentAtIndex:2];
+    [segmentControll setTitle:TRANSLATE_LANGUAGE_CODE forSegmentAtIndex:0];
+    [segmentControll setTitle:NATIVE_LANGUAGE_CODE forSegmentAtIndex:2];
     // Do any additional setup after loading the view from its nib.
 }
 

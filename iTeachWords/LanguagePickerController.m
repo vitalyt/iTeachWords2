@@ -50,8 +50,8 @@
     
     NSArray *countries = [[NSArray alloc] initWithArray:[countryNameCode componentsSeparatedByString:@"\r"]];
     
-    NSString *nativeCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
-    NSString *translateCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE];
+    NSString *nativeCountryCode = NATIVE_LANGUAGE_CODE;
+    NSString *translateCountryCode = TRANSLATE_LANGUAGE_CODE;
     
     for (int i=0;i<[countries count];i++){
         NSString *country = [countries objectAtIndex:i];
@@ -208,12 +208,12 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastTheme"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastThemeInAddView"];
     [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"nativeCountryInfo"];
-    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"code"] forKey:NATIVE_COUNTRY_CODE];
-    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"country"] forKey:NATIVE_COUNTRY];
+    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"code"] forKey:@"nativeCountryCode"];
+    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"country"] forKey:@"nativeCountry"];
     dict = [content objectAtIndex:[pickerView selectedRowInComponent:1]];
     [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"translateCountryInfo"];
-    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"code"] forKey:TRANSLATE_COUNTRY_CODE];
-    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"country"] forKey:TRANSLATE_COUNTRY];
+    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"code"] forKey:@"translateCountryCode"];
+    [[NSUserDefaults standardUserDefaults] setValue:[dict  objectForKey:@"country"] forKey:@"translateCountry"];
     [self.navigationController popViewControllerAnimated:YES];
     self.navigationItem.rightBarButtonItem = nil;
     

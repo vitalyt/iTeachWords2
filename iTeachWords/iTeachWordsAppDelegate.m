@@ -101,7 +101,7 @@
 		//[navigationController.view addSubview:progressView.view];
 		[progressView release];
 	}
-    //    if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] && [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]){
+    //    if (NATIVE_LANGUAGE_CODE && TRANSLATE_LANGUAGE_CODE){
     //        FilesManagerViewController *progressView = [[FilesManagerViewController alloc] init];
     //        [progressView loadDictionary];
     //        [progressView release];
@@ -166,7 +166,7 @@
         for (int i=0;i<[navigationController.viewControllers count];i++){
             if ([[navigationController.viewControllers objectAtIndex:i] isKindOfClass:[MenuViewController class]]) {
                 MenuViewController *menuView = [navigationController.viewControllers objectAtIndex:i];
-                if ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] || [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE])
+                if (NATIVE_LANGUAGE_CODE || TRANSLATE_LANGUAGE_CODE)
                 {
                     [menuView performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
                     return;
@@ -202,7 +202,7 @@
     [navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     [myMenu release];
     
-    if (!isUpdating && ([[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] && [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]))
+    if (!isUpdating && (NATIVE_LANGUAGE_CODE && TRANSLATE_LANGUAGE_CODE))
     {
         [myMenu performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
     }
@@ -449,15 +449,15 @@
 
 + (NSDictionary *) loadLanguageSettings{
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]  init];
-    NSString *nativeCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
-    NSString *translateCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE];
-    NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY];
-    NSString *translateCountry = [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY];
+    NSString *nativeCountryCode = NATIVE_LANGUAGE_CODE;
+    NSString *translateCountryCode = TRANSLATE_LANGUAGE_CODE;
+    NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] objectForKey:@"nativeCountry"];
+    NSString *translateCountry = [[NSUserDefaults standardUserDefaults] objectForKey:@"translateCountry"];
     if (translateCountryCode && nativeCountryCode){
-        [dict setValue:nativeCountryCode forKey:NATIVE_COUNTRY_CODE];
-        [dict setValue:translateCountryCode forKey:TRANSLATE_COUNTRY_CODE];
-        [dict setValue:nativeCountry forKey:NATIVE_COUNTRY];
-        [dict setValue:translateCountry forKey:TRANSLATE_COUNTRY];
+        [dict setValue:nativeCountryCode forKey:@"nativeCountryCode"];
+        [dict setValue:translateCountryCode forKey:@"translateCountryCode"];
+        [dict setValue:nativeCountry forKey:@"nativeCountry"];
+        [dict setValue:translateCountry forKey:@"translateCountry"];
         
         NSString *path = [NSString stringWithFormat:@"%@.png", nativeCountryCode];
         UIImage *nativeCountryFlag = [UIImage imageNamed:path];

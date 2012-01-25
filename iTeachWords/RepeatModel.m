@@ -42,7 +42,7 @@
 }
 
 - (NSArray*)loadAllThemes{
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE], [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@",NATIVE_LANGUAGE_CODE, TRANSLATE_LANGUAGE_CODE];
     NSFetchedResultsController *fetches = [NSManagedObjectContext 
                                            getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:predicate];
     NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];

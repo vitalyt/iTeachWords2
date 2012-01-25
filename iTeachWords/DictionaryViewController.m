@@ -98,7 +98,7 @@
 
 -(void)loadDataWithPredicate:(NSPredicate *)predicate {
     NSString *key;
-    NSString *nativeLanguage = [[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] lowercaseString];
+    NSString *nativeLanguage = [NATIVE_LANGUAGE_CODE lowercaseString];
     NSString *currentKeyboardLanguage = [self currentTextLanguage];
     NSString *textS = [NSString stringWithCString:[mySearchBar.text UTF8String] encoding:NSUTF8StringEncoding];
     if ([currentKeyboardLanguage isEqualToString:nativeLanguage]) {
@@ -131,14 +131,14 @@
 
 - (NSString *)currentTextLanguage{
     if ([UITextInputMode currentInputMode] == nil) {
-        return [[NSUserDefaults standardUserDefaults] stringForKey:TRANSLATE_COUNTRY_CODE];
+        return TRANSLATE_LANGUAGE_CODE;
     }
     NSArray *languageCode = [[[UITextInputMode currentInputMode] primaryLanguage] componentsSeparatedByString:@"-"];
     return [[languageCode objectAtIndex:0] lowercaseString];
 }
 
 - (bool)isNativeKeyboardLanguage{
-    NSString *nativeLanguage = [[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] lowercaseString];
+    NSString *nativeLanguage = [NATIVE_LANGUAGE_CODE lowercaseString];
     NSString *currentKeyboardLanguage = [self currentTextLanguage];
     return ([currentKeyboardLanguage isEqualToString:nativeLanguage])?YES:NO;
 }

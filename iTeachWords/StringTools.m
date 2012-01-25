@@ -66,8 +66,8 @@
     NSString *url = [[NSString stringWithFormat:@"http://api.microsofttranslator.com/v2/http.svc/translate?appId=%@&text=%@&from=%@&to=%@",
                       [[[NSBundle mainBundle] infoDictionary] objectForKey:@"TranslateAppId"],
                       wordsText,
-                      [[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE],
-                      [[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                      TRANSLATE_LANGUAGE_CODE,
+                      NATIVE_LANGUAGE_CODE] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"url-->%@",[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
     NSLog(@"url->%@",url);
     WBRequest * _request = [WBRequest getRequestWithURL:url delegate:self];
