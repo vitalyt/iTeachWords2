@@ -373,8 +373,13 @@
         return;
     }
     if (textField.tag == 100) {
-        NSString *translateText = [text translateString];
-        [self setTranslate:translateText];
+        if ([translateFid.text length] == 0) {
+            [dataModel loadTranslateText:text fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] withDelegate:self];
+        }
+    }else if (textField.tag == 101){
+        if ([textFld.text length] == 0) {
+            [dataModel loadTranslateText:text fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] withDelegate:self];
+        }
     }
     if (textField == textFld) {
         [dataModel.currentWord setText:text];
@@ -422,14 +427,27 @@
     [UIView commitAnimations];
 }
 
+#pragma mark loadingTranslate delegate functions
+
+- (void)translateDidLoad:(NSString *)translateText byLanguageCode:(NSString*)_activeTranslateLanguageCode{
+    if (translateText == nil) { 
+        return;
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] isEqualToString:_activeTranslateLanguageCode]) {
+        [self setText:translateText];
+    }else{
+        [self setTranslate:translateText];
+    }
+}
+
 - (void)dealloc {
     if (myPicker) {
         [myPicker release];
     }
-    delegate = nil;
     [textFld release];
     [translateFid release];
     [dataModel release];
+    delegate = nil;
     [themeLbl release];
     [saveButton release];
     [themeButton release];

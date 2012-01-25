@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
-#define DEFAULT_VIEWTAG			2000
+#define DEFAULT_VIEWTAG			2030
 
 #define DEFAULT_DELAY			0.9
 #define DEFAULT_DURATION		0.35

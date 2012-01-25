@@ -122,12 +122,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         NSString *key = @"isRepeatOptionOn";
-        bool _value = [[NSUserDefaults standardUserDefaults] boolForKey:key];
+        bool _value;
+        if([[NSUserDefaults standardUserDefaults] objectForKey:key]){
+            _value = [[NSUserDefaults standardUserDefaults] boolForKey:key];
+        }else{
+            _value = YES;
+            [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key];
+        }
         if (!_value) {
                 return 0;
         }
     }
-
     return [[data objectAtIndex:section] count];
 }
 
@@ -243,6 +248,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
     }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }   
 
 #pragma mark - Table view delegate
@@ -270,6 +277,7 @@
     [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [table reloadData];
 }
 

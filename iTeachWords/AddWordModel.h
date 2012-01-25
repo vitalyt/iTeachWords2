@@ -7,26 +7,39 @@
 //
 
 #import <Foundation/Foundation.h>
-@class WordTypes,Words;
+
+@protocol LoadingTranslateProtocol <NSObject>
+
+- (void)translateDidLoad:(NSString *)translateText byLanguageCode:(NSString*)_activeTranslateLanguageCode;
+
+@end
+
+@class WordTypes,Words,WBEngine;
 
 @interface AddWordModel : NSObject {
-    NSString				*url;
 	NSString				*urlShow; 
 	BOOL					isNeedToSave;
 	UIAlertView				*alert;
 	//Variables setup for access in the class:
     WordTypes               *wordType;
     Words                   *currentWord;
+    
+    NSString        *currentTranslateLanguageCode;
+    WBEngine        *wbEngine;
+    id              delegate;
 }
 
-@property (nonatomic, retain) NSString *url,*urlShow;
+@property (nonatomic, retain) NSString *urlShow;
 @property (nonatomic, retain) WordTypes *wordType;
 @property (nonatomic, retain) Words     *currentWord;
+@property (nonatomic, retain) id        delegate;
 
+//- (id)initWithDelegate:(id)_delegate;
 - (void)     createWord;
 - (void)     saveWord;
 - (void)     undoChngesWord;
 - (void)     setWord:(Words *)_word;
 - (void)	 createUrls;
 
+- (void)loadTranslateText:(NSString*)text fromLanguageCode:(NSString*)fromLanguageCode toLanguageCode:(NSString*)toLanguageCode withDelegate:(id)_delegate;
 @end

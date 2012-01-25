@@ -129,6 +129,9 @@
             atomically:YES
               encoding:NSUTF8StringEncoding
                  error:&error];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:currentTextLanguage forKey:@"lastTextLanguageInTextParseView"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     if (error)
     {
         NSLog(@"Error writing file at path: %@; error was %@", path, error);
@@ -170,21 +173,29 @@
     return selectedText;
 }
 
-- (NSString *)detectCurrentTextLanguage{
-    NSArray *languageCode = [[[UITextInputMode currentInputMode] primaryLanguage] componentsSeparatedByString:@"-"];
-    return [[languageCode objectAtIndex:0] lowercaseString];
-}
-
-
 -(void) translateText{
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         if (!currentTextLanguage) {
-            [self setCurrentTextLanguage:[self detectCurrentTextLanguage]];
+            [self setCurrentTextLanguage:[[NSUserDefaults standardUserDefaults] stringForKey:@"lastTextLanguageInTextParseView"]];
         }
-        NSString* translate = [selectedText translateStringWithLanguageCode:currentTextLanguage];
-        [UIAlertView displayMessage:translate];
+        NSString *translateLangusgeCode = ([[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] isEqualToString:[currentTextLanguage uppercaseString]])?[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE]:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE];
+        
+        [wordsView.dataModel setDelegate:self];
+        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:currentTextLanguage toLanguageCode:translateLangusgeCode withDelegate:self];
+//        NSString* translate = [selectedText translateStringWithLanguageCode:currentTextLanguage];
+//        [UIAlertView displayMessage:translate];
     }
+}
+
+
+#pragma mark loadingTranslate delegate functions
+
+- (void)translateDidLoad:(NSString *)translateText byLanguageCode:(NSString*)_activeTranslateLanguageCode{
+//    if (translateText == nil) { 
+//        return;
+//    }
+    [UIAlertView displayMessage:translateText];
 }
 
 #pragma mark textview delegate functions
@@ -227,6 +238,12 @@
         }
         currentTextLanguage = [_textLanguage retain];
     }
+}
+
+
+- (NSString *)detectCurrentTextLanguage{
+    NSArray *languageCode = [[[UITextInputMode currentInputMode] primaryLanguage] componentsSeparatedByString:@"-"];
+    return [[languageCode objectAtIndex:0] lowercaseString];
 }
 
 //- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{

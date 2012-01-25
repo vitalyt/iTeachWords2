@@ -17,7 +17,11 @@
 - (void)addWebView;
 - (void)showAddWordView;
 - (void)createMenu;
+
+- (void)translateText;
 - (void)parceTranslateWord;
+- (void)parseText;
+
 - (void)saveData;
 - (void)back;
 - (void) showParsedWordTable;

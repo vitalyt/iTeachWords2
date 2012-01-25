@@ -18,6 +18,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+//        if (!wordsView) {
+//            wordsView = [[AddNewWordViewController alloc] initWithNibName:@"AddNewWordViewController" bundle:nil];
+//            [wordsView setDelegate:self];
+//        } 
     }
     return self;
 }
@@ -138,7 +142,8 @@
     }
     NSString *selectedText = [self getSelectedText];
     [wordsView setText:selectedText];
-    [wordsView setTranslate:[selectedText translateString]];
+    [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] withDelegate:wordsView];
+    //[self translateText];
 }
 
 - (void)parseText{
@@ -151,9 +156,17 @@
 -(void) translateText{
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
-        NSString* translate = [selectedText translateString];
-        [UIAlertView displayMessage:translate];
+        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:TRANSLATE_COUNTRY_CODE] toLanguageCode:[[NSUserDefaults standardUserDefaults] objectForKey:NATIVE_COUNTRY_CODE] withDelegate:self];
     }
+}
+
+#pragma mark loadingTranslate delegate functions
+
+- (void)translateDidLoad:(NSString *)translateText byLanguageCode:(NSString*)_activeTranslateLanguageCode{
+    if (translateText == nil) { 
+        return;
+    }
+    [UIAlertView displayMessage:translateText];
 }
 
 - (void) saveData{

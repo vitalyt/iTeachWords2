@@ -235,7 +235,7 @@
 }
 
 + (void)showLoadingViewWithMwssage:(NSString*)message{
-    [UIAlertView showMessage:message textAlignment:UITextAlignmentCenter withDuration:.0 andDelay:20 backgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.9f] borderColor:[UIColor grayColor] shadowColor:[UIColor clearColor] massageOffsetSize:CGSizeMake(0, 0) borderWidth:2.5 shadowRadius:DEFAULT_RADIUS cornerRadius:DEFAULT_RADIUS startScale:DEFAULT_STARTSCALE middleScale:DEFAULT_MIDDLESCALE endScale:DEFAULT_ENDSCALE activityView:YES inView:nil];
+    [UIAlertView showMessage:message textAlignment:UITextAlignmentCenter withDuration:.0 andDelay:20 backgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.75f] borderColor:[UIColor grayColor] shadowColor:[UIColor clearColor] massageOffsetSize:CGSizeMake(0, 0) borderWidth:2.0 shadowRadius:DEFAULT_RADIUS cornerRadius:DEFAULT_RADIUS startScale:DEFAULT_STARTSCALE middleScale:DEFAULT_MIDDLESCALE endScale:DEFAULT_ENDSCALE activityView:YES inView:nil];
 }
 
 + (void) showMessage:(NSString *)message
@@ -276,13 +276,13 @@
 							 constrainedToSize:CGSizeMake(DEFAULT_MESSAGEWIDTH, 9999.0f)
 								 lineBreakMode:UILineBreakModeWordWrap];
 	CGRect messageRect = CGRectMake(offsetSize.width + borderWidth + (isActivity)?+25+DEFAULT_ACTIVITYOFFSET*2:0, 
-									offsetSize.height + borderWidth, 
+									offsetSize.height + borderWidth+12, 
 									messageSize.width, 
 									messageSize.height);
 	messageLabel.frame = messageRect;
 	messageSize.width += offsetSize.width*2.0f + borderWidth;
 	messageSize.height += offsetSize.height*2.0f + borderWidth;
-	messageRect = CGRectMake(0.0f, 0.0f, messageSize.width, messageSize.height+10);
+	messageRect = CGRectMake(0.0f, 0.0f, messageSize.width, messageSize.height+30);
     
 	//Message view
 	UIView *content = [[UIView alloc] init];
@@ -292,7 +292,7 @@
 	} else {
 		content.backgroundColor = [UIColor colorWithRed:(60.0f/255.0f) green:(60.0f/255.0f) blue:(60.0f/255.0f) alpha:1.0f];
 	}
-	content.alpha = 0.8f;
+	//content.alpha = 0.8f;
 	content.layer.cornerRadius = cornerRadius;
 	content.layer.shadowRadius = shadowRadius;
 	content.layer.masksToBounds = NO;
@@ -310,6 +310,7 @@
 	content.layer.shadowPath = [UIBezierPath bezierPathWithRect:messageRect].CGPath;
 	//Root view
 	UIView *rootView = [[[UIView alloc] init] autorelease];
+    [rootView setBackgroundColor:[UIColor clearColor]];
 	rootView.tag = DEFAULT_VIEWTAG;
 	rootView.frame = messageRect;
 	//Compose views

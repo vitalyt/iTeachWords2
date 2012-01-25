@@ -79,6 +79,7 @@
 
 - (void) connection: (WBConnection*)connection didFailWithError: (NSError*)error
 {
+    [UIAlertView removeMessage];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
 	NSLog(@"NSURLConnection error: %@ with code:%i", [error localizedDescription], [error code]);
