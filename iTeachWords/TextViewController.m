@@ -103,7 +103,7 @@
 #pragma mark MyRecognize delegate
 
 -(void)didRecognizeText:(NSString*)text languageCode:(NSString*)textLanguageCode{
-    NSArray *languageCode = [textLanguageCode componentsSeparatedByString:@"-"];
+    NSArray *languageCode = [textLanguageCode componentsSeparatedByString:@"_"];
     [self setCurrentTextLanguage:[[languageCode objectAtIndex:0] lowercaseString]];
     [myTextView setText:text];
 }
@@ -139,34 +139,6 @@
     }
 }
 
-//- (void) createMenu{
-//    [self becomeFirstResponder];
-//    NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-//    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
-//                                                       action:@selector(translateText)] autorelease];
-//    [menuItemsMutableArray addObject:menuItem];
-//    UIMenuController *menuController = [UIMenuController sharedMenuController];
-//    [menuController setTargetRect: CGRectMake(0, 0, 320, 200)
-//                           inView:self.view];
-//    menuController.menuItems = menuItemsMutableArray;
-//    [menuController setMenuVisible:YES
-//                          animated:YES];
-//    [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
-//    [menuItemsMutableArray release];
-//}
-//
-//-(void) translateText{
-//    //[textView resignFirstResponder];
-//    NSString *selectedText = [self getSelectedText];
-//    if ([selectedText length] > 0) {
-//        NSLog(@"%@",selectedText);
-//        NSString *translate = [selectedText translateString];
-//        if (translate) {
-//            [UIAlertView displayMessage:translate];
-//        }
-//    }
-//}
-
 - (NSString *)getSelectedText{
     range = myTextView.selectedRange;
     NSMutableString *text = [NSMutableString stringWithString:myTextView.text];
@@ -188,7 +160,6 @@
 //        [UIAlertView displayMessage:translate];
     }
 }
-
 
 #pragma mark loadingTranslate delegate functions
 
@@ -241,10 +212,7 @@
     }
 }
 
-
 - (NSString *)detectCurrentTextLanguage{
-    NSLog(@"%@",[UITextInputMode activeInputModes]);
-    NSLog(@"%@",[UITextInputMode currentInputMode]);
     if ([UITextInputMode currentInputMode] == nil) {
         return TRANSLATE_LANGUAGE_CODE;
     }
