@@ -33,5 +33,4 @@
 - (void)setText:(NSString*)text;
 - (NSString*)detectCurrentTextLanguage;
 - (void)setCurrentTextLanguage:(NSString*)_textLanguage;
-
 @end

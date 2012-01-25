@@ -130,6 +130,9 @@
 }
 
 - (NSString *)currentTextLanguage{
+    if ([UITextInputMode currentInputMode] == nil) {
+        return [[NSUserDefaults standardUserDefaults] stringForKey:TRANSLATE_COUNTRY_CODE];
+    }
     NSArray *languageCode = [[[UITextInputMode currentInputMode] primaryLanguage] componentsSeparatedByString:@"-"];
     return [[languageCode objectAtIndex:0] lowercaseString];
 }

@@ -60,6 +60,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]];
     [myTextView setFont:FONT_TEXT];
 	myTextView.text = [self loadText];
+
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -242,6 +243,11 @@
 
 
 - (NSString *)detectCurrentTextLanguage{
+    NSLog(@"%@",[UITextInputMode activeInputModes]);
+    NSLog(@"%@",[UITextInputMode currentInputMode]);
+    if ([UITextInputMode currentInputMode] == nil) {
+        return [[NSUserDefaults standardUserDefaults] stringForKey:TRANSLATE_COUNTRY_CODE];
+    }
     NSArray *languageCode = [[[UITextInputMode currentInputMode] primaryLanguage] componentsSeparatedByString:@"-"];
     return [[languageCode objectAtIndex:0] lowercaseString];
 }
