@@ -48,6 +48,7 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
     // if you need the ability to change servers in DMVocalizer
     //[serverBox setText:@""];
     //[portBox setText:@""];
+    [languageCodeLbl setText:NSLocalizedString(@"Language Code", @"")];
 }
 
 
@@ -74,8 +75,11 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 
 
 - (void)dealloc {
+    [textToRead release];
+    [languageCodeLbl release];
     [speakString release];
     [languageCode release];
+	[languageType release];
     [messageLbl release];
     [super dealloc];
 }
@@ -98,8 +102,9 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
         isSpeaking = YES;
         //detection current language
         [messageLbl setText:NSLocalizedString(@"Loading...", @"")];
+        [textToRead setText:speakString];
         
-        NSString *currentKeyboardLanguage = [self currentTextLanguage];
+        NSString *currentKeyboardLanguage = [self getLangType];
         if (!currentKeyboardLanguage) {
             currentKeyboardLanguage = @"en_US";
         }
@@ -129,8 +134,19 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
     }
 }
 
-- (NSString *)currentTextLanguage{
-    return  @"en_US";
+- (NSString*)getLangType{
+    NSString* langType;
+    switch (languageType.selectedSegmentIndex) {
+        case 0:{
+            langType = @"en_US";
+        }
+            break;
+        case 1:{
+            langType = @"en_US";
+        }
+            break;
+    }
+    return langType;
 }
 
 - (IBAction)serverUpdateButtonAction: (id)sender {

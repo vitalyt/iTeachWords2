@@ -27,10 +27,13 @@
 #import <SpeechKit/SpeechKit.h>
 
 @interface DMVocalizerViewController : UIViewController<SpeechKitDelegate, SKVocalizerDelegate, UITextFieldDelegate> {
-//    IBOutlet UITextView* textToRead;
+    IBOutlet UITextView* textToRead;
 //    IBOutlet UITextView* textReadSoFar;
     IBOutlet UIButton* speakButton;
     IBOutlet UILabel*     messageLbl;
+    IBOutlet UISegmentedControl* languageType;
+    IBOutlet UILabel *languageCodeLbl;
+    
 //    IBOutlet UITextField* serverBox;
 //    IBOutlet UITextField* portBox;
     BOOL isSpeaking;
@@ -52,6 +55,6 @@
 - (IBAction)speakOrStopAction: (id) sender;
 - (IBAction)serverUpdateButtonAction: (id)sender;
 
-- (NSString *)currentTextLanguage;
+- (NSString*)getLangType;
 @end
 

@@ -48,7 +48,7 @@
 									<object class="IBUIButton" id="392228394">
 										<reference key="NSNextResponder" ref="586379202"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{56, 43}, {107, 98}}</string>
+										<string key="NSFrame">{{56, 50}, {107, 98}}</string>
 										<reference key="NSSuperview" ref="586379202"/>
 										<reference key="NSNextKeyView" ref="689427644"/>
 										<bool key="IBUIOpaque">NO</bool>
@@ -84,7 +84,7 @@
 									<object class="IBUILabel" id="139537429">
 										<reference key="NSNextResponder" ref="586379202"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{20, 8}, {180, 27}}</string>
+										<string key="NSFrame">{{20, 10}, {180, 27}}</string>
 										<reference key="NSSuperview" ref="586379202"/>
 										<reference key="NSNextKeyView" ref="392228394"/>
 										<bool key="IBUIOpaque">NO</bool>
@@ -159,7 +159,7 @@
 									<object class="IBUIView" id="689427644">
 										<reference key="NSNextResponder" ref="586379202"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{39, 149}, {141, 6}}</string>
+										<string key="NSFrame">{{39, 156}, {141, 3}}</string>
 										<reference key="NSSuperview" ref="586379202"/>
 										<reference key="NSNextKeyView" ref="902440328"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
@@ -5024,147 +5024,13 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="sourceID"/>
 			<int key="maxID">45</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">DMRecognizerViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="recordButtonAction:">id</string>
-						<string key="serverUpdateButtonAction:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="recordButtonAction:">
-							<string key="name">recordButtonAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="serverUpdateButtonAction:">
-							<string key="name">serverUpdateButtonAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="alternativesDisplay">UITextView</string>
-						<string key="languageType">UISegmentedControl</string>
-						<string key="messageLbl">UILabel</string>
-						<string key="portBox">UITextField</string>
-						<string key="recognitionType">UISegmentedControl</string>
-						<string key="recordButton">UIButton</string>
-						<string key="searchBox">UITextField</string>
-						<string key="serverBox">UITextField</string>
-						<string key="vuMeter">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="alternativesDisplay">
-							<string key="name">alternativesDisplay</string>
-							<string key="candidateClassName">UITextView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="languageType">
-							<string key="name">languageType</string>
-							<string key="candidateClassName">UISegmentedControl</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="messageLbl">
-							<string key="name">messageLbl</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="portBox">
-							<string key="name">portBox</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="recognitionType">
-							<string key="name">recognitionType</string>
-							<string key="candidateClassName">UISegmentedControl</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="recordButton">
-							<string key="name">recordButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="searchBox">
-							<string key="name">searchBox</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="serverBox">
-							<string key="name">serverBox</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="vuMeter">
-							<string key="name">vuMeter</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DMRecognizerViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">MyRecognizerViewController</string>
-					<string key="superclassName">DMRecognizerViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="close:">id</string>
-						<string key="showToolsView:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="close:">
-							<string key="name">close:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showToolsView:">
-							<string key="name">showToolsView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="exitBtn">UIButton</string>
-						<string key="helpBtn">UIButton</string>
-						<string key="languageCodeLbl">UILabel</string>
-						<string key="majorView">MyUIViewClass</string>
-						<string key="recordingTypeLbl">UILabel</string>
-						<string key="toolsView">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="exitBtn">
-							<string key="name">exitBtn</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="helpBtn">
-							<string key="name">helpBtn</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="languageCodeLbl">
-							<string key="name">languageCodeLbl</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="majorView">
-							<string key="name">majorView</string>
-							<string key="candidateClassName">MyUIViewClass</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="recordingTypeLbl">
-							<string key="name">recordingTypeLbl</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="toolsView">
-							<string key="name">toolsView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/MyRecognizerViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">MyUIViewClass</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/MyUIViewClass.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1280" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">

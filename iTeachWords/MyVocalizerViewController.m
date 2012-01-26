@@ -45,6 +45,12 @@
     
     //    [recordButton setTitle:NSLocalizedString(@"Cancel", @"") forState:UIControlStateNormal];
     [helpBtn setTitle:NSLocalizedString(@"Help", @"") forState:UIControlStateNormal];
+    NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] stringForKey:@"nativeCountry"];
+    NSString *translateCountry = [[NSUserDefaults standardUserDefaults] stringForKey:@"translateCountry"];
+    
+//    [languageCodeLbl setText:NSLocalizedString(@"Language Code", @"")];
+    [languageType setTitle:[NSString stringWithFormat:@"%@",translateCountry] forSegmentAtIndex:0];
+    [languageType setTitle:[NSString stringWithFormat:@"%@",nativeCountry] forSegmentAtIndex:1];  
 }
 - (void)viewDidLoad
 {
@@ -91,6 +97,8 @@
     [imageView release];
     
     
+    NSLog(@"%@",languageCode);
+    [languageType setSelectedSegmentIndex:([NATIVE_LANGUAGE_CODE isEqualToString:[languageCode uppercaseString]])?1:0];
     [speakButton setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
     [self speakOrStopAction:nil];
 }
@@ -172,22 +180,32 @@
     return toolsViewOriginFrame;
 }
 
-- (NSString *)currentTextLanguage{
+- (NSString*)getLangType{
     NSString* langType;
-    if ([NATIVE_LANGUAGE_CODE isEqualToString:[languageCode uppercaseString]]) {
-        NSDictionary *nativeCountryInfo = NATIVE_COUNTRY_INFO;
-        langType = [NSString stringWithFormat:@"%@_%@", [[nativeCountryInfo objectForKey:@"code"] lowercaseString],[[nativeCountryInfo objectForKey:@"codeExpended"] uppercaseString]] ;//@"en_US";
-    }else {
-        NSDictionary *translateCountryInfo = TRANSLATE_COUNTRY_INFO;
-        langType = [NSString stringWithFormat:@"%@_%@",[[translateCountryInfo objectForKey:@"code"] lowercaseString],[[translateCountryInfo objectForKey:@"codeExpended"] uppercaseString]];//@"en_US";
+    
+    switch (languageType.selectedSegmentIndex) {
+        case 0:{
+            NSDictionary *translateCountryInfo = TRANSLATE_COUNTRY_INFO;
+            langType = [NSString stringWithFormat:@"%@_%@",[[translateCountryInfo objectForKey:@"code"] lowercaseString],[[translateCountryInfo objectForKey:@"codeExpended"] uppercaseString]];//@"en_US";
+        }
+            break;
+        case 1:{
+            NSDictionary *nativeCountryInfo = NATIVE_COUNTRY_INFO;
+            langType = [NSString stringWithFormat:@"%@_%@", [[nativeCountryInfo objectForKey:@"code"] lowercaseString],[[nativeCountryInfo objectForKey:@"codeExpended"] uppercaseString]] ;//@"en_US";
+        }
+            break;
     }
     NSLog(@"%@",langType);
     return langType;
 }
 
+
 - (void)setText:(NSString*)_text withLanguageCode:(NSString*)_languageCode{
     self.speakString = _text;
     self.languageCode = _languageCode;
+    [textToRead setText:speakString];
+    NSLog(@"%@",_languageCode);
+    [languageType setSelectedSegmentIndex:([NATIVE_LANGUAGE_CODE isEqualToString:[languageCode uppercaseString]])?1:0];
 }
 
 @end
