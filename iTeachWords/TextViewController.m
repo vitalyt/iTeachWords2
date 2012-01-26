@@ -11,6 +11,7 @@
 //#import "myButtonPlayer.h"
 #import "LanguagePickerController.h"
 #import "NewWordsTable.h"
+#import "PagesScrollView.h"
 
 #define radius 10
 
@@ -32,7 +33,6 @@
     return self;
 }
 
-
 -(id) initWithTabBar {
 	if ([self init]) {
 		//метка на кнопке собственно вкладки
@@ -41,6 +41,21 @@
 		self.tabBarItem.image = [UIImage imageNamed:@"40-inbox.png"];
 	}
 	return self;
+}
+
+- (void)dealloc {
+    [pagesScrollView release];
+    [currentTextLanguage release];
+    [myTextView release];
+	[array release];
+    [super dealloc];
+}
+
+- (void) loadView{
+    [super loadView];
+    pagesScrollView = [[PagesScrollView alloc] initWithNibName:@"PagesScrollView" bundle:nil
+                       ];
+    [pagesScrollView setDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -60,12 +75,28 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]];
     [myTextView setFont:FONT_TEXT];
 	myTextView.text = [self loadText];
-
+    
+    [self.view addSubview:pagesScrollView.view];
+    CGRect frame = self.view.frame;
+    frame.origin.x = 0.0;
+    frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
+    [pagesScrollView.view setFrame:frame];
 }
 
+
+- (void)viewDidUnload
+{
+    [myTextView release];
+    myTextView = nil;
+    [pagesScrollView release];
+    pagesScrollView  = nil;
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-	return YES;
+	return NO;
 }
 
 - (void) back{
@@ -233,19 +264,20 @@
     [myTextView setText:text];
 }
 
-- (void)viewDidUnload
-{
-    [myTextView release];
-    myTextView = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+#pragma mark button view protocol
+
+- (void)buttonDidClick:(id)selector  withIndex:(NSInteger)index{
+    switch (index) {
+        case 0:
+            [self showVoiceRecordView];
+            break;
+        case 1:
+            
+            break;
+            
+        default:
+            break;
+    }
 }
 
-- (void)dealloc {
-    [currentTextLanguage release];
-    [myTextView release];
-	[array release];
-    [super dealloc];
-}
 @end

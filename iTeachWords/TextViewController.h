@@ -10,9 +10,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AddWordOptionsView.h"
 #import "MyRecognizerViewController.h"
+#import "ButtonView.h"
 
-@interface TextViewController : AddWordOptionsView <UITextViewDelegate, UIAlertViewDelegate, RecordingViewProtocol>{
+@class PagesScrollView;
+@interface TextViewController : AddWordOptionsView <UITextViewDelegate, UIAlertViewDelegate, RecordingViewProtocol,ButtonViewProtocol>{
     IBOutlet UITextView *myTextView;
+    
+    PagesScrollView *pagesScrollView;
     
     NSRange             range;
     

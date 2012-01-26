@@ -154,6 +154,7 @@
 		2866E1F714A09FA6002823E6 /* earcon_cancel.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2866E1F414A09FA6002823E6 /* earcon_cancel.wav */; };
 		2866E1F814A09FA6002823E6 /* earcon_done_listening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2866E1F514A09FA6002823E6 /* earcon_done_listening.wav */; };
 		2866E1F914A09FA6002823E6 /* earcon_listening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2866E1F614A09FA6002823E6 /* earcon_listening.wav */; };
+		2866F79114D161BF00BBE17B /* PagesScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2866F79014D161BF00BBE17B /* PagesScrollView.xib */; };
 		286F826E13E13BD90047953A /* Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 286F826D13E13BD90047953A /* Statistic.m */; };
 		2872FE5D14C4754F0010AFA1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872FE5B14C4754F0010AFA1 /* DetailViewController.m */; };
 		2872FE5E14C4754F0010AFA1 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2872FE5C14C4754F0010AFA1 /* DetailViewController.xib */; };
@@ -162,6 +163,11 @@
 		28797B1C13A2352900D21722 /* NewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B1B13A2352800D21722 /* NewTableCell.m */; };
 		28797B1E13A2355E00D21722 /* NewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28797B1D13A2355D00D21722 /* NewTableCell.xib */; };
 		28797B3113A24CC700D21722 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B3013A24CC700D21722 /* MenuView.m */; };
+		28914B4814D1460C004E702A /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4714D1460C004E702A /* BaseScrollView.m */; };
+		28914B4B14D14839004E702A /* PagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4A14D14839004E702A /* PagesScrollView.m */; };
+		28914B4D14D14CA4004E702A /* siri-icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 28914B4C14D14CA4004E702A /* siri-icon1.png */; };
+		28914B5114D151DB004E702A /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4F14D151DB004E702A /* ButtonView.m */; };
+		28914B5214D151DB004E702A /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28914B5014D151DB004E702A /* ButtonView.xib */; };
 		289C63A214CDA50B0003C5BF /* 1327328477_Microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A014CDA50B0003C5BF /* 1327328477_Microphone.png */; };
 		289C63A314CDA50B0003C5BF /* siri-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A114CDA50B0003C5BF /* siri-icon.png */; };
 		289C63A914CDA5BF0003C5BF /* VoiceRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289C63A714CDA5BF0003C5BF /* VoiceRecordingViewController.m */; };
@@ -676,6 +682,7 @@
 		2866E1F414A09FA6002823E6 /* earcon_cancel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = earcon_cancel.wav; sourceTree = "<group>"; };
 		2866E1F514A09FA6002823E6 /* earcon_done_listening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = earcon_done_listening.wav; sourceTree = "<group>"; };
 		2866E1F614A09FA6002823E6 /* earcon_listening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = earcon_listening.wav; sourceTree = "<group>"; };
+		2866F79014D161BF00BBE17B /* PagesScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagesScrollView.xib; sourceTree = "<group>"; };
 		286F826C13E13BD90047953A /* Statistic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statistic.h; sourceTree = "<group>"; };
 		286F826D13E13BD90047953A /* Statistic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statistic.m; sourceTree = "<group>"; };
 		2872FE5A14C4754F0010AFA1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -689,6 +696,14 @@
 		28797B1D13A2355D00D21722 /* NewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTableCell.xib; sourceTree = "<group>"; };
 		28797B2F13A24CC700D21722 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		28797B3013A24CC700D21722 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		28914B4614D1460C004E702A /* BaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
+		28914B4714D1460C004E702A /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
+		28914B4914D14839004E702A /* PagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesScrollView.h; sourceTree = "<group>"; };
+		28914B4A14D14839004E702A /* PagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesScrollView.m; sourceTree = "<group>"; };
+		28914B4C14D14CA4004E702A /* siri-icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "siri-icon1.png"; sourceTree = "<group>"; };
+		28914B4E14D151DB004E702A /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
+		28914B4F14D151DB004E702A /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
+		28914B5014D151DB004E702A /* ButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
 		289C63A014CDA50B0003C5BF /* 1327328477_Microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1327328477_Microphone.png; sourceTree = "<group>"; };
 		289C63A114CDA50B0003C5BF /* siri-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "siri-icon.png"; sourceTree = "<group>"; };
 		289C63A614CDA5BF0003C5BF /* VoiceRecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecordingViewController.h; sourceTree = "<group>"; };
@@ -1227,6 +1242,7 @@
 		28296B1913812EDC000129E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				28914B4414D14586004E702A /* ScrolingSystem */,
 				289C63A514CDA5110003C5BF /* MySiri */,
 				28C0502514BD755D006442B4 /* AlertTableView */,
 				2811984214A093B200399D44 /* Siri */,
@@ -1316,6 +1332,7 @@
 			isa = PBXGroup;
 			children = (
 				289C63A014CDA50B0003C5BF /* 1327328477_Microphone.png */,
+				28914B4C14D14CA4004E702A /* siri-icon1.png */,
 				289C63A114CDA50B0003C5BF /* siri-icon.png */,
 				2862E3C314C58162003CC14C /* Close-button.png */,
 				281A7FC11498C2EE0055B55F /* glasses.png */,
@@ -1729,6 +1746,21 @@
 				2866E1F614A09FA6002823E6 /* earcon_listening.wav */,
 			);
 			name = sounds;
+			sourceTree = "<group>";
+		};
+		28914B4414D14586004E702A /* ScrolingSystem */ = {
+			isa = PBXGroup;
+			children = (
+				28914B4614D1460C004E702A /* BaseScrollView.h */,
+				28914B4714D1460C004E702A /* BaseScrollView.m */,
+				28914B4E14D151DB004E702A /* ButtonView.h */,
+				28914B4F14D151DB004E702A /* ButtonView.m */,
+				28914B5014D151DB004E702A /* ButtonView.xib */,
+				28914B4914D14839004E702A /* PagesScrollView.h */,
+				28914B4A14D14839004E702A /* PagesScrollView.m */,
+				2866F79014D161BF00BBE17B /* PagesScrollView.xib */,
+			);
+			name = ScrolingSystem;
 			sourceTree = "<group>";
 		};
 		289C63A514CDA5110003C5BF /* MySiri */ = {
@@ -2560,6 +2592,9 @@
 				289C63A314CDA50B0003C5BF /* siri-icon.png in Resources */,
 				289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */,
 				287340E514CEA2010085B72C /* MyRecognizerViewController.xib in Resources */,
+				28914B4D14D14CA4004E702A /* siri-icon1.png in Resources */,
+				28914B5214D151DB004E702A /* ButtonView.xib in Resources */,
+				2866F79114D161BF00BBE17B /* PagesScrollView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2676,6 +2711,9 @@
 				289C63A914CDA5BF0003C5BF /* VoiceRecordingViewController.m in Sources */,
 				287340E414CEA2010085B72C /* MyRecognizerViewController.m in Sources */,
 				28B5506614CEE1DB0067B618 /* RecognizerAlertTableView.m in Sources */,
+				28914B4814D1460C004E702A /* BaseScrollView.m in Sources */,
+				28914B4B14D14839004E702A /* PagesScrollView.m in Sources */,
+				28914B5114D151DB004E702A /* ButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

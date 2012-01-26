@@ -1064,8 +1064,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "93"
          endingLineNumber = "93"
-         landmarkName = "-viewDidAppear:"
-         landmarkType = "5">
+         landmarkName = "@implementation MyRecognizerViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1143,12 +1143,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/TextViewController.m"
-         timestampString = "349197228.404803"
+         timestampString = "349270727.940928"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
-         landmarkName = "-showVoiceRecordView"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
+         landmarkName = "-back"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1269,12 +1269,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/TextViewController.m"
-         timestampString = "349197228.404803"
+         timestampString = "349270727.940928"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "180"
-         endingLineNumber = "180"
-         landmarkName = "-translateText"
+         startingLineNumber = "197"
+         endingLineNumber = "197"
+         landmarkName = "-translateDidLoad:byLanguageCode:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1282,13 +1282,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/TextViewController.m"
-         timestampString = "349197228.404803"
+         filePath = "iTeachWords/PagesScrollView.m"
+         timestampString = "349273283.528804"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "235"
-         endingLineNumber = "235"
-         landmarkName = "-setCurrentTextLanguage:"
+         startingLineNumber = "151"
+         endingLineNumber = "151"
+         landmarkName = "-tilePages"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1296,27 +1296,41 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/TextViewController.m"
-         timestampString = "349197228.404803"
+         filePath = "iTeachWords/PagesScrollView.m"
+         timestampString = "349273283.528804"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "231"
-         endingLineNumber = "231"
-         landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
+         startingLineNumber = "162"
+         endingLineNumber = "162"
+         landmarkName = "-dequeueRecycledPage"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/TextViewController.m"
-         timestampString = "349197228.404803"
+         filePath = "iTeachWords/PagesScrollView.m"
+         timestampString = "349273283.528804"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "251"
-         endingLineNumber = "251"
-         landmarkName = "-detectCurrentTextLanguage"
+         startingLineNumber = "133"
+         endingLineNumber = "133"
+         landmarkName = "-tilePages"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/PagesScrollView.m"
+         timestampString = "349273283.528804"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
+         landmarkName = "-tilePages"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

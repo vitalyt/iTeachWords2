@@ -123,10 +123,10 @@
 }
 
 - (IBAction)close:(id)sender {
-    if (transactionState == TS_RECORDING) {
+//    if (transactionState == TS_RECORDING) {
         [voiceSearch stopRecording];
         [voiceSearch cancel];
-    }
+//    }
     [self dismissModalViewControllerAnimated:YES];
 }
 
