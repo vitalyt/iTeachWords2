@@ -30,26 +30,8 @@
 const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 
 @implementation DMVocalizerViewController
-@synthesize textToRead,textReadSoFar,serverBox,portBox,speakButton,vocalizer;
-
-
-/*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-
+//@synthesize textToRead,textReadSoFar,serverBox,portBox;
+@synthesize speakButton,vocalizer,speakString,languageCode;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -92,6 +74,9 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 
 
 - (void)dealloc {
+    [speakString release];
+    [languageCode release];
+    [messageLbl release];
     [super dealloc];
 }
 
@@ -99,18 +84,20 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 #pragma mark Actions
 
 - (IBAction)speakOrStopAction: (id) sender {
-    [serverBox resignFirstResponder];
-    [portBox resignFirstResponder];
-    [textToRead resignFirstResponder];
-    [textReadSoFar resignFirstResponder];
+//    [serverBox resignFirstResponder];
+//    [portBox resignFirstResponder];
+//    [textToRead resignFirstResponder];
+//    [textReadSoFar resignFirstResponder];
     
     if (isSpeaking) {
+        [messageLbl setText:NSLocalizedString(@"Tap to play...", @"")];
         [vocalizer cancel];
         isSpeaking = NO;
     }
     else {
         isSpeaking = YES;
         //detection current language
+        [messageLbl setText:NSLocalizedString(@"Loading...", @"")];
         
         NSString *currentKeyboardLanguage = [self currentTextLanguage];
         if (!currentKeyboardLanguage) {
@@ -125,10 +112,10 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 		// vocalizer = [[SKVocalizer alloc] initWithLanguage:@"fr_FR" delegate:self];
 		
 		// Initializes a SKVocalizer with a specific voice
-		// vocalizer = [[SKVocalizer alloc] initWithVoice:@"Samantha" delegate:self];
+//		vocalizer = [[SKVocalizer alloc] initWithVoice:@"Samantha" delegate:self];
 		
 		// Speaks the string text
-        [vocalizer speakString:textToRead.text];
+        [vocalizer speakString:speakString];
 
         // Speaks the markup text with language For multiple languages, add <s></s> tags to markup string
 		// NSString * textToReadString = [[[[NSString alloc] initWithCString:"<?xml version=\"1.0\"?> <speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/2001/10/synthesis http://www.w3.org/TR/speech-synthesis/synthesis.xsd\" xml:lang=\"en-us\"> <s xml:lang=\"fr\"> "] stringByAppendingString:textToRead.text] stringByAppendingString:@"</s></speak>"];
@@ -138,19 +125,19 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 		// NSString * textToReadString = [[[[NSString alloc] initWithCString:"<?xml version=\"1.0\"?> <speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/2001/10/synthesis http://www.w3.org/TR/speech-synthesis/synthesis.xsd\" xml:lang=\"en-us\"> <voice name=\"Samantha\">"] stringByAppendingString:textToRead.text] stringByAppendingString:@"</voice></speak>"];
 		// [vocalizer speakMarkupString:textToReadString];
         
-		textReadSoFar.text = @"";
+//		textReadSoFar.text = @"";
     }
 }
 
 - (NSString *)currentTextLanguage{
-    return [[UITextInputMode currentInputMode] primaryLanguage];
+    return  @"en_US";
 }
 
 - (IBAction)serverUpdateButtonAction: (id)sender {
-    [serverBox resignFirstResponder];
-    [portBox resignFirstResponder];
-    [textToRead resignFirstResponder];
-    [textReadSoFar resignFirstResponder];
+//    [serverBox resignFirstResponder];
+//    [portBox resignFirstResponder];
+//    [textToRead resignFirstResponder];
+//    [textReadSoFar resignFirstResponder];
     
     if (isSpeaking) [vocalizer cancel];
     
@@ -176,19 +163,23 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 #pragma mark SKVocalizerDelegate methods
 
 - (void)vocalizer:(SKVocalizer *)vocalizer willBeginSpeakingString:(NSString *)text {
+    [messageLbl setText:NSLocalizedString(@"Playing...", @"")];
+    [speakButton setImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
     isSpeaking = YES;
     [speakButton setTitle:@"Stop" forState:UIControlStateNormal];
-	if (text)
-		textReadSoFar.text = [[textReadSoFar.text stringByAppendingString:text] stringByAppendingString:@"\n"];
+//	if (text)
+//		self.speakString = [[speakString stringByAppendingString:text] stringByAppendingString:@"\n"];
 }
 
 - (void)vocalizer:(SKVocalizer *)vocalizer willSpeakTextAtCharacter:(NSUInteger)index ofString:(NSString *)text {
-    textReadSoFar.text = [text substringToIndex:index];
+    self.speakString = [text substringToIndex:index];
 }
 
 - (void)vocalizer:(SKVocalizer *)vocalizer didFinishSpeakingString:(NSString *)text withError:(NSError *)error {
+    [messageLbl setText:NSLocalizedString(@"Tap to play...", @"")];
+    [speakButton setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
     isSpeaking = NO;
-    [speakButton setTitle:@"Read It" forState:UIControlStateNormal];
+//    [speakButton setTitle:@"Read It" forState:UIControlStateNormal];
 	if (error !=nil)
 	{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -206,14 +197,14 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField == serverBox)
-    {
-        [serverBox resignFirstResponder];
-    }
-    else if (textField == portBox)
-    {
-        [portBox resignFirstResponder];
-    }
+//    if (textField == serverBox)
+//    {
+//        [serverBox resignFirstResponder];
+//    }
+//    else if (textField == portBox)
+//    {
+//        [portBox resignFirstResponder];
+//    }
     return YES;
 }
 

@@ -10,10 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AddWordOptionsView.h"
 #import "MyRecognizerViewController.h"
+#import "MyVocalizerViewController.h"
 #import "ButtonView.h"
 
 @class PagesScrollView;
-@interface TextViewController : AddWordOptionsView <UITextViewDelegate, UIAlertViewDelegate, RecordingViewProtocol,ButtonViewProtocol>{
+@interface TextViewController : AddWordOptionsView <UITextViewDelegate, UIAlertViewDelegate, RecordingViewProtocol,ButtonViewProtocol,MyVocalizerDelegate>{
     IBOutlet UITextView *myTextView;
     
     PagesScrollView *pagesScrollView;
@@ -30,6 +31,7 @@
 
 - (IBAction) showTable;
 - (IBAction) showVoiceRecordView;
+- (IBAction) showVocalizerView;
 - (IBAction)selectAll:(id)sender;
 - (IBAction)clearAll:(id)sender;
 - (NSString *) loadText;
@@ -37,4 +39,5 @@
 - (void)setText:(NSString*)text;
 - (NSString*)detectCurrentTextLanguage;
 - (void)setCurrentTextLanguage:(NSString*)_textLanguage;
+- (NSString*)currentTextLanguage;
 @end

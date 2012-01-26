@@ -63,7 +63,6 @@
     [languageType setSelectedSegmentIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastLangType"]];
     [recognitionType setSelectedSegmentIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastRecognitionType"]];
     // Do any additional setup after loading the view from its nib.
-    [self recordButtonAction:nil];
 }
 
 - (void)viewDidUnload
@@ -118,15 +117,15 @@
     [self.view insertSubview:imageView atIndex:0];
     [imageView release];
     
-    //[self record:nil];
+    [self recordButtonAction:nil];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (IBAction)close:(id)sender {
-//    if (transactionState == TS_RECORDING) {
+    if (transactionState == TS_RECORDING) {
         [voiceSearch stopRecording];
         [voiceSearch cancel];
-//    }
+    }
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -208,7 +207,7 @@
     NSLog(@"Got results.");
     
     long numOfResults = [results.results count];
-    
+    NSLog(@"%@",results.results);
     transactionState = TS_IDLE;
     [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];

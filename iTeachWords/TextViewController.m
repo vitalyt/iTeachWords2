@@ -45,7 +45,7 @@
 
 - (void)dealloc {
     [pagesScrollView release];
-    [currentTextLanguage release];
+    [[self currentTextLanguage] release];
     [myTextView release];
 	[array release];
     [super dealloc];
@@ -119,6 +119,13 @@
     [voiceView release];
 }
 
+- (IBAction) showVocalizerView{
+    MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
+    [voiceView setText:myTextView.text withLanguageCode:[self currentTextLanguage]];
+    [self.navigationController presentModalViewController:voiceView animated:YES];
+    [voiceView release];
+}
+
 - (IBAction)selectAll:(id)sender {
     [myTextView selectAll:self];
     [[UIMenuController sharedMenuController] setIsAccessibilityElement:NO];
@@ -162,7 +169,7 @@
               encoding:NSUTF8StringEncoding
                  error:&error];
     
-    [[NSUserDefaults standardUserDefaults] setValue:currentTextLanguage forKey:@"lastTextLanguageInTextParseView"];
+    [[NSUserDefaults standardUserDefaults] setValue:[self currentTextLanguage] forKey:@"lastTextLanguageInTextParseView"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     if (error)
     {
@@ -180,13 +187,10 @@
 -(void) translateText{
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
-        if (!currentTextLanguage) {
-            [self setCurrentTextLanguage:[[NSUserDefaults standardUserDefaults] stringForKey:@"lastTextLanguageInTextParseView"]];
-        }
-        NSString *translateLangusgeCode = ([NATIVE_LANGUAGE_CODE isEqualToString:[currentTextLanguage uppercaseString]])?TRANSLATE_LANGUAGE_CODE:NATIVE_LANGUAGE_CODE;
+        NSString *translateLangusgeCode = ([NATIVE_LANGUAGE_CODE isEqualToString:[[self currentTextLanguage] uppercaseString]])?TRANSLATE_LANGUAGE_CODE:NATIVE_LANGUAGE_CODE;
         
         [wordsView.dataModel setDelegate:self];
-        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:currentTextLanguage toLanguageCode:translateLangusgeCode withDelegate:self];
+        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[self currentTextLanguage] toLanguageCode:translateLangusgeCode withDelegate:self];
 //        NSString* translate = [selectedText translateStringWithLanguageCode:currentTextLanguage];
 //        [UIAlertView displayMessage:translate];
     }
@@ -243,6 +247,17 @@
     }
 }
 
+- (NSString*)currentTextLanguage{
+    if (!currentTextLanguage) {
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"lastTextLanguageInTextParseView"]) {
+            [self setCurrentTextLanguage:[[NSUserDefaults standardUserDefaults] stringForKey:@"lastTextLanguageInTextParseView"]];
+        }else{
+            [self setCurrentTextLanguage:TRANSLATE_LANGUAGE_CODE];
+        }
+    }
+    return currentTextLanguage;
+}
+
 - (NSString *)detectCurrentTextLanguage{
     if ([UITextInputMode currentInputMode] == nil) {
         return TRANSLATE_LANGUAGE_CODE;
@@ -272,7 +287,7 @@
             [self showVoiceRecordView];
             break;
         case 1:
-            
+            [self showVocalizerView];
             break;
             
         default:

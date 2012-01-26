@@ -27,21 +27,27 @@
 #import <SpeechKit/SpeechKit.h>
 
 @interface DMVocalizerViewController : UIViewController<SpeechKitDelegate, SKVocalizerDelegate, UITextFieldDelegate> {
-    IBOutlet UITextView* textToRead;
-    IBOutlet UITextView* textReadSoFar;
+//    IBOutlet UITextView* textToRead;
+//    IBOutlet UITextView* textReadSoFar;
     IBOutlet UIButton* speakButton;
-    IBOutlet UITextField* serverBox;
-    IBOutlet UITextField* portBox;
+    IBOutlet UILabel*     messageLbl;
+//    IBOutlet UITextField* serverBox;
+//    IBOutlet UITextField* portBox;
     BOOL isSpeaking;
     SKVocalizer* vocalizer;
+    
+    NSString *speakString;
+    NSString *languageCode;
 }
 
-@property(nonatomic,retain) IBOutlet UITextView* textToRead;
-@property(nonatomic,retain) IBOutlet UITextView* textReadSoFar;
+//@property(nonatomic,retain) IBOutlet UITextView* textToRead;
+//@property(nonatomic,retain) IBOutlet UITextView* textReadSoFar;
 @property(nonatomic,retain) IBOutlet UIButton* speakButton;
-@property(nonatomic,retain) IBOutlet UITextField* serverBox;
-@property(nonatomic,retain) IBOutlet UITextField* portBox;
+//@property(nonatomic,retain) IBOutlet UITextField* serverBox;
+//@property(nonatomic,retain) IBOutlet UITextField* portBox;
 @property(readonly)         SKVocalizer* vocalizer;
+@property (nonatomic, retain) NSString *speakString;
+@property (nonatomic, retain) NSString *languageCode;
 
 - (IBAction)speakOrStopAction: (id) sender;
 - (IBAction)serverUpdateButtonAction: (id)sender;
