@@ -415,11 +415,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/AddWordOptionsView.m"
-         timestampString = "349193632.808565"
+         timestampString = "349363911.547633"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
+         startingLineNumber = "201"
+         endingLineNumber = "201"
          landmarkName = "-actionSheet:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -821,11 +821,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "349019493.037605"
+         timestampString = "349363145.270598"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "392"
-         endingLineNumber = "392"
+         startingLineNumber = "402"
+         endingLineNumber = "402"
          landmarkName = "-addSoundWithFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -835,7 +835,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "349019493.037605"
+         timestampString = "349363145.270598"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "208"
@@ -947,11 +947,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "349019493.037605"
+         timestampString = "349363145.270598"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "216"
-         endingLineNumber = "216"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
          landmarkName = "-mergeChanges:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -989,11 +989,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/FilesManagerViewController.m"
-         timestampString = "349019493.037605"
+         timestampString = "349363145.270598"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "328"
-         endingLineNumber = "328"
+         startingLineNumber = "338"
+         endingLineNumber = "338"
          landmarkName = "-loadDictionaryWithFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1185,11 +1185,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/AddWordOptionsView.m"
-         timestampString = "349193632.808565"
+         timestampString = "349363911.547633"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "200"
-         endingLineNumber = "200"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1241,11 +1241,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/AddWordOptionsView.m"
-         timestampString = "349193630.601707"
+         timestampString = "349363911.547633"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
          landmarkName = "-parceTranslateWord"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1255,11 +1255,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/TextViewController.m"
-         timestampString = "349279593.893505"
+         timestampString = "349363911.547633"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "201"
-         endingLineNumber = "201"
+         startingLineNumber = "211"
+         endingLineNumber = "211"
          landmarkName = "-translateDidLoad:byLanguageCode:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1401,6 +1401,34 @@
          startingLineNumber = "396"
          endingLineNumber = "396"
          landmarkName = "-textFieldShouldClear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/AddWordOptionsView.m"
+         timestampString = "349363828.702282"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
+         landmarkName = "-playText"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/TextViewController.m"
+         timestampString = "349363866.052445"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "202"
+         endingLineNumber = "202"
+         landmarkName = "-playText"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

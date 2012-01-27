@@ -53,6 +53,7 @@
 
 - (void) loadView{
     [super loadView];
+    myTextView.layer.cornerRadius = radius;
     pagesScrollView = [[PagesScrollView alloc] initWithNibName:@"PagesScrollView" bundle:nil
                        ];
     [pagesScrollView setDelegate:self];
@@ -60,7 +61,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    myTextView.layer.cornerRadius = radius;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
@@ -193,6 +193,16 @@
         [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[self currentTextLanguage] toLanguageCode:translateLangusgeCode withDelegate:self];
 //        NSString* translate = [selectedText translateStringWithLanguageCode:currentTextLanguage];
 //        [UIAlertView displayMessage:translate];
+    }
+}
+
+-(void) playText{
+    NSString *selectedText = [self getSelectedText];
+    if (selectedText.length > 0) {
+        MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
+        [voiceView setText:selectedText withLanguageCode:[self currentTextLanguage]];
+        [self.navigationController presentModalViewController:voiceView animated:YES];
+        [voiceView release];
     }
 }
 

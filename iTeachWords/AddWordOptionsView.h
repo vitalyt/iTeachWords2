@@ -21,6 +21,9 @@
 - (void)translateText;
 - (void)parceTranslateWord;
 - (void)parseText;
+- (void)playText;
+
+- (IBAction) showVocalizerView;
 
 - (void)saveData;
 - (void)back;

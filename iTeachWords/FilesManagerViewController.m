@@ -206,9 +206,11 @@
 	subRange = [[fileName lowercaseString] rangeOfString:@".txt"];
 	if (subRange.length != 0) {
         NSString *pathToFile = [RESOUCE stringByAppendingPathComponent:fileName];
-        if ([self loadDictionaryWithFile:pathToFile]) {
-            [fileManager removeItemAtPath:[RESOUCE stringByAppendingPathComponent:fileName] error:nil];
-        }
+        [self loadDictionaryWithFile:pathToFile];
+        [fileManager removeItemAtPath:[RESOUCE stringByAppendingPathComponent:fileName] error:nil];
+//        if ([self loadDictionaryWithFile:pathToFile]) {
+//            [fileManager removeItemAtPath:[RESOUCE stringByAppendingPathComponent:fileName] error:nil];
+//        }
 		return;
 	}
 }
@@ -250,15 +252,23 @@
     [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
     NSString *text = [[NSString alloc]initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
     [iTeachWordsAppDelegate clearUdoManager];
+//    NSLog(@"%@",text);
     @try {
         NSMutableString *mutStr = [NSMutableString stringWithString:@""];
         unichar ch;
         int index = 0;
         ch = [text characterAtIndex:index];
         while (ch!='.') {
+            NSLog(@"%c",ch);
             [mutStr appendString:[NSString stringWithFormat:@"%c",ch]];
             ++index;
             ch = [text characterAtIndex:index];
+            if (index>20) {
+                NSException * exc = [NSException exceptionWithName: @"my-exception" reason: @"unknown-error"
+                                                          userInfo: nil];
+                @throw exc;
+            }
+            
         }
         NSString *globalSlash = mutStr;
         NSArray *wordsArray = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:globalSlash]];

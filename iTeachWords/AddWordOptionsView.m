@@ -116,10 +116,13 @@
     UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:@"Parse text"
                                                                 action:@selector(parseText)] autorelease];
     UIMenuItem *menuTextTranslateItem = [[[UIMenuItem alloc] initWithTitle:@"Translate"
-                                                                action:@selector(translateText)] autorelease];
+                                                                    action:@selector(translateText)] autorelease];
+    UIMenuItem *menuTextPlayItem = [[[UIMenuItem alloc] initWithTitle:@"Play text"
+                                                                    action:@selector(playText)] autorelease];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];
     [menuItemsMutableArray addObject:menuTextTranslateItem];
+    [menuItemsMutableArray addObject:menuTextPlayItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
     [menuController setTargetRect: self.view.superview.frame
                            inView:self.view];
@@ -157,6 +160,16 @@
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:self];
+    }
+}
+
+-(void) playText{
+    NSString *selectedText = [self getSelectedText];
+    if (selectedText.length > 0) {
+        MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
+        [voiceView setText:selectedText withLanguageCode:TRANSLATE_LANGUAGE_CODE];
+        [self.navigationController presentModalViewController:voiceView animated:YES];
+        [voiceView release];
     }
 }
 
