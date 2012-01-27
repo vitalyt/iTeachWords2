@@ -182,7 +182,7 @@
     recButton.frame = CGRectMake(0.0, 0.0, 24, 24);
     [recButton setTag:textField.tag];
 	[textField setRightView:recButton];
-	[textField setRightViewMode:UITextFieldViewModeAlways];
+	[textField setRightViewMode:UITextFieldViewModeUnlessEditing];
     if ([textField.text length]==0) {
         [recButton setEnabled:NO];
     }
@@ -330,7 +330,12 @@
     //[self back];
     
     [self hiddeSaveButton];
+    
+    [textFld setText:@""];
+    [translateFid setText:@""];
 }
+
+#pragma mark textField delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
 	[textField resignFirstResponder];
@@ -388,6 +393,9 @@
     }
 }
 
+- (BOOL)textFieldShouldClear:(UITextField *)textField{
+    return YES;
+}
 
 - (void)createMenu{
     [self becomeFirstResponder];

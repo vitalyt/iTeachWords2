@@ -72,7 +72,7 @@
 
 - (void) loadData{    
     titles = [[NSMutableArray alloc] initWithObjects:@"The repeat notification system", nil];
-    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"20 min",@""),NSLocalizedString(@"1 hour",@""),NSLocalizedString(@"1 month",@""),NSLocalizedString(@"3 month",@""), nil];
+    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"20 min",@""),NSLocalizedString(@"1 day",@""),NSLocalizedString(@"1 month",@""),NSLocalizedString(@"3 month",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
     for (int i=0;i<[elements count];i++){

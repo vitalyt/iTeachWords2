@@ -91,6 +91,7 @@
 - (IBAction) loadWebView
 {
     if ([iTeachWordsAppDelegate isNetwork]) {
+        [self clearWebViewContent];
         [loadWebButtonView setHidden:YES];
         [wordsView closeAllKeyboard];
         [wordsView.dataModel createUrls];
@@ -99,6 +100,11 @@
         myWebView.delegate = self;
         [myWebView loadRequest:requestObj];
     }
+}
+
+- (void)clearWebViewContent{
+    [myWebView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML = \"\";"];
+    //    [webView loadHTMLString:@"<html><head></head><body></body></html>" baseURL:nil];
 }
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView{
@@ -143,7 +149,10 @@
 }
 
 - (void)showWebLoadingView{
-    [loadWebButtonView setHidden:NO];
+    if (loadWebButtonView.hidden) {
+        [loadWebButtonView setHidden:NO];
+        [myWebView stopLoading];
+    }
 }
 
 - (void)dealloc {

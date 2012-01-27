@@ -117,9 +117,9 @@
     int _repeatStatus = 0;
     if (0<intervalSeconds && intervalSeconds<=900) {//<15 min
         _repeatStatus = 1;
-    }else if (900<intervalSeconds && intervalSeconds<=3600) {//<1 h
+    }else if (900<intervalSeconds && intervalSeconds<=18000) {//<5 h
         _repeatStatus = 2;
-    }else if (3600<intervalSeconds && intervalSeconds<=604800) {//<7 d      86400 -> 1d
+    }else if (18000<intervalSeconds && intervalSeconds<=604800) {//<7 d      86400 -> 1d
         _repeatStatus = 3;
     }else if (604800<intervalSeconds && intervalSeconds<=2592000) {//<1 m
         _repeatStatus = 4;
@@ -132,6 +132,43 @@
         return 0;
     }
     return _repeatStatus;
+}
+
+- (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray{
+    StatisticLearning *_statisticLearning = [_statisticsLearningArray lastObject];
+    int intervallToNextRepeat = 0;
+    if (_statisticLearning) {
+        int _repeatStatus = [_statisticLearning.repeatStatus intValue];
+        int nexStatus = _repeatStatus+1;
+        while (nexStatus<=5) {
+            bool availability = [self getRepeatTimeIntervalAvailableWithStatus:nexStatus];
+            if (availability) {
+                break;
+            }
+            ++nexStatus;
+        }
+        switch (nexStatus-1) {
+            case 0:
+                intervallToNextRepeat = 0;
+            case 1:
+                intervallToNextRepeat = 1200;//1200;   //20 min
+                break;
+            case 2:
+                intervallToNextRepeat = 86400;   //1d
+                break;
+            case 3:
+                intervallToNextRepeat = 1209600; //2 w
+                break;
+            case 4:
+                intervallToNextRepeat = 5184000; //2 m
+                break;
+                
+            default:
+                intervallToNextRepeat = 0;
+                break;
+        }
+    }
+    return intervallToNextRepeat;
 }
 
 - (void)saveChanges{    
@@ -197,43 +234,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[self keyForStatus:status]];
     }
     return [[NSUserDefaults standardUserDefaults] boolForKey:[self keyForStatus:status]];
-}
-
-- (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray{
-    StatisticLearning *_statisticLearning = [_statisticsLearningArray lastObject];
-    int intervallToNextRepeat = 0;
-    if (_statisticLearning) {
-        int _repeatStatus = [_statisticLearning.repeatStatus intValue];
-        int nexStatus = _repeatStatus+1;
-        while (nexStatus<=5) {
-            bool availability = [self getRepeatTimeIntervalAvailableWithStatus:nexStatus];
-            if (availability) {
-                break;
-            }
-            ++nexStatus;
-        }
-        switch (nexStatus-1) {
-            case 0:
-                intervallToNextRepeat = 0;
-            case 1:
-                intervallToNextRepeat = 1200;//1200;   //20 min
-                break;
-            case 2:
-                intervallToNextRepeat = 86400;   //1d
-                break;
-            case 3:
-                intervallToNextRepeat = 1209600; //2 w
-                break;
-            case 4:
-                intervallToNextRepeat = 5184000; //2 m
-                break;
-                
-            default:
-                intervallToNextRepeat = 0;
-                break;
-        }
-    }
-    return intervallToNextRepeat;
 }
 
 - (void)dealloc {

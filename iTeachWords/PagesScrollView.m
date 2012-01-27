@@ -69,6 +69,8 @@
     [self.view addSubview:pageControl];
     [self.view bringSubviewToFront:pageControl];
     [pageControl setNumberOfPages:[self contentDataCount]];
+    [pageControl setCurrentPage:1];
+    [self pageTurn:pageControl];
 
     // Step 2: prepare to tile content
     recycledPages = [[NSMutableSet alloc] init];
@@ -116,7 +118,20 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    
     [self tilePages];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    CGRect visibleBounds = pagingScrollView.bounds;
+    int numberOfPage = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+    [pageControl setCurrentPage:numberOfPage];
 }
 
 #pragma mark -
@@ -132,8 +147,6 @@
     
     firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
     lastNeededPageIndex  = MIN(lastNeededPageIndex, [self contentDataCount] - 1);
-    
-    [pageControl setCurrentPage:firstNeededPageIndex];
     
     // Recycle no-longer-visible pages 
     for (ButtonView *page in visiblePages) {
@@ -232,9 +245,9 @@
 - (NSArray*)contentData{
     static NSArray *_contentData = nil;
     if (_contentData == nil) {
-        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon",@"name", nil];
-        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon1",@"name", nil];
-        //NSDictionary *object2 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon",@"name", nil];
+        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon1",@"name", nil];
+        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon",@"name", nil];
+       // NSDictionary *object2 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon1",@"name", nil];
         _contentData = [[NSArray alloc] initWithObjects:object,object1, nil];
     }
     return _contentData;

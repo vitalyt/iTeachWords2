@@ -93,7 +93,7 @@
     [self.values setObject:[NSNumber numberWithBool:isRepeatNotifications] forKey:@"isRepeatOptionOn"];
     
     titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
-    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notifications",@""),NSLocalizedString(@"Notifications",@""), nil];
+    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notifications",@""), nil];
     NSArray *elements1 = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Password",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
@@ -114,9 +114,9 @@
             case 2:
                 key = @"fontName";
                 break;
-            case 3:
-                key = @"isRepeatOptionOn";
-                break;
+//            case 3:
+//                key = @"isRepeatOptionOn";
+//                break;
                 
             default:
                 break;
@@ -135,10 +135,10 @@
             case 2:
                 return @"TextFieldCell";
                 break;
+//            case 3:
+//                return @"SwitchingCell";
+//                break;
             case 3:
-                return @"SwitchingCell";
-                break;
-            case 4:
                 return nil;
                 break;
             default:
@@ -206,7 +206,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         [((TextFieldCell *)cell).textField becomeFirstResponder];
-    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 4) {
+    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 3) {
         [self showNotificationTableView];
     }
 }
@@ -218,6 +218,7 @@
         _cell.textField.placeholder = NSLocalizedString(@"Touch to change", @""); 
         [_cell setDelegate:self];
         [_cell.titleLabel setText:titleText];
+        [_cell.titleLabel setFont:SETINGSTABLE_FONT_SIZE];
         NSString *value = [self.values objectForKey:[self keyForIndexPath:indexPath]];
         if (value) {
             _cell.textField.text = value;
@@ -247,6 +248,8 @@
         _cell.textField2.placeholder = NSLocalizedString(@"Touch to change", @""); 
         _cell.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"nativeCountry"];
         _cell.textField2.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"translateCountry"];
+        [_cell.titleLabel setFont:SETINGSTABLE_FONT_SIZE];
+        [_cell.titleLabel2 setFont:SETINGSTABLE_FONT_SIZE];
         _cell.titleLabel.text = NSLocalizedString(@"Native language", @""); 
         _cell.titleLabel2.text = NSLocalizedString(@"Diffrent language", @"");
         [self setImageFlagInCell:_cell];
@@ -255,6 +258,7 @@
         NSString *key = [self keyForIndexPath:indexPath];
         bool _value = [[self.values objectForKey:key] boolValue];
         _cell.titleLabel.text = titleText;
+        [_cell.titleLabel setFont:SETINGSTABLE_FONT_SIZE];
         [_cell setDelegate:self];
         NSLog(@"%d",_value);
         NSLog(@"%@",key);
@@ -263,6 +267,7 @@
     }else if([cell isMemberOfClass:[UITableViewCell class]]){
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         cell.textLabel.text = titleText;
+        [cell.textLabel setFont:SETINGSTABLE_FONT_SIZE];
     }
 }
 

@@ -216,7 +216,7 @@
         [self didSelectRowAtIndex:0 withContext:[results firstResult]];
         searchBox.text = [results firstResult];
     }else if (numOfResults > 1) {
-        [self showTableAlertViewWithElements:results.results];
+        [self showTableAlertViewWithElements:[results.results subarrayWithRange:NSMakeRange(1, numOfResults-1)]];
 		alternativesDisplay.text = [[results.results subarrayWithRange:NSMakeRange(1, numOfResults-1)] componentsJoinedByString:@"\n"];
     }
     

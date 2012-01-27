@@ -358,20 +358,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "348756579.284932"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "314"
-         endingLineNumber = "314"
-         landmarkName = "-removeChanges"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "iTeachWords/AddWordViewController.m"
          timestampString = "346760252.00421"
          startingColumnNumber = "9223372036854775807"
@@ -765,11 +751,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/RepeatModel.m"
-         timestampString = "348652688.158849"
+         timestampString = "349341471.314086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
          landmarkName = "-getDelayedTheme"
          landmarkType = "5">
       </FileBreakpoint>
@@ -989,11 +975,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/RepeatModel.m"
-         timestampString = "349018309.994485"
+         timestampString = "349341471.314086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "153"
-         endingLineNumber = "153"
+         startingLineNumber = "190"
+         endingLineNumber = "190"
          landmarkName = "-getDelayedTheme"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1213,11 +1199,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "349190416.472511"
+         timestampString = "349351334.012932"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "443"
-         endingLineNumber = "443"
+         startingLineNumber = "451"
+         endingLineNumber = "451"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1283,11 +1269,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/PagesScrollView.m"
-         timestampString = "349273283.528804"
+         timestampString = "349349296.679141"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
          landmarkName = "-tilePages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1297,11 +1283,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/PagesScrollView.m"
-         timestampString = "349273283.528804"
+         timestampString = "349349296.679141"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "-dequeueRecycledPage"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1311,11 +1297,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/PagesScrollView.m"
-         timestampString = "349273283.528804"
+         timestampString = "349349296.679141"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-tilePages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1325,11 +1311,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/PagesScrollView.m"
-         timestampString = "349273283.528804"
+         timestampString = "349349296.679141"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "139"
-         endingLineNumber = "139"
+         startingLineNumber = "152"
+         endingLineNumber = "152"
          landmarkName = "-tilePages"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1387,6 +1373,34 @@
          startingLineNumber = "186"
          endingLineNumber = "186"
          landmarkName = "-getLangType"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/PagesScrollView.m"
+         timestampString = "349349296.679141"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
+         landmarkName = "-scrollViewDidEndDecelerating:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/AddNewWordViewController.m"
+         timestampString = "349351334.012932"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "396"
+         endingLineNumber = "396"
+         landmarkName = "-textFieldShouldClear:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

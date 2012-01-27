@@ -29,6 +29,7 @@
 - (IBAction) showMyPickerView;
 - (void)save;
 - (void)showWebLoadingView;
+- (void)clearWebViewContent;
 - (void)setText:(NSString*)text;
 - (void)setTranslate:(NSString*)text;
 - (void)setWord:(Words *)_word;
