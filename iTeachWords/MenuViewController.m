@@ -128,6 +128,10 @@
 
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame{
     if (badgeCount>0) {
+        if (customBadge1) {
+            [customBadge1 removeFromSuperview];
+            customBadge1 = nil;
+        }
         customBadge1 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",badgeCount] 
                                           withStringColor:[UIColor whiteColor] 
                                            withInsetColor:[UIColor redColor] 
@@ -138,6 +142,7 @@
         [customBadge1 setTag:111];
         [customBadge1 setFrame:CGRectMake(objectFrame.origin.x+objectFrame.size.width-customBadge1.frame.size.width/2, objectFrame.origin.y-customBadge1.frame.size.height/2, customBadge1.frame.size.width, customBadge1.frame.size.height)];
         [self.view addSubview:customBadge1];
+        [customBadge1 retain];
     }
 }
 

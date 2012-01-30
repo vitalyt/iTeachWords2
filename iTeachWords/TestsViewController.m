@@ -60,36 +60,41 @@
 //-----------------------------------------------------------------------------------
 
 - (IBAction)close:(id)sender {
-    if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:@selector(optionsSubViewDidClose:)])) {
-		[self.toolsViewDelegate performSelector:@selector(optionsSubViewDidClose:) withObject:self];
+    SEL selector = @selector(optionsSubViewDidClose:);
+    if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:selector])) {
+		[(id)self.toolsViewDelegate performSelector:selector withObject:self afterDelay:0.01];
 	}
 }
 
 
 - (IBAction) clickGame{
-	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:@selector(clickGame)])) {
-		[self.testsViewDelegate clickGame];
+    SEL selector = @selector(clickGame);
+	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
+		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
 }
 
 - (IBAction) clickTestOneOfSix{
-	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:@selector(clickTestOneOfSix)])) {
-		[self.testsViewDelegate clickTestOneOfSix];
+    SEL selector = @selector(clickTestOneOfSix);
+	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
+		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
 }
 
 - (IBAction) clickTest1{
-	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:@selector(clickTest1)])) {
-		[self.testsViewDelegate clickTest1];
+    SEL selector = @selector(clickTest1);
+	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
+		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
 }
 
 - (IBAction) clickStatistic{
-	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:@selector(clickStatistic)])) {
-		[self.testsViewDelegate clickStatistic];
+    SEL selector = @selector(clickStatistic);
+	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
+		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
 }

@@ -34,6 +34,7 @@
 @property (nonatomic,retain) IBOutlet UISlider *mySlider;
 @property (nonatomic) BOOL visible;
 
+- (IBAction)toolBarButtonClick:(id)sender;
 - (IBAction) clickManaging:(id)sender;
 - (IBAction) clickEdit:(id)sender;
 - (IBAction) showPlayerView;
@@ -42,9 +43,9 @@
 
 - (void) clickManaging:(id)sender;
 - (void) clickEdit:(id)sender;
-- (void) showPlayerView;
 - (void) showToolsView:(id)sender;
 - (void) showRecordingView:(id)sender;
+- (void) showPlayerView;
 
 - (void) toolbarAddSubView:(UIView *)_subView after:(id)sender;
 - (void) toolbarRemoveSubView:(UIView *)_subView;
@@ -53,4 +54,6 @@
 - (void)     closeView;
 - (void)    removeOptionWithIndex:(int)index;
 
+- (void)addSubToolbarAfterButton:(id)_button;
+- (UIView*)createBaseViewByIndexButton:(id)_button;
 @end

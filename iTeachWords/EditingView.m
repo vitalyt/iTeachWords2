@@ -58,22 +58,24 @@
 
 
 - (IBAction)close:(id)sender {
-    if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:@selector(editingSubViewDidClose:)])) {
-        
-		[self.toolsViewDelegate performSelector:@selector(editingSubViewDidClose:) withObject:self];
+    SEL selector = @selector(editingSubViewDidClose:);
+    if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:selector])) {
+		[(id)self.toolsViewDelegate performSelector:selector withObject:self afterDelay:0.01];
 	}
 }
 
 - (IBAction) deleteWord{
-    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:@selector(deleteWord)])) {
-		[self.editingViewDelegate deleteWord];
+    SEL selector = @selector(deleteWord);
+    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:selector])) {
+		[(id)self.editingViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
 }
 
 - (IBAction) editWord{
-    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:@selector(editWord)])) {
-		[self.editingViewDelegate editWord];
+    SEL selector = @selector(editWord);
+    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:selector])) {
+		[(id)self.editingViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	} 
 }
@@ -96,15 +98,17 @@
 //}
 
 - (IBAction) reassignWord{
-    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:@selector(reassignWord)])) {
-		[self.editingViewDelegate reassignWord];
+    SEL selector = @selector(reassignWord);
+    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:selector])) {
+		[(id)self.editingViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
 }
 
 - (IBAction)selectAll:(id)sender {
-    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:@selector(selectAll)])) {
-		[self.editingViewDelegate selectAll];
+    SEL selector = @selector(selectAll);
+    if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:selector])) {
+		[(id)self.editingViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
 }

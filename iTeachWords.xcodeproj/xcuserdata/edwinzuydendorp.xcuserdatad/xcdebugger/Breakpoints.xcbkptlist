@@ -219,11 +219,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/ToolsViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634091.484341"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "135"
+         endingLineNumber = "135"
          landmarkName = "-showToolsView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -429,11 +429,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634536.198254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "279"
-         endingLineNumber = "279"
+         startingLineNumber = "284"
+         endingLineNumber = "284"
          landmarkName = "-showAddingWordView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -765,11 +765,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634536.198254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "290"
-         endingLineNumber = "290"
+         startingLineNumber = "295"
+         endingLineNumber = "295"
          landmarkName = "-showTextParserView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -849,11 +849,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634536.198254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "199"
-         endingLineNumber = "199"
+         startingLineNumber = "204"
+         endingLineNumber = "204"
          landmarkName = "-showLastItem"
          landmarkType = "5">
       </FileBreakpoint>
@@ -877,11 +877,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634536.198254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
          landmarkName = "-showInfoView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -891,11 +891,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634536.198254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "173"
-         endingLineNumber = "173"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
          landmarkName = "-addInfoButton"
          landmarkType = "5">
       </FileBreakpoint>
@@ -905,11 +905,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634536.198254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "146"
-         endingLineNumber = "146"
+         startingLineNumber = "151"
+         endingLineNumber = "151"
          landmarkName = "-checkDelayedThemes"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1549,26 +1549,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/ToolsViewController.m"
-         timestampString = "349631416.39446"
+         timestampString = "349634091.484341"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "284"
-         endingLineNumber = "284"
-         landmarkName = "-viewDidUnload"
+         startingLineNumber = "385"
+         endingLineNumber = "385"
+         landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/ToolsViewController.m"
-         timestampString = "349631416.39446"
+         filePath = "iTeachWords/ManagerViewController.m"
+         timestampString = "349632826.836207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "307"
-         endingLineNumber = "307"
-         landmarkName = "-dealloc"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "-close:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

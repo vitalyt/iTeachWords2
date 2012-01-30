@@ -17,6 +17,11 @@
 
 @synthesize delegate,visible,mySlider,isShowingView;
 
+- (IBAction)toolBarButtonClick:(id)sender{
+    SEL selector = @selector(addSubToolbarAfterButton:);
+    [self performSelector:selector withObject:sender afterDelay:0.01];
+}
+
 - (IBAction) clickManaging:(id)sender{
     if (!managerView) {
         managerView = [[ManagerViewController alloc] initWithNibName:@"ManagerViewController" bundle:nil];
@@ -208,10 +213,83 @@
 	}
 }
 
+- (void)addSubToolbarAfterButton:(id)_button{
+    
+    UIView *_subView = [self createBaseViewByIndexButton:_button];
+    [self toolbarAddSubView:_subView after:_button];
+}
+
+- (UIView*)createBaseViewByIndexButton:(id)_button{
+    UIView *baseView = nil;
+    
+    NSMutableArray *items = [[toolbar items] mutableCopy];
+    int index = [items indexOfObject:_button]+1;
+    switch (index) {
+        case 1:{
+            if (!managerView) {
+                managerView = [[ManagerViewController alloc] initWithNibName:@"ManagerViewController" bundle:nil];
+            }
+            managerView.toolsViewDelegate = self;
+            managerView.managerViewDelegate = self.delegate;
+            baseView = managerView.view;
+            managerView.segmentControll.selectedSegmentIndex = ((WorldTableViewController*)delegate).showingType;
+        }
+            break;
+        case 2:{
+            if ([(id)self.delegate respondsToSelector:@selector(showTestsView)]) {
+                [(id)self.delegate showTestsView];
+                
+                return nil;
+            }
+            if (!testsView) {
+                testsView = [[TestsViewController alloc] initWithNibName:@"TestsViewController" bundle:nil];
+            }
+            testsView.toolsViewDelegate = self;
+            testsView.testsViewDelegate = self.delegate;
+            baseView = testsView.view;
+    }
+            break;
+        case 3:{
+            if ([(id)self.delegate respondsToSelector:@selector(showRecordingView)]) {
+                [(id)self.delegate showRecordingView];
+                return nil;
+            }
+            if (!recordingView) {
+                recordingView = [[RecordingViewController alloc] initWithNibName:@"RecordingViewController" bundle:nil];
+            }
+            recordingView.toolsViewDelegate = self;
+            baseView = recordingView.view;
+        }
+            break;
+        case 4:{
+        
+        }
+            break;
+        case 5:{
+            if ([self.delegate respondsToSelector:@selector(clickEdit)]) {
+                [self.delegate clickEdit];
+            }
+            if (!editingView) {
+                editingView = [[EditingView alloc] initWithNibName:@"EditingView" bundle:nil];
+            }
+            editingView.toolsViewDelegate = self;
+            editingView.editingViewDelegate = self.delegate;
+            baseView = editingView.view;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return baseView;
+}
+
 - (void) toolbarAddSubView:(UIView *)_subView after:(id)sender{
     NSMutableArray *items = [[toolbar items] mutableCopy];
-    UIBarButtonItem *recordingButton = [[UIBarButtonItem alloc] initWithCustomView:_subView];
     int index = [items indexOfObject:sender]+1;
+    
+    UIBarButtonItem *recordingButton = [[UIBarButtonItem alloc] initWithCustomView:_subView];
     [recordingButton setTag:index];
     [_subView setTag:index];
     [items insertObject:recordingButton atIndex:[items indexOfObject:sender]+1];

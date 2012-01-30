@@ -61,21 +61,24 @@
 
 
 - (IBAction)close:(id)sender {
-    if ((self.toolsViewDelegate)&&([(id)toolsViewDelegate respondsToSelector:@selector(managerSubViewDidClose:)])) {
-		[self.toolsViewDelegate managerSubViewDidClose:self];
+    SEL selector = @selector(managerSubViewDidClose:);
+    if ((self.toolsViewDelegate)&&([(id)toolsViewDelegate respondsToSelector:selector])) {
+		[(id)self.toolsViewDelegate performSelector:selector withObject:self afterDelay:0.01];
 	}
 }
 
 - (IBAction) mixingWords{
-    if ((self.managerViewDelegate)&&([self.managerViewDelegate respondsToSelector:@selector(mixingWords)])) {
-		[self.managerViewDelegate mixingWords];
+    SEL selector = @selector(mixingWords);
+    if ((self.managerViewDelegate)&&([self.managerViewDelegate respondsToSelector:selector])) {
+		[(id)self.managerViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 	}
 }
 
 - (IBAction)selectedLanguage:(id)sender {
+    SEL selector = @selector(selectedLanguage:);
     //UISegmentedControl *segment = (UISegmentedControl*)sender;
-    if ((self.managerViewDelegate)&&([self.managerViewDelegate respondsToSelector:@selector(selectedLanguage:)])) {
-		[self.managerViewDelegate selectedLanguage:sender];
+    if ((self.managerViewDelegate)&&([self.managerViewDelegate respondsToSelector:selector])) {
+		[(id)self.managerViewDelegate performSelector:selector withObject:sender afterDelay:0.01];
 	}
 }
 
