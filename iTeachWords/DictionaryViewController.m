@@ -193,6 +193,11 @@
         [self loadLocalData];
         
     }else{
+//        static NSThread *progressThread;
+//        if (!progressThread) {
+//            progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadData) object:nil];
+//        }
+//        [progressThread start];
         [self loadData];
     }
     self.searchedText = mySearchBar.text;

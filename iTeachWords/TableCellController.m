@@ -47,7 +47,7 @@
 - (IBAction)btnActionClick:(id)sender{
     SEL selector = @selector(btnActionClickWithCell:);
     if ([delegate respondsToSelector:selector]) {
-        [delegate performSelector:selector withObject:self afterDelay:0.1];
+        [delegate performSelector:selector withObject:self afterDelay:0.01];
     }
 }
 @end
