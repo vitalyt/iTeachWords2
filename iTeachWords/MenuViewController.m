@@ -127,10 +127,6 @@
 #pragma mark Custom Badge
 
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame{
-    if (customBadge1) {
-        [customBadge1 removeFromSuperview];
-        customBadge1 = nil;
-    }
     if (badgeCount>0) {
         customBadge1 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",badgeCount] 
                                           withStringColor:[UIColor whiteColor] 

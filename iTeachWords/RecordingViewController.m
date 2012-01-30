@@ -95,8 +95,9 @@
 #pragma meter func
 
 - (void)runTimer{
-    if (meterTimer) {
+    if (meterTimer && [meterTimer isValid]) {
         [meterTimer invalidate];
+        meterTimer = nil;
     }
     meterTimer = [NSTimer scheduledTimerWithTimeInterval:.05 target:self selector:@selector(updateMeterView) userInfo:nil repeats:YES];
 }
@@ -136,8 +137,9 @@
         [vuMeter setHidden:YES];
         [activityIndicatorView stopAnimating];
         imageName = @"Record 16x16.png"; 
-        if ([meterTimer isValid]) {
+        if (meterTimer && [meterTimer isValid]) {
             [meterTimer invalidate];
+            meterTimer = nil;
         }
         [recorder stop];
         

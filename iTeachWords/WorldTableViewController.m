@@ -189,7 +189,7 @@
     [table setAllowsSelectionDuringEditing:YES];
     showingType = 1;
     
-    [self performSelector:@selector(checkDelayedThemes) withObject:nil afterDelay:.5];
+    [self performSelector:@selector(checkDelayedThemes) withObject:nil afterDelay:.01];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -371,7 +371,7 @@
 //    
     UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
     [cell setSelected:NO animated:YES];
-    [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)playerDidFinishPlaying:(id)sender{

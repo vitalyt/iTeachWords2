@@ -40,6 +40,12 @@
 - (IBAction) showToolsView:(id)sender;
 - (IBAction) showRecordingView:(id)sender;
 
+- (void) clickManaging:(id)sender;
+- (void) clickEdit:(id)sender;
+- (void) showPlayerView;
+- (void) showToolsView:(id)sender;
+- (void) showRecordingView:(id)sender;
+
 - (void) toolbarAddSubView:(UIView *)_subView after:(id)sender;
 - (void) toolbarRemoveSubView:(UIView *)_subView;
 

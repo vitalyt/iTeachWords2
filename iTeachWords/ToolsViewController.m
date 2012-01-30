@@ -18,7 +18,9 @@
 @synthesize delegate,visible,mySlider,isShowingView;
 
 - (IBAction) clickManaging:(id)sender{
-    managerView = [[ManagerViewController alloc] initWithNibName:@"ManagerViewController" bundle:nil];
+    if (!managerView) {
+        managerView = [[ManagerViewController alloc] initWithNibName:@"ManagerViewController" bundle:nil];
+    }
     managerView.toolsViewDelegate = self;
     managerView.managerViewDelegate = self.delegate;
     [self toolbarAddSubView:managerView.view after:sender];
@@ -29,33 +31,13 @@
 	if ([self.delegate respondsToSelector:@selector(clickEdit)]) {
 		[self.delegate clickEdit];
 	}
-    editingView = [[EditingView alloc] initWithNibName:@"EditingView" bundle:nil];
+    if (!editingView) {
+        editingView = [[EditingView alloc] initWithNibName:@"EditingView" bundle:nil];
+    }
     editingView.toolsViewDelegate = self;
     editingView.editingViewDelegate = self.delegate;
     [self toolbarAddSubView:editingView.view after:sender];
-}
-
-- (IBAction) showPlayerView{
-	if ([(id)self.delegate respondsToSelector:@selector(showPlayerView)]) {
-		[(id)self.delegate showPlayerView];
-		self.visible = NO;
-		//[self.view removeFromSuperview];
-		return;
-	}
-}
-
-- (IBAction) showThemesView{
-	if ([(id)self.delegate respondsToSelector:@selector(showThemesView)]) {
-		[(id)self.delegate showThemesView];
-		return;
-	}
-}
-
-- (IBAction) changeSlider:(id)sender{
-	if ([(id)self.delegate respondsToSelector:@selector(changeSlider:)]) {
-		[(id)self.delegate changeSlider:sender];
-		return;
-	}
+//    [self performSelector:@selector(click:) withObject:sender afterDelay:.01];
 }
 
 - (IBAction) showRecordingView:(id)sender{
@@ -64,27 +46,14 @@
         [(id)self.delegate showRecordingView];
         //[self showToolsView:nil];
         return;
-     }
-    recordingView = [[RecordingViewController alloc] initWithNibName:@"RecordingViewController" bundle:nil];
+    }
+    if (!recordingView) {
+        recordingView = [[RecordingViewController alloc] initWithNibName:@"RecordingViewController" bundle:nil];
+    }
     recordingView.toolsViewDelegate = self;
     [self toolbarAddSubView:recordingView.view after:sender];
 }
 
-- (void) optionsSubViewDidClose:(id)sender{
-    [self toolbarRemoveSubView:((UIViewController *)sender).view];
-}
-
-- (void) editingSubViewDidClose:(id)sender{
-    [self toolbarRemoveSubView:((UIViewController *)sender).view];
-    if ([(id)self.delegate respondsToSelector:@selector(clickEdit)]) {
-        [(id)self.delegate clickEdit];
-    }
-   // [((TableWordController *)self.delegate) clickEdit];
-}
-
-- (void) managerSubViewDidClose:(id)sender{
-    [self toolbarRemoveSubView:((UIViewController *)sender).view];
-}
 
 - (IBAction) showTestsView:(id)sender{
     // ((UIBarButtonItem *)sender).customView.hidden = YES;
@@ -93,11 +62,68 @@
         
         return;
     }
-    testsView = [[TestsViewController alloc] initWithNibName:@"TestsViewController" bundle:nil];
+    if (!testsView) {
+        testsView = [[TestsViewController alloc] initWithNibName:@"TestsViewController" bundle:nil];
+    }
     testsView.toolsViewDelegate = self;
     testsView.testsViewDelegate = self.delegate;
     [self toolbarAddSubView:testsView.view after:sender];
 }
+
+//- (void)click:(id)sender{
+//    if ([self.delegate respondsToSelector:@selector(clickEdit)]) {
+//		[self.delegate clickEdit];
+//	}
+//    editingView = [[EditingView alloc] initWithNibName:@"EditingView" bundle:nil];
+//    editingView.toolsViewDelegate = self;
+//    editingView.editingViewDelegate = self.delegate;
+//    [self toolbarAddSubView:editingView.view after:sender];
+//}
+
+- (IBAction) showPlayerView{
+    SEL selector = @selector(showPlayerView);
+	if ([(id)self.delegate respondsToSelector:selector]) {
+		[(id)self.delegate performSelector:selector withObject:nil afterDelay:0.01];
+		self.visible = NO;
+		//[self.view removeFromSuperview];
+		return;
+	}
+}
+
+- (IBAction) showThemesView{
+    SEL selector = @selector(showThemesView);
+	if ([(id)self.delegate respondsToSelector:selector]) {
+		[(id)self.delegate performSelector:selector withObject:nil afterDelay:0.01];
+		return;
+	}
+}
+
+- (IBAction) changeSlider:(id)sender{
+    SEL selector = @selector(changeSlider:);
+	if ([(id)self.delegate respondsToSelector:selector]) {
+		[(id)self.delegate performSelector:selector withObject:sender afterDelay:0.01];
+		return;
+	}
+}
+
+
+- (void) optionsSubViewDidClose:(id)sender{
+    [self toolbarRemoveSubView:((UIViewController *)sender).view];
+}
+
+- (void) editingSubViewDidClose:(id)sender{
+    SEL selector = @selector(clickEdit);
+    [self toolbarRemoveSubView:((UIViewController *)sender).view];
+    if ([(id)self.delegate respondsToSelector:selector]) {
+		[(id)self.delegate performSelector:selector withObject:nil afterDelay:0.01];
+    }
+   // [((TableWordController *)self.delegate) clickEdit];
+}
+
+- (void) managerSubViewDidClose:(id)sender{
+    [self toolbarRemoveSubView:((UIViewController *)sender).view];
+}
+
 
 - (IBAction) showToolsView:(id)sender{
     CATransition *myTransition = [CATransition animation];
@@ -192,16 +218,31 @@
     [recordingButton release];
     ((UIBarButtonItem *)sender).enabled = NO;
     [toolbar setItems:nil];
+    
+//    [UIView beginAnimations:@"ShowOptionsView" context:nil];
+//    [UIView setAnimationDuration:0.2];
+//    [UIView setAnimationBeginsFromCurrentState:YES];
+//    
+//    [UIView commitAnimations];
+    
     [toolbar setFrame:CGRectMake(0.0, 0.0, 
                                  toolbar.frame.size.width + _subView.frame.size.width, 
-                                 toolbar.frame.size.height)];    
-    scrollView.contentSize	= CGSizeMake(toolbar.frame.size.width, scrollView.frame.size.height);
-    [toolbar setItems:items animated:YES];
+                                 toolbar.frame.size.height)]; 
+    
+    [toolbar setItems:items animated:NO];
+    CGSize size = CGSizeMake(toolbar.frame.size.width, scrollView.frame.size.height);
+    [scrollView setContentSize:size];
+    
     float offset = _subView.frame.origin.x+_subView.frame.size.width - scrollView.contentOffset.x - 320.0;
     if (offset > 0.0) {
         scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x + (_subView.frame.origin.x+_subView.frame.size.width - scrollView.contentOffset.x - 320.0)  , 0.0);
     }
     [items release];
+}
+
+- (void)changeSize{
+    CGSize size = CGSizeMake(toolbar.frame.size.width, scrollView.frame.size.height);
+    [scrollView setContentSize:size];
 }
 
 - (void) toolbarRemoveSubView:(UIView *)_subView{
@@ -242,6 +283,15 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+    
+    [recordingView release];
+    recordingView = nil;
+    [testsView release];
+    testsView = nil;
+    [editingView release];
+    editingView = nil;
+    [managerView release];
+    managerView = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -255,6 +305,10 @@
 }
 
 - (void)dealloc {
+    [recordingView release];
+    [testsView release];
+    [editingView release];
+    [managerView release];
     if(recordingView != nil){
         [recordingView release];
     }

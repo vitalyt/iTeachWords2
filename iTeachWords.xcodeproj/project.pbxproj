@@ -167,6 +167,7 @@
 		28797B1C13A2352900D21722 /* NewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B1B13A2352800D21722 /* NewTableCell.m */; };
 		28797B1E13A2355E00D21722 /* NewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28797B1D13A2355D00D21722 /* NewTableCell.xib */; };
 		28797B3113A24CC700D21722 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B3013A24CC700D21722 /* MenuView.m */; };
+		288BD64614D6E67C00990663 /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BD64514D6E67C00990663 /* SpeechKit.framework */; };
 		28914B4814D1460C004E702A /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4714D1460C004E702A /* BaseScrollView.m */; };
 		28914B4B14D14839004E702A /* PagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4A14D14839004E702A /* PagesScrollView.m */; };
 		28914B4D14D14CA4004E702A /* siri-icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 28914B4C14D14CA4004E702A /* siri-icon1.png */; };
@@ -438,7 +439,6 @@
 		28E3307E140F9FDA00ABC7D5 /* ZW.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32FAA140F9FDA00ABC7D5 /* ZW.png */; };
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
-		8428579614CE01CC00D4724E /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8428579514CE01CC00D4724E /* SpeechKit.framework */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -705,6 +705,7 @@
 		28797B1D13A2355D00D21722 /* NewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTableCell.xib; sourceTree = "<group>"; };
 		28797B2F13A24CC700D21722 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		28797B3013A24CC700D21722 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		288BD64514D6E67C00990663 /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = ../../Downloads/DragonMobileSDK_1.3.1/SpeechKit.framework; sourceTree = "<group>"; };
 		28914B4614D1460C004E702A /* BaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
 		28914B4714D1460C004E702A /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
 		28914B4914D14839004E702A /* PagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesScrollView.h; sourceTree = "<group>"; };
@@ -1005,7 +1006,6 @@
 		28FAAB4F14A9FA9E001F9214 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		28FAAB5014A9FA9E001F9214 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MenuViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
-		8428579514CE01CC00D4724E /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = ../../../Downloads/DragonMobileSDK_1.3.1/SpeechKit.framework; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
 		CE6C773513C0C79E00ACDC2E /* Test15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test15.h; sourceTree = "<group>"; };
@@ -1050,7 +1050,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8428579614CE01CC00D4724E /* SpeechKit.framework in Frameworks */,
+				288BD64614D6E67C00990663 /* SpeechKit.framework in Frameworks */,
 				2811985214A095C300399D44 /* CFNetwork.framework in Frameworks */,
 				2811985014A095BA00399D44 /* Security.framework in Frameworks */,
 				2811984E14A0951100399D44 /* AudioToolbox.framework in Frameworks */,
@@ -1500,7 +1500,7 @@
 		284092BC1381242700864711 = {
 			isa = PBXGroup;
 			children = (
-				8428579514CE01CC00D4724E /* SpeechKit.framework */,
+				288BD64514D6E67C00990663 /* SpeechKit.framework */,
 				284092D11381242700864711 /* iTeachWords */,
 				284092CA1381242700864711 /* Frameworks */,
 				284092C81381242700864711 /* Products */,
@@ -2936,7 +2936,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2955,7 +2955,8 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
+				PROVISIONING_PROFILE = "03080A6F-92C3-4E67-B437-C8D43339DFDB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03080A6F-92C3-4E67-B437-C8D43339DFDB";
 				SDKROOT = iphoneos4.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
