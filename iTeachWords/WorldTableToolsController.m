@@ -18,6 +18,7 @@
 #import "Statistic.h"
 #import "DetailStatisticViewController.h"
 #import "ToolsViewController.h"
+#import "TableCellController.h"
 
 @implementation WorldTableToolsController
 
@@ -182,7 +183,7 @@
 
 - (void) deleteSelectedWords{
     NSMutableSet *ar = [[NSMutableSet alloc] init];
-    for(Words *word in self.wordType.words) {
+    for(Words *word in self.data) {
         if ([word.isSelected boolValue]) {
             [ar addObject:word];
             [word setIsSelected:[NSNumber numberWithInt:0]];
@@ -196,7 +197,6 @@
     }
     [wordType release];
     wordType = nil;  
-
     [self loadData];
 }
 

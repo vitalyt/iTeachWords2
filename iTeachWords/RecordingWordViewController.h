@@ -27,5 +27,7 @@
 
 - (IBAction)saveSound;
 - (IBAction) loadFromNetwork;
+- (void)saveCanges;
+- (void)undoChngesWord;
 
 @end

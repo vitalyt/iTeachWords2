@@ -18,6 +18,7 @@
 #import "MenuView.h"
 #import "DetailStatisticViewController.h"
 #import "HeadViewController.h"
+#import "RecordingWordViewController.h"
 
 @implementation WorldTableViewController
 
@@ -28,6 +29,7 @@
 
 - (void)dealloc
 {
+    [recordView release];
     if (tableHeadView) {
         [tableHeadView release];
     }
@@ -41,6 +43,8 @@
         [multiPlayer closePlayer];
         [multiPlayer release];
     }
+    [currentSelectedWordPathIndex release];
+    [playImg release];
     [wordType release];
     [super dealloc];
 }
@@ -51,6 +55,12 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)loadView{
+    [super loadView];
+    playImg = [[UIImage imageNamed:@"right.png"] retain];
+    LoadRecordImg = [[UIImage imageNamed:@"Microphone.png"] retain];
 }
 
 #pragma mark - my functions
@@ -237,6 +247,7 @@
 
 - (void) configureCell:(TableCellController *)cell forRowAtIndexPath: (NSIndexPath*)indexPath {    
     if (indexPath.row < limit-1) {
+        cell.delegate = self;
         Words *word = [self.data objectAtIndex:indexPath.row];
         cell.lblEng.text = word.text;
         cell.lblRus.text = word.translate;
@@ -256,6 +267,15 @@
         }
         [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
         UIImageView *indicator = (UIImageView *)[cell.contentView viewWithTag:SELECTION_INDICATOR_TAG];
+        
+        //changing image of playing button 
+        if ([word.sounds count]>0) {
+            [cell.btn setImage:playImg forState:UIControlStateNormal];
+        }else{
+            [cell.btn setImage:LoadRecordImg forState:UIControlStateNormal];
+        }
+        
+       //changing image of selecting button  
         if ([word.isSelected boolValue])
         {
             indicator.image = isSelectedImg;
@@ -302,8 +322,8 @@
             [table deselectRowAtIndexPath:indexPath animated:YES];
             [table reloadData];	
         }else{
-            [self playSoundWithIndex:indexPath];
-            //[table deselectRowAtIndexPath:indexPath animated:YES];
+
+            [table deselectRowAtIndexPath:indexPath animated:YES];
         }
     }else{
         limit += offset;
@@ -316,7 +336,7 @@
         [multiPlayer closePlayer];
         [multiPlayer release];
     }
-    currentWordPlayingIndex = indexPath.row;
+    currentSelectedWordPathIndex = [indexPath retain];
     NSArray *sounds = [[NSArray alloc] initWithObjects:[self.data objectAtIndex:indexPath.row], nil];
     multiPlayer = [[MultiPlayer alloc] initWithNibName:@"MultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
@@ -328,12 +348,14 @@
 #pragma mark - player functions
 
 - (void) playerDidStartPlayingSound:(int)soundIndex{
+    [table setScrollEnabled:NO];
+//    [table performSelectorOnMainThread:@selector(setScrollEnabled:) withObject:NO waitUntilDone:YES];
     int index;
     if ([multiPlayer.words count] > 1 && soundIndex>0) {
         [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:soundIndex inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         index = soundIndex+1;
     }else{
-        index = currentWordPlayingIndex;
+        index = currentSelectedWordPathIndex.row;
     }
     UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
     [cell setSelected:YES animated:YES];
@@ -344,11 +366,16 @@
     if ([multiPlayer.words count] > 1) {    
         index = soundIndex;
     }else{
-        index = currentWordPlayingIndex;
+        index = currentSelectedWordPathIndex.row;
     }
-    
+//    
     UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
     [cell setSelected:NO animated:YES];
+    [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)playerDidFinishPlaying:(id)sender{
+    table.scrollEnabled = YES;
 }
 
 #pragma mark - showing functions
@@ -365,6 +392,48 @@
     self.navigationItem.titleView = tableHeadView.view;
     tableHeadView.titleLabel.text = wordType.name;
     tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"total: %d",[self.data count]];
+}
+
+#pragma  mark picker protokol
+
+- (void) showRecordViewWithIndexPath:(NSIndexPath*)indexPath{
+    //[sender setHidden:YES];
+    if (recordView) {
+        [recordView saveSound];
+        [recordView release];
+    }
+    currentSelectedWordPathIndex = [indexPath retain];
+    recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
+    recordView.delegate = self;
+    [self.view.superview addSubview:recordView.view];
+//    [recordView.view setFrame:CGRectMake(currentTextField.frame.origin.x+currentTextField.frame.size.width-currentTextField.rightView.frame.size.width, currentTextField.frame.origin.y, currentTextField.rightView.frame.size.width, currentTextField.rightView.frame.size.height)];
+    recordView.soundType = TEXT;
+    Words *_word = [data objectAtIndex:indexPath.row];
+    [recordView setWord:_word withType:TEXT];
+    [UIView beginAnimations:@"ShowOptionsView" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [recordView.view setFrame:CGRectMake(self.view.superview.center.x-105/2, self.view.superview.center.y-105/2, 105, 105)];
+    [UIView commitAnimations];
+}
+
+- (void) recordViewDidClose:(id)sender{
+//    [self playSoundWithIndex:currentSelectedWordPathIndex];
+    [table deselectRowAtIndexPath:currentSelectedWordPathIndex animated:YES];
+    [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark TableCellProtocol functions
+
+- (void)btnActionClickWithCell:(id)_cell{
+    NSIndexPath *_indexPath = [table indexPathForCell:_cell];
+//    currentSelectedWordPathIndex = [_indexPath retain];
+    Words *_word = [data objectAtIndex:_indexPath.row];
+    if ([_word.sounds count]==0) {
+        [self showRecordViewWithIndexPath:_indexPath];
+    }else{
+        [self playSoundWithIndex:_indexPath];
+    }
 }
 
 @end

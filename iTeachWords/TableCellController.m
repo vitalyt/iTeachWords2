@@ -14,6 +14,7 @@
 @synthesize lblEng,lblRus,lblEngH,lblRusH;
 @synthesize btn;
 @synthesize statisticViewController;
+@synthesize delegate;
 
 - (NSString *) reuseIdentifier {
 	return @"TableCell";
@@ -43,5 +44,10 @@
     [super dealloc];
 }
 
-
+- (IBAction)btnActionClick:(id)sender{
+    SEL selector = @selector(btnActionClickWithCell:);
+    if ([delegate respondsToSelector:selector]) {
+        [delegate performSelector:selector withObject:self afterDelay:0.2];
+    }
+}
 @end

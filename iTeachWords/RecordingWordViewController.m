@@ -32,6 +32,7 @@
     }
     word = [_word retain];
     
+    [iTeachWordsAppDelegate clearUdoManager];
     currentSound = [NSEntityDescription insertNewObjectForEntityForName:@"Sounds" 
                                                      inManagedObjectContext:CONTEXT];
     [currentSound setWord:word];
@@ -46,20 +47,40 @@
 }
 
 - (IBAction) saveSound {
-    NSData *data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
-    if (data && [data length]>0) {
-        [currentSound setData:data];
+    @try {
+        NSData *data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
+        if (data && [data length]>0) {
+            [currentSound setData:data];
+            [self saveCanges];
+        }
+        else{
+            [self undoChngesWord];
+        }
+        [data release];
+        data = nil;
     }
-//    NSError *_error;
-//    if (![CONTEXT save:&_error]) {
-//        [UIAlertView displayError:@"Data is not saved."];
-//    }
-    [data release];
-    data = nil;
-    [self.view removeFromSuperview];
-    if ((self.delegate)&&([self.delegate respondsToSelector:@selector(recordViewDidClose:)])) {
-		[self.delegate recordViewDidClose:self];
-	}
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        [self.view removeFromSuperview];
+        if ((self.delegate)&&([self.delegate respondsToSelector:@selector(recordViewDidClose:)])) {
+            [self.delegate recordViewDidClose:self];
+        }
+    }
+}
+
+- (void)saveCanges{    
+    NSError *_error;
+    if (![CONTEXT save:&_error]) {
+        [UIAlertView displayError:@"Data is not saved."];
+    }else{
+        [iTeachWordsAppDelegate clearUdoManager];
+    }
+}
+
+- (void)undoChngesWord{
+    [CONTEXT rollback];
 }
 
 - (void)dealloc

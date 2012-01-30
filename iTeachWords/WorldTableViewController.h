@@ -15,6 +15,8 @@
 #import "ManagerViewProtocol.h"
 #import "AlertTableView.h"
 
+#import "RecordingWordViewController.h"
+#import "TableCellController.h"
 typedef enum {
 	SHOW_ENG		,
 	SHOW_ALL		,
@@ -24,17 +26,20 @@ typedef enum {
 @class MyPickerViewContrller,WordTypes,ToolsViewController,MultiPlayer;
 @class HeadViewController,AlertTableViewDelegate;
 
-@interface WorldTableViewController : EditTableViewController <MyPickerViewProtocol,MyPlayerProtocol,AlertTableViewDelegate,AlertTableViewDelegate> {
+@interface WorldTableViewController : EditTableViewController <MyPickerViewProtocol,MyPlayerProtocol,AlertTableViewDelegate,AlertTableViewDelegate,RecordingViewProtocol,TableCellProtocol> {
     MyPickerViewContrller   *wordTypePicker;
     WordTypes               *wordType;
     ToolsViewController     *toolsView; 
     MultiPlayer             *multiPlayer;
-    int                     currentWordPlayingIndex;
+    NSIndexPath             *currentSelectedWordPathIndex;
     bool                    isStatisticShowing;
     ShowingWordType         showingType;
     
     NSString                *nativeCountry,*translateCountry;
     HeadViewController      *tableHeadView;
+    RecordingWordViewController *recordView;
+    
+    UIImage                 *playImg,*LoadRecordImg;
 }
 
 @property (nonatomic,retain) WordTypes *wordType;
@@ -48,4 +53,6 @@ typedef enum {
 - (void)checkDelayedThemes;
 - (void)showTableAlertViewWithElements:(NSArray *)elements;
 
+- (void) showRecordViewWithIndexPath:(NSIndexPath*)indexPath;
+- (void)btnActionClickWithCell:(id)_cell;
 @end

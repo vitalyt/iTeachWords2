@@ -1486,6 +1486,7 @@
 		283B1F271384E698004EB5D4 /* WordTable */ = {
 			isa = PBXGroup;
 			children = (
+				28F93E4C14D6834800531823 /* DataModel */,
 				280318B31439920500E87F1F /* HeadView */,
 				283B1F291384EE01004EB5D4 /* WorldTableViewController.h */,
 				283B1F2A1384EE01004EB5D4 /* WorldTableViewController.m */,
@@ -2100,6 +2101,13 @@
 				28E32FAA140F9FDA00ABC7D5 /* ZW.png */,
 			);
 			path = Flags;
+			sourceTree = "<group>";
+		};
+		28F93E4C14D6834800531823 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 		CE6C772F13C09EB500ACDC2E /* MyData */ = {
