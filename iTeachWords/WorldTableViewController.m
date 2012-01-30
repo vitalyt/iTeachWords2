@@ -406,7 +406,11 @@
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
     recordView.delegate = self;
     [self.view.superview addSubview:recordView.view];
-//    [recordView.view setFrame:CGRectMake(currentTextField.frame.origin.x+currentTextField.frame.size.width-currentTextField.rightView.frame.size.width, currentTextField.frame.origin.y, currentTextField.rightView.frame.size.width, currentTextField.rightView.frame.size.height)];
+    
+    TableCellController *_cell = (TableCellController*)[table cellForRowAtIndexPath:currentSelectedWordPathIndex];
+    CGRect cellFrame = _cell.btn.frame;
+    float yOffset = [table rectForRowAtIndexPath:currentSelectedWordPathIndex].origin.y - table.contentOffset.y;
+    [recordView.view setFrame:CGRectMake(cellFrame.origin.x+cellFrame.size.width/2, _cell.btn.frame.origin.y+_cell.btn.frame.size.height/2+yOffset, 10, 10)];
     recordView.soundType = TEXT;
     Words *_word = [data objectAtIndex:indexPath.row];
     [recordView setWord:_word withType:TEXT];

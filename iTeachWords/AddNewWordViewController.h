@@ -45,6 +45,7 @@
 - (void)     back;
 - (IBAction) save;
 - (IBAction) recordPressed:(id)sender;
+- (void)clear;
 
 - (void)	 setImageFlag;
 - (void)     closeAllKeyboard;

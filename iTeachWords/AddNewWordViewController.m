@@ -330,9 +330,16 @@
     //[self back];
     
     [self hiddeSaveButton];
-    
+    [self clear];
+}
+
+- (void)clear{
     [textFld setText:@""];
-    [translateFid setText:@""];
+    [translateFid setText:@""]; 
+    UIButton *recButton = ((UIButton*)textFld.rightView);
+    [recButton setEnabled:NO];
+    recButton = ((UIButton*)translateFid.rightView);
+    [recButton setEnabled:NO];
 }
 
 #pragma mark textField delegate
