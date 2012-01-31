@@ -74,6 +74,7 @@
 }
 
 -(void)loadData { 
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     if ([mySearchBar.text length] > 0) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text BEGINSWITH[cd] %@", mySearchBar.text];
         [self loadDataWithPredicate:predicate];
@@ -83,16 +84,25 @@
     NSError *error;
     NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
     [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
-    [request setFetchLimit:limit];  
-    [request setFetchOffset:0];
+//    [request setFetchLimit:limit];  
+//    [request setFetchOffset:0];
     //[request setFetchBatchSize:10];
     [request setPropertiesToFetch:[NSArray arrayWithObjects:@"text",@"translate", nil]];
     
 	NSSortDescriptor *name = [[NSSortDescriptor alloc] initWithKey:@"text" ascending:YES 
                                                           selector:@selector(caseInsensitiveCompare:)];
-    self.data = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:name, nil]];
+    
+    NSArray *context = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:name, nil]];
+    [self performSelectorOnMainThread:@selector(setDataContent:) withObject:context waitUntilDone:YES];
     self.searchedData = [NSMutableArray arrayWithArray:data];
     NSLog(@"%@",searchedData);
+	[table reloadData];
+    [pool release];
+}
+
+- (void)setDataContent:(NSArray *)_data{
+    self.data = _data;
+    self.searchedData = [NSMutableArray arrayWithArray:data];
 	[table reloadData];
 }
 
@@ -111,8 +121,8 @@
     NSError *error;
     NSFetchRequest * request = [NSFetchRequest new];
     [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
-//    [request setFetchLimit:limit];  
-//    [request setFetchOffset:offset];
+    [request setFetchLimit:limit];  
+    [request setFetchOffset:0];
     //[request setFetchBatchSize:10];
     [request setPropertiesToFetch:[NSArray arrayWithObjects:@"text",@"translate", nil]];
     [request setRelationshipKeyPathsForPrefetching:nil];
@@ -184,22 +194,27 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    if ([searchText length]> 1) {
-        offset = 5;
-        limit = 5;
-        if ([searchedText length] > [searchText length]) {
-            self.searchedData = [NSMutableArray arrayWithArray:data];
-        }
-        [self loadLocalData];
-        
-    }else{
-//        static NSThread *progressThread;
-//        if (!progressThread) {
-//            progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadData) object:nil];
+//    if ([searchText length]> 1) {
+//        offset = 5;
+//        limit = 5;
+//        if ([searchedText length] > [searchText length]) {
+//            self.searchedData = [NSMutableArray arrayWithArray:data];
 //        }
-//        [progressThread start];
-        [self loadData];
-    }
+//        [self loadLocalData];
+//        
+//    }else{
+//        if(searchingThread){
+//            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadData) object:nil];
+//            [searchingThread cancel];
+//            [searchingThread release];
+//            searchingThread = nil;
+//        }
+//        searchingThread = [[NSThread alloc] initWithTarget:self selector:@selector(loadData) object:nil]; 
+    //        [searchingThread start];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(loadData) object:nil];
+        [self performSelector:@selector(loadData)withObject:nil afterDelay:1.0];
+//        [self loadData];
+//    }
     self.searchedText = mySearchBar.text;
 }
 

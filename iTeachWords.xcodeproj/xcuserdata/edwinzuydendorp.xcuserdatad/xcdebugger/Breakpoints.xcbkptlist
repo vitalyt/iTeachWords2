@@ -261,12 +261,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/DictionaryViewController.m"
-         timestampString = "349196913.728618"
+         timestampString = "349708139.644857"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "261"
-         endingLineNumber = "261"
-         landmarkName = "-scrollViewDidScroll:"
+         startingLineNumber = "274"
+         endingLineNumber = "274"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

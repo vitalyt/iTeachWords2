@@ -12,6 +12,8 @@
 @interface DictionaryViewController : SearchTableViewController <UIScrollViewDelegate> {
     NSMutableArray *searchedData;
     NSString *searchedText;
+    
+    NSThread *searchingThread;
 }
 @property (nonatomic,retain) NSMutableArray *searchedData;
 @property (nonatomic,retain) NSString *searchedText;
