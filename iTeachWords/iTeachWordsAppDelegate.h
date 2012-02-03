@@ -46,6 +46,7 @@
 -(NSArray*)loadRepeatDelayedTheme;
 
 + (void)saveDB;
-
++ (void)createUndoBranch;
++ (void)remoneUndoBranch;
 
 @end

@@ -281,16 +281,6 @@
 	return [[iTeachWordsAppDelegate sharedDelegate] managedObjectContext];
 }
 
-+ (void)clearUdoManager{
-    NSUndoManager *um = [CONTEXT undoManager];
-    if (um) {
-        [um removeAllActions];
-    }else{
-        um = [[NSUndoManager  alloc] init];
-        [CONTEXT setUndoManager:um];
-        [um release];
-    }
-}
 
 #pragma mark - my external function
 
@@ -324,6 +314,47 @@
 		NSError *error = nil;
 		[fileManager copyItemAtPath:source toPath:target error:&error];
 	}
+}
+
+
++ (void)clearUdoManager{
+    NSUndoManager *um = [CONTEXT undoManager];
+    if (um) {
+        [um removeAllActions];
+    }else{
+        um = [[NSUndoManager  alloc] init];
+        [CONTEXT setUndoManager:um];
+        [um release];
+    }
+}
+
++ (void)createUndoBranch{
+    NSUndoManager *um = [CONTEXT undoManager];
+    if (!um){
+        um = [[NSUndoManager  alloc] init];
+        [CONTEXT setUndoManager:um];
+        [um release];
+    }
+    [CONTEXT processPendingChanges];
+    [CONTEXT.undoManager beginUndoGrouping];
+}
+
++ (void)remoneUndoBranch{
+    //    [CONTEXT undo];
+    if (CONTEXT.undoManager) {
+        [CONTEXT.undoManager endUndoGrouping];
+        [CONTEXT.undoManager undoNestedGroup];
+    }
+}
+
+
++ (void)saveDB{
+    NSError *_error;
+    if (![CONTEXT save:&_error]) {
+        [UIAlertView displayError:@"There is problem with saving data."];
+    }else{
+//        [iTeachWordsAppDelegate clearUdoManager];
+    }
 }
 
 #pragma mark navigation delegate
@@ -429,14 +460,6 @@
     [_data release];
 }
 
-+ (void)saveDB{
-    NSError *_error;
-    if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"There is problem with saving data."];
-    }else{
-        [iTeachWordsAppDelegate clearUdoManager];
-    }
-}
 
 + (NSDictionary *) sharedSettings{
     static NSDictionary *languageSettings;

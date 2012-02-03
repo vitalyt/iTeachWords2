@@ -19,8 +19,12 @@
     
     SoundType       soundType;
     WBEngine        *wbEngine;
+    
+    bool            isDelayingSaving;
+    bool            isSaved;
 }
 @property (nonatomic,assign) SoundType    soundType;
+@property (nonatomic, assign) bool isDelayingSaving;
 
 - (void) setWord:(Words *)_word withType:(SoundType)type;
 

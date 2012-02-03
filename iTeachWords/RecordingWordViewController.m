@@ -14,7 +14,7 @@
 
 @implementation RecordingWordViewController
 
-@synthesize soundType;
+@synthesize soundType,isDelayingSaving;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,12 +27,8 @@
 
 
 - (void) setWord:(Words *)_word withType:(SoundType)type{
-    if (word) {
-        [word release];
-    }
-    word = [_word retain];
-    
-    [iTeachWordsAppDelegate clearUdoManager];
+    word = _word;
+    [iTeachWordsAppDelegate createUndoBranch];
     currentSound = [NSEntityDescription insertNewObjectForEntityForName:@"Sounds" 
                                                      inManagedObjectContext:CONTEXT];
     [currentSound setWord:word];
@@ -51,18 +47,24 @@
         NSData *data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
         if (data && [data length]>0) {
             [currentSound setData:data];
-            [self saveCanges];
+            [CONTEXT.undoManager endUndoGrouping];
+            if (!isDelayingSaving) {
+                [self saveCanges];
+            }
         }
         else{
             [self undoChngesWord];
         }
-        [data release];
-        data = nil;
+        NSData *d = data;
+        NSLog(@"%d",[d retainCount]);
+        [data  release];
+        NSLog(@"%d",[d retainCount]);
     }
     @catch (NSException *exception) {
         
     }
     @finally {
+        isSaved = YES;
         [self.view removeFromSuperview];
         if ((self.delegate)&&([self.delegate respondsToSelector:@selector(recordViewDidClose:)])) {
             [self.delegate recordViewDidClose:self];
@@ -71,20 +73,18 @@
 }
 
 - (void)saveCanges{    
-    NSError *_error;
-    if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"Data is not saved."];
-    }else{
-        [iTeachWordsAppDelegate clearUdoManager];
-    }
+    [iTeachWordsAppDelegate saveDB];
 }
 
 - (void)undoChngesWord{
-    [CONTEXT rollback];
+    [iTeachWordsAppDelegate remoneUndoBranch];
 }
 
 - (void)dealloc
-{
+{    
+    if (!isSaved) {
+        [self saveSound];
+    }
     if (wbEngine) {
         [wbEngine release];
     }

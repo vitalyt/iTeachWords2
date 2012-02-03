@@ -92,7 +92,7 @@
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"lastThemeInAddView"] && !dataModel.currentWord) {
         [self showMyPickerView];
         return;
-    }else if(!dataModel.wordType){
+    }else if(!dataModel.wordType && !dataModel.currentWord){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"lastThemeInAddView"]];
         NSFetchedResultsController *fetches = [NSManagedObjectContext 
                                                getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:predicate];
@@ -111,14 +111,14 @@
         }else{
             [self showMyPickerView];
         }
-    }else if(dataModel.currentWord && dataModel.wordType){
-        NSLog(@"%@",((WordTypes*)dataModel.wordType));
+    }else if(dataModel.currentWord){
         textFld.text = dataModel.currentWord.text;
         translateFid.text = dataModel.currentWord.translate;
         [self textFieldDidChange:textFld];
         [self textFieldDidChange:translateFid];
-        //[DELEGATE.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]]; 
-        [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
+        if (dataModel.wordType) {
+            [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
+        }
     }
 }
 
@@ -221,11 +221,12 @@
         sounType = TEXT;
     }
     if (recordView) {
-        [recordView saveSound];
+//        [recordView saveSound];
         [recordView release];
     }
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
     recordView.delegate = self;
+    recordView.isDelayingSaving = YES;
     [self.view.superview addSubview:recordView.view];
     [recordView.view setFrame:CGRectMake(currentTextField.frame.origin.x+currentTextField.frame.size.width-currentTextField.rightView.frame.size.width, currentTextField.frame.origin.y, currentTextField.rightView.frame.size.width, currentTextField.rightView.frame.size.height)];
     recordView.soundType = sounType;
@@ -312,7 +313,7 @@
 }
 
 - (void)removeChanges{
-    [dataModel undoChngesWord];
+    [iTeachWordsAppDelegate remoneUndoBranch];
 }
 
 - (IBAction) save
@@ -458,6 +459,10 @@
 - (void)dealloc {
     if (myPicker) {
         [myPicker release];
+    }
+    if (recordView) {
+        [recordView undoChngesWord];
+        [recordView release];
     }
     [textFld release];
     [translateFid release];

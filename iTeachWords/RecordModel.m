@@ -29,12 +29,12 @@
             [NSString stringWithFormat: @"%@.%@", _fileName, @"caf"]  ];
     if(recordedTmpFile != nil){
         [recordedTmpFile release];
-        recordedTmpFile = nil;
+//        recordedTmpFile = nil;
     }
     recordedTmpFile = [[NSURL alloc] initFileURLWithPath:path];
     NSLog(@"Using File called: %@",recordedTmpFile);
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance]; 
-    [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];    
+//    AVAudioSession *audioSession = [AVAudioSession sharedInstance]; 
+//    [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];    
 }
 
 - (void) startRecordInFile:(NSString *)_fileName{	
@@ -51,7 +51,7 @@
     
     if(recorder != nil){
         [recorder release];
-        recorder = nil;
+//        recorder = nil;
     }
     recorder = [[ AVAudioRecorder alloc] initWithURL:recordedTmpFile 
                                             settings:recordSetting error:&error];
@@ -66,11 +66,11 @@
 {
     if(recordedTmpFile != nil){
         [recordedTmpFile release];
-        recordedTmpFile = nil;
+//        recordedTmpFile = nil;
     }
     if(recorder != nil){
         [recorder release];
-        recorder = nil;
+//        recorder = nil;
     } 
     [super dealloc];
 }
