@@ -55,10 +55,7 @@
         else{
             [self undoChngesWord];
         }
-        NSData *d = data;
-        NSLog(@"%d",[d retainCount]);
         [data  release];
-        NSLog(@"%d",[d retainCount]);
     }
     @catch (NSException *exception) {
         

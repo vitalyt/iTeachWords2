@@ -12,6 +12,7 @@
 @interface RecordingViewController : RecordModel{
     IBOutlet UIActivityIndicatorView *activityIndicatorView;
     IBOutlet UIView *vuMeter;
+    IBOutlet UIBarButtonItem *recordButton;
     
     bool    isRecording;
     

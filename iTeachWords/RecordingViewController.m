@@ -63,6 +63,7 @@
     [vuMeter release];
     vuMeter = nil;
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -144,10 +145,10 @@
         [recorder stop];
         
     }
-    if ([sender isKindOfClass:[UIBarButtonItem  class]]) {
-        [((UIBarButtonItem *)sender) setImage:[UIImage imageNamed:imageName]];
-    }else if([sender isKindOfClass:[UIButton  class]]){
+    if([sender isKindOfClass:[UIButton  class]]){
         [((UIButton *)sender) setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    }else {
+        [recordButton setImage:[UIImage imageNamed:imageName]];
     }
 }
 
@@ -159,9 +160,10 @@
 }
 
 - (IBAction)close:(id)sender {
-    if(isRecording){
+    if(isRecording == YES){
         [self record:nil];
     }
+    NSLog(@"%@",isRecording);
     if ((self.toolsViewDelegate)&&([(id)self.toolsViewDelegate respondsToSelector:@selector(optionsSubViewDidClose:)])) {
 		[self.toolsViewDelegate optionsSubViewDidClose:self];
 	}

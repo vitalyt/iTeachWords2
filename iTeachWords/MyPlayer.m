@@ -61,7 +61,7 @@
         if (player) {
             [player stop];
             [player release];
-//            player = nil;
+            player = nil;
         }
         player = [[AVAudioPlayer alloc] initWithData:_data error:&error];
         if (player != nil){
