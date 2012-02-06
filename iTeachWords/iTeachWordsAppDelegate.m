@@ -349,10 +349,12 @@
 
 
 + (void)saveDB{
+//    [CONTEXT.undoManager endUndoGrouping];
     NSError *_error;
     if (![CONTEXT save:&_error]) {
         [UIAlertView displayError:@"There is problem with saving data."];
     }else{
+//        [um removeAllActions];
 //        [iTeachWordsAppDelegate clearUdoManager];
     }
 }

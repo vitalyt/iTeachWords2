@@ -251,7 +251,7 @@
     bool returnValue = YES;
     [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
     NSString *text = [[NSString alloc]initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
-    [iTeachWordsAppDelegate clearUdoManager];
+//    [iTeachWordsAppDelegate clearUdoManager];
 //    NSLog(@"%@",text);
     @try {
         NSMutableString *mutStr = [NSMutableString stringWithString:@""];

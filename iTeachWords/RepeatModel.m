@@ -176,7 +176,7 @@
     if (![CONTEXT save:&_error]) {
         [UIAlertView displayError:NSLocalizedString(@"Data is not saved.", @"")];
     }else{
-        [iTeachWordsAppDelegate clearUdoManager];
+//        [iTeachWordsAppDelegate clearUdoManager];
     }
 }
 

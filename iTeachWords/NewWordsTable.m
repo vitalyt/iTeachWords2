@@ -230,7 +230,7 @@
     if (![CONTEXT save:&_error]) {
         [UIAlertView displayError:@"There is problem with saving data."];
     }else{
-        [iTeachWordsAppDelegate clearUdoManager];
+//        [iTeachWordsAppDelegate clearUdoManager];
     }
 }
 
@@ -267,8 +267,7 @@
             [ar removeAllObjects];
             [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
             
-            [self performSelectorOnMainThread:@selector(save) withObject:nil waitUntilDone:YES];
-            //[iTeachWordsAppDelegate saveDB];
+            [iTeachWordsAppDelegate saveDB];
             [pool drain];
             pool= [[NSAutoreleasePool alloc] init];
         }
@@ -296,7 +295,7 @@
         [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
     }
     [wordType addWords:ar];
-    [self performSelectorOnMainThread:@selector(save) withObject:nil waitUntilDone:YES];
+    [iTeachWordsAppDelegate saveDB];
     [ar release];
     [pool drain];
     [loadingView closeLoadingView];
@@ -324,7 +323,7 @@
     NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
     NSMutableSet *ar = [[NSMutableSet alloc] init];
     @try {
-        [iTeachWordsAppDelegate clearUdoManager];
+//        [iTeachWordsAppDelegate clearUdoManager];
         for (int i=0;i<[words count];i++){
             if ([translates count]>i) {
                 NSString *text = [words objectAtIndex:i];
@@ -346,12 +345,7 @@
             }
         }
         [_wordType addWords:ar];
-        NSError *_error;
-        if (![CONTEXT save:&_error]) {
-            [UIAlertView displayError:@"Data is not saved."];
-        }else{
-            [iTeachWordsAppDelegate clearUdoManager];
-        }
+        [iTeachWordsAppDelegate saveDB];
     }
     @catch (NSException *exception) {
         
