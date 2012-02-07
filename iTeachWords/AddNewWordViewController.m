@@ -73,6 +73,7 @@
 
 - (void)viewDidUnload
 {
+    delegate = nil;
     [textFld release];
     textFld = nil;
     [translateFid release];
@@ -285,6 +286,7 @@
 
 - (void) back{
     [self closeAllKeyboard];
+    [UIAlertView removeMessage];
 	if (flgSave) {
         //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         [DELEGATE.navigationController popViewControllerAnimated:YES];

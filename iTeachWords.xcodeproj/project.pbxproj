@@ -2937,7 +2937,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2956,7 +2956,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "03080A6F-92C3-4E67-B437-C8D43339DFDB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49E7925F-02CE-45C6-9254-32C21AE668E1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
 				SDKROOT = iphoneos4.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";

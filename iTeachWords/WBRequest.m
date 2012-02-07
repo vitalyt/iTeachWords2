@@ -27,7 +27,7 @@
 #pragma mark -
 + (id) getRequestWithURL: (NSString*)url delegate: (id)delegate
 {
-	id request = [self requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:90];
+	id request = [self requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
 	if (request)
 	{
 		[request setDelegate:delegate];

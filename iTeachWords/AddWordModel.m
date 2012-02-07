@@ -28,7 +28,7 @@
 //}
 
 - (void)dealloc {
-    [delegate release];
+    self.delegate = nil;
     [wbEngine release];
     [currentTranslateLanguageCode release];
     [urlShow release];
@@ -99,6 +99,7 @@
 {
     if ([iTeachWordsAppDelegate isNetwork]) {
         self.delegate = _delegate;
+        [UIAlertView removeMessage];
         if (!wbEngine) {
             wbEngine = [[WBEngine alloc] init];
         }
@@ -126,9 +127,9 @@
 #pragma mark - WBRequest functions
 
 - (void) connectionDidFinishLoading: (WBConnection*)connection {
+    [UIAlertView removeMessage];
 	NSData *value = [connection data];
     NSString *response = [[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding];
-    [UIAlertView removeMessage];
     @try
     {
         NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
