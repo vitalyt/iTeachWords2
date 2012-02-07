@@ -44,7 +44,7 @@ documentsDirectory = [paths objectAtIndex:0];
                                          UIViewAutoresizingFlexibleBottomMargin);
     } 
     
-	NSURLRequest *urlRequest = [_webView request];
+//	NSURLRequest *urlRequest = [_webView request];
 	//NSURL *u = [urlRequest mainDocumentURL];
     urlFld.text = self.url;
     [_webView addSubview:progressView];

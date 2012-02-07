@@ -169,6 +169,10 @@
 	}
 }
 
+- (void)setVUMeterWidth:(float)width{
+
+}
+
 - (void)dealloc {
     [vuMeter release];
     [super dealloc];

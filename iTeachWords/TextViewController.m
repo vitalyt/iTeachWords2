@@ -305,4 +305,9 @@
     }
 }
 
+#pragma mark MyVocalizerDelegate
+
+-(void)didVocalizerPlayedText:(NSString*)text languageCode:(NSString*)textLanguageCode{
+
+}
 @end

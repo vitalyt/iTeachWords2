@@ -37,7 +37,7 @@
 //- (id)initWithDelegate:(id)_delegate;
 - (void)     createWord;
 - (void)     saveWord;
-- (void)     undoChngesWord;
+//- (void)     undoChngesWord;
 - (void)     setWord:(Words *)_word;
 - (void)	 createUrls;
 
