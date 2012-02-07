@@ -26,6 +26,15 @@
 		[self loadData];
 	}
 }
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    
+}
 
 + (NSArray*)loadAllThemeWithPredicate:(NSPredicate*)_predicate{
     NSLog(@"%@",_predicate);
@@ -75,27 +84,42 @@
 	return nil;
 }
 
-- (void) openViewWithAnimation:(UIView *) superView{
-	CATransition *myTransition = [CATransition animation];
-	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
-	myTransition.type =kCATransitionMoveIn; 
-	myTransition.subtype = kCATransitionFromBottom;
-	//myTransition.duration = 1.0;
-	[self.view.layer addAnimation:myTransition forKey:nil]; 
+- (void) openViewWithAnimation:(UIView *) superView{ 
 	[superView addSubview:self.view];
+    CGRect frame = superView.bounds;
+    frame.origin.x = 0;
+    frame.origin.y = 0-self.view.frame.size.height;
+    [self.view setFrame:frame];
+    
+    frame.origin.y = 20;//+self.view.frame.size.height;
+    [UIView beginAnimations:@"pickerShoving" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.view setFrame:frame];
+    [UIView commitAnimations];
 }
 
 - (IBAction) cansel
-{
-    CATransition *myTransition = [CATransition animation];
-	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
-	myTransition.type =kCATransitionFade; 
-	myTransition.duration = 0.3;
-	[self.view.superview.layer addAnimation:myTransition forKey:nil];
-	[self.view removeFromSuperview];
+{    
+    CGRect frame = self.view.frame;
+    frame.origin.y = 0-self.view.frame.size.height;
+    frame.origin.x = 0;
+    
+    [UIView beginAnimations:@"pickerShoving" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.view setFrame:frame];
+    [UIView commitAnimations];
+    
+    [self performSelector:@selector(closeView) withObject:nil afterDelay:.5];
+
+}
+
+- (void)closeView{
+  	[self.view removeFromSuperview];
     if (self.delegate && [self.delegate respondsToSelector:@selector(pickerWillCansel)]) {
 		[self.delegate pickerWillCansel];
-	}
+	}  
 }
 
 - (IBAction) done
@@ -111,14 +135,16 @@
 		[self.delegate pickerDone:[data objectAtIndex:[pickerView selectedRowInComponent:0]]];
 	}
     
-    CATransition *myTransition = [CATransition animation];
-	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
-	myTransition.type =kCATransitionFade; 
-	//myTransition.subtype = kCATransitionPush;
-	myTransition.duration = 0.3;
-	//[self.view.layer addAnimation:myTransition forKey:nil]; 
-	[self.view.superview.layer addAnimation:myTransition forKey:nil];
-	[self.view removeFromSuperview];
+    CGRect frame = self.view.frame;
+    frame.origin.y = 0-self.view.frame.size.height;
+    
+    [UIView beginAnimations:@"pickerShoving" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.view setFrame:frame];
+    [UIView commitAnimations];
+    
+	[self.view performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5];
 
 }
 

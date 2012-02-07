@@ -37,6 +37,7 @@
 - (IBAction) remove;
 - (IBAction) showAddView;
 - (IBAction) closeAddView;
+- (void)closeView;
 - (void)	 saveNewTheme;
 - (IBAction) deleteType;
 - (NSString *) getTextPicker;

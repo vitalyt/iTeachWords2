@@ -146,6 +146,11 @@
     [self textFieldDidChange:translateFid];
 }
 
+- (void)setWord:(Words *)_word{
+    [saveButton setHidden:YES];
+    [dataModel setWord:_word];
+}
+
 - (void)inputModeDidChange:(NSNotification*)notification
 {
     id obj = [notification object];
@@ -188,11 +193,6 @@
     if ([textField.text length]==0) {
         [recButton setEnabled:NO];
     }
-}
-
-- (void)setWord:(Words *)_word{
-    [saveButton setHidden:YES];
-    [dataModel setWord:_word];
 }
 
 
@@ -438,7 +438,7 @@
     //    [UIView setAnimationDuration:0.5];
     //    [UIView setAnimationBeginsFromCurrentState:YES];
         [saveButton setHidden:NO];
-        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,11,35,35)];
+        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,87,35,35)];
     //    [UIView commitAnimations];
 }
 
