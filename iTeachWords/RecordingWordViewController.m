@@ -27,7 +27,11 @@
 
 
 - (void) setWord:(Words *)_word withType:(SoundType)type{
+    if (!isSaved && currentSound) {
+        [self undoChngesWord];
+    }
     word = _word;
+    isSaved = NO;
     [iTeachWordsAppDelegate createUndoBranch];
     currentSound = [NSEntityDescription insertNewObjectForEntityForName:@"Sounds" 
                                                      inManagedObjectContext:CONTEXT];
@@ -45,11 +49,12 @@
 - (IBAction) saveSound {
     @try {
         NSData *data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
-        if (data && [data length]>0) {
+        if (data && [data length]>0 && currentSound) {
             [currentSound setData:data];
-            [CONTEXT.undoManager endUndoGrouping];
             if (!isDelayingSaving) {
                 [self saveCanges];
+            }else{
+                [CONTEXT.undoManager endUndoGrouping];
             }
         }
         else{
@@ -61,7 +66,6 @@
         
     }
     @finally {
-        isSaved = YES;
         [self.view removeFromSuperview];
         if ((self.delegate)&&([self.delegate respondsToSelector:@selector(recordViewDidClose:)])) {
             [self.delegate recordViewDidClose:self];
@@ -70,17 +74,19 @@
 }
 
 - (void)saveCanges{    
-    [iTeachWordsAppDelegate saveDB];
+    isSaved = YES;
+    [iTeachWordsAppDelegate saveUndoBranch];
 }
 
 - (void)undoChngesWord{
+    isSaved = YES;
     [iTeachWordsAppDelegate remoneUndoBranch];
 }
 
 - (void)dealloc
 {    
     if (!isSaved) {
-        [self saveSound];
+        [self undoChngesWord];
     }
     if (wbEngine) {
         [wbEngine release];

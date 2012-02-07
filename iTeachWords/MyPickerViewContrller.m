@@ -192,6 +192,7 @@
     if ([_data count] > 0) {
         [UIAlertView displayError:@"The Name already exists."];
     }else{
+        
         WordTypes *wordType;
         wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
                                                 inManagedObjectContext:CONTEXT];
@@ -199,9 +200,7 @@
         [wordType setNativeCountryCode:[NATIVE_LANGUAGE_CODE uppercaseString]];
         [wordType setTranslateCountryCode:[TRANSLATE_LANGUAGE_CODE uppercaseString]];
         [wordType setCreateDate:[NSDate date]];
-        if (![CONTEXT save:&error]) {
-            [UIAlertView displayError:@"There is problem with saving data."];
-        }
+    
         [[NSUserDefaults standardUserDefaults] setValue:typeName forKey:@"lastTheme"];
         [_data release];
         [self loadData];
@@ -216,11 +215,9 @@
 - (IBAction) deleteType{
     int selectedIndex = [pickerView selectedRowInComponent:0];
     WordTypes *wordType = [data objectAtIndex:selectedIndex];
+//    [iTeachWordsAppDelegate createUndoBranch];
     [CONTEXT deleteObject:wordType];
-     NSError *error;
-    if (![CONTEXT save:&error]) {
-        [UIAlertView displayError:@"There is problem with saving updated data. Updating data does not completely."];
-    }
+//    [iTeachWordsAppDelegate saveUndoBranch];
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:data];
     [array removeObjectAtIndex:selectedIndex];
     [data release];

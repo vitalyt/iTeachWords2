@@ -38,6 +38,8 @@
 - (void)     createWord;
 - (void)     saveWord;
 //- (void)     undoChngesWord;
+- (void)     createUndoBranch;
+- (void)     removeChanges;
 - (void)     setWord:(Words *)_word;
 - (void)	 createUrls;
 

@@ -47,6 +47,7 @@
 
 + (void)saveDB;
 + (void)createUndoBranch;
++ (void)saveUndoBranch;
 + (void)remoneUndoBranch;
 
 @end

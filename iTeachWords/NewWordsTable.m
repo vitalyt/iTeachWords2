@@ -261,44 +261,54 @@
     [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
     int count = [selectedWords count];
     [loadingView setTotal:count];
-    for (int i = 0; i < count; i++) {
-        if ((i%100) == 0) {
-            [wordType addWords:ar];
-            [ar removeAllObjects];
-            [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
-            
-            [iTeachWordsAppDelegate saveDB];
-            [pool drain];
-            pool= [[NSAutoreleasePool alloc] init];
-        }
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text = %@", [[selectedWords objectAtIndex:i] lowercaseString]];
-        NSError *error;
-        NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
-        [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
-        //[request setPropertiesToFetch:[NSArray arrayWithObjects:@"text", nil]];
-        [request setPredicate:predicate];
-        
-        NSArray *_data = [[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error];
-        
-        if ([_data count] > 0) {
-            Words *_word = ((Words*)[_data objectAtIndex:0]);  
-            [_word setType:wordType];
-            [ar addObject:_word];
-            [sortedKeys removeObject:[selectedWords objectAtIndex:i]];
-            [selectedWords removeObjectAtIndex:i];
-            if ([selectedWords count]<=0) {
-                self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    [iTeachWordsAppDelegate createUndoBranch];
+    @try {
+        for (int i = 0; i < count; i++) {
+            if ((i%100) == 0) {
+                [wordType addWords:ar];
+                [ar removeAllObjects];
+                [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
+                
+                [iTeachWordsAppDelegate saveUndoBranch];
+                [iTeachWordsAppDelegate createUndoBranch];
+                [pool drain];
+                pool= [[NSAutoreleasePool alloc] init];
             }
-            --count;
-            --i;
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text = %@", [[selectedWords objectAtIndex:i] lowercaseString]];
+            NSError *error;
+            NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
+            [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
+            //[request setPropertiesToFetch:[NSArray arrayWithObjects:@"text", nil]];
+            [request setPredicate:predicate];
+            
+            NSArray *_data = [[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error];
+            
+            if ([_data count] > 0) {
+                Words *_word = ((Words*)[_data objectAtIndex:0]);  
+                [_word setType:wordType];
+                [ar addObject:_word];
+                [sortedKeys removeObject:[selectedWords objectAtIndex:i]];
+                [selectedWords removeObjectAtIndex:i];
+                if ([selectedWords count]<=0) {
+                    self.navigationItem.rightBarButtonItem.enabled = NO;
+                }
+                --count;
+                --i;
+            }
+            [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
         }
-        [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
+        [wordType addWords:ar];
+        [iTeachWordsAppDelegate saveUndoBranch];
     }
-    [wordType addWords:ar];
-    [iTeachWordsAppDelegate saveDB];
-    [ar release];
-    [pool drain];
-    [loadingView closeLoadingView];
+    @catch (NSException *exception) {
+        [iTeachWordsAppDelegate remoneUndoBranch];
+    }
+    @finally {
+        [ar release];
+        [pool drain];
+        [loadingView closeLoadingView];
+    }
     [table reloadData];
 }
 
@@ -322,8 +332,8 @@
     [words retain];
     NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
     NSMutableSet *ar = [[NSMutableSet alloc] init];
+    [iTeachWordsAppDelegate createUndoBranch];
     @try {
-//        [iTeachWordsAppDelegate clearUdoManager];
         for (int i=0;i<[words count];i++){
             if ([translates count]>i) {
                 NSString *text = [words objectAtIndex:i];
@@ -345,9 +355,10 @@
             }
         }
         [_wordType addWords:ar];
-        [iTeachWordsAppDelegate saveDB];
+        [iTeachWordsAppDelegate saveUndoBranch];
     }
     @catch (NSException *exception) {
+        [iTeachWordsAppDelegate remoneUndoBranch];
         
     }
     @finally {

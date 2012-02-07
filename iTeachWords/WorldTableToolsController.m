@@ -191,10 +191,7 @@
     }
     [wordType removeWords:ar];
     [ar release];
-    NSError *_error;
-    if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"Data is not saved."];
-    }
+    [iTeachWordsAppDelegate saveDB];
     [wordType release];
     wordType = nil;  
     [self loadData];
@@ -226,11 +223,7 @@
     [wordType removeWords:ar];
     [ar release];
     [_wordType release];
-    NSError *_error;
-    if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"Data is not saved."];
-    }
-    
+    [iTeachWordsAppDelegate saveDB];
 }
 
 #pragma mark - piker delegate

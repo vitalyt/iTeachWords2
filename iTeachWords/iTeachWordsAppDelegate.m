@@ -336,17 +336,30 @@
         [um release];
     }
     [CONTEXT processPendingChanges];
-    [CONTEXT.undoManager beginUndoGrouping];
+    [um beginUndoGrouping];
+    [um setLevelsOfUndo:++um.levelsOfUndo];
 }
 
 + (void)remoneUndoBranch{
     //    [CONTEXT undo];
-    if (CONTEXT.undoManager) {
+    if (CONTEXT.undoManager && CONTEXT.undoManager.levelsOfUndo>0) {
         [CONTEXT.undoManager endUndoGrouping];
         [CONTEXT.undoManager undoNestedGroup];
+        [CONTEXT.undoManager setLevelsOfUndo:--CONTEXT.undoManager.levelsOfUndo];
     }
 }
 
++ (void)saveUndoBranch{
+    if (CONTEXT.undoManager && CONTEXT.undoManager.levelsOfUndo>0) {
+        [CONTEXT.undoManager endUndoGrouping];
+        [CONTEXT.undoManager setLevelsOfUndo:--CONTEXT.undoManager.levelsOfUndo];
+    }
+    NSError *_error;
+    if (![CONTEXT save:&_error]) {
+        [UIAlertView displayError:@"There is problem with saving data."];
+    }else{
+    }
+}
 
 + (void)saveDB{
 //    [CONTEXT.undoManager endUndoGrouping];
@@ -354,8 +367,7 @@
     if (![CONTEXT save:&_error]) {
         [UIAlertView displayError:@"There is problem with saving data."];
     }else{
-//        [um removeAllActions];
-//        [iTeachWordsAppDelegate clearUdoManager];
+        [iTeachWordsAppDelegate clearUdoManager];
     }
 }
 

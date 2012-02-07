@@ -128,6 +128,7 @@
         [dataModel createWord];
     }
     self.flgSave = NO;
+    isDataChanged = YES;
     textFld.text = text;
     [dataModel.currentWord setText:text];
     [self textFieldDidChange:textFld];
@@ -139,6 +140,7 @@
         [dataModel createWord];
     }
     self.flgSave = NO;
+    isDataChanged = YES;
     translateFid.text = text;
     [dataModel.currentWord setTranslate:text];
     [self textFieldDidChange:translateFid];
@@ -189,6 +191,7 @@
 }
 
 - (void)setWord:(Words *)_word{
+    [saveButton setHidden:YES];
     [dataModel setWord:_word];
 }
 
@@ -253,7 +256,9 @@
 - (void) pickerDone:(WordTypes *)_wordType{
     [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithString:_wordType.name] forKey:@"lastThemeInAddView"];
     dataModel.wordType = _wordType;
-    [dataModel createWord];
+    if (!dataModel.currentWord) {
+        [dataModel createWord];
+    }
     //[DELEGATE.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]]; 
     [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
     if (dataModel.currentWord) {
@@ -313,7 +318,10 @@
 }
 
 - (void)removeChanges{
-    [iTeachWordsAppDelegate remoneUndoBranch];
+    [self clear];
+    [saveButton setHidden:YES];
+    self.flgSave = YES;
+    [dataModel removeChanges];
 }
 
 - (IBAction) save

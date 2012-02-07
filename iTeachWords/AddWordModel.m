@@ -39,7 +39,7 @@
 
 - (void) setWord:(Words *)_word{
     if (currentWord != _word) {
-        [iTeachWordsAppDelegate createUndoBranch];
+        [self createUndoBranch];
         currentWord = [_word retain];
         wordType = [_word.type retain];
     }
@@ -48,8 +48,8 @@
 - (void) createWord{
     if (!currentWord) {
         //        [iTeachWordsAppDelegate clearUdoManager];
-        [[CONTEXT undoManager] removeAllActions];
-        [iTeachWordsAppDelegate createUndoBranch];
+//        [[CONTEXT undoManager] removeAllActions];
+        [self createUndoBranch];
         self.currentWord = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
                                                     inManagedObjectContext:CONTEXT];
         [currentWord setCreateDate:[NSDate date]];
@@ -60,15 +60,17 @@
     [currentWord setChangeDate:[NSDate date]];
 }
 
-- (void)saveWord{    
-    [iTeachWordsAppDelegate saveDB];
-}
-
 - (void)createUndoBranch{
-    
+    [iTeachWordsAppDelegate createUndoBranch];
 }
 
+- (void)removeChanges{
+    [iTeachWordsAppDelegate remoneUndoBranch];
+}
 
+- (void)saveWord{    
+    [iTeachWordsAppDelegate saveUndoBranch];
+}
 
 - (void)setCurrentTranslateLanguageCode:(NSString *)_currentTranslateLanguageCode{
     if (currentTranslateLanguageCode != _currentTranslateLanguageCode) {

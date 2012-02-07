@@ -190,6 +190,7 @@
 }
 
 - (void) showParsedWordTable{
+    [wordsView removeChanges];
 	NewWordsTable *parsedWordTableView = [[NewWordsTable alloc] initWithNibName:@"NewWordsTable" bundle:nil];
     [self.navigationController pushViewController:parsedWordTableView animated:YES];
     [parsedWordTableView loadDataWithString:[self getSelectedText]];
