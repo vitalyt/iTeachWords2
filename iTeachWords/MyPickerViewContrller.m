@@ -194,13 +194,15 @@
     }else{
         
         WordTypes *wordType;
+        [iTeachWordsAppDelegate createUndoBranch];
         wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
                                                 inManagedObjectContext:CONTEXT];
         [wordType setName:typeName];
         [wordType setNativeCountryCode:[NATIVE_LANGUAGE_CODE uppercaseString]];
         [wordType setTranslateCountryCode:[TRANSLATE_LANGUAGE_CODE uppercaseString]];
         [wordType setCreateDate:[NSDate date]];
-    
+        
+        [iTeachWordsAppDelegate saveUndoBranch];
         [[NSUserDefaults standardUserDefaults] setValue:typeName forKey:@"lastTheme"];
         [_data release];
         [self loadData];
@@ -215,16 +217,16 @@
 - (IBAction) deleteType{
     int selectedIndex = [pickerView selectedRowInComponent:0];
     WordTypes *wordType = [data objectAtIndex:selectedIndex];
-//    [iTeachWordsAppDelegate createUndoBranch];
+    [iTeachWordsAppDelegate createUndoBranch];
     [CONTEXT deleteObject:wordType];
-//    [iTeachWordsAppDelegate saveUndoBranch];
+    [iTeachWordsAppDelegate saveUndoBranch];
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:data];
     [array removeObjectAtIndex:selectedIndex];
     [data release];
     data = array;
-    [pickerView reloadAllComponents];
-    [pickerView selectRow:(selectedIndex==0)?0:selectedIndex-1 inComponent:0 animated:YES];
 	[self loadData];
+//    [pickerView reloadAllComponents];
+    [pickerView selectRow:((selectedIndex==0)?0:selectedIndex-1) inComponent:0 animated:YES];
     
 }
 
