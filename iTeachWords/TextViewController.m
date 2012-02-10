@@ -54,6 +54,18 @@
 - (void) loadView{
     [super loadView];
     myTextView.layer.cornerRadius = radius;
+    
+//    // Add drop shadow to the view.
+//    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+//    gradientLayer.frame = CGRectMake(0, myTextView.frame.size.height, myTextView.frame.size.width, -20);
+//    gradientLayer.colors = [NSArray arrayWithObjects:
+//                            (id)[UIColor blackColor].CGColor,
+//                            (id)[UIColor clearColor].CGColor,
+//                            nil];
+//    gradientLayer.startPoint = CGPointMake(-2, 1.5);
+//    gradientLayer.endPoint = CGPointMake(1, 1.5);   
+//    [myTextView.layer addSublayer:gradientLayer];
+    
     pagesScrollView = [[PagesScrollView alloc] initWithNibName:@"PagesScrollView" bundle:nil
                        ];
     [pagesScrollView setDelegate:self];
@@ -76,11 +88,11 @@
     [myTextView setFont:FONT_TEXT];
 	myTextView.text = [self loadText];
     
-    [self.view addSubview:pagesScrollView.view];
-    CGRect frame = self.view.frame;
-    frame.origin.x = 0.0;
-    frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
-    [pagesScrollView.view setFrame:frame];
+//    [self.view addSubview:pagesScrollView.view];
+//    CGRect frame = self.view.frame;
+//    frame.origin.x = 0.0;
+//    frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
+//    [pagesScrollView.view setFrame:frame];
 }
 
 

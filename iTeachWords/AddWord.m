@@ -107,8 +107,12 @@
     //    [webView loadHTMLString:@"<html><head></head><body></body></html>" baseURL:nil];
 }
 
-- (void) webViewDidFinishLoad:(UIWebView *)webView{
-    
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [animationView stopAnimating];
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    [animationView startAnimating];
 }
 
 - (void)createMenu{
@@ -162,12 +166,15 @@
     }
     [wordsView release];
     [loadWebButtonView release];
+    [animationView release];
     [super dealloc];
 }
 
 - (void)viewDidUnload {
     [loadWebButtonView release];
     loadWebButtonView = nil;
+    [animationView release];
+    animationView = nil;
     [super viewDidUnload];
 }
 @end

@@ -12,10 +12,11 @@
 
 @class MyUIViewClass,AddNewWordViewController,Words;
 
-@interface AddWord : UIViewController <UIWebViewDelegate, UITextFieldDelegate, UIActionSheetDelegate>{
+@interface AddWord : UIViewController <UIWebViewDelegate, UITextFieldDelegate, UIActionSheetDelegate,UIWebViewDelegate>{
 	IBOutlet UINavigationBar *myNavigationBar;
 	IBOutlet UIWebView		*myWebView;
     IBOutlet UIView         *loadWebButtonView;
+    IBOutlet UIActivityIndicatorView *animationView;
     
     AddNewWordViewController    *wordsView;
 }
