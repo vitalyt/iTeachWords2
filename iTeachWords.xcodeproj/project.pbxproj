@@ -894,6 +894,9 @@
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
 		8448CACB14E0203C00705A5F /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8448CACA14E0203B00705A5F /* SpeechKit.framework */; };
+		844D778314E6995A00AE0F86 /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D778014E6995A00AE0F86 /* MKStoreManager.m */; };
+		844D778414E6995A00AE0F86 /* MKStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D778214E6995A00AE0F86 /* MKStoreObserver.m */; };
+		844D778814E6995A00AE0F86 /* QQQInAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D778714E6995A00AE0F86 /* QQQInAppStore.m */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -1463,6 +1466,12 @@
 		28FAAB5014A9FA9E001F9214 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MenuViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		8448CACA14E0203B00705A5F /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = ../../../Downloads/DragonMobileSDK_1.3.1/SpeechKit.framework; sourceTree = "<group>"; };
+		844D777F14E6995A00AE0F86 /* MKStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreManager.h; sourceTree = "<group>"; };
+		844D778014E6995A00AE0F86 /* MKStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreManager.m; sourceTree = "<group>"; };
+		844D778114E6995A00AE0F86 /* MKStoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreObserver.h; sourceTree = "<group>"; };
+		844D778214E6995A00AE0F86 /* MKStoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreObserver.m; sourceTree = "<group>"; };
+		844D778614E6995A00AE0F86 /* QQQInAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQInAppStore.h; sourceTree = "<group>"; };
+		844D778714E6995A00AE0F86 /* QQQInAppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQInAppStore.m; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
 		CE6C773513C0C79E00ACDC2E /* Test15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test15.h; sourceTree = "<group>"; };
@@ -2020,6 +2029,7 @@
 		284092D11381242700864711 /* iTeachWords */ = {
 			isa = PBXGroup;
 			children = (
+				844D777914E6995A00AE0F86 /* InAppPurchase */,
 				2821ECC41484DED80025621D /* TestFlight */,
 				281F88E5139E0ADA00431DAD /* Network */,
 				28296B5B13814E10000129E8 /* Recording */,
@@ -2590,6 +2600,27 @@
 			children = (
 			);
 			name = DataModel;
+			sourceTree = "<group>";
+		};
+		844D777914E6995A00AE0F86 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				844D778614E6995A00AE0F86 /* QQQInAppStore.h */,
+				844D778714E6995A00AE0F86 /* QQQInAppStore.m */,
+				844D778514E6995A00AE0F86 /* MKStoreKit */,
+			);
+			name = InAppPurchase;
+			sourceTree = "<group>";
+		};
+		844D778514E6995A00AE0F86 /* MKStoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				844D777F14E6995A00AE0F86 /* MKStoreManager.h */,
+				844D778014E6995A00AE0F86 /* MKStoreManager.m */,
+				844D778114E6995A00AE0F86 /* MKStoreObserver.h */,
+				844D778214E6995A00AE0F86 /* MKStoreObserver.m */,
+			);
+			name = MKStoreKit;
 			sourceTree = "<group>";
 		};
 		CE6C772F13C09EB500ACDC2E /* MyData */ = {
@@ -3576,6 +3607,9 @@
 				28914B4B14D14839004E702A /* PagesScrollView.m in Sources */,
 				28914B5114D151DB004E702A /* ButtonView.m in Sources */,
 				2834E93714D189D1008229F3 /* MyVocalizerViewController.m in Sources */,
+				844D778314E6995A00AE0F86 /* MKStoreManager.m in Sources */,
+				844D778414E6995A00AE0F86 /* MKStoreObserver.m in Sources */,
+				844D778814E6995A00AE0F86 /* QQQInAppStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3926,7 +3960,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3946,7 +3980,6 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
 				SDKROOT = iphoneos4.1;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -3961,7 +3994,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3981,7 +4014,6 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "03080A6F-92C3-4E67-B437-C8D43339DFDB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
 				SDKROOT = iphoneos4.1;
 				VALIDATE_PRODUCT = YES;
@@ -3999,7 +4031,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitalii Todorovych";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4018,7 +4050,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C42850B3-BF3A-4173-8599-689A673BF8A2";
 				SDKROOT = iphoneos4.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";

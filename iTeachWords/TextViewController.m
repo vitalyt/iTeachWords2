@@ -12,6 +12,7 @@
 #import "LanguagePickerController.h"
 #import "NewWordsTable.h"
 #import "PagesScrollView.h"
+#import "QQQInAppStore.h"
 
 #define radius 10
 
@@ -304,6 +305,17 @@
 #pragma mark button view protocol
 
 - (void)buttonDidClick:(id)selector  withIndex:(NSInteger)index{
+    
+#ifdef FREE_VERSION
+    
+    NSString *fullID = @"qqq.vitalyt.iteachwords.free.textrecognizer";
+    if (![MKStoreManager isCurrentItemPurchased:fullID]) {
+        [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
+        return;
+    }
+    
+#endif
+    
     switch (index) {
         case 0:
             [self showVoiceRecordView];
@@ -315,6 +327,7 @@
         default:
             break;
     }
+
 }
 
 #pragma mark MyVocalizerDelegate
