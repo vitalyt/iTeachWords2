@@ -30,8 +30,8 @@ static QQQInAppStore* _sharedInAppStore; // self
             [[self alloc] init]; // assignment not done here
             
 			NSMutableArray *fullIDs = [[NSMutableArray alloc] init];
-            [fullIDs addObject: @"com.myBundleIdentifier.f1"];
-            [fullIDs addObject: @"com.myBundleIdentifier.f2"];
+            [fullIDs addObject: @"qqq.vitalyt.iteachwords.free.textrecognizer"];
+//            [fullIDs addObject: @"com.myBundleIdentifier.f2"];
             _sharedInAppStore.storeManager = [[MKStoreManager alloc] initWithFeatureSet:fullIDs];
             _sharedInAppStore.costDictionary = [[NSMutableDictionary alloc] init];
         }

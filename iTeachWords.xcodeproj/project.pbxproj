@@ -258,7 +258,6 @@
 		285B812D14E4079E001C977D /* PagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4A14D14839004E702A /* PagesScrollView.m */; };
 		285B812E14E4079E001C977D /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4F14D151DB004E702A /* ButtonView.m */; };
 		285B812F14E4079E001C977D /* MyVocalizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2834E93514D189D1008229F3 /* MyVocalizerViewController.m */; };
-		285B813114E4079E001C977D /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8448CACA14E0203B00705A5F /* SpeechKit.framework */; };
 		285B813214E4079E001C977D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811985114A095C300399D44 /* CFNetwork.framework */; };
 		285B813314E4079E001C977D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984F14A095BA00399D44 /* Security.framework */; };
 		285B813414E4079E001C977D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811984D14A0951100399D44 /* AudioToolbox.framework */; };
@@ -654,6 +653,12 @@
 		28C61F2B146BDD7A0065E75A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C61F2A146BDD790065E75A /* CoreGraphics.framework */; };
 		28CA77521456ABD60046259F /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CA77501456ABD60046259F /* TextFieldCell.m */; };
 		28CA77531456ABD60046259F /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CA77511456ABD60046259F /* TextFieldCell.xib */; };
+		28D3243814E9097F0014CBCB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243714E9097F0014CBCB /* StoreKit.framework */; };
+		28D3243914E90B3F0014CBCB /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243414E907300014CBCB /* SpeechKit.framework */; };
+		28D3243A14E90B4E0014CBCB /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243414E907300014CBCB /* SpeechKit.framework */; };
+		28D3244514E90E0C0014CBCB /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3244214E90E0C0014CBCB /* MKStoreManager.m */; };
+		28D3244614E90E0C0014CBCB /* MKStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3244414E90E0C0014CBCB /* MKStoreObserver.m */; };
+		28D3244914E910460014CBCB /* QQQInAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3244814E910460014CBCB /* QQQInAppStore.m */; };
 		28D3C2CC1386558400B35FC7 /* NSArray+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3C2CB1386558400B35FC7 /* NSArray+Interaction.m */; };
 		28D3C2D313865B9C00B35FC7 /* NSNumber+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3C2D213865B9B00B35FC7 /* NSNumber+Interaction.m */; };
 		28D3C2D613865ECC00B35FC7 /* WorldTableToolsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3C2D513865ECB00B35FC7 /* WorldTableToolsController.m */; };
@@ -893,10 +898,6 @@
 		28E3307E140F9FDA00ABC7D5 /* ZW.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32FAA140F9FDA00ABC7D5 /* ZW.png */; };
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
-		8448CACB14E0203C00705A5F /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8448CACA14E0203B00705A5F /* SpeechKit.framework */; };
-		844D778314E6995A00AE0F86 /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D778014E6995A00AE0F86 /* MKStoreManager.m */; };
-		844D778414E6995A00AE0F86 /* MKStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D778214E6995A00AE0F86 /* MKStoreObserver.m */; };
-		844D778814E6995A00AE0F86 /* QQQInAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 844D778714E6995A00AE0F86 /* QQQInAppStore.m */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -1213,6 +1214,14 @@
 		28CA774F1456ABD60046259F /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		28CA77501456ABD60046259F /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
 		28CA77511456ABD60046259F /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		28D3243414E907300014CBCB /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeechKit.framework; sourceTree = "<group>"; };
+		28D3243714E9097F0014CBCB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		28D3244114E90E0C0014CBCB /* MKStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreManager.h; sourceTree = "<group>"; };
+		28D3244214E90E0C0014CBCB /* MKStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreManager.m; sourceTree = "<group>"; };
+		28D3244314E90E0C0014CBCB /* MKStoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreObserver.h; sourceTree = "<group>"; };
+		28D3244414E90E0C0014CBCB /* MKStoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreObserver.m; sourceTree = "<group>"; };
+		28D3244714E910460014CBCB /* QQQInAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQInAppStore.h; sourceTree = "<group>"; };
+		28D3244814E910460014CBCB /* QQQInAppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQInAppStore.m; sourceTree = "<group>"; };
 		28D3C2CA1386558400B35FC7 /* NSArray+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Interaction.h"; sourceTree = "<group>"; };
 		28D3C2CB1386558400B35FC7 /* NSArray+Interaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Interaction.m"; sourceTree = "<group>"; };
 		28D3C2D113865B9B00B35FC7 /* NSNumber+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Interaction.h"; sourceTree = "<group>"; };
@@ -1465,13 +1474,6 @@
 		28FAAB4F14A9FA9E001F9214 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		28FAAB5014A9FA9E001F9214 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MenuViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
-		8448CACA14E0203B00705A5F /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = ../../../Downloads/DragonMobileSDK_1.3.1/SpeechKit.framework; sourceTree = "<group>"; };
-		844D777F14E6995A00AE0F86 /* MKStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreManager.h; sourceTree = "<group>"; };
-		844D778014E6995A00AE0F86 /* MKStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreManager.m; sourceTree = "<group>"; };
-		844D778114E6995A00AE0F86 /* MKStoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreObserver.h; sourceTree = "<group>"; };
-		844D778214E6995A00AE0F86 /* MKStoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreObserver.m; sourceTree = "<group>"; };
-		844D778614E6995A00AE0F86 /* QQQInAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQInAppStore.h; sourceTree = "<group>"; };
-		844D778714E6995A00AE0F86 /* QQQInAppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQInAppStore.m; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
 		CE6C773513C0C79E00ACDC2E /* Test15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test15.h; sourceTree = "<group>"; };
@@ -1516,7 +1518,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8448CACB14E0203C00705A5F /* SpeechKit.framework in Frameworks */,
+				28D3243914E90B3F0014CBCB /* SpeechKit.framework in Frameworks */,
 				2811985214A095C300399D44 /* CFNetwork.framework in Frameworks */,
 				2811985014A095BA00399D44 /* Security.framework in Frameworks */,
 				2811984E14A0951100399D44 /* AudioToolbox.framework in Frameworks */,
@@ -1539,7 +1541,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285B813114E4079E001C977D /* SpeechKit.framework in Frameworks */,
+				28D3243A14E90B4E0014CBCB /* SpeechKit.framework in Frameworks */,
+				28D3243814E9097F0014CBCB /* StoreKit.framework in Frameworks */,
 				285B813214E4079E001C977D /* CFNetwork.framework in Frameworks */,
 				285B813314E4079E001C977D /* Security.framework in Frameworks */,
 				285B813414E4079E001C977D /* AudioToolbox.framework in Frameworks */,
@@ -1989,7 +1992,8 @@
 		284092BC1381242700864711 = {
 			isa = PBXGroup;
 			children = (
-				8448CACA14E0203B00705A5F /* SpeechKit.framework */,
+				28D3243714E9097F0014CBCB /* StoreKit.framework */,
+				28D3243414E907300014CBCB /* SpeechKit.framework */,
 				284092D11381242700864711 /* iTeachWords */,
 				284092CA1381242700864711 /* Frameworks */,
 				284092C81381242700864711 /* Products */,
@@ -2605,8 +2609,8 @@
 		844D777914E6995A00AE0F86 /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
-				844D778614E6995A00AE0F86 /* QQQInAppStore.h */,
-				844D778714E6995A00AE0F86 /* QQQInAppStore.m */,
+				28D3244714E910460014CBCB /* QQQInAppStore.h */,
+				28D3244814E910460014CBCB /* QQQInAppStore.m */,
 				844D778514E6995A00AE0F86 /* MKStoreKit */,
 			);
 			name = InAppPurchase;
@@ -2615,10 +2619,10 @@
 		844D778514E6995A00AE0F86 /* MKStoreKit */ = {
 			isa = PBXGroup;
 			children = (
-				844D777F14E6995A00AE0F86 /* MKStoreManager.h */,
-				844D778014E6995A00AE0F86 /* MKStoreManager.m */,
-				844D778114E6995A00AE0F86 /* MKStoreObserver.h */,
-				844D778214E6995A00AE0F86 /* MKStoreObserver.m */,
+				28D3244114E90E0C0014CBCB /* MKStoreManager.h */,
+				28D3244214E90E0C0014CBCB /* MKStoreManager.m */,
+				28D3244314E90E0C0014CBCB /* MKStoreObserver.h */,
+				28D3244414E90E0C0014CBCB /* MKStoreObserver.m */,
 			);
 			name = MKStoreKit;
 			sourceTree = "<group>";
@@ -3607,9 +3611,6 @@
 				28914B4B14D14839004E702A /* PagesScrollView.m in Sources */,
 				28914B5114D151DB004E702A /* ButtonView.m in Sources */,
 				2834E93714D189D1008229F3 /* MyVocalizerViewController.m in Sources */,
-				844D778314E6995A00AE0F86 /* MKStoreManager.m in Sources */,
-				844D778414E6995A00AE0F86 /* MKStoreObserver.m in Sources */,
-				844D778814E6995A00AE0F86 /* QQQInAppStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3727,6 +3728,9 @@
 				285B812D14E4079E001C977D /* PagesScrollView.m in Sources */,
 				285B812E14E4079E001C977D /* ButtonView.m in Sources */,
 				285B812F14E4079E001C977D /* MyVocalizerViewController.m in Sources */,
+				28D3244514E90E0C0014CBCB /* MKStoreManager.m in Sources */,
+				28D3244614E90E0C0014CBCB /* MKStoreObserver.m in Sources */,
+				28D3244914E910460014CBCB /* QQQInAppStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3819,8 +3823,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
-					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
@@ -3893,8 +3896,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
-					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3928,8 +3930,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
-					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
@@ -3956,6 +3957,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
+					i386,
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
@@ -3964,8 +3966,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
-					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3981,7 +3982,7 @@
 				);
 				PRODUCT_NAME = iTeachWords_Free;
 				SDKROOT = iphoneos4.1;
-				VALID_ARCHS = "armv6 armv7";
+				VALID_ARCHS = "i386 armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3991,6 +3992,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
+					i386,
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
@@ -3999,8 +4001,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
-					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
@@ -4017,7 +4018,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
 				SDKROOT = iphoneos4.1;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv6 armv7";
+				VALID_ARCHS = "i386 armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -4027,16 +4028,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
+					i386,
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitalii Todorovych";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Downloads/DragonMobileSDK_1.3.1\"",
-					"\"$(SRCROOT)/../../../Downloads/DragonMobileSDK_1.3.1\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTeachWords/iTeachWords-Prefix.pch";
@@ -4050,10 +4051,10 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C42850B3-BF3A-4173-8599-689A673BF8A2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
 				SDKROOT = iphoneos4.1;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv6 armv7";
+				VALID_ARCHS = "i386 armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;

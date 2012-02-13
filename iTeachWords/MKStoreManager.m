@@ -7,7 +7,6 @@
 //
 
 #import "MKStoreManager.h"
-#import "QQQInAppStore.h"
 
 @implementation MKStoreManager
 
@@ -127,10 +126,12 @@ static MKStoreManager* _sharedStoreManager; // self
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
 	[purchasableObjects addObjectsFromArray:response.products];
+    NSLog(@"%@",purchasableObjects);
 	// populate your UI Controls here
 	for(int i=0;i<[purchasableObjects count];i++)
 	{
-		
+		NSLog(@"%@",request);
+        NSLog(@"%@",response.invalidProductIdentifiers);
 		SKProduct *product = [purchasableObjects objectAtIndex:i];
 		
 		NSString *costValue = [NSString stringWithFormat:@"%f", [[product price] doubleValue]];
@@ -140,12 +141,13 @@ static MKStoreManager* _sharedStoreManager; // self
 		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 		[numberFormatter setLocale:product.priceLocale];
 		NSString *formattedString = [numberFormatter stringFromNumber:product.price];
-
+        NSLog(@"%@",formattedString);
 		//save localized cost
 		//...................
-        QQQInAppStore *storeDelegate = (QQQInAppStore *)[QQQInAppStore sharedStore];
-        //localized cost
-        [[storeDelegate costDictionary] setObject:formattedString forKey:[product productIdentifier]]; 
+        
+//        MyProjectAppDelegate *appDelegate = (MyProjectAppDelegate *)[[UIApplication sharedApplication] delegate];
+//        //localized cost
+//        [[appDelegate costDictionary] setObject:formattedString forKey:[product productIdentifier]]; //costDictionary is an NSMutableDictionary object, declared in AppDelegate.h
         
 	}
 	

@@ -12,7 +12,10 @@
 #import "LanguagePickerController.h"
 #import "NewWordsTable.h"
 #import "PagesScrollView.h"
-#import "QQQInAppStore.h"
+
+#ifdef FREE_VERSION
+    #import "QQQInAppStore.h"
+#endif
 
 #define radius 10
 
@@ -89,11 +92,11 @@
     [myTextView setFont:FONT_TEXT];
 	myTextView.text = [self loadText];
     
-//    [self.view addSubview:pagesScrollView.view];
-//    CGRect frame = self.view.frame;
-//    frame.origin.x = 0.0;
-//    frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
-//    [pagesScrollView.view setFrame:frame];
+    [self.view addSubview:pagesScrollView.view];
+    CGRect frame = self.view.frame;
+    frame.origin.x = 0.0;
+    frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
+    [pagesScrollView.view setFrame:frame];
 }
 
 
@@ -307,13 +310,11 @@
 - (void)buttonDidClick:(id)selector  withIndex:(NSInteger)index{
     
 #ifdef FREE_VERSION
-    
     NSString *fullID = @"qqq.vitalyt.iteachwords.free.textrecognizer";
     if (![MKStoreManager isCurrentItemPurchased:fullID]) {
         [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
         return;
     }
-    
 #endif
     
     switch (index) {

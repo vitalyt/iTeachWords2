@@ -10,7 +10,8 @@
 #import "MKStoreManager.h"
 
 @class MKStoreManager;
-@interface QQQInAppStore : NSObject{
+@interface QQQInAppStore : NSObject
+{
     MKStoreManager *storeManager;
     NSMutableDictionary *costDictionary;
 }
