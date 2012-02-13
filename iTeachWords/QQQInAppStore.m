@@ -27,13 +27,13 @@ static QQQInAppStore* _sharedInAppStore; // self
 	@synchronized(self) {
 		
         if (_sharedInAppStore == nil) {
-            [[self alloc] init]; // assignment not done here
+            _sharedInAppStore = [[self alloc] init]; // assignment not done here
             
 			NSMutableArray *fullIDs = [[NSMutableArray alloc] init];
             [fullIDs addObject: @"qqq.vitalyt.iteachwords.free.textrecognizer"];
-//            [fullIDs addObject: @"com.myBundleIdentifier.f2"];
-            _sharedInAppStore.storeManager = [[MKStoreManager alloc] initWithFeatureSet:fullIDs];
+            //            [fullIDs addObject: @"com.myBundleIdentifier.f2"];
             _sharedInAppStore.costDictionary = [[NSMutableDictionary alloc] init];
+            _sharedInAppStore.storeManager = [[MKStoreManager alloc] initWithFeatureSet:fullIDs];
         }
     }
     return _sharedInAppStore;

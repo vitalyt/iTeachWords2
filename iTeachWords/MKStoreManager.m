@@ -48,7 +48,7 @@ static MKStoreManager* _sharedStoreManager; // self
 			_sharedStoreManager.purchasableObjects = [[NSMutableArray alloc] init];			
 			[_sharedStoreManager requestProductData];
 			
-			[MKStoreManager loadPurchases];
+//			[MKStoreManager loadPurchases];
 			_sharedStoreManager.storeObserver = [[MKStoreObserver alloc] init];
 			[[SKPaymentQueue defaultQueue] addTransactionObserver:_sharedStoreManager.storeObserver];
         }
@@ -59,7 +59,7 @@ static MKStoreManager* _sharedStoreManager; // self
 - (id)initWithFeatureSet:(NSArray *)featureArray {
 	if([self init]) {
 		localSet = [[NSSet alloc] initWithArray:featureArray];
-		featureAId = [[NSString alloc] initWithString:@" "];
+		featureAId = [[NSString alloc] initWithString:@"qqq.vitalyt.iteachwords.free.textrecognizer"];
 		purchasableObjects = [[NSMutableArray alloc] init];
 		[self requestProductData];
 		

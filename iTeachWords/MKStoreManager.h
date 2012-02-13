@@ -47,7 +47,7 @@
 
 - (BOOL) isFeatureAPurchased; //ex +
 
-- (void) loadPurchases; //+
++ (void) loadPurchases; //+
 - (void) updatePurchases; //+
 
 - (id)initWithFeatureSet:(NSArray *)featureSet;
