@@ -371,7 +371,7 @@
 
 - (void)failed{
     NSLog(@"filed");
-//    [self hideLoadingView];
+    [self hideLoadingView];
     
 }
 #endif
