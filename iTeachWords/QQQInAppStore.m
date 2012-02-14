@@ -15,6 +15,7 @@
 static QQQInAppStore* _sharedInAppStore; // self
 
 - (void)dealloc {
+    
     [storeManager release];
     [costDictionary release];
     [_sharedInAppStore release];
@@ -34,9 +35,31 @@ static QQQInAppStore* _sharedInAppStore; // self
             //            [fullIDs addObject: @"com.myBundleIdentifier.f2"];
             _sharedInAppStore.costDictionary = [[NSMutableDictionary alloc] init];
             _sharedInAppStore.storeManager = [[MKStoreManager alloc] initWithFeatureSet:fullIDs];
+//            [_sharedInAppStore.storeManager setDelegate:_sharedInAppStore];
+            [fullIDs release];
         }
     }
     return _sharedInAppStore;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;	
+}
+
+- (id)retain
+{	
+    return self;	
+}
+
+- (unsigned)retainCount
+{
+    return UINT_MAX;  //denotes an object that cannot be released
+}
+
+- (id)autorelease
+{
+    return self;	
 }
 
 @end

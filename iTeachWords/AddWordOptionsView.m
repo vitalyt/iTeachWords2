@@ -211,6 +211,10 @@
 	}
 }
 
+- (IBAction) showVocalizerView{
+    
+}
+
 - (void)dealloc{
     [wordsView release];
     [super dealloc];

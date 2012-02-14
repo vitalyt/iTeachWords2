@@ -13,8 +13,23 @@
 #import "MyVocalizerViewController.h"
 #import "ButtonView.h"
 
+#ifdef FREE_VERSION
+#import "MKStoreManager.h"
+#endif
+
 @class PagesScrollView;
-@interface TextViewController : AddWordOptionsView <UITextViewDelegate, UIAlertViewDelegate, RecordingViewProtocol,ButtonViewProtocol,MyVocalizerDelegate>{
+@interface TextViewController : AddWordOptionsView <
+UITextViewDelegate, 
+UIAlertViewDelegate, 
+RecordingViewProtocol,
+ButtonViewProtocol,
+MyVocalizerDelegate,
+
+#ifdef FREE_VERSION
+MKStoreKitDelegate
+#endif
+
+>{
     IBOutlet UITextView *myTextView;
     
     PagesScrollView *pagesScrollView;
@@ -24,6 +39,7 @@
 	NSArray				*array;
 	NSDictionary		*arrayCount;
     NSString            *currentTextLanguage;
+    UIView              *loadingView;
 }
 
 @property (nonatomic, retain) NSArray *array;
@@ -40,4 +56,7 @@
 - (NSString*)detectCurrentTextLanguage;
 - (void)setCurrentTextLanguage:(NSString*)_textLanguage;
 - (NSString*)currentTextLanguage;
+- (void)showLoadingView;
+- (void)hideLoadingView;
+
 @end

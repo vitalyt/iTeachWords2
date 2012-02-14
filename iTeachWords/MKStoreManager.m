@@ -103,11 +103,6 @@ static MKStoreManager* _sharedStoreManager; // self
     return UINT_MAX;  //denotes an object that cannot be released
 }
 
-- (void)release
-{
-    //do nothing
-}
-
 - (id)autorelease
 {
     return self;	
@@ -173,6 +168,8 @@ static MKStoreManager* _sharedStoreManager; // self
 													   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 		[alert show];
 		[alert release];
+        if([delegate respondsToSelector:@selector(failed)])
+            [delegate failed];
 	}
 }
 
@@ -200,8 +197,8 @@ static MKStoreManager* _sharedStoreManager; // self
 	if([productIdentifier isEqualToString:featureAId])
 	{
 		featureAPurchased = YES;
-		if([delegate respondsToSelector:@selector(productAPurchased)])
-			[delegate productAPurchased];
+		if([delegate respondsToSelector:@selector(productPurchased)])
+			[delegate productPurchased];
 	}
 	
 	[self updatePurchases];

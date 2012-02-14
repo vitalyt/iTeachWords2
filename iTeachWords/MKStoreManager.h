@@ -12,7 +12,7 @@
 
 @protocol MKStoreKitDelegate <NSObject>
 @optional
-- (void)productAPurchased;
+- (void)productPurchased;
 - (void)failed;
 @end
 
@@ -47,7 +47,7 @@
 
 - (BOOL) isFeatureAPurchased; //ex +
 
-+ (void) loadPurchases; //+
+- (void) loadPurchases; //+
 - (void) updatePurchases; //+
 
 - (id)initWithFeatureSet:(NSArray *)featureSet;
