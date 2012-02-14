@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "MKStoreManager.h"
+#import "MKStoreManager.h"
 
 @class MKStoreManager;
 @interface QQQInAppStore : NSObject
