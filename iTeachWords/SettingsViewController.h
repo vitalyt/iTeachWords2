@@ -36,4 +36,5 @@
 
 - (void)showNotificationTableView;
 - (void)showLoadingView;
+- (void)hideLoadingView;
 @end
