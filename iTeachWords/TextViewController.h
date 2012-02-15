@@ -23,12 +23,11 @@ UITextViewDelegate,
 UIAlertViewDelegate, 
 RecordingViewProtocol,
 ButtonViewProtocol,
-MyVocalizerDelegate,
+MyVocalizerDelegate
 
 #ifdef FREE_VERSION
-MKStoreKitDelegate
+,MKStoreKitDelegate
 #endif
-
 >{
     IBOutlet UITextView *myTextView;
     

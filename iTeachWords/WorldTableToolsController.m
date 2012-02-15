@@ -20,6 +20,10 @@
 #import "ToolsViewController.h"
 #import "TableCellController.h"
 
+#ifdef FREE_VERSION
+#import "QQQInAppStore.h"
+#endif
+
 @implementation WorldTableToolsController
 
 - (void)dealloc
@@ -86,6 +90,16 @@
 }
 
 - (void) clickGame{
+#ifdef FREE_VERSION
+    NSString *fullID = @"qqq.vitalyt.iteachwords.free.testGame";
+    if (![MKStoreManager isCurrentItemPurchased:fullID]) {
+        [[QQQInAppStore sharedStore].storeManager setDelegate:self];
+        [self showLoadingView];
+        [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
+        return;
+    }
+#endif
+    
     if ([self.data count] == 0) {
         [UIAlertView displayError:@"The list of words is blank."];
         return;
@@ -102,6 +116,10 @@
 
 
 - (void) clickTestOneOfSix{
+    if ([self.data count] == 0) {
+        [UIAlertView displayError:@"The list of words is blank."];
+        return;
+    }
 	TestOneOfSix *testController = [[TestOneOfSix alloc] initWithNibName:@"TestOneOfSix" bundle:nil];
     testController.wordType = wordType;
     testController.data = [NSMutableArray arrayWithArray:self.data];
@@ -112,6 +130,19 @@
 }
 
 - (void) clickTest1{
+#ifdef FREE_VERSION
+    NSString *fullID = @"qqq.vitalyt.iteachwords.free.test1";
+    if (![MKStoreManager isCurrentItemPurchased:fullID]) {
+        [[QQQInAppStore sharedStore].storeManager setDelegate:self];
+        [self showLoadingView];
+        [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
+        return;
+    }
+#endif
+    if ([self.data count] == 0) {
+        [UIAlertView displayError:@"The list of words is blank."];
+        return;
+    }
 	TestOrthography *testOrthographyView = [[TestOrthography alloc] initWithNibName:@"TestOrthography" bundle:nil];
     testOrthographyView.wordType = wordType;
 	testOrthographyView.data = [NSMutableArray arrayWithArray:self.data];
@@ -265,5 +296,45 @@
 - (void)generateThemeStatistic{
     
 }
+
+
+#pragma mark showing view
+
+- (void)showLoadingView{
+    //    UIActivityIndicatorView *activityIndicatorView;
+    if (!loadingView) {
+        CGRect frame = self.view.frame;
+        loadingView = [[UIView alloc] initWithFrame:frame];
+        UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [activityIndicatorView setFrame:CGRectMake(frame.size.width/2-10, frame.size.height/2-10, 20, 20)];
+        [loadingView addSubview:activityIndicatorView];
+        [activityIndicatorView startAnimating];
+        [activityIndicatorView release];
+        [self.view addSubview:loadingView];
+        [loadingView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
+    }
+    [loadingView setHidden:NO];
+}
+
+- (void)hideLoadingView{
+    if (loadingView) {
+        [loadingView setHidden:YES];
+    }
+}
+
+
+#ifdef FREE_VERSION
+#pragma mark MKStoreKitDelegate
+- (void)productPurchased{
+    NSLog(@"Purchased");
+    [self hideLoadingView];
+}
+
+- (void)failed{
+    NSLog(@"filed");
+    [self hideLoadingView];
+    
+}
+#endif
 
 @end

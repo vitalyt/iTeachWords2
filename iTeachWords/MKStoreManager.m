@@ -149,11 +149,6 @@ static MKStoreManager* _sharedStoreManager; // self
 	[request autorelease];
 }
 
-- (void) buyFeatureA
-{
-	[self buyFeature:featureAId];
-}
-
 - (void) buyFeature:(NSString*) featureId
 {
 	featureAId = [[NSString alloc] initWithString:featureId];

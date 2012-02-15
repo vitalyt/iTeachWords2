@@ -34,8 +34,6 @@
 
 - (void) requestProductData;
 
-- (void) buyFeatureA; // expose product buying functions, do not expose
-
 - (void) buyFeature:(NSString*) featureId;
 
 -(void)paymentCanceled;
