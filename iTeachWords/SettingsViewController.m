@@ -12,6 +12,10 @@
 #import "SwitchingCell.h"
 #import "NotificationTableView.h"
 
+#ifdef FREE_VERSION
+#import "QQQInAppStore.h"
+#endif
+
 #define FONT_OF_HEAD_LABEL [UIFont fontWithName:@"Helvetica-Bold" size:16]
 
 @implementation SettingsViewController
@@ -29,6 +33,7 @@
 
 - (void)dealloc
 {
+    [loadingView release];
     [barItem release];
     [super dealloc];
 }
@@ -57,6 +62,8 @@
 
 - (void)viewDidUnload
 {
+    [loadingView release];
+    loadingView = nil;
     [barItem release];
     barItem = nil;
     [super viewDidUnload];
@@ -372,6 +379,15 @@
 }
 
 - (void)showNotificationTableView{
+#ifdef FREE_VERSION
+    NSString *fullID = @"qqq.vitalyt.iteachwords.free.test1";
+    if (![MKStoreManager isCurrentItemPurchased:fullID]) {
+        [[QQQInAppStore sharedStore].storeManager setDelegate:self];
+        [self showLoadingView];
+        [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
+        return;
+    }
+#endif
     
      NotificationTableView *notificationViewController = [[NotificationTableView alloc] initWithNibName:@"NotificationTableView" bundle:nil];
      // ...
@@ -380,6 +396,45 @@
      [notificationViewController release];
      
 }
+
+#pragma mark showing view
+
+- (void)showLoadingView{
+    //    UIActivityIndicatorView *activityIndicatorView;
+    if (!loadingView) {
+        CGRect frame = self.view.frame;
+        loadingView = [[UIView alloc] initWithFrame:frame];
+        UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [activityIndicatorView setFrame:CGRectMake(frame.size.width/2-10, frame.size.height/2-10, 20, 20)];
+        [loadingView addSubview:activityIndicatorView];
+        [activityIndicatorView startAnimating];
+        [activityIndicatorView release];
+        [self.view addSubview:loadingView];
+        [loadingView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
+    }
+    [loadingView setHidden:NO];
+}
+
+- (void)hideLoadingView{
+    if (loadingView) {
+        [loadingView setHidden:YES];
+    }
+}
+
+
+#ifdef FREE_VERSION
+#pragma mark MKStoreKitDelegate
+- (void)productPurchased{
+    NSLog(@"Purchased");
+    [self hideLoadingView];
+}
+
+- (void)failed{
+    NSLog(@"filed");
+    [self hideLoadingView];
+    
+}
+#endif
 
 - (void)showToolbar{
     CGRect frame = barItem.frame; 

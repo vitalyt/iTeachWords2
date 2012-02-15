@@ -10,12 +10,22 @@
 #import "InputTableController.h"
 #import "ARFontPickerViewController.h"
 
+#ifdef FREE_VERSION
+#import "MKStoreManager.h"
+#endif
+
 @class TextFieldLanguagesCell;
-@interface SettingsViewController : InputTableController <ARFontPickerViewControllerDelegate>{
+@interface SettingsViewController : InputTableController 
+<ARFontPickerViewControllerDelegate
+#ifdef FREE_VERSION
+,MKStoreKitDelegate
+#endif
+>{
 @private
     
     IBOutlet UIToolbar *barItem;
     bool isKeyboardShowing;
+    UIView              *loadingView;
 }
 
 - (void)done;
@@ -25,5 +35,5 @@
 - (void)showToolbar;
 
 - (void)showNotificationTableView;
-
+- (void)showLoadingView;
 @end

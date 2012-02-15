@@ -28,6 +28,7 @@
 
 - (void)dealloc
 {
+    [loadingView release];
     [super dealloc];
 }
 
