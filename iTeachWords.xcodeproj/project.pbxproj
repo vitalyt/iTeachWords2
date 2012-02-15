@@ -898,6 +898,7 @@
 		28E3307E140F9FDA00ABC7D5 /* ZW.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32FAA140F9FDA00ABC7D5 /* ZW.png */; };
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
+		8457544414EC2C5000481AF4 /* PurchasesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -1474,6 +1475,8 @@
 		28FAAB4F14A9FA9E001F9214 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		28FAAB5014A9FA9E001F9214 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MenuViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		8457544214EC2C4F00481AF4 /* PurchasesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchasesDetailViewController.h; sourceTree = "<group>"; };
+		8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchasesDetailViewController.m; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
 		CE6C773513C0C79E00ACDC2E /* Test15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test15.h; sourceTree = "<group>"; };
@@ -2316,6 +2319,8 @@
 				2872FE5A14C4754F0010AFA1 /* DetailViewController.h */,
 				2872FE5B14C4754F0010AFA1 /* DetailViewController.m */,
 				2872FE5C14C4754F0010AFA1 /* DetailViewController.xib */,
+				8457544214EC2C4F00481AF4 /* PurchasesDetailViewController.h */,
+				8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */,
 			);
 			name = Info;
 			sourceTree = "<group>";
@@ -3731,6 +3736,7 @@
 				28D3244514E90E0C0014CBCB /* MKStoreManager.m in Sources */,
 				28D3244614E90E0C0014CBCB /* MKStoreObserver.m in Sources */,
 				28D3244914E910460014CBCB /* QQQInAppStore.m in Sources */,
+				8457544414EC2C5000481AF4 /* PurchasesDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

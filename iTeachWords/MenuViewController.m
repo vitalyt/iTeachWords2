@@ -26,7 +26,7 @@
 #import "RepeatModel.h"
 #import "CustomBadge.h"
 
-#import "DetailViewController.h"
+#import "PurchasesDetailViewController.h"
 @implementation MenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -194,7 +194,7 @@
 
 
 - (void)showInfoView{
-    DetailViewController *infoView = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     [self.navigationController presentModalViewController:infoView animated:YES];
     [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
 //    [self.navigationController pushViewController:infoView animated:YES];

@@ -11,7 +11,7 @@
 
 @class MyUIViewClass;
 @interface DetailViewController : SimpleWebViewController{
-    
+    @public
     IBOutlet MyUIViewClass *contentView;
 }
 
