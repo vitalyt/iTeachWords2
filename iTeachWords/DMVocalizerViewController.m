@@ -182,7 +182,7 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
     [messageLbl setText:NSLocalizedString(@"Playing...", @"")];
     [speakButton setImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
     isSpeaking = YES;
-    [speakButton setTitle:@"Stop" forState:UIControlStateNormal];
+    [speakButton setTitle:NSLocalizedString(@"Stop", @"") forState:UIControlStateNormal];
 //	if (text)
 //		self.speakString = [[speakString stringByAppendingString:text] stringByAppendingString:@"\n"];
 }

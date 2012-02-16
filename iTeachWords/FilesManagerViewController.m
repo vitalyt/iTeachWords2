@@ -411,7 +411,7 @@
         [sound setData:data];
         NSError *error;
         if (![CONTEXT save:&error]) {
-            [UIAlertView displayError:@"There is problem with updating data."];
+            [UIAlertView displayError:@"There is problem with updating data"];
             [soundData release];
             [data release];
             return NO;
@@ -442,7 +442,7 @@
     
     NSError *error;
     if (![CONTEXT save:&error]) {
-        [UIAlertView displayError:@"There is problem with updating data."];
+        [UIAlertView displayError:@"There is problem with updating data"];
         return NO;
     }
     return YES;
@@ -497,7 +497,7 @@
 - (void)saveDB{
     NSError *_error;
     if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"There is problem with saving data."];
+        [UIAlertView displayError:@"There is problem with saving data"];
     }else{
         //[iTeachWordsAppDelegate clearUdoManager];
     }

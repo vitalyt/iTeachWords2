@@ -81,7 +81,7 @@
             [self launchMailAppOnDevice];
         }
     }else{
-        [UIAlertView displayError:NSLocalizedString(@"You have not access to this options.", @"") title:NSLocalizedString(@"Network connection is not available.", @"")];
+        [UIAlertView displayError:NSLocalizedString(@"You have not access to this options", @"") title:NSLocalizedString(@"Network connection is not available", @"")];
     }
 }
 

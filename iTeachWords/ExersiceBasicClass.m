@@ -112,9 +112,9 @@
 
 - (void) showTestMessageResultat:(bool)rightFlg{
     if (rightFlg) {
-        [UIAlertView showMessage:@"Good job." withColor:[UIColor greenColor]];
+        [UIAlertView showMessage:NSLocalizedString(@"Good job", @"") withColor:[UIColor greenColor]];
     }else{
-        [UIAlertView showMessage:@"You made mistake." withColor:[UIColor redColor]];
+        [UIAlertView showMessage:NSLocalizedString(@"You made mistake", @"") withColor:[UIColor redColor]];
     }
 }
 

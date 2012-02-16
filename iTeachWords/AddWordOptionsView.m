@@ -111,13 +111,13 @@
 - (void)createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:@"Add word"
+    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Add word", @"")
                                                        action:@selector(parceTranslateWord)] autorelease];
-    UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:@"Parse text"
+    UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
                                                                 action:@selector(parseText)] autorelease];
-    UIMenuItem *menuTextTranslateItem = [[[UIMenuItem alloc] initWithTitle:@"Translate"
+    UIMenuItem *menuTextTranslateItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
                                                                     action:@selector(translateText)] autorelease];
-    UIMenuItem *menuTextPlayItem = [[[UIMenuItem alloc] initWithTitle:@"Play text"
+    UIMenuItem *menuTextPlayItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Play text", @"")
                                                                     action:@selector(playText)] autorelease];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];

@@ -71,7 +71,7 @@
 #pragma mark loading funktions
 
 - (void) loadData{    
-    titles = [[NSMutableArray alloc] initWithObjects:@"The repeat notification system", nil];
+    titles = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"The repeat notification system", @""), nil];
     NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"20 min",@""),NSLocalizedString(@"1 day",@""),NSLocalizedString(@"1 month",@""),NSLocalizedString(@"3 month",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
