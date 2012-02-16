@@ -6,6 +6,8 @@
 //  Copyright 2010 Yalantis Software. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
+
 @interface NSManagedObjectContext (Interaction) 
 
 + (NSManagedObject *)getEntity:(NSString *)entityName withPredicate:(NSPredicate *)predicate;

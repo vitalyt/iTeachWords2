@@ -6,8 +6,14 @@
 //  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "MKStoreManager.h"
+//#import <Foundation/Foundation.h>
+
+typedef enum {
+	VOCALIZER = 0,
+	TEST1,
+    TESTGAME,
+    NOTIFICATION
+}PurchaseType;
 
 @class MKStoreManager;
 @interface QQQInAppStore : NSObject
@@ -19,6 +25,7 @@
 @property (nonatomic,retain) MKStoreManager *storeManager;
 @property (nonatomic,retain) NSMutableDictionary *costDictionary;
 
++ (NSString*)purchaseIDByType:(PurchaseType)_purchaseType;
 + (QQQInAppStore*)sharedStore;
 
 @end

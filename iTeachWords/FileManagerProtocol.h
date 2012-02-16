@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 
 @protocol FileManagerProtocol <NSObject>
 @optional

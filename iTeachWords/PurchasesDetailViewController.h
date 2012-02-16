@@ -7,25 +7,14 @@
 //
 
 //#import <UIKit/UIKit.h>
-#import "InfoViewController.h"
+//#import "InfoViewController.h"
 #import "DetailViewController.h"
-
-#ifdef FREE_VERSION
 #import "MKStoreManager.h"
-#endif
+#import "QQQInAppStore.h"
 
-typedef enum {
-	VOCALIZER = 0,
-	TEST1,
-    TESTGAME,
-    NOTIFICATION
-}PurchaseType;
 
-@interface PurchasesDetailViewController : DetailViewController<
-#ifdef FREE_VERSION
-MKStoreKitDelegate
-#endif
->
+@interface PurchasesDetailViewController : DetailViewController
+<MKStoreKitDelegate>
 {
     UIButton    *buyButton;
     UIView      *loadingView;
@@ -33,7 +22,6 @@ MKStoreKitDelegate
 }
 
 - (id)initWithPurchaseType:(PurchaseType)_purchaseType;
-
 - (IBAction)buyFuture:(id)sender;
 
 - (void)showLoadingView;

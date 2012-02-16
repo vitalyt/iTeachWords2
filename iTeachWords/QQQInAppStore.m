@@ -7,15 +7,20 @@
 //
 
 #import "QQQInAppStore.h"
+#import "MKStoreManager.h"
 
 @implementation QQQInAppStore
 @synthesize storeManager;
 @synthesize costDictionary;
 
+#define textVocalizerID @"qqq.vitalyt.iteachwords.free.textrecognizer"
+#define test1ID @"qqq.vitalyt.iteachwords.free.test1";
+#define testGameID @"qqq.vitalyt.iteachwords.free.textGame";
+#define notificationID @"qqq.vitalyt.iteachwords.free.textGame";
+
 static QQQInAppStore* _sharedInAppStore; // self
 
 - (void)dealloc {
-    
     [storeManager release];
     [costDictionary release];
     [_sharedInAppStore release];
@@ -40,6 +45,27 @@ static QQQInAppStore* _sharedInAppStore; // self
         }
     }
     return _sharedInAppStore;
+}
+
++ (NSString*)purchaseIDByType:(PurchaseType)_purchaseType{
+    switch (_purchaseType) {
+        case VOCALIZER:
+            return textVocalizerID;
+            break;
+        case TEST1:
+            return test1ID;
+            break;
+        case TESTGAME:
+            return testGameID;
+            break;
+        case NOTIFICATION:
+            return notificationID;
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
 }
 
 - (id)copyWithZone:(NSZone *)zone

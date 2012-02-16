@@ -11,15 +11,8 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
-    #import <CoreData/CoreData.h>
-    #import <QuartzCore/QuartzCore.h>
-
     #import "TestFlight.h"
-#endif
-
-
-#import "iTeachWordsAppDelegate.h"
-#import "MyPlayer.h"
+    #import "iTeachWordsAppDelegate.h"
 
 #import "UIAlertView+Interaction.h"
 #import "NSString+Interaction.h"
@@ -27,6 +20,9 @@
 #import "NSArray+Interaction.h"
 #import "NSNumber+Interaction.h"
 #import "NSDate+Interaction.h"
+
+#endif
+
 
 typedef enum {
 	TEXT = 0,

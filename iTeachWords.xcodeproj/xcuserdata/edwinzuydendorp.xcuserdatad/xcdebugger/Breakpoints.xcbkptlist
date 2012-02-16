@@ -359,11 +359,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/SettingsViewController.m"
-         timestampString = "348393684.237956"
+         timestampString = "351078343.936748"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "95"
-         endingLineNumber = "95"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "-loadData"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2039,11 +2039,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/QQQInAppStore.m"
-         timestampString = "350924137.137673"
+         timestampString = "351078343.936748"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "29"
-         endingLineNumber = "29"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
          landmarkName = "+sharedStore"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2157,6 +2157,20 @@
          startingLineNumber = "316"
          endingLineNumber = "316"
          landmarkName = "-buttonDidClick:withIndex:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/PurchasesDetailViewController.m"
+         timestampString = "351078299.029128"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
+         landmarkName = "-buyFuture:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

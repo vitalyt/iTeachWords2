@@ -5,12 +5,10 @@
 //  Copyright 2009 Mugunth Kumar. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
 @interface MKStoreObserver : NSObject<SKPaymentTransactionObserver> {
 
-	
 }
 	
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions;

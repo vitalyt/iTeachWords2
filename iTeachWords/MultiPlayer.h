@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MyPlayer.h"
 
 @interface MultiPlayer : MyPlayer {
     IBOutlet UISlider *mySlider;

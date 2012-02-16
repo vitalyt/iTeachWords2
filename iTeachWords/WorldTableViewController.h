@@ -6,9 +6,10 @@
 //  Copyright 2011 OSDN. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
-#import <CoreAudio/CoreAudioTypes.h>
+//#import <UIKit/UIKit.h>
+//#import <AVFoundation/AVFoundation.h>
+//#import <CoreAudio/CoreAudioTypes.h>
+#import "MyPlayer.h"
 
 #import "EditTableViewController.h"
 #import "MyPickerViewProtocol.h"

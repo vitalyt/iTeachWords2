@@ -8,7 +8,6 @@
 
 #import "NSManagedObjectContext+Interaction.h"
 
-
 @implementation NSManagedObjectContext (Interaction) 
 
 + (NSManagedObject *)getEntity:(NSString *)entityName withPredicate:(NSPredicate *)predicate {

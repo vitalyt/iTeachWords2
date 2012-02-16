@@ -6,7 +6,6 @@
 //  Copyright 2009 MK Inc. All rights reserved.
 //  mugunthkumar.com
 
-#import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 #import "MKStoreObserver.h"
 
