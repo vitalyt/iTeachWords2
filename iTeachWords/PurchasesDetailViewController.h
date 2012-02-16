@@ -23,6 +23,7 @@
 
 - (id)initWithPurchaseType:(PurchaseType)_purchaseType;
 - (IBAction)buyFuture:(id)sender;
+- (NSString*)urlByPurchaseType:(PurchaseType)_purchaseType;
 
 - (void)showLoadingView;
 - (void)hideLoadingView;

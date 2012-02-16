@@ -14,7 +14,8 @@
 #import "PagesScrollView.h"
 
 #ifdef FREE_VERSION
-    #import "QQQInAppStore.h"
+#import "PurchasesDetailViewController.h";
+#import "QQQInAppStore.h"
 #endif
 
 #define radius 10
@@ -313,11 +314,8 @@
 - (void)buttonDidClick:(id)selector  withIndex:(NSInteger)index{
     
 #ifdef FREE_VERSION
-    NSString *fullID = @"qqq.vitalyt.iteachwords.free.textrecognizer";
-    if (![MKStoreManager isCurrentItemPurchased:fullID]) {
-        [[QQQInAppStore sharedStore].storeManager setDelegate:self];
-        [self showLoadingView];
-        [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
+    if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:VOCALIZER]]) {
+        [self showPurchaseInfoView];
         return;
     }
 #endif
@@ -337,42 +335,11 @@
 }
 
 
-#pragma mark showing view
-
-- (void)showLoadingView{
-//    UIActivityIndicatorView *activityIndicatorView;
-    if (!loadingView) {
-        CGRect frame = self.view.frame;
-        loadingView = [[UIView alloc] initWithFrame:frame];
-        UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [activityIndicatorView setFrame:CGRectMake(frame.size.width/2-10, frame.size.height/2-10, 20, 20)];
-        [loadingView addSubview:activityIndicatorView];
-        [activityIndicatorView startAnimating];
-        [activityIndicatorView release];
-        [self.view addSubview:loadingView];
-        [loadingView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
-    }
-    [loadingView setHidden:NO];
-}
-
-- (void)hideLoadingView{
-    if (loadingView) {
-        [loadingView setHidden:YES];
-    }
-}
-
-
 #ifdef FREE_VERSION
-#pragma mark MKStoreKitDelegate
-- (void)productPurchased{
-    NSLog(@"Purchased");
-    [self hideLoadingView];
-}
-
-- (void)failed{
-    NSLog(@"filed");
-    [self hideLoadingView];
-    
+- (void)showPurchaseInfoView{
+    PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:VOCALIZER];
+    [self.navigationController presentModalViewController:infoView animated:YES];
+    [infoView release];
 }
 #endif
 

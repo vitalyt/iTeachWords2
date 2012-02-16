@@ -13,10 +13,6 @@
 #import "MyVocalizerViewController.h"
 #import "ButtonView.h"
 
-#ifdef FREE_VERSION
-#import "MKStoreManager.h"
-#endif
-
 @class PagesScrollView;
 @interface TextViewController : AddWordOptionsView <
 UITextViewDelegate, 
@@ -24,10 +20,6 @@ UIAlertViewDelegate,
 RecordingViewProtocol,
 ButtonViewProtocol,
 MyVocalizerDelegate
-
-#ifdef FREE_VERSION
-,MKStoreKitDelegate
-#endif
 >{
     IBOutlet UITextView *myTextView;
     
@@ -55,7 +47,9 @@ MyVocalizerDelegate
 - (NSString*)detectCurrentTextLanguage;
 - (void)setCurrentTextLanguage:(NSString*)_textLanguage;
 - (NSString*)currentTextLanguage;
-- (void)showLoadingView;
-- (void)hideLoadingView;
+
+#ifdef FREE_VERSION
+- (void)showPurchaseInfoView;
+#endif
 
 @end

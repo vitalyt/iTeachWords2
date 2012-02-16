@@ -15,8 +15,8 @@
 
 #define textVocalizerID @"qqq.vitalyt.iteachwords.free.textrecognizer"
 #define test1ID @"qqq.vitalyt.iteachwords.free.test1";
-#define testGameID @"qqq.vitalyt.iteachwords.free.textGame";
-#define notificationID @"qqq.vitalyt.iteachwords.free.textGame";
+#define testGameID @"qqq.vitalyt.iteachwords.free.testGame";
+#define notificationID @"qqq.vitalyt.iteachwords.free.notification";
 
 static QQQInAppStore* _sharedInAppStore; // self
 
@@ -35,13 +35,13 @@ static QQQInAppStore* _sharedInAppStore; // self
         if (_sharedInAppStore == nil) {
             _sharedInAppStore = [[self alloc] init]; // assignment not done here
             
-			NSMutableArray *fullIDs = [[NSMutableArray alloc] init];
-            [fullIDs addObject: @"qqq.vitalyt.iteachwords.free.textrecognizer"];
+//			NSMutableArray *fullIDs = [[NSMutableArray alloc] init];
+//            [fullIDs addObject: @"qqq.vitalyt.iteachwords.free.textGame"];
             //            [fullIDs addObject: @"com.myBundleIdentifier.f2"];
             _sharedInAppStore.costDictionary = [[NSMutableDictionary alloc] init];
-            _sharedInAppStore.storeManager = [[MKStoreManager alloc] initWithFeatureSet:fullIDs];
+            _sharedInAppStore.storeManager = [[MKStoreManager alloc] initWithFeatureSet:nil];
 //            [_sharedInAppStore.storeManager setDelegate:_sharedInAppStore];
-            [fullIDs release];
+//            [fullIDs release];
         }
     }
     return _sharedInAppStore;

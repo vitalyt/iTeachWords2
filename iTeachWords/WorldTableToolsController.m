@@ -21,6 +21,7 @@
 #import "TableCellController.h"
 
 #ifdef FREE_VERSION
+#import "PurchasesDetailViewController.h";
 #import "QQQInAppStore.h"
 #endif
 
@@ -92,11 +93,10 @@
 
 - (void) clickGame{
 #ifdef FREE_VERSION
-    NSString *fullID = @"qqq.vitalyt.iteachwords.free.testGame";
-    if (![MKStoreManager isCurrentItemPurchased:fullID]) {
-        [[QQQInAppStore sharedStore].storeManager setDelegate:self];
-        [self showLoadingView];
-        [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
+    if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:TESTGAME]]) {
+        PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:TESTGAME];
+        [self.navigationController presentModalViewController:infoView animated:YES];
+        [infoView release];
         return;
     }
 #endif
@@ -132,11 +132,10 @@
 
 - (void) clickTest1{
 #ifdef FREE_VERSION
-    NSString *fullID = @"qqq.vitalyt.iteachwords.free.test1";
-    if (![MKStoreManager isCurrentItemPurchased:fullID]) {
-        [[QQQInAppStore sharedStore].storeManager setDelegate:self];
-        [self showLoadingView];
-        [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
+    if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:TEST1]]) {
+        PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:TEST1];
+        [self.navigationController presentModalViewController:infoView animated:YES];
+        [infoView release];
         return;
     }
 #endif
@@ -297,45 +296,5 @@
 - (void)generateThemeStatistic{
     
 }
-
-
-#pragma mark showing view
-
-- (void)showLoadingView{
-    //    UIActivityIndicatorView *activityIndicatorView;
-    if (!loadingView) {
-        CGRect frame = self.view.frame;
-        loadingView = [[UIView alloc] initWithFrame:frame];
-        UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [activityIndicatorView setFrame:CGRectMake(frame.size.width/2-10, frame.size.height/2-10, 20, 20)];
-        [loadingView addSubview:activityIndicatorView];
-        [activityIndicatorView startAnimating];
-        [activityIndicatorView release];
-        [self.view addSubview:loadingView];
-        [loadingView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
-    }
-    [loadingView setHidden:NO];
-}
-
-- (void)hideLoadingView{
-    if (loadingView) {
-        [loadingView setHidden:YES];
-    }
-}
-
-
-#ifdef FREE_VERSION
-#pragma mark MKStoreKitDelegate
-- (void)productPurchased{
-    NSLog(@"Purchased");
-    [self hideLoadingView];
-}
-
-- (void)failed{
-    NSLog(@"filed");
-    [self hideLoadingView];
-    
-}
-#endif
 
 @end

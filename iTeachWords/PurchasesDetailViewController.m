@@ -54,7 +54,7 @@
     CGRect frame = contentView.frame;
     frame.size.height = frame.size.height - 20 - buyButton.frame.size.height;
     [contentView setFrame:frame];
-    
+    [self setUrl:[self urlByPurchaseType:purchaseType]];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -81,15 +81,34 @@
 }
 
 - (IBAction)buyFuture:(id)sender{
-#ifdef FREE_VERSION
     NSString *fullID = [QQQInAppStore purchaseIDByType:purchaseType];
+    NSLog(@"%@",fullID);
     if (![MKStoreManager isCurrentItemPurchased:fullID]) {
         [[QQQInAppStore sharedStore].storeManager setDelegate:self];
         [self showLoadingView];
         [[QQQInAppStore sharedStore].storeManager buyFeature:fullID];
-        return;
     }
-#endif
+}
+
+- (NSString*)urlByPurchaseType:(PurchaseType)_purchaseType{
+    switch (_purchaseType) {
+        case VOCALIZER:
+            return NSLocalizedString(@"http://google.ru", @"");
+            break;
+        case TEST1:
+            return NSLocalizedString(@"http://yandex.ru", @"");
+            break;
+        case TESTGAME:
+            return NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"");
+            break;
+        case NOTIFICATION:
+            return NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
 }
 
 #pragma mark showing view
@@ -117,7 +136,6 @@
     }
 }
 
-#ifdef FREE_VERSION
 #pragma mark MKStoreKitDelegate
 - (void)productPurchased{
     NSLog(@"Purchased");
@@ -129,6 +147,5 @@
     [self hideLoadingView];
     
 }
-#endif
 
 @end

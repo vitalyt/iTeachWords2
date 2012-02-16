@@ -194,10 +194,10 @@
 
 
 - (void)showInfoView{
-    PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    DetailViewController *infoView = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     [self.navigationController presentModalViewController:infoView animated:YES];
     [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
-//    [self.navigationController pushViewController:infoView animated:YES];
+    //    [self.navigationController pushViewController:infoView animated:YES];
     [infoView release];
 }
 

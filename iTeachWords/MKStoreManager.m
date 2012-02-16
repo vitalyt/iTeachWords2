@@ -59,7 +59,7 @@ static MKStoreManager* _sharedStoreManager; // self
 - (id)initWithFeatureSet:(NSArray *)featureArray {
 	if([self init]) {
 		localSet = [[NSSet alloc] initWithArray:featureArray];
-		featureAId = [[NSString alloc] initWithString:@"qqq.vitalyt.iteachwords.free.textrecognizer"];
+//		featureAId = [[NSString alloc] initWithString:@"qqq.vitalyt.iteachwords.free.textrecognizer"];
 		purchasableObjects = [[NSMutableArray alloc] init];
 		[self requestProductData];
 		
@@ -152,6 +152,7 @@ static MKStoreManager* _sharedStoreManager; // self
 - (void) buyFeature:(NSString*) featureId
 {
 	featureAId = [[NSString alloc] initWithString:featureId];
+    NSLog(@"%@",featureAId);
 	if ([SKPaymentQueue canMakePayments])
 	{
 		SKPayment *payment = [SKPayment paymentWithProductIdentifier:featureId];

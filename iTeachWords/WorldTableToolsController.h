@@ -11,18 +11,9 @@
 #import "ToolsViewProtocol.h"
 #import "EditingViewProtocol.h"
 
-#ifdef FREE_VERSION
-#import "MKStoreManager.h"
-#endif
-
 @class WordTypes;
 
-@interface WorldTableToolsController : WorldTableViewController <ToolsViewProtocol,UIAlertViewDelegate
-#ifdef FREE_VERSION
-,MKStoreKitDelegate
-#endif
-
-> {
+@interface WorldTableToolsController : WorldTableViewController <ToolsViewProtocol,UIAlertViewDelegate> {
     UIView              *loadingView;
 }
 
@@ -32,6 +23,7 @@
 - (void) reassignSelectedWordsToTheme:(WordTypes *)wordType;
 - (void)generateThemeStatistic;
 
-- (void)showLoadingView;
-- (void)hideLoadingView;
+#ifdef FREE_VERSION
+- (void)showPurchaseInfoView;
+#endif
 @end
