@@ -139,7 +139,7 @@
                 notification.timeZone  = [NSTimeZone systemTimeZone];
                 notification.fireDate  = [[NSDate date] dateByAddingTimeInterval:interval];
                 notification.alertAction = wordType.name; 
-                notification.alertBody = [NSString stringWithFormat:@"The %@ needs to be repeate",wordType.name];
+                notification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"The %@ needs to be repeate", @""),wordType.name];
                 notification.soundName = UILocalNotificationDefaultSoundName;
                 
                 notification.userInfo = infoDict; 
@@ -356,7 +356,7 @@
     }
     NSError *_error;
     if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"There is problem with saving data."];
+        [UIAlertView displayError:NSLocalizedString(@"There is problem with saving data", @"")];
     }else{
     }
 }
@@ -365,7 +365,7 @@
 //    [CONTEXT.undoManager endUndoGrouping];
     NSError *_error;
     if (![CONTEXT save:&_error]) {
-        [UIAlertView displayError:@"There is problem with saving data."];
+        [UIAlertView displayError:NSLocalizedString(@"There is problem with saving data", @"")];
     }else{
         [iTeachWordsAppDelegate clearUdoManager];
     }
@@ -389,7 +389,7 @@
     Reachability *hostReach = [Reachability reachabilityForInternetConnection];	
 	NetworkStatus netStatus = [hostReach currentReachabilityStatus];
 	if (netStatus == NotReachable) {
-        [UIAlertView displayError:@"Network connection is not avalable."];
+        [UIAlertView displayError:NSLocalizedString(@"Network connection is not avalable", @"")];
 		return NO;
 	}
     return YES;
@@ -431,7 +431,7 @@
 	_mutableData = [[NSMutableData alloc] init];
 	
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest: request delegate:self];
-	NSAssert(nil != connection, @"The connection cannot be created!");
+	NSAssert(nil != connection, NSLocalizedString(@"The connection cannot be created!", @""));
 }
 
 

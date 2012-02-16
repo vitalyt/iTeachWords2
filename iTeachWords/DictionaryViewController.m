@@ -253,7 +253,7 @@
         cell.textLabel.text = ([self isNativeKeyboardLanguage])?word.translate:word.text;
         cell.detailTextLabel.text = ([self isNativeKeyboardLanguage])?word.text:word.translate;
     }else{
-        cell.textLabel.text = [NSString stringWithFormat:@"next %d words",offset];
+        cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"next %d words", @""),offset];
     }
 }
 
@@ -263,7 +263,7 @@
         AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
         Words *currentWord = ((Words *)[searchedData objectAtIndex:indexPath.row]);
         [myAddWordView setWord:currentWord];
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Menu", @"") style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
         [[self navigationItem] setBackBarButtonItem: newBackButton];
         [self.navigationController pushViewController:myAddWordView animated:YES];
         [myAddWordView release]; 

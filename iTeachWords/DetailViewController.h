@@ -13,6 +13,7 @@
 @interface DetailViewController : SimpleWebViewController{
     @public
     IBOutlet MyUIViewClass *contentView;
+    IBOutlet UIButton *closeBtn;
 }
 
 - (void)showWebView;

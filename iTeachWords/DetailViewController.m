@@ -72,6 +72,8 @@
 {
     [contentView release];
     contentView = nil;
+    [closeBtn release];
+    closeBtn = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -100,6 +102,7 @@
 
 - (void)dealloc {
     [contentView release];
+    [closeBtn release];
     [super dealloc];
 }
 @end

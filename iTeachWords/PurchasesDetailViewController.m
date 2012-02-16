@@ -36,6 +36,9 @@
 }
 
 - (void)dealloc {
+    if ([QQQInAppStore sharedStore].storeManager.delegate == self) {
+        [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
+    }
     [buyButton release];
     [super dealloc];
 }
@@ -60,6 +63,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {    
+    if ([QQQInAppStore sharedStore].storeManager.delegate == self) {
+        [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
+    }
     [super viewDidLoad];
     [self.view addSubview:buyButton];
 }
@@ -68,6 +74,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
     [buyButton release];
     buyButton = nil;
     // Release any retained subviews of the main view.
@@ -128,6 +135,7 @@
         [loadingView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
     }
     [loadingView setHidden:NO];
+    [self.view bringSubviewToFront:closeBtn];
 }
 
 - (void)hideLoadingView{

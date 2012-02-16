@@ -125,8 +125,6 @@ static MKStoreManager* _sharedStoreManager; // self
 	// populate your UI Controls here
 	for(int i=0;i<[purchasableObjects count];i++)
 	{
-		NSLog(@"%@",request);
-        NSLog(@"%@",response.invalidProductIdentifiers);
 		SKProduct *product = [purchasableObjects objectAtIndex:i];
 		
 		NSString *costValue = [NSString stringWithFormat:@"%f", [[product price] doubleValue]];
@@ -160,7 +158,7 @@ static MKStoreManager* _sharedStoreManager; // self
 	}
 	else
 	{
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wishing Well" message:@"You are not authorized to purchase from AppStore"
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wishing Well", @"") message:NSLocalizedString(@"You are not authorized to purchase from AppStore", @"")
 													   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 		[alert show];
 		[alert release];
@@ -181,8 +179,8 @@ static MKStoreManager* _sharedStoreManager; // self
 	if([delegate respondsToSelector:@selector(failed)])
 		[delegate failed];
 	
-	NSString *messageToBeShown = [NSString stringWithFormat:@"Reason: %@, You can try: %@", [transaction.error localizedFailureReason], [transaction.error localizedRecoverySuggestion]];
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unable to complete your purchase" message:messageToBeShown
+	NSString *messageToBeShown = [NSString stringWithFormat:NSLocalizedString(@"Reason: %@, You can try: %@", @""), [transaction.error localizedFailureReason], [transaction.error localizedRecoverySuggestion]];
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unable to complete your purchase", @"") message:messageToBeShown
 												   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	[alert show];
 	[alert release];
