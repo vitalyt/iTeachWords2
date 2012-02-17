@@ -97,6 +97,7 @@
     [UIView setAnimationBeginsFromCurrentState:YES];
     [self.view setFrame:frame];
     [UIView commitAnimations];
+    [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75] afterDelay:.3];
 }
 
 - (IBAction) cansel
@@ -112,6 +113,7 @@
     [UIView commitAnimations];
     
     [self performSelector:@selector(closeView) withObject:nil afterDelay:.5];
+    [self.view setBackgroundColor:[UIColor clearColor]];
 
 }
 
@@ -181,6 +183,7 @@
 	[myTextField.layer addAnimation:myTransition forKey:nil];
 	myTextField.hidden = NO;
     [myTextField setText:@""];
+
 }
 
 - (IBAction) closeAddView
@@ -199,7 +202,7 @@
 	[myTextField.layer addAnimation:myTransition forKey:nil];
 	myTextField.hidden = YES;
     [myTextField setText:@""];
-    
+//    [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor whiteColor] afterDelay:1.0];
 }
 
 - (void) saveNewTheme{

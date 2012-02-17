@@ -311,7 +311,7 @@
 
 #pragma mark button view protocol
 
-- (void)buttonDidClick:(id)selector  withIndex:(NSInteger)index{
+- (void)buttonDidClick:(id)selector  withIndex:(NSNumber*)index{
     
 #ifdef FREE_VERSION
     if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:VOCALIZER]]) {
@@ -319,8 +319,7 @@
         return;
     }
 #endif
-    
-    switch (index) {
+    switch (index.intValue) {
         case 0:
             [self showVoiceRecordView];
             break;
@@ -331,7 +330,6 @@
         default:
             break;
     }
-
 }
 
 

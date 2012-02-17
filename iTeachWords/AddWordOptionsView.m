@@ -98,7 +98,7 @@
     }
     [self.view bringSubviewToFront:wordsView.view];
     [UIView beginAnimations:@"MoveWebView" context:nil];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.2];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [wordsView.view setFrame:frame];
     [UIView commitAnimations];

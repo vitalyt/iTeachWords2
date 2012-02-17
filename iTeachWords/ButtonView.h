@@ -8,7 +8,7 @@
 
 @protocol ButtonViewProtocol <NSObject>
 
-- (void)buttonDidClick:(id)sender withIndex:(NSInteger)index;
+- (void)buttonDidClick:(id)sender withIndex:(NSNumber*)index;
 
 @end
 
