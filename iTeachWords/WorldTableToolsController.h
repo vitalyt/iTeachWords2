@@ -23,7 +23,4 @@
 - (void) reassignSelectedWordsToTheme:(WordTypes *)wordType;
 - (void)generateThemeStatistic;
 
-#ifdef FREE_VERSION
-- (void)showPurchaseInfoView;
-#endif
 @end

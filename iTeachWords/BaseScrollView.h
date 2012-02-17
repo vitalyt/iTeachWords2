@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 
 @interface BaseScrollView : UIScrollView <UIScrollViewDelegate>{
     UIView      *contentView;

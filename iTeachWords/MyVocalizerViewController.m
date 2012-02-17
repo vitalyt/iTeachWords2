@@ -195,7 +195,6 @@
         }
             break;
     }
-    NSLog(@"%@",langType);
     return langType;
 }
 

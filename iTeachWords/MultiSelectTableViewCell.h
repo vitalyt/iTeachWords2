@@ -15,9 +15,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MultiSelectTableViewCell : UITableViewCell
-{
-}
-
 @end
 
 extern const NSInteger EDITING_HORIZONTAL_OFFSET;

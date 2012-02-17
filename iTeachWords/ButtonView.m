@@ -34,7 +34,7 @@
 - (IBAction)buttonAction:(id)sender {
     SEL selector = @selector(buttonDidClick: withIndex:);
     if ([delegate respondsToSelector:selector]) {
-        [(id)delegate performSelector:selector withObject:sender withObject:index];
+        [delegate performSelector:selector withObject:sender withObject:[NSNumber numberWithInt:index]];
     }
 }
 

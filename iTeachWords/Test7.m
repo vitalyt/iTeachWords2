@@ -65,7 +65,7 @@
 	return NO;
 }
 - (void) loadStrWithArray{
-	NSMutableString *str = [[NSMutableString alloc] init];
+	NSMutableString *str = [[[NSMutableString alloc] init] autorelease];
 	for (int i = 0; i<[wordsArray count]; i++) {
 		[str appendFormat:@" %@",[wordsArray objectAtIndex:i]];
 	}

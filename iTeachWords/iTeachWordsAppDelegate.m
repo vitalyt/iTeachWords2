@@ -8,7 +8,7 @@
 
 #import "iTeachWordsAppDelegate.h"
 
-#import "iTeachWordsViewController.h"
+//#import "iTeachWordsViewController.h"
 #import "MenuViewController.h"
 #import "FilesManagerViewController.h"
 #import "MyPlayer.h"
@@ -428,10 +428,14 @@
 	[request setValue:requestDataLengthString     forHTTPHeaderField:@"Content-Length"];
 	[request setHTTPBody:data];
     
-	_mutableData = [[NSMutableData alloc] init];
+//	_mutableData = [[NSMutableData alloc] init];
 	
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest: request delegate:self];
 	NSAssert(nil != connection, NSLocalizedString(@"The connection cannot be created!", @""));
+    [connection release];
+    [params release];
+    [requestDataLengthString release];
+    
 }
 
 
@@ -470,7 +474,7 @@
     NSLog(@"Using File called: %@",recordedTmpFile);
     NSData *_data;
     _data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
-    [[iTeachWordsAppDelegate sharedDelegate] playSound:_data inView:nil];
+    [self playSound:_data inView:nil];
     [_data release];
 }
 

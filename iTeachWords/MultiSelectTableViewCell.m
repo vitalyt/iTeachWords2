@@ -14,10 +14,9 @@
 
 #import "MultiSelectTableViewCell.h"
 
-const NSInteger EDITING_HORIZONTAL_OFFSET = 35;
-
 @implementation MultiSelectTableViewCell
 
+const NSInteger EDITING_HORIZONTAL_OFFSET = 35;
 @synthesize selected;
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated

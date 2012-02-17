@@ -19,11 +19,11 @@
 	int				indexFileArray;
 	double			pauseInterval;
     
-    SoundType       *currentSoundType;
+    SoundType       currentSoundType;
 }
 
 @property (nonatomic,retain) NSArray * words;
-@property (nonatomic,assign) SoundType       *currentSoundType;
+@property (nonatomic,assign) SoundType currentSoundType;
 
 - (void) playList:(NSArray *)list;
 - (void) playNextSound;

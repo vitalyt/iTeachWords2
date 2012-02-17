@@ -41,8 +41,6 @@
 
 - (void) failedTransaction: (SKPaymentTransaction *)transaction
 {	
-    NSArray *u = [[NSArray  alloc] init];
-    NSLog(@"%@",u);
     if (transaction.error.code != SKErrorPaymentCancelled)		
     {		
         // Optionally, display an error here.		

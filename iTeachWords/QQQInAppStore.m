@@ -21,9 +21,9 @@
 static QQQInAppStore* _sharedInAppStore; // self
 
 - (void)dealloc {
-    [storeManager release];
-    [costDictionary release];
     [_sharedInAppStore release];
+    self.storeManager = nil;
+    self.costDictionary = nil;
     [super dealloc];
 }
 

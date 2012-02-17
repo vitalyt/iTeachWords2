@@ -21,16 +21,17 @@
 }
 
 - (void) generateStatisticView{
-    if(self.statisticViewController == nil){
-        self.statisticViewController = [[DetailStatisticViewController alloc] initWithNibName:@"DetailStatisticViewController" bundle:nil];
-        [self addSubview:self.statisticViewController.view];
+    if(statisticViewController == nil){
+        statisticViewController = [[DetailStatisticViewController alloc] initWithNibName:@"DetailStatisticViewController" bundle:nil];
+        [self addSubview:statisticViewController.view];
     }
 }
 
 - (void) removeStatisticView{
-    [self.statisticViewController.view removeFromSuperview];
-    [self.statisticViewController release];
-    self.statisticViewController = nil;
+    if (statisticViewController) {
+        [statisticViewController.view removeFromSuperview];
+        self.statisticViewController = nil;
+    }
 }
 
 - (void)dealloc {
@@ -38,9 +39,7 @@
 	[lblRus release];
 	[lblEngH release];
 	[lblRusH release];
-	if (statisticViewController) {
-        [self removeStatisticView];
-    }
+    [self removeStatisticView];
     [super dealloc];
 }
 

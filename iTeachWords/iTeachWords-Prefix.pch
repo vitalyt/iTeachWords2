@@ -4,15 +4,10 @@
 
 #import <Availability.h>
 
-#ifndef __IPHONE_3_0
-#warning "This project uses features only available in iPhone SDK 3.0 and later."
-#endif
-
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
     #import "TestFlight.h"
-    #import "iTeachWordsAppDelegate.h"
 
 #import "UIAlertView+Interaction.h"
 #import "NSString+Interaction.h"
@@ -21,6 +16,7 @@
 #import "NSNumber+Interaction.h"
 #import "NSDate+Interaction.h"
 
+#import "iTeachWordsAppDelegate.h"
 #endif
 
 

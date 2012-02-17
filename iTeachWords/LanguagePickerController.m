@@ -22,7 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.content = [[NSMutableArray alloc] init];
+        content = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -49,7 +49,7 @@
     NSString *countryNameCode = [[NSString alloc] initWithContentsOfFile:pathOfResource encoding:NSUTF8StringEncoding error:nil];
     
     NSArray *countries = [[NSArray alloc] initWithArray:[countryNameCode componentsSeparatedByString:@"\r"]];
-    
+    [countryNameCode release];
     NSString *nativeCountryCode = NATIVE_LANGUAGE_CODE;
     NSString *translateCountryCode = TRANSLATE_LANGUAGE_CODE;
     
@@ -100,6 +100,8 @@
     LanguageFlagImageView *flagView2 = [[LanguageFlagImageView alloc] initWithFrame:CGRectMake(270, y, 50.0, flagHight)];
     flagView2.tag = LFLAGVIEWTAG;
     [self.view addSubview:flagView2];
+    [flagView1 release];
+    [flagView2 release];
     //flagView = flagsView;
 
 }

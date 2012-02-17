@@ -94,6 +94,8 @@
                                                           selector:@selector(caseInsensitiveCompare:)];
 	NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"changeDate" ascending:NO];
     self.data = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:date, name, nil]];
+    [name release];
+    [date release];
 //    suonds = [[NSMutableArray alloc]init];
 //    for(Words *word in data){
 //        [suonds addObject:word.text];

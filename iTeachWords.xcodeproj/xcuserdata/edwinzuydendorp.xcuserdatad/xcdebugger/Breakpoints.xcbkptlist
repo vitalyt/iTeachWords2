@@ -611,11 +611,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349610911.765408"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
+         startingLineNumber = "138"
+         endingLineNumber = "138"
          landmarkName = "-checkDelayedThemes"
          landmarkType = "5">
       </FileBreakpoint>
@@ -854,7 +854,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "246"
          endingLineNumber = "246"
-         landmarkName = "-recognizerDidFinishRecording:"
+         landmarkName = "-recognizer:didFinishWithResults:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -882,7 +882,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "100"
          endingLineNumber = "100"
-         landmarkName = "-dealloc"
+         landmarkName = "-recordButtonAction:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -896,7 +896,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "155"
          endingLineNumber = "155"
-         landmarkName = "-recordButtonAction:"
+         landmarkName = "-getLangType"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -947,11 +947,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/AddWordOptionsView.m"
-         timestampString = "350924137.137673"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "218"
-         endingLineNumber = "218"
+         startingLineNumber = "219"
+         endingLineNumber = "219"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1199,11 +1199,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "350298068.158594"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "401"
-         endingLineNumber = "401"
+         startingLineNumber = "403"
+         endingLineNumber = "403"
          landmarkName = "-showRecordViewWithIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1213,11 +1213,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349621151.016578"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "350"
-         endingLineNumber = "350"
+         startingLineNumber = "352"
+         endingLineNumber = "352"
          landmarkName = "-playerDidStartPlayingSound:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1241,11 +1241,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349615780.433267"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "326"
-         endingLineNumber = "326"
+         startingLineNumber = "328"
+         endingLineNumber = "328"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1255,11 +1255,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349621151.016578"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "377"
-         endingLineNumber = "377"
+         startingLineNumber = "379"
+         endingLineNumber = "379"
          landmarkName = "-playerDidFinishPlaying:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1269,11 +1269,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349621151.016578"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "369"
-         endingLineNumber = "369"
+         startingLineNumber = "371"
+         endingLineNumber = "371"
          landmarkName = "-playerDidFinishPlayingSound:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1283,11 +1283,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349621151.016578"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "358"
-         endingLineNumber = "358"
+         startingLineNumber = "360"
+         endingLineNumber = "360"
          landmarkName = "-playerDidStartPlayingSound:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1297,11 +1297,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349617831.854627"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "339"
-         endingLineNumber = "339"
+         startingLineNumber = "341"
+         endingLineNumber = "341"
          landmarkName = "-playSoundWithIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1362,20 +1362,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/WorldTableToolsController.m"
-         timestampString = "351084392.972146"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "@implementation WorldTableToolsController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -1409,11 +1395,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "349952249.895832"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "424"
-         endingLineNumber = "424"
+         startingLineNumber = "426"
+         endingLineNumber = "426"
          landmarkName = "-recordViewDidClose:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2039,11 +2025,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MKStoreObserver.m"
-         timestampString = "351084392.972146"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
          landmarkName = "-completeTransaction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2053,11 +2039,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/MKStoreObserver.m"
-         timestampString = "351084392.972146"
+         timestampString = "351173748.557706"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "62"
-         endingLineNumber = "62"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
          landmarkName = "-restoreTransaction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2101,6 +2087,48 @@
          startingLineNumber = "39"
          endingLineNumber = "39"
          landmarkName = "-dealloc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/iTeachWordsAppDelegate.m"
+         timestampString = "351166351.287012"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "400"
+         endingLineNumber = "400"
+         landmarkName = "-doRegistrationProcess"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/LanguagePickerController.m"
+         timestampString = "351173729.858338"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
+         landmarkName = "-createFlagsView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/TableCellController.m"
+         timestampString = "351174023.68064"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "-removeStatisticView"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

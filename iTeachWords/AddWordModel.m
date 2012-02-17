@@ -88,7 +88,7 @@
                NATIVE_LANGUAGE_CODE,
            TRANSLATE_LANGUAGE_CODE,
            NATIVE_LANGUAGE_CODE,currentWord.text];
-    NSLog(@"%@",urlShow);
+//    NSLog(@"%@",urlShow);
 }
 
 #pragma loading translate

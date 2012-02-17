@@ -186,6 +186,7 @@
 	if (!wordsView.flgSave) {
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want save word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cansel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
         [actionSheet showInView:self.view];
+        [actionSheet autorelease];
 	}
 }
 

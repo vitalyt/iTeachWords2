@@ -15,11 +15,12 @@ documentsDirectory = [paths objectAtIndex:0];
 }
 
 - (id)initWithFrame:(CGRect)frame{
+    [self initWithUrl: @""];
     if (!webView) {
         webView = [[UIWebView alloc] initWithFrame:frame];
         webView.delegate = self;
     }
-    return [self initWithUrl: @""];
+    return self;
 }
 
 -(SimpleWebViewController *)initWithUrl: (NSString *)u

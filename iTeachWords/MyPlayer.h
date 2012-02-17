@@ -6,7 +6,7 @@
 //  Copyright 2010 OSDN. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "MyPlayerProtocol.h"

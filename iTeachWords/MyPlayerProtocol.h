@@ -6,7 +6,7 @@
 //  Copyright 2010 OSDN. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 
 
 @protocol MyPlayerProtocol

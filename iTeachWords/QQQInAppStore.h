@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-//#import <Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
 typedef enum {
 	VOCALIZER = 0,

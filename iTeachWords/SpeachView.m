@@ -78,6 +78,7 @@
     UIImageView *imView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [imView setImage:[UIImage imageWithCGImage:imageMasked]];
     [self addSubview:imView];
+    [imView release];
 }
 - (void)dealloc
 {
