@@ -98,7 +98,7 @@
     [self.values setObject:[NSNumber numberWithBool:isRepeatNotifications] forKey:@"isRepeatOptionOn"];
     
     titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
-    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notifications",@""), nil];
+    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notification",@""), nil];
     NSArray *elements1 = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Password",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];

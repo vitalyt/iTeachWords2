@@ -113,6 +113,9 @@
     [self createFlagsView];
     [self loadData];
     [pickerView reloadAllComponents];
+    
+    searchBarRight.placeholder = NSLocalizedString(@"Touch to search", @"");
+    searchBarLeft.placeholder = NSLocalizedString(@"Touch to search", @"");
 }
 
 - (void)viewDidUnload

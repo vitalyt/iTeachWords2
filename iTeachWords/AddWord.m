@@ -47,6 +47,7 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]];
     [self.view addSubview:wordsView.view];
+    [searchingTranslateBtn setTitle:NSLocalizedString(@"Tap to find more translations", @"") forState:UIControlStateNormal];
     //[wordsView loadData];
 }
 
@@ -167,6 +168,7 @@
     [wordsView release];
     [loadWebButtonView release];
     [animationView release];
+    [searchingTranslateBtn release];
     [super dealloc];
 }
 
@@ -175,6 +177,8 @@
     loadWebButtonView = nil;
     [animationView release];
     animationView = nil;
+    [searchingTranslateBtn release];
+    searchingTranslateBtn = nil;
     [super viewDidUnload];
 }
 @end

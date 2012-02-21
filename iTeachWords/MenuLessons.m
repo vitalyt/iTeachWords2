@@ -61,9 +61,6 @@
 }
 
 - (void) loadData{
-    
-    //data = [[NSArray alloc] initWithObjects:@"Word book",@"Lessons",@"Add new word",@"Text parser",@"Dictionary",@"Lessons", nil];
-    
     NSString *pathOfLessonResouce = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"LessonResouce"]];
     NSMutableArray *ar = [[NSMutableArray alloc]  initWithArray:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:pathOfLessonResouce error:nil]];
     //[ar removeObjectAtIndex:0];

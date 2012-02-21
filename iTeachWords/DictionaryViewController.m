@@ -28,6 +28,7 @@
 {
     [searchedText release];
     [searchedData release];
+    [searchBar release];
     [super dealloc];
 }
 
@@ -43,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    searchBar.placeholder = NSLocalizedString(@"Touch to search", @"");
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(inputModeDidChange:)
                                                  name:@"UIKeyboardCurrentInputModeDidChangeNotification"
@@ -280,5 +282,10 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [mySearchBar resignFirstResponder];
+}
+- (void)viewDidUnload {
+    [searchBar release];
+    searchBar = nil;
+    [super viewDidUnload];
 }
 @end

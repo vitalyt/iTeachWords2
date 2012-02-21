@@ -17,6 +17,7 @@
 	IBOutlet UIWebView		*myWebView;
     IBOutlet UIView         *loadWebButtonView;
     IBOutlet UIActivityIndicatorView *animationView;
+    IBOutlet UIButton *searchingTranslateBtn;
     
     AddNewWordViewController    *wordsView;
 }

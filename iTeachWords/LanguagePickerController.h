@@ -11,8 +11,8 @@
 @class LanguageFlagImageView;
 @interface LanguagePickerController : UIViewController  <UIPickerViewDataSource, UIPickerViewDelegate, UISearchBarDelegate> {
     IBOutlet UIPickerView	*pickerView;
-    IBOutlet UISearchBar *searchBarLeft;
-    IBOutlet UISearchBar *searchBarRight;
+    IBOutlet UISearchBar    *searchBarLeft;
+    IBOutlet UISearchBar    *searchBarRight;
     NSMutableArray          *content;
     
     bool                    isSearching;

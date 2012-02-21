@@ -14,6 +14,7 @@
     NSString *searchedText;
     
     NSThread *searchingThread;
+    IBOutlet UISearchBar *searchBar;
 }
 @property (nonatomic,retain) NSMutableArray *searchedData;
 @property (nonatomic,retain) NSString *searchedText;
