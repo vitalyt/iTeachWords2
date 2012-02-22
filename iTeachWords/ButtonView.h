@@ -16,11 +16,13 @@
     IBOutlet UIButton *button;
     
     NSInteger   index;
+    NSInteger   type;
     id  delegate;
 }
 
 
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) NSInteger type;
 @property (nonatomic, assign) id delegate;
 
 - (IBAction)buttonAction:(id)sender;

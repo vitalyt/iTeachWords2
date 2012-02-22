@@ -68,15 +68,16 @@
 	[pageControl addTarget:self action:@selector(pageTurn:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:pageControl];
     [self.view bringSubviewToFront:pageControl];
-    [pageControl setNumberOfPages:[self contentDataCount]];
+    [pageControl setNumberOfPages:[self contentDataCount]+1];
     [pageControl setCurrentPage:1];
-    [self pageTurn:pageControl];
+    prevPage = 1;
 
     // Step 2: prepare to tile content
     recycledPages = [[NSMutableSet alloc] init];
     visiblePages  = [[NSMutableSet alloc] init];
     
-    [self tilePages];
+    [self pageTurn:pageControl];
+//    [self tilePages];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -112,26 +113,36 @@
 {
 	int whichPage = aPageControl.currentPage;
 	pagingScrollView.contentOffset = CGPointMake(self.view.frame.size.width * whichPage, 0.0f);
+    [self scrollViewDidEndDecelerating:pagingScrollView];
 }
 #pragma mark -
 #pragma mark ScrollView delegate methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
     [self tilePages];
 }
 
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    
-}
-
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    
     CGRect visibleBounds = pagingScrollView.bounds;
     int numberOfPage = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
-    [pageControl setCurrentPage:numberOfPage];
+    pageControl.currentPage = 1;
+    if (numberOfPage == 1) {
+        return;
+    }
+    
+    NSDictionary *obj0 = [[self contentData] objectAtIndex:0];
+    NSDictionary *obj1 = [[self contentData] objectAtIndex:1];
+    [[self contentData] insertObject:obj0 atIndex:1];
+    [[self contentData] insertObject:obj1 atIndex:0];
+    
+    for (UIView *view in pagingScrollView.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    int whichPage = pageControl.currentPage;
+    pagingScrollView.contentOffset = CGPointMake(self.view.frame.size.width * whichPage, 0.0f);
+    [self tilePages];
 }
 
 #pragma mark -
@@ -146,7 +157,8 @@
     int lastNeededPageIndex  = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
     
     firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
-    lastNeededPageIndex  = MIN(lastNeededPageIndex, [self contentDataCount] - 1);
+    lastNeededPageIndex  = MIN(lastNeededPageIndex, [self contentDataCount] );
+    pageControl.currentPage = lastNeededPageIndex;
     
     // Recycle no-longer-visible pages 
     for (ButtonView *page in visiblePages) {
@@ -156,8 +168,8 @@
         }
     }
     [visiblePages minusSet:recycledPages];
-    
     // add missing pages
+    
     for (int index = firstNeededPageIndex; index <= lastNeededPageIndex; index++) {
         if (![self isDisplayingPageForIndex:index]) {
             ButtonView *page = [self dequeueRecycledPage];
@@ -169,7 +181,7 @@
             [pagingScrollView addSubview:page.view];
             [visiblePages addObject:page];
         }
-    }    
+    }   
 }
 
 - (ButtonView *)dequeueRecycledPage
@@ -199,6 +211,12 @@
     page.index = index;
     page.view.frame = [self frameForPageAtIndex:index];
     
+    if (index==[self contentDataCount]) {
+        index = 0;
+    }
+    NSDictionary *element = [[self contentData] objectAtIndex:index];
+    [page setType:[[element objectForKey:@"type"] integerValue]];
+
     // Use tiled images
 //    [page displayTiledImageNamed:[self imageNameAtIndex:index] size:[self imageSizeAtIndex:index]];
     
@@ -236,19 +254,18 @@
 - (CGSize)contentSizeForPagingScrollView {
     // We have to use the paging scroll view's bounds to calculate the contentSize, for the same reason outlined above.
     CGRect bounds = pagingScrollView.bounds;
-    return CGSizeMake((bounds.size.width * ((float)[self contentDataCount])), bounds.size.height);
+    return CGSizeMake((bounds.size.width * ((float)[self contentDataCount]+1)), bounds.size.height);
 }
 
 #pragma mark -
 #pragma mark Content wrangling
 
-- (NSArray*)contentData{
-    static NSArray *_contentData = nil;
+- (NSMutableArray*)contentData{
+    static NSMutableArray *_contentData = nil;
     if (_contentData == nil) {
-        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon1",@"name", nil];
-        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon",@"name", nil];
-       // NSDictionary *object2 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon1",@"name", nil];
-        _contentData = [[NSArray alloc] initWithObjects:object,object1, nil];
+        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon",@"name",[NSNumber numberWithInt:0],@"type", nil];
+        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon1",@"name",[NSNumber numberWithInt:1],@"type", nil];
+        _contentData = [[NSMutableArray alloc] initWithObjects:object1,object, nil];
     }
     return _contentData;
 }
@@ -267,6 +284,7 @@
         NSDictionary *element = [[self contentData] objectAtIndex:index];
         _name = [element objectForKey:@"name"];
     }
+    NSLog(@"%@",_name);
     return _name;
 }
 

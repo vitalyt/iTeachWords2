@@ -22,6 +22,8 @@
     CGFloat       percentScrolledIntoFirstVisiblePage;
     
     id            delegate;
+    bool    flg;
+    int             prevPage;
 }
 
 @property (nonatomic, assign) id delegate;
@@ -37,7 +39,7 @@
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
 - (void)configurePage:(ButtonView *)page forIndex:(NSUInteger)index;
 
-- (NSArray*)contentData;
+- (NSMutableArray*)contentData;
 - (NSInteger)contentDataCount;
 - (NSString*)countDataImageNameAtIndex:(NSInteger)index;
 - (UIImage *)imageButtonAtIndex:(NSUInteger)index;

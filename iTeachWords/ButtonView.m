@@ -10,7 +10,7 @@
 
 @implementation ButtonView
 
-@synthesize delegate,index;
+@synthesize delegate,index,type;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +34,7 @@
 - (IBAction)buttonAction:(id)sender {
     SEL selector = @selector(buttonDidClick: withIndex:);
     if ([delegate respondsToSelector:selector]) {
-        [delegate performSelector:selector withObject:sender withObject:[NSNumber numberWithInteger:index]];
+        [delegate performSelector:selector withObject:sender withObject:[NSNumber numberWithInteger:type]];
     }
 }
 
@@ -72,6 +72,7 @@
 
 - (void)changeButtonImage:(UIImage*)_image{
     [button setImage:_image forState:UIControlStateNormal];
+//    [button.layer setNeedsDisplay];
 }
 
 @end
