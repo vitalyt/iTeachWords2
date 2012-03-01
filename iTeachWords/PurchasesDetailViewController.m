@@ -8,6 +8,7 @@
 
 #import "PurchasesDetailViewController.h"
 #import "MyUIViewClass.h"
+#import "SimpleWebViewController.h"
 
 @implementation PurchasesDetailViewController
 
@@ -57,7 +58,9 @@
     CGRect frame = contentView.frame;
     frame.size.height = frame.size.height - 20 - buyButton.frame.size.height;
     [contentView setFrame:frame];
-    [self setUrl:[self urlByPurchaseType:purchaseType]];
+    
+    [self loadContentByFile:[self fileNameByPurchaseType:purchaseType]];
+//    [self setUrl:[self urlByPurchaseType:purchaseType]];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -100,16 +103,37 @@
 - (NSString*)urlByPurchaseType:(PurchaseType)_purchaseType{
     switch (_purchaseType) {
         case VOCALIZER:
-            return NSLocalizedString(@"http://google.ru", @"");
+            return NSLocalizedString(@"http://www.google.ru", @"");
             break;
         case TEST1:
-            return NSLocalizedString(@"http://yandex.ru", @"");
+            return NSLocalizedString(@"http://www.yandex.ru", @"");
             break;
         case TESTGAME:
-            return NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"");
+            return NSLocalizedString(@"http://www.en.wikipedia.org/wiki/Forgetting_curve", @"");
             break;
         case NOTIFICATION:
-            return NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"");
+            return NSLocalizedString(@"http://www.en.wikipedia.org/wiki/Forgetting_curve", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
+}
+
+- (NSString*)fileNameByPurchaseType:(PurchaseType)_purchaseType{
+    switch (_purchaseType) {
+        case VOCALIZER:
+            return NSLocalizedString(@"Instructie", @"");
+            break;
+        case TEST1:
+            return NSLocalizedString(@"Instructie", @"");
+            break;
+        case TESTGAME:
+            return NSLocalizedString(@"Instructie", @"");
+            break;
+        case NOTIFICATION:
+            return NSLocalizedString(@"Instructie", @"");
             break;
             
         default:

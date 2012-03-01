@@ -141,6 +141,11 @@
 		284C9FE4138A8900000A7075 /* TestOneOfSix.m in Sources */ = {isa = PBXBuildFile; fileRef = 284C9FE2138A8900000A7075 /* TestOneOfSix.m */; };
 		284C9FE5138A8900000A7075 /* TestOneOfSix.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284C9FE3138A8900000A7075 /* TestOneOfSix.xib */; };
 		284C9FEA138A89F0000A7075 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284C9FE8138A89F0000A7075 /* StatisticViewController.m */; };
+		2850556F14FFC05800B03DF1 /* PurchasesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */; };
+		2850557214FFC21100B03DF1 /* Instructie.html in Resources */ = {isa = PBXBuildFile; fileRef = 2850557114FFC21100B03DF1 /* Instructie.html */; };
+		2850557314FFC21100B03DF1 /* Instructie.html in Resources */ = {isa = PBXBuildFile; fileRef = 2850557114FFC21100B03DF1 /* Instructie.html */; };
+		2850557514FFC36800B03DF1 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 2850557414FFC36800B03DF1 /* styles.css */; };
+		2850557614FFC36800B03DF1 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 2850557414FFC36800B03DF1 /* styles.css */; };
 		285758B2148E093B0045F63B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285758B0148E093B0045F63B /* WebViewController.m */; };
 		285758B3148E093B0045F63B /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285758B1148E093B0045F63B /* WebViewController.xib */; };
 		285758B7148E0AD60045F63B /* OsdnDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 285758B6148E0AD60045F63B /* OsdnDataBase.m */; };
@@ -275,7 +280,6 @@
 		285B814014E4079E001C977D /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2821ECC61484DF1B0025621D /* libTestFlight.a */; };
 		285B814214E4079E001C977D /* CountryNameCode2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 282E99791410C014009FE9E7 /* CountryNameCode2.txt */; };
 		285B814314E4079E001C977D /* iTeachWordsDataModel.xcdatamodel in Resources */ = {isa = PBXBuildFile; fileRef = 28296B2B13814109000129E8 /* iTeachWordsDataModel.xcdatamodel */; };
-		285B814414E4079E001C977D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 284092D41381242700864711 /* InfoPlist.strings */; };
 		285B814514E4079E001C977D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284092DD1381242700864711 /* MainWindow.xib */; };
 		285B814614E4079E001C977D /* iTeachWordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284092E31381242700864711 /* iTeachWordsViewController.xib */; };
 		285B814714E4079E001C977D /* MyMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28296B1D13812F15000129E8 /* MyMenu.xib */; };
@@ -898,7 +902,6 @@
 		28E3307E140F9FDA00ABC7D5 /* ZW.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32FAA140F9FDA00ABC7D5 /* ZW.png */; };
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
-		8457544414EC2C5000481AF4 /* PurchasesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -1125,6 +1128,8 @@
 		284C9FE3138A8900000A7075 /* TestOneOfSix.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestOneOfSix.xib; sourceTree = "<group>"; };
 		284C9FE7138A89F0000A7075 /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
 		284C9FE8138A89F0000A7075 /* StatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
+		2850557114FFC21100B03DF1 /* Instructie.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Instructie.html; sourceTree = "<group>"; };
+		2850557414FFC36800B03DF1 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		285758AF148E093B0045F63B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		285758B0148E093B0045F63B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		285758B1148E093B0045F63B /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -2060,6 +2065,8 @@
 		284092D21381242700864711 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2850557414FFC36800B03DF1 /* styles.css */,
+				2850557114FFC21100B03DF1 /* Instructie.html */,
 				2866E1F314A09F91002823E6 /* sounds */,
 				28A088291421CDBF00F292F9 /* Localizable.strings */,
 				282E99791410C014009FE9E7 /* CountryNameCode2.txt */,
@@ -3160,6 +3167,8 @@
 				2834E93114D18960008229F3 /* right.png in Resources */,
 				2834E93214D18960008229F3 /* stop.png in Resources */,
 				2834E93814D189D1008229F3 /* MyVocalizerViewController.xib in Resources */,
+				2850557214FFC21100B03DF1 /* Instructie.html in Resources */,
+				2850557514FFC36800B03DF1 /* styles.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3169,7 +3178,6 @@
 			files = (
 				285B814214E4079E001C977D /* CountryNameCode2.txt in Resources */,
 				285B814314E4079E001C977D /* iTeachWordsDataModel.xcdatamodel in Resources */,
-				285B814414E4079E001C977D /* InfoPlist.strings in Resources */,
 				285B814514E4079E001C977D /* MainWindow.xib in Resources */,
 				285B814614E4079E001C977D /* iTeachWordsViewController.xib in Resources */,
 				285B814714E4079E001C977D /* MyMenu.xib in Resources */,
@@ -3496,6 +3504,8 @@
 				285B828814E4079E001C977D /* right.png in Resources */,
 				285B828914E4079E001C977D /* stop.png in Resources */,
 				285B828A14E4079E001C977D /* MyVocalizerViewController.xib in Resources */,
+				2850557314FFC21100B03DF1 /* Instructie.html in Resources */,
+				2850557614FFC36800B03DF1 /* styles.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3623,6 +3633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2850556F14FFC05800B03DF1 /* PurchasesDetailViewController.m in Sources */,
 				285B80C214E4079E001C977D /* main.m in Sources */,
 				285B80C314E4079E001C977D /* iTeachWordsAppDelegate.m in Sources */,
 				285B80C414E4079E001C977D /* iTeachWordsViewController.m in Sources */,
@@ -3736,7 +3747,6 @@
 				28D3244514E90E0C0014CBCB /* MKStoreManager.m in Sources */,
 				28D3244614E90E0C0014CBCB /* MKStoreObserver.m in Sources */,
 				28D3244914E910460014CBCB /* QQQInAppStore.m in Sources */,
-				8457544414EC2C5000481AF4 /* PurchasesDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

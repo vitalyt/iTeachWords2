@@ -7,7 +7,7 @@ documentsDirectory = [paths objectAtIndex:0];
 
 @implementation SimpleWebViewController
 
-@synthesize url,webView;
+@synthesize url;
 
 -init
 {
@@ -16,11 +16,19 @@ documentsDirectory = [paths objectAtIndex:0];
 
 - (id)initWithFrame:(CGRect)frame{
     [self initWithUrl: @""];
-    if (!webView) {
-        webView = [[UIWebView alloc] initWithFrame:frame];
-        webView.delegate = self;
+    if (!_webView) {
+        _webView = [[UIWebView alloc] initWithFrame:frame];
+        _webView.delegate = self;
     }
     return self;
+}
+
+- (UIWebView*)webView{
+    if (!_webView) {
+        _webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height-44)];
+        _webView.delegate = self;
+    }
+    return _webView;
 }
 
 -(SimpleWebViewController *)initWithUrl: (NSString *)u
@@ -33,7 +41,7 @@ documentsDirectory = [paths objectAtIndex:0];
 	return self;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)_webView{
+- (void)webViewDidStartLoad:(UIWebView *)__webView{
     if (!progressView) {
         progressView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2-10, self.view.frame.size.height/2-10, 20, 20)];  
         progressView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;  
@@ -42,7 +50,7 @@ documentsDirectory = [paths objectAtIndex:0];
                                          UIViewAutoresizingFlexibleTopMargin |  
                                          UIViewAutoresizingFlexibleBottomMargin);
     } 
-    [_webView addSubview:progressView];
+    [__webView addSubview:progressView];
     [progressView startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)_webView{
@@ -55,14 +63,12 @@ documentsDirectory = [paths objectAtIndex:0];
 }  
 
 
+
 -(void)viewDidLoad 
 {
 	[super viewDidLoad];
-    if (!webView) {
-        webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height-44)];
-        webView.delegate = self;
-    }
-    [self loadContent];
+    [self.view addSubview:[self webView]];
+//    [self loadContent];
 }
 
 - (void)setUrl:(NSString *)_url{
@@ -75,20 +81,41 @@ documentsDirectory = [paths objectAtIndex:0];
     if (![_url hasPrefix:@"http://"]) {
         _url = [NSString stringWithFormat:@"http://%@",_url];
     }
+    NSLog(@"Loading->%@",_url);
     url = [_url retain];
     [self loadContent];
 }
 
 - (void)loadContent{
-    [webView stopLoading];
+//    [self loadContentByFile:@"Instructie"];
+//    return;
+    [[self webView] stopLoading];
     [self clearContent];
     NSURLRequest *requestObj;
-    requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [webView loadRequest:requestObj];
+    requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    [[self webView] loadRequest:requestObj];
+}
+
+- (void)loadContentByFile:(NSString*)fileName{
+    [[self webView] stopLoading];
+    [self clearContent];
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"html"];
+    NSLog(@"%@",path);
+
+    NSURL *mainBundleURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+    if (path) {
+        NSError *error = nil;
+        NSURL *_url = [NSURL fileURLWithPath:path];
+        NSString *_html = [NSString stringWithContentsOfURL:_url 
+                                                  encoding:NSASCIIStringEncoding
+                                                     error:&error];
+        NSString *htmlData = [NSMutableString stringWithString:_html ];
+        [[self webView] loadHTMLString:htmlData baseURL:mainBundleURL];
+    }
 }
 
 - (void)clearContent{
-    [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML = \"\";"];
+    [[self webView] stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML = \"\";"];
     //    [webView loadHTMLString:@"<html><head></head><body></body></html>" baseURL:nil];
 }
 -(void)back
@@ -102,7 +129,7 @@ documentsDirectory = [paths objectAtIndex:0];
         [progressView release];
     }
 	[url release];
-	[webView release];
+	[_webView release];
     [super dealloc];
 }
 

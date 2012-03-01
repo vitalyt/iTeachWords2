@@ -7,8 +7,8 @@
 //  mugunthkumar.com
 
 #import <StoreKit/StoreKit.h>
-#import "MKStoreObserver.h"
 
+@class MKStoreObserver;
 @protocol MKStoreKitDelegate <NSObject>
 @optional
 - (void)productPurchased;

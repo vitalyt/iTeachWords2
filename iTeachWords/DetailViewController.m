@@ -40,22 +40,6 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    // grab an image of our parent view
-//    UIView *parentView = self.parentViewController.view;
-    
-    // For iOS 5 you need to use presentingViewController:
-    // UIView *parentView = self.presentingViewController.view;
-    
-//    UIGraphicsBeginImageContext(parentView.bounds.size);
-//    [parentView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *parentViewImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    // insert an image view with a picture of the parent view at the back of our view's subview stack...
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, parentView.bounds.size.width, parentView.bounds.size.height)];
-//    imageView.image = parentViewImage;
-    //[self.view insertSubview:imageView atIndex:0];
     [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
     //[imageView release];
 }
@@ -87,11 +71,8 @@
 
 - (void)showWebView{
     CGRect webViewFrame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
-    if (!webView) {
-        webView = [[UIWebView alloc] initWithFrame:webViewFrame];
-    }
-    [contentView addSubview:webView];
-    [webView setFrame:webViewFrame];
+    [contentView addSubview:[self webView]];
+    [[self webView] setFrame:webViewFrame];
 }
 
 - (IBAction)close:(id)sender{

@@ -5,12 +5,11 @@
 	NSString *url;
 	BOOL	flgLoad;
 	BOOL	flgInternalLink;
-@protected
-    UIWebView *webView;
+@private
+    UIWebView *_webView;
 	UIActivityIndicatorView *progressView;
 }
 
-@property (nonatomic,assign) UIWebView *webView;
 @property (nonatomic,retain) NSString *url;
 
 - (id)initWithFrame:(CGRect)frame;
@@ -18,5 +17,6 @@
 -(SimpleWebViewController *)initWithUrl: (NSString *) u;
 - (void)clearContent;
 - (void)loadContent;
-
+- (void)loadContentByFile:(NSString*)fileName;
+- (UIWebView*)webView;
 @end
