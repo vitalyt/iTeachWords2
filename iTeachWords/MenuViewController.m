@@ -306,6 +306,7 @@
 
 - (void)showSettingsView{
     SettingsViewController *languageView = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+//    [self performTransition];
     [self.navigationController pushViewController:languageView animated:YES];
     [languageView release];
 }
@@ -319,6 +320,7 @@
     webViewController.url = url;
 	[self.navigationController pushViewController:webViewController animated:YES];
 	[webViewController release];
+
 }
 
 - (void)showVocalizerView{
@@ -333,5 +335,13 @@
     [recognizerView release];
 }
 
+-(void)performTransition  {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.75f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+}
 
 @end

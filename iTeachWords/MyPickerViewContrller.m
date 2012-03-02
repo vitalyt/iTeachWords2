@@ -112,13 +112,12 @@
     [self.view setFrame:frame];
     [UIView commitAnimations];
     
-    [self performSelector:@selector(closeView) withObject:nil afterDelay:.5];
-    [self.view setBackgroundColor:[UIColor clearColor]];
-
+    [self closeView];
 }
 
 - (void)closeView{
-  	[self.view removeFromSuperview];
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.view performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5];
     if (self.delegate && [self.delegate respondsToSelector:@selector(pickerWillCansel)]) {
 		[self.delegate pickerWillCansel];
 	}  
@@ -146,7 +145,7 @@
     [self.view setFrame:frame];
     [UIView commitAnimations];
     
-	[self.view performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5];
+    [self closeView];
 
 }
 

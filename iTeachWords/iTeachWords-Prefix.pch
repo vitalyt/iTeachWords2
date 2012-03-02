@@ -40,7 +40,7 @@ typedef enum {
 #define DEFAULT_FONT_NAME [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontName"]
 #define FONT_TEXT [UIFont fontWithName:DEFAULT_FONT_NAME size:DEFAULT_FONT_SIZE]
 #define BACK_BUTTON [[[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease]
-
+#define SET_BACK_BUTTON()     NSArray* viewCtrlers = self.navigationController.viewControllers; UIViewController* prevCtrler = [viewCtrlers objectAtIndex:[viewCtrlers count]-2];  prevCtrler.title = NSLocalizedString(@"Back", @"");
 
 #define IS_REPEAT_OPTION_ON (([[NSUserDefaults standardUserDefaults] objectForKey:@"isRepeatOptionOn"])?[[NSUserDefaults standardUserDefaults] boolForKey:@"isRepeatOptionOn"]:YES)
 

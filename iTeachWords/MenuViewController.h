@@ -47,4 +47,5 @@
 - (void)checkDelayedThemes;
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame;
 
+-(void)performTransition;
 @end

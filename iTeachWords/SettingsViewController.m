@@ -50,6 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [TestFlight passCheckpoint:@"User gone to the Settings view"];
     [TestFlight openFeedbackView];
     barItem.frame = CGRectMake(0, self.view.frame.size.height+barItem.frame.size.height, barItem.frame.size.width, barItem.frame.size.height);

@@ -123,6 +123,7 @@
 		284092E21381242700864711 /* iTeachWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284092E11381242700864711 /* iTeachWordsViewController.m */; };
 		284092E51381242700864711 /* iTeachWordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284092E31381242700864711 /* iTeachWordsViewController.xib */; };
 		284092F6138124A900864711 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284092F5138124A900864711 /* TableViewController.m */; };
+		2842F2591500EF5600C3A3A3 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2842F2581500EF5600C3A3A3 /* Back.png */; };
 		284C9FB9138A48F3000A7075 /* Words.m in Sources */ = {isa = PBXBuildFile; fileRef = 284C9FB8138A48F3000A7075 /* Words.m */; };
 		284C9FBC138A4906000A7075 /* Sounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 284C9FBB138A4906000A7075 /* Sounds.m */; };
 		284C9FBE138A4C40000A7075 /* MultiPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284C9FBD138A4C40000A7075 /* MultiPlayer.xib */; };
@@ -1103,6 +1104,7 @@
 		284092E41381242700864711 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/iTeachWordsViewController.xib; sourceTree = "<group>"; };
 		284092F4138124A900864711 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		284092F5138124A900864711 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		2842F2581500EF5600C3A3A3 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		284C9FB7138A48F3000A7075 /* Words.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Words.h; sourceTree = "<group>"; };
 		284C9FB8138A48F3000A7075 /* Words.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Words.m; sourceTree = "<group>"; };
 		284C9FBA138A4906000A7075 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
@@ -2065,6 +2067,7 @@
 		284092D21381242700864711 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2842F2581500EF5600C3A3A3 /* Back.png */,
 				2850557414FFC36800B03DF1 /* styles.css */,
 				2850557114FFC21100B03DF1 /* Instructie.html */,
 				2866E1F314A09F91002823E6 /* sounds */,
@@ -3169,6 +3172,7 @@
 				2834E93814D189D1008229F3 /* MyVocalizerViewController.xib in Resources */,
 				2850557214FFC21100B03DF1 /* Instructie.html in Resources */,
 				2850557514FFC36800B03DF1 /* styles.css in Resources */,
+				2842F2591500EF5600C3A3A3 /* Back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
