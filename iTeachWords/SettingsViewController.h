@@ -19,6 +19,7 @@
     bool isKeyboardShowing;
 }
 
+- (IBAction)closeView:(id)sender;
 - (void)done;
 - (void)showDatePickerView:(TextFieldCell *)cell;
 - (void)setImageFlagInCell:(TextFieldLanguagesCell *)cell;

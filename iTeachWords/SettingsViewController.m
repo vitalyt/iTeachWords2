@@ -370,6 +370,10 @@
     [languagePicker release];
 }
 
+- (IBAction)closeView:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)done{
     if (![self.values objectForKey:@"Name"] || ![self.values objectForKey:@"id"] || ![self.values objectForKey:@"luid"] || ![self.values objectForKey:@"Password"]) {
         [UIAlertView displayError:NSLocalizedString(@"Data is not completly", @"")];

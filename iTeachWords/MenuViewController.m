@@ -307,6 +307,7 @@
 - (void)showSettingsView{
     SettingsViewController *languageView = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
 //    [self performTransition];
+    [languageView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self.navigationController pushViewController:languageView animated:YES];
     [languageView release];
 }
