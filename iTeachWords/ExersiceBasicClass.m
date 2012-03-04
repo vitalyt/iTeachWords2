@@ -23,7 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(back)] autorelease];
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(back)] autorelease];
     }
     return self;
 }
@@ -57,7 +57,7 @@
     //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]]];
 	[textBox setReturnKeyType:UIReturnKeyNext];
 	textBox.delegate = self;
-    [self createBunnerView];
+//    [self createBunnerView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,6 +99,7 @@
 
 - (void) back{ 
     [self registerRepeat];
+    [self performTransition];
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -223,6 +224,16 @@
     [lblWordRus setFrame:CGRectMake(lblWordRus.frame.origin.x, 50+offset, lblWordRus.frame.size.width, lblWordRus.frame.size.height)];
     [doneButton setFrame:CGRectMake(doneButton.frame.origin.x, 136+offset, doneButton.frame.size.width, doneButton.frame.size.height)];
     
+}
+
+
+-(void)performTransition  {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.75f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromBottom;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
 }
 
 @end

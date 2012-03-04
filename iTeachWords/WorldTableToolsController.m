@@ -109,7 +109,9 @@
     testController.wordType = wordType;
     UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
-	[self.navigationController pushViewController:testController animated:YES ];
+//    [self.navigationController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self performTransition];
+	[self.navigationController pushViewController:testController animated:YES];
 	testController.data = [NSMutableArray arrayWithArray:self.data];
 	[testController createWord];
 	[testController release];
@@ -124,8 +126,7 @@
 	TestOneOfSix *testController = [[TestOneOfSix alloc] initWithNibName:@"TestOneOfSix" bundle:nil];
     testController.wordType = wordType;
     testController.data = [NSMutableArray arrayWithArray:self.data];
-    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
-    [[self navigationItem] setBackBarButtonItem: newBackButton];
+    [self performTransition];
 	[self.navigationController pushViewController:testController animated:YES ];
 	[testController release];
 }
@@ -150,6 +151,7 @@
 	//testOrthographyView.exerciseIndex = exerciseIndex;
     UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
+    [self performTransition];
     [self.navigationController pushViewController:testOrthographyView animated:YES ];
 	[testOrthographyView release];
 }
@@ -295,6 +297,15 @@
 
 - (void)generateThemeStatistic{
     
+}
+
+-(void)performTransition  {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.75f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
 }
 
 @end

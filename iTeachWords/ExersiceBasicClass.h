@@ -47,4 +47,5 @@
 - (void)moveViewObjects;
 - (void)registerRepeat;
 
+-(void)performTransition;
 @end
