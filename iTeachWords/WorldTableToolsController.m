@@ -233,14 +233,19 @@
 
 - (void) deleteWord
 {
-    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Are you sure you want to delete the word?" 
-                                                     message:nil 
-                                                    delegate:self 
-                                           cancelButtonTitle:@"No"
-                                           otherButtonTitles:@"YES",nil] autorelease];
-    alert.tag = EditingViewOptionDelete;
-    alert.alpha = .20;
-    [alert show];
+    UIActionSheet *actionSheet = [[[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Are you sure you want to delete the word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete words", @"") otherButtonTitles: nil] autorelease];
+    [actionSheet showInView:self.view];
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:{
+            [self deleteSelectedWords];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void) reassignSelectedWordsToTheme:(WordTypes *)_wordType{

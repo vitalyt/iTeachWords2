@@ -13,7 +13,7 @@
 
 @class WordTypes;
 
-@interface WorldTableToolsController : WorldTableViewController <ToolsViewProtocol,UIAlertViewDelegate> {
+@interface WorldTableToolsController : WorldTableViewController <ToolsViewProtocol,UIAlertViewDelegate,UIActionSheetDelegate> {
     UIView              *loadingView;
 }
 
