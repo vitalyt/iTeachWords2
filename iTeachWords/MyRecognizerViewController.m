@@ -212,8 +212,10 @@
     [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     
-    if (0 < numOfResults <= 1){
-        [self didSelectRowAtIndex:0 withContext:[results firstResult]];
+    if ((0 < numOfResults <= 1) && [results firstResult]){
+        NSArray *resultats = [NSArray arrayWithObjects:[results firstResult], nil];
+        [self showTableAlertViewWithElements:resultats];
+//        [self didSelectRowAtIndex:0 withContext:[results firstResult]];
         searchBox.text = [results firstResult];
     }else if (numOfResults > 1) {
         [self showTableAlertViewWithElements:[results.results subarrayWithRange:NSMakeRange(1, numOfResults-1)]];

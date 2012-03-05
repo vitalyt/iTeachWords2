@@ -107,7 +107,7 @@ documentsDirectory = [paths objectAtIndex:0];
         NSError *error = nil;
         NSURL *_url = [NSURL fileURLWithPath:path];
         NSString *_html = [NSString stringWithContentsOfURL:_url 
-                                                  encoding:NSASCIIStringEncoding
+                                                  encoding:NSUTF8StringEncoding
                                                      error:&error];
         NSString *htmlData = [NSMutableString stringWithString:_html ];
         [[self webView] loadHTMLString:htmlData baseURL:mainBundleURL];

@@ -143,8 +143,8 @@
 		284C9FE5138A8900000A7075 /* TestOneOfSix.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284C9FE3138A8900000A7075 /* TestOneOfSix.xib */; };
 		284C9FEA138A89F0000A7075 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284C9FE8138A89F0000A7075 /* StatisticViewController.m */; };
 		2850556F14FFC05800B03DF1 /* PurchasesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */; };
-		2850557214FFC21100B03DF1 /* Instructie.html in Resources */ = {isa = PBXBuildFile; fileRef = 2850557114FFC21100B03DF1 /* Instructie.html */; };
-		2850557314FFC21100B03DF1 /* Instructie.html in Resources */ = {isa = PBXBuildFile; fileRef = 2850557114FFC21100B03DF1 /* Instructie.html */; };
+		2850557214FFC21100B03DF1 /* RepeatInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 2850557114FFC21100B03DF1 /* RepeatInfo.html */; };
+		2850557314FFC21100B03DF1 /* RepeatInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 2850557114FFC21100B03DF1 /* RepeatInfo.html */; };
 		2850557514FFC36800B03DF1 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 2850557414FFC36800B03DF1 /* styles.css */; };
 		2850557614FFC36800B03DF1 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 2850557414FFC36800B03DF1 /* styles.css */; };
 		285758B2148E093B0045F63B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285758B0148E093B0045F63B /* WebViewController.m */; };
@@ -637,6 +637,13 @@
 		289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */; };
 		28A0882B1421CDBF00F292F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28A088291421CDBF00F292F9 /* Localizable.strings */; };
 		28A194A114862FDD005B343A /* SpeachView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A194A014862FDD005B343A /* SpeachView.m */; };
+		28B143B91504EE8900E66A88 /* iTeachWords_Free-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28B143B81504EE8900E66A88 /* iTeachWords_Free-Info.plist */; };
+		28B143C61504F00400E66A88 /* CenterButtonIconHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B143C41504F00400E66A88 /* CenterButtonIconHeart.png */; };
+		28B143C71504F00400E66A88 /* CenterButtonIconHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B143C41504F00400E66A88 /* CenterButtonIconHeart.png */; };
+		28B143C81504F00400E66A88 /* CenterButtonIconPaw.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B143C51504F00400E66A88 /* CenterButtonIconPaw.png */; };
+		28B143C91504F00400E66A88 /* CenterButtonIconPaw.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B143C51504F00400E66A88 /* CenterButtonIconPaw.png */; };
+		28B143CB1504F00B00E66A88 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 28B143CA1504F00B00E66A88 /* img */; };
+		28B143CC1504F00B00E66A88 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 28B143CA1504F00B00E66A88 /* img */; };
 		28B5506614CEE1DB0067B618 /* RecognizerAlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B5506514CEE1DB0067B618 /* RecognizerAlertTableView.m */; };
 		28BA996F138E753100311400 /* TestOrthography.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BA996D138E753100311400 /* TestOrthography.m */; };
 		28BDB691148387C500BC2688 /* BannerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDB690148387C500BC2688 /* BannerTableViewController.m */; };
@@ -1130,7 +1137,7 @@
 		284C9FE3138A8900000A7075 /* TestOneOfSix.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestOneOfSix.xib; sourceTree = "<group>"; };
 		284C9FE7138A89F0000A7075 /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
 		284C9FE8138A89F0000A7075 /* StatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
-		2850557114FFC21100B03DF1 /* Instructie.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Instructie.html; sourceTree = "<group>"; };
+		2850557114FFC21100B03DF1 /* RepeatInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RepeatInfo.html; sourceTree = "<group>"; };
 		2850557414FFC36800B03DF1 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		285758AF148E093B0045F63B /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		285758B0148E093B0045F63B /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
@@ -1146,7 +1153,6 @@
 		285758C2148E0D7D0045F63B /* AddWordOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWordOptionsView.h; sourceTree = "<group>"; };
 		285758C3148E0D7D0045F63B /* AddWordOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AddWordOptionsView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		285B828F14E4079E001C977D /* iTeachWords_Free.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTeachWords_Free.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		285B829114E4079F001C977D /* iTeachWords_Free-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iTeachWords_Free-Info.plist"; path = "/Users/edwinzuydendorp/github/iTeachWords/iTeachWords_Free-Info.plist"; sourceTree = "<absolute>"; };
 		2862E3BF14C57D20003CC14C /* SimpleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleWebViewController.h; sourceTree = "<group>"; };
 		2862E3C014C57D20003CC14C /* SimpleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleWebViewController.m; sourceTree = "<group>"; };
 		2862E3C314C58162003CC14C /* Close-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Close-button.png"; sourceTree = "<group>"; };
@@ -1191,6 +1197,10 @@
 		28A0882C1421CE2000F292F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28A1949F14862FDD005B343A /* SpeachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeachView.h; sourceTree = "<group>"; };
 		28A194A014862FDD005B343A /* SpeachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeachView.m; sourceTree = "<group>"; };
+		28B143B81504EE8900E66A88 /* iTeachWords_Free-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iTeachWords_Free-Info.plist"; sourceTree = SOURCE_ROOT; };
+		28B143C41504F00400E66A88 /* CenterButtonIconHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CenterButtonIconHeart.png; sourceTree = "<group>"; };
+		28B143C51504F00400E66A88 /* CenterButtonIconPaw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CenterButtonIconPaw.png; sourceTree = "<group>"; };
+		28B143CA1504F00B00E66A88 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		28B5506414CEE1DB0067B618 /* RecognizerAlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerAlertTableView.h; sourceTree = "<group>"; };
 		28B5506514CEE1DB0067B618 /* RecognizerAlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizerAlertTableView.m; sourceTree = "<group>"; };
 		28BA996C138E753100311400 /* TestOrthography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestOrthography.h; sourceTree = "<group>"; };
@@ -1845,6 +1855,8 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				28B143C41504F00400E66A88 /* CenterButtonIconHeart.png */,
+				28B143C51504F00400E66A88 /* CenterButtonIconPaw.png */,
 				2834E92F14D18960008229F3 /* right.png */,
 				2834E93014D18960008229F3 /* stop.png */,
 				289C63A014CDA50B0003C5BF /* Microphone.png */,
@@ -2067,15 +2079,13 @@
 		284092D21381242700864711 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2842F2581500EF5600C3A3A3 /* Back.png */,
-				2850557414FFC36800B03DF1 /* styles.css */,
-				2850557114FFC21100B03DF1 /* Instructie.html */,
+				28B143CD1504F10600E66A88 /* WEB */,
 				2866E1F314A09F91002823E6 /* sounds */,
 				28A088291421CDBF00F292F9 /* Localizable.strings */,
 				282E99791410C014009FE9E7 /* CountryNameCode2.txt */,
 				28296B4213814999000129E8 /* images */,
 				284092D31381242700864711 /* iTeachWords-Info.plist */,
-				285B829114E4079F001C977D /* iTeachWords_Free-Info.plist */,
+				28B143B81504EE8900E66A88 /* iTeachWords_Free-Info.plist */,
 				284092D71381242700864711 /* iTeachWords-Prefix.pch */,
 				284092D41381242700864711 /* InfoPlist.strings */,
 				284092D81381242700864711 /* main.m */,
@@ -2295,6 +2305,17 @@
 				289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */,
 			);
 			name = MySiri;
+			sourceTree = "<group>";
+		};
+		28B143CD1504F10600E66A88 /* WEB */ = {
+			isa = PBXGroup;
+			children = (
+				28B143CA1504F00B00E66A88 /* img */,
+				2842F2581500EF5600C3A3A3 /* Back.png */,
+				2850557414FFC36800B03DF1 /* styles.css */,
+				2850557114FFC21100B03DF1 /* RepeatInfo.html */,
+			);
+			name = WEB;
 			sourceTree = "<group>";
 		};
 		28BA9963138E74B500311400 /* Orthography */ = {
@@ -3170,9 +3191,13 @@
 				2834E93114D18960008229F3 /* right.png in Resources */,
 				2834E93214D18960008229F3 /* stop.png in Resources */,
 				2834E93814D189D1008229F3 /* MyVocalizerViewController.xib in Resources */,
-				2850557214FFC21100B03DF1 /* Instructie.html in Resources */,
+				2850557214FFC21100B03DF1 /* RepeatInfo.html in Resources */,
 				2850557514FFC36800B03DF1 /* styles.css in Resources */,
 				2842F2591500EF5600C3A3A3 /* Back.png in Resources */,
+				28B143B91504EE8900E66A88 /* iTeachWords_Free-Info.plist in Resources */,
+				28B143C61504F00400E66A88 /* CenterButtonIconHeart.png in Resources */,
+				28B143C81504F00400E66A88 /* CenterButtonIconPaw.png in Resources */,
+				28B143CB1504F00B00E66A88 /* img in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3508,8 +3533,11 @@
 				285B828814E4079E001C977D /* right.png in Resources */,
 				285B828914E4079E001C977D /* stop.png in Resources */,
 				285B828A14E4079E001C977D /* MyVocalizerViewController.xib in Resources */,
-				2850557314FFC21100B03DF1 /* Instructie.html in Resources */,
+				2850557314FFC21100B03DF1 /* RepeatInfo.html in Resources */,
 				2850557614FFC36800B03DF1 /* styles.css in Resources */,
+				28B143C71504F00400E66A88 /* CenterButtonIconHeart.png in Resources */,
+				28B143C91504F00400E66A88 /* CenterButtonIconPaw.png in Resources */,
+				28B143CC1504F00B00E66A88 /* img in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3977,7 +4005,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
-					i386,
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
@@ -4002,7 +4029,7 @@
 				);
 				PRODUCT_NAME = iTeachWords_Free;
 				SDKROOT = iphoneos5.0;
-				VALID_ARCHS = "i386 armv6 armv7";
+				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4012,7 +4039,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
-					i386,
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
@@ -4038,7 +4064,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
 				SDKROOT = iphoneos5.0;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "i386 armv6 armv7";
+				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -4048,7 +4074,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
-					i386,
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
@@ -4074,7 +4099,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
 				SDKROOT = iphoneos5.0;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "i386 armv6 armv7";
+				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;

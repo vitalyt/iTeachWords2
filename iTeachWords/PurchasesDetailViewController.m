@@ -60,7 +60,7 @@
     [contentView setFrame:frame];
     
     [self loadContentByFile:[self fileNameByPurchaseType:purchaseType]];
-//    [self setUrl:[self urlByPurchaseType:purchaseType]];
+    [self setUrl:[self urlByPurchaseType:purchaseType]];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -71,6 +71,8 @@
     }
     [super viewDidLoad];
     [self.view addSubview:buyButton];
+//    [self.view setBackgroundColor:[UIColor redColor]];
+//    [contentView setBackgroundColor:[UIColor greenColor]];
 }
 
 
@@ -124,7 +126,7 @@
 - (NSString*)fileNameByPurchaseType:(PurchaseType)_purchaseType{
     switch (_purchaseType) {
         case VOCALIZER:
-            return NSLocalizedString(@"Instructie", @"");
+            return NSLocalizedString(@"RepeatInfo", @"");
             break;
         case TEST1:
             return NSLocalizedString(@"Instructie", @"");
@@ -133,7 +135,7 @@
             return NSLocalizedString(@"Instructie", @"");
             break;
         case NOTIFICATION:
-            return NSLocalizedString(@"Instructie", @"");
+            return NSLocalizedString(@"RepeatInfo", @"");
             break;
             
         default:
