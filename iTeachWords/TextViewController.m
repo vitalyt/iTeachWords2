@@ -19,6 +19,7 @@
 #endif
 
 #define radius 10
+#define textFieldHieght 372
 
 @implementation TextViewController
 @synthesize array;
@@ -254,7 +255,7 @@
         [UIView beginAnimations:@"Changing size of textView" context:nil];
         [UIView setAnimationDuration:0.3];
         [UIView setAnimationBeginsFromCurrentState:YES];
-        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width,  332)];
+        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width,  textFieldHieght)];
         [UIView commitAnimations];
     }
 }

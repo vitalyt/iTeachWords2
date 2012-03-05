@@ -57,14 +57,14 @@
     CGRect pagingScrollViewFrame = [self frameForPagingScrollView];
     pagingScrollView = [[UIScrollView alloc] initWithFrame:pagingScrollViewFrame];
     pagingScrollView.pagingEnabled = YES;
-    pagingScrollView.backgroundColor = [UIColor blackColor];
+//    pagingScrollView.backgroundColor = [UIColor blackColor];
     pagingScrollView.showsVerticalScrollIndicator = NO;
     pagingScrollView.showsHorizontalScrollIndicator = NO;
     pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
     pagingScrollView.delegate = self;
     [self.view addSubview:pagingScrollView];
     
-    pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(.0, pagingScrollViewFrame.size.height-36*2/3, pagingScrollViewFrame.size.width, 36)];
+    pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(.0, -20*2/3, pagingScrollViewFrame.size.width, 20)];
 	[pageControl addTarget:self action:@selector(pageTurn:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:pageControl];
     [self.view bringSubviewToFront:pageControl];
@@ -228,7 +228,7 @@
 #pragma mark -
 #pragma mark  Frame calculations
 #define PADDING  0
-#define HEIGHT 80
+#define HEIGHT 60
 
 - (CGRect)frameForPagingScrollView {
     CGRect frame = [[UIScreen mainScreen] bounds];
@@ -263,8 +263,8 @@
 - (NSMutableArray*)contentData{
     static NSMutableArray *_contentData = nil;
     if (_contentData == nil) {
-        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon",@"name",[NSNumber numberWithInt:0],@"type", nil];
-        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"siri-icon1",@"name",[NSNumber numberWithInt:1],@"type", nil];
+        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"CenterButtonIconPaw",@"name",[NSNumber numberWithInt:0],@"type", nil];
+        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"CenterButtonIconHeart",@"name",[NSNumber numberWithInt:1],@"type", nil];
         _contentData = [[NSMutableArray alloc] initWithObjects:object1,object, nil];
     }
     return _contentData;
