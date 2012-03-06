@@ -186,7 +186,7 @@
     return [searchedData count];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+- (void)searchBarCancelButtonClicked:(UISearchBar *) _searchBar {
     [searchBar resignFirstResponder];
     offset = 25; 
     limit = 25;

@@ -54,13 +54,6 @@
     buyButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 410, 280, 37)];
     [buyButton setTitle:NSLocalizedString(@"Buy", @"") forState:UIControlStateNormal];
     [buyButton addTarget:self action:@selector(buyFuture:) forControlEvents:UIControlEventTouchUpInside];
-    
-    CGRect frame = contentView.frame;
-    frame.size.height = frame.size.height - 20 - buyButton.frame.size.height;
-    [contentView setFrame:frame];
-    
-    [self loadContentByFile:[self fileNameByPurchaseType:purchaseType]];
-    [self setUrl:[self urlByPurchaseType:purchaseType]];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -70,9 +63,15 @@
         [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
     }
     [super viewDidLoad];
+    
+    CGRect frame = contentView.frame;
+    frame.size.height = frame.size.height - 20 - buyButton.frame.size.height;
+    [contentView setFrame:frame];
+    [[self webView] setFrame:frame];
+    [self loadContentByFile:[self fileNameByPurchaseType:purchaseType]];
+//    [self setUrl:[self urlByPurchaseType:purchaseType]];
+    
     [self.view addSubview:buyButton];
-//    [self.view setBackgroundColor:[UIColor redColor]];
-//    [contentView setBackgroundColor:[UIColor greenColor]];
 }
 
 

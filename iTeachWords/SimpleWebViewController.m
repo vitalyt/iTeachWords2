@@ -9,6 +9,7 @@ documentsDirectory = [paths objectAtIndex:0];
 
 @synthesize url;
 
+
 -init
 {
 	return [self initWithUrl: @""];
