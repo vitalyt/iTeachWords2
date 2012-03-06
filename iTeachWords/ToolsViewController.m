@@ -222,8 +222,7 @@
 - (UIView*)createBaseViewByIndexButton:(id)_button{
     UIView *baseView = nil;
     
-    NSMutableArray *items = [[toolbar items] mutableCopy];
-    int index = [items indexOfObject:_button]+1;
+    int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:{
             if (!managerView) {
@@ -292,6 +291,7 @@
     UIBarButtonItem *recordingButton = [[UIBarButtonItem alloc] initWithCustomView:_subView];
     [recordingButton setTag:index];
     [_subView setTag:index];
+    NSLog(@"%d",[items indexOfObject:sender]+1);
     [items insertObject:recordingButton atIndex:[items indexOfObject:sender]+1];
     [recordingButton release];
     ((UIBarButtonItem *)sender).enabled = NO;
@@ -300,7 +300,6 @@
 //    [UIView beginAnimations:@"ShowOptionsView" context:nil];
 //    [UIView setAnimationDuration:0.2];
 //    [UIView setAnimationBeginsFromCurrentState:YES];
-//    
 //    [UIView commitAnimations];
     
     [toolbar setFrame:CGRectMake(0.0, 0.0, 
