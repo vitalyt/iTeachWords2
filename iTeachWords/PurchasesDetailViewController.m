@@ -51,7 +51,10 @@
 - (void)loadView
 {
     [super loadView];
-    buyButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 410, 280, 37)];
+    if (!buyButton) {
+        buyButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    }
+    [buyButton setFrame:CGRectMake(20, 410, 280, 37)];
     [buyButton setTitle:NSLocalizedString(@"Buy", @"") forState:UIControlStateNormal];
     [buyButton addTarget:self action:@selector(buyFuture:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -67,7 +70,7 @@
     CGRect frame = contentView.frame;
     frame.size.height = frame.size.height - 20 - buyButton.frame.size.height;
     [contentView setFrame:frame];
-    [[self webView] setFrame:frame];
+    [[self webView] setFrame:CGRectMake(.0, .0, frame.size.width, frame.size.height)];
     [self loadContentByFile:[self fileNameByPurchaseType:purchaseType]];
 //    [self setUrl:[self urlByPurchaseType:purchaseType]];
     
