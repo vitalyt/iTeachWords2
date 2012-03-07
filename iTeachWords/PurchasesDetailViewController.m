@@ -51,7 +51,9 @@
 - (void)loadView
 {
     [super loadView];
-    buyButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    if (!buyButton) {
+        buyButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    }
     [buyButton setFrame:CGRectMake(20, 410, 280, 37)];
     [buyButton setTitle:NSLocalizedString(@"Buy", @"") forState:UIControlStateNormal];
     [buyButton addTarget:self action:@selector(buyFuture:) forControlEvents:UIControlEventTouchUpInside];

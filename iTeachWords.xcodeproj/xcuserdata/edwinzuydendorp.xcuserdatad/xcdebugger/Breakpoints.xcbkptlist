@@ -205,13 +205,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/PurchasesDetailViewController.m"
-         timestampString = "352825619.474576"
+         timestampString = "352716397.213985"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "@implementation PurchasesDetailViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -219,13 +219,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/PurchasesDetailViewController.m"
-         timestampString = "352825619.474576"
+         timestampString = "352716967.825392"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149"
-         landmarkName = "-showLoadingView"
-         landmarkType = "5">
+         startingLineNumber = "148"
+         endingLineNumber = "148"
+         landmarkName = "@implementation PurchasesDetailViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -267,34 +267,6 @@
          startingLineNumber = "295"
          endingLineNumber = "295"
          landmarkName = "-toolbarAddSubView:after:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/SettingsViewController.m"
-         timestampString = "352814425.454223"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "410"
-         endingLineNumber = "410"
-         landmarkName = "-showToolbar"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/AlertTableView.m"
-         timestampString = "352817669.829402"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
