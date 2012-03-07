@@ -54,6 +54,7 @@
     [TestFlight passCheckpoint:@"User gone to the Settings view"];
     [TestFlight openFeedbackView];
     barItem.frame = CGRectMake(0, self.view.frame.size.height+barItem.frame.size.height, barItem.frame.size.width, barItem.frame.size.height);
+    [self.view addSubview:barItem];
 //    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isSettingsMessage"]) {
 //        [UIAlertView displayMessage:NSLocalizedString(@"You are for the first time registering a card.\n Please make your self known in order for us to be able to E-mail address validate your membership.", @"")];
 //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isSettingsMessage"];
