@@ -97,7 +97,7 @@
     [UIView setAnimationBeginsFromCurrentState:YES];
     [self.view setFrame:frame];
     [UIView commitAnimations];
-    [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75] afterDelay:.3];
+    [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75] afterDelay:.5];
 }
 
 - (IBAction) cansel

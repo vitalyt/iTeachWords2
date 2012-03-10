@@ -196,7 +196,8 @@
 - (void)showInfoView{
     DetailViewController *infoView = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     [self.navigationController presentModalViewController:infoView animated:YES];
-    [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
+    [infoView loadContentByFile:NSLocalizedString(@"GeneralInfo", @"")];
+//    [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
     //    [self.navigationController pushViewController:infoView animated:YES];
     [infoView release];
 }

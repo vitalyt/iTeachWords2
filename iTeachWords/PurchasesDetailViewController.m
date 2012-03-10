@@ -128,7 +128,7 @@
 - (NSString*)fileNameByPurchaseType:(PurchaseType)_purchaseType{
     switch (_purchaseType) {
         case VOCALIZER:
-            return NSLocalizedString(@"RepeatInfo", @"");
+            return NSLocalizedString(@"RecognizerInfo", @"");
             break;
         case TEST1:
             return NSLocalizedString(@"Instructie", @"");

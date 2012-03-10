@@ -910,6 +910,10 @@
 		28E3307E140F9FDA00ABC7D5 /* ZW.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32FAA140F9FDA00ABC7D5 /* ZW.png */; };
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
+		846B4B4B150A687A003F50F7 /* GeneralInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 846B4B4A150A687A003F50F7 /* GeneralInfo.html */; };
+		846B4B4C150A687A003F50F7 /* GeneralInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 846B4B4A150A687A003F50F7 /* GeneralInfo.html */; };
+		84A198D81508059400EADF65 /* RecognizerInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A198D71508059400EADF65 /* RecognizerInfo.html */; };
+		84A198D91508059400EADF65 /* RecognizerInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A198D71508059400EADF65 /* RecognizerInfo.html */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -1494,6 +1498,8 @@
 		28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		8457544214EC2C4F00481AF4 /* PurchasesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchasesDetailViewController.h; sourceTree = "<group>"; };
 		8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchasesDetailViewController.m; sourceTree = "<group>"; };
+		846B4B4A150A687A003F50F7 /* GeneralInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GeneralInfo.html; sourceTree = "<group>"; };
+		84A198D71508059400EADF65 /* RecognizerInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RecognizerInfo.html; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
 		CE6C773513C0C79E00ACDC2E /* Test15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test15.h; sourceTree = "<group>"; };
@@ -2313,7 +2319,9 @@
 				28B143CA1504F00B00E66A88 /* img */,
 				2842F2581500EF5600C3A3A3 /* Back.png */,
 				2850557414FFC36800B03DF1 /* styles.css */,
+				846B4B4A150A687A003F50F7 /* GeneralInfo.html */,
 				2850557114FFC21100B03DF1 /* RepeatInfo.html */,
+				84A198D71508059400EADF65 /* RecognizerInfo.html */,
 			);
 			name = WEB;
 			sourceTree = "<group>";
@@ -3198,6 +3206,8 @@
 				28B143C61504F00400E66A88 /* CenterButtonIconHeart.png in Resources */,
 				28B143C81504F00400E66A88 /* CenterButtonIconPaw.png in Resources */,
 				28B143CB1504F00B00E66A88 /* img in Resources */,
+				84A198D81508059400EADF65 /* RecognizerInfo.html in Resources */,
+				846B4B4B150A687A003F50F7 /* GeneralInfo.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3538,6 +3548,8 @@
 				28B143C71504F00400E66A88 /* CenterButtonIconHeart.png in Resources */,
 				28B143C91504F00400E66A88 /* CenterButtonIconPaw.png in Resources */,
 				28B143CC1504F00B00E66A88 /* img in Resources */,
+				84A198D91508059400EADF65 /* RecognizerInfo.html in Resources */,
+				846B4B4C150A687A003F50F7 /* GeneralInfo.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
