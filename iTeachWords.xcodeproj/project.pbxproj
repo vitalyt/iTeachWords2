@@ -912,6 +912,26 @@
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
 		846B4B4B150A687A003F50F7 /* GeneralInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 846B4B4A150A687A003F50F7 /* GeneralInfo.html */; };
 		846B4B4C150A687A003F50F7 /* GeneralInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 846B4B4A150A687A003F50F7 /* GeneralInfo.html */; };
+		84728F56151678880024FACF /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F55151678880024FACF /* Wallpaper.png */; };
+		84728F57151678880024FACF /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F55151678880024FACF /* Wallpaper.png */; };
+		84728F5E15167A910024FACF /* Light1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5915167A910024FACF /* Light1.png */; };
+		84728F5F15167A910024FACF /* Light1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5915167A910024FACF /* Light1.png */; };
+		84728F6015167A910024FACF /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5A15167A910024FACF /* Safari.png */; };
+		84728F6115167A910024FACF /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5A15167A910024FACF /* Safari.png */; };
+		84728F6215167A910024FACF /* SMBPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5B15167A910024FACF /* SMBPrefs.png */; };
+		84728F6315167A910024FACF /* SMBPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5B15167A910024FACF /* SMBPrefs.png */; };
+		84728F6415167A910024FACF /* TextEdit2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5C15167A910024FACF /* TextEdit2.png */; };
+		84728F6515167A910024FACF /* TextEdit2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5C15167A910024FACF /* TextEdit2.png */; };
+		84728F6615167A910024FACF /* weDict2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5D15167A910024FACF /* weDict2.png */; };
+		84728F6715167A910024FACF /* weDict2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5D15167A910024FACF /* weDict2.png */; };
+		84728F6915167AE10024FACF /* Pacman.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6815167AE10024FACF /* Pacman.png */; };
+		84728F6A15167AE10024FACF /* Pacman.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6815167AE10024FACF /* Pacman.png */; };
+		84728F6D15167AF50024FACF /* TuneWiki.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6B15167AF50024FACF /* TuneWiki.png */; };
+		84728F6E15167AF50024FACF /* TuneWiki.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6B15167AF50024FACF /* TuneWiki.png */; };
+		84728F6F15167AF50024FACF /* TuneWiki1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6C15167AF50024FACF /* TuneWiki1.png */; };
+		84728F7015167AF50024FACF /* TuneWiki1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6C15167AF50024FACF /* TuneWiki1.png */; };
+		84728F7215167B290024FACF /* Books.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F7115167B290024FACF /* Books.png */; };
+		84728F7315167B290024FACF /* Books.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F7115167B290024FACF /* Books.png */; };
 		84A198D81508059400EADF65 /* RecognizerInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A198D71508059400EADF65 /* RecognizerInfo.html */; };
 		84A198D91508059400EADF65 /* RecognizerInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A198D71508059400EADF65 /* RecognizerInfo.html */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
@@ -1499,6 +1519,16 @@
 		8457544214EC2C4F00481AF4 /* PurchasesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchasesDetailViewController.h; sourceTree = "<group>"; };
 		8457544314EC2C4F00481AF4 /* PurchasesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchasesDetailViewController.m; sourceTree = "<group>"; };
 		846B4B4A150A687A003F50F7 /* GeneralInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GeneralInfo.html; sourceTree = "<group>"; };
+		84728F55151678880024FACF /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper.png; sourceTree = "<group>"; };
+		84728F5915167A910024FACF /* Light1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light1.png; sourceTree = "<group>"; };
+		84728F5A15167A910024FACF /* Safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Safari.png; sourceTree = "<group>"; };
+		84728F5B15167A910024FACF /* SMBPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SMBPrefs.png; sourceTree = "<group>"; };
+		84728F5C15167A910024FACF /* TextEdit2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextEdit2.png; sourceTree = "<group>"; };
+		84728F5D15167A910024FACF /* weDict2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weDict2.png; sourceTree = "<group>"; };
+		84728F6815167AE10024FACF /* Pacman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pacman.png; sourceTree = "<group>"; };
+		84728F6B15167AF50024FACF /* TuneWiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TuneWiki.png; sourceTree = "<group>"; };
+		84728F6C15167AF50024FACF /* TuneWiki1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TuneWiki1.png; sourceTree = "<group>"; };
+		84728F7115167B290024FACF /* Books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Books.png; sourceTree = "<group>"; };
 		84A198D71508059400EADF65 /* RecognizerInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RecognizerInfo.html; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
@@ -1861,6 +1891,16 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				84728F7115167B290024FACF /* Books.png */,
+				84728F6B15167AF50024FACF /* TuneWiki.png */,
+				84728F6C15167AF50024FACF /* TuneWiki1.png */,
+				84728F6815167AE10024FACF /* Pacman.png */,
+				84728F5915167A910024FACF /* Light1.png */,
+				84728F5A15167A910024FACF /* Safari.png */,
+				84728F5B15167A910024FACF /* SMBPrefs.png */,
+				84728F5C15167A910024FACF /* TextEdit2.png */,
+				84728F5D15167A910024FACF /* weDict2.png */,
+				84728F55151678880024FACF /* Wallpaper.png */,
 				28B143C41504F00400E66A88 /* CenterButtonIconHeart.png */,
 				28B143C51504F00400E66A88 /* CenterButtonIconPaw.png */,
 				2834E92F14D18960008229F3 /* right.png */,
@@ -3208,6 +3248,16 @@
 				28B143CB1504F00B00E66A88 /* img in Resources */,
 				84A198D81508059400EADF65 /* RecognizerInfo.html in Resources */,
 				846B4B4B150A687A003F50F7 /* GeneralInfo.html in Resources */,
+				84728F56151678880024FACF /* Wallpaper.png in Resources */,
+				84728F5E15167A910024FACF /* Light1.png in Resources */,
+				84728F6015167A910024FACF /* Safari.png in Resources */,
+				84728F6215167A910024FACF /* SMBPrefs.png in Resources */,
+				84728F6415167A910024FACF /* TextEdit2.png in Resources */,
+				84728F6615167A910024FACF /* weDict2.png in Resources */,
+				84728F6915167AE10024FACF /* Pacman.png in Resources */,
+				84728F6D15167AF50024FACF /* TuneWiki.png in Resources */,
+				84728F6F15167AF50024FACF /* TuneWiki1.png in Resources */,
+				84728F7215167B290024FACF /* Books.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3550,6 +3600,16 @@
 				28B143CC1504F00B00E66A88 /* img in Resources */,
 				84A198D91508059400EADF65 /* RecognizerInfo.html in Resources */,
 				846B4B4C150A687A003F50F7 /* GeneralInfo.html in Resources */,
+				84728F57151678880024FACF /* Wallpaper.png in Resources */,
+				84728F5F15167A910024FACF /* Light1.png in Resources */,
+				84728F6115167A910024FACF /* Safari.png in Resources */,
+				84728F6315167A910024FACF /* SMBPrefs.png in Resources */,
+				84728F6515167A910024FACF /* TextEdit2.png in Resources */,
+				84728F6715167A910024FACF /* weDict2.png in Resources */,
+				84728F6A15167AE10024FACF /* Pacman.png in Resources */,
+				84728F6E15167AF50024FACF /* TuneWiki.png in Resources */,
+				84728F7015167AF50024FACF /* TuneWiki1.png in Resources */,
+				84728F7315167B290024FACF /* Books.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

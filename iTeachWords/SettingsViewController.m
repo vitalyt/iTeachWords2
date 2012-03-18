@@ -51,6 +51,8 @@
 {
     [super viewDidLoad];
     
+    table.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     [TestFlight passCheckpoint:@"User gone to the Settings view"];
     [TestFlight openFeedbackView];
     barItem.frame = CGRectMake(0, self.view.frame.size.height+barItem.frame.size.height, barItem.frame.size.width, barItem.frame.size.height);

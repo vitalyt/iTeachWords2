@@ -69,7 +69,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+  //  self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     [self checkDelayedThemes];
 }
 
@@ -88,7 +88,7 @@
     [super viewDidLoad];
     [self setTitles];
     [self addInfoButton];
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
 
     // Do any additional setup after loading the view from its nib.
 }
