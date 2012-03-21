@@ -77,7 +77,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -86,12 +85,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     limit = 50;
     offset = 50;
     cellStyle = UITableViewCellStyleValue1;

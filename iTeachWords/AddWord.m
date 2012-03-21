@@ -25,12 +25,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                         initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
                                         target:self action:@selector(back)];
         self.navigationItem.leftBarButtonItem = [backButton autorelease];
         wordsView = [[AddNewWordViewController alloc] initWithNibName:@"AddNewWordViewController" bundle:nil];
+//        [wordsView.view setFrame:CGRectMake(.0, 44, wordsView.view.frame.size.width,wordsView.view.frame.size.height)];
         [wordsView setDelegate:self];
     }
     return self;
@@ -38,14 +39,15 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    loadWebButtonView.layer.cornerRadius = 10;
     myWebView.layer.cornerRadius = 10;
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     [self.view addSubview:wordsView.view];
     [searchingTranslateBtn setTitle:NSLocalizedString(@"Tap to find more translations", @"") forState:UIControlStateNormal];
     //[wordsView loadData];

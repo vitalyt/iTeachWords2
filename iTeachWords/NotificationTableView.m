@@ -15,57 +15,12 @@
 
 @implementation NotificationTableView
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
 }
 
 #pragma mark loading funktions
@@ -157,7 +112,7 @@
     UILabel *header = [[UILabel alloc] initWithFrame: CGRectMake(20, 10.0, width, detailSize.height)];
     header.numberOfLines = 3;
     header.backgroundColor = [UIColor clearColor];
-    header.textColor = [UIColor colorWithRed:0.29f green:0.33f blue:0.42f alpha:1.0f];
+    header.textColor = [UIColor whiteColor];
     header.font = FONT_OF_HEAD_LABEL; 
     header.text = tite;
     
@@ -204,32 +159,6 @@
     }
 }
 
-
-#pragma mark Cells protocol functions
-
-//-(void)cellDidEndEditing:(TextFieldCell *)cell {
-//    //backgroundView.hidden = YES;
-//    NSIndexPath *indexPath = [table indexPathForCell:cell];
-//    if (indexPath.section == 0 && indexPath.row == 1) {
-//        [self showToolbar];
-//        [table reloadData];
-//    }
-//	[super cellDidEndEditing:cell];
-//}
-//
-//-(void)cellDidBeginEditing:(TextFieldCell *)cell {
-//    currentTextField = cell.textField;
-//    NSIndexPath *indexPath = [table indexPathForCell:cell];
-//    if (indexPath.row == 2){
-//        [self showFontPicker:nil];
-//        [currentTextField resignFirstResponder];
-//        return;
-//    }else if (indexPath.row == 1){
-//        [self showToolbar];
-//    }
-//    [super cellDidBeginEditing:cell];
-//}
-
 -(void)cellChanged:(UITableViewCell *)cell {
 	NSIndexPath *indexPath = [table indexPathForCell:cell];
 	if (nil == indexPath) {
@@ -256,14 +185,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 - (void)changedNotification{

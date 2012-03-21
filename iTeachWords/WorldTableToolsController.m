@@ -306,7 +306,7 @@
 
 -(void)performTransition  {
     CATransition *transition = [CATransition animation];
-    transition.duration = 0.75f;
+    transition.duration = 0.5f;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromTop;

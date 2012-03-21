@@ -90,7 +90,7 @@
 }
 
 - (void)showAddWordView{
-    CGRect frame = CGRectMake(10, 0, self.view.frame.size.width - 20, wordsView.view.frame.size.height);
+    CGRect frame = CGRectMake(10, 44, self.view.frame.size.width - 20, wordsView.view.frame.size.height);
     if (isWordsViewShowing) {
         frame = CGRectMake(10, -wordsView.view.frame.size.height, self.view.frame.size.width - 20, wordsView.view.frame.size.height);
         //[self saveData];

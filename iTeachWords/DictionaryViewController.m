@@ -44,13 +44,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     searchBar.placeholder = NSLocalizedString(@"Touch to search", @"");
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(inputModeDidChange:)
                                                  name:@"UIKeyboardCurrentInputModeDidChangeNotification"
                                                object:nil];
     cellStyle = UITableViewCellStyleSubtitle;
-    [table setBackgroundColor:[UIColor whiteColor]];
     [self loadData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -66,7 +66,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -245,6 +244,8 @@
     NSArray *ar;
     [cell.textLabel setFont:FONT_TEXT];
     [cell.detailTextLabel setFont:FONT_TEXT];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    [cell.detailTextLabel setTextColor:[UIColor lightTextColor]];
     if ([mySearchBar.text length] > 0) {
         ar = searchedData;
     }else{

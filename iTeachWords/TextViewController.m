@@ -29,7 +29,6 @@
     self  = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
                                                    initWithTitle:NSLocalizedString(@"Parse text", @"") style:UIBarButtonItemStyleBordered 
                                                    target:self 
@@ -80,7 +79,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -91,7 +89,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createMenu];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     [myTextView setFont:FONT_TEXT];
 	myTextView.text = [self loadText];
     

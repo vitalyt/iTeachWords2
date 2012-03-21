@@ -51,6 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     [textBox setFont:FONT_TEXT];
     [lblWordEng setFont:FONT_TEXT];
     [lblWordRus setFont:FONT_TEXT];
@@ -229,7 +230,7 @@
 
 -(void)performTransition  {
     CATransition *transition = [CATransition animation];
-    transition.duration = 0.75f;
+    transition.duration = 0.5f;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromBottom;

@@ -42,11 +42,12 @@
 -(void)viewDidLoad {
 	[super viewDidLoad];
 	cellStyle = UITableViewCellStyleDefault;
+    [table setBackgroundColor:[UIColor clearColor]];
 	//[table setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]]];
-    UIView *bg = [[MenuView alloc] initWithFrame:table.frame];
-    bg.backgroundColor = [UIColor groupTableViewBackgroundColor]; // or any color
-    table.backgroundView = bg;
-    [bg release];
+//    UIView *bg = [[MenuView alloc] initWithFrame:table.frame];
+//    bg.backgroundColor = [UIColor groupTableViewBackgroundColor]; // or any color
+//    table.backgroundView = bg;
+//    [bg release];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

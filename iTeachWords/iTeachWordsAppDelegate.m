@@ -59,6 +59,7 @@
     navigationController.delegate = self;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
 //    NSThread *progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(qqq) object:nil];
 //    [progressThread start];
     //[self doRegistrationProcess];

@@ -26,8 +26,6 @@
     if (self) {
         // Custom initialization 
         self.title = NSLocalizedString(@"Settings", @"");
-//        UIBarButtonItem *item = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)] autorelease];
-//        [self.navigationItem setRightBarButtonItem:item]; 
     }
     return self;
 }
@@ -36,13 +34,6 @@
 {
     [barItem release];
     [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -57,11 +48,6 @@
     [TestFlight openFeedbackView];
     barItem.frame = CGRectMake(0, self.view.frame.size.height+barItem.frame.size.height, barItem.frame.size.width, barItem.frame.size.height);
     [self.view addSubview:barItem];
-//    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isSettingsMessage"]) {
-//        [UIAlertView displayMessage:NSLocalizedString(@"You are for the first time registering a card.\n Please make your self known in order for us to be able to E-mail address validate your membership.", @"")];
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isSettingsMessage"];
-//    }
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
@@ -69,20 +55,12 @@
     [barItem release];
     barItem = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     [self loadData];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void) loadData{
@@ -169,9 +147,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //    if (section == 1 && !switchPass.on) {
-    //        return 0;
-    //    }
     return [[data objectAtIndex:section] count];
 }
 
@@ -196,8 +171,6 @@
     [v addSubview:header];
     [header release];
     return v;
-    //    }
-    //    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -308,7 +281,6 @@
 #pragma mark Cells protocol functions
 
 -(void)cellDidEndEditing:(TextFieldCell *)cell {
-    //backgroundView.hidden = YES;
     NSIndexPath *indexPath = [table indexPathForCell:cell];
     if (indexPath.section == 0 && indexPath.row == 1) {
         [self showToolbar];

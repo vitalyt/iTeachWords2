@@ -80,7 +80,7 @@
 #pragma mark - WBRequest functions
 
 - (void) connectionDidFinishLoading: (WBConnection*)connection {
-    [UIAlertView removeMessage];
+    
 	NSData *value = [connection data];
     NSString *response = [[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding];
     NSLog(@"responseText->%@",response);
@@ -103,6 +103,7 @@
     }
     @finally
     {
+        [UIAlertView removeMessage];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [response release];
     }

@@ -3926,7 +3926,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Distribution;
 		};
@@ -3957,7 +3957,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos3.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -3980,7 +3980,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Debug;
 		};
@@ -3999,7 +3999,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4310B342-1910-4BA5-A109-8501A58846BB";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Release;
 		};
@@ -4031,7 +4031,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos3.2;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4065,7 +4065,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "03080A6F-92C3-4E67-B437-C8D43339DFDB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49E7925F-02CE-45C6-9254-32C21AE668E1";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos3.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;

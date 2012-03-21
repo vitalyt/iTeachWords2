@@ -47,5 +47,5 @@
 - (void)checkDelayedThemes;
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame;
 
--(void)performTransition;
+- (void)performTransitionType:(NSString*)type subType:(NSString*)subType;
 @end

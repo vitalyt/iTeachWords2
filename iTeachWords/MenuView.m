@@ -22,12 +22,13 @@
 //	self.layer.cornerRadius = 7;
 //	self.layer.masksToBounds = YES;
 	
-	UIColor *topColor = [UIColor colorWithRed:0.9921f green:0.7529f blue:0.2470f alpha:1.0f];//UIColorFromRGB(0x424242);
-	UIColor *bottomColor = [UIColor colorWithRed:0.99f green:0.6666f blue:0.2313f alpha:1.0f];//UIColorFromRGB(0x424242);//UIColorFromRGB(0x2f2f2f);	
+	UIColor *topColor = [UIColor colorWithRed:0.35f green:0.35f blue:0.35f alpha:1.0f];//UIColorFromRGB(0x424242);
+    UIColor *middleColor = [UIColor colorWithRed:0.33f green:0.33f blue:0.33f alpha:1.0f];
+	UIColor *bottomColor = [UIColor colorWithRed:0.3125f green:0.3125f blue:0.3125f alpha:1.0f];//UIColorFromRGB(0x424242);//UIColorFromRGB(0x2f2f2f);	
 	
 	CAGradientLayer *gradient = [[CAGradientLayer alloc] init];
 	gradient.frame = self.bounds;
-	gradient.colors = [NSArray arrayWithObjects:(id)topColor.CGColor, (id)bottomColor.CGColor, nil];
+	gradient.colors = [NSArray arrayWithObjects:(id)topColor.CGColor, (id)middleColor.CGColor, (id)bottomColor.CGColor, nil];
 	[self.layer insertSublayer:gradient atIndex:0];
 	[gradient release];
 }

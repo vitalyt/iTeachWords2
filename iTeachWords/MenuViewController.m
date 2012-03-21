@@ -278,36 +278,35 @@
 
 - (void)showTeachView{
     WorldTableToolsController *myTableView = [[WorldTableToolsController alloc] initWithNibName:@"WorldTableViewController" bundle:nil];
+    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:myTableView animated:YES];
     [myTableView release];
 }
 
 - (void)showAddingWordView{
     AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
-//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
-//                                   initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
-//                                   target:myAddWordView action:@selector(back)];
-//    [[self navigationItem] setBackBarButtonItem: [backButton autorelease]];
-
+//    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
     [self.navigationController pushViewController:myAddWordView animated:YES];
     [myAddWordView release]; 
 }
 
 - (void)showTextParserView{
     TextViewController *myTextView = [[TextViewController alloc] initWithNibName:@"TextViewController" bundle:nil];
+//    [self performTransitionType:kCATransitionPush subType:kCATransitionReveal];
     [self.navigationController pushViewController:myTextView animated:YES];
     [myTextView release];
 }
 
 - (void)showDictionaryView{
     DictionaryViewController *dictionaryView = [[DictionaryViewController alloc] initWithNibName:@"DictionaryViewController" bundle:nil];
+    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:dictionaryView animated:YES];
     [dictionaryView release];
 }
 
 - (void)showSettingsView{
     SettingsViewController *languageView = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-//    [self performTransition];
+    [self performTransitionType:kCATransitionPush subType:kCATransitionFromTop];
     [languageView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self.navigationController pushViewController:languageView animated:YES];
     [languageView release];
@@ -337,12 +336,12 @@
     [recognizerView release];
 }
 
--(void)performTransition  {
+-(void)performTransitionType:(NSString*)type subType:(NSString*)subType {
     CATransition *transition = [CATransition animation];
-    transition.duration = 0.75f;
+    transition.duration = 0.5f;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
+    transition.type = type;
+    transition.subtype = subType;
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
 }
 

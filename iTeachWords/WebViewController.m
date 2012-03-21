@@ -69,21 +69,21 @@ documentsDirectory = [paths objectAtIndex:0];
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 -(void)viewDidLoad 
 {
 	[super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     //self.url = [[NSUserDefaults standardUserDefaults] setValue:_url forKey:@"LastUrl"];
     if (!webView) {
-        webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, urlToolbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+        webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, 44+urlToolbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
         webView.delegate = self;
     }
     [urlFld setDelegate:self];
     [toolbar setFrame:CGRectMake(0, self.view.frame.size.height-toolbar.frame.size.height, toolbar.frame.size.width, toolbar.frame.size.height)];
-    [urlToolbar setFrame:CGRectMake(0, 0, urlToolbar.frame.size.width, urlToolbar.frame.size.height)];
-    [webView setFrame:CGRectMake(0.0, urlToolbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-urlToolbar.frame.size.height)];
+    [urlToolbar setFrame:CGRectMake(0, 44, urlToolbar.frame.size.width, urlToolbar.frame.size.height)];
+    [webView setFrame:CGRectMake(0.0, 44+urlToolbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-urlToolbar.frame.size.height)];
 	[self.view insertSubview:webView belowSubview:toolbar];
     [self.view bringSubviewToFront:urlToolbar];
     [self loadContent];
