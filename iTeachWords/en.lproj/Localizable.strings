@@ -84,11 +84,13 @@
 "Failed"                  = "Failed";
 "Message did not sent"    = "Message did not sent";
 "The repeat notification system" = "The repeat notification system";
+"Enter name for lesson"   = "Enter name for lesson";
 "20 min"                  = "20 min";
 "1 day"                   = "1 day";
 "1 month"                 = "1 month";
 "3 month"                 = "3 months";
-"Are you sure? The closes of this funtionality is not recomended"   = "Are you sure? The closes of this funtionality is not recomended";
+"Are you sure?"           = "Are you sure?";
+"The closes of this funtionality is not recomended"   = "The closes of this funtionality is not recomended";
 "Show detail info"        = "Show detailed info";
 "Buy"                     = "Buy";
 "No results found"        = "No results found";

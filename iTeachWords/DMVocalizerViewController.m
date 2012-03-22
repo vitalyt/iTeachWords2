@@ -198,7 +198,7 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 //    [speakButton setTitle:@"Read It" forState:UIControlStateNormal];
 	if (error !=nil)
 	{
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+		CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Error"
 														message:[error localizedDescription]
 													   delegate:nil
 											  cancelButtonTitle:@"OK"

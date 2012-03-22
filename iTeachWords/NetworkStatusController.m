@@ -18,13 +18,13 @@ static id _param2;
 
 + (void) loadSelector:(SEL)selector withObject:(id)object OR:(SEL)selector2 withObject:(id)object2 delegate:(id)delegate
 {
-     UIAlertView *alert;
+     CustomAlertView *alert;
     _delegate = delegate;
     _selector = selector;
     _param = object;
     _param2 = object2;
     _selector2 = selector2;
-    alert = [[UIAlertView alloc] initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    alert = [[CustomAlertView alloc] initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
     [alert show];
     [alert autorelease];
 }

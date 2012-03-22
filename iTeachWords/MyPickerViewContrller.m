@@ -151,7 +151,7 @@
 
 - (IBAction) remove
 {
-    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Removing" message:@"Are you sure you want to delete this theme?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil]  autorelease];
+    CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:@"Removing" message:@"Are you sure you want to delete this theme?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil]  autorelease];
     [alert show];
 }
 

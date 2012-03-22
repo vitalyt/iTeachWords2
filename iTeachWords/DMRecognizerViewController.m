@@ -243,7 +243,7 @@
 		alternativesDisplay.text = [[results.results subarrayWithRange:NSMakeRange(1, numOfResults-1)] componentsJoinedByString:@"\n"];
     
     if (results.suggestion) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion", @"")
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion", @"")
                                                         message:results.suggestion
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
@@ -265,7 +265,7 @@
     [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+    CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Error"
                                                     message:[error localizedDescription]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
@@ -274,7 +274,7 @@
     [alert release];
     
     if (suggestion) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion", @"")
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion", @"")
                                                         message:suggestion
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"

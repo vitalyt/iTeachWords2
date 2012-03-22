@@ -15,7 +15,7 @@
 #import "NSArray+Interaction.h"
 #import "NSNumber+Interaction.h"
 #import "NSDate+Interaction.h"
-
+#import "CustomAlertView.h"
 #import "iTeachWordsAppDelegate.h"
 #endif
 

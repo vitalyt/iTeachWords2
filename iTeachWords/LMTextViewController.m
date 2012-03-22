@@ -182,7 +182,7 @@
 }
 
 -(void) addingNameForLesson{
-    UIAlertView *nameAllert = [[UIAlertView alloc]initWithTitle:@"" message:@"Enter name for lesson." delegate:self cancelButtonTitle:@"Cansel" otherButtonTitles:@"Ok", nil];
+    CustomAlertView *nameAllert = [[CustomAlertView alloc]initWithTitle:NSLocalizedString(@"Error", @"") message:NSLocalizedString(@"Enter name for lesson", @"") delegate:self cancelButtonTitle:@"Cansel" otherButtonTitles:@"Ok", nil];
     NSString *text = @"";
     if (lessonName) {
         text = lessonName;

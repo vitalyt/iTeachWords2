@@ -28,9 +28,12 @@
 	NSCharacterSet *wordTokenizingSet = [NSCharacterSet characterSetWithCharactersInString:slash];
 	NSArray	*wordArray = [str componentsSeparatedByCharactersInSet:wordTokenizingSet];
 	//NSArray	*wordArray = [text componentsSeparatedByString:@" "];
-	
 	arrayWords = [[NSMutableDictionary alloc] init];
 	for (NSString *word in wordArray){
+        [word removeSpaces];
+        if ([word length]==0) {
+            continue;
+        }
 		if ([arrayWords objectForKey:word] == nil) {
 			[arrayWords setObject:[NSNumber numberWithInt:1] forKey:word];
 		}
@@ -93,7 +96,7 @@
             NSLog(@"%@",translateText);
             [caller didLoadTranslate:[translateText componentsSeparatedByString:translateSlash]];
         }else{
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"", @"") 
+            CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"", @"") 
                                                              message:NSLocalizedString(@"No results found", @"")  
                                                             delegate:self 
                                                    cancelButtonTitle:NSLocalizedString(@"OK", @"") 

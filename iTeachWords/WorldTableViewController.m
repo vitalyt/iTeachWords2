@@ -165,6 +165,7 @@
     if (context && row>=0) {
         WordTypes *_wordType = [context objectForKey:@"wordType"];
         wordType = [_wordType retain];
+        [[NSUserDefaults standardUserDefaults] setObject:_wordType.name forKey:@"lastTheme"];
         [self loadData];
     }
 }

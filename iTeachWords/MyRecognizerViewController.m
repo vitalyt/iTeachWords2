@@ -223,7 +223,7 @@
     }
     
     if (results.suggestion) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Suggestion"
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Suggestion"
                                                         message:results.suggestion
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"

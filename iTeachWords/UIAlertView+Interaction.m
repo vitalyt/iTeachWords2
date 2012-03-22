@@ -7,12 +7,12 @@
 //
 
 #import "UIAlertView+Interaction.h"
-
+#import "CustomAlertView.h"
 
 @implementation UIAlertView (Interaction)
 
 + (void)displayError:(NSString *)message {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Error"
 													message:message
 												   delegate:nil
 										  cancelButtonTitle:@"OK"
@@ -27,7 +27,7 @@
         && [[[dict objectForKey:@"messages"] objectAtIndex:0] objectForKey:@"message"]) {
         
         message = [[[dict objectForKey:@"messages"] objectAtIndex:0] objectForKey:@"message"];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Error"
                                                         message:message
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
@@ -38,7 +38,7 @@
 }
 
 + (void)displayError:(NSString *)message title:(NSString *)title {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:title
 													message:message
 												   delegate:nil
 										  cancelButtonTitle:@"OK"
@@ -48,7 +48,7 @@
 }
 
 + (void)displayMessage:(NSString *)message {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:nil
 													message:message
 												   delegate:nil
 										  cancelButtonTitle:@"OK"
@@ -58,7 +58,7 @@
 }
 
 + (void)displayMessage:(NSString *)message withDelegate:(id)delegate {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:nil
 													message:message
 												   delegate:delegate
 										  cancelButtonTitle:@"OK"
@@ -68,7 +68,7 @@
 }
 
 + (UIAlertView *)showAlert:(NSString *)message withActivity:(BOOL)activity {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle: message
+	CustomAlertView *alertView = [[CustomAlertView alloc] initWithTitle: message
                                                         message: @"\n"
                                                        delegate: self
                                               cancelButtonTitle: nil

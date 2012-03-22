@@ -10,6 +10,7 @@
 #import "SwitchingCell.h"
 #import "DetailViewController.h"
 #import "RepeatModel.h"
+#import "CustomAlertView.h"
 
 #define FONT_OF_HEAD_LABEL [UIFont fontWithName:@"Helvetica-Bold" size:16]
 
@@ -191,7 +192,7 @@
     NSString *key = @"isRepeatOptionOn";
     bool _value = onOffSwitcher.on;
     if (!_value) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"", @"") message:NSLocalizedString(@"Are you sure? The closes of this funtionality is not recomended", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Show detail info", @""), nil];
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", @"") message:NSLocalizedString(@"The closes of this funtionality is not recomended", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Show detail info", @""), nil];
         [alert show];
         [alert autorelease];
     }

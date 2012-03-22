@@ -158,7 +158,7 @@ static MKStoreManager* _sharedStoreManager; // self
 	}
 	else
 	{
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wishing Well", @"") message:NSLocalizedString(@"You are not authorized to purchase from AppStore", @"")
+		CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Wishing Well", @"") message:NSLocalizedString(@"You are not authorized to purchase from AppStore", @"")
 													   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 		[alert show];
 		[alert release];
@@ -180,7 +180,7 @@ static MKStoreManager* _sharedStoreManager; // self
 		[delegate failed];
 	
 	NSString *messageToBeShown = [NSString stringWithFormat:NSLocalizedString(@"Reason: %@, You can try: %@", @""), [transaction.error localizedFailureReason], [transaction.error localizedRecoverySuggestion]];
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unable to complete your purchase", @"") message:messageToBeShown
+	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Unable to complete your purchase", @"") message:messageToBeShown
 												   delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	[alert show];
 	[alert release];

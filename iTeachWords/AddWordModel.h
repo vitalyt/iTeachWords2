@@ -19,7 +19,7 @@
 @interface AddWordModel : NSObject {
 	NSString				*urlShow; 
 	BOOL					isNeedToSave;
-	UIAlertView				*alert;
+	CustomAlertView				*alert;
 	//Variables setup for access in the class:
     WordTypes               *wordType;
     Words                   *currentWord;

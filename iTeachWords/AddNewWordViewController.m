@@ -321,6 +321,7 @@
 
 - (void)removeChanges{
     [self clear];
+    isDataChanged = NO;
     [saveButton setHidden:YES];
     self.flgSave = YES;
     [dataModel removeChanges];
@@ -329,6 +330,10 @@
 - (IBAction) save
 {
     [self closeAllKeyboard];
+    if ([textFld.text length]==0 && ([translateFid.text length]==0)) {
+        [self removeChanges];
+        return;
+    }
     if (!dataModel.wordType) {
         [self showMyPickerView];
         return;
@@ -336,6 +341,7 @@
     [dataModel.currentWord setDescriptionStr:dataModel.wordType.name];
     [dataModel.currentWord setText:textFld.text];
     [dataModel.currentWord setTranslate:translateFid.text];
+
     [dataModel saveWord];
 	self.flgSave = YES;
     //[self back];
@@ -351,6 +357,7 @@
     [recButton setEnabled:NO];
     recButton = ((UIButton*)translateFid.rightView);
     [recButton setEnabled:NO];
+    [saveButton setHidden:YES];
 }
 
 #pragma mark textField delegate
@@ -435,13 +442,13 @@
 }
 
 - (void)showSaveButton{
-    //    [saveButton setFrame:CGRectMake(self.view.frame.size.width/2+11,11,0,0)];
-    //    [UIView beginAnimations:@"SButtonAnimation" context:nil];
-    //    [UIView setAnimationDuration:0.5];
-    //    [UIView setAnimationBeginsFromCurrentState:YES];
+    if ([translateFid.text length]==0 && [textFld.text length]==0) {
+        [saveButton setHidden:YES];
+        isDataChanged = NO;
+    }else{
         [saveButton setHidden:NO];
-        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,87,35,35)];
-    //    [UIView commitAnimations];
+        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,87,35,35)]; 
+    }
 }
 
 - (void)hiddeSaveButton{

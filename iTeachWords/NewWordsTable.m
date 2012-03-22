@@ -239,7 +239,7 @@
         return;
     }
     if ([iTeachWordsAppDelegate isNetwork]) {
-        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" 
+        CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:@"" 
                                                          message:NSLocalizedString(@"Where do you want to search translations?", @"")
                                                         delegate:self 
                                                cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
@@ -422,8 +422,8 @@
         [self deselectAllWords];
         return;
     }
-    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"" 
-                                                     message:NSLocalizedString(@"Select", @"")
+    CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Select", @"")
+                                                     message:@""
                                                     delegate:self 
                                            cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
                                            otherButtonTitles:NSLocalizedString(@"All words", @""),NSLocalizedString(@"Learned words", @""), nil] autorelease];
