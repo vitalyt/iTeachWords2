@@ -70,7 +70,7 @@ NSString *const kARFontPickerViewControllerCellIdentifier = @"ARFontPickerViewCo
 	NSString *fontName = [self _fontNameForRow:indexPath.row inFamily:familyName];
 	UIFont *font = [UIFont fontWithName:fontName size:[UIFont smallSystemFontSize]];
 	
-	cell.textLabel.text = fontName;
+	cell.textLabel.text = @"Русский текст";
 	cell.textLabel.font = font;
 	
     return cell;

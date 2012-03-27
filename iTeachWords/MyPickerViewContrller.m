@@ -9,6 +9,7 @@
 #import "MyPickerViewContrller.h"
 #import "MyPickerViewProtocol.h"
 #import "WordTypes.h"
+#import "ThemesTableView.h"
 
 @implementation MyPickerViewContrller
 @synthesize pickerView;
@@ -202,6 +203,12 @@
 	myTextField.hidden = YES;
     [myTextField setText:@""];
 //    [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor whiteColor] afterDelay:1.0];
+}
+
+- (IBAction)showThemesTableView:(id)sender {
+    ThemesTableView *themesTableView = [[ThemesTableView alloc] initWithNibName:@"ThemesTableView" bundle:nil];
+    [((UIViewController*)self.delegate).navigationController presentModalViewController:themesTableView animated:YES];
+    [themesTableView release];
 }
 
 - (void) saveNewTheme{

@@ -82,6 +82,10 @@
 			NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
 			theCell = [items objectAtIndex:0];
 		}
+//        UIView *bg = [[MenuView alloc] initWithFrame:theCell.frame];
+//        bg.backgroundColor = [UIColor groupTableViewBackgroundColor]; // or any color
+//        theCell.backgroundView = bg;
+//        [bg release];
 	}
 	[self configureCell:theCell forRowAtIndexPath:indexPath];
 	return theCell;

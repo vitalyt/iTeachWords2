@@ -454,7 +454,7 @@
 - (void)hiddeSaveButton{
     //make button animation
     [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
-    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDuration:5];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [saveButton setFrame:CGRectMake(themeButton.center.x,themeButton.center.y,0,0)];
     [UIView commitAnimations];

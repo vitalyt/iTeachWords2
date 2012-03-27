@@ -130,7 +130,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)viewDidAppear:(BOOL)animated

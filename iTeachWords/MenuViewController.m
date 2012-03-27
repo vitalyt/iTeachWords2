@@ -26,6 +26,8 @@
 #import "RepeatModel.h"
 #import "CustomBadge.h"
 
+#import "ThemesTableView.h"
+
 #import "PurchasesDetailViewController.h"
 @implementation MenuViewController
 
@@ -328,6 +330,12 @@
     DMVocalizerViewController *vocalizerView = [[DMVocalizerViewController alloc] initWithNibName:@"DMVocalizerViewController" bundle:nil];
     [self.navigationController pushViewController:vocalizerView animated:YES];
     [vocalizerView release];
+}
+
+- (void)showThemes{
+    ThemesTableView *themesTableView = [[ThemesTableView alloc] initWithNibName:@"ThemesTableView" bundle:nil];
+    [self.navigationController pushViewController:themesTableView animated:YES];
+    [themesTableView release];
 }
 
 - (void)showRecognizerView{

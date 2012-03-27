@@ -45,6 +45,22 @@
 	
 }
 
+- (UITableViewCell*) tableView: (UITableView*)tableView cellForRowAtIndexPath: (NSIndexPath*)indexPath {
+    NSString *cellIdentifier = [self tableView:tableView cellIdentifierForRowAtIndexPath:indexPath];
+    
+    UITableViewCell *theCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (nil == theCell) {
+		if (nil == cellIdentifier)
+			theCell = [[[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:@"default"] autorelease];
+		else {
+			NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
+			theCell = [items objectAtIndex:0];
+		}
+	}
+	[self configureCell:theCell forRowAtIndexPath:indexPath];
+	return theCell;
+}
+
 -(void)cellDidEndEditing:(UITableViewCell *)cell {
 	
 	[UIView beginAnimations:nil context:nil];

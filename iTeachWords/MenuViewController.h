@@ -44,6 +44,8 @@
 - (void)showVocalizerView;
 - (void)showRecognizerView;
 
+- (void)showThemes;
+
 - (void)checkDelayedThemes;
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame;
 

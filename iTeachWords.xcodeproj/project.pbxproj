@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
+		1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
+		1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */; };
+		1CB6EAC01521E7B8001A4F49 /* ThemesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */; };
+		1CB6EAC91521E87B001A4F49 /* ThemesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EAC81521E87A001A4F49 /* ThemesCell.m */; };
+		1CB6EACA1521E87B001A4F49 /* ThemesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EAC81521E87A001A4F49 /* ThemesCell.m */; };
+		1CB6EACC1521E89D001A4F49 /* ThemesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */; };
+		1CB6EACD1521E89D001A4F49 /* ThemesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */; };
 		280318B71439923A00E87F1F /* HeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280318B51439923A00E87F1F /* HeadViewController.m */; };
 		280318B81439923A00E87F1F /* HeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280318B61439923A00E87F1F /* HeadViewController.xib */; };
 		280318D41439D19000E87F1F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280318D31439D19000E87F1F /* SettingsViewController.m */; };
@@ -962,6 +970,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableView.h; sourceTree = "<group>"; };
+		1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesTableView.m; sourceTree = "<group>"; };
+		1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesTableView.xib; sourceTree = "<group>"; };
+		1CB6EAC71521E87A001A4F49 /* ThemesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesCell.h; sourceTree = "<group>"; };
+		1CB6EAC81521E87A001A4F49 /* ThemesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesCell.m; sourceTree = "<group>"; };
+		1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesCell.xib; sourceTree = "<group>"; };
 		280318B41439923A00E87F1F /* HeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadViewController.h; sourceTree = "<group>"; };
 		280318B51439923A00E87F1F /* HeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadViewController.m; sourceTree = "<group>"; };
 		280318B61439923A00E87F1F /* HeadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadViewController.xib; sourceTree = "<group>"; };
@@ -1624,6 +1638,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CB6EAB91521E703001A4F49 /* ThemesTableView */ = {
+			isa = PBXGroup;
+			children = (
+				1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */,
+				1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */,
+				1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */,
+				1CB6EAC71521E87A001A4F49 /* ThemesCell.h */,
+				1CB6EAC81521E87A001A4F49 /* ThemesCell.m */,
+				1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */,
+			);
+			name = ThemesTableView;
+			sourceTree = "<group>";
+		};
 		280318A914398E1B00E87F1F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1806,6 +1833,7 @@
 		28296B1913812EDC000129E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1CB6EAB91521E703001A4F49 /* ThemesTableView */,
 				28914B4414D14586004E702A /* ScrolingSystem */,
 				289C63A514CDA5110003C5BF /* MySiri */,
 				28C0502514BD755D006442B4 /* AlertTableView */,
@@ -3264,6 +3292,8 @@
 				84728F6D15167AF50024FACF /* TuneWiki.png in Resources */,
 				84728F6F15167AF50024FACF /* TuneWiki1.png in Resources */,
 				84728F7215167B290024FACF /* Books.png in Resources */,
+				1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */,
+				1CB6EACC1521E89D001A4F49 /* ThemesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3616,6 +3646,8 @@
 				84728F6E15167AF50024FACF /* TuneWiki.png in Resources */,
 				84728F7015167AF50024FACF /* TuneWiki1.png in Resources */,
 				84728F7315167B290024FACF /* Books.png in Resources */,
+				1CB6EAC01521E7B8001A4F49 /* ThemesTableView.xib in Resources */,
+				1CB6EACD1521E89D001A4F49 /* ThemesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3737,6 +3769,8 @@
 				28914B5114D151DB004E702A /* ButtonView.m in Sources */,
 				2834E93714D189D1008229F3 /* MyVocalizerViewController.m in Sources */,
 				84FBA4AE151BAA11004118C9 /* CustomAlertView.m in Sources */,
+				1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */,
+				1CB6EAC91521E87B001A4F49 /* ThemesCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3859,6 +3893,8 @@
 				28D3244614E90E0C0014CBCB /* MKStoreObserver.m in Sources */,
 				28D3244914E910460014CBCB /* QQQInAppStore.m in Sources */,
 				84FBA4AF151BAA11004118C9 /* CustomAlertView.m in Sources */,
+				1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */,
+				1CB6EACA1521E87B001A4F49 /* ThemesCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4024,7 +4060,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4043,7 +4079,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7DBAEEB5-5CE4-4444-933A-4F0E7549D623";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -4059,7 +4095,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4078,7 +4114,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7DBAEEB5-5CE4-4444-933A-4F0E7549D623";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";

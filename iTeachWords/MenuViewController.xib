@@ -66,7 +66,7 @@
 						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Light1.png</string>
+							<string key="NSResourceName">Books.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="528255991">
 							<int key="type">2</int>
@@ -122,14 +122,14 @@
 						<float key="IBUIMinimumFontSize">9</float>
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="1040376057">
-							<string key="name">BradleyHandITCTT-Bold</string>
-							<string key="family">Bradley Hand</string>
-							<int key="traits">2</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="818202767">
+							<string key="name">ArialRoundedMTBold</string>
+							<string key="family">Arial Rounded MT Bold</string>
+							<int key="traits">0</int>
 							<double key="pointSize">13</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="481140804">
-							<string key="NSName">BradleyHandITCTT-Bold</string>
+						<object class="NSFont" key="IBUIFont" id="320579837">
+							<string key="NSName">ArialRoundedMTBold</string>
 							<double key="NSSize">13</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -150,11 +150,11 @@
 						<reference key="IBUITextColor" ref="805645812"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumFontSize">9</float>
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="1040376057"/>
-						<reference key="IBUIFont" ref="481140804"/>
+						<reference key="IBUIFontDescription" ref="818202767"/>
+						<reference key="IBUIFont" ref="320579837"/>
 					</object>
 					<object class="IBUIButton" id="327592110">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -247,11 +247,11 @@
 						<reference key="IBUITextColor" ref="805645812"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumFontSize">9</float>
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="1040376057"/>
-						<reference key="IBUIFont" ref="481140804"/>
+						<reference key="IBUIFontDescription" ref="818202767"/>
+						<reference key="IBUIFont" ref="320579837"/>
 					</object>
 					<object class="IBUILabel" id="634375644">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -269,11 +269,11 @@
 						<reference key="IBUITextColor" ref="805645812"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumFontSize">9</float>
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="1040376057"/>
-						<reference key="IBUIFont" ref="481140804"/>
+						<reference key="IBUIFontDescription" ref="818202767"/>
+						<reference key="IBUIFont" ref="320579837"/>
 					</object>
 					<object class="IBUILabel" id="884722634">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -291,11 +291,11 @@
 						<reference key="IBUITextColor" ref="805645812"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumFontSize">9</float>
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="1040376057"/>
-						<reference key="IBUIFont" ref="481140804"/>
+						<reference key="IBUIFontDescription" ref="818202767"/>
+						<reference key="IBUIFont" ref="320579837"/>
 					</object>
 					<object class="IBUIButton" id="635378151">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -328,6 +328,7 @@
 						<string key="NSFrame">{{120, 407}, {80, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -337,11 +338,11 @@
 						<reference key="IBUITextColor" ref="805645812"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumFontSize">9</float>
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="1040376057"/>
-						<reference key="IBUIFont" ref="481140804"/>
+						<reference key="IBUIFontDescription" ref="818202767"/>
+						<reference key="IBUIFont" ref="320579837"/>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
@@ -767,7 +768,7 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>Light1.png</string>
+				<string>Books.png</string>
 				<string>SMBPrefs.png</string>
 				<string>Safari.png</string>
 				<string>TextEdit2.png</string>

@@ -37,6 +37,7 @@
 - (IBAction) remove;
 - (IBAction) showAddView;
 - (IBAction) closeAddView;
+- (IBAction)showThemesTableView:(id)sender;
 - (void)closeView;
 - (void)	 saveNewTheme;
 - (IBAction) deleteType;
