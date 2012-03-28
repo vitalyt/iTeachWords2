@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C110C5215234D3E0075F444 /* Circle_Grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C110C5115234D3E0075F444 /* Circle_Grey.png */; };
+		1C110C5315234D3E0075F444 /* Circle_Grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C110C5115234D3E0075F444 /* Circle_Grey.png */; };
+		1C6FF4821523307E00705E51 /* ThemeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6FF4801523307E00705E51 /* ThemeDetailView.m */; };
+		1C6FF4831523307E00705E51 /* ThemeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6FF4801523307E00705E51 /* ThemeDetailView.m */; };
+		1C6FF4841523307E00705E51 /* ThemeDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6FF4811523307E00705E51 /* ThemeDetailView.xib */; };
+		1C6FF4851523307E00705E51 /* ThemeDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6FF4811523307E00705E51 /* ThemeDetailView.xib */; };
+		1C6FF486152330C900705E51 /* ThemeEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */; };
+		1C6FF487152330F700705E51 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
+		1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */; };
+		1C7F37101522FDF100F11594 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
 		1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */; };
@@ -970,6 +980,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C110C5115234D3E0075F444 /* Circle_Grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle_Grey.png; sourceTree = "<group>"; };
+		1C6FF47F1523307E00705E51 /* ThemeDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDetailView.h; sourceTree = "<group>"; };
+		1C6FF4801523307E00705E51 /* ThemeDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDetailView.m; sourceTree = "<group>"; };
+		1C6FF4811523307E00705E51 /* ThemeDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeDetailView.xib; sourceTree = "<group>"; };
+		1C7F370C1522FDF100F11594 /* ThemeEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeEditingViewController.h; sourceTree = "<group>"; };
+		1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeEditingViewController.m; sourceTree = "<group>"; };
+		1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeEditingViewController.xib; sourceTree = "<group>"; };
 		1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableView.h; sourceTree = "<group>"; };
 		1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesTableView.m; sourceTree = "<group>"; };
 		1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesTableView.xib; sourceTree = "<group>"; };
@@ -1638,6 +1655,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C6FF47D1523305D00705E51 /* ThemeDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				1C6FF47F1523307E00705E51 /* ThemeDetailView.h */,
+				1C6FF4801523307E00705E51 /* ThemeDetailView.m */,
+				1C6FF4811523307E00705E51 /* ThemeDetailView.xib */,
+			);
+			name = ThemeDetailView;
+			sourceTree = "<group>";
+		};
 		1CB6EAB91521E703001A4F49 /* ThemesTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1647,6 +1674,9 @@
 				1CB6EAC71521E87A001A4F49 /* ThemesCell.h */,
 				1CB6EAC81521E87A001A4F49 /* ThemesCell.m */,
 				1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */,
+				1C7F370C1522FDF100F11594 /* ThemeEditingViewController.h */,
+				1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */,
+				1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */,
 			);
 			name = ThemesTableView;
 			sourceTree = "<group>";
@@ -1912,6 +1942,7 @@
 		28296B3B13814968000129E8 /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				1C6FF47D1523305D00705E51 /* ThemeDetailView */,
 				28296B3C13814978000129E8 /* MyPickerViewProtocol.h */,
 				28296B3D13814978000129E8 /* MyPickerViewContrller.h */,
 				28296B3E13814978000129E8 /* MyPickerViewContrller.m */,
@@ -1923,6 +1954,7 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1C110C5115234D3E0075F444 /* Circle_Grey.png */,
 				84728F7115167B290024FACF /* Books.png */,
 				84728F6B15167AF50024FACF /* TuneWiki.png */,
 				84728F6C15167AF50024FACF /* TuneWiki1.png */,
@@ -3294,6 +3326,9 @@
 				84728F7215167B290024FACF /* Books.png in Resources */,
 				1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */,
 				1CB6EACC1521E89D001A4F49 /* ThemesCell.xib in Resources */,
+				1C7F37101522FDF100F11594 /* ThemeEditingViewController.xib in Resources */,
+				1C6FF4841523307E00705E51 /* ThemeDetailView.xib in Resources */,
+				1C110C5215234D3E0075F444 /* Circle_Grey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3301,6 +3336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C6FF487152330F700705E51 /* ThemeEditingViewController.xib in Resources */,
 				285B814214E4079E001C977D /* CountryNameCode2.txt in Resources */,
 				285B814314E4079E001C977D /* iTeachWordsDataModel.xcdatamodel in Resources */,
 				285B814514E4079E001C977D /* MainWindow.xib in Resources */,
@@ -3648,6 +3684,8 @@
 				84728F7315167B290024FACF /* Books.png in Resources */,
 				1CB6EAC01521E7B8001A4F49 /* ThemesTableView.xib in Resources */,
 				1CB6EACD1521E89D001A4F49 /* ThemesCell.xib in Resources */,
+				1C6FF4851523307E00705E51 /* ThemeDetailView.xib in Resources */,
+				1C110C5315234D3E0075F444 /* Circle_Grey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3771,6 +3809,8 @@
 				84FBA4AE151BAA11004118C9 /* CustomAlertView.m in Sources */,
 				1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */,
 				1CB6EAC91521E87B001A4F49 /* ThemesCell.m in Sources */,
+				1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */,
+				1C6FF4821523307E00705E51 /* ThemeDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3778,6 +3818,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C6FF486152330C900705E51 /* ThemeEditingViewController.m in Sources */,
 				2850556F14FFC05800B03DF1 /* PurchasesDetailViewController.m in Sources */,
 				285B80C214E4079E001C977D /* main.m in Sources */,
 				285B80C314E4079E001C977D /* iTeachWordsAppDelegate.m in Sources */,
@@ -3895,6 +3936,7 @@
 				84FBA4AF151BAA11004118C9 /* CustomAlertView.m in Sources */,
 				1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */,
 				1CB6EACA1521E87B001A4F49 /* ThemesCell.m in Sources */,
+				1C6FF4831523307E00705E51 /* ThemeDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4026,6 +4068,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F92D867A-6A82-43A0-9BDF-A94E001ADE35";
 				SDKROOT = iphoneos;
 			};

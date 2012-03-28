@@ -11,8 +11,8 @@
 
 @protocol UIPickerViewDataSource, UIPickerViewDelegate,MyPickerViewProtocol;
 
-@class AddWord,WordTypes;
-@interface MyPickerViewContrller : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
+@class AddWord,WordTypes,ThemeDetailView;
+@interface MyPickerViewContrller : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
 	IBOutlet UIPickerView	*pickerView;
 	IBOutlet UITextField	*myTextField;
 	IBOutlet UIBarButtonItem    *rightButton;
@@ -20,6 +20,9 @@
     IBOutlet UIButton		*addButton;
 	NSArray                 *data;
 	id <MyPickerViewProtocol>   delegate;
+    
+    ThemeDetailView         *themeDetailView;
+    NSMutableArray          *rows;
 }
 
 @property (nonatomic, retain) IBOutlet UIPickerView	*pickerView;
@@ -42,4 +45,6 @@
 - (void)	 saveNewTheme;
 - (IBAction) deleteType;
 - (NSString *) getTextPicker;
+- (void)showThemeDetail:(WordTypes*)_wordType;
+
 @end

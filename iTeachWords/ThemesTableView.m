@@ -11,13 +11,13 @@
 #import "ThemesCell.h"
 #import "Words.h"
 #import "Statistic.h"
-
+#import "ThemeEditingViewController.h"
 
 @interface ThemesTableView ()
-
 @end
 
 @implementation ThemesTableView
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +32,13 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
+    [self createNavigationButtons];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)createNavigationButtons{
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit:)] autorelease];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(back:)] autorelease];
 }
 
 -(void)loadData { 
@@ -45,18 +51,21 @@
     //[request setFetchBatchSize:10];
     [request setPropertiesToFetch:[NSArray arrayWithObjects:@"name",@"createDate",@"descriptionStr", nil]];
     
-	NSSortDescriptor *createDate = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:YES 
-                                                          selector:@selector(caseInsensitiveCompare:)];
+	NSSortDescriptor *createDate = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
     
     NSArray *context = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:createDate, nil]];
-    self.data = [NSMutableArray arrayWithArray:context];
-	[table reloadData];
+    if (!content) {
+        content = [[NSMutableArray alloc] initWithCapacity:[context count]];
+    }
+    [content release];
+    content = [[NSMutableArray arrayWithArray:context] retain];
+//    self.data = [NSMutableArray arrayWithArray:context];
     [pool release];
 }
 
 #pragma mark search bar funktions
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [data count];
+    return [content count];
 }
 
 - (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath {
@@ -71,7 +80,7 @@
 
 - (void) configureCell:(UITableViewCell *)cell forRowAtIndexPath: (NSIndexPath*)indexPath { 
     if ([cell isKindOfClass:[ThemesCell class]]) {
-        WordTypes *wordTypes = [data objectAtIndex:indexPath.row];
+        WordTypes *wordTypes = [content objectAtIndex:indexPath.row];
         
         ThemesCell *_cell = (ThemesCell*)cell;
         [_cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
@@ -88,22 +97,57 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerDone:)]) {
+		[self.delegate pickerDone:[content objectAtIndex:indexPath.row]];
+	}
+    [self performSelector:@selector(back:) withObject:nil afterDelay:.3];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    
+    [self showThemeEditingView];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete ) {
+        [CONTEXT deleteObject:[content objectAtIndex:indexPath.row]];
+        [content removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:YES];
+//        [self loadData];
+    }
+
 }
 
+
 - (IBAction)back:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    if (isEditingMode) {
+        [iTeachWordsAppDelegate remoneUndoBranch];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)edit:(id)sender {
+    if (isEditingMode) {
+        [iTeachWordsAppDelegate saveUndoBranch];
+    }else {
+        [iTeachWordsAppDelegate createUndoBranch];
+    }
     isEditingMode = !isEditingMode;
     [table setEditing:isEditingMode];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:(isEditingMode)?UIBarButtonSystemItemDone:UIBarButtonSystemItemEdit target:self action:@selector(edit:)]  autorelease];
     [table reloadData];
+}
+
+- (void)showThemeEditingView{
+    ThemeEditingViewController *themeEditingView = [[ThemeEditingViewController alloc] initWithNibName:@"ThemeEditingViewController" bundle:nil];
+    [self.navigationController pushViewController:themeEditingView animated:YES];
+    [themeEditingView release];
+}
+
+- (void)dealloc {
+    delegate = nil;
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [super viewDidUnload];
 }
 @end

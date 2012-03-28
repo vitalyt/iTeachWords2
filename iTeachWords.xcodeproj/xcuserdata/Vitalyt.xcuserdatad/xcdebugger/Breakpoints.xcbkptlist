@@ -20,39 +20,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/ThemesTableView.m"
-         timestampString = "354551744.288948"
+         filePath = "iTeachWords/MyPickerViewContrller.m"
+         timestampString = "354639376.991619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
-         landmarkName = "-tableView:accessoryButtonTappedForRowWithIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/ThemesTableView.m"
-         timestampString = "354551798.839696"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/ThemesTableView.m"
-         timestampString = "354552014.661134"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
-         landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
+         startingLineNumber = "328"
+         endingLineNumber = "328"
+         landmarkName = "-showThemeDetail:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

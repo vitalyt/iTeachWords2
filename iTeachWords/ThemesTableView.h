@@ -7,12 +7,20 @@
 //
 
 #import "TableViewController.h"
+#import "MyPickerViewProtocol.h"
 
 @interface ThemesTableView : TableViewController{
     BOOL    isEditingMode;
+    NSMutableArray *content;
+    
+	id <MyPickerViewProtocol>   delegate;
 }
+
+@property (nonatomic, assign) id  delegate;
 
 - (IBAction)back:(id)sender;
 - (IBAction)edit:(id)sender;
+- (void)showThemeEditingView;
+- (void)createNavigationButtons;
 
 @end

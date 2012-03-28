@@ -10,31 +10,33 @@
 #import "MyPickerViewProtocol.h"
 #import "WordTypes.h"
 #import "ThemesTableView.h"
+#import "ThemeDetailView.h"
+
+#define PICKER_ROW_HEIGHT 50
 
 @implementation MyPickerViewContrller
 @synthesize pickerView;
 @synthesize delegate,data;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
 
 - (void) initArray{
 	if (self != nil) {
 		[self loadData];
 	}
 }
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self loadData];
+	myTextField.hidden = YES;
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    
+- (void)dealloc {
+	delegate = nil;
+	[pickerView release];
+	[data release];
+    [rows release];
+    [super dealloc];
 }
 
 + (NSArray*)loadAllThemeWithPredicate:(NSPredicate*)_predicate{
@@ -54,6 +56,19 @@
 
 - (void) loadData{ 
 	self.data = [MyPickerViewContrller loadAllTheme];
+    if (rows) {
+        [rows release];
+    }
+    rows = [[NSMutableArray alloc] initWithCapacity:[self.data count]];
+    for (int i=0; i<[self.data count]; i++) {
+        ThemeDetailView *pickerRowView = [[ThemeDetailView alloc] initWithNibName:@"ThemeDetailView" bundle:nil];
+        [pickerRowView.view setFrame:CGRectMake(0, 0, pickerView.frame.size.width, PICKER_ROW_HEIGHT)];
+        [rows addObject:pickerRowView];
+        [pickerRowView setTheme:[data objectAtIndex:i]];
+        [pickerRowView release];
+    }
+
+    
 	[pickerView reloadAllComponents];
     
     NSString *lastTheme  = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastTheme"];
@@ -106,7 +121,6 @@
     CGRect frame = self.view.frame;
     frame.origin.y = 0-self.view.frame.size.height;
     frame.origin.x = 0;
-    
     [UIView beginAnimations:@"pickerShoving" context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -168,9 +182,7 @@
 	CATransition *myTransition = [CATransition animation];
 	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
 	myTransition.type = kCATransitionPush; 
-	
 	myTransition.duration = 0.2;
-	
     myTransition.subtype = kCATransitionFromLeft;
     [myTextField becomeFirstResponder];
     
@@ -207,8 +219,10 @@
 
 - (IBAction)showThemesTableView:(id)sender {
     ThemesTableView *themesTableView = [[ThemesTableView alloc] initWithNibName:@"ThemesTableView" bundle:nil];
-    [((UIViewController*)self.delegate).navigationController presentModalViewController:themesTableView animated:YES];
+    [((UIViewController*)self.delegate).navigationController pushViewController:themesTableView animated:YES];
+    [themesTableView setDelegate:self.delegate];
     [themesTableView release];
+    [self cansel];    
 }
 
 - (void) saveNewTheme{
@@ -245,8 +259,6 @@
         return;
     }
     [_data release];
-    
-	
 }
 
 - (IBAction) deleteType{
@@ -282,33 +294,44 @@
     if ([self.delegate respondsToSelector:@selector(pickerDidChooseType:)]) {
 		[self.delegate pickerDidChooseType:[data objectAtIndex:row]];
 	}
-   
+//    [self showThemeDetail:[data objectAtIndex:row]];
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self loadData];    
-	myTextField.hidden = YES;
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return PICKER_ROW_HEIGHT;
 }
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+// Row view creation delegate
+- (UIView *)pickerView:(UIPickerView *)_pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    ThemeDetailView *pickerRowView = (ThemeDetailView*)[rows objectAtIndex:row];
+    return (UIView*)pickerRowView.view;
 }
 
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+//// initailizer of the PickerRowView class (an UIView subclass)
+//- (id)initWithFrame:(CGRect)frame 
+//{
+//    if ((self = [super initWithFrame:frame])) 
+//    {
+//        CGFloat titleHeight = frame.size.height * CONTENT_TO_FRAME_RATIO;
+//        title_ = [[UILabel alloc] initWithFrame:CGRectMake(TITLE_X, (frame.size.height - titleHeight) / 2, frame.size.width, titleHeight)];
+//        [title_ setFont:[UIFont fontWithName:@"StainlessExt-Light" size:titleHeight]];
+//        title_.backgroundColor = [UIColor clearColor];
+//        [self addSubview:title_];
+//        [title_ release];
+//        
+//        self.userInteractionEnabled = NO;
+//    }
+//    return self;
+//}
+
+- (void)showThemeDetail:(WordTypes*)_wordType{
+    if (!themeDetailView) {
+        themeDetailView = [[ThemeDetailView alloc] initWithNibName:@"ThemeDetailView" bundle:nil];
+        [self.view addSubview:themeDetailView.view];
+        [themeDetailView.view setFrame:CGRectMake(0, 259, themeDetailView.view.frame.size.width, themeDetailView.view.frame.size.height)];
+    }
+    [themeDetailView setTheme:_wordType];
 }
-
-
-- (void)dealloc {
-	delegate = nil;
-	[pickerView release];
-	[data release];
-    [super dealloc];
-}
-
 
 @end

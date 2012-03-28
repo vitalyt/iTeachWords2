@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.table setBackgroundColor:[UIColor clearColor]];
 	self.navigationItem.titleView = statisticView.view;
     if([self.data count]>0){
         [self createWord];
