@@ -15,6 +15,7 @@
 @interface MyPickerViewContrller : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
 	IBOutlet UIPickerView	*pickerView;
 	IBOutlet UITextField	*myTextField;
+    IBOutlet UITextField    *themeEditingFlt;
 	IBOutlet UIBarButtonItem    *rightButton;
 	IBOutlet UIBarButtonItem    *leftButton;
     IBOutlet UIButton		*addButton;
@@ -41,10 +42,16 @@
 - (IBAction) showAddView;
 - (IBAction) closeAddView;
 - (IBAction)showThemesTableView:(id)sender;
+- (IBAction)editThemeName:(id)sender;
 - (void)closeView;
 - (void)	 saveNewTheme;
 - (IBAction) deleteType;
 - (NSString *) getTextPicker;
 - (void)showThemeDetail:(WordTypes*)_wordType;
+- (void)closeEditingField;
+- (void)saveEditingField;
+
+- (CATransition*)cretePushAnimation;
+- (CATransition*)cretePopAnimation;
 
 @end

@@ -36,6 +36,7 @@
 	[pickerView release];
 	[data release];
     [rows release];
+    [themeEditingFlt release];
     [super dealloc];
 }
 
@@ -116,8 +117,44 @@
     [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75] afterDelay:.5];
 }
 
+
+- (IBAction)editThemeName:(id)sender {
+    [pickerView setUserInteractionEnabled:NO];
+	[themeEditingFlt.layer addAnimation:[self cretePushAnimation] forKey:nil];
+    [iTeachWordsAppDelegate createUndoBranch];
+    [themeEditingFlt setHidden:NO];
+    WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
+    [themeEditingFlt setText:wordType.name];
+    [themeEditingFlt becomeFirstResponder];
+}
+
+- (void)closeEditingField{
+	[themeEditingFlt.layer addAnimation:[self cretePopAnimation] forKey:nil];
+    [iTeachWordsAppDelegate remoneUndoBranch];
+    [themeEditingFlt setHidden:YES];
+    [themeEditingFlt resignFirstResponder];
+}
+
+- (void)saveEditingField{
+    WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
+    [wordType setName:themeEditingFlt.text];
+    [iTeachWordsAppDelegate saveUndoBranch];
+    [themeEditingFlt setHidden:YES];
+    [themeEditingFlt resignFirstResponder];
+    [self loadData];
+}
+
 - (IBAction) cansel
 {    
+    [pickerView setUserInteractionEnabled:YES];
+    if (!themeEditingFlt.hidden) {
+        [self closeEditingField];
+        return;
+    }
+    if (!myTextField.hidden) {
+        [self closeAddView];
+        return;
+    }
     CGRect frame = self.view.frame;
     frame.origin.y = 0-self.view.frame.size.height;
     frame.origin.x = 0;
@@ -140,6 +177,15 @@
 
 - (IBAction) done
 {
+    [pickerView setUserInteractionEnabled:YES];
+    if (!themeEditingFlt.hidden) {
+        [self saveEditingField];
+        return;
+    }
+    if (!myTextField.hidden) {
+        [self saveNewTheme];
+        return;
+    }
     if ([data count] <= [pickerView selectedRowInComponent:0]) {
         [UIAlertView displayError:@"No selected theme."];
         return;
@@ -177,44 +223,38 @@
 	}
 }
 
-- (IBAction) showAddView
-{
-	CATransition *myTransition = [CATransition animation];
+- (CATransition*)cretePushAnimation{
+    CATransition *myTransition = [CATransition animation];
 	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
 	myTransition.type = kCATransitionPush; 
 	myTransition.duration = 0.2;
     myTransition.subtype = kCATransitionFromLeft;
-    [myTextField becomeFirstResponder];
-    
-    [rightButton setAction:@selector(saveNewTheme)];
-    [rightButton setTitle:@"Add"];
-    
-    [leftButton setAction:@selector(closeAddView)];
-    [leftButton setStyle:UIBarButtonItemStyleBordered];
-	
-	[myTextField.layer addAnimation:myTransition forKey:nil];
-	myTextField.hidden = NO;
-    [myTextField setText:@""];
-
+    return myTransition;
 }
 
-- (IBAction) closeAddView
-{
+- (CATransition*)cretePopAnimation{
 	CATransition *myTransition = [CATransition animation];
 	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
 	myTransition.type = kCATransitionPush; 
 	myTransition.duration = 0.2;
     myTransition.subtype = kCATransitionFromRight;
-    [rightButton setAction:@selector(done)];
-    //[rightButton setTitle:@"Done"];
-    [rightButton setStyle:UIBarButtonItemStyleDone];
-    [leftButton setAction:@selector(cansel)];
+    return myTransition;
+}
+
+- (IBAction) showAddView
+{
+    [myTextField becomeFirstResponder];
+	[myTextField.layer addAnimation:[self cretePushAnimation] forKey:nil];
+	myTextField.hidden = NO;
+    [myTextField setText:@""];
+}
+
+- (IBAction) closeAddView
+{
     [myTextField resignFirstResponder];
-	
-	[myTextField.layer addAnimation:myTransition forKey:nil];
+	[myTextField.layer addAnimation:[self cretePopAnimation] forKey:nil];
 	myTextField.hidden = YES;
     [myTextField setText:@""];
-//    [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor whiteColor] afterDelay:1.0];
 }
 
 - (IBAction)showThemesTableView:(id)sender {
@@ -224,6 +264,7 @@
     [themesTableView release];
     [self cansel];    
 }
+
 
 - (void) saveNewTheme{
     NSString *typeName = [NSString stringWithString:myTextField.text];
@@ -334,4 +375,9 @@
     [themeDetailView setTheme:_wordType];
 }
 
+- (void)viewDidUnload {
+    [themeEditingFlt release];
+    themeEditingFlt = nil;
+    [super viewDidUnload];
+}
 @end
