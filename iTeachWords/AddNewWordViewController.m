@@ -238,10 +238,20 @@
     [UIView beginAnimations:@"ShowOptionsView" context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView setAnimationBeginsFromCurrentState:YES];
+    
     [recordView.view setFrame:CGRectMake(self.view.superview.center.x-105/2, self.view.superview.center.y-105/2, 105, 105)];
     [UIView commitAnimations];
 }
 
+- (IBAction) translatePressed:(id)sender{
+    if ([translateFid.text length] == 0) {
+        [dataModel loadTranslateText:textFld.text fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:self];
+    }
+    if ([textFld.text length] == 0) {
+        [dataModel loadTranslateText:translateFid.text fromLanguageCode:NATIVE_LANGUAGE_CODE toLanguageCode:TRANSLATE_LANGUAGE_CODE withDelegate:self];
+    }
+}
+    
 - (void) recordViewDidClose:(id)sender{
 }
 
@@ -388,12 +398,7 @@
     if ([DELEGATE respondsToSelector:@selector(showWebLoadingView)]) {
         [DELEGATE performSelector:@selector(showWebLoadingView)];
     }
-    UIButton *recButton = ((UIButton*)textField.rightView);
-    if ([textField.text length]==0) {
-        [recButton setEnabled:NO];
-    }else{
-        [recButton setEnabled:YES];
-    }
+    [self updateFieldButtons];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField{
@@ -402,20 +407,53 @@
     if ([text length] == 0) {
         return;
     }
-    if (textField.tag == 100) {
-        if ([translateFid.text length] == 0) {
-            [dataModel loadTranslateText:text fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:self];
-        }
-    }else if (textField.tag == 101){
-        if ([textFld.text length] == 0) {
-            [dataModel loadTranslateText:text fromLanguageCode:NATIVE_LANGUAGE_CODE toLanguageCode:TRANSLATE_LANGUAGE_CODE withDelegate:self];
-        }
-    }
     if (textField == textFld) {
         [dataModel.currentWord setText:text];
     }else if (textField == translateFid) {
         [dataModel.currentWord setTranslate:text];
     }
+    [self updateFieldButtons];
+}
+
+- (void)updateFieldButtons{
+    UIButton *recTranslateButton = ((UIButton*)translateFid.rightView);
+    UIButton *recTextButton = ((UIButton*)textFld.rightView);
+
+    if ([textFld.text length]!=0 &&[translateFid.text length]==0) {
+        [recTranslateButton setEnabled:YES];
+        [recTextButton setEnabled:YES];
+        [self changeFieldButton:recTranslateButton toState:0];
+        [self changeFieldButton:recTextButton toState:1];
+    }else if ([translateFid.text length]!=0 &&[textFld.text length]==0){
+        [recTextButton setEnabled:YES];
+        [recTranslateButton setEnabled:YES];
+        [self changeFieldButton:recTextButton toState:0];
+        [self changeFieldButton:recTranslateButton toState:1];
+    }else if ([translateFid.text length]==0 &&[textFld.text length]==0){
+        [recTextButton setEnabled:NO];
+        [recTranslateButton setEnabled:NO];
+        [self changeFieldButton:recTextButton toState:1];
+        [self changeFieldButton:recTranslateButton toState:1];
+    }else {
+        [recTextButton setEnabled:YES];
+        [recTranslateButton setEnabled:YES];
+        [self changeFieldButton:recTextButton toState:1];
+        [self changeFieldButton:recTranslateButton toState:1];
+    }
+}
+
+- (void)changeFieldButton:(UIButton*)button toState:(int)state{
+    UIImage *icon = [UIImage imageNamed:(state==0)?@"Search 24x24.png":@"Voice 24x24.png"];
+    SEL selector = (state==0)?@selector(translatePressed:): @selector(recordPressed:);
+    
+    [button setImage:icon forState:UIControlStateNormal];
+    [button removeTarget:nil 
+                       action:NULL 
+             forControlEvents:UIControlEventAllEvents];
+    [button addTarget:self 
+                      action:selector
+            forControlEvents:UIControlEventTouchDown];
+
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField{

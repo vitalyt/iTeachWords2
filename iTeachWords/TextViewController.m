@@ -60,20 +60,7 @@
 - (void) loadView{
     [super loadView];
     myTextView.layer.cornerRadius = radius;
-    
-//    // Add drop shadow to the view.
-//    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-//    gradientLayer.frame = CGRectMake(0, myTextView.frame.size.height, myTextView.frame.size.width, -20);
-//    gradientLayer.colors = [NSArray arrayWithObjects:
-//                            (id)[UIColor blackColor].CGColor,
-//                            (id)[UIColor clearColor].CGColor,
-//                            nil];
-//    gradientLayer.startPoint = CGPointMake(-2, 1.5);
-//    gradientLayer.endPoint = CGPointMake(1, 1.5);   
-//    [myTextView.layer addSublayer:gradientLayer];
-    
-    pagesScrollView = [[PagesScrollView alloc] initWithNibName:@"PagesScrollView" bundle:nil
-                       ];
+    pagesScrollView = [[PagesScrollView alloc] initWithNibName:@"PagesScrollView" bundle:nil];
     [pagesScrollView setDelegate:self];
 }
 
@@ -223,6 +210,11 @@
         [self.navigationController presentModalViewController:voiceView animated:YES];
         [voiceView release];
     }
+}
+
+- (void)showAddWordView{
+    [super showAddWordView];
+    [myTextView resignFirstResponder];
 }
 
 #pragma mark loadingTranslate delegate functions

@@ -24,6 +24,7 @@
 
 #define SELECTION_INDICATOR_TAG 54321
 #define TEXT_LABEL_TAG 54322
+#define CELL_HIGHT 120
 
 @synthesize wordType,showingType;
 
@@ -244,7 +245,7 @@
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < limit - 1) {
-        return 105;
+        return CELL_HIGHT;
     }
     return 44;
 }

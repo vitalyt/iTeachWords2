@@ -58,6 +58,8 @@
 - (void)textFieldDidChange:(UITextField*)textField;
 - (void)removeChanges;
 
+- (void)updateFieldButtons;
+- (void)changeFieldButton:(UIButton*)button toState:(int)state;
 
 - (void)showSaveButton;
 - (void)hiddeSaveButton;

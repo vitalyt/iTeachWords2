@@ -31,7 +31,6 @@
                                         target:self action:@selector(back)];
         self.navigationItem.leftBarButtonItem = [backButton autorelease];
         wordsView = [[AddNewWordViewController alloc] initWithNibName:@"AddNewWordViewController" bundle:nil];
-//        [wordsView.view setFrame:CGRectMake(.0, 44, wordsView.view.frame.size.width,wordsView.view.frame.size.height)];
         [wordsView setDelegate:self];
     }
     return self;
@@ -49,6 +48,7 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     [self.view addSubview:wordsView.view];
+    [wordsView.view setFrame:CGRectMake(.0, 44, wordsView.view.frame.size.width,wordsView.view.frame.size.height)];
     [searchingTranslateBtn setTitle:NSLocalizedString(@"Tap to find more translations", @"") forState:UIControlStateNormal];
     //[wordsView loadData];
 }

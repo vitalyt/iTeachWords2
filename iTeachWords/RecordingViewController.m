@@ -44,7 +44,7 @@
 {
     [super viewDidLoad];
     [self materViewWidth];
-    
+    activityIndicatorView.hidden = YES;
     CGRect frame = vuMeter.frame;
     frame.size.width = 0;
     vuMeter.frame =  frame;
