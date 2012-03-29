@@ -1,41 +1,22 @@
 //
-//  MenuView.m
-//  
+//  QQQBaseTransparentView.m
+//  iTeachWords
 //
-//  Created by Vitaly Todorovych on 4/14/11.
-//  Copyright 2011 OSDN. All rights reserved.
+//  Created by admin on 29.03.12.
+//  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-#import "MenuView.h"
+#import "QQQBaseTransparentView.h"
 
-
-@implementation MenuView
+@implementation QQQBaseTransparentView
 
 - (void)drawRect:(CGRect)rect {
-    
-	[super drawRect:rect];
-	
-//	self.layer.borderWidth = 1.5;
-//	self.layer.borderColor = UIColorFromRGB(0x888888).CGColor; 
-//	self.layer.cornerRadius = 7;
-//	self.layer.masksToBounds = YES;
-	
-//	UIColor *topColor = [UIColor colorWithRed:0.35f green:0.35f blue:0.35f alpha:1.0f];//UIColorFromRGB(0x424242);
-//    UIColor *middleColor = [UIColor colorWithRed:0.33f green:0.33f blue:0.33f alpha:1.0f];
-//	UIColor *bottomColor = [UIColor colorWithRed:0.3125f green:0.3125f blue:0.3125f alpha:1.0f];//UIColorFromRGB(0x424242);//UIColorFromRGB(0x2f2f2f);	
-//	
-//	CAGradientLayer *gradient = [[CAGradientLayer alloc] init];
-//	gradient.frame = self.bounds;
-//	gradient.colors = [NSArray arrayWithObjects:(id)topColor.CGColor, (id)middleColor.CGColor, (id)bottomColor.CGColor, nil];
-//	[self.layer insertSublayer:gradient atIndex:0];
-//	[gradient release];
-    
 	//////////////GET REFERENCE TO CURRENT GRAPHICS CONTEXT
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
     //////////////CREATE BASE SHAPE WITH ROUNDED CORNERS FROM BOUNDS
 	CGRect activeBounds = self.bounds;
-	CGFloat cornerRadius = 5.0f;	
+	CGFloat cornerRadius = 10.0f;	
 	CGFloat inset = 0.5f;	
 	CGFloat originX = activeBounds.origin.x + inset;
 	CGFloat originY = activeBounds.origin.y + inset;
@@ -74,7 +55,7 @@
 	CGGradientRelease(gradient);
 	
 	//////////////HATCHED BACKGROUND
-    CGFloat buttonOffset = self.frame.size.height/2; //Offset buttonOffset by half point for crisp lines
+    CGFloat buttonOffset = 87.0f; //Offset buttonOffset by half point for crisp lines
 	CGContextSaveGState(context); //Save Context State Before Clipping "hatchPath"
 	CGRect hatchFrame = CGRectMake(0.0f, buttonOffset, activeBounds.size.width, (activeBounds.size.height - buttonOffset+1.0f));
 	CGContextClipToRect(context, hatchFrame);
@@ -94,12 +75,12 @@
 	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.15f].CGColor);
 	CGContextDrawPath(context, kCGPathStroke);
 	CGContextRestoreGState(context); //Restore Last Context State Before Clipping "hatchPath"
-    
-    //////////////DRAW LINE
+	
+	//////////////DRAW LINE
 	CGMutablePathRef linePath = CGPathCreateMutable(); 
-	CGFloat linePathY = buttonOffset;
-	CGPathMoveToPoint(linePath, NULL, 20, linePathY);
-	CGPathAddLineToPoint(linePath, NULL, activeBounds.size.width/4+activeBounds.size.width/2, linePathY);
+	CGFloat linePathY = (buttonOffset - 1.0f);
+	CGPathMoveToPoint(linePath, NULL, 0.0f, linePathY);
+	CGPathAddLineToPoint(linePath, NULL, activeBounds.size.width, linePathY);
 	CGContextAddPath(context, linePath);
 	CGPathRelease(linePath);
 	CGContextSetLineWidth(context, 1.0f);
@@ -108,14 +89,25 @@
 	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 0.0f, [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.2f].CGColor);
 	CGContextDrawPath(context, kCGPathStroke);
 	CGContextRestoreGState(context); //Restore Context State After Drawing "linePath" Shadow
-   
-    
-    //////////////STROKE PATH FOR INNER SHADOW
+	
+	//////////////STROKE PATH FOR INNER SHADOW
 	CGContextAddPath(context, path);
-	CGContextSetLineWidth(context, 1.0f);
+	CGContextSetLineWidth(context, 3.0f);
 	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
 	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
 	CGContextDrawPath(context, kCGPathStroke);
+    
+	//////////////STROKE PATH TO COVER UP PIXILATION ON CORNERS FROM CLIPPING
+    //    CGContextRestoreGState(context); //Restore First Context State Before Clipping "path"
+    //	CGContextAddPath(context, path);
+    //	CGContextSetLineWidth(context, 3.0f);
+    //	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
+    //	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 0.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.1f].CGColor);
+    //	CGContextDrawPath(context, kCGPathStroke);
+    
+    
 }
+
+
 
 @end

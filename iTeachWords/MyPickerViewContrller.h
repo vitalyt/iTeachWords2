@@ -12,7 +12,7 @@
 @protocol UIPickerViewDataSource, UIPickerViewDelegate,MyPickerViewProtocol;
 
 @class AddWord,WordTypes,ThemeDetailView;
-@interface MyPickerViewContrller : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
+@interface MyPickerViewContrller : UIViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
 	IBOutlet UIPickerView	*pickerView;
 	IBOutlet UITextField	*myTextField;
     IBOutlet UITextField    *themeEditingFlt;

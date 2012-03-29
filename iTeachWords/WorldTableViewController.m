@@ -176,6 +176,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [table setBackgroundColor:[UIColor clearColor]];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     NSDictionary *dict = [iTeachWordsAppDelegate sharedSettings];
     nativeCountry = [dict objectForKey:@"nativeCountry"];

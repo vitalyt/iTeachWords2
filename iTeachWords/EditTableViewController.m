@@ -44,7 +44,7 @@
         theCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         UIView *bg = [[MenuView alloc] initWithFrame:theCell.frame];
-        bg.backgroundColor = [UIColor groupTableViewBackgroundColor]; // or any color
+        bg.backgroundColor = [UIColor clearColor]; // or any color
         theCell.backgroundView = bg;
         [bg release];
     }else {

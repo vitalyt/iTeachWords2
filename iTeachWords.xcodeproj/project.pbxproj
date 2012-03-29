@@ -956,6 +956,8 @@
 		84A198D91508059400EADF65 /* RecognizerInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A198D71508059400EADF65 /* RecognizerInfo.html */; };
 		84FBA4AE151BAA11004118C9 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA4AD151BAA11004118C9 /* CustomAlertView.m */; };
 		84FBA4AF151BAA11004118C9 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA4AD151BAA11004118C9 /* CustomAlertView.m */; };
+		84FF35021524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FF35011524D7AD00C17BC6 /* QQQBaseTransparentView.m */; };
+		84FF35031524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FF35011524D7AD00C17BC6 /* QQQBaseTransparentView.m */; };
 		CE6C773313C09EC700ACDC2E /* MyData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773213C09EC700ACDC2E /* MyData.m */; };
 		CE6C773813C0C79E00ACDC2E /* Test15.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6C773613C0C79E00ACDC2E /* Test15.m */; };
 		CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
@@ -1568,6 +1570,8 @@
 		84A198D71508059400EADF65 /* RecognizerInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RecognizerInfo.html; sourceTree = "<group>"; };
 		84FBA4AC151BAA11004118C9 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
 		84FBA4AD151BAA11004118C9 /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
+		84FF35001524D7AD00C17BC6 /* QQQBaseTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQBaseTransparentView.h; sourceTree = "<group>"; };
+		84FF35011524D7AD00C17BC6 /* QQQBaseTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQBaseTransparentView.m; sourceTree = "<group>"; };
 		CE6C773113C09EC700ACDC2E /* MyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyData.h; sourceTree = "<group>"; };
 		CE6C773213C09EC700ACDC2E /* MyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyData.m; sourceTree = "<group>"; };
 		CE6C773513C0C79E00ACDC2E /* Test15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test15.h; sourceTree = "<group>"; };
@@ -1922,6 +1926,8 @@
 				28296B2813813352000129E8 /* MyUIViewClass.m */,
 				28A1949F14862FDD005B343A /* SpeachView.h */,
 				28A194A014862FDD005B343A /* SpeachView.m */,
+				84FF35001524D7AD00C17BC6 /* QQQBaseTransparentView.h */,
+				84FF35011524D7AD00C17BC6 /* QQQBaseTransparentView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3817,6 +3823,7 @@
 				1CB6EAC91521E87B001A4F49 /* ThemesCell.m in Sources */,
 				1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */,
 				1C6FF4821523307E00705E51 /* ThemeDetailView.m in Sources */,
+				84FF35021524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3943,6 +3950,7 @@
 				1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */,
 				1CB6EACA1521E87B001A4F49 /* ThemesCell.m in Sources */,
 				1C6FF4831523307E00705E51 /* ThemeDetailView.m in Sources */,
+				84FF35031524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

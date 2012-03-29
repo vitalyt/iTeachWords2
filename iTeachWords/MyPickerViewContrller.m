@@ -176,6 +176,15 @@
 	}  
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if ([textField.text length] > 0) {
+        [self done];
+    }else{
+        [self cansel];
+    }
+    return YES;
+}
+
 - (IBAction) done
 {
     [pickerView setUserInteractionEnabled:YES];
@@ -208,7 +217,6 @@
     [UIView commitAnimations];
     
     [self closeView];
-
 }
 
 - (IBAction) remove

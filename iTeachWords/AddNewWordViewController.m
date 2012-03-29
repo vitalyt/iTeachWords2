@@ -49,6 +49,8 @@
 }
 - (void)viewDidLoad
 {    
+    [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     if([DELEGATE respondsToSelector:@selector(createMenu)]){
         [DELEGATE performSelector:@selector(createMenu)];
     }else{
