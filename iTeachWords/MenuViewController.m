@@ -280,7 +280,7 @@
 
 - (void)showTeachView{
     WorldTableToolsController *myTableView = [[WorldTableToolsController alloc] initWithNibName:@"WorldTableViewController" bundle:nil];
-    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
+//    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:myTableView animated:YES];
     [myTableView release];
 }
@@ -301,14 +301,14 @@
 
 - (void)showDictionaryView{
     DictionaryViewController *dictionaryView = [[DictionaryViewController alloc] initWithNibName:@"DictionaryViewController" bundle:nil];
-    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
+//    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:dictionaryView animated:YES];
     [dictionaryView release];
 }
 
 - (void)showSettingsView{
     SettingsViewController *languageView = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-    [self performTransitionType:kCATransitionPush subType:kCATransitionFromTop];
+//    [self performTransitionType:kCATransitionPush subType:kCATransitionFromTop];
     [languageView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self.navigationController pushViewController:languageView animated:YES];
     [languageView release];

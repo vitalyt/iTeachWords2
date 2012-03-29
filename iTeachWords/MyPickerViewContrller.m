@@ -120,11 +120,12 @@
 
 - (IBAction)editThemeName:(id)sender {
     [pickerView setUserInteractionEnabled:NO];
+    [themeEditingFlt setText:@""];
 	[themeEditingFlt.layer addAnimation:[self cretePushAnimation] forKey:nil];
     [iTeachWordsAppDelegate createUndoBranch];
     [themeEditingFlt setHidden:NO];
     WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
-    [themeEditingFlt setText:wordType.name];
+    [themeEditingFlt performSelector:@selector(setText:) withObject:wordType.name afterDelay:.25];
     [themeEditingFlt becomeFirstResponder];
 }
 
@@ -348,23 +349,6 @@
     ThemeDetailView *pickerRowView = (ThemeDetailView*)[rows objectAtIndex:row];
     return (UIView*)pickerRowView.view;
 }
-
-//// initailizer of the PickerRowView class (an UIView subclass)
-//- (id)initWithFrame:(CGRect)frame 
-//{
-//    if ((self = [super initWithFrame:frame])) 
-//    {
-//        CGFloat titleHeight = frame.size.height * CONTENT_TO_FRAME_RATIO;
-//        title_ = [[UILabel alloc] initWithFrame:CGRectMake(TITLE_X, (frame.size.height - titleHeight) / 2, frame.size.width, titleHeight)];
-//        [title_ setFont:[UIFont fontWithName:@"StainlessExt-Light" size:titleHeight]];
-//        title_.backgroundColor = [UIColor clearColor];
-//        [self addSubview:title_];
-//        [title_ release];
-//        
-//        self.userInteractionEnabled = NO;
-//    }
-//    return self;
-//}
 
 - (void)showThemeDetail:(WordTypes*)_wordType{
     if (!themeDetailView) {

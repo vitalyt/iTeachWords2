@@ -132,9 +132,7 @@
 	NSSortDescriptor *name = [[NSSortDescriptor alloc] initWithKey:key ascending:YES 
                                                           selector:@selector(caseInsensitiveCompare:)];
     self.data = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:name, nil]];
-    NSLog(@"%d",[searchedData retainCount]);
     self.searchedData = [NSMutableArray arrayWithArray:data];
-    NSLog(@"%d",[searchedData retainCount]);
     [name release];
     [request release];
 	[table reloadData];
@@ -232,7 +230,7 @@
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < limit - 1) {
-        return 44;
+        return 55;
     }
     return 44;
 }

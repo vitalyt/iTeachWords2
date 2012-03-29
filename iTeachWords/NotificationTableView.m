@@ -141,7 +141,7 @@
     float width = tableView.frame.size.width - 40 - 79;
 
 	CGSize detailSize = [tite sizeWithFont:FONT_OF_HEAD_LABEL constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-	return detailSize.height + 15;//+titleSize.height;
+	return detailSize.height + 25;//+titleSize.height;
 }
 
 - (void) configureCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath {
