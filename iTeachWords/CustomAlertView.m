@@ -127,12 +127,12 @@
 	CGContextDrawPath(context, kCGPathStroke);
     
 	//////////////STROKE PATH TO COVER UP PIXILATION ON CORNERS FROM CLIPPING
-    CGContextRestoreGState(context); //Restore First Context State Before Clipping "path"
-	CGContextAddPath(context, path);
-	CGContextSetLineWidth(context, 3.0f);
-	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
-	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 0.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.1f].CGColor);
-	CGContextDrawPath(context, kCGPathStroke);
+//    CGContextRestoreGState(context); //Restore First Context State Before Clipping "path"
+//	CGContextAddPath(context, path);
+//	CGContextSetLineWidth(context, 3.0f);
+//	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
+//	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 0.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.1f].CGColor);
+//	CGContextDrawPath(context, kCGPathStroke);
 	
 }
 

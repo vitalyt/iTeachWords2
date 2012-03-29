@@ -63,6 +63,7 @@
 //    NSThread *progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(qqq) object:nil];
 //    [progressThread start];
     //[self doRegistrationProcess];
+//    [UIAlertView displayError:@"The closes of this funtionality is not recomended" title:@"Tile"];
     return YES;
 }
 

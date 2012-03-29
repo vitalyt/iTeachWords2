@@ -43,6 +43,7 @@
 	[super viewDidLoad];
 	cellStyle = UITableViewCellStyleDefault;
     [table setBackgroundColor:[UIColor clearColor]];
+    [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 	//[table setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]]];
 //    UIView *bg = [[MenuView alloc] initWithFrame:table.frame];
 //    bg.backgroundColor = [UIColor groupTableViewBackgroundColor]; // or any color
