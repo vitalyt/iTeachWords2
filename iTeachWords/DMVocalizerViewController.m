@@ -92,7 +92,6 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
 //    [portBox resignFirstResponder];
 //    [textToRead resignFirstResponder];
 //    [textReadSoFar resignFirstResponder];
-    
     if (isSpeaking) {
         [messageLbl setText:NSLocalizedString(@"Tap to play...", @"")];
         [vocalizer cancel];

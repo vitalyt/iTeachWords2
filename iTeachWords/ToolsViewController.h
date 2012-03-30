@@ -22,6 +22,7 @@
     IBOutlet UIToolbar      *toolbar; 
 	BOOL                    visible;
     IBOutlet UIBarButtonItem *testItemsButton;
+    IBOutlet UIBarButtonItem *closeBtn;
     RecordingViewController  *recordingView;
     TestsViewController      *testsView;
     EditingView              *editingView;
@@ -29,7 +30,8 @@
     bool                    isShowingView;
 }
 
-@property (nonatomic,retain) id  delegate;
+@property (nonatomic,assign) id  delegate;
+@property (nonatomic,assign) IBOutlet UIBarButtonItem  *closeBtn;
 @property (nonatomic) bool  isShowingView;
 @property (nonatomic,retain) IBOutlet UISlider *mySlider;
 @property (nonatomic) BOOL visible;

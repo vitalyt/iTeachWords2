@@ -191,7 +191,7 @@
 								</object>
 							</object>
 						</object>
-						<string key="NSFrame">{{83, 51}, {154, 25}}</string>
+						<string key="NSFrame">{{55, 47}, {154, 25}}</string>
 						<reference key="NSSuperview" ref="495469331"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="762945134"/>

@@ -1,45 +1,16 @@
 //
-//  CustomAlertView.m
-//  CustomAlert
+//  QQQSeparateSpeakingView.m
+//  iTeachWords
 //
-//  Created by Aaron Crabtree on 10/14/11.
-//  Copyright (c) 2011 Tap Dezign, LLC. All rights reserved.
+//  Created by Vitaly Todorovych on 30.03.12.
+//  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-#import "CustomAlertView.h"
-@implementation CustomAlertView
+#import "QQQSeparateSpeakingView.h"
 
-#pragma mark -
-#pragma mark Memory management
-- (void)dealloc 
-{
-    [super dealloc];
-}
+@implementation QQQSeparateSpeakingView
 
-#pragma mark -
-#pragma mark UIView Overrides
-- (void)layoutSubviews
-{
-	for (UIView *subview in self.subviews){ //Fast Enumeration
-		//NSLog(@"subview class :%@",[subview class]); //Get Class Description of Each Subview
-		//NSLog(@"subview.tag %i",subview.tag); //Get Button Tags
-		
-		if ([subview isMemberOfClass:[UIImageView class]]) { //Find UIImageView Containing Blue Background
-			subview.hidden = YES; //Hide UIImageView Containing Blue Background
-            // [subview removeFromSuperview]; Also Works
-		}
-        
-		if ([subview isMemberOfClass:[UILabel class]]) { //Point to UILabels To Change Text
-			UILabel *label = (UILabel*)subview;	//Cast From UIView to UILabel
-			label.textColor = [UIColor colorWithRed:250.0f/255.0f green:250.0f/255.0f blue:250.0f/255.0f alpha:1.0f];
-			label.shadowColor = [UIColor blackColor];
-			label.shadowOffset = CGSizeMake(0.0f, 1.0f);
-		}
-	}
-}
-
-- (void)drawRect:(CGRect)rect 
-{
+- (void)drawRect:(CGRect)rect {
 	//////////////GET REFERENCE TO CURRENT GRAPHICS CONTEXT
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
@@ -58,7 +29,7 @@
 	//////////////CREATE BASE SHAPE WITH FILL AND SHADOW
 	CGContextAddPath(context, path);
 	CGContextSetFillColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
-//	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
+    //	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
     CGContextDrawPath(context, kCGPathFill);
 	
 	//////////////CLIP STATE
@@ -84,12 +55,12 @@
 	CGGradientRelease(gradient);
 	
 	//////////////HATCHED BACKGROUND
-    CGFloat buttonOffset = 92.5f; //Offset buttonOffset by half point for crisp lines
+    CGFloat buttonOffset = 180.0f; //Offset buttonOffset by half point for crisp lines
 	CGContextSaveGState(context); //Save Context State Before Clipping "hatchPath"
 	CGRect hatchFrame = CGRectMake(0.0f, buttonOffset, activeBounds.size.width, (activeBounds.size.height - buttonOffset+1.0f));
 	CGContextClipToRect(context, hatchFrame);
 	
-	CGFloat spacer = 4.0f;
+	CGFloat spacer = 6.0f;
 	int rows = (activeBounds.size.width + activeBounds.size.height/spacer);
 	CGFloat padding = 0.0f;
 	CGMutablePathRef hatchPath = CGPathCreateMutable();
@@ -127,14 +98,13 @@
 	CGContextDrawPath(context, kCGPathStroke);
     
 	//////////////STROKE PATH TO COVER UP PIXILATION ON CORNERS FROM CLIPPING
-//    CGContextRestoreGState(context); //Restore First Context State Before Clipping "path"
-//	CGContextAddPath(context, path);
-//	CGContextSetLineWidth(context, 3.0f);
-//	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
-//	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 0.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.1f].CGColor);
-//	CGContextDrawPath(context, kCGPathStroke);
-	
+    //    CGContextRestoreGState(context); //Restore First Context State Before Clipping "path"
+    //	CGContextAddPath(context, path);
+    //	CGContextSetLineWidth(context, 3.0f);
+    //	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
+    //	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 0.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.1f].CGColor);
+    //	CGContextDrawPath(context, kCGPathStroke);
 }
 
-@end
 
+@end

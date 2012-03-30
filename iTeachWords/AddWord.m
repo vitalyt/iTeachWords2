@@ -25,6 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+//        [iTeachWordsAppDelegate clearUdoManager];
         self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                         initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered

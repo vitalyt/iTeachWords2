@@ -23,6 +23,8 @@
 		1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
 		1C89F03815259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
+		1C89F03B1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */; };
+		1C89F03C1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */; };
 		1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */; };
@@ -1000,6 +1002,8 @@
 		1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateTransparentView.m; sourceTree = "<group>"; };
 		1C89F03515259E4300A1E5EA /* QQQSeparateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateView.h; sourceTree = "<group>"; };
 		1C89F03615259E4300A1E5EA /* QQQSeparateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateView.m; sourceTree = "<group>"; };
+		1C89F0391525A27B00A1E5EA /* QQQSeparateSpeakingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateSpeakingView.h; sourceTree = "<group>"; };
+		1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateSpeakingView.m; sourceTree = "<group>"; };
 		1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableView.h; sourceTree = "<group>"; };
 		1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesTableView.m; sourceTree = "<group>"; };
 		1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesTableView.xib; sourceTree = "<group>"; };
@@ -1940,6 +1944,8 @@
 				1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */,
 				1C89F03515259E4300A1E5EA /* QQQSeparateView.h */,
 				1C89F03615259E4300A1E5EA /* QQQSeparateView.m */,
+				1C89F0391525A27B00A1E5EA /* QQQSeparateSpeakingView.h */,
+				1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3838,6 +3844,7 @@
 				84FF35021524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */,
 				1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */,
 				1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */,
+				1C89F03B1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3967,6 +3974,7 @@
 				84FF35031524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */,
 				1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */,
 				1C89F03815259E4300A1E5EA /* QQQSeparateView.m in Sources */,
+				1C89F03C1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

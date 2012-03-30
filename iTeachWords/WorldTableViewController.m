@@ -202,7 +202,11 @@
 {
     [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastItem"];
     [super viewWillDisappear:animated];
-    
+    if (recordView) {
+        [recordView saveSound];
+        [recordView release];
+        recordView = nil;
+    }
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -271,7 +275,7 @@
             default:
                 break;
         }
-        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         UIImageView *indicator = (UIImageView *)[cell.contentView viewWithTag:SELECTION_INDICATOR_TAG];
         
         //changing image of playing button 
@@ -329,7 +333,7 @@
             [table reloadData];	
         }else{
 
-            [table deselectRowAtIndexPath:indexPath animated:YES];
+//            [table deselectRowAtIndexPath:indexPath animated:YES];
         }
     }else{
         limit += offset;
@@ -357,14 +361,19 @@
     [table setScrollEnabled:NO];
 //    [table performSelectorOnMainThread:@selector(setScrollEnabled:) withObject:NO waitUntilDone:YES];
     int index;
-    if ([multiPlayer.words count] > 1 && soundIndex>0) {
-        [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:soundIndex inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if ([multiPlayer.words count] > 1) {
+        NSIndexPath *scrollingIndex = [NSIndexPath indexPathForRow:soundIndex inSection:0];
+        [self performSelectorOnMainThread:@selector(scrollTableToIndexPath:) withObject:scrollingIndex waitUntilDone:YES];
         index = soundIndex+1;
     }else{
         index = currentSelectedWordPathIndex.row;
     }
-    UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
-    [cell setSelected:YES animated:YES];
+//    UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
+//    [cell setSelected:YES animated:YES];
+}
+
+- (void)scrollTableToIndexPath:(NSIndexPath*)indexPath{
+    [table scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void) playerDidFinishPlayingSound:(int)soundIndex{
@@ -375,9 +384,9 @@
         index = currentSelectedWordPathIndex.row;
     }
 //    
-    UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
-    [cell setSelected:NO animated:YES];
-//    [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
+//    [cell setSelected:NO animated:YES];
+//      [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)playerDidFinishPlaying:(id)sender{
@@ -407,7 +416,16 @@
     if (recordView) {
         [recordView saveSound];
         [recordView release];
+        recordView = nil;
     }
+    [table setUserInteractionEnabled:NO];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    if (toolsView.isShowingView) {
+        [toolsView showToolsView:nil];
+        [toolsView.closeBtn setEnabled:NO];
+    }
+//    toolsView.view.frame.origin.y += 50;
+    
     currentSelectedWordPathIndex = [indexPath retain];
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
     recordView.delegate = self;
@@ -429,17 +447,29 @@
 
 - (void) recordViewDidClose:(id)sender{
 //    [self playSoundWithIndex:currentSelectedWordPathIndex];
+    [table setUserInteractionEnabled:YES];
+    [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    if (!toolsView.isShowingView) {
+        [toolsView showToolsView:nil];
+        [toolsView.closeBtn setEnabled:YES];
+    }
     [table deselectRowAtIndexPath:currentSelectedWordPathIndex animated:YES];
     [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
 }
 
 #pragma mark TableCellProtocol functions
 
 - (void)btnActionClickWithCell:(id)_cell{
     NSIndexPath *_indexPath = [table indexPathForCell:_cell];
-//    currentSelectedWordPathIndex = [_indexPath retain];
+    currentSelectedWordPathIndex = [_indexPath retain];
+    if (recordView) {
+        [recordView saveSound];
+        [recordView release];
+        recordView = nil;
+    }
     Words *_word = [data objectAtIndex:_indexPath.row];
-    if ([_word.sounds count]==0) {
+    if ([_word.sounds count]==0) {    
         [self showRecordViewWithIndexPath:_indexPath];
     }else{
         [self playSoundWithIndex:_indexPath];

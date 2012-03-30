@@ -227,18 +227,20 @@
         sounType = TEXT;
     }
     if (recordView) {
-//        [recordView saveSound];
+        [recordView saveSound];
         [recordView release];
+        recordView = nil;
     }
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
     recordView.delegate = self;
     recordView.isDelayingSaving = YES;
     [self.view.superview addSubview:recordView.view];
-    [recordView.view setFrame:CGRectMake(currentTextField.frame.origin.x+currentTextField.frame.size.width-currentTextField.rightView.frame.size.width, currentTextField.frame.origin.y, currentTextField.rightView.frame.size.width, currentTextField.rightView.frame.size.height)];
+    
+    [recordView.view setFrame:CGRectMake(currentTextField.frame.origin.x+currentTextField.frame.size.width-currentTextField.rightView.frame.size.width, currentTextField.frame.origin.y+44, currentTextField.rightView.frame.size.width, currentTextField.rightView.frame.size.height)];
     recordView.soundType = sounType;
     [recordView setWord:dataModel.currentWord withType:sounType];
     [UIView beginAnimations:@"ShowOptionsView" context:nil];
-    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDuration:.3];
     [UIView setAnimationBeginsFromCurrentState:YES];
     
     [recordView.view setFrame:CGRectMake(self.view.superview.center.x-105/2, self.view.superview.center.y-105/2, 105, 105)];
@@ -255,6 +257,10 @@
 }
     
 - (void) recordViewDidClose:(id)sender{
+    if (recordView) {
+        [recordView release];
+        recordView = nil;
+    }
 }
 
 - (IBAction) showMyPickerView{
@@ -359,7 +365,7 @@
     //[self back];
     
     [self hiddeSaveButton];
-    [self clear];
+    [self performSelector:@selector(clear) withObject:nil afterDelay:0.3];
 }
 
 - (void)clear{
@@ -494,9 +500,9 @@
 - (void)hiddeSaveButton{
     //make button animation
     [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
-    [UIView setAnimationDuration:5];
+    [UIView setAnimationDuration:.3];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [saveButton setFrame:CGRectMake(themeButton.center.x,themeButton.center.y,0,0)];
+    [saveButton setFrame:CGRectMake(themeButton.center.x,themeButton.center.y,10,10)];
     [UIView commitAnimations];
 }
 

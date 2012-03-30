@@ -42,7 +42,6 @@
 
 - (void)loadView{
     [super loadView];
-    
     //    [recordButton setTitle:NSLocalizedString(@"Cancel", @"") forState:UIControlStateNormal];
     [helpBtn setTitle:NSLocalizedString(@"Help", @"") forState:UIControlStateNormal];
     NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] stringForKey:@"nativeCountry"];
@@ -55,6 +54,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [majorView setBackgroundColor:[UIColor clearColor]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -76,6 +76,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [messageLbl setText:NSLocalizedString(@"Tap to play...", @"")];
     // grab an image of our parent view    
     // For iOS 5 you need to use presentingViewController:
     UIView *parentView;
@@ -100,7 +101,9 @@
     NSLog(@"%@",languageCode);
     [languageType setSelectedSegmentIndex:([NATIVE_LANGUAGE_CODE isEqualToString:[languageCode uppercaseString]])?1:0];
     [speakButton setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
-    [self speakOrStopAction:nil];
+    if ([speakString length]>0) {
+        [self speakOrStopAction:nil];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -141,21 +144,22 @@
     
     //make button animation
     [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.3];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [majorView setFrame:majorViewFrame];
     [exitBtn setFrame:exitBtnFrame];
     [UIView commitAnimations];
     if (!isToolsViewShowing) {
-        [majorView addSubview:toolsView];
+        [majorView performSelector:@selector(addSubview:) withObject:toolsView afterDelay:.3];
         [majorView sendSubviewToBack:toolsView];
     }else{
-        [toolsView performSelector:@selector(removeFromSuperview)withObject:nil afterDelay:0.5];
+        [toolsView performSelector:@selector(removeFromSuperview)withObject:nil afterDelay:0.1];
     }
     CGRect toolsViewFrame = [self getFrameForToolsView];
     [toolsView setFrame:toolsViewFrame];
-    
-    isToolsViewShowing = !isToolsViewShowing;
+    isToolsViewShowing = !isToolsViewShowing;    
+    [majorView performSelectorOnMainThread:@selector(setNeedsDisplay) withObject:nil waitUntilDone:YES ];
+
 }
 
 - (CGRect)getFrameForMajorView{

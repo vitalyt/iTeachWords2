@@ -227,7 +227,7 @@
     [iTeachWordsAppDelegate saveDB];
     [wordType release];
     wordType = nil;  
-    [self loadData];
+//    [self loadData];
 }
 
 

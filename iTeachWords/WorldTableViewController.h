@@ -56,4 +56,5 @@ typedef enum {
 
 - (void) showRecordViewWithIndexPath:(NSIndexPath*)indexPath;
 - (void)btnActionClickWithCell:(id)_cell;
+- (void)scrollTableToIndexPath:(NSIndexPath*)indexPath;
 @end

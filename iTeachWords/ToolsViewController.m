@@ -16,6 +16,7 @@
 @implementation ToolsViewController
 
 @synthesize delegate,visible,mySlider,isShowingView;
+@synthesize closeBtn;
 
 - (IBAction)toolBarButtonClick:(id)sender{
     SEL selector = @selector(addSubToolbarAfterButton:);
@@ -359,6 +360,8 @@
 }
 
 - (void)viewDidUnload {
+    [closeBtn release];
+    closeBtn = nil;
     [super viewDidUnload];
     
     [recordingView release];
@@ -393,6 +396,7 @@
         [testsView release];
     }
     [mySlider release];
+    [closeBtn release];
     [super dealloc];
 }
 

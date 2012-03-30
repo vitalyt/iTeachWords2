@@ -59,6 +59,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [majorView setBackgroundColor:[UIColor clearColor]];
     [vuMeter setFrame:CGRectMake(vuMeter.frame.origin.x, vuMeter.frame.origin.y, 0.0, vuMeter.frame.size.height)];
     [languageType setSelectedSegmentIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastLangType"]];
     [recognitionType setSelectedSegmentIndex:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastRecognitionType"]];
@@ -140,23 +141,24 @@
     
     //make button animation
     [UIView beginAnimations:@"SaveButtonAnimation" context:nil];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.3];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [majorView setFrame:majorViewFrame];
     [exitBtn setFrame:exitBtnFrame];
     [UIView commitAnimations];
     if (!isToolsViewShowing) {
-        [majorView addSubview:toolsView];
+        [majorView performSelector:@selector(addSubview:) withObject:toolsView afterDelay:.3];
         [majorView sendSubviewToBack:toolsView];
     }else{
         [[NSUserDefaults standardUserDefaults] setInteger:recognitionType.selectedSegmentIndex forKey:@"lastRecognitionType"];
         [[NSUserDefaults standardUserDefaults] setInteger:languageType.selectedSegmentIndex forKey:@"lastLangType"];
-        [toolsView performSelector:@selector(removeFromSuperview)withObject:nil afterDelay:0.5];
+        [toolsView performSelector:@selector(removeFromSuperview)withObject:nil afterDelay:0.1];
     }
     CGRect toolsViewFrame = [self getFrameForToolsView];
     [toolsView setFrame:toolsViewFrame];
     
     isToolsViewShowing = !isToolsViewShowing;
+    [majorView performSelectorOnMainThread:@selector(setNeedsDisplay) withObject:nil waitUntilDone:YES ];
 }
 
 - (CGRect)getFrameForMajorView{
