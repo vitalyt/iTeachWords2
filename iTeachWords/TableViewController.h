@@ -27,5 +27,6 @@
 - (void)loadData;
 - (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath;
 - (void) configureCell: (UITableViewCell*)theCell forRowAtIndexPath: (NSIndexPath*)indexPath;
+- (id)cellBackgroundViewWithFrame:(CGRect)frame;
 
 @end

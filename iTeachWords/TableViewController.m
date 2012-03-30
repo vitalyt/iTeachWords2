@@ -83,10 +83,7 @@
 			NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
 			theCell = [items objectAtIndex:0];
 		}
-        UIView *bg = [[MenuView alloc] initWithFrame:theCell.frame];
-        bg.backgroundColor = [UIColor groupTableViewBackgroundColor]; // or any color
-        theCell.backgroundView = bg;
-        [bg release];
+        theCell.backgroundView = [self cellBackgroundViewWithFrame:theCell.frame];
 	}
 	[self configureCell:theCell forRowAtIndexPath:indexPath];
 	return theCell;
@@ -112,6 +109,12 @@
 -(void)reload {
 	[self loadData];
 	[table reloadData];
+}
+
+- (id)cellBackgroundViewWithFrame:(CGRect)frame{
+    UIView *bg = [[MenuView alloc] initWithFrame:frame];
+    bg.backgroundColor = [UIColor clearColor]; // or any color
+    return [bg autorelease];
 }
 
 @end

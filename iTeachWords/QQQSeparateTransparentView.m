@@ -1,14 +1,14 @@
 //
-//  QQQBaseTransparentView.m
+//  QQQSeparateTransparentView.m
 //  iTeachWords
 //
-//  Created by admin on 29.03.12.
+//  Created by Vitaly Todorovych on 30.03.12.
 //  Copyright (c) 2012 OSDN. All rights reserved.
 //
 
-#import "QQQBaseTransparentView.h"
+#import "QQQSeparateTransparentView.h"
 
-@implementation QQQBaseTransparentView
+@implementation QQQSeparateTransparentView
 
 - (void)drawRect:(CGRect)rect {
 	//////////////GET REFERENCE TO CURRENT GRAPHICS CONTEXT
@@ -29,7 +29,7 @@
 	//////////////CREATE BASE SHAPE WITH FILL AND SHADOW
 	CGContextAddPath(context, path);
 	CGContextSetFillColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
-//	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
+    //	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
     CGContextDrawPath(context, kCGPathFill);
 	
 	//////////////CLIP STATE
@@ -55,44 +55,44 @@
 	CGGradientRelease(gradient);
 	
 	//////////////HATCHED BACKGROUND
-//    CGFloat buttonOffset = 87.0f; //Offset buttonOffset by half point for crisp lines
-//	CGContextSaveGState(context); //Save Context State Before Clipping "hatchPath"
-//	CGRect hatchFrame = CGRectMake(0.0f, buttonOffset, activeBounds.size.width, (activeBounds.size.height - buttonOffset+1.0f));
-//	CGContextClipToRect(context, hatchFrame);
-//	
-//	CGFloat spacer = 6.0f;
-//	int rows = (activeBounds.size.width + activeBounds.size.height/spacer);
-//	CGFloat padding = 0.0f;
-//	CGMutablePathRef hatchPath = CGPathCreateMutable();
-//	for(int i=1; i<=rows; i++) {
-//		CGPathMoveToPoint(hatchPath, NULL, spacer * i, padding);
-//		CGPathAddLineToPoint(hatchPath, NULL, padding, spacer * i);
-//	}
-//	CGContextAddPath(context, hatchPath);
-//	CGPathRelease(hatchPath);
-//	CGContextSetLineWidth(context, 1.0f);
-//	CGContextSetLineCap(context, kCGLineCapRound);
-//	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.15f].CGColor);
-//	CGContextDrawPath(context, kCGPathStroke);
-//	CGContextRestoreGState(context); //Restore Last Context State Before Clipping "hatchPath"
+    CGFloat buttonOffset = 87.0f; //Offset buttonOffset by half point for crisp lines
+	CGContextSaveGState(context); //Save Context State Before Clipping "hatchPath"
+	CGRect hatchFrame = CGRectMake(0.0f, buttonOffset, activeBounds.size.width, (activeBounds.size.height - buttonOffset+1.0f));
+	CGContextClipToRect(context, hatchFrame);
 	
-//	//////////////DRAW LINE
-//	CGMutablePathRef linePath = CGPathCreateMutable(); 
-//	CGFloat linePathY = (buttonOffset - 1.0f);
-//	CGPathMoveToPoint(linePath, NULL, 0.0f, linePathY);
-//	CGPathAddLineToPoint(linePath, NULL, activeBounds.size.width, linePathY);
-//	CGContextAddPath(context, linePath);
-//	CGPathRelease(linePath);
-//	CGContextSetLineWidth(context, 1.0f);
-//	CGContextSaveGState(context); //Save Context State Before Drawing "linePath" Shadow
-//	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.6f].CGColor);
-//	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 0.0f, [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.2f].CGColor);
-//	CGContextDrawPath(context, kCGPathStroke);
-//	CGContextRestoreGState(context); //Restore Context State After Drawing "linePath" Shadow
+	CGFloat spacer = 6.0f;
+	int rows = (activeBounds.size.width + activeBounds.size.height/spacer);
+	CGFloat padding = 0.0f;
+	CGMutablePathRef hatchPath = CGPathCreateMutable();
+	for(int i=1; i<=rows; i++) {
+		CGPathMoveToPoint(hatchPath, NULL, spacer * i, padding);
+		CGPathAddLineToPoint(hatchPath, NULL, padding, spacer * i);
+	}
+	CGContextAddPath(context, hatchPath);
+	CGPathRelease(hatchPath);
+	CGContextSetLineWidth(context, 1.0f);
+	CGContextSetLineCap(context, kCGLineCapRound);
+	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.15f].CGColor);
+	CGContextDrawPath(context, kCGPathStroke);
+	CGContextRestoreGState(context); //Restore Last Context State Before Clipping "hatchPath"
+	
+	//////////////DRAW LINE
+	CGMutablePathRef linePath = CGPathCreateMutable(); 
+	CGFloat linePathY = (buttonOffset - 1.0f);
+	CGPathMoveToPoint(linePath, NULL, 0.0f, linePathY);
+	CGPathAddLineToPoint(linePath, NULL, activeBounds.size.width, linePathY);
+	CGContextAddPath(context, linePath);
+	CGPathRelease(linePath);
+	CGContextSetLineWidth(context, 1.0f);
+	CGContextSaveGState(context); //Save Context State Before Drawing "linePath" Shadow
+	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.6f].CGColor);
+	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 0.0f, [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.2f].CGColor);
+	CGContextDrawPath(context, kCGPathStroke);
+	CGContextRestoreGState(context); //Restore Context State After Drawing "linePath" Shadow
 	
 	//////////////STROKE PATH FOR INNER SHADOW
 	CGContextAddPath(context, path);
-	CGContextSetLineWidth(context, 1.0f);
+	CGContextSetLineWidth(context, 3.0f);
 	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
 	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
 	CGContextDrawPath(context, kCGPathStroke);
@@ -104,10 +104,7 @@
     //	CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
     //	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 0.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.1f].CGColor);
     //	CGContextDrawPath(context, kCGPathStroke);
-    
-    
 }
-
 
 
 @end

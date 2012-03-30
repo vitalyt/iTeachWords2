@@ -42,11 +42,7 @@
         indicator.frame = CGRectMake(-EDITING_HORIZONTAL_OFFSET + SIDE_PADDING, (0.5 * tableView.rowHeight) - (0.5 * IMAGE_SIZE), IMAGE_SIZE, IMAGE_SIZE);
         [theCell.contentView addSubview:indicator];
         theCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        UIView *bg = [[MenuView alloc] initWithFrame:theCell.frame];
-        bg.backgroundColor = [UIColor clearColor]; // or any color
-        theCell.backgroundView = bg;
-        [bg release];
+        theCell.backgroundView = [self cellBackgroundViewWithFrame:theCell.frame];
     }else {
         indicator = (UIImageView *)[theCell.contentView viewWithTag:SELECTION_INDICATOR_TAG];
 	}
@@ -54,5 +50,6 @@
 	[self configureCell:theCell forRowAtIndexPath:indexPath];
 	return theCell;
 }
+
 
 @end

@@ -9,6 +9,7 @@
 #import "DictionaryViewController.h"
 #import "Words.h"
 #import "AddWord.h"
+#import "QQQSeparateView.h"
 
 @implementation DictionaryViewController
 @synthesize searchedData,searchedText;
@@ -256,6 +257,12 @@
     }else{
         cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"next %d words", @""),offset];
     }
+}
+
+- (id)cellBackgroundViewWithFrame:(CGRect)frame{
+    UIView *bg = [[QQQSeparateView alloc] initWithFrame:frame];
+    bg.backgroundColor = [UIColor clearColor]; // or any color
+    return [bg autorelease];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

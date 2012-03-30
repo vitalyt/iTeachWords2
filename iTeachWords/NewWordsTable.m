@@ -18,6 +18,7 @@
 #import "StringTools.h"
 #import "Statistic.h"
 #import "NSString+Interaction.h"
+#import "QQQBaseTransparentView.h"
 
 #define SELECTION_INDICATOR_TAG 54321
 #define TEXT_LABEL_TAG 54322
@@ -151,6 +152,13 @@
 }
 
 #pragma mark Table view functions
+
+- (id)cellBackgroundViewWithFrame:(CGRect)frame{
+    UIView *bg = [[QQQBaseTransparentView alloc] initWithFrame:frame];
+    bg.backgroundColor = [UIColor clearColor]; // or any color
+    return [bg autorelease];
+}
+
 
 - (void) configureCell: (NewTableCell *)cell forRowAtIndexPath: (NSIndexPath*)indexPath {
     if (indexPath.row < limit-1) {

@@ -19,6 +19,10 @@
 		1C6FF487152330F700705E51 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
 		1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */; };
 		1C7F37101522FDF100F11594 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
+		1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
+		1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
+		1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
+		1C89F03815259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
 		1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */; };
@@ -992,6 +996,10 @@
 		1C7F370C1522FDF100F11594 /* ThemeEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeEditingViewController.h; sourceTree = "<group>"; };
 		1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeEditingViewController.m; sourceTree = "<group>"; };
 		1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeEditingViewController.xib; sourceTree = "<group>"; };
+		1C89F0311525982D00A1E5EA /* QQQSeparateTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateTransparentView.h; sourceTree = "<group>"; };
+		1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateTransparentView.m; sourceTree = "<group>"; };
+		1C89F03515259E4300A1E5EA /* QQQSeparateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateView.h; sourceTree = "<group>"; };
+		1C89F03615259E4300A1E5EA /* QQQSeparateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateView.m; sourceTree = "<group>"; };
 		1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableView.h; sourceTree = "<group>"; };
 		1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesTableView.m; sourceTree = "<group>"; };
 		1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesTableView.xib; sourceTree = "<group>"; };
@@ -1928,6 +1936,10 @@
 				28A194A014862FDD005B343A /* SpeachView.m */,
 				84FF35001524D7AD00C17BC6 /* QQQBaseTransparentView.h */,
 				84FF35011524D7AD00C17BC6 /* QQQBaseTransparentView.m */,
+				1C89F0311525982D00A1E5EA /* QQQSeparateTransparentView.h */,
+				1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */,
+				1C89F03515259E4300A1E5EA /* QQQSeparateView.h */,
+				1C89F03615259E4300A1E5EA /* QQQSeparateView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3824,6 +3836,8 @@
 				1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */,
 				1C6FF4821523307E00705E51 /* ThemeDetailView.m in Sources */,
 				84FF35021524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */,
+				1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */,
+				1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3951,6 +3965,8 @@
 				1CB6EACA1521E87B001A4F49 /* ThemesCell.m in Sources */,
 				1C6FF4831523307E00705E51 /* ThemeDetailView.m in Sources */,
 				84FF35031524D7AD00C17BC6 /* QQQBaseTransparentView.m in Sources */,
+				1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */,
+				1C89F03815259E4300A1E5EA /* QQQSeparateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4038,6 +4054,7 @@
 				ARCHS = (
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
+					i386,
 				);
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitalii Todorovych";
@@ -4115,6 +4132,7 @@
 				ARCHS = (
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
+					i386,
 				);
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
@@ -4150,6 +4168,7 @@
 				ARCHS = (
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
+					i386,
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
