@@ -66,9 +66,38 @@
         range.location = [str length]-1;
         range.length = 1;
         [str replaceCharactersInRange:range withString:@""];
-    }
-    self = str;
+    } 
+    self = [NSString stringWithFormat:@"%@",str];
     [str release];
+}
+
++ (NSString*) removeSpaces:(NSString*)_str{
+    NSMutableString *str = [[NSMutableString alloc]initWithString:_str];
+    while ([str hasPrefix:@"\n"]) {
+        NSRange range;
+        range.location = 0;
+        range.length = 1;
+        [str replaceCharactersInRange:range withString:@""];
+    }
+    while ([str hasSuffix:@"\n"]) {
+        NSRange range;
+        range.location = [str length]-1;
+        range.length = 1;
+        [str replaceCharactersInRange:range withString:@""];
+    }
+    while ([str hasPrefix:@" "]) {
+        NSRange range;
+        range.location = 0;
+        range.length = 1;
+        [str replaceCharactersInRange:range withString:@""];
+    }
+    while ([str hasSuffix:@" "]) {
+        NSRange range;
+        range.location = [str length]-1;
+        range.length = 1;
+        [str replaceCharactersInRange:range withString:@""];
+    } 
+    return [str autorelease];
 }
 
 - (NSString *) translateString{

@@ -420,9 +420,9 @@
     }
     [table setUserInteractionEnabled:NO];
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    [toolsView.closeBtn setEnabled:NO];
     if (toolsView.isShowingView) {
         [toolsView showToolsView:nil];
-        [toolsView.closeBtn setEnabled:NO];
     }
 //    toolsView.view.frame.origin.y += 50;
     
@@ -449,9 +449,9 @@
 //    [self playSoundWithIndex:currentSelectedWordPathIndex];
     [table setUserInteractionEnabled:YES];
     [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    [toolsView.closeBtn setEnabled:YES];
     if (!toolsView.isShowingView) {
         [toolsView showToolsView:nil];
-        [toolsView.closeBtn setEnabled:YES];
     }
     [table deselectRowAtIndexPath:currentSelectedWordPathIndex animated:YES];
     [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];

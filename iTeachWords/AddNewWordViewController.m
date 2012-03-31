@@ -330,6 +330,11 @@
 	else if (buttonIndex == 0){
         [self removeChanges];
         //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        if (recordView) {
+            [recordView saveSound];
+            [recordView release];
+            recordView = nil;
+        }
         [DELEGATE.navigationController popViewControllerAnimated:YES];
 	}
 	else if (buttonIndex == 2){
@@ -488,7 +493,12 @@
 }
 
 - (void)showSaveButton{
-    if ([translateFid.text length]==0 && [textFld.text length]==0) {
+    NSString *text = textFld.text;
+    NSString *translate = translateFid.text;
+    text = [NSString removeSpaces:text];
+    translate = [NSString removeSpaces:translate];
+    
+    if ([translate length]==0 && [text length]==0) {
         [saveButton setHidden:YES];
         isDataChanged = NO;
     }else{

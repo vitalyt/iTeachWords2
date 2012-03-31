@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CustomAlertView.h"
 @protocol AlertTableViewDelegate
 
 -(void)didSelectRowAtIndex:(NSInteger)row withContext:(id)context;
@@ -15,7 +15,7 @@
 @end
 
 @class MyUIViewWhiteClass;
-@interface AlertTableView : UIAlertView <UITableViewDelegate, UITableViewDataSource>{
+@interface AlertTableView : CustomAlertView <UITableViewDelegate, UITableViewDataSource>{
     UITableView *myTableView;
     MyUIViewWhiteClass *baseCornerRadiusView;
     id<AlertTableViewDelegate> caller;

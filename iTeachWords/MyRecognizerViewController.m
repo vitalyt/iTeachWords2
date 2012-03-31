@@ -213,9 +213,9 @@
     transactionState = TS_IDLE;
     [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
-    
+//    NSArray *variants; 
     if ((0 < numOfResults <= 1) && [results firstResult]){
-        NSArray *resultats = [NSArray arrayWithObjects:[results firstResult], nil];
+        NSArray *resultats = results.results;
         [self showTableAlertViewWithElements:resultats];
 //        [self didSelectRowAtIndex:0 withContext:[results firstResult]];
         searchBox.text = [results firstResult];
@@ -242,7 +242,8 @@
 #pragma mark alert table functions
 
 - (void)showTableAlertViewWithElements:(NSArray *)elements{
-    AlertTableView *alertTableView = [[AlertTableView alloc] initWithCaller:self data:elements title:NSLocalizedString(@"Alternatives", @"") andContext:@"context identificator"];
+    NSString *title = [NSString stringWithFormat:@"%@ (%d)",NSLocalizedString(@"Alternatives", @""),[elements count]];
+    RecognizerAlertTableView *alertTableView = [[RecognizerAlertTableView alloc] initWithCaller:self data:elements title:title andContext:@"context identificator"];
     [alertTableView show];
     [alertTableView autorelease];
 }

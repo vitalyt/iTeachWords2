@@ -13,6 +13,7 @@
 - (BOOL) validateEmail;
 - (BOOL) validateAlphanumeric;
 - (void) removeSpaces;
++ (NSString*) removeSpaces:(NSString*)_str;
 - (NSString *) translateString;
 - (NSString *) translateStringWithLanguageCode:(NSString*)code;
 - (NSDate *) dateWithFormat:(NSString *)format;

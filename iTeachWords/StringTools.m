@@ -71,8 +71,8 @@
                       wordsText,
                       TRANSLATE_LANGUAGE_CODE,
                       NATIVE_LANGUAGE_CODE] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"url-->%@",[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
-    NSLog(@"url->%@",url);
+//    NSLog(@"url-->%@",[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
+//    NSLog(@"url->%@",url);
     WBRequest * _request = [WBRequest getRequestWithURL:url delegate:self];
     [wbEngine performRequest:_request];
     [UIAlertView removeMessage];

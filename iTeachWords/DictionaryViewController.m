@@ -222,12 +222,12 @@
     
 }
 
-- (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath {
-    if (indexPath.row == limit-1) {
-        return nil;
-    }
-    return nil;
-}
+//- (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath {
+//    if (indexPath.row == limit-1) {
+//        return nil;
+//    }
+//    return nil;
+//}
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < limit - 1) {
