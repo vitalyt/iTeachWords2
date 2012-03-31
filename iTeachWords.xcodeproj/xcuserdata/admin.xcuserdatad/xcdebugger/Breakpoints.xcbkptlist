@@ -154,7 +154,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "293"
          endingLineNumber = "293"
-         landmarkName = "-showTextParserView"
+         landmarkName = "-showAddingWordView"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -168,7 +168,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "300"
          endingLineNumber = "300"
-         landmarkName = "-showDictionaryView"
+         landmarkName = "-showTextParserView"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
