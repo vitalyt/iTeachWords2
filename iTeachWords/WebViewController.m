@@ -23,6 +23,10 @@ documentsDirectory = [paths objectAtIndex:0];
     return [self initWithUrl: @""];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
 -(WebViewController *)initWithUrl: (NSString *)u
 {
 	self = [super initWithNibName:@"WebViewController" bundle:nil];
@@ -89,6 +93,8 @@ documentsDirectory = [paths objectAtIndex:0];
     [self loadContent];
     
     [urlFld setText:url];
+    CGRect barFrame = self.bar.frame;
+    [self.bar setFrame:CGRectMake(barFrame.origin.x, 370, barFrame.size.width, barFrame.size.height)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -163,6 +169,22 @@ documentsDirectory = [paths objectAtIndex:0];
 //    
 //	[self dismissModalViewControllerAnimated:YES];
 //}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    NSLog(@"%@",NSStringFromSelector(action));
+    if (action == @selector(select:)) {
+        NSString *selectedText = [self getSelectedText];
+        if (selectedText.length > 0 && !isExpandingBarShowed) {
+            [self.bar showButtonsAnimated:YES];
+            isExpandingBarShowed = YES;
+        }
+    }
+    if (action == @selector(parseText) || action == @selector(translateText) || action == @selector(playText)) {
+        return YES;
+    }
+    return NO;
+}
+
 
 - (NSString *)getSelectedText{
     NSString *selectedText = [webView stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];

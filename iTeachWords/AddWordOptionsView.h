@@ -7,8 +7,9 @@
 //
 
 #import "AddNewWordViewController.h"
+#import "ExpandingBarViewController.h"
 
-@interface AddWordOptionsView : UIViewController <UIActionSheetDelegate>{
+@interface AddWordOptionsView : ExpandingBarViewController <UIActionSheetDelegate>{
     AddNewWordViewController    *wordsView;
     BOOL    isWordsViewShowing;
 }

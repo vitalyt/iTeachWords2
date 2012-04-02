@@ -76,6 +76,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createMenu];
+    [self.view bringSubviewToFront:self.bar];
+    CGRect barFrame = self.bar.frame;
+    [self.bar setFrame:CGRectMake(barFrame.origin.x, 200.0, barFrame.size.width, barFrame.size.height)];
+    [self.bar setHidden:YES];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     [myTextView setFont:FONT_TEXT];
 	myTextView.text = [self loadText];
@@ -194,12 +198,8 @@
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         NSString *translateLangusgeCode = ([NATIVE_LANGUAGE_CODE isEqualToString:[[self currentTextLanguage] uppercaseString]])?TRANSLATE_LANGUAGE_CODE:NATIVE_LANGUAGE_CODE;
-        
         [wordsView.dataModel setDelegate:self];
-        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[self currentTextLanguage] toLanguageCode:translateLangusgeCode withDelegate:self];
-//        NSString* translate = [selectedText translateStringWithLanguageCode:currentTextLanguage];
-//        [UIAlertView displayMessage:translate];
-    }
+        [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[self currentTextLanguage] toLanguageCode:translateLangusgeCode withDelegate:self];    }
 }
 
 -(void) playText{
@@ -220,11 +220,19 @@
 #pragma mark loadingTranslate delegate functions
 
 - (void)translateDidLoad:(NSString *)translateText byLanguageCode:(NSString*)_activeTranslateLanguageCode{
-//    if (translateText == nil) { 
-//        return;
-//    }
     [UIAlertView displayMessage:translateText];
 }
+
+//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+//    NSLog(@"%@",NSStringFromSelector(action));
+//    if (action == @selector(select:)) {
+//        NSString *selectedText = [self getSelectedText];
+//        if (selectedText.length > 0) {
+//            [self.bar showButtonsAnimated:YES];
+//        }
+//    }
+//    return YES;
+//}
 
 #pragma mark textview delegate functions
 
@@ -236,6 +244,8 @@
         [UIView setAnimationBeginsFromCurrentState:YES];
         [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width, 195.0)];
         [UIView commitAnimations];
+        [self.bar setHidden:NO];
+        [self.bar showButtonsAnimated:YES];
     }
 }
 
@@ -247,11 +257,13 @@
         [UIView setAnimationBeginsFromCurrentState:YES];
         [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width,  textFieldHieght)];
         [UIView commitAnimations];
+//        [self.bar setHidden:YES];
     }
 }
 
 - (BOOL)textView:(UITextView *)_textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if([text isEqualToString:@"\n"]) {
+        [self.bar hideButtonsAnimated:YES];
         [_textView resignFirstResponder];
         return NO;
     }
@@ -287,15 +299,6 @@
     return [[languageCode objectAtIndex:0] lowercaseString];
 }
 
-//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
-//    return YES;
-//}
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-}
-
 - (void)setText:(NSString*)text{
     [myTextView setText:text];
 }
@@ -322,7 +325,6 @@
             break;
     }
 }
-
 
 #ifdef FREE_VERSION
 - (void)showPurchaseInfoView{
