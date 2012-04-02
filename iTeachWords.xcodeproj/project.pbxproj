@@ -19,6 +19,8 @@
 		1C6FF487152330F700705E51 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
 		1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */; };
 		1C7F37101522FDF100F11594 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
+		1C7FEB3C1529F54000491143 /* select-all.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FEB3B1529F54000491143 /* select-all.png */; };
+		1C7FEB3D1529F54000491143 /* select-all.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FEB3B1529F54000491143 /* select-all.png */; };
 		1C832652152983AD00ED9191 /* BaseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C832651152983AD00ED9191 /* BaseHelpViewController.m */; };
 		1C832653152983AD00ED9191 /* BaseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C832651152983AD00ED9191 /* BaseHelpViewController.m */; };
 		1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
@@ -1010,6 +1012,7 @@
 		1C7F370C1522FDF100F11594 /* ThemeEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeEditingViewController.h; sourceTree = "<group>"; };
 		1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeEditingViewController.m; sourceTree = "<group>"; };
 		1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeEditingViewController.xib; sourceTree = "<group>"; };
+		1C7FEB3B1529F54000491143 /* select-all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select-all.png"; sourceTree = "<group>"; };
 		1C832650152983AD00ED9191 /* BaseHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHelpViewController.h; sourceTree = "<group>"; };
 		1C832651152983AD00ED9191 /* BaseHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHelpViewController.m; sourceTree = "<group>"; };
 		1C89F0311525982D00A1E5EA /* QQQSeparateTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateTransparentView.h; sourceTree = "<group>"; };
@@ -2004,6 +2007,7 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1C7FEB3B1529F54000491143 /* select-all.png */,
 				1C1D04A315248DE30055EB2C /* Search 24x24.png */,
 				1C110C5115234D3E0075F444 /* Circle_Grey.png */,
 				84728F7115167B290024FACF /* Books.png */,
@@ -3409,6 +3413,7 @@
 				1C110C5215234D3E0075F444 /* Circle_Grey.png in Resources */,
 				1C1D04A415248DE30055EB2C /* Search 24x24.png in Resources */,
 				8425C0051527716F007F3C12 /* AlertTableCell.xib in Resources */,
+				1C7FEB3C1529F54000491143 /* select-all.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3768,6 +3773,7 @@
 				1C110C5315234D3E0075F444 /* Circle_Grey.png in Resources */,
 				1C1D04A515248DE30055EB2C /* Search 24x24.png in Resources */,
 				8425C0061527716F007F3C12 /* AlertTableCell.xib in Resources */,
+				1C7FEB3D1529F54000491143 /* select-all.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
