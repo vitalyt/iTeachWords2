@@ -33,6 +33,7 @@
 -(UIView*)hintStateViewForDialog:(id)hintState
 {
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, 200, 50)];
+    l.numberOfLines = 4;
     
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];

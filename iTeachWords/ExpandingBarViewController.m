@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    [self setTitle:@"UIView"];
+//    [self setTitle:@"UIView"];
     
     /* ---------------------------------------------------------
      * Create images that are used for the main button

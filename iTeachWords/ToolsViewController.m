@@ -22,6 +22,7 @@
 {
     CGRect frame = ((UIViewController*)delegate).view.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
+    l.numberOfLines = 4;
     [l setTextAlignment:UITextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
@@ -40,7 +41,13 @@
             message = NSLocalizedString(@"Упражнения и статистика", @"");
             break;
         case 3:
-            message = NSLocalizedString(@"Упражнения и статистика", @"");
+            message = NSLocalizedString(@"Фонограф", @"");
+            break;
+        case 4:
+            message = NSLocalizedString(@"Плеер", @"");
+            break;
+        case 5:
+            message = NSLocalizedString(@"Управление списком", @"");
             break;
             
         default:

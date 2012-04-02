@@ -97,6 +97,7 @@
 {
     CGRect frame = ((UIViewController*)managerViewDelegate).view.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
+    l.numberOfLines = 4;
     [l setTextAlignment:UITextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
@@ -112,7 +113,7 @@
             message = NSLocalizedString(@"Перемешать", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"Упражнения и статистика", @"");
+            message = NSLocalizedString(@"Упражнени", @"");
             break;
             
         default:
