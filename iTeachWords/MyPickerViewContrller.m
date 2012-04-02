@@ -28,7 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
-	myTextField.hidden = YES;
 }
 
 - (void)dealloc {
@@ -117,12 +116,33 @@
     [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75] afterDelay:.5];
 }
 
+- (IBAction) showAddView
+{
+    [pickerView setUserInteractionEnabled:NO];
+    isAdding = YES;
+    WordTypes *wordType;
+    [iTeachWordsAppDelegate createUndoBranch];
+    wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
+                                             inManagedObjectContext:CONTEXT];
+    [wordType setName:@""];
+    [wordType setNativeCountryCode:[NATIVE_LANGUAGE_CODE uppercaseString]];
+    [wordType setTranslateCountryCode:[TRANSLATE_LANGUAGE_CODE uppercaseString]];
+    [wordType setCreateDate:[NSDate date]];
+    
+//    [iTeachWordsAppDelegate saveUndoBranch];
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"lastTheme"];
+    [self loadData];
+    [pickerView selectRow:0 inComponent:0 animated:YES];
+    [self performSelector:@selector(editThemeName:)withObject:nil afterDelay:.3];
+}
 
 - (IBAction)editThemeName:(id)sender {
     [pickerView setUserInteractionEnabled:NO];
     [themeEditingFlt setText:@""];
 	[themeEditingFlt.layer addAnimation:[self cretePushAnimation] forKey:nil];
-    [iTeachWordsAppDelegate createUndoBranch];
+    if (!isAdding) {
+        [iTeachWordsAppDelegate createUndoBranch];
+    }
     [themeEditingFlt setHidden:NO];
     WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
     [themeEditingFlt performSelector:@selector(setText:) withObject:wordType.name afterDelay:.25];
@@ -134,15 +154,25 @@
     [iTeachWordsAppDelegate remoneUndoBranch];
     [themeEditingFlt setHidden:YES];
     [themeEditingFlt resignFirstResponder];
+    [self loadData];
+    isAdding = NO;
 }
 
 - (void)saveEditingField{
+    NSString *typeName = [NSString stringWithString:themeEditingFlt.text];
+    [typeName removeSpaces];
+    if ([typeName length] == 0) {
+        [UIAlertView displayError:@"Please enter the name of the theme."];
+        return;
+    }
     WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
     [wordType setName:themeEditingFlt.text];
     [iTeachWordsAppDelegate saveUndoBranch];
     [themeEditingFlt setHidden:YES];
     [themeEditingFlt resignFirstResponder];
+    [[NSUserDefaults standardUserDefaults] setValue:typeName forKey:@"lastTheme"];
     [self loadData];
+    isAdding = NO;
 }
 
 - (IBAction) cansel
@@ -150,10 +180,6 @@
     [pickerView setUserInteractionEnabled:YES];
     if (!themeEditingFlt.hidden) {
         [self closeEditingField];
-        return;
-    }
-    if (!myTextField.hidden) {
-        [self closeAddView];
         return;
     }
     CGRect frame = self.view.frame;
@@ -192,10 +218,7 @@
         [self saveEditingField];
         return;
     }
-    if (!myTextField.hidden) {
-        [self saveNewTheme];
-        return;
-    }
+    [pickerView setUserInteractionEnabled:YES];
     if ([data count] <= [pickerView selectedRowInComponent:0]) {
         [UIAlertView displayError:@"No selected theme."];
         return;
@@ -250,21 +273,6 @@
     return myTransition;
 }
 
-- (IBAction) showAddView
-{
-    [myTextField becomeFirstResponder];
-	[myTextField.layer addAnimation:[self cretePushAnimation] forKey:nil];
-	myTextField.hidden = NO;
-    [myTextField setText:@""];
-}
-
-- (IBAction) closeAddView
-{
-    [myTextField resignFirstResponder];
-	[myTextField.layer addAnimation:[self cretePopAnimation] forKey:nil];
-	myTextField.hidden = YES;
-    [myTextField setText:@""];
-}
 
 - (IBAction)showThemesTableView:(id)sender {
     ThemesTableView *themesTableView = [[ThemesTableView alloc] initWithNibName:@"ThemesTableView" bundle:nil];
@@ -272,43 +280,6 @@
     [themesTableView setDelegate:self.delegate];
     [themesTableView release];
     [self cansel];    
-}
-
-
-- (void) saveNewTheme{
-    NSString *typeName = [NSString stringWithString:myTextField.text];
-    [typeName removeSpaces];
-	if ([typeName length] == 0) {
-        [UIAlertView displayError:@"Please enter the name of the theme."];
-		return;
-	}
-    
-    NSError *error;
-    NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];   
-    [request setEntity:[NSEntityDescription entityForName:@"WordTypes" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"name = %@",typeName]];  
-    NSArray *_data = [[NSArray alloc]initWithArray:[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error]];
-    if ([_data count] > 0) {
-        [UIAlertView displayError:@"The Name already exists."];
-    }else{
-        
-        WordTypes *wordType;
-        [iTeachWordsAppDelegate createUndoBranch];
-        wordType = [NSEntityDescription insertNewObjectForEntityForName:@"WordTypes" 
-                                                inManagedObjectContext:CONTEXT];
-        [wordType setName:typeName];
-        [wordType setNativeCountryCode:[NATIVE_LANGUAGE_CODE uppercaseString]];
-        [wordType setTranslateCountryCode:[TRANSLATE_LANGUAGE_CODE uppercaseString]];
-        [wordType setCreateDate:[NSDate date]];
-        
-        [iTeachWordsAppDelegate saveUndoBranch];
-        [[NSUserDefaults standardUserDefaults] setValue:typeName forKey:@"lastTheme"];
-        [_data release];
-        [self loadData];
-        [self closeAddView];
-        return;
-    }
-    [_data release];
 }
 
 - (IBAction) deleteType{

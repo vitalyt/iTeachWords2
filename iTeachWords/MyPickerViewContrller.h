@@ -14,7 +14,6 @@
 @class AddWord,WordTypes,ThemeDetailView;
 @interface MyPickerViewContrller : UIViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
 	IBOutlet UIPickerView	*pickerView;
-	IBOutlet UITextField	*myTextField;
     IBOutlet UITextField    *themeEditingFlt;
 	IBOutlet UIBarButtonItem    *rightButton;
 	IBOutlet UIBarButtonItem    *leftButton;
@@ -24,6 +23,7 @@
     
     ThemeDetailView         *themeDetailView;
     NSMutableArray          *rows;
+    BOOL                    isAdding;
 }
 
 @property (nonatomic, retain) IBOutlet UIPickerView	*pickerView;
@@ -40,11 +40,9 @@
 - (IBAction) done;
 - (IBAction) remove;
 - (IBAction) showAddView;
-- (IBAction) closeAddView;
 - (IBAction)showThemesTableView:(id)sender;
 - (IBAction)editThemeName:(id)sender;
 - (void)closeView;
-- (void)	 saveNewTheme;
 - (IBAction) deleteType;
 - (NSString *) getTextPicker;
 - (void)showThemeDetail:(WordTypes*)_wordType;
