@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseHelpViewController.h"
 #import "EditingViewProtocol.h"
 #import "TestsViewProtocol.h"
 
-@interface EditingView : UIViewController {
+@interface EditingView : BaseHelpViewController {
     id	<TestsViewProtocol> toolsViewDelegate;
     id	<EditingViewProtocol> editingViewDelegate;
     IBOutlet UIToolbar      *toolbar; 
@@ -19,9 +20,9 @@
 @property (nonatomic,retain) id <EditingViewProtocol>  editingViewDelegate;
 
 - (IBAction) close:(id)sender;
-- (IBAction) deleteWord;
+- (IBAction) deleteWord:(id)sender;
 - (IBAction) editWord;
-- (IBAction) reassignWord;
+- (IBAction) reassignWord:(id)sender;
 - (IBAction) selectAll:(id)sender;
 
 @end

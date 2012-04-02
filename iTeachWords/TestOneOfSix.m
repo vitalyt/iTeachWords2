@@ -139,15 +139,16 @@
     [cell.textLabel setFont:FONT_TEXT];
     if(indexPath.section == 0){
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		cell.textLabel.textAlignment =  UITextAlignmentCenter;
         if(flgChange){
             cell.textLabel.text = WORD(contentArray,0).text;
         }else{
             cell.textLabel.text = WORD(contentArray,0).translate;
         }
-		cell.textLabel.textAlignment =  UITextAlignmentCenter;
     }
     else{
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+		cell.textLabel.textAlignment =  UITextAlignmentCenter;
         if(!flgChange){
             cell.textLabel.text = WORD(contentArray,indexPath.row+1).text;
         }else{
@@ -178,6 +179,13 @@
     }        
     statisticView.index++; 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.row == 0) {
+//        return 44;
+//    }
+    return 50;
 }
 
 - (void) playSoundWithIndex:(int)index{
@@ -250,20 +258,6 @@
 
 #pragma mark -
 #pragma mark Memory management
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-    [super viewDidUnload];
-}
-
 
 - (void)dealloc {
     if (contentArray) {

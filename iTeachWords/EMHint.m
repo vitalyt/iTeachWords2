@@ -67,6 +67,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 -(void)presentModalMessage:(NSString*)message where:(UIView*)presentationPlace
 {
+    NSLog(@"%f",presentationPlace.frame.size.height);
     //incase we have many in a row
     if(_modalView!=nil)
         [_modalView removeFromSuperview];
@@ -75,6 +76,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         UIView *v = [self.hintDelegate hintStateViewToHint:self];
         if(v!=nil)
             _modalView = [[EMHintsView alloc] initWithFrame:presentationPlace.frame forView:v];
+        else {
+            return;
+        }
     }
     
     if ([self.hintDelegate respondsToSelector:@selector(hintStateRectToHint:)]) {

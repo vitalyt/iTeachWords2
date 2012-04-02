@@ -14,9 +14,40 @@
 #import "WorldTableViewController.h"
 
 @implementation ToolsViewController
-
+@synthesize scrollView;
 @synthesize delegate,visible,mySlider,isShowingView;
 @synthesize closeBtn;
+
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = ((UIViewController*)delegate).view.frame;
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Управление списком", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Упражнения и статистика", @"");
+            break;
+        case 3:
+            message = NSLocalizedString(@"Упражнения и статистика", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return message;
+}
 
 - (IBAction)toolBarButtonClick:(id)sender{
     SEL selector = @selector(addSubToolbarAfterButton:);
@@ -57,6 +88,7 @@
         recordingView = [[RecordingViewController alloc] initWithNibName:@"RecordingViewController" bundle:nil];
     }
     recordingView.toolsViewDelegate = self;
+    recordingView.delegate = self.delegate;
     [self toolbarAddSubView:recordingView.view after:sender];
 }
 
@@ -76,17 +108,12 @@
     [self toolbarAddSubView:testsView.view after:sender];
 }
 
-//- (void)click:(id)sender{
-//    if ([self.delegate respondsToSelector:@selector(clickEdit)]) {
-//		[self.delegate clickEdit];
-//	}
-//    editingView = [[EditingView alloc] initWithNibName:@"EditingView" bundle:nil];
-//    editingView.toolsViewDelegate = self;
-//    editingView.editingViewDelegate = self.delegate;
-//    [self toolbarAddSubView:editingView.view after:sender];
-//}
-
-- (IBAction) showPlayerView{
+- (IBAction) showPlayerView:(id)sender{   
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)delegate).view];
+        return;
+    }
     SEL selector = @selector(showPlayerView);
 	if ([(id)self.delegate respondsToSelector:selector]) {
 		[(id)self.delegate performSelector:selector withObject:nil afterDelay:0.01];
@@ -157,33 +184,6 @@
     ((UIBarButtonItem*) [[toolbar items] objectAtIndex:index]).enabled = NO;
 }
 
-/*
-- (void) createAllButtons{
-    float indentX = 10.0;
-    float indentY = (self.view.frame.size.height - 40.0)/2.0 ;
-    int count = 10;
-    float width = 0.0;
-    for (int i=0; i<count; i++) {
-        width += indentX;
-		UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(width, indentY, 50.0, 40.0)];
-        // [button addTarget:selfaction:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
-        //[button setTitle:@"player" forState:UIControlStateNormal];
-        [scrollView addSubview:button];
-        NSString *imageName;
-        if(((int)i%2) == 0){
-            imageName = @"play.png";
-        } 
-        else {
-            imageName = @"refresh.png";
-        }
-        [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        width += button.frame.size.width;
-        [button release];
-		
-	}
-	scrollView.contentSize	= CGSizeMake(width, scrollView.frame.size.height);
-}
-*/
 - (void) openViewWithAnimation:(UIView *) superView{
 	CATransition *myTransition = [CATransition animation];
 	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
@@ -222,7 +222,11 @@
 
 - (UIView*)createBaseViewByIndexButton:(id)_button{
     UIView *baseView = nil;
-    
+    if (IS_HELP_MODE && [usedObjects indexOfObject:_button] == NSNotFound) {
+        _currentSelectedObject = _button;
+        [_hint presentModalMessage:[self helpMessageForButton:_button] where:((UIViewController*)delegate).view];
+        return nil;
+    }
     int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:{
@@ -258,6 +262,7 @@
                 recordingView = [[RecordingViewController alloc] initWithNibName:@"RecordingViewController" bundle:nil];
             }
             recordingView.toolsViewDelegate = self;
+            recordingView.delegate = self.delegate;
             baseView = recordingView.view;
         }
             break;
@@ -281,11 +286,23 @@
         default:
             break;
     }
-    
     return baseView;
 }
 
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    [usedObjects addObject:_currentSelectedObject];
+    UIView *view = [_currentSelectedObject valueForKey:@"view"];
+    CGRect frame = view.frame;
+    UIView *buttonView = [[UIView alloc] initWithFrame:frame];
+    [buttonView setFrame:CGRectMake(frame.origin.x, frame.origin.y+self.view.frame.origin.y, frame.size.width, frame.size.height)];
+    return [buttonView autorelease];
+}
+
 - (void) toolbarAddSubView:(UIView *)_subView after:(id)sender{
+    if (!_subView) {
+        return;
+    }
     NSMutableArray *items = [[toolbar items] mutableCopy];
     int index = [items indexOfObject:sender]+1;
     
@@ -298,13 +315,8 @@
     ((UIBarButtonItem *)sender).enabled = NO;
     [toolbar setItems:nil];
     
-//    [UIView beginAnimations:@"ShowOptionsView" context:nil];
-//    [UIView setAnimationDuration:0.2];
-//    [UIView setAnimationBeginsFromCurrentState:YES];
-//    [UIView commitAnimations];
-    
     [toolbar setFrame:CGRectMake(0.0, 0.0, 
-                                 toolbar.frame.size.width + _subView.frame.size.width, 
+                                 toolbar.frame.size.width + _subView.frame.size.width+5, 
                                  toolbar.frame.size.height)]; 
     
     [toolbar setItems:items animated:NO];
@@ -333,7 +345,7 @@
             [items removeObjectAtIndex:i+1];
             [toolbar setItems:nil];
             [toolbar setFrame:CGRectMake(0.0, 0.0, 
-                                         toolbar.frame.size.width - _subView.frame.size.width, 
+                                         toolbar.frame.size.width - _subView.frame.size.width-5, 
                                          toolbar.frame.size.height)];    
             scrollView.contentSize	= CGSizeMake(toolbar.frame.size.width, scrollView.frame.size.height);
             //scrollView.contentOffset = CGPointMake(0.0, 0.0);

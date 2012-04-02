@@ -7,37 +7,15 @@
 //
 
 #import "RecordingViewController.h"
-
+#import "ToolsViewController.h"
 @implementation RecordingViewController
 
 @synthesize delegate,toolsViewDelegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)dealloc {
+    [vuMeter release];
+    [super dealloc];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -74,25 +52,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-//
-//#pragma mark -
-//#pragma mark VU Meter
-//- (void)setVUMeterWidth:(float)width {
-//    if (width < 0)
-//        width = 0;
-//    
-//    CGRect frame = vuMeter.frame;
-//    frame.size.width = width+10;
-//    vuMeter.frame = frame;
-//}
-//
-//- (void)updateVUMeter {
-//    float width = (90+voiceSearch.audioLevel)*5/2;
-//    
-//    [self setVUMeterWidth:width];    
-//    [self performSelector:@selector(updateVUMeter) withObject:nil afterDelay:0.05];
-//}
-
 #pragma meter func
 
 - (void)runTimer{
@@ -119,6 +78,11 @@
 #pragma mark Action functions
 
 - (IBAction)record:(id)sender {
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)delegate).view];
+        return;
+    }
     NSString *imageName;
     if(!isRecording){
         isRecording = YES;
@@ -153,6 +117,12 @@
 }
 
 - (IBAction)play:(id)sender {
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)delegate).view];
+        return;
+    }
+    
     NSData *data;
     data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
     [[iTeachWordsAppDelegate sharedDelegate] playSound:data inView:self.view];
@@ -173,8 +143,53 @@
 
 }
 
-- (void)dealloc {
-    [vuMeter release];
-    [super dealloc];
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = ((UIViewController*)delegate).view.frame;
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Запись", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Воспроизведение", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return message;
+}
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    [usedObjects addObject:_currentSelectedObject];
+    UIView *buttonView = nil;
+    UIView *view = _currentSelectedObject;
+    if (![view respondsToSelector:@selector(frame)]) {
+        @try {
+            view = ([_currentSelectedObject valueForKey:@"view"])?[_currentSelectedObject valueForKey:@"view"]:nil;
+        }
+        @catch (NSException *exception) {
+        }
+        @finally {
+            
+        }
+    }
+    CGRect frame = view.frame;
+    ToolsViewController *toolsView =  ((ToolsViewController*)toolsViewDelegate);
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    [buttonView setFrame:CGRectMake(frame.origin.x+self.view.frame.origin.x-toolsView.scrollView.contentOffset.x, frame.origin.y+((UIViewController*)toolsViewDelegate).view.frame.origin.y, frame.size.width, frame.size.height)];
+    return buttonView;
 }
 @end

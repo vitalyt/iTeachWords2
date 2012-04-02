@@ -68,6 +68,7 @@
     NSString *fontName = DEFAULT_FONT_NAME;
     int fontSize = DEFAULT_FONT_SIZE;
     bool isRepeatNotifications = IS_REPEAT_OPTION_ON;
+    bool isHelpMode = IS_HELP_MODE;
     if (language) {
         [self.values setObject:language forKey:@"Language"];
     }
@@ -78,9 +79,10 @@
         [self.values setObject:[NSString stringWithFormat:@"%d",fontSize] forKey:@"fontSize"];
     }
     [self.values setObject:[NSNumber numberWithBool:isRepeatNotifications] forKey:@"isRepeatOptionOn"];
+    [self.values setObject:[NSNumber numberWithBool:isHelpMode] forKey:@"isHelpMode"];
     
     titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
-    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Notification",@""), nil];
+    NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Help",@""),NSLocalizedString(@"Notification",@""), nil];
     NSArray *elements1 = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Password",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
@@ -101,9 +103,12 @@
             case 2:
                 key = @"fontName";
                 break;
-//            case 3:
-//                key = @"isRepeatOptionOn";
-//                break;
+            case 3:
+                key = @"isHelpMode";
+                break;
+            case 4:
+                key = @"isRepeatOptionOn";
+                break;
                 
             default:
                 break;
@@ -126,6 +131,9 @@
 //                return @"SwitchingCell";
 //                break;
             case 3:
+                return @"SwitchingCell";
+                break;
+            case 4:
                 return nil;
                 break;
             default:
@@ -188,7 +196,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         [((TextFieldCell *)cell).textField becomeFirstResponder];
-    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 3) {
+    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 4) {
         [self showNotificationTableView];
     }
 }
@@ -326,16 +334,18 @@
             }
         }
     }else if([cell isKindOfClass:[SwitchingCell class]]){
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         SwitchingCell* _cell = (SwitchingCell *)cell; 
         _cell.titleLabel.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         [_cell setDelegate:self];
         bool _value = _cell.switcher.on;
         [values setObject:[NSNumber numberWithBool:_value] forKey:key];
-        [[NSUserDefaults standardUserDefaults] setBool:_value forKey:@"isRepeatOptionOn"];
+        [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
-        [table reloadData];
     }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }   
 
 - (void) showDatePickerView:(TextFieldCell *)cell{

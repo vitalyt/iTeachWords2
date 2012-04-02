@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseHelpViewController.h"
 #import "ManagerViewProtocol.h"
 #import "ToolsViewProtocol.h"
 
-@interface ManagerViewController : UIViewController {
+@interface ManagerViewController :  BaseHelpViewController{
     id	<ToolsViewProtocol> toolsViewDelegate;
     id	<ManagerViewProtocol> managerViewDelegate;
     IBOutlet UIToolbar      *toolbar; 
@@ -22,7 +23,7 @@
 @property (nonatomic,retain) UISegmentedControl  *segmentControll;
 
 - (IBAction)close:(id)sender;
-- (IBAction) mixingWords;
+- (IBAction) mixingWords:(id)sender;
 - (IBAction)selectedLanguage:(id)sender;
 
 @end

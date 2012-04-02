@@ -60,7 +60,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "354804298.948661"
+         timestampString = "355045651.1129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "392"
@@ -73,7 +73,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "354804298.948661"
+         timestampString = "355045651.1129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "344"
@@ -86,7 +86,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "354804298.948661"
+         timestampString = "355045651.1129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "379"
@@ -99,7 +99,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "354804298.948661"
+         timestampString = "355045651.1129"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "360"
@@ -156,7 +156,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "500"
          endingLineNumber = "500"
-         landmarkName = "-hiddeSaveButton"
+         landmarkName = "-showSaveButton"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -169,7 +169,33 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "492"
          endingLineNumber = "492"
-         landmarkName = "-showSaveButton"
+         landmarkName = "-createMenu"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/ManagerViewController.m"
+         timestampString = "355052370.848288"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "73"
+         endingLineNumber = "73"
+         landmarkName = "-mixingWords:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/SettingsViewController.m"
+         timestampString = "355058782.754796"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "247"
+         endingLineNumber = "247"
+         landmarkName = "-configureCell:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

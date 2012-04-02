@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
+#import "BaseHelpViewController.h"
 
 @protocol RecordingViewProtocol <NSObject>
 @optional
@@ -15,7 +16,7 @@
 @end
 
 
-@interface RecordModel : UIViewController <AVAudioRecorderDelegate>{
+@interface RecordModel : BaseHelpViewController <AVAudioRecorderDelegate>{
     NSString        *fileName;
     NSURL           *recordedTmpFile;
     AVAudioRecorder *recorder;

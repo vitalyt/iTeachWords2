@@ -15,7 +15,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #import <Foundation/Foundation.h>
 #import "EMHint.h"
-#import "EMViewController.h"
 #define  kFirstMessage @"Spotlights to help lead your users...Tap along."
 typedef enum
 {

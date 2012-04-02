@@ -7,7 +7,7 @@
 //
 
 #import "TestsViewController.h"
-
+#import "ToolsViewController.h"
 
 @implementation TestsViewController
 
@@ -67,7 +67,12 @@
 }
 
 
-- (IBAction) clickGame{
+- (IBAction) clickGame:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
+        return;
+    }
     SEL selector = @selector(clickGame);
 	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
 		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
@@ -75,7 +80,12 @@
 	}
 }
 
-- (IBAction) clickTestOneOfSix{
+- (IBAction) clickTestOneOfSix:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
+        return;
+    }
     SEL selector = @selector(clickTestOneOfSix);
 	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
 		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
@@ -83,7 +93,12 @@
 	}
 }
 
-- (IBAction) clickTest1{
+- (IBAction) clickTest1:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
+        return;
+    }
     SEL selector = @selector(clickTest1);
 	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
 		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
@@ -91,7 +106,12 @@
 	}
 }
 
-- (IBAction) clickStatistic{
+- (IBAction) clickStatistic:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
+        return;
+    }
     SEL selector = @selector(clickStatistic);
 	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
 		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
@@ -99,5 +119,60 @@
 	}
 }
 
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = ((UIViewController*)testsViewDelegate).view.frame;
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Правописание", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Правописание", @"");
+            break;
+        case 3:
+            message = NSLocalizedString(@"Правописание", @"");
+            break;
+        case 4:
+            message = NSLocalizedString(@"Статистика изучения", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return message;
+}
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    [usedObjects addObject:_currentSelectedObject];
+    UIView *buttonView = nil;
+    UIView *view = _currentSelectedObject;
+    if (![view respondsToSelector:@selector(frame)]) {
+        @try {
+            view = ([_currentSelectedObject valueForKey:@"view"])?[_currentSelectedObject valueForKey:@"view"]:nil;
+        }
+        @catch (NSException *exception) {
+        }
+        @finally {
+            
+        }
+    }
+    CGRect frame = view.frame;
+    ToolsViewController *toolsView =  ((ToolsViewController*)toolsViewDelegate);
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    [buttonView setFrame:CGRectMake(frame.origin.x+self.view.frame.origin.x-toolsView.scrollView.contentOffset.x, frame.origin.y+((UIViewController*)toolsViewDelegate).view.frame.origin.y, frame.size.width, frame.size.height)];
+    return buttonView;
+}
 
 @end

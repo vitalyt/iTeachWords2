@@ -279,6 +279,13 @@
 #pragma mark showing  functions
 
 - (void)showTeachView{
+//    NSLog(@"%d",[usedObjects indexOfObject:menuBtn1]);
+//    if ([usedObjects indexOfObject:menuBtn1] == NSNotFound) {
+//        _currentSelectedObject = menuBtn1;
+//        [_hint presentModalMessage:@"One last hint for ya." where:self.view];
+//        return;
+//    }
+
     WorldTableToolsController *myTableView = [[WorldTableToolsController alloc] initWithNibName:@"WorldTableViewController" bundle:nil];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:myTableView animated:YES];

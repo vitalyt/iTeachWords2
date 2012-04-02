@@ -7,55 +7,16 @@
 //
 
 #import "EditingView.h"
-
+#import "ToolsViewController.h"
 
 @implementation EditingView
 
 @synthesize editingViewDelegate,toolsViewDelegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     [super dealloc];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 
 - (IBAction)close:(id)sender {
     SEL selector = @selector(editingSubViewDidClose:);
@@ -64,7 +25,12 @@
 	}
 }
 
-- (IBAction) deleteWord{
+- (IBAction) deleteWord:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)editingViewDelegate).view];
+        return;
+    }
     SEL selector = @selector(deleteWord);
     if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:selector])) {
 		[(id)self.editingViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
@@ -80,24 +46,12 @@
 	} 
 }
 
-//- (void) toolbarAddSubView:(UIView *)_subView after:(id)sender{
-//    NSMutableArray *items = [[toolbar items] mutableCopy];
-//    UIBarButtonItem *recordingButton = [[UIBarButtonItem alloc] initWithCustomView:_subView];
-//    int index = [items indexOfObject:sender]+1;
-//    [recordingButton setTag:index];
-//    [_subView setTag:index];
-//    [items insertObject:recordingButton atIndex:[items indexOfObject:sender]+1];
-//    [recordingButton release];
-//    ((UIBarButtonItem *)sender).enabled = NO;
-//    [toolbar setItems:nil];
-//    [toolbar setFrame:CGRectMake(0.0, 0.0, 
-//                                 toolbar.frame.size.width + _subView.frame.size.width, 
-//                                 toolbar.frame.size.height)];    
-//    [toolbar setItems:items animated:YES];
-//    [items release];
-//}
-
-- (IBAction) reassignWord{
+- (IBAction) reassignWord:(id)sender{    
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)editingViewDelegate).view];
+        return;
+    }
     SEL selector = @selector(reassignWord);
     if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:selector])) {
 		[(id)self.editingViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
@@ -106,11 +60,66 @@
 }
 
 - (IBAction)selectAll:(id)sender {
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)editingViewDelegate).view];
+        return;
+    }
     SEL selector = @selector(selectAll);
     if ((self.editingViewDelegate)&&([self.editingViewDelegate respondsToSelector:selector])) {
 		[(id)self.editingViewDelegate performSelector:selector withObject:nil afterDelay:0.01];
 		return;
 	}
+}
+
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = ((UIViewController*)editingViewDelegate).view.frame;
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Перемешать", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Упражнения и статистика", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return message;
+}
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    [usedObjects addObject:_currentSelectedObject];
+    UIView *buttonView = nil;
+    UIView *view = _currentSelectedObject;
+    if (![view respondsToSelector:@selector(frame)]) {
+        @try {
+            view = ([_currentSelectedObject valueForKey:@"view"])?[_currentSelectedObject valueForKey:@"view"]:nil;
+        }
+        @catch (NSException *exception) {
+        }
+        @finally {
+            
+        }
+    }
+    CGRect frame = view.frame;
+    ToolsViewController *toolsView =  ((ToolsViewController*)toolsViewDelegate);
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    [buttonView setFrame:CGRectMake(frame.origin.x+self.view.frame.origin.x-toolsView.scrollView.contentOffset.x, frame.origin.y+((UIViewController*)toolsViewDelegate).view.frame.origin.y, frame.size.width, frame.size.height)];
+    return buttonView;
 }
 
 @end

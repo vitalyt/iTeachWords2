@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseHelpViewController.h"
 #import "ToolsViewProtocol.h"
 #import "QuartzCore/QuartzCore.h"
 #import "TestsViewProtocol.h"
@@ -15,7 +16,7 @@
 @class  TestsViewController,
         EditingView,
         ManagerViewController;
-@interface ToolsViewController : UIViewController <RecordingViewProtocol,TestsViewProtocol,ToolsViewProtocol> {
+@interface ToolsViewController : BaseHelpViewController <RecordingViewProtocol,TestsViewProtocol,ToolsViewProtocol> {
 	id	<ToolsViewProtocol> delegate;
 	IBOutlet UISlider       *mySlider;
     IBOutlet UIScrollView   *scrollView;
@@ -35,11 +36,12 @@
 @property (nonatomic) bool  isShowingView;
 @property (nonatomic,retain) IBOutlet UISlider *mySlider;
 @property (nonatomic) BOOL visible;
+@property (nonatomic,readonly) IBOutlet UIScrollView   *scrollView;
 
 - (IBAction)toolBarButtonClick:(id)sender;
 - (IBAction) clickManaging:(id)sender;
 - (IBAction) clickEdit:(id)sender;
-- (IBAction) showPlayerView;
+- (IBAction) showPlayerView:(id)sender;
 - (IBAction) showToolsView:(id)sender;
 - (IBAction) showRecordingView:(id)sender;
 
@@ -47,7 +49,6 @@
 - (void) clickEdit:(id)sender;
 - (void) showToolsView:(id)sender;
 - (void) showRecordingView:(id)sender;
-- (void) showPlayerView;
 
 - (void) toolbarAddSubView:(UIView *)_subView after:(id)sender;
 - (void) toolbarRemoveSubView:(UIView *)_subView;

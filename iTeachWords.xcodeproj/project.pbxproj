@@ -19,6 +19,8 @@
 		1C6FF487152330F700705E51 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
 		1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */; };
 		1C7F37101522FDF100F11594 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
+		1C832652152983AD00ED9191 /* BaseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C832651152983AD00ED9191 /* BaseHelpViewController.m */; };
+		1C832653152983AD00ED9191 /* BaseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C832651152983AD00ED9191 /* BaseHelpViewController.m */; };
 		1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
@@ -1008,6 +1010,8 @@
 		1C7F370C1522FDF100F11594 /* ThemeEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeEditingViewController.h; sourceTree = "<group>"; };
 		1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeEditingViewController.m; sourceTree = "<group>"; };
 		1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeEditingViewController.xib; sourceTree = "<group>"; };
+		1C832650152983AD00ED9191 /* BaseHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHelpViewController.h; sourceTree = "<group>"; };
+		1C832651152983AD00ED9191 /* BaseHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHelpViewController.m; sourceTree = "<group>"; };
 		1C89F0311525982D00A1E5EA /* QQQSeparateTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateTransparentView.h; sourceTree = "<group>"; };
 		1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateTransparentView.m; sourceTree = "<group>"; };
 		1C89F03515259E4300A1E5EA /* QQQSeparateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateView.h; sourceTree = "<group>"; };
@@ -2839,6 +2843,8 @@
 		84FE20A21527A7B9007567A1 /* EMHint */ = {
 			isa = PBXGroup;
 			children = (
+				1C832650152983AD00ED9191 /* BaseHelpViewController.h */,
+				1C832651152983AD00ED9191 /* BaseHelpViewController.m */,
 				84FE20AC1527A7D3007567A1 /* HintHelper.h */,
 				84FE20AD1527A7D3007567A1 /* HintHelper.m */,
 				84FE20A41527A7C9007567A1 /* EMHint.h */,
@@ -3895,6 +3901,7 @@
 				84FE20A81527A7C9007567A1 /* EMHint.m in Sources */,
 				84FE20AA1527A7C9007567A1 /* EMHintsView.m in Sources */,
 				84FE20AE1527A7D3007567A1 /* HintHelper.m in Sources */,
+				1C832652152983AD00ED9191 /* BaseHelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4029,6 +4036,7 @@
 				84FE20A91527A7C9007567A1 /* EMHint.m in Sources */,
 				84FE20AB1527A7C9007567A1 /* EMHintsView.m in Sources */,
 				84FE20AF1527A7D3007567A1 /* HintHelper.m in Sources */,
+				1C832653152983AD00ED9191 /* BaseHelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4216,7 +4224,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49E7925F-02CE-45C6-9254-32C21AE668E1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
