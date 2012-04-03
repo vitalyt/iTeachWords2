@@ -46,7 +46,13 @@
     [currentSound setCreateDate:[NSDate date]];
 }
 
-- (IBAction) saveSound {
+- (IBAction) saveSound:(id)sender {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
+
     @try {
         NSData *data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
         if (data && [data length]>0 && currentSound) {
@@ -71,6 +77,19 @@
             [self.delegate recordViewDidClose:self];
         }
     }
+}
+
+- (IBAction)play:(id)sender {
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
+    
+    NSData *data;
+    data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
+    [[iTeachWordsAppDelegate sharedDelegate] playSound:data inView:self.view];
+    [data release];
 }
 
 - (void)saveCanges{    
@@ -126,6 +145,11 @@
 
 
 - (IBAction)record:(id)sender {
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
     NSString *imageName;
     if(activityIndicatorView.hidden == YES){
         activityIndicatorView.hidden = NO;
@@ -147,7 +171,13 @@
     }
 }
 
-- (IBAction) loadFromNetwork{
+- (IBAction) loadFromNetwork:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
+
     activityIndicatorView.hidden = NO;
     [activityIndicatorView startAnimating];
     
@@ -183,5 +213,52 @@
         [value writeToURL:recordedTmpFile atomically:YES];
     }
 }
+
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = self.view.superview.frame;
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4*3, frame.size.width-20, frame.size.height/4)];
+    l.numberOfLines = 4;
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Запись", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Поиск перевода в интернете", @"");
+            break;
+        case 3:
+            message = NSLocalizedString(@"Воспроизведение", @"");
+            break;
+        case 4:
+            message = NSLocalizedString(@"Сохранение", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return message;
+}
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    [usedObjects addObject:_currentSelectedObject];
+    UIView *buttonView = nil;
+    UIView *view = _currentSelectedObject;
+    CGRect frame = view.frame;
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    [buttonView setFrame:CGRectMake(frame.origin.x+self.view.frame.origin.x, frame.origin.y+self.view.frame.origin.y, frame.size.width, frame.size.height)];
+    return buttonView;
+}
+
     
 @end

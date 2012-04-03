@@ -227,7 +227,7 @@
         sounType = TEXT;
     }
     if (recordView) {
-        [recordView saveSound];
+        [recordView saveSound:nil];
         [recordView release];
         recordView = nil;
     }
@@ -331,7 +331,7 @@
         [self removeChanges];
         //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         if (recordView) {
-            [recordView saveSound];
+            [recordView saveSound:nil];
             [recordView release];
             recordView = nil;
         }

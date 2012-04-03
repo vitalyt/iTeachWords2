@@ -203,7 +203,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastItem"];
     [super viewWillDisappear:animated];
     if (recordView) {
-        [recordView saveSound];
+        [recordView saveSound:nil];
         [recordView release];
         recordView = nil;
     }
@@ -414,7 +414,7 @@
 - (void) showRecordViewWithIndexPath:(NSIndexPath*)indexPath{
     //[sender setHidden:YES];
     if (recordView) {
-        [recordView saveSound];
+        [recordView saveSound:nil];
         [recordView release];
         recordView = nil;
     }
@@ -429,7 +429,7 @@
     currentSelectedWordPathIndex = [indexPath retain];
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
     recordView.delegate = self;
-    [self.view.superview addSubview:recordView.view];
+    [self.navigationController.view addSubview:recordView.view];
     
     TableCellController *_cell = (TableCellController*)[table cellForRowAtIndexPath:currentSelectedWordPathIndex];
     CGRect cellFrame = _cell.btn.frame;
@@ -464,7 +464,7 @@
     NSIndexPath *_indexPath = [table indexPathForCell:_cell];
     currentSelectedWordPathIndex = [_indexPath retain];
     if (recordView) {
-        [recordView saveSound];
+        [recordView saveSound:nil];
         [recordView release];
         recordView = nil;
     }

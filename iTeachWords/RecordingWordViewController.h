@@ -29,8 +29,8 @@
 - (void) setWord:(Words *)_word withType:(SoundType)type;
 
 
-- (IBAction)saveSound;
-- (IBAction) loadFromNetwork;
+- (IBAction)saveSound:(id)sender;
+- (IBAction) loadFromNetwork:(id)sender;
 - (void)saveCanges;
 - (void)undoChngesWord;
 
