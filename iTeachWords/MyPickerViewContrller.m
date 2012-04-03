@@ -35,6 +35,7 @@
 	[pickerView release];
 	[data release];
     [rows release];
+    rows = nil;
     [themeEditingFlt release];
     [super dealloc];
 }

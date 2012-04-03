@@ -16,6 +16,7 @@
 @end
 
 @implementation ThemeDetailView
+@synthesize name,createDate,changeDate,wordsCount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self fillData];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -52,11 +54,22 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)fillData{
+    nameLbl.text = name;
+    createDateLdl.text = createDate;
+    changeDateLbl.text = changeDate;
+    wordsCountLbl.text = wordsCount;
+}
+
 - (void)dealloc {
     [nameLbl release];
     [createDateLdl release];
     [changeDateLbl release];
     [wordsCountLbl release];
+    [name release];
+    [createDate release];
+    [changeDate release];
+    [wordsCount release];
     [statisticViewController.view removeFromSuperview];
     [statisticViewController release];
     statisticViewController = nil;
@@ -65,10 +78,11 @@
 
 - (void)setTheme:(WordTypes*)_wordTheme{
     if (_wordTheme) {
-        nameLbl.text = _wordTheme.name;
-        createDateLdl.text = [_wordTheme.createDate stringWithFormat:@"dd.MM.YYYY"];
-        changeDateLbl.text = [_wordTheme.changeDate stringWithFormat:@"dd.MM.YYYY"];
-        wordsCountLbl.text = [NSString stringWithFormat:@"%d",[_wordTheme.words count]];
+        self.name = _wordTheme.name;
+        self.createDate = [_wordTheme.createDate stringWithFormat:@"dd.MM.YYYY"];
+        self.changeDate = [_wordTheme.changeDate stringWithFormat:@"dd.MM.YYYY"];
+        self.wordsCount = [NSString stringWithFormat:@"%d",[_wordTheme.words count]];
+        [self fillData];
 //        [self generateStatisticView];
 //        [statisticViewController generateStatisticByWords:_wordTheme.words];
     }
