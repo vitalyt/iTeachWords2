@@ -222,6 +222,7 @@
             {
                 [_cell.textField setText:DEFAULT_FONT_NAME];
                 [_cell.textField setFont:FONT_TEXT];
+                [_cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             }
                 break;
             case 3:
@@ -242,6 +243,7 @@
         [_cell.titleLabel2 setFont:SETINGSTABLE_FONT_SIZE];
         _cell.titleLabel.text = NSLocalizedString(@"Native language", @""); 
         _cell.titleLabel2.text = NSLocalizedString(@"Diffrent language", @"");
+        [_cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [self setImageFlagInCell:_cell];
     }else if([cell isKindOfClass:[SwitchingCell class]]){
         SwitchingCell* _cell = (SwitchingCell *)cell; 
@@ -417,7 +419,9 @@
     [currentTextField resignFirstResponder];
 	ARFontPickerViewController *controller = [[ARFontPickerViewController alloc] initWithStyle:UITableViewStylePlain];
 	controller.delegate = self;
-	[self presentModalViewController:controller animated:YES];
+    //	[self presentModalViewController:controller animated:YES];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
+    [self.navigationController pushViewController:controller animated:YES];
 	[controller release];
 }
 
