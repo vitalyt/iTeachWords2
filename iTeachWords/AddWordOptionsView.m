@@ -218,6 +218,7 @@
 
 - (void)dealloc{
     [wordsView release];
+    wordsView = nil;
     [super dealloc];
 }
 

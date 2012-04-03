@@ -352,7 +352,8 @@
 
 - (void) showDatePickerView:(TextFieldCell *)cell{
     [currentTextField resignFirstResponder];
-    LanguagePickerController *languagePicker = [[LanguagePickerController alloc]initWithNibName:@"LanguagePickerController" bundle:nil];   
+    LanguagePickerController *languagePicker = [[LanguagePickerController alloc]initWithNibName:@"LanguagePickerController" bundle:nil];  
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON]; 
     [self.navigationController pushViewController:languagePicker animated:YES];
     [languagePicker release];
 }
@@ -379,7 +380,8 @@
     
      NotificationTableView *notificationViewController = [[NotificationTableView alloc] initWithNibName:@"NotificationTableView" bundle:nil];
      // ...
-     // Pass the selected object to the new view controller.
+    // Pass the selected object to the new view controller.
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
      [self.navigationController pushViewController:notificationViewController animated:YES];
      [notificationViewController release];
      

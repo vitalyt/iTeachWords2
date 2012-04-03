@@ -21,23 +21,6 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)loadView{
@@ -54,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [messageLbl setText:NSLocalizedString(@"Tap to play...", @"")];
     [majorView setBackgroundColor:[UIColor clearColor]];
     // Do any additional setup after loading the view from its nib.
 }
@@ -74,9 +58,9 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [messageLbl setText:NSLocalizedString(@"Tap to play...", @"")];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     // grab an image of our parent view    
     // For iOS 5 you need to use presentingViewController:
     UIView *parentView;
@@ -95,10 +79,13 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, parentView.bounds.size.width, parentView.bounds.size.height)];
     imageView.image = parentViewImage;
     [self.view insertSubview:imageView atIndex:0];
+    [imageView setHidden:YES];
     [imageView release];
-    
-    
-    NSLog(@"%@",languageCode);
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[[self.view subviews] objectAtIndex:0] setHidden:NO];
     [languageType setSelectedSegmentIndex:([NATIVE_LANGUAGE_CODE isEqualToString:[languageCode uppercaseString]])?1:0];
     [speakButton setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
     if ([speakString length]>0) {

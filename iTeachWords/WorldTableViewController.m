@@ -358,6 +358,9 @@
 #pragma mark - player functions
 
 - (void) playerDidStartPlayingSound:(int)soundIndex{
+    if (soundIndex<0) {
+        return;
+    }
     [table setScrollEnabled:NO];
 //    [table performSelectorOnMainThread:@selector(setScrollEnabled:) withObject:NO waitUntilDone:YES];
     int index;

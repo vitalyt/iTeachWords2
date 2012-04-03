@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "354810209.906589"
+         timestampString = "355154510.232475"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "410"
-         endingLineNumber = "410"
+         startingLineNumber = "393"
+         endingLineNumber = "393"
          landmarkName = "-textFieldDidChange:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "354810209.906589"
+         timestampString = "355154510.232475"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "451"
-         endingLineNumber = "451"
+         startingLineNumber = "434"
+         endingLineNumber = "434"
          landmarkName = "-updateFieldButtons"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "355045651.1129"
+         timestampString = "355157348.986085"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "392"
-         endingLineNumber = "392"
+         startingLineNumber = "395"
+         endingLineNumber = "395"
          landmarkName = "-playerDidFinishPlaying:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,25 +86,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "355045651.1129"
+         timestampString = "355157348.986085"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "379"
-         endingLineNumber = "379"
+         startingLineNumber = "382"
+         endingLineNumber = "382"
          landmarkName = "-playerDidFinishPlayingSound:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/WorldTableViewController.m"
-         timestampString = "355045651.1129"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "360"
-         endingLineNumber = "360"
-         landmarkName = "-playerDidStartPlayingSound:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -121,7 +108,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
@@ -151,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "354810209.906589"
+         timestampString = "355154510.232475"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "500"
-         endingLineNumber = "500"
+         startingLineNumber = "483"
+         endingLineNumber = "483"
          landmarkName = "-showSaveButton"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "354810209.906589"
+         timestampString = "355154510.232475"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "492"
-         endingLineNumber = "492"
+         startingLineNumber = "475"
+         endingLineNumber = "475"
          landmarkName = "-createMenu"
          landmarkType = "5">
       </FileBreakpoint>
@@ -212,7 +199,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
@@ -225,7 +212,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
@@ -238,7 +225,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
@@ -251,7 +238,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
@@ -267,13 +254,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/RecordingWordViewController.m"
-         timestampString = "355152844.479388"
+         filePath = "iTeachWords/WebViewController.m"
+         timestampString = "355156150.987231"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-saveSound:"
+         startingLineNumber = "215"
+         endingLineNumber = "215"
+         landmarkName = "-viewDidUnload"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/TextViewController.m"
+         timestampString = "355156638.93061"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "215"
+         endingLineNumber = "215"
+         landmarkName = "-showAddWordView"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

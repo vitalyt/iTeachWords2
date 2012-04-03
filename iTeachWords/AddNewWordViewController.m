@@ -73,23 +73,6 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)viewDidUnload
-{
-    delegate = nil;
-    [textFld release];
-    textFld = nil;
-    [translateFid release];
-    translateFid = nil;
-    [themeLbl release];
-    themeLbl = nil;
-    [saveButton release];
-    saveButton = nil;
-    [themeButton release];
-    themeButton = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (void) loadData{
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"lastThemeInAddView"] && !dataModel.currentWord) {
@@ -529,21 +512,46 @@
     }
 }
 
+
+- (void)viewDidUnload
+{
+    delegate = nil;
+    [textFld release];
+    textFld = nil;
+    [translateFid release];
+    translateFid = nil;
+    [themeLbl release];
+    themeLbl = nil;
+    [saveButton release];
+    saveButton = nil;
+    [themeButton release];
+    themeButton = nil;
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
 - (void)dealloc {
-    if (myPicker) {
-        [myPicker release];
-    }
+    [myPicker release];
+    myPicker = nil;
     if (recordView) {
         [recordView undoChngesWord];
         [recordView release];
+        recordView = nil;
     }
-    [textFld release];
-    [translateFid release];
     [dataModel release];
+    dataModel = nil;
     delegate = nil;
+    [textFld release];
+    textFld = nil;
+    [translateFid release];
+    translateFid = nil;
     [themeLbl release];
+    themeLbl = nil;
     [saveButton release];
+    saveButton = nil;
     [themeButton release];
+    themeButton = nil;
     [super dealloc];
 }
 @end

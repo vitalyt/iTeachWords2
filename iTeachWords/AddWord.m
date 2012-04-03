@@ -167,8 +167,10 @@
     if (myWebView) {
         myWebView.delegate = nil;
         [myWebView release];
+        myWebView = nil;
     }
     [wordsView release];
+    wordsView = nil;
     [loadWebButtonView release];
     [animationView release];
     [searchingTranslateBtn release];

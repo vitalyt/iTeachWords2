@@ -217,7 +217,7 @@
 -(UIView*)hintStateViewForDialog:(id)hintState
 {
     CGRect frame = self.view.superview.frame;
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4*3, frame.size.width-20, frame.size.height/4)];
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20, frame.size.height/3)];
     l.numberOfLines = 4;
     [l setTextAlignment:UITextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];

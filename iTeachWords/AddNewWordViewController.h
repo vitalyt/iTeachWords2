@@ -15,13 +15,11 @@
 @class MyPickerViewContrller,MyUIViewClass,RecordingWordViewController,AddWordModel,WBEngine;
 
 @interface AddNewWordViewController : UIViewController <UITextFieldDelegate, RecordingViewProtocol, UIActionSheetDelegate>{
-	IBOutlet UIPickerView	*myPickerView;
     IBOutlet UITextField    *textFld;
     IBOutlet UITextField    *translateFid;
     IBOutlet UILabel *themeLbl;
     IBOutlet UIButton *saveButton;
     IBOutlet UIButton *themeButton;
-    IBOutlet MyUIViewClass  *myToolbarView;
 	MyPickerViewContrller	*myPicker;
     IBOutlet UIButton       *recordButtonView;
     RecordingWordViewController *recordView;
