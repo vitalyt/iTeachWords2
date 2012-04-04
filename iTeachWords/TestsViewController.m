@@ -68,7 +68,7 @@
 
 
 - (IBAction) clickGame:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
         return;
@@ -81,7 +81,7 @@
 }
 
 - (IBAction) clickTestOneOfSix:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
         return;
@@ -94,7 +94,7 @@
 }
 
 - (IBAction) clickTest1:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
         return;
@@ -107,7 +107,7 @@
 }
 
 - (IBAction) clickStatistic:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
         return;

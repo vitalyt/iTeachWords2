@@ -116,7 +116,7 @@
 }
 
 - (IBAction) showPlayerView:(id)sender{   
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)delegate).view];
         return;
@@ -229,7 +229,7 @@
 
 - (UIView*)createBaseViewByIndexButton:(id)_button{
     UIView *baseView = nil;
-    if (IS_HELP_MODE && [usedObjects indexOfObject:_button] == NSNotFound) {
+    if (IS_HELP_MODE && _button && [usedObjects indexOfObject:_button] == NSNotFound) {
         _currentSelectedObject = _button;
         [_hint presentModalMessage:[self helpMessageForButton:_button] where:((UIViewController*)delegate).view];
         return nil;

@@ -78,7 +78,7 @@
 #pragma mark Action functions
 
 - (IBAction)record:(id)sender {
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)delegate).view];
         return;
@@ -117,7 +117,7 @@
 }
 
 - (IBAction)play:(id)sender {
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)delegate).view];
         return;

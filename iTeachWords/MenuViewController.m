@@ -323,12 +323,14 @@
 
 - (void)showWebView {
     WebViewController *webViewController = [[WebViewController alloc] initWithFrame:self.view.frame];
-    NSString *url = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastUrl"];
-    if(!url){
-        url = @"http://www.google.ru";
+    NSString *url ;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"LastUrl"] && [[NSUserDefaults standardUserDefaults] stringForKey:@"LastUrl"]!= NULL) {
+        url = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastUrl"];
+    }else{
+        url = @"www.yandex.com";
     }
-    webViewController.url = url;
 	[self.navigationController pushViewController:webViewController animated:YES];
+    webViewController.url = url;
 	[webViewController release];
 
 }

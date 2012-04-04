@@ -150,7 +150,7 @@
 }
 
 - (void)parseText:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
         return;
@@ -162,7 +162,7 @@
 }
 
 -(void) translateText:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
         return;
@@ -174,7 +174,7 @@
 }
 
 -(void) playText:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
         return;

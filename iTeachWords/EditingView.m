@@ -26,7 +26,7 @@
 }
 
 - (IBAction) deleteWord:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)editingViewDelegate).view];
         return;
@@ -47,7 +47,7 @@
 }
 
 - (IBAction) reassignWord:(id)sender{    
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)editingViewDelegate).view];
         return;
@@ -60,7 +60,7 @@
 }
 
 - (IBAction)selectAll:(id)sender {
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)editingViewDelegate).view];
         return;

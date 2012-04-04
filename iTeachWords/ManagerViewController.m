@@ -69,7 +69,7 @@
 }
 
 - (IBAction) mixingWords:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)managerViewDelegate).view];
         return;
@@ -81,7 +81,7 @@
 }
 
 - (IBAction)selectedLanguage:(id)sender {
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)managerViewDelegate).view];
         return;

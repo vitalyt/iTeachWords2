@@ -15,12 +15,13 @@ documentsDirectory = [paths objectAtIndex:0];
 }
 
 - (id)initWithFrame:(CGRect)frame{
+    self = [super initWithNibName:@"WebViewController" bundle:nil];
     if (!webView) {
         webView = [[UIWebView alloc] initWithFrame:frame];
         webView.delegate = self;
         [webView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     }
-    return [self initWithUrl: @""];
+    return self;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -118,6 +119,9 @@ documentsDirectory = [paths objectAtIndex:0];
 - (void)loadContent{
     [webView stopLoading];
     [self clearContent];
+    if (!url) {
+        return;
+    }
     NSURLRequest *requestObj;
     if ([iTeachWordsAppDelegate  isNetwork]) {
         requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];

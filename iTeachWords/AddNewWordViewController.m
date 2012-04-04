@@ -175,7 +175,7 @@
 #pragma  mark picker protokol
 - (IBAction) recordPressed:(id)sender{
     [self closeAllKeyboard];
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
@@ -221,7 +221,7 @@
 
 - (IBAction) translatePressed:(id)sender{
     [self closeAllKeyboard];
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         ((UIButton*)_currentSelectedObject).tag = 2;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
@@ -244,7 +244,7 @@
 
 - (IBAction) showMyPickerView:(id)sender{
     [self closeAllKeyboard];
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
@@ -336,7 +336,7 @@
 
 - (IBAction) save:(id)sender
 {
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
@@ -558,6 +558,8 @@
 
 -(UIView*)hintStateViewToHint:(id)hintState
 {
+    NSLog(@"%@",usedObjects);
+    NSLog(@"%@",_currentSelectedObject);
     [usedObjects addObject:_currentSelectedObject];
     UIView *buttonView = nil;
     UIView *view = _currentSelectedObject;

@@ -47,7 +47,7 @@
 }
 
 - (IBAction) saveSound:(id)sender {
-    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
@@ -80,7 +80,7 @@
 }
 
 - (IBAction)play:(id)sender {
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
@@ -145,7 +145,7 @@
 
 
 - (IBAction)record:(id)sender {
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
@@ -172,7 +172,7 @@
 }
 
 - (IBAction) loadFromNetwork:(id)sender{
-    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
         _currentSelectedObject = sender;
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
@@ -196,6 +196,7 @@
                            text];
     WBRequest * request = [WBRequest getRequestWithURL:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] delegate:self];
     [wbEngine performRequest:request];
+    NSLog(@"%@",urlString);
 }
 
 - (void) connectionDidFinishLoading: (WBConnection*)connection {
