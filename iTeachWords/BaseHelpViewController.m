@@ -58,6 +58,10 @@
     }
 }
 
+- (NSString*)helpMessageForButton:(id)_button{
+    return @"";
+}
+
 - (void)dealloc{
     [unUsedObjects release];
     unUsedObjects = nil;

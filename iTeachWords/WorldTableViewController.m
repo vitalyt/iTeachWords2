@@ -348,7 +348,7 @@
     }
     currentSelectedWordPathIndex = [indexPath retain];
     NSArray *sounds = [[NSArray alloc] initWithObjects:[self.data objectAtIndex:indexPath.row], nil];
-    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"MultiPlayer" bundle:nil];
+    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];
 	[multiPlayer playList:sounds];

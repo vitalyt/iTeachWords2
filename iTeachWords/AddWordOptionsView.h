@@ -19,10 +19,10 @@
 - (void)showAddWordView;
 - (void)createMenu;
 
-- (void)translateText;
+- (void)translateText:(id)sender;
+- (void)parseText:(id)sender;
+- (void)playText:(id)sender;
 - (void)parceTranslateWord;
-- (void)parseText;
-- (void)playText;
 
 - (IBAction) showVocalizerView;
 

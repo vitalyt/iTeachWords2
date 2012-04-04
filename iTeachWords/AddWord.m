@@ -49,13 +49,13 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     [self.view addSubview:wordsView.view];
+    [searchTranslateLbl setText:NSLocalizedString(@"Tap to find more translations", @"")];
     [wordsView.view setFrame:CGRectMake(.0, 44, wordsView.view.frame.size.width,wordsView.view.frame.size.height)];
-    [searchingTranslateBtn setTitle:NSLocalizedString(@"Tap to find more translations", @"") forState:UIControlStateNormal];
     //[wordsView loadData];
 }
 
 - (IBAction) showMyPickerView{
-    [wordsView showMyPickerView];
+    [wordsView showMyPickerView:nil];
 }
 
 - (void) back{
@@ -153,7 +153,7 @@
 }
 
 - (void)save{
-    [wordsView save];
+    [wordsView save:nil];
 }
 
 - (void)showWebLoadingView{
@@ -174,6 +174,7 @@
     [loadWebButtonView release];
     [animationView release];
     [searchingTranslateBtn release];
+    [searchTranslateLbl release];
     [super dealloc];
 }
 
@@ -184,6 +185,8 @@
     animationView = nil;
     [searchingTranslateBtn release];
     searchingTranslateBtn = nil;
+    [searchTranslateLbl release];
+    searchTranslateLbl = nil;
     [super viewDidUnload];
 }
 @end

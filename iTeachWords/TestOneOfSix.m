@@ -194,7 +194,7 @@
         [multiPlayer release];
     }
     NSArray *sounds = [[NSArray alloc] initWithObjects:WORD(contentArray,index), nil];
-    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"MultiPlayer" bundle:nil];
+    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];
 	[multiPlayer playList:sounds];

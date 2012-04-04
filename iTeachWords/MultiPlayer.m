@@ -19,6 +19,7 @@
     [super viewDidLoad];
     
     [mySlider setValue:0.0];
+    self.view.layer.cornerRadius = 8;
 }
 - (void) playList:(NSArray *)list{
     self.words = list;

@@ -26,7 +26,7 @@
 - (void)loadView{
     [super loadView];
     //    [recordButton setTitle:NSLocalizedString(@"Cancel", @"") forState:UIControlStateNormal];
-    [helpBtn setTitle:NSLocalizedString(@"Help", @"") forState:UIControlStateNormal];
+    [helpBtn setTitle:NSLocalizedString(@"Settings", @"") forState:UIControlStateNormal];
     NSString *nativeCountry = [[NSUserDefaults standardUserDefaults] stringForKey:@"nativeCountry"];
     NSString *translateCountry = [[NSUserDefaults standardUserDefaults] stringForKey:@"translateCountry"];
     

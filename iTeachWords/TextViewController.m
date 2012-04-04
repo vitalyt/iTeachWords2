@@ -137,6 +137,11 @@
 }
 
 - (IBAction)selectAll:(id)sender {
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
     [myTextView selectAll:self];
     [[UIMenuController sharedMenuController] setIsAccessibilityElement:NO];
 //    [UIMenuController can]
@@ -159,12 +164,12 @@
 - (NSString *) loadText{
 	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]];
 	path = [path stringByAppendingPathComponent:@"myText.doc"];
-    NSError *error = nil;
-	NSString *_str = [NSString stringWithContentsOfFile:(NSString *)path encoding:NSUTF8StringEncoding error:(NSError **)error];
-	if (error)
+    NSError *_error = nil;
+	NSString *_str = [NSString stringWithContentsOfFile:(NSString *)path encoding:NSUTF8StringEncoding error:(NSError **)_error];
+	if (_error)
 	{
-		NSLog(@"Error writing file at path: %@; error was %@", path, error);
-		return [NSString stringWithFormat:@"Error writing file at path: %@; error was %@", path, error];
+		NSLog(@"Error writing file at path: %@; error was %@", path, _error);
+		return [NSString stringWithFormat:@"Error writing file at path: %@; error was %@", path, _error];
 	}
     return _str;
 }
@@ -173,17 +178,17 @@
 	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]];
     path = [path stringByAppendingPathComponent:@"myText.doc"];
     NSString *plist = myTextView.text;
-    NSError *error = nil;
+    NSError *_error = nil;
     [plist writeToFile:path
             atomically:YES
               encoding:NSUTF8StringEncoding
-                 error:&error];
+                 error:&_error];
     
     [[NSUserDefaults standardUserDefaults] setValue:[self currentTextLanguage] forKey:@"lastTextLanguageInTextParseView"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    if (error)
+    if (_error)
     {
-        NSLog(@"Error writing file at path: %@; error was %@", path, error);
+        NSLog(@"Error writing file at path: %@; error was %@", path, _error);
     }
 }
 
@@ -194,7 +199,12 @@
     return selectedText;
 }
 
--(void) translateText{
+-(void) translateText:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         NSString *translateLangusgeCode = ([NATIVE_LANGUAGE_CODE isEqualToString:[[self currentTextLanguage] uppercaseString]])?TRANSLATE_LANGUAGE_CODE:NATIVE_LANGUAGE_CODE;

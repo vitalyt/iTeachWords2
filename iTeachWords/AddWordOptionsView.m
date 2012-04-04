@@ -149,21 +149,36 @@
     //[self translateText];
 }
 
-- (void)parseText{
+- (void)parseText:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         [self showParsedWordTable];
     }
 }
 
--(void) translateText{
+-(void) translateText:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:self];
     }
 }
 
--(void) playText{
+-(void) playText:(id)sender{
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];

@@ -24,21 +24,11 @@
     if (self) {
         // Custom initialization
         dataModel = [[AddWordModel alloc]init];
-
     }
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if([DELEGATE respondsToSelector:@selector(createMenu)]){
@@ -47,6 +37,7 @@
         [self createMenu];
     }
 }
+
 - (void)viewDidLoad
 {    
     [super viewDidLoad];
@@ -65,18 +56,15 @@
     translateFid.placeholder = [[NSUserDefaults standardUserDefaults] objectForKey:@"nativeCountry"];
     [textFld addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [translateFid addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    
-//    [self.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-    
+
 	[self setImageFlag];
     [self loadData];
     // Do any additional setup after loading the view from its nib.
 }
 
-
 - (void) loadData{
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"lastThemeInAddView"] && !dataModel.currentWord) {
-        [self showMyPickerView];
+        [self showMyPickerView:nil];
         return;
     }else if(!dataModel.wordType && !dataModel.currentWord){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"lastThemeInAddView"]];
@@ -85,7 +73,6 @@
         NSArray *types = [fetches fetchedObjects];
         if (types && [types count]>0) {
             dataModel.wordType = [[types objectAtIndex:0] retain];
-            //[DELEGATE.navigationItem setPrompt:[NSString stringWithFormat:@"Current theme is %@",dataModel.wordType.name]];
             [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
             [dataModel createWord];
             if (dataModel.currentWord) {
@@ -95,7 +82,7 @@
                 [dataModel.currentWord setTypeID:dataModel.wordType.typeID];
             }
         }else{
-            [self showMyPickerView];
+            [self showMyPickerView:nil];
         }
     }else if(dataModel.currentWord){
         textFld.text = dataModel.currentWord.text;
@@ -146,7 +133,6 @@
     }
 }
 
-
 - (void) setImageFlag{
     [self addRecButtonOnTextField:textFld];
     [self addRecButtonOnTextField:translateFid];
@@ -181,17 +167,20 @@
     }
 }
 
-
 - (void) closeAllKeyboard{
     [textFld resignFirstResponder];
     [translateFid resignFirstResponder];
 }
 
 #pragma  mark picker protokol
-
 - (IBAction) recordPressed:(id)sender{
-    //[sender setHidden:YES];
     [self closeAllKeyboard];
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
+    //[sender setHidden:YES];
     SoundType sounType;
     UITextField *currentTextField;
     if (((UIButton *)sender).tag == 101) {
@@ -231,6 +220,13 @@
 }
 
 - (IBAction) translatePressed:(id)sender{
+    [self closeAllKeyboard];
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        ((UIButton*)_currentSelectedObject).tag = 2;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
     if ([translateFid.text length] == 0) {
         [dataModel loadTranslateText:textFld.text fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:self];
     }
@@ -246,8 +242,13 @@
     }
 }
 
-- (IBAction) showMyPickerView{
+- (IBAction) showMyPickerView:(id)sender{
     [self closeAllKeyboard];
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
     if (!myPicker) {
         myPicker = [[MyPickerViewContrller alloc] initWithNibName:@"MyPicker" bundle:nil];
         myPicker.delegate = self;
@@ -308,7 +309,7 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == 1) {
-		[self save];
+		[self save:nil];
 	}
 	else if (buttonIndex == 0){
         [self removeChanges];
@@ -333,15 +334,20 @@
     [dataModel removeChanges];
 }
 
-- (IBAction) save
+- (IBAction) save:(id)sender
 {
+    if (IS_HELP_MODE && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
     [self closeAllKeyboard];
     if ([textFld.text length]==0 && ([translateFid.text length]==0)) {
         [self removeChanges];
         return;
     }
     if (!dataModel.wordType) {
-        [self showMyPickerView];
+        [self showMyPickerView:nil];
         return;
     }
     [dataModel.currentWord setDescriptionStr:dataModel.wordType.name];
@@ -440,7 +446,7 @@
 
 - (void)changeFieldButton:(UIButton*)button toState:(int)state{
     UIImage *icon = [UIImage imageNamed:(state==0)?@"Search 24x24.png":@"Voice 24x24.png"];
-    SEL selector = (state==0)?@selector(translatePressed:): @selector(recordPressed:);
+    SEL selector = (state==0)?@selector(translatePressed:):@selector(recordPressed:);
     
     [button setImage:icon forState:UIControlStateNormal];
     [button removeTarget:nil 
@@ -512,6 +518,60 @@
     }
 }
 
+
+
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = self.view.superview.frame;
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4*2, frame.size.width-20, frame.size.height/4)];
+    l.numberOfLines = 4;
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag;
+    switch (index) {
+        case 0:
+            message = NSLocalizedString(@"Выбор словаря", @"");
+            break;
+        case 1:
+            message = NSLocalizedString(@"Сохранение слова", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Поиск перевода в интернете", @"");
+            break;
+        case 101:
+        case 100:
+            message = NSLocalizedString(@"Озвучивание слова", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return message;
+}
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    [usedObjects addObject:_currentSelectedObject];
+    UIView *buttonView = nil;
+    UIView *view = _currentSelectedObject;
+    CGRect frame = view.frame;
+    CGRect buttonFrame;
+    int index = ((UIBarButtonItem*)_currentSelectedObject).tag;
+    buttonFrame = CGRectMake(frame.origin.x+self.view.frame.origin.x, frame.origin.y+self.view.frame.origin.y, frame.size.width, frame.size.height);
+    if (index == 2 || index == 100 || index == 101) {
+        buttonFrame = CGRectMake(frame.origin.x+self.view.frame.origin.x+view.superview.frame.origin.x, frame.origin.y+self.view.frame.origin.y+view.superview.frame.origin.y, frame.size.width, frame.size.height);
+    }
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    [buttonView setFrame:buttonFrame];
+    return buttonView;
+}
 
 - (void)viewDidUnload
 {

@@ -15,6 +15,7 @@
 	int             index;
 }
 
+- (IBAction) nextWord;
 - (void) createWord;
 - (BOOL) test;
 @end

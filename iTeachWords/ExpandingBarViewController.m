@@ -46,17 +46,20 @@
      * -------------------------------------------------------*/
     CGRect buttonFrame = CGRectMake(0, 0, 32.0f, 32.0f);
     UIButton *b1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [b1 setTag:0];
     [b1 setFrame:buttonFrame];
     [b1 setImage:[UIImage imageNamed:@"next.png"] forState:UIControlStateNormal];
-    [b1 addTarget:self action:@selector(parseText) forControlEvents:UIControlEventTouchUpInside];
+    [b1 addTarget:self action:@selector(parseText:) forControlEvents:UIControlEventTouchUpInside];
     UIButton *b2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [b2 setTag:1];
     [b2 setImage:[UIImage imageNamed:@"lightbulb.png"] forState:UIControlStateNormal];
     [b2 setFrame:buttonFrame];
-    [b2 addTarget:self action:@selector(translateText) forControlEvents:UIControlEventTouchUpInside];
+    [b2 addTarget:self action:@selector(translateText:) forControlEvents:UIControlEventTouchUpInside];
     UIButton *b3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [b3 setTag:2];
     [b3 setImage:[UIImage imageNamed:@"check.png"] forState:UIControlStateNormal];
     [b3 setFrame:buttonFrame];
-    [b3 addTarget:self action:@selector(playText) forControlEvents:UIControlEventTouchUpInside];
+    [b3 addTarget:self action:@selector(playText:) forControlEvents:UIControlEventTouchUpInside];
     NSArray *buttons = [NSArray arrayWithObjects:b1, b2, b3, nil];
     
     /* ---------------------------------------------------------
@@ -132,5 +135,62 @@
 {
     NSLog(@"will disappear");
 }
+
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    int index = ((UIBarButtonItem*)_currentSelectedObject).tag+1;
+    CGRect frame = self.view.superview.frame;
+    float messageHeight = ((UIView*)_currentSelectedObject).frame.origin.y+self.bar.frame.origin.y+44;
+    if (index == 4) {
+        messageHeight = self.view.frame.size.height;
+    }
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, messageHeight/4, frame.size.width-20, messageHeight/2)];
+    l.numberOfLines = 4;
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Разобрать выделенный текст", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Перевести выделенный текст", @"");
+            break;
+        case 3:
+            message = NSLocalizedString(@"Прочитать выделенный текст", @"");
+            break;
+        case 4:
+            message = NSLocalizedString(@"Выделить весь текст", @"");
+            break;
+            
+        default:
+            break;
+    }
+    return message;
+}
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    [usedObjects addObject:_currentSelectedObject];
+    int index = ((UIBarButtonItem*)_currentSelectedObject).tag+1;
+    if (index == 4) {
+        return _currentSelectedObject;
+    }
+    UIView *buttonView = nil;
+    UIView *view = _currentSelectedObject;
+    CGRect frame = view.frame;
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    [buttonView setFrame:CGRectMake(frame.origin.x+self.bar.frame.origin.x, frame.origin.y+self.bar.frame.origin.y, frame.size.width, frame.size.height)];
+    return buttonView;
+}
+
+
 
 @end

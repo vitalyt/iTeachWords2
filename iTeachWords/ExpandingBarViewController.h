@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RNExpandingButtonBar.h"
+#import "BaseHelpViewController.h"
 
-@interface ExpandingBarViewController : UIViewController <RNExpandingButtonBarDelegate>{
+@interface ExpandingBarViewController : BaseHelpViewController <RNExpandingButtonBarDelegate>{
     
     RNExpandingButtonBar *_bar;
     BOOL isExpandingBarShowed;

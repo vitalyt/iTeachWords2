@@ -23,6 +23,10 @@
 		1C7FEB3D1529F54000491143 /* select-all.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FEB3B1529F54000491143 /* select-all.png */; };
 		1C832652152983AD00ED9191 /* BaseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C832651152983AD00ED9191 /* BaseHelpViewController.m */; };
 		1C832653152983AD00ED9191 /* BaseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C832651152983AD00ED9191 /* BaseHelpViewController.m */; };
+		1C85EEFF152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */; };
+		1C85EF00152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */; };
+		1C85EF03152C4B53007A5D45 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EF02152C4B53007A5D45 /* sound.png */; };
+		1C85EF04152C4B53007A5D45 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EF02152C4B53007A5D45 /* sound.png */; };
 		1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
@@ -1047,6 +1051,8 @@
 		1C7FEB3B1529F54000491143 /* select-all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select-all.png"; sourceTree = "<group>"; };
 		1C832650152983AD00ED9191 /* BaseHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHelpViewController.h; sourceTree = "<group>"; };
 		1C832651152983AD00ED9191 /* BaseHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHelpViewController.m; sourceTree = "<group>"; };
+		1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleMultiPlayer.xib; sourceTree = "<group>"; };
+		1C85EF02152C4B53007A5D45 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
 		1C89F0311525982D00A1E5EA /* QQQSeparateTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateTransparentView.h; sourceTree = "<group>"; };
 		1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateTransparentView.m; sourceTree = "<group>"; };
 		1C89F03515259E4300A1E5EA /* QQQSeparateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateView.h; sourceTree = "<group>"; };
@@ -2175,6 +2181,7 @@
 		282A3BCA1385234500F7D68E /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				1C85EF02152C4B53007A5D45 /* sound.png */,
 				282A3BCF1385236800F7D68E /* MyPlayerProtocol.h */,
 				282A3BCC1385236800F7D68E /* MyPlayer.h */,
 				282A3BCD1385236800F7D68E /* MyPlayer.m */,
@@ -2182,6 +2189,7 @@
 				2816F9E01385378600AFB8F5 /* MultiPlayer.h */,
 				2816F9E11385378600AFB8F5 /* MultiPlayer.m */,
 				284C9FBD138A4C40000A7075 /* MultiPlayer.xib */,
+				1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -3512,6 +3520,8 @@
 				843373D2152A2301005747E4 /* red_x_down@2x.png in Resources */,
 				843373D4152A2301005747E4 /* red_x_up.png in Resources */,
 				843373D6152A2301005747E4 /* red_x_up@2x.png in Resources */,
+				1C85EEFF152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */,
+				1C85EF03152C4B53007A5D45 /* sound.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3886,6 +3896,8 @@
 				843373D3152A2301005747E4 /* red_x_down@2x.png in Resources */,
 				843373D5152A2301005747E4 /* red_x_up.png in Resources */,
 				843373D7152A2301005747E4 /* red_x_up@2x.png in Resources */,
+				1C85EF00152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */,
+				1C85EF04152C4B53007A5D45 /* sound.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

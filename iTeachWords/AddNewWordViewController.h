@@ -11,10 +11,11 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "AddWordModel.h"
 #import "RecordModel.h"
+#import "BaseHelpViewController.h"
 
 @class MyPickerViewContrller,MyUIViewClass,RecordingWordViewController,AddWordModel,WBEngine;
 
-@interface AddNewWordViewController : UIViewController <UITextFieldDelegate, RecordingViewProtocol, UIActionSheetDelegate>{
+@interface AddNewWordViewController : BaseHelpViewController <UITextFieldDelegate, RecordingViewProtocol, UIActionSheetDelegate>{
     IBOutlet UITextField    *textFld;
     IBOutlet UITextField    *translateFid;
     IBOutlet UILabel *themeLbl;
@@ -38,10 +39,10 @@
 
 - (void)inputModeDidChange:(NSNotification*)notificationl;
 - (void)     loadData;
-- (IBAction) showMyPickerView;
+- (IBAction) showMyPickerView:(id)sender;
 
 - (void)     back;
-- (IBAction) save;
+- (IBAction) save:(id)sender;
 - (IBAction) recordPressed:(id)sender;
 - (void)clear;
 

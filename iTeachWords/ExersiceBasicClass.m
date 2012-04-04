@@ -126,12 +126,17 @@
         [multiPlayer release];
     }
     NSArray *sounds = [[NSArray alloc] initWithObjects:[self.data objectAtIndex:index], nil];
-    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"MultiPlayer" bundle:nil];
+    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];
 	[multiPlayer playList:sounds];
     [sounds release];
 }
+
+- (void)playerDidFinishPlaying:(id)sender{
+    
+}
+
 
 - (void) checkingWord:(Words *)word success:(BOOL)success{
     Statistic *statistic;

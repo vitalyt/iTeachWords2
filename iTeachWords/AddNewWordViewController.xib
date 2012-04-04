@@ -84,7 +84,7 @@
 						<string key="NSFrame">{{11, 48}, {298, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="472266120"/>
+						<reference key="NSNextKeyView" ref="1037081369"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -112,11 +112,11 @@
 					</object>
 					<object class="IBUIButton" id="472266120">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">294</int>
-						<string key="NSFrame">{{11, 87}, {138, 37}}</string>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{51, 87}, {58, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1037081369"/>
+						<reference key="NSNextKeyView" ref="18117479"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -149,7 +149,7 @@
 					</object>
 					<object class="IBUIButton" id="18117479">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">291</int>
+						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{219, 90}, {35, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -159,6 +159,7 @@
 							<bytes key="NSRGB">MSAwIDAgMAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
+						<int key="IBUITag">1</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -189,7 +190,7 @@
 						<string key="NSFrame">{{11, 120}, {298, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="18117479"/>
+						<reference key="NSNextKeyView" ref="472266120"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -276,21 +277,21 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showMyPickerView</string>
+						<string key="label">showMyPickerView:</string>
 						<reference key="source" ref="472266120"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">11</int>
+					<int key="connectionID">24</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">save</string>
+						<string key="label">save:</string>
 						<reference key="source" ref="18117479"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">12</int>
+					<int key="connectionID">22</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -368,35 +369,33 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">21</int>
+			<int key="maxID">24</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">AddNewWordViewController</string>
-					<string key="superclassName">UIViewController</string>
+					<string key="superclassName">BaseHelpViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="recordPressed:">id</string>
-						<string key="save">id</string>
-						<string key="showMyPickerView">id</string>
+						<string key="save:">id</string>
+						<string key="showMyPickerView:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="recordPressed:">
 							<string key="name">recordPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="save">
-							<string key="name">save</string>
+						<object class="IBActionInfo" key="save:">
+							<string key="name">save:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="showMyPickerView">
-							<string key="name">showMyPickerView</string>
+						<object class="IBActionInfo" key="showMyPickerView:">
+							<string key="name">showMyPickerView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="myPickerView">UIPickerView</string>
-						<string key="myToolbarView">MyUIViewClass</string>
 						<string key="recordButtonView">UIButton</string>
 						<string key="saveButton">UIButton</string>
 						<string key="textFld">UITextField</string>
@@ -405,14 +404,6 @@
 						<string key="translateFid">UITextField</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="myPickerView">
-							<string key="name">myPickerView</string>
-							<string key="candidateClassName">UIPickerView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="myToolbarView">
-							<string key="name">myToolbarView</string>
-							<string key="candidateClassName">MyUIViewClass</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="recordButtonView">
 							<string key="name">recordButtonView</string>
 							<string key="candidateClassName">UIButton</string>
@@ -444,24 +435,16 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">MyUIViewClass</string>
-					<string key="superclassName">UIView</string>
+					<string key="className">BaseHelpViewController</string>
+					<string key="superclassName">UIViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/MyUIViewClass.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">QQQBaseTransparentView</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/QQQBaseTransparentView.h</string>
+						<string key="minorKey">./Classes/BaseHelpViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">QQQSeparateTransparentView</string>
-					<string key="superclassName">QQQBaseTransparentView</string>
+					<string key="superclassName">UIView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/QQQSeparateTransparentView.h</string>

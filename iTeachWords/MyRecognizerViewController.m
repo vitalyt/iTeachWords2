@@ -53,7 +53,7 @@
     [recognitionType setTitle:NSLocalizedString(@"Dictation", @"") forSegmentAtIndex:1];    
     
 //    [recordButton setTitle:NSLocalizedString(@"Cancel", @"") forState:UIControlStateNormal];
-    [helpBtn setTitle:NSLocalizedString(@"Help", @"") forState:UIControlStateNormal];
+    [helpBtn setTitle:NSLocalizedString(@"Settings", @"") forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad
@@ -96,8 +96,9 @@
     [[[self.view subviews] objectAtIndex:0] removeFromSuperview];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     // grab an image of our parent view    
     // For iOS 5 you need to use presentingViewController:
     UIView *parentView;
@@ -116,8 +117,13 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, parentView.bounds.size.width, parentView.bounds.size.height)];
     imageView.image = parentViewImage;
     [self.view insertSubview:imageView atIndex:0];
+    [imageView setHidden:YES];
     [imageView release];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[[self.view subviews] objectAtIndex:0] setHidden:NO];    
     [self recordButtonAction:nil];
     // Do any additional setup after loading the view from its nib.
 }
