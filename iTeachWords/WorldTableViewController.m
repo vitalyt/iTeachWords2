@@ -365,7 +365,7 @@
 //    [table performSelectorOnMainThread:@selector(setScrollEnabled:) withObject:NO waitUntilDone:YES];
     int index;
     if ([multiPlayer.words count] > 1) {
-        NSIndexPath *scrollingIndex = [NSIndexPath indexPathForRow:soundIndex inSection:0];
+        NSIndexPath *scrollingIndex = [NSIndexPath indexPathForRow:(soundIndex>0)?soundIndex-1:0 inSection:0];
         [self performSelectorOnMainThread:@selector(scrollTableToIndexPath:) withObject:scrollingIndex waitUntilDone:YES];
         index = soundIndex+1;
     }else{

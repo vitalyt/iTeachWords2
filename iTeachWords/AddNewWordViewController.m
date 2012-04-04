@@ -205,7 +205,7 @@
     }
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
     recordView.delegate = self;
-    recordView.isDelayingSaving = YES;
+//    recordView.isDelayingSaving = YES;
     [self.view.superview addSubview:recordView.view];
     
     [recordView.view setFrame:CGRectMake(currentTextField.frame.origin.x+currentTextField.frame.size.width-currentTextField.rightView.frame.size.width, currentTextField.frame.origin.y+44, currentTextField.rightView.frame.size.width, currentTextField.rightView.frame.size.height)];

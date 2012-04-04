@@ -69,10 +69,10 @@
         
         Sounds *sound = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] lastObject];
         //_data = sound.data;
-        if (sound) {
+        if (sound && [sound.data length]>0) {
             _data = sound.data;
             if (delegate && [(id)delegate respondsToSelector:@selector(playerDidStartPlayingSound:)]){
-                [self.delegate playerDidStartPlayingSound:indexFileArray-1] ;
+                [self.delegate playerDidStartPlayingSound:indexFileArray] ;
             }
             [self startPlayWithData:_data];
         }else{
@@ -128,6 +128,9 @@
     [self startTimer];
 }
 
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error{
+    
+}
 
 - (IBAction) onStopClick{
 	if (player != nil) {
