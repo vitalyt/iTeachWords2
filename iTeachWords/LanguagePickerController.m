@@ -50,8 +50,7 @@
     
     NSArray *countries = [[NSArray alloc] initWithArray:[countryNameCode componentsSeparatedByString:@"\r"]];
     [countryNameCode release];
-    NSString *nativeCountryCode = NATIVE_LANGUAGE_CODE;
-    NSString *translateCountryCode = TRANSLATE_LANGUAGE_CODE;
+
     
     for (int i=0;i<[countries count];i++){
         NSString *country = [countries objectAtIndex:i];

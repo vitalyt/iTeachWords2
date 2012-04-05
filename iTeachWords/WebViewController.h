@@ -6,6 +6,8 @@
     IBOutlet UIToolbar *toolbar;
     IBOutlet UIToolbar *urlToolbar;
     IBOutlet UITextField *urlFld;
+    IBOutlet UIBarButtonItem *forwardBtn;
+    IBOutlet UIBarButtonItem *backBtn;
 	NSString *url;
 	NSString *title;
 	BOOL	flgLoad;
@@ -34,5 +36,6 @@
 - (IBAction)redo:(id)sender;
 - (IBAction)refresh:(id)sender;
 - (IBAction)showInSafari:(id)sender;
+- (void)reviewButtons;
 
 @end

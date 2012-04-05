@@ -51,6 +51,7 @@ documentsDirectory = [paths objectAtIndex:0];
     
 //	NSURLRequest *urlRequest = [_webView request];
 	//NSURL *u = [urlRequest mainDocumentURL];
+    [self reviewButtons];
     urlFld.text = self.url;
     [_webView addSubview:progressView];
     [progressView startAnimating];
@@ -64,7 +65,8 @@ documentsDirectory = [paths objectAtIndex:0];
         isUpdatedData = NO;
 		[OsdnDataBase addWebBaseWithURL:[u absoluteString] data:u];		
 	}
-    [progressView removeFromSuperview];  
+    [progressView removeFromSuperview];
+    [self reviewButtons];
     //[progressView release];    	
 }
 
@@ -116,8 +118,14 @@ documentsDirectory = [paths objectAtIndex:0];
     [self loadContent];
 }
 
+- (void)reviewButtons{
+    [backBtn setEnabled:([webView canGoBack])?YES:NO];
+    [forwardBtn setEnabled:([webView canGoForward])?YES:NO];
+}
+
 - (void)loadContent{
     [webView stopLoading];
+    [self reviewButtons];
     [self clearContent];
     if (!url) {
         return;
@@ -212,6 +220,8 @@ documentsDirectory = [paths objectAtIndex:0];
 	[webView release];
     [urlToolbar release];
     [urlFld release];
+    [forwardBtn release];
+    [backBtn release];
     [super dealloc];
 }
 
@@ -221,6 +231,10 @@ documentsDirectory = [paths objectAtIndex:0];
     urlToolbar = nil;
     [urlFld release];
     urlFld = nil;
+    [forwardBtn release];
+    forwardBtn = nil;
+    [backBtn release];
+    backBtn = nil;
     [super viewDidUnload];
 }
 @end

@@ -137,7 +137,6 @@
 		282EAF67139E1FC10057F316 /* Record 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF65139E1FBC0057F316 /* Record 24x24.png */; };
 		282EAF68139E1FC10057F316 /* Stop 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF66139E1FBE0057F316 /* Stop 24x24.png */; };
 		282EAF6A139E200D0057F316 /* Play 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF69139E200A0057F316 /* Play 24x24.png */; };
-		282EAF85139E47E10057F316 /* Check 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF84139E47E10057F316 /* Check 24x24.png */; };
 		282FEDD6147F813B0065A2F9 /* ARFontPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282FEDD5147F813B0065A2F9 /* ARFontPickerViewController.m */; };
 		2830DEF3148CC7D900BA1964 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2830DEF2148CC7D900BA1964 /* XMLReader.m */; };
 		2834E93114D18960008229F3 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 2834E92F14D18960008229F3 /* right.png */; };
@@ -351,7 +350,6 @@
 		285B816414E4079E001C977D /* IsSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D3C2E51386684B00B35FC7 /* IsSelected.png */; };
 		285B816514E4079E001C977D /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D3C2ED1386686C00B35FC7 /* TableCell.xib */; };
 		285B816614E4079E001C977D /* DetailStatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D3C2F4138669E600B35FC7 /* DetailStatisticViewController.xib */; };
-		285B816714E4079E001C977D /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D3C2FA13866FF400B35FC7 /* font.png */; };
 		285B816814E4079E001C977D /* MultiPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284C9FBD138A4C40000A7075 /* MultiPlayer.xib */; };
 		285B816914E4079E001C977D /* Game 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 284C9FBF138A7DEA000A7075 /* Game 16x16.png */; };
 		285B816A14E4079E001C977D /* Indent 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 284C9FC0138A7DEA000A7075 /* Indent 16x16.png */; };
@@ -376,7 +374,6 @@
 		285B817D14E4079E001C977D /* Record 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF65139E1FBC0057F316 /* Record 24x24.png */; };
 		285B817E14E4079E001C977D /* Stop 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF66139E1FBE0057F316 /* Stop 24x24.png */; };
 		285B817F14E4079E001C977D /* Play 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF69139E200A0057F316 /* Play 24x24.png */; };
-		285B818014E4079E001C977D /* Check 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 282EAF84139E47E10057F316 /* Check 24x24.png */; };
 		285B818114E4079E001C977D /* NewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28797B1D13A2355D00D21722 /* NewTableCell.xib */; };
 		285B818214E4079E001C977D /* LMTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9FDBC013AE1F700001CC6F /* LMTableViewController.xib */; };
 		285B818314E4079E001C977D /* LM7.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9FDBCB13AE1FB60001CC6F /* LM7.xib */; };
@@ -389,7 +386,6 @@
 		285B818A14E4079E001C977D /* Test7.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9615B213C09CE3004096C7 /* Test7.xib */; };
 		285B818B14E4079E001C977D /* Test15.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C773713C0C79E00ACDC2E /* Test15.xib */; };
 		285B818C14E4079E001C977D /* Outdent 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BE257413E01856006B46F4 /* Outdent 16x16.png */; };
-		285B818D14E4079E001C977D /* Check 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BE257913E0338F006B46F4 /* Check 16x16.png */; };
 		285B818E14E4079E001C977D /* ManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6C776F13C0F6FD00ACDC2E /* ManagerViewController.xib */; };
 		285B818F14E4079E001C977D /* AD.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32ED7140F9FDA00ABC7D5 /* AD.png */; };
 		285B819814E4079E001C977D /* AT.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32EE0140F9FDA00ABC7D5 /* AT.png */; };
@@ -441,7 +437,6 @@
 		285B826E14E4079E001C977D /* Book 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB9598148F5AEF002F71E2 /* Book 32x32.png */; };
 		285B826F14E4079E001C977D /* 1323247895_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */; };
 		285B827014E4079E001C977D /* 1323247972_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */; };
-		285B827114E4079E001C977D /* 1323247979_Download.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959E148F6114002F71E2 /* 1323247979_Download.png */; };
 		285B827214E4079E001C977D /* bookmark1.png in Resources */ = {isa = PBXBuildFile; fileRef = 281A7FB31498B8150055B55F /* bookmark1.png */; };
 		285B827314E4079E001C977D /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 281A7FB71498BA360055B55F /* bookmark.png */; };
 		285B827414E4079E001C977D /* line-globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 281A7FB91498BEC80055B55F /* line-globe.png */; };
@@ -461,7 +456,6 @@
 		285B828214E4079E001C977D /* siri-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A114CDA50B0003C5BF /* siri-icon.png */; };
 		285B828314E4079E001C977D /* VoiceRecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */; };
 		285B828414E4079E001C977D /* MyRecognizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287340E314CEA2010085B72C /* MyRecognizerViewController.xib */; };
-		285B828514E4079E001C977D /* siri-icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 28914B4C14D14CA4004E702A /* siri-icon1.png */; };
 		285B828614E4079E001C977D /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28914B5014D151DB004E702A /* ButtonView.xib */; };
 		285B828714E4079E001C977D /* PagesScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2866F79014D161BF00BBE17B /* PagesScrollView.xib */; };
 		285B828814E4079E001C977D /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 2834E92F14D18960008229F3 /* right.png */; };
@@ -488,7 +482,6 @@
 		28797B3113A24CC700D21722 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28797B3013A24CC700D21722 /* MenuView.m */; };
 		28914B4814D1460C004E702A /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4714D1460C004E702A /* BaseScrollView.m */; };
 		28914B4B14D14839004E702A /* PagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4A14D14839004E702A /* PagesScrollView.m */; };
-		28914B4D14D14CA4004E702A /* siri-icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 28914B4C14D14CA4004E702A /* siri-icon1.png */; };
 		28914B5114D151DB004E702A /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4F14D151DB004E702A /* ButtonView.m */; };
 		28914B5214D151DB004E702A /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28914B5014D151DB004E702A /* ButtonView.xib */; };
 		289C63A214CDA50B0003C5BF /* Microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A014CDA50B0003C5BF /* Microphone.png */; };
@@ -509,7 +502,6 @@
 		28BDB691148387C500BC2688 /* BannerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDB690148387C500BC2688 /* BannerTableViewController.m */; };
 		28BDB6941483880300BC2688 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BDB6931483880300BC2688 /* iAd.framework */; };
 		28BE257513E01856006B46F4 /* Outdent 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BE257413E01856006B46F4 /* Outdent 16x16.png */; };
-		28BE257A13E0338F006B46F4 /* Check 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BE257913E0338F006B46F4 /* Check 16x16.png */; };
 		28C0502914BD75AE006442B4 /* AlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0502814BD75AE006442B4 /* AlertTableView.m */; };
 		28C0503314BD79D6006442B4 /* MyUIViewWhiteClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0503214BD79D6006442B4 /* MyUIViewWhiteClass.m */; };
 		28C0505914BDC4E0006442B4 /* SwitchingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0505714BDC4DD006442B4 /* SwitchingCell.m */; };
@@ -546,13 +538,11 @@
 		28D3C2F5138669E600B35FC7 /* DetailStatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3C2F3138669E600B35FC7 /* DetailStatisticViewController.m */; };
 		28D3C2F6138669E600B35FC7 /* DetailStatisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D3C2F4138669E600B35FC7 /* DetailStatisticViewController.xib */; };
 		28D3C2F913866A0D00B35FC7 /* DetailStatisticModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3C2F813866A0D00B35FC7 /* DetailStatisticModel.m */; };
-		28D3C2FB13866FF400B35FC7 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D3C2FA13866FF400B35FC7 /* font.png */; };
 		28D3C2FE138672B600B35FC7 /* EditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3C2FD138672B600B35FC7 /* EditTableViewController.m */; };
 		28DB9596148F59B7002F71E2 /* Book 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB9595148F59B7002F71E2 /* Book 24x24.png */; };
 		28DB9599148F5AEF002F71E2 /* Book 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB9598148F5AEF002F71E2 /* Book 32x32.png */; };
 		28DB959F148F6114002F71E2 /* 1323247895_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */; };
 		28DB95A0148F6114002F71E2 /* 1323247972_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */; };
-		28DB95A1148F6114002F71E2 /* 1323247979_Download.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959E148F6114002F71E2 /* 1323247979_Download.png */; };
 		28E0E1D0146013CD005BFB0E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E0E1CF146013CD005BFB0E /* SettingsViewController.xib */; };
 		28E0E1D514601790005BFB0E /* TextFieldLanguagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0E1D314601790005BFB0E /* TextFieldLanguagesCell.m */; };
 		28E0E1D614601790005BFB0E /* TextFieldLanguagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E0E1D414601790005BFB0E /* TextFieldLanguagesCell.xib */; };
@@ -855,7 +845,6 @@
 		282EAF65139E1FBC0057F316 /* Record 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Record 24x24.png"; sourceTree = "<group>"; };
 		282EAF66139E1FBE0057F316 /* Stop 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop 24x24.png"; sourceTree = "<group>"; };
 		282EAF69139E200A0057F316 /* Play 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play 24x24.png"; sourceTree = "<group>"; };
-		282EAF84139E47E10057F316 /* Check 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check 24x24.png"; sourceTree = "<group>"; };
 		282FEDD4147F813B0065A2F9 /* ARFontPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFontPickerViewController.h; sourceTree = "<group>"; };
 		282FEDD5147F813B0065A2F9 /* ARFontPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFontPickerViewController.m; sourceTree = "<group>"; };
 		2830DEF1148CC7D900BA1964 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
@@ -964,7 +953,6 @@
 		28914B4714D1460C004E702A /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
 		28914B4914D14839004E702A /* PagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesScrollView.h; sourceTree = "<group>"; };
 		28914B4A14D14839004E702A /* PagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesScrollView.m; sourceTree = "<group>"; };
-		28914B4C14D14CA4004E702A /* siri-icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "siri-icon1.png"; sourceTree = "<group>"; };
 		28914B4E14D151DB004E702A /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
 		28914B4F14D151DB004E702A /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		28914B5014D151DB004E702A /* ButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
@@ -989,7 +977,6 @@
 		28BDB690148387C500BC2688 /* BannerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerTableViewController.m; sourceTree = "<group>"; };
 		28BDB6931483880300BC2688 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/iAd.framework; sourceTree = DEVELOPER_DIR; };
 		28BE257413E01856006B46F4 /* Outdent 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Outdent 16x16.png"; sourceTree = "<group>"; };
-		28BE257913E0338F006B46F4 /* Check 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check 16x16.png"; sourceTree = "<group>"; };
 		28C0502714BD75AE006442B4 /* AlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertTableView.h; sourceTree = "<group>"; };
 		28C0502814BD75AE006442B4 /* AlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertTableView.m; sourceTree = "<group>"; };
 		28C0503114BD79D6006442B4 /* MyUIViewWhiteClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIViewWhiteClass.h; sourceTree = "<group>"; };
@@ -1045,14 +1032,12 @@
 		28D3C2F4138669E600B35FC7 /* DetailStatisticViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailStatisticViewController.xib; sourceTree = "<group>"; };
 		28D3C2F713866A0D00B35FC7 /* DetailStatisticModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStatisticModel.h; sourceTree = "<group>"; };
 		28D3C2F813866A0D00B35FC7 /* DetailStatisticModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStatisticModel.m; sourceTree = "<group>"; };
-		28D3C2FA13866FF400B35FC7 /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font.png; sourceTree = "<group>"; };
 		28D3C2FC138672B500B35FC7 /* EditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTableViewController.h; sourceTree = "<group>"; };
 		28D3C2FD138672B600B35FC7 /* EditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTableViewController.m; sourceTree = "<group>"; };
 		28DB9595148F59B7002F71E2 /* Book 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Book 24x24.png"; sourceTree = "<group>"; };
 		28DB9598148F5AEF002F71E2 /* Book 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Book 32x32.png"; sourceTree = "<group>"; };
 		28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1323247895_3floppy_unmount.png; sourceTree = "<group>"; };
 		28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1323247972_3floppy_unmount.png; sourceTree = "<group>"; };
-		28DB959E148F6114002F71E2 /* 1323247979_Download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1323247979_Download.png; sourceTree = "<group>"; };
 		28E0E1CF146013CD005BFB0E /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		28E0E1D214601790005BFB0E /* TextFieldLanguagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldLanguagesCell.h; sourceTree = "<group>"; };
 		28E0E1D314601790005BFB0E /* TextFieldLanguagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldLanguagesCell.m; sourceTree = "<group>"; };
@@ -1559,7 +1544,6 @@
 				2834E92F14D18960008229F3 /* right.png */,
 				2834E93014D18960008229F3 /* stop.png */,
 				289C63A014CDA50B0003C5BF /* Microphone.png */,
-				28914B4C14D14CA4004E702A /* siri-icon1.png */,
 				289C63A114CDA50B0003C5BF /* siri-icon.png */,
 				2862E3C314C58162003CC14C /* Close-button.png */,
 				281A7FC11498C2EE0055B55F /* glasses.png */,
@@ -1569,16 +1553,13 @@
 				281A7FB71498BA360055B55F /* bookmark.png */,
 				28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */,
 				28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */,
-				28DB959E148F6114002F71E2 /* 1323247979_Download.png */,
 				28DB9595148F59B7002F71E2 /* Book 24x24.png */,
 				28DB9598148F5AEF002F71E2 /* Book 32x32.png */,
-				28BE257913E0338F006B46F4 /* Check 16x16.png */,
 				28BE257413E01856006B46F4 /* Outdent 16x16.png */,
 				CE9FDBD313AE1FD50001CC6F /* List 16x16.png */,
 				CE9FDBD413AE1FD50001CC6F /* Ordered list 16x16a.png */,
 				CE9FDBD513AE1FD50001CC6F /* Arrow left 16x16.png */,
 				CE9FDBD613AE1FD50001CC6F /* Arrow right 16x16.png */,
-				282EAF84139E47E10057F316 /* Check 24x24.png */,
 				282EAF69139E200A0057F316 /* Play 24x24.png */,
 				282EAF65139E1FBC0057F316 /* Record 24x24.png */,
 				282EAF66139E1FBE0057F316 /* Stop 24x24.png */,
@@ -1591,7 +1572,6 @@
 				284C9FC3138A7DEA000A7075 /* Edit 16x16.png */,
 				284C9FC4138A7DEA000A7075 /* Statistic bar 16x16.png */,
 				284C9FC5138A7DEA000A7075 /* Slideshow 16x16.png */,
-				28D3C2FA13866FF400B35FC7 /* font.png */,
 				28D3C2E41386684B00B35FC7 /* NotSelected.png */,
 				28D3C2E51386684B00B35FC7 /* IsSelected.png */,
 				28D3C2E21386666C00B35FC7 /* Conversation 16x16.png */,
@@ -2487,7 +2467,6 @@
 				28D3C2E71386684B00B35FC7 /* IsSelected.png in Resources */,
 				28D3C2F01386686C00B35FC7 /* TableCell.xib in Resources */,
 				28D3C2F6138669E600B35FC7 /* DetailStatisticViewController.xib in Resources */,
-				28D3C2FB13866FF400B35FC7 /* font.png in Resources */,
 				284C9FBE138A4C40000A7075 /* MultiPlayer.xib in Resources */,
 				284C9FC6138A7DEA000A7075 /* Game 16x16.png in Resources */,
 				284C9FC7138A7DEA000A7075 /* Indent 16x16.png in Resources */,
@@ -2512,7 +2491,6 @@
 				282EAF67139E1FC10057F316 /* Record 24x24.png in Resources */,
 				282EAF68139E1FC10057F316 /* Stop 24x24.png in Resources */,
 				282EAF6A139E200D0057F316 /* Play 24x24.png in Resources */,
-				282EAF85139E47E10057F316 /* Check 24x24.png in Resources */,
 				28797B1E13A2355E00D21722 /* NewTableCell.xib in Resources */,
 				CE9FDBC213AE1F700001CC6F /* LMTableViewController.xib in Resources */,
 				CE9FDBCD13AE1FB60001CC6F /* LM7.xib in Resources */,
@@ -2525,7 +2503,6 @@
 				CE9615B413C09CF0004096C7 /* Test7.xib in Resources */,
 				CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */,
 				28BE257513E01856006B46F4 /* Outdent 16x16.png in Resources */,
-				28BE257A13E0338F006B46F4 /* Check 16x16.png in Resources */,
 				CE6C777113C0F6FD00ACDC2E /* ManagerViewController.xib in Resources */,
 				28E32FAB140F9FDA00ABC7D5 /* AD.png in Resources */,
 				28E32FB4140F9FDA00ABC7D5 /* AT.png in Resources */,
@@ -2577,7 +2554,6 @@
 				28DB9599148F5AEF002F71E2 /* Book 32x32.png in Resources */,
 				28DB959F148F6114002F71E2 /* 1323247895_3floppy_unmount.png in Resources */,
 				28DB95A0148F6114002F71E2 /* 1323247972_3floppy_unmount.png in Resources */,
-				28DB95A1148F6114002F71E2 /* 1323247979_Download.png in Resources */,
 				281A7FB41498B8150055B55F /* bookmark1.png in Resources */,
 				281A7FB81498BA360055B55F /* bookmark.png in Resources */,
 				281A7FBA1498BEC90055B55F /* line-globe.png in Resources */,
@@ -2597,7 +2573,6 @@
 				289C63A314CDA50B0003C5BF /* siri-icon.png in Resources */,
 				289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */,
 				287340E514CEA2010085B72C /* MyRecognizerViewController.xib in Resources */,
-				28914B4D14D14CA4004E702A /* siri-icon1.png in Resources */,
 				28914B5214D151DB004E702A /* ButtonView.xib in Resources */,
 				2866F79114D161BF00BBE17B /* PagesScrollView.xib in Resources */,
 				2834E93114D18960008229F3 /* right.png in Resources */,
@@ -2691,7 +2666,6 @@
 				285B816414E4079E001C977D /* IsSelected.png in Resources */,
 				285B816514E4079E001C977D /* TableCell.xib in Resources */,
 				285B816614E4079E001C977D /* DetailStatisticViewController.xib in Resources */,
-				285B816714E4079E001C977D /* font.png in Resources */,
 				285B816814E4079E001C977D /* MultiPlayer.xib in Resources */,
 				285B816914E4079E001C977D /* Game 16x16.png in Resources */,
 				285B816A14E4079E001C977D /* Indent 16x16.png in Resources */,
@@ -2716,7 +2690,6 @@
 				285B817D14E4079E001C977D /* Record 24x24.png in Resources */,
 				285B817E14E4079E001C977D /* Stop 24x24.png in Resources */,
 				285B817F14E4079E001C977D /* Play 24x24.png in Resources */,
-				285B818014E4079E001C977D /* Check 24x24.png in Resources */,
 				285B818114E4079E001C977D /* NewTableCell.xib in Resources */,
 				285B818214E4079E001C977D /* LMTableViewController.xib in Resources */,
 				285B818314E4079E001C977D /* LM7.xib in Resources */,
@@ -2729,7 +2702,6 @@
 				285B818A14E4079E001C977D /* Test7.xib in Resources */,
 				285B818B14E4079E001C977D /* Test15.xib in Resources */,
 				285B818C14E4079E001C977D /* Outdent 16x16.png in Resources */,
-				285B818D14E4079E001C977D /* Check 16x16.png in Resources */,
 				285B818E14E4079E001C977D /* ManagerViewController.xib in Resources */,
 				285B818F14E4079E001C977D /* AD.png in Resources */,
 				285B819814E4079E001C977D /* AT.png in Resources */,
@@ -2781,7 +2753,6 @@
 				285B826E14E4079E001C977D /* Book 32x32.png in Resources */,
 				285B826F14E4079E001C977D /* 1323247895_3floppy_unmount.png in Resources */,
 				285B827014E4079E001C977D /* 1323247972_3floppy_unmount.png in Resources */,
-				285B827114E4079E001C977D /* 1323247979_Download.png in Resources */,
 				285B827214E4079E001C977D /* bookmark1.png in Resources */,
 				285B827314E4079E001C977D /* bookmark.png in Resources */,
 				285B827414E4079E001C977D /* line-globe.png in Resources */,
@@ -2801,7 +2772,6 @@
 				285B828214E4079E001C977D /* siri-icon.png in Resources */,
 				285B828314E4079E001C977D /* VoiceRecordingViewController.xib in Resources */,
 				285B828414E4079E001C977D /* MyRecognizerViewController.xib in Resources */,
-				285B828514E4079E001C977D /* siri-icon1.png in Resources */,
 				285B828614E4079E001C977D /* ButtonView.xib in Resources */,
 				285B828714E4079E001C977D /* PagesScrollView.xib in Resources */,
 				285B828814E4079E001C977D /* right.png in Resources */,
