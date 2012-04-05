@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">10K549</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
-		<string key="IBDocument.AppKitVersion">1038.36</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<int key="IBDocument.SystemTarget">1296</int>
+		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
+		<string key="IBDocument.AppKitVersion">1138.32</string>
+		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">933</string>
+			<string key="NS.object.0">1181</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBUIProgressView</string>
@@ -40,7 +40,7 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIToolbar" id="216788609">
 						<reference key="NSNextResponder" ref="736648409"/>
-						<int key="NSvFlags">290</int>
+						<int key="NSvFlags">295</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIProgressView" id="770521092">
 								<reference key="NSNextResponder" ref="216788609"/>
@@ -66,7 +66,7 @@
 								<int key="IBUIProgressViewStyle">1</int>
 							</object>
 						</array>
-						<string key="NSFrame">{{0, -2}, {236, 44}}</string>
+						<string key="NSFrame">{{-4, -2}, {236, 44}}</string>
 						<reference key="NSSuperview" ref="736648409"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="770521092"/>
@@ -193,7 +193,7 @@
 						<reference key="IBUIFont" ref="272716731"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{194, 39}</string>
+				<string key="NSFrameSize">{187, 39}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="216788609"/>
@@ -408,8 +408,12 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1296" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">933</string>
+		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
 </archive>

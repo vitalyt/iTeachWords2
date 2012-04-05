@@ -94,10 +94,10 @@
     [self.view setBackgroundColor:[UIColor colorWithWhite:0.2 alpha:0.5]];
     int flagHight = 30;
     int y = pickerView.frame.origin.y + pickerView.frame.size.height/2 - flagHight/2;
-    LanguageFlagImageView *flagView1 = [[LanguageFlagImageView alloc] initWithFrame:CGRectMake(0, y, 50.0, flagHight)];
+    LanguageFlagImageView *flagView1 = [[LanguageFlagImageView alloc] initWithFrame:CGRectMake(0, y, 40.0, flagHight)];
     flagView1.tag = RFLAGVIEWTAG;
     [self.view addSubview:flagView1];
-    LanguageFlagImageView *flagView2 = [[LanguageFlagImageView alloc] initWithFrame:CGRectMake(270, y, 50.0, flagHight)];
+    LanguageFlagImageView *flagView2 = [[LanguageFlagImageView alloc] initWithFrame:CGRectMake(280, y, 40.0, flagHight)];
     flagView2.tag = LFLAGVIEWTAG;
     [self.view addSubview:flagView2];
     [flagView1 release];
@@ -146,8 +146,20 @@
 }
 
 - (CGFloat)pickerView:(UIPickerView *)_pickerView widthForComponent:(NSInteger)component {
-    int sectionWidth = (_pickerView.frame.size.width - 100)/2 - 5;
+    int sectionWidth = (_pickerView.frame.size.width - 75)/2 - 5;
     return sectionWidth;
+}
+
+- (UIView *)pickerView:(UIPickerView *)_pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UILabel *retval = (id)view;
+    if (!retval) {
+        retval= [[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width-10, [_pickerView rowSizeForComponent:component].height)] autorelease];
+    }
+    [retval setBackgroundColor:[UIColor clearColor]];
+    NSDictionary *dict = [content objectAtIndex:row];
+    retval.text = [dict objectForKey:@"country"];
+    retval.font = [UIFont fontWithName:@"System Bold" size:15];
+    return retval;
 }
 
 - (void)setFlagIconsCountry:(NSString*)code inComponent:(int)component{

@@ -150,7 +150,7 @@
 	messageLabel.frame = messageRect;
 	messageSize.width += offsetSize.width*2.0f + borderWidth;
 	messageSize.height += offsetSize.height*2.0f + borderWidth;
-	messageRect = CGRectMake(0.0f, 0.0f, messageSize.width, messageSize.height);
+	messageRect = CGRectMake(0.0f, -50.0f, messageSize.width, messageSize.height);
 	//Message view
 	UIView *content = [[UIView alloc] init];
 	content.frame = messageRect;

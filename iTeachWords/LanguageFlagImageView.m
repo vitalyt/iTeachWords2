@@ -55,7 +55,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 	[super drawRect:rect];
 	self.layer.borderWidth = 1.5;
 	self.layer.borderColor = UIColorFromRGB(0x888888).CGColor; 
-	self.layer.cornerRadius = 15;
+	self.layer.cornerRadius = 13;
 	self.layer.masksToBounds = YES;
 	
     /* 
