@@ -57,6 +57,7 @@
         NSString *country = [countries objectAtIndex:i];
         NSArray *elements = [country componentsSeparatedByString:@"\t"];
         NSString *_counry = [NSString stringWithString:[elements objectAtIndex:0]];
+        NSString *_firstCode = [NSString stringWithString:[elements objectAtIndex:1]];
         NSString *_code = [NSString stringWithString:[elements objectAtIndex:2]];
         //remove dots within prefix of code
         NSMutableString *_codeExpended = [NSMutableString stringWithString:[elements objectAtIndex:6]];
@@ -69,18 +70,18 @@
         
         if (([_code length] > 0)&&([_counry length] > 0)) {
             NSDictionary *country_code = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                          _counry,@"country",_code, @"code", _codeExpended, @"codeExpended",nil]; 
+                                          _counry,@"country",_code, @"code",_firstCode, @"firstCode", _codeExpended, @"codeExpended",nil]; 
             [content addObject:country_code];
             [country_code release];
         }
     }
     for (int i=0;i<[content count];i++){
-        NSString *_code = [NSString stringWithString:[[content objectAtIndex:i] objectForKey:@"code"]];
-        if ([_code isEqualToString:nativeCountryCode]) {
+        NSString *_code = [NSString stringWithString:[[content objectAtIndex:i] objectForKey:@"firstCode"]];
+        if ([_code isEqualToString:[NATIVE_COUNTRY_INFO objectForKey:@"firstCode"]]) {
             [pickerView selectRow:i inComponent:0 animated:YES];
             [self setFlagIconsCountry:_code inComponent:0];
         }
-        if ([_code isEqualToString:translateCountryCode]) {
+        if ([_code isEqualToString:[TRANSLATE_COUNTRY_INFO objectForKey:@"firstCode"]]) {
             [pickerView selectRow:i inComponent:1 animated:YES];
             [self setFlagIconsCountry:_code inComponent:1];
         }
@@ -127,32 +128,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 #pragma mark - Picker delegate functions
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView{
 	return 2;
@@ -168,21 +143,8 @@
 }
 
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    [self setFlagIconsCountry:[[content objectAtIndex:row] objectForKey:@"code"] inComponent:component];
+    [self setFlagIconsCountry:[[content objectAtIndex:row] objectForKey:@"firstCode"] inComponent:component];
 }
-
-//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-//    UILabel* tView = (UILabel*)view;
-//    if (!tView){
-//        tView = [[UILabel alloc] init];
-//    }
-//    [tView setFont:[UIFont fontWithName:@"Helvetica" size:10] ];
-//    
-//    NSDictionary *dict = [content objectAtIndex:row];
-//    tView.text = [dict objectForKey:@"country"];
-//    return tView;
-//}
-
 
 - (CGFloat)pickerView:(UIPickerView *)_pickerView widthForComponent:(NSInteger)component {
     int sectionWidth = (_pickerView.frame.size.width - 100)/2 - 5;
@@ -250,8 +212,10 @@
 {
     NSLog(@"%@",searchText);
     for (int i=0;i<[content count];i++){
+        NSLog(@"%@",[content objectAtIndex:i]);
         NSString *_country = [NSString stringWithString:[[content objectAtIndex:i] objectForKey:@"country"]];
-        NSString *_code = [NSString stringWithString:[[content objectAtIndex:i] objectForKey:@"code"]];
+        NSString *_code = [NSString stringWithString:[[content objectAtIndex:i] objectForKey:@"firstCode"]];
+        
         NSRange range = [[_country lowercaseString] rangeOfString:[searchText lowercaseString]];
         if (range.length > 0) {
             if (searchBarLeft == searchBar) {

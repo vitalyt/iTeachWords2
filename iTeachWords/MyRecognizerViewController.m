@@ -194,11 +194,13 @@
     switch (languageType.selectedSegmentIndex) {
         case 0:{
             NSDictionary *translateCountryInfo = TRANSLATE_COUNTRY_INFO;
+            NSLog(@"%@",translateCountryInfo);
             langType = [NSString stringWithFormat:@"%@_%@",[[translateCountryInfo objectForKey:@"code"] lowercaseString],[[translateCountryInfo objectForKey:@"codeExpended"] uppercaseString]];//@"en_US";
         }
             break;
         case 1:{
             NSDictionary *nativeCountryInfo = NATIVE_COUNTRY_INFO;
+            NSLog(@"%@",nativeCountryInfo);
             langType = [NSString stringWithFormat:@"%@_%@", [[nativeCountryInfo objectForKey:@"code"] lowercaseString],[[nativeCountryInfo objectForKey:@"codeExpended"] uppercaseString]] ;//@"en_US";
         }
             break;

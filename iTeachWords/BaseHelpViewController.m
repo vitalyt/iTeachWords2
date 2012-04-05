@@ -16,7 +16,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
         _hint = [[EMHint alloc] init];
         [_hint setHintDelegate:self];
         usedObjects = [[NSMutableArray alloc] init];

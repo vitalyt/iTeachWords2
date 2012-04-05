@@ -117,8 +117,13 @@
     [self.view performSelector:@selector(setBackgroundColor:) withObject:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75] afterDelay:.5];
 }
 
-- (IBAction) showAddView
+- (IBAction) showAddView:(id)sender
 {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
     [pickerView setUserInteractionEnabled:NO];
     isAdding = YES;
     WordTypes *wordType;
@@ -138,6 +143,11 @@
 }
 
 - (IBAction)editThemeName:(id)sender {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
     [pickerView setUserInteractionEnabled:NO];
     [themeEditingFlt setText:@""];
 	[themeEditingFlt.layer addAnimation:[self cretePushAnimation] forKey:nil];
@@ -243,8 +253,13 @@
     [self closeView];
 }
 
-- (IBAction) remove
+- (IBAction) remove:(id)sender
 {
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
+        return;
+    }
     CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:@"Removing" message:@"Are you sure you want to delete this theme?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil]  autorelease];
     [alert show];
 }
@@ -344,4 +359,47 @@
     themeEditingFlt = nil;
     [super viewDidUnload];
 }
+
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = self.view.superview.frame;
+    UILabel *l = [[[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/4)] autorelease];
+    l.numberOfLines = 4;
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Добавить новый словарь", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"Переименовать словарь", @"");
+            break;
+        case 3:
+            message = NSLocalizedString(@"Удалить словарь", @"");
+            break;
+        default:
+            break;
+    }
+    return message;
+}
+
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    UIView *buttonView = nil;
+    UIView *view = (UIView *)_currentSelectedObject;
+    CGRect frame = view.frame;
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    [buttonView setFrame:CGRectMake(frame.origin.x, frame.origin.y+20, frame.size.width, frame.size.height)];
+    return buttonView;
+}
+
 @end

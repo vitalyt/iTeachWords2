@@ -50,9 +50,9 @@
         description = word.text;
     }else{
         description = word.translate;
-        [self incrementFileIndex];
-        [self playNextSound];
-        return;
+//        [self incrementFileIndex];
+//        [self playNextSound];
+//        return;
     }
     NSLog(@"plaing word ->%@",description);
     if (description) {
@@ -80,7 +80,11 @@
                 [self.delegate playerDidFinishPlayingSound:indexFileArray] ;
             }    
             [self incrementFileIndex];
-            [self playNextSound];
+            if (currentSoundType == TRANSLATE) {
+                [self performSelector:@selector(playNextSound) withObject:nil afterDelay:.5];
+                return;
+            }
+            [self startTimer];
         }
     }
     return;
@@ -125,14 +129,18 @@
         [self.delegate playerDidFinishPlayingSound:indexFileArray] ;
     }
     [self incrementFileIndex];
+    if (currentSoundType == TRANSLATE) {
+        [self performSelector:@selector(playNextSound) withObject:nil afterDelay:.5];
+        return;
+    }
     [self startTimer];
 }
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error{
-    
+    [self onStopClick:nil];
 }
 
-- (IBAction) onStopClick{
+- (IBAction) onStopClick:(id)sender{
 	if (player != nil) {
         if (flgTimer) {
             [timer invalidate];
@@ -143,6 +151,20 @@
     if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlayingSound:)]){
         [self.delegate playerDidFinishPlayingSound:indexFileArray] ;
     }   
+    [self updatePlayButtonImage];
+}
+
+- (IBAction) onRelayClick:(id)sender{
+    if (player != nil) {
+        if (flgTimer) {
+            [timer invalidate];
+            flgTimer = NO;
+        }
+		[player stop];
+	}
+    indexFileArray = 0;
+    [self playNextSound];
+    [self updatePlayButtonImage];
 }
 
 - (void)dealloc {

@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "QuartzCore/QuartzCore.h"
+#import "BaseHelpViewController.h"
 
 @protocol UIPickerViewDataSource, UIPickerViewDelegate,MyPickerViewProtocol;
 
 @class AddWord,WordTypes,ThemeDetailView;
-@interface MyPickerViewContrller : UIViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
+@interface MyPickerViewContrller : BaseHelpViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
 	IBOutlet UIPickerView	*pickerView;
     IBOutlet UITextField    *themeEditingFlt;
 	IBOutlet UIBarButtonItem    *rightButton;
@@ -36,12 +37,12 @@
 - (void) loadData;
 - (void) initArray;
 - (void) openViewWithAnimation:(UIView *) superView;
-- (IBAction) cansel;
-- (IBAction) done;
-- (IBAction) remove;
-- (IBAction) showAddView;
-- (IBAction)showThemesTableView:(id)sender;
+- (IBAction)cansel;
+- (IBAction)done;
+- (IBAction)remove:(id)sender;
+- (IBAction)showAddView:(id)sender;
 - (IBAction)editThemeName:(id)sender;
+- (IBAction)showThemesTableView:(id)sender;
 - (void)closeView;
 - (IBAction) deleteType;
 - (NSString *) getTextPicker;

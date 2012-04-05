@@ -47,7 +47,7 @@ typedef enum {
 @property (nonatomic) ShowingWordType   showingType;
 
 - (void) playSoundWithIndex:(NSIndexPath *)indexPath;
-- (void) showMyPickerView;
+- (void) showMyPickerView:(id)sender;
 - (void) showToolsView;
 - (void) showTableHeadView;
 
@@ -57,4 +57,5 @@ typedef enum {
 - (void) showRecordViewWithIndexPath:(NSIndexPath*)indexPath;
 - (void)btnActionClickWithCell:(id)_cell;
 - (void)scrollTableToIndexPath:(NSIndexPath*)indexPath;
+
 @end

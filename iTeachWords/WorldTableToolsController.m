@@ -203,7 +203,7 @@
 
 - (void) reassignWord
 {
-    [self showMyPickerView];
+    [self showMyPickerView:nil];
 }
 
 - (void) selectAll{

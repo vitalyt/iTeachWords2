@@ -68,7 +68,7 @@
 
 - (void) loadData{
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"lastTheme"]) {
-        [self showMyPickerView];
+        [self showMyPickerView:nil];
         return;
     }else if(!wordType){
         NSString *lastTheme = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastTheme"];
@@ -111,17 +111,7 @@
 //    NSLog(@"%@",suonds);
     [table reloadData];
     [self showTableHeadView];
-}
-
-- (void) showMyPickerView
-{
-    if (wordTypePicker) {
-        [wordTypePicker release];
-        wordTypePicker = nil;
-    }
-    wordTypePicker = [[MyPickerViewContrller alloc] initWithNibName:@"MyPicker" bundle:nil];
-	wordTypePicker.delegate = self;
-	[wordTypePicker openViewWithAnimation:self.navigationController.view];
+//    [self performSelector:@selector(showHelpCellView) withObject:nil afterDelay:1.0];
 }
 
 - (void) pickerDone:(WordTypes *)_wordType{
@@ -183,12 +173,13 @@
     translateCountry = [dict objectForKey:@"translateCountry"];
     limit = 50;
     offset = 50;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMyPickerView)] autorelease];
-    UIImage *image = [UIImage imageNamed:@"bookmark.png"];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );    
-    [button setImage:image forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(showMyPickerView) forControlEvents:UIControlEventTouchUpInside];    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMyPickerView:)] autorelease];
+    [self.navigationItem.rightBarButtonItem setTag:1];
+//    UIImage *image = [UIImage imageNamed:@"bookmark.png"];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );    
+//    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(showMyPickerView:) forControlEvents:UIControlEventTouchUpInside];    
     //self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     
     [self showToolsView];
@@ -462,8 +453,28 @@
 }
 
 #pragma mark TableCellProtocol functions
+- (void) showMyPickerView:(id)sender
+{
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
+    if (wordTypePicker) {
+        [wordTypePicker release];
+        wordTypePicker = nil;
+    }
+    wordTypePicker = [[MyPickerViewContrller alloc] initWithNibName:@"MyPicker" bundle:nil];
+	wordTypePicker.delegate = self;
+	[wordTypePicker openViewWithAnimation:self.navigationController.view];
+}
 
-- (void)btnActionClickWithCell:(id)_cell{
+- (void)btnActionClickWithCell:(TableCellController*)_cell{
+    if (IS_HELP_MODE && _cell && [usedObjects indexOfObject:_cell] == NSNotFound) {
+        _currentSelectedObject = _cell;
+        [_hint presentModalMessage:[self helpMessageForButton:_cell] where:self.view];
+        return;
+    }
     NSIndexPath *_indexPath = [table indexPathForCell:_cell];
     currentSelectedWordPathIndex = [_indexPath retain];
     if (recordView) {
@@ -477,6 +488,61 @@
     }else{
         [self playSoundWithIndex:_indexPath];
     }
+}
+
+
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = self.view.superview.frame;
+    UILabel *l = [[[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/4)] autorelease];
+    l.numberOfLines = 4;
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
+- (NSString*)helpMessageForButton:(id)_button{
+    NSString *message = nil;
+    int index = ((UIBarButtonItem*)_button).tag+1;
+    switch (index) {
+        case 1:
+            message = NSLocalizedString(@"Запись/воспроизведение слова", @"");
+            break;
+        case 2:
+            message = NSLocalizedString(@"", @"");
+            break;
+        default:
+            break;
+    }
+    return message;
+}
+
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    NSIndexPath *indexPath = [table indexPathForCell:(TableCellController *)_currentSelectedObject];
+    [usedObjects addObject:_currentSelectedObject];
+    UIView *buttonView = nil;
+    UIView *view = (UIView *)_currentSelectedObject;
+    if (view.tag == 1) {
+        @try {
+            view = ([_currentSelectedObject valueForKey:@"view"])?[_currentSelectedObject valueForKey:@"view"]:nil;
+        }
+        @catch (NSException *exception) {
+        }
+        @finally {
+            
+        }
+        return view;
+    }
+    CGRect frame = view.frame;
+    view = ((TableCellController *)_currentSelectedObject).btn;
+    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    float yOffset = [table rectForRowAtIndexPath:indexPath].origin.y - table.contentOffset.y;
+    [buttonView setFrame:CGRectMake(frame.origin.x, frame.origin.y+yOffset, frame.size.width, frame.size.height)];
+    return buttonView;
 }
 
 @end

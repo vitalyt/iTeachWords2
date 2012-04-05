@@ -264,10 +264,10 @@
 }
 
 - (void) setImageFlagInCell:(TextFieldLanguagesCell *)_cell{
-    NSString *path = [NSString stringWithFormat:@"%@.png", TRANSLATE_LANGUAGE_CODE];
+    NSString *path = [NSString stringWithFormat:@"%@.png", [TRANSLATE_COUNTRY_INFO objectForKey:@"firstCode"]];
 	UIImageView *objImageEng = [[UIImageView alloc]initWithImage:[UIImage imageNamed:path]];
     [objImageEng setFrame:CGRectMake(0.0, 0.0, 20, 20)];
-    path = [NSString stringWithFormat:@"%@.png", NATIVE_LANGUAGE_CODE];
+    path = [NSString stringWithFormat:@"%@.png", [NATIVE_COUNTRY_INFO objectForKey:@"firstCode"]];
 	UIImageView *objImageRus = [[UIImageView alloc]initWithImage:[UIImage imageNamed:path]];
     [objImageRus setFrame:CGRectMake(0.0, 0.0, 20, 18)];
 	[_cell.textField2 setLeftView:objImageEng];

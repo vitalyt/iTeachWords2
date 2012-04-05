@@ -5,8 +5,9 @@
 //  Created by Talisman on 28.07.09.
 //  Copyright 2009 Halcyon Innovation, LLC. All rights reserved.
 //
+#import "BaseHelpViewController.h"
 
-@interface TableViewController : UIViewController
+@interface TableViewController : BaseHelpViewController
 <
 	UITableViewDataSource,
 	UITableViewDelegate

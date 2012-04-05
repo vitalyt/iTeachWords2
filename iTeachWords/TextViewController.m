@@ -225,6 +225,7 @@
 - (void)showAddWordView{
     [super showAddWordView];
     [myTextView resignFirstResponder];
+    [self.bar hideButtonsAnimated:YES];
 }
 
 #pragma mark loadingTranslate delegate functions

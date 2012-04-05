@@ -190,10 +190,13 @@
         language = NATIVE_LANGUAGE_CODE;
     }else{
         language = TRANSLATE_LANGUAGE_CODE;
+        if ([language isEqualToString:@"UK"]) {
+            language = @"EN";
+        }
     }
-    NSString *urlString = [NSString stringWithFormat:@"http://translate.google.com/translate_tts?tl=%@&q=%@",
-                           language,
-                           text];
+    NSString *urlString = [NSString stringWithFormat:@"http://translate.google.com/translate_tts?ie=UTF-8&q=%@&tl=%@&client=webapp",
+                           text,
+                           language];
     WBRequest * request = [WBRequest getRequestWithURL:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] delegate:self];
     [wbEngine performRequest:request];
     NSLog(@"%@",urlString);

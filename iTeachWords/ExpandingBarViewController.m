@@ -164,7 +164,7 @@
             message = NSLocalizedString(@"Перевести выделенный текст", @"");
             break;
         case 3:
-            message = NSLocalizedString(@"Прочитать выделенный текст", @"");
+            message = NSLocalizedString(@"Озвучить выделенный текст", @"");
             break;
         case 4:
             message = NSLocalizedString(@"Выделить весь текст", @"");

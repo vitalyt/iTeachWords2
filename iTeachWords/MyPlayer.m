@@ -35,7 +35,7 @@
 }
 
 - (IBAction) closePlayer{
-	[self onStopClick];
+	[self onStopClick:nil];
 	CATransition *myTransition = [CATransition animation];
 	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
 	myTransition.type =kCATransitionFade; 
@@ -56,7 +56,7 @@
 }
 
 - (IBAction) startPlayWithData:(NSData *)_data{	
-    if (_data) {
+    if (_data && [_data length]>0) {
         NSError *error;
         if (player) {
             [player stop];
@@ -72,22 +72,45 @@
         }
         [self audioPlayerDidFinishPlaying:player successfully:NO];
     }
+    [self updatePlayButtonImage];
 }
 
-- (IBAction) onStopClick{
+- (IBAction) onStopClick:(id)sender{
 	if (player != nil) {
 		[player stop];
 	}
+    [self updatePlayButtonImage];
 }
 
-- (IBAction) onPlayClick{
-	if (player != nil) {
+- (IBAction) onPlayClick:(id)sender{
+	if (player != nil && ![player isPlaying]) {
 		[player play];
-	}
+        
+	}else if(player != nil){
+		[player stop];
+    }
+    [self updatePlayButtonImage];
+}
+
+- (IBAction) onRelayClick:(id)sender{
+    
+}
+
+- (void)updatePlayButtonImage{
+    NSString *imageName;
+	if (player != nil && ![player isPlaying]) {
+        imageName = @"Play 16x16.png";
+        
+	}else if(player != nil){
+        imageName = @"Pause 16x16.png";
+    }
+    if (playBtn) {
+        [playBtn setImage:[UIImage imageNamed:imageName]];
+    } 
 }
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error{
-
+    [self onStopClick:nil];
 }
 
 - (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withFlags:(NSUInteger)flags{
@@ -99,6 +122,12 @@
 		[player release];
         player = nil;
 	}
+    [playBtn release];
     [super dealloc];
+}
+- (void)viewDidUnload {
+    [playBtn release];
+    playBtn = nil;
+    [super viewDidUnload];
 }
 @end

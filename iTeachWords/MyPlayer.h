@@ -14,6 +14,7 @@
 @interface MyPlayer : UIViewController <AVAudioPlayerDelegate>{
 	AVAudioPlayer           *player;
 	id <MyPlayerProtocol>delegate;
+    IBOutlet UIBarButtonItem *playBtn;
 }
 
 @property (nonatomic,assign)id <MyPlayerProtocol>delegate;
@@ -21,7 +22,8 @@
 - (IBAction) startPlayWithData:(NSData *)_data;
 - (void)     openViewWithAnimation:(UIView *) superView;
 - (IBAction) closePlayer;
-- (IBAction) onStopClick;
-- (IBAction) onPlayClick;
-
+- (IBAction) onStopClick:(id)sender;
+- (IBAction) onPlayClick:(id)sender;
+- (IBAction) onRelayClick:(id)sender;
+- (void)updatePlayButtonImage;
 @end
