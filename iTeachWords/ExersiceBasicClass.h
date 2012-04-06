@@ -39,6 +39,7 @@
 - (void) createStatisticsView;
 - (void) back;
 - (void) nextWord;
+- (void) createWord;
 - (void) showTestMessageResultat:(bool)rightFlg;
 - (void) playSoundWithIndex:(int)index;
 - (void) checkingWord:(Words *)word success:(BOOL)success;

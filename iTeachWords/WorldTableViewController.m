@@ -387,6 +387,10 @@
     table.scrollEnabled = YES;
 }
 
+- (void)playerDidClose{
+    table.scrollEnabled = YES;
+}
+
 #pragma mark - showing functions
 - (void) showToolsView{
     toolsView = [[ToolsViewController alloc] initWithNibName:@"ToolsView" bundle:nil];

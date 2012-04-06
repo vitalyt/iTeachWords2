@@ -91,6 +91,14 @@
     [table reloadData];
 }
 
+- (void)optionsSubViewDidClose:(id)sender{
+    if (isStatisticShowing) {
+        isStatisticShowing = !isStatisticShowing;
+        [self showTableHeadView];
+        [table reloadData];
+    }
+}
+
 - (void) clickGame{
 #ifdef FREE_VERSION
     if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:TESTGAME]]) {

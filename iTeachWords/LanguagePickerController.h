@@ -13,6 +13,8 @@
     IBOutlet UIPickerView	*pickerView;
     IBOutlet UISearchBar    *searchBarLeft;
     IBOutlet UISearchBar    *searchBarRight;
+    IBOutlet UILabel        *leftLbl;
+    IBOutlet UILabel        *rightLbl;
     NSMutableArray          *content;
     
     bool                    isSearching;

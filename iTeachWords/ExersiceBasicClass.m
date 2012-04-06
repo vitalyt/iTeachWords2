@@ -39,6 +39,7 @@
         [statisticView release];
     }
     if (multiPlayer) {
+        [multiPlayer setDelegate:nil];
         [multiPlayer closePlayer];
         [multiPlayer release];
     }
@@ -98,6 +99,10 @@
     
 }
 
+- (void)createWord{
+    
+}
+
 - (void) back{ 
     [self registerRepeat];
     [self performTransition];
@@ -133,8 +138,8 @@
     [sounds release];
 }
 
-- (void)playerDidFinishPlaying:(id)sender{
-    
+- (void)playerDidFinishPlayingList:(id)sender{
+    [self createWord];
 }
 
 

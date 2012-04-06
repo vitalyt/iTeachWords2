@@ -26,4 +26,7 @@
 - (IBAction) onPlayClick:(id)sender;
 - (IBAction) onRelayClick:(id)sender;
 - (void)updatePlayButtonImage;
+
+- (BOOL)isPlaying;
+
 @end

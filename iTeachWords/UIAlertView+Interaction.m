@@ -137,7 +137,7 @@
 	messageLabel.lineBreakMode = UILineBreakModeWordWrap;
 	messageLabel.text = message;
 	messageLabel.font = [UIFont fontWithName:DEFAULT_FONTNAME size:DEFAULT_FONTSIZE];
-	messageLabel.textColor = [UIColor DEFAULT_TEXTCOLOR];
+	messageLabel.textColor = [UIColor blackColor];
 	messageLabel.backgroundColor = [UIColor clearColor];
 	//Message size and rect
 	CGSize messageSize = [message sizeWithFont:messageLabel.font

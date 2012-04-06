@@ -14,7 +14,6 @@
 	int         index;
 }
 
-- (void)		createWord;
 - (NSString *)	QQQ:(NSString *) _word charIn:(const char)ch;
 - (void)		setText:(NSString *)str;
 - (void)		capitalizeText: (NSNotification*)notification;

@@ -13,7 +13,6 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-
 #define IMAGEVIEWTAG 2233
 
 @implementation LanguageFlagImageView
@@ -42,7 +41,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         im = [UIImage imageNamed:@"No_flag.png"];
     }
     [((UIImageView *)[self viewWithTag:IMAGEVIEWTAG]) setImage:im];
-    //[self setNeedsDisplay];
 }
 
 - (void)dealloc
@@ -57,37 +55,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 	self.layer.borderColor = UIColorFromRGB(0x888888).CGColor; 
 	self.layer.cornerRadius = 13;
 	self.layer.masksToBounds = YES;
-	
-    /* 
-     UIColor *topColor = UIColorFromRGB(0x424242);
-     UIColor *bottomColor = UIColorFromRGB(0x2f2f2f);	
-     
-     CAGradientLayer *gradient = [[CAGradientLayer alloc] init];
-     gradient.frame = self.bounds;
-     gradient.colors = [NSArray arrayWithObjects:(id)topColor.CGColor, (id)bottomColor.CGColor, nil];
-     [self.layer insertSublayer:gradient atIndex:0];
-     [gradient release];
-     */
 }
 
 #pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    NSString *path = [NSString stringWithFormat:@"Flags/%@.png", countryCode];
-    UIImage *countryImage = [UIImage imageNamed:path];
-}
-*/
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

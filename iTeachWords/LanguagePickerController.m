@@ -31,6 +31,8 @@
 - (void)dealloc
 {
     [content release];
+    [leftLbl release];
+    [rightLbl release];
     [super dealloc];
 }
 
@@ -113,15 +115,20 @@
     [self createFlagsView];
     [self loadData];
     [pickerView reloadAllComponents];
-    
     searchBarRight.placeholder = NSLocalizedString(@"Touch to search", @"");
     searchBarLeft.placeholder = NSLocalizedString(@"Touch to search", @"");
+    leftLbl.text = NSLocalizedString(@"Native language", @"");
+    rightLbl.text = NSLocalizedString(@"Diffrent language", @"");
 }
 
 - (void)viewDidUnload
 {
     [searchBarLeft release];
     [searchBarRight release];
+    [leftLbl release];
+    leftLbl = nil;
+    [rightLbl release];
+    rightLbl = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -181,7 +188,6 @@
 
 - (void)done{
     NSDictionary *dict = [content objectAtIndex:[pickerView selectedRowInComponent:0]];
-    NSLog(@"%@",[dict  objectForKey:@"code"]);
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastTheme"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastThemeInAddView"];
     [[NSUserDefaults standardUserDefaults] setValue:dict forKey:@"nativeCountryInfo"];
@@ -221,12 +227,9 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(@"%@",searchText);
     for (int i=0;i<[content count];i++){
-        NSLog(@"%@",[content objectAtIndex:i]);
         NSString *_country = [NSString stringWithString:[[content objectAtIndex:i] objectForKey:@"country"]];
         NSString *_code = [NSString stringWithString:[[content objectAtIndex:i] objectForKey:@"firstCode"]];
-        
         NSRange range = [[_country lowercaseString] rangeOfString:[searchText lowercaseString]];
         if (range.length > 0) {
             if (searchBarLeft == searchBar) {

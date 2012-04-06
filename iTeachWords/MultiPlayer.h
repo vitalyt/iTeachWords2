@@ -19,6 +19,8 @@
 	int				indexFileArray;
 	double			pauseInterval;
     
+    BOOL            isPlaying;
+    
     SoundType       currentSoundType;
 }
 

@@ -40,6 +40,7 @@
 }
 
 - (void) createWord{
+
 	if(index<[self.data count]){
 		lblWordEng.text = @"";
 		word = [self.data objectAtIndex:index];
@@ -106,9 +107,14 @@
         statisticView.totalQuestions++;
         statisticView.index++;    
         [self showTestMessageResultat:YES];
-        [self playSoundWithIndex:index];
+//        [self playSoundWithIndex:index];
 		index++;
-		[self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
+        if ([multiPlayer isPlaying]) {
+            return;
+        }
+        else {
+            [self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
+        }
 	}
 }
 

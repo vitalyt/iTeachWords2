@@ -60,6 +60,7 @@
 //-----------------------------------------------------------------------------------
 
 - (IBAction)close:(id)sender {
+    [self clickStatistic:nil];
     SEL selector = @selector(optionsSubViewDidClose:);
     if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:selector])) {
 		[(id)self.toolsViewDelegate performSelector:selector withObject:self afterDelay:0.01];
@@ -112,6 +113,7 @@
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:((UIViewController*)testsViewDelegate).view];
         return;
     }
+    
     SEL selector = @selector(clickStatistic);
 	if ((self.testsViewDelegate)&&([self.testsViewDelegate respondsToSelector:selector])) {
 		[(id)self.testsViewDelegate performSelector:selector withObject:nil afterDelay:0.01];

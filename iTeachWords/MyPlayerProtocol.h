@@ -15,6 +15,9 @@
 - (void) playerDidFinishPlayingSound:(int)soundIndex;
 - (void) playerDidFinishPlaying:(id)sender;
 - (void) playerStartPlaying:(id)sender;
+- (void) playerDidClose:(id)sender;
+- (void) playerDidFinishPlayingList:(id)sender;
+
 
 
 @end

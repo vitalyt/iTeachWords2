@@ -34,9 +34,10 @@
 }
 
 - (void) playNextSound{
+    isPlaying = YES;
     if (indexFileArray >= [words count]) {
-        if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlaying:)]){
-            [self.delegate playerDidFinishPlaying:self] ;
+        if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlayingList:)]){
+            [self.delegate playerDidFinishPlayingList:self] ;
         }
         [self closePlayer];
         return;
@@ -91,6 +92,10 @@
 
 }
 
+- (BOOL)isPlaying{
+    return [player isPlaying];
+}
+
 - (void) startTimer{
 	timer	= [NSTimer scheduledTimerWithTimeInterval:pauseInterval 
 											 target:self 
@@ -122,6 +127,16 @@
 	pauseInterval = ((UISlider *)sender).value * 10.0;
 }
 
+- (IBAction) closePlayer{
+	[self onStopClick:nil];
+	CATransition *myTransition = [CATransition animation];
+	myTransition.timingFunction = UIViewAnimationCurveEaseInOut;
+	myTransition.type =kCATransitionFade; 
+	myTransition.duration = 0.2;    
+	[self.view.superview.layer addAnimation:myTransition forKey:nil];  
+	[self.view removeFromSuperview];
+}
+
 #pragma mark - Player functioons
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)_player successfully:(BOOL)flag{
@@ -147,10 +162,10 @@
             flgTimer = NO;
         }
 		[player stop];
-	}
-    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlayingSound:)]){
-        [self.delegate playerDidFinishPlayingSound:indexFileArray] ;
-    }   
+	}  
+    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidClose:)]){
+        [self.delegate playerDidClose:self] ;
+    }
     [self updatePlayButtonImage];
 }
 

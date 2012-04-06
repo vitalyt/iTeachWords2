@@ -21,7 +21,6 @@
 @property (nonatomic,retain)IBOutlet UITableView             *table;
 @property (nonatomic,retain) NSMutableArray                 *contentArray;
 
-- (void) createWord;
 - (NSMutableArray *) mixingArray:(NSArray *)_array count:(int)_count;
 -(int) randomFrom:(int)from to:(int)to;
 

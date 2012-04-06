@@ -26,7 +26,7 @@
 	if ([self test]) {
         statisticView.right++;
         statisticView.totalQuestions++;
-        [self playSoundWithIndex:index];
+//        [self playSoundWithIndex:index];
         index++;
 		[self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
 	}
@@ -41,11 +41,16 @@
         [multiPlayer release];
     }
     NSArray *sounds = [[NSArray alloc] initWithObjects:[words objectAtIndex:_index], nil];
-    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"MultiPlayer" bundle:nil];
+    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];
 	[multiPlayer playList:sounds];
     [sounds release];
+}
+
+
+- (void)playerDidFinishPlayingList:(id)sender{
+    [self createWord];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -57,9 +62,6 @@
 	if ([textBox.text isEqualToString:CURRENTWORD.text]) {
         [self checkingWord:CURRENTWORD success:YES];
         [self showTestMessageResultat:YES];
-        if (index+1 >= [words count]) {
-            [self back];
-        }
 		return YES;
 	}else{
         [self checkingWord:CURRENTWORD success:NO];
@@ -88,9 +90,18 @@
 }
 
 - (void) createWord{
+    if ([multiPlayer isPlaying]) {
+        return;
+    }
+    if (index >= [words count]) {
+        [self back];
+        return;
+    }
     if(index < [words count]){
         lblWordRus.text = CURRENTWORD.translate; 
         textBox.text = @"";        
+    }else {
+        [self back];
     }
 }
 

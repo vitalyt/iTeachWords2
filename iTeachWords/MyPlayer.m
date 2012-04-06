@@ -43,8 +43,8 @@
 	[self.view.superview.layer addAnimation:myTransition forKey:nil];
 
 	[self.view removeFromSuperview];
-    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlaying:)]){
-            [self.delegate playerDidFinishPlaying:self] ;
+    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidClose:)]){
+            [self.delegate playerDidClose:self] ;
     }
 }
 
@@ -94,6 +94,10 @@
 
 - (IBAction) onRelayClick:(id)sender{
     
+}
+
+- (BOOL)isPlaying{
+    return [player isPlaying];
 }
 
 - (void)updatePlayButtonImage{

@@ -43,7 +43,14 @@
     }
 }
 
+- (void)playerDidFinishPlayingList:(id)sender{
+    [self createWord];
+}
+
 - (void) createWord{
+    if ([multiPlayer isPlaying]) {
+        return;
+    }
     flgChange = NO;
     if([self randomFrom:0 to:2]>0){
         flgChange = YES;
@@ -170,7 +177,7 @@
 	if([WORD(contentArray,indexPath.row+1) isEqual:WORD(contentArray,0)]){
         [self checkingWord:WORD(contentArray,0) success:YES];
         statisticView.right++;
-        [self playSoundWithIndex:0];
+//        [self playSoundWithIndex:0];
         [self showTestMessageResultat:YES];
         [self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
     }else{
@@ -207,7 +214,7 @@
             
             [table selectRowAtIndexPath:[NSIndexPath indexPathForRow:i-1 inSection:1] animated:YES scrollPosition:UITableViewScrollPositionNone];
             [self checkingWord:WORD(contentArray,0) success:YES];
-            [self playSoundWithIndex:0];
+//            [self playSoundWithIndex:0];
             [self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
         }
     }
