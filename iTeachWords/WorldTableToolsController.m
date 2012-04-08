@@ -110,7 +110,7 @@
 #endif
     
     if ([self.data count] == 0) {
-        [UIAlertView displayError:@"The list of words is blank."];
+        [UIAlertView displayError:@"The list of words is blank"];
         return;
     }
 	TestGameController *testController = [[TestGameController alloc] initWithNibName:@"TestGameController" bundle:nil];
@@ -128,7 +128,7 @@
 
 - (void) clickTestOneOfSix{
     if ([self.data count] == 0) {
-        [UIAlertView displayError:NSLocalizedString(@"The list of words is blank.", @"")];
+        [UIAlertView displayError:NSLocalizedString(@"The list of words is blank", @"")];
         return;
     }
 	TestOneOfSix *testController = [[TestOneOfSix alloc] initWithNibName:@"TestOneOfSix" bundle:nil];
@@ -149,7 +149,7 @@
     }
 #endif
     if ([self.data count] == 0) {
-        [UIAlertView displayError:NSLocalizedString(@"The list of words is blank.", @"")];
+        [UIAlertView displayError:NSLocalizedString(@"The list of words is blank", @"")];
         return;
     }
 	TestOrthography *testOrthographyView = [[TestOrthography alloc] initWithNibName:@"TestOrthography" bundle:nil];

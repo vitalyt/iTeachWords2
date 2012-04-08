@@ -60,7 +60,6 @@
 //-----------------------------------------------------------------------------------
 
 - (IBAction)close:(id)sender {
-    [self clickStatistic:nil];
     SEL selector = @selector(optionsSubViewDidClose:);
     if ((self.toolsViewDelegate)&&([self.toolsViewDelegate respondsToSelector:selector])) {
 		[(id)self.toolsViewDelegate performSelector:selector withObject:self afterDelay:0.01];

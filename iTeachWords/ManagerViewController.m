@@ -110,10 +110,10 @@
     int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:
-            message = NSLocalizedString(@"Перемешать", @"");
+            message = NSLocalizedString(@"Перемешывание списка", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"Упражнени", @"");
+            message = NSLocalizedString(@"Параметры отображения", @"");
             break;
             
         default:

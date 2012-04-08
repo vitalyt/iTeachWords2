@@ -377,13 +377,13 @@
     int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:
-            message = NSLocalizedString(@"Добавить новый словарь", @"");
+            message = NSLocalizedString(@"Добавление нового словаря", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"Переименовать словарь", @"");
+            message = NSLocalizedString(@"Переименование словаря", @"");
             break;
         case 3:
-            message = NSLocalizedString(@"Удалить словарь", @"");
+            message = NSLocalizedString(@"Удаление словаря", @"");
             break;
         default:
             break;

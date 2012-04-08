@@ -185,9 +185,9 @@
 
 - (void)setTitles{
     [titleLbl1 setText:NSLocalizedString(@"Word book", @"")];
-    [titleLbl2 setText:NSLocalizedString(@"Dictionary", @"")];
+    [titleLbl2 setText:NSLocalizedString(@"Search translate", @"")];
     [titleLbl4 setText:NSLocalizedString(@"Add new word", @"")];
-    [titleLbl5 setText:NSLocalizedString(@"Text parser", @"")];
+    [titleLbl5 setText:NSLocalizedString(@"Speech Translator", @"")];
     [titleLbl6 setText:NSLocalizedString(@"Web", @"")];
     [titleLbl7 setText:NSLocalizedString(@"Settings", @"")];
     [titleLbl8 setText:NSLocalizedString(@"Vocalizer", @"")];

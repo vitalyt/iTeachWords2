@@ -515,7 +515,7 @@
             message = NSLocalizedString(@"Запись/воспроизведение слова", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"", @"");
+            message = NSLocalizedString(@"Выбор словаря", @"");
             break;
         default:
             break;
@@ -541,8 +541,8 @@
         }
         return view;
     }
-    CGRect frame = view.frame;
     view = ((TableCellController *)_currentSelectedObject).btn;
+    CGRect frame = view.frame;
     buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
     float yOffset = [table rectForRowAtIndexPath:indexPath].origin.y - table.contentOffset.y;
     [buttonView setFrame:CGRectMake(frame.origin.x, frame.origin.y+yOffset, frame.size.width, frame.size.height)];

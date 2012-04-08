@@ -36,9 +36,9 @@ MyVocalizerDelegate
 @property (nonatomic, retain) NSArray *array;
 @property (nonatomic, retain) NSDictionary *arrayCount;
 
-- (IBAction) showTable;
-- (IBAction) showVoiceRecordView;
-- (IBAction) showVocalizerView;
+- (IBAction)showTable;
+- (IBAction)showVoiceRecordView;
+- (IBAction)showVocalizerView;
 - (IBAction)selectAll:(id)sender;
 - (IBAction)clearAll:(id)sender;
 - (NSString *) loadText;

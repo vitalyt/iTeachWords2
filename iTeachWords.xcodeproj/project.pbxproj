@@ -435,8 +435,6 @@
 		285B826C14E4079E001C977D /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285758B1148E093B0045F63B /* WebViewController.xib */; };
 		285B826D14E4079E001C977D /* Book 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB9595148F59B7002F71E2 /* Book 24x24.png */; };
 		285B826E14E4079E001C977D /* Book 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB9598148F5AEF002F71E2 /* Book 32x32.png */; };
-		285B826F14E4079E001C977D /* 1323247895_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */; };
-		285B827014E4079E001C977D /* 1323247972_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */; };
 		285B827214E4079E001C977D /* bookmark1.png in Resources */ = {isa = PBXBuildFile; fileRef = 281A7FB31498B8150055B55F /* bookmark1.png */; };
 		285B827314E4079E001C977D /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 281A7FB71498BA360055B55F /* bookmark.png */; };
 		285B827414E4079E001C977D /* line-globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 281A7FB91498BEC80055B55F /* line-globe.png */; };
@@ -541,8 +539,6 @@
 		28D3C2FE138672B600B35FC7 /* EditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D3C2FD138672B600B35FC7 /* EditTableViewController.m */; };
 		28DB9596148F59B7002F71E2 /* Book 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB9595148F59B7002F71E2 /* Book 24x24.png */; };
 		28DB9599148F5AEF002F71E2 /* Book 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB9598148F5AEF002F71E2 /* Book 32x32.png */; };
-		28DB959F148F6114002F71E2 /* 1323247895_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */; };
-		28DB95A0148F6114002F71E2 /* 1323247972_3floppy_unmount.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */; };
 		28E0E1D0146013CD005BFB0E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E0E1CF146013CD005BFB0E /* SettingsViewController.xib */; };
 		28E0E1D514601790005BFB0E /* TextFieldLanguagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0E1D314601790005BFB0E /* TextFieldLanguagesCell.m */; };
 		28E0E1D614601790005BFB0E /* TextFieldLanguagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E0E1D414601790005BFB0E /* TextFieldLanguagesCell.xib */; };
@@ -642,6 +638,10 @@
 		84728F7015167AF50024FACF /* TuneWiki1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6C15167AF50024FACF /* TuneWiki1.png */; };
 		84728F7215167B290024FACF /* Books.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F7115167B290024FACF /* Books.png */; };
 		84728F7315167B290024FACF /* Books.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F7115167B290024FACF /* Books.png */; };
+		847FF17D1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FF17B1530ACC700BBAA27 /* Arrow down 24x24.png */; };
+		847FF17E1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FF17B1530ACC700BBAA27 /* Arrow down 24x24.png */; };
+		847FF17F1530ACDE00BBAA27 /* Arrow up 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FF17C1530ACD200BBAA27 /* Arrow up 24x24.png */; };
+		847FF1801530ACDE00BBAA27 /* Arrow up 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FF17C1530ACD200BBAA27 /* Arrow up 24x24.png */; };
 		84A198D81508059400EADF65 /* RecognizerInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A198D71508059400EADF65 /* RecognizerInfo.html */; };
 		84A198D91508059400EADF65 /* RecognizerInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A198D71508059400EADF65 /* RecognizerInfo.html */; };
 		84FBA4AE151BAA11004118C9 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA4AD151BAA11004118C9 /* CustomAlertView.m */; };
@@ -1036,8 +1036,6 @@
 		28D3C2FD138672B600B35FC7 /* EditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTableViewController.m; sourceTree = "<group>"; };
 		28DB9595148F59B7002F71E2 /* Book 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Book 24x24.png"; sourceTree = "<group>"; };
 		28DB9598148F5AEF002F71E2 /* Book 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Book 32x32.png"; sourceTree = "<group>"; };
-		28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1323247895_3floppy_unmount.png; sourceTree = "<group>"; };
-		28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1323247972_3floppy_unmount.png; sourceTree = "<group>"; };
 		28E0E1CF146013CD005BFB0E /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		28E0E1D214601790005BFB0E /* TextFieldLanguagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldLanguagesCell.h; sourceTree = "<group>"; };
 		28E0E1D314601790005BFB0E /* TextFieldLanguagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldLanguagesCell.m; sourceTree = "<group>"; };
@@ -1115,6 +1113,8 @@
 		84728F6B15167AF50024FACF /* TuneWiki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TuneWiki.png; sourceTree = "<group>"; };
 		84728F6C15167AF50024FACF /* TuneWiki1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TuneWiki1.png; sourceTree = "<group>"; };
 		84728F7115167B290024FACF /* Books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Books.png; sourceTree = "<group>"; };
+		847FF17B1530ACC700BBAA27 /* Arrow down 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow down 24x24.png"; sourceTree = "<group>"; };
+		847FF17C1530ACD200BBAA27 /* Arrow up 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow up 24x24.png"; sourceTree = "<group>"; };
 		84A198D71508059400EADF65 /* RecognizerInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RecognizerInfo.html; sourceTree = "<group>"; };
 		84FBA4AC151BAA11004118C9 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
 		84FBA4AD151BAA11004118C9 /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
@@ -1551,8 +1551,6 @@
 				281A7FBD1498C1340055B55F /* email.png */,
 				281A7FB31498B8150055B55F /* bookmark1.png */,
 				281A7FB71498BA360055B55F /* bookmark.png */,
-				28DB959C148F6114002F71E2 /* 1323247895_3floppy_unmount.png */,
-				28DB959D148F6114002F71E2 /* 1323247972_3floppy_unmount.png */,
 				28DB9595148F59B7002F71E2 /* Book 24x24.png */,
 				28DB9598148F5AEF002F71E2 /* Book 32x32.png */,
 				28BE257413E01856006B46F4 /* Outdent 16x16.png */,
@@ -1592,6 +1590,8 @@
 				28296B5413814C77000129E8 /* Play 16x16.png */,
 				28296B5513814C77000129E8 /* Record 16x16.png */,
 				28296B43138149A6000129E8 /* deleteImg.png */,
+				847FF17B1530ACC700BBAA27 /* Arrow down 24x24.png */,
+				847FF17C1530ACD200BBAA27 /* Arrow up 24x24.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -2552,8 +2552,6 @@
 				285758B3148E093B0045F63B /* WebViewController.xib in Resources */,
 				28DB9596148F59B7002F71E2 /* Book 24x24.png in Resources */,
 				28DB9599148F5AEF002F71E2 /* Book 32x32.png in Resources */,
-				28DB959F148F6114002F71E2 /* 1323247895_3floppy_unmount.png in Resources */,
-				28DB95A0148F6114002F71E2 /* 1323247972_3floppy_unmount.png in Resources */,
 				281A7FB41498B8150055B55F /* bookmark1.png in Resources */,
 				281A7FB81498BA360055B55F /* bookmark.png in Resources */,
 				281A7FBA1498BEC90055B55F /* line-globe.png in Resources */,
@@ -2622,6 +2620,8 @@
 				1C85EEFF152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */,
 				1C85EF03152C4B53007A5D45 /* sound.png in Resources */,
 				1C6F17F1152DD3A70008A075 /* WW.png in Resources */,
+				847FF17D1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */,
+				847FF17F1530ACDE00BBAA27 /* Arrow up 24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2751,8 +2751,6 @@
 				285B826C14E4079E001C977D /* WebViewController.xib in Resources */,
 				285B826D14E4079E001C977D /* Book 24x24.png in Resources */,
 				285B826E14E4079E001C977D /* Book 32x32.png in Resources */,
-				285B826F14E4079E001C977D /* 1323247895_3floppy_unmount.png in Resources */,
-				285B827014E4079E001C977D /* 1323247972_3floppy_unmount.png in Resources */,
 				285B827214E4079E001C977D /* bookmark1.png in Resources */,
 				285B827314E4079E001C977D /* bookmark.png in Resources */,
 				285B827414E4079E001C977D /* line-globe.png in Resources */,
@@ -2818,6 +2816,8 @@
 				1C85EF00152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */,
 				1C85EF04152C4B53007A5D45 /* sound.png in Resources */,
 				1C6F17F2152DD3A70008A075 /* WW.png in Resources */,
+				847FF17E1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */,
+				847FF1801530ACDE00BBAA27 /* Arrow up 24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

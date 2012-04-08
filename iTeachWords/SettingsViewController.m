@@ -124,6 +124,7 @@
             case 0:
                 return @"TextFieldLanguagesCell";
                 break;
+            case 1:
             case 2:
                 return @"TextFieldCell";
                 break;
@@ -260,6 +261,7 @@
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         cell.textLabel.text = titleText;
         [cell.textLabel setFont:SETINGSTABLE_FONT_SIZE];
+        [cell setBackgroundColor:[UIColor whiteColor]];
     }
 }
 

@@ -26,23 +26,6 @@
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self createMenu];
@@ -55,22 +38,9 @@
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
                                               initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
                                               target:self action:@selector(back)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
-                                               initWithTitle:NSLocalizedString(@"Add word", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(showAddWordView)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow down 24x24"] style:UIBarButtonItemStylePlain target:self action:@selector(showAddWordView:)] autorelease];
+    [self.navigationItem.rightBarButtonItem setTag:4];
     [self addWebView];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void) back{
@@ -89,7 +59,12 @@
     isWordsViewShowing = NO;
 }
 
-- (void)showAddWordView{
+- (void)showAddWordView:(id)sender{
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
     CGRect frame = CGRectMake(10, 44, self.view.frame.size.width - 20, wordsView.view.frame.size.height);
     if (isWordsViewShowing) {
         frame = CGRectMake(10, -wordsView.view.frame.size.height, self.view.frame.size.width - 20, wordsView.view.frame.size.height);
@@ -102,8 +77,14 @@
     [UIView setAnimationBeginsFromCurrentState:YES];
     [wordsView.view setFrame:frame];
     [UIView commitAnimations];
-    
     isWordsViewShowing = !isWordsViewShowing;
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
+                                               initWithImage:[UIImage imageNamed:(!isWordsViewShowing)?@"Arrow down 24x24":@"Arrow up 24x24"] 
+                                               style:UIBarButtonItemStylePlain 
+                                               target:self 
+                                               action:@selector(showAddWordView:)
+                                               ] autorelease];
+    [self.navigationItem.rightBarButtonItem setTag:4];
 }
 
 #pragma mark create menu
@@ -141,7 +122,7 @@
 
 - (void)parceTranslateWord{
     if (!isWordsViewShowing) {
-        [self showAddWordView];
+        [self showAddWordView:nil];
     }
     NSString *selectedText = [self getSelectedText];
     [wordsView setText:selectedText];
@@ -213,11 +194,23 @@
     [parsedWordTableView release];
 }
 
+-(UIView*)hintStateViewForDialog:(id)hintState
+{
+    CGRect frame = self.view.superview.frame;
+    UILabel *l = [[[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/4)] autorelease];
+    l.numberOfLines = 4;
+    [l setTextAlignment:UITextAlignmentCenter];
+    [l setBackgroundColor:[UIColor clearColor]];
+    [l setTextColor:[UIColor whiteColor]];
+    [l setText:[self helpMessageForButton:_currentSelectedObject]];
+    return l;
+}
+
 #pragma mark Alert functions
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == 1) {
-		[wordsView save];
+		[wordsView save:nil];
 	}
 	else if (buttonIndex == 0){
         [wordsView removeChanges];

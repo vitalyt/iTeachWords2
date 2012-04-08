@@ -222,8 +222,8 @@
     }
 }
 
-- (void)showAddWordView{
-    [super showAddWordView];
+- (void)showAddWordView:(id)sender{
+    [super showAddWordView:sender];
     [myTextView resignFirstResponder];
     [self.bar hideButtonsAnimated:YES];
 }
@@ -316,8 +316,13 @@
 
 #pragma mark button view protocol
 
-- (void)buttonDidClick:(id)selector  withIndex:(NSNumber*)index{
-    
+- (void)buttonDidClick:(id)sender  withIndex:(NSNumber*)index{
+    if (IS_HELP_MODE && sender && [usedObjects indexOfObject:sender] == NSNotFound) {
+        [sender setTag:index.intValue+100];
+        _currentSelectedObject = sender;
+        [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
+        return;
+    }
 #ifdef FREE_VERSION
     if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:VOCALIZER]]) {
         [self showPurchaseInfoView];
@@ -350,4 +355,46 @@
 -(void)didVocalizerPlayedText:(NSString*)text languageCode:(NSString*)textLanguageCode{
 
 }
+
+- (NSString*)helpMessageForButton:(id)_button{   
+    int index = ((UIBarButtonItem*)_currentSelectedObject).tag;
+    if(index<100){
+        return [super helpMessageForButton:_button];
+    }
+    NSString *message = nil; 
+    switch (index) {
+        case 100:
+            message = NSLocalizedString(@"Распознавание речи", @"");
+            break;
+        case 101:
+            message = NSLocalizedString(@"Синтез речи", @"");
+            break;
+        default:
+            break;
+    }
+    return message;
+}
+
+-(UIView*)hintStateViewToHint:(id)hintState
+{
+    
+    int index = ((UIBarButtonItem*)_currentSelectedObject).tag;
+//    
+    if(index<100){
+        return [super hintStateViewToHint:hintState];
+    }
+    UIView *view = (UIView *)_currentSelectedObject;
+    [usedObjects addObject:_currentSelectedObject];
+
+    if(view.tag>=100){
+        CGRect frame = view.frame;
+        CGRect buttonFrame;
+        buttonFrame = CGRectMake(frame.origin.x+pagesScrollView.view.frame.origin.x, frame.origin.y+pagesScrollView.view.frame.origin.y, frame.size.width, frame.size.height);
+        UIView *buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+        [buttonView setFrame:buttonFrame];
+        return buttonView;
+    }
+    return view;
+}
+
 @end

@@ -12,7 +12,7 @@
 @implementation UIAlertView (Interaction)
 
 + (void)displayError:(NSString *)message {
-	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Error"
+	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"")
 													message:message
 												   delegate:nil
 										  cancelButtonTitle:@"OK"

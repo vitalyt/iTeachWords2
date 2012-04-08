@@ -158,16 +158,19 @@
     int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:
-            message = NSLocalizedString(@"Разобрать выделенный текст", @"");
+            message = NSLocalizedString(@"Разбор/парсинг выделенного текста", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"Перевести выделенный текст", @"");
+            message = NSLocalizedString(@"Перевод выделенного текста", @"");
             break;
         case 3:
-            message = NSLocalizedString(@"Озвучить выделенный текст", @"");
+            message = NSLocalizedString(@"Озвучивание выделенного текста", @"");
             break;
         case 4:
-            message = NSLocalizedString(@"Выделить весь текст", @"");
+            message = NSLocalizedString(@"Выделение всего текста", @"");
+            break;
+        case 5:
+            message = NSLocalizedString(@"Добавление нового слова", @"");
             break;
             
         default:
@@ -180,13 +183,23 @@
 {
     [usedObjects addObject:_currentSelectedObject];
     int index = ((UIBarButtonItem*)_currentSelectedObject).tag+1;
+    UIView *view = (UIView *)_currentSelectedObject;
+    if ([_currentSelectedObject isKindOfClass:[UIBarButtonItem class]]) {
+        @try {
+            return view = ([_currentSelectedObject valueForKey:@"view"])?[_currentSelectedObject valueForKey:@"view"]:nil;
+        }
+        @catch (NSException *exception) {
+        }
+        @finally {
+            
+        }
+    }
+
     if (index == 4) {
         return _currentSelectedObject;
     }
-    UIView *buttonView = nil;
-    UIView *view = _currentSelectedObject;
     CGRect frame = view.frame;
-    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    UIView *buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
     [buttonView setFrame:CGRectMake(frame.origin.x+self.bar.frame.origin.x, frame.origin.y+self.bar.frame.origin.y, frame.size.width, frame.size.height)];
     return buttonView;
 }

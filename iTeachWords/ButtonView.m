@@ -32,26 +32,11 @@
 }
 
 - (IBAction)buttonAction:(id)sender {
+    
     SEL selector = @selector(buttonDidClick: withIndex:);
     if ([delegate respondsToSelector:selector]) {
         [delegate performSelector:selector withObject:sender withObject:[NSNumber numberWithInteger:type]];
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
@@ -64,14 +49,9 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (void)changeButtonImage:(UIImage*)_image{
     [button setImage:_image forState:UIControlStateNormal];
+    [button setTag:index];
 //    [button.layer setNeedsDisplay];
 }
 

@@ -37,7 +37,7 @@ typedef enum {
 
 #define DEFAULT_FONT_SIZE (([[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"])?[[[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontZise"] intValue]:10)
 #define SETINGSTABLE_FONT_SIZE [UIFont fontWithName:@"Helvetica" size:14]
-#define DEFAULT_FONT_NAME [[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontName"]
+#define DEFAULT_FONT_NAME ([[NSUserDefaults standardUserDefaults] objectForKey:@"defaultFontName"])?[[NSUserDefaults standardUserDefaults] stringForKey:@"defaultFontName"]:@"ArialRoundedMTBold"
 #define FONT_TEXT [UIFont fontWithName:DEFAULT_FONT_NAME size:DEFAULT_FONT_SIZE]
 #define BACK_BUTTON [[[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease]
 #define SET_BACK_BUTTON()     NSArray* viewCtrlers = self.navigationController.viewControllers; UIViewController* prevCtrler = [viewCtrlers objectAtIndex:[viewCtrlers count]-2];  prevCtrler.title = NSLocalizedString(@"Back", @"");

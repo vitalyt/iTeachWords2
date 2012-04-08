@@ -235,10 +235,10 @@
     int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:
-            message = NSLocalizedString(@"Запись", @"");
+            message = NSLocalizedString(@"Запись собственной озвучки", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"Поиск перевода в интернете", @"");
+            message = NSLocalizedString(@"Поиск озвучки в интернете", @"");
             break;
         case 3:
             message = NSLocalizedString(@"Воспроизведение", @"");

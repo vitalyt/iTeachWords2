@@ -70,7 +70,7 @@ NSString *const kARFontPickerViewControllerCellIdentifier = @"ARFontPickerViewCo
 	NSString *fontName = [self _fontNameForRow:indexPath.row inFamily:familyName];
 	UIFont *font = [UIFont fontWithName:fontName size:[UIFont smallSystemFontSize]];
 	
-	cell.textLabel.text = @"Русский текст";
+	cell.textLabel.text = fontName;
 	cell.textLabel.font = font;
 	
     return cell;
@@ -82,6 +82,7 @@ NSString *const kARFontPickerViewControllerCellIdentifier = @"ARFontPickerViewCo
 		NSString *fontName = [self _fontNameForRow:indexPath.row inFamily:familyName];
 		[_delegate fontPickerViewController:self didSelectFont:fontName];
 	}
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -

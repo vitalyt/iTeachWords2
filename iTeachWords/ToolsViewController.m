@@ -149,6 +149,10 @@
 
 - (void) optionsSubViewDidClose:(id)sender{
     [self toolbarRemoveSubView:((UIViewController *)sender).view];
+    SEL selector = @selector(optionsSubViewDidClose:);
+    if ((delegate)&&([(id)delegate respondsToSelector:selector])) {
+		[(id)delegate performSelector:selector withObject:self afterDelay:0.01];
+	}
 }
 
 - (void) editingSubViewDidClose:(id)sender{
