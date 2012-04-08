@@ -59,7 +59,7 @@
 }
 
 - (BOOL) test {
-	if ([textBox.text isEqualToString:CURRENTWORD.text]) {
+	if ([[textBox.text lowercaseString] isEqualToString:[CURRENTWORD.text lowercaseString]]) {
         [self checkingWord:CURRENTWORD success:YES];
         [self showTestMessageResultat:YES];
 		return YES;

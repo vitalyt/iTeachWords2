@@ -408,15 +408,15 @@
 }
 
 - (void)dealloc {
-    [recordingView release];
-    [testsView release];
     [editingView release];
     [managerView release];
     if(recordingView != nil){
         [recordingView release];
+        recordingView = nil;
     }
     if(testsView != nil){
         [testsView release];
+        testsView = nil;
     }
     [mySlider release];
     [closeBtn release];

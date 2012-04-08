@@ -127,7 +127,7 @@
 
 
 - (void) clickTestOneOfSix{
-    if ([self.data count] == 0) {
+    if ([self.data count] < 3) {
         [UIAlertView displayError:NSLocalizedString(@"The list of words is blank", @"")];
         return;
     }

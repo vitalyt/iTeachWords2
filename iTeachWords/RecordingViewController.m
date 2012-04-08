@@ -13,6 +13,8 @@
 @synthesize delegate,toolsViewDelegate;
 
 - (void)dealloc {
+    [activityIndicatorView release];
+    [recordButton release];
     [vuMeter release];
     [super dealloc];
 }
@@ -38,6 +40,10 @@
 
 - (void)viewDidUnload
 {
+    [activityIndicatorView release];
+    activityIndicatorView = nil;
+    [recordButton release];
+    recordButton = nil;
     [vuMeter release];
     vuMeter = nil;
     [super viewDidUnload];

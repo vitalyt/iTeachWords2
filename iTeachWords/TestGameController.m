@@ -63,7 +63,7 @@
 
 - (NSString *) QQQ:(NSString *) _word charIn:(const char)ch{
 	char *cWord = (char *)[_word UTF8String];
-	NSString *engWord = word.text;
+	NSString *engWord = [word.text lowercaseString];
 	BOOL flg = NO;
 	for (int i=0; i<[_word length]; i++) {
 		if (([engWord characterAtIndex:i] == (int)ch)) {
@@ -86,8 +86,8 @@
 	[[NSNotificationCenter defaultCenter]removeObserver: self name: [notification name] object: nil];
 	UITextField *textItem = [notification object]; // textField or textView
 	NSString *text = [textItem text];
-	const char *ch = [text UTF8String];
-	lblWordEng.text = [self QQQ:lblWordEng.text charIn:ch[0]];
+	const char *ch = [[text lowercaseString] UTF8String];
+	lblWordEng.text = [self QQQ:[lblWordEng.text lowercaseString] charIn:ch[0]];
 	[textItem setText: @""];
 	[self nextWord];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(capitalizeText:) name:[notification name] object:nil];
