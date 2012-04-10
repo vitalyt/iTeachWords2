@@ -92,24 +92,49 @@
     //
     
     BOOL flgExistMajor = NO;
-	int count = _count;
-    int i=0; 
-	while (i < count) {
-		int randomIndex = [self randomFrom:0 to:[oldArray count]];
-		[newArray addObject:[oldArray objectAtIndex:randomIndex]];
-		[oldArray removeObjectAtIndex:randomIndex];
-        if([[newArray lastObject] isEqual:[_array objectAtIndex:index]]){
+    [newArray addObjectsFromArray:[self getRandomWordsWithCount:_count]];
+    //	int count = _count;
+    //    int i=0; 
+    //	while (i < count) {
+    //		int randomIndex = [self randomFrom:0 to:[oldArray count]];
+    //		[newArray addObject:[oldArray objectAtIndex:randomIndex]];
+    //		[oldArray removeObjectAtIndex:randomIndex];
+    //        if([[newArray lastObject] isEqual:[_array objectAtIndex:index]]){
+    //            flgExistMajor = YES;
+    //        }
+    //        i++;
+    //	}
+    //and translate
+    for (int i=1; i<[newArray count]; i++) {
+        if([[newArray objectAtIndex:i] isEqual:[_array objectAtIndex:index]]){
             flgExistMajor = YES;
         }
-        i++;
-	}
-    //and translate
+    }
     if(!flgExistMajor){
         int randomIndex = [self randomFrom:1 to:[newArray count]];
         [newArray replaceObjectAtIndex:randomIndex withObject:[_array objectAtIndex:index]];
     }
 	[oldArray release];
 	return [newArray autorelease];
+}
+
+- (NSArray*)getRandomWordsWithCount:(int)_count{
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Words" inManagedObjectContext:CONTEXT];
+    [request setEntity:entity];
+    // Assumes that you know the number of objects per entity, and that your order starts at zero.
+    //    [request setFetchLimit:1];
+    NSError *error = nil;
+    NSMutableArray *results = [[NSMutableArray alloc] initWithArray:[CONTEXT executeFetchRequest:request error:&error]];
+    NSMutableArray *ar = [[NSMutableArray alloc] init];
+    for (int i=0; i<_count; i++) {
+        int randomIndex = [self randomFrom:1 to:[results count]];
+        [ar addObject:[results objectAtIndex:randomIndex]];
+        [results removeObjectAtIndex:randomIndex];
+    }
+    [results release];
+    return [ar autorelease];
 }
 
 
