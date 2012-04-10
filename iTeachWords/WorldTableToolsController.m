@@ -64,6 +64,7 @@
         [table setAllowsSelectionDuringEditing:YES];
         [table setEditing:YES animated:YES];
         self.navigationItem.rightBarButtonItem.enabled = NO;
+        [self deselectAllWords];
     }else{
         [table setAllowsSelectionDuringEditing:NO];
         [table setEditing:NO animated:YES];
@@ -212,6 +213,13 @@
 - (void) reassignWord
 {
     [self showMyPickerView:nil];
+}
+
+- (void)deselectAllWords{
+    for (int i=0; i<[data count]; i++) {
+        Words *word = [data objectAtIndex:i];
+        [word setIsSelected:[NSNumber numberWithInt:0]];
+    }
 }
 
 - (void) selectAll{

@@ -146,7 +146,7 @@
 }
 
 - (void)showTableAlertViewWithElements:(NSArray *)elements{
-    AlertTableView *alertTableView = [[AlertTableView alloc] initWithCaller:self data:elements title:@"Please repeat the themes from thelist" andContext:@"context identificator"];
+    AlertTableView *alertTableView = [[AlertTableView alloc] initWithCaller:self data:elements title:@"Please repeat the themes from the list" andContext:@"context identificator"];
     [alertTableView show];
     [alertTableView autorelease];
 }

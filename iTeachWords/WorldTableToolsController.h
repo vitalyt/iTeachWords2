@@ -23,5 +23,5 @@
 - (void) reassignSelectedWordsToTheme:(WordTypes *)wordType;
 - (void)generateThemeStatistic;
 - (void)performTransition;
-
+- (void)deselectAllWords;
 @end

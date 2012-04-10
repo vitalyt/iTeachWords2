@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/WorldTableToolsController.m"
-         timestampString = "354802249.077181"
+         timestampString = "355760822.60697"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
+         startingLineNumber = "76"
+         endingLineNumber = "76"
          landmarkName = "-showPlayerView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -169,7 +169,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "225"
          endingLineNumber = "225"
-         landmarkName = "-showAddWordView"
+         landmarkName = "-showAddWordView:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -195,7 +195,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "152"
          endingLineNumber = "152"
-         landmarkName = "-parseText:"
+         landmarkName = "-translateText:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -221,7 +221,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "165"
          endingLineNumber = "165"
-         landmarkName = "-translateText:"
+         landmarkName = "-playText:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -234,7 +234,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "176"
          endingLineNumber = "176"
-         landmarkName = "-playText:"
+         landmarkName = "-translateDidLoad:byLanguageCode:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -352,6 +352,19 @@
          startingLineNumber = "84"
          endingLineNumber = "84"
          landmarkName = "-playNextSound"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/WorldTableToolsController.m"
+         timestampString = "355760648.520717"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "225"
+         endingLineNumber = "225"
+         landmarkName = "-selectAll"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
