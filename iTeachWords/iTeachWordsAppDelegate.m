@@ -95,21 +95,13 @@
 }
 
 - (void)updateData{
-    //NSFileManager *fileManager = [NSFileManager defaultManager];
     isUpdating = YES;
 	NSArray *files =[[NSFileManager defaultManager] contentsOfDirectoryAtPath:DOCUMENTS error:nil];
 	if ([files count]>0) {
 		FilesManagerViewController *progressView = [[FilesManagerViewController alloc] initWithNibName:@"FilesManagerViewController" bundle:nil];
         [progressView onCopy];
-		//[navigationController.view addSubview:progressView.view];
 		[progressView release];
 	}
-    //    if (NATIVE_LANGUAGE_CODE && TRANSLATE_LANGUAGE_CODE){
-    //        FilesManagerViewController *progressView = [[FilesManagerViewController alloc] init];
-    //        [progressView loadDictionary];
-    //        [progressView release];
-    //    }
-
 }
 
 #pragma mark FileManagerProtocol
