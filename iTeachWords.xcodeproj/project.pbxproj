@@ -35,6 +35,8 @@
 		1C89F03815259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
 		1C89F03B1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */; };
 		1C89F03C1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */; };
+		1CACB3911535C85800956445 /* OSDNUITableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACB3901535C85800956445 /* OSDNUITableCellView.m */; };
+		1CACB3921535C85800956445 /* OSDNUITableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACB3901535C85800956445 /* OSDNUITableCellView.m */; };
 		1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */; };
@@ -700,6 +702,8 @@
 		1C89F03615259E4300A1E5EA /* QQQSeparateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateView.m; sourceTree = "<group>"; };
 		1C89F0391525A27B00A1E5EA /* QQQSeparateSpeakingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateSpeakingView.h; sourceTree = "<group>"; };
 		1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateSpeakingView.m; sourceTree = "<group>"; };
+		1CACB38F1535C85800956445 /* OSDNUITableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDNUITableCellView.h; sourceTree = "<group>"; };
+		1CACB3901535C85800956445 /* OSDNUITableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSDNUITableCellView.m; sourceTree = "<group>"; };
 		1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableView.h; sourceTree = "<group>"; };
 		1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesTableView.m; sourceTree = "<group>"; };
 		1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesTableView.xib; sourceTree = "<group>"; };
@@ -2069,6 +2073,8 @@
 		28D3C2E81386685600B35FC7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1CACB38F1535C85800956445 /* OSDNUITableCellView.h */,
+				1CACB3901535C85800956445 /* OSDNUITableCellView.m */,
 				28E0E1D214601790005BFB0E /* TextFieldLanguagesCell.h */,
 				28E0E1D314601790005BFB0E /* TextFieldLanguagesCell.m */,
 				28E0E1D414601790005BFB0E /* TextFieldLanguagesCell.xib */,
@@ -2954,6 +2960,7 @@
 				1C832652152983AD00ED9191 /* BaseHelpViewController.m in Sources */,
 				843373A5152A1A7B005747E4 /* RNExpandingButtonBar.m in Sources */,
 				843373AB152A214C005747E4 /* ExpandingBarViewController.m in Sources */,
+				1CACB3911535C85800956445 /* OSDNUITableCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3091,6 +3098,7 @@
 				1C832653152983AD00ED9191 /* BaseHelpViewController.m in Sources */,
 				843373A6152A1A7B005747E4 /* RNExpandingButtonBar.m in Sources */,
 				843373AC152A214C005747E4 /* ExpandingBarViewController.m in Sources */,
+				1CACB3921535C85800956445 /* OSDNUITableCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

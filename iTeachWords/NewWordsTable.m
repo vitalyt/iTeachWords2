@@ -159,6 +159,14 @@
     return [bg autorelease];
 }
 
+- (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
+    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] initWithRountRect:10] autorelease];
+    
+    v.fillColor = [UIColor colorWithRed:0.25f green:0.47f blue:0.44f alpha:1.0f];
+    v.borderColor = [UIColor darkGrayColor];
+    [v setPositionCredentialsRow: indexPath.row count:[self tableView:table numberOfRowsInSection:indexPath.section]];
+    return v;
+}
 
 - (void) configureCell: (NewTableCell *)cell forRowAtIndexPath: (NSIndexPath*)indexPath {
     if (indexPath.row < limit-1) {

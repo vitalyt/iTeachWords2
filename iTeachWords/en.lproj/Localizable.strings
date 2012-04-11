@@ -103,3 +103,5 @@
 "GeneralInfo"        = "GeneralInfo";
 "Help"               = "Training mode";
 "Help"               = "Training mode";
+"Connection to the server failed. Please try again later."  = "Connection to the server failed. Please try again later.";
+"Connection Problem"    = "Connection Problem";

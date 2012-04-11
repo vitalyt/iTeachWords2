@@ -102,3 +102,5 @@
 "Tap to find more translations" = "Нажмите, для поиска дополнительных переводов";
 "GeneralInfo"        = "GeneralInfo";
 "Help"               = "Режим обучения";
+"Connection to the server failed. Please try again later."  = "Не удалось загрузить данные. Пожалуйста, попробуйте еще раз позже.";
+"Connection Problem"    = "Проблема соединения";

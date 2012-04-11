@@ -377,6 +377,7 @@
     }else{
         index = currentSelectedWordPathIndex.row;
     }
+//    [table setScrollEnabled:YES];
 //    
 //    UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
 //    [cell setSelected:NO animated:YES];
@@ -387,7 +388,7 @@
     table.scrollEnabled = YES;
 }
 
-- (void)playerDidClose{
+- (void)playerDidClose:(id)sender{
     table.scrollEnabled = YES;
 }
 

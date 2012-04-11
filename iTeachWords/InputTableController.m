@@ -58,7 +58,17 @@
 		}
 	}
 	[self configureCell:theCell forRowAtIndexPath:indexPath];
+    theCell.selectedBackgroundView = [self cellSelectedBackgroundViewWithIndexPath:indexPath];
 	return theCell;
+}
+
+- (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
+    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] init] autorelease];
+    
+    v.fillColor = [UIColor colorWithRed:0.25f green:0.47f blue:0.44f alpha:1.0f];
+    v.borderColor = [UIColor darkGrayColor];
+    [v setPositionCredentialsRow: indexPath.row count:[self tableView:table numberOfRowsInSection:indexPath.section]];
+    return v;
 }
 
 -(void)cellDidEndEditing:(UITableViewCell *)cell {

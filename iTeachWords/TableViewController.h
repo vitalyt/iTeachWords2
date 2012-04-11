@@ -6,6 +6,7 @@
 //  Copyright 2009 Halcyon Innovation, LLC. All rights reserved.
 //
 #import "BaseHelpViewController.h"
+#import "OSDNUITableCellView.h"
 
 @interface TableViewController : BaseHelpViewController
 <
@@ -29,5 +30,5 @@
 - (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath;
 - (void) configureCell: (UITableViewCell*)theCell forRowAtIndexPath: (NSIndexPath*)indexPath;
 - (id)cellBackgroundViewWithFrame:(CGRect)frame;
-
+- (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath;
 @end

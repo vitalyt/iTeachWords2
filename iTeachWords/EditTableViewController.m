@@ -10,7 +10,6 @@
 #import "MultiSelectTableViewCell.h"
 #import "MenuView.h"
 
-
 @implementation EditTableViewController
 
 #define SELECTION_INDICATOR_TAG 54321
@@ -43,6 +42,7 @@
         [theCell.contentView addSubview:indicator];
         theCell.selectionStyle = UITableViewCellSelectionStyleNone;
         theCell.backgroundView = [self cellBackgroundViewWithFrame:theCell.frame];
+        theCell.selectedBackgroundView = [self cellSelectedBackgroundViewWithIndexPath:indexPath];
     }else {
         indicator = (UIImageView *)[theCell.contentView viewWithTag:SELECTION_INDICATOR_TAG];
 	}
@@ -51,5 +51,13 @@
 	return theCell;
 }
 
+- (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
+    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] initWithRountRect:5] autorelease];
+    
+    v.fillColor = [UIColor colorWithRed:0.25f green:0.47f blue:0.44f alpha:1.0f];
+    v.borderColor = [UIColor darkGrayColor];
+    [v setPositionCredentialsRow: indexPath.row count:[self tableView:table numberOfRowsInSection:indexPath.section]];
+    return v;
+}
 
 @end

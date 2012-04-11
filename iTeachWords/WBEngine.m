@@ -88,7 +88,7 @@
         if ([errorMessage length] > 0) {
             [UIAlertView displayMessage:errorMessage];
         }else{
-            [UIAlertView displayMessage:NSLocalizedString(@"Er is op dit moment geen verbinding mogelijk. Probeer het later opnieuw.", @"Er is op dit moment geen verbinding mogelijk. Probeer het later opnieuw.")];
+            [UIAlertView displayError:NSLocalizedString(@"Connection to the server failed. Please try again later.",@"") title:NSLocalizedString(@"Connection Problem", @"")];
         }
     }
 

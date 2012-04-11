@@ -8,7 +8,6 @@
 
 #import "TableViewController.h"
 //#import "InputCell.h"
-
 #import "MenuView.h"
 
 @implementation TableViewController
@@ -84,6 +83,7 @@
 			theCell = [items objectAtIndex:0];
 		}
         theCell.backgroundView = [self cellBackgroundViewWithFrame:theCell.frame];
+        theCell.selectedBackgroundView = [self cellSelectedBackgroundViewWithIndexPath:indexPath];
 	}
 	[self configureCell:theCell forRowAtIndexPath:indexPath];
 	return theCell;
@@ -116,5 +116,16 @@
     bg.backgroundColor = [UIColor clearColor]; // or any color
     return [bg autorelease];
 }
+
+- (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
+    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] initWithRountRect:5] autorelease];
+    
+    v.fillColor = [UIColor colorWithRed:0.25f green:0.47f blue:0.44f alpha:1.0f];
+    v.borderColor = [UIColor darkGrayColor];
+    [v setPositionCredentialsRow: indexPath.row count:[self tableView:table numberOfRowsInSection:indexPath.section]];
+    return v;
+}
+
+
 
 @end
