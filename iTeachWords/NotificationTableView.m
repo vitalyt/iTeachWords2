@@ -186,6 +186,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [table deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)changedNotification{

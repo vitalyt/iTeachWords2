@@ -65,7 +65,7 @@
 - (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
     OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] init] autorelease];
     
-    v.fillColor = [UIColor colorWithRed:0.25f green:0.47f blue:0.44f alpha:1.0f];
+    v.fillColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:.75f];
     v.borderColor = [UIColor darkGrayColor];
     [v setPositionCredentialsRow: indexPath.row count:[self tableView:table numberOfRowsInSection:indexPath.section]];
     return v;
