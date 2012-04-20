@@ -117,18 +117,18 @@
 									<object class="IBUIButton" id="488089716">
 										<reference key="NSNextResponder" ref="586379202"/>
 										<int key="NSvFlags">268</int>
-										<string key="NSFrame">{{110, 178}, {110, 37}}</string>
+										<string key="NSFrame">{{110, 173}, {110, 37}}</string>
 										<reference key="NSSuperview" ref="586379202"/>
+										<reference key="NSNextKeyView"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
 										<int key="IBUIContentVerticalAlignment">0</int>
-										<int key="IBUIButtonType">1</int>
 										<string key="IBUINormalTitle">Cancel</string>
 										<reference key="IBUIHighlightedTitleColor" ref="881402978"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
+										<object class="NSColor" key="IBUINormalTitleColor" id="181930346">
 											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+											<bytes key="NSRGB">MC43MDE5NjA4MDIxIDAuNzAxOTYwODAyMSAwLjcwMTk2MDgwMjEAA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="514871921"/>
 										<reference key="IBUIFontDescription" ref="23478227"/>
@@ -144,14 +144,13 @@
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
 										<int key="IBUIContentVerticalAlignment">0</int>
-										<int key="IBUIButtonType">1</int>
-										<string key="IBUINormalTitle">Help</string>
 										<reference key="IBUIHighlightedTitleColor" ref="881402978"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-										</object>
+										<reference key="IBUINormalTitleColor" ref="181930346"/>
 										<reference key="IBUINormalTitleShadowColor" ref="514871921"/>
+										<object class="NSCustomResource" key="IBUINormalImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">settings2.png</string>
+										</object>
 										<reference key="IBUIFontDescription" ref="23478227"/>
 										<reference key="IBUIFont" ref="19420962"/>
 									</object>
@@ -4625,7 +4624,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<object class="IBUILabel" id="464074951">
 						<reference key="NSNextResponder" ref="1006787898"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{3, 66}, {214, 21}}</string>
+						<string key="NSFrame">{{3, 68}, {214, 21}}</string>
 						<reference key="NSSuperview" ref="1006787898"/>
 						<reference key="NSNextKeyView" ref="84925107"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="41818403">
@@ -4708,12 +4707,17 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 							<object class="NSNull" id="4"/>
 							<reference ref="4"/>
 						</array>
+						<object class="NSColor" key="IBTintColor" id="192853490">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC41MDE5NjA4MTQgMC41MDE5NjA4MTQgMC41MDE5NjA4MTQAA</bytes>
+						</object>
 					</object>
 					<object class="IBUISegmentedControl" id="84925107">
 						<reference key="NSNextResponder" ref="1006787898"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 95}, {180, 30}}</string>
+						<string key="NSFrame">{{20, 97}, {180, 30}}</string>
 						<reference key="NSSuperview" ref="1006787898"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBSegmentControlStyle">2</int>
@@ -4739,9 +4743,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 							<reference ref="4"/>
 							<reference ref="4"/>
 						</array>
+						<reference key="IBTintColor" ref="192853490"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{220, 144}</string>
+				<string key="NSFrameSize">{220, 133}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="118724147"/>
 				<reference key="IBUIBackgroundColor" ref="551493488"/>
@@ -5034,6 +5039,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="Close-button.png">{29, 29}</string>
 			<string key="Microphone.png">{512, 512}</string>
+			<string key="settings2.png">{32, 32}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

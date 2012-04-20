@@ -55,7 +55,7 @@
 	CGGradientRelease(gradient);
 	
 	//////////////HATCHED BACKGROUND
-    CGFloat buttonOffset = 180.0f; //Offset buttonOffset by half point for crisp lines
+    CGFloat buttonOffset = 175.0f; //Offset buttonOffset by half point for crisp lines
 	CGContextSaveGState(context); //Save Context State Before Clipping "hatchPath"
 	CGRect hatchFrame = CGRectMake(0.0f, buttonOffset, activeBounds.size.width, (activeBounds.size.height - buttonOffset+1.0f));
 	CGContextClipToRect(context, hatchFrame);

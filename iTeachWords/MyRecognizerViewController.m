@@ -53,7 +53,7 @@
     [recognitionType setTitle:NSLocalizedString(@"Dictation", @"") forSegmentAtIndex:1];    
     
 //    [recordButton setTitle:NSLocalizedString(@"Cancel", @"") forState:UIControlStateNormal];
-    [helpBtn setTitle:NSLocalizedString(@"Settings", @"") forState:UIControlStateNormal];
+//    [helpBtn setTitle:NSLocalizedString(@"Settings", @"") forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad
@@ -183,7 +183,7 @@
 - (CGRect)getFrameForToolsView{
     static CGRect toolsViewOriginFrame;
     if (CGRectIsEmpty(toolsViewOriginFrame)) {
-        toolsViewOriginFrame = CGRectMake(0, 178, majorView.frame.size.width, toolsView.frame.size.height);//toolsView.frame;
+        toolsViewOriginFrame = CGRectMake(0, 173, majorView.frame.size.width, toolsView.frame.size.height);//toolsView.frame;
 
     }
     return toolsViewOriginFrame;

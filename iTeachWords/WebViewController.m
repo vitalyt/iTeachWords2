@@ -191,7 +191,7 @@ documentsDirectory = [paths objectAtIndex:0];
             isExpandingBarShowed = YES;
         }
     }
-    if (action == @selector(parseText) || action == @selector(translateText) || action == @selector(playText)) {
+    if (action == @selector(parseText:) || action == @selector(translateText:) || action == @selector(playText:)) {
         return YES;
     }
     return NO;

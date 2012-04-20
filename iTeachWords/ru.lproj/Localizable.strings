@@ -28,7 +28,7 @@
 "Data is not completly"     = "Заполните все поля";
 "Font size"                 = "Размер шрифта";
 "Font name"                 = "Шрифт";
-"Parse text"                = "Разобрать текст";
+"Parse text"                = "Разобрать";
 "Translate"                 = "Перевести";
 "next %d words"             = "следующие %d слов";
 "There is problem with saving data."           = "Проблемы с сохранением данных";
@@ -37,7 +37,7 @@
 "All words"                 = "Все слова";
 "Learned words"             = "Выученные слова";
 "Use words"                 = "Запомнить слова";
-"Current theme is %@"       = "Текущая тема: %@";
+"Current theme is %@"       = "Текущий словарь: %@";
 "You must choose a theme and enter a word before recording."    = "Вы должны выбрать тему и ввести слово перед записью.";
 "You must enter a word before recording."                       = "Вы должны ввести слово перед записью.";
 "Do you want to save canges?"                                   = "Вы хотите сохранить изменения?";
@@ -60,9 +60,9 @@
 "Playing..."                = "Воспроизведение...";
 "Speak now"                 = "Говорите";
 "Tap to record"             = "Записать";
-"Tap to play..."            = "Воспроизвести";
+"Tap to play..."            = "Прослушать";
 "Loading..."                = "Обработка...";
-"Play text"                 = "Воспроизвести";
+"Play text"                 = "Прослушать";
 "Good job"                  = "Верно";
 "You made mistake"          = "Ошибка";
 "Stop"                      = "Остановить";

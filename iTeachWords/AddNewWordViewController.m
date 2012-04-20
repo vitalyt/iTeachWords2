@@ -471,7 +471,7 @@
     UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
                                                        action:@selector(parceTranslateWord)] autorelease];
     UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
-                                                                action:@selector(parseText)] autorelease];
+                                                                action:@selector(parseText:)] autorelease];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];

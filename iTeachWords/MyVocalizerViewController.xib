@@ -128,14 +128,16 @@
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
 										<int key="IBUIContentVerticalAlignment">0</int>
-										<int key="IBUIButtonType">1</int>
-										<string key="IBUINormalTitle">Help</string>
 										<reference key="IBUIHighlightedTitleColor" ref="331948452"/>
 										<object class="NSColor" key="IBUINormalTitleColor">
 											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+											<bytes key="NSRGB">MC45MDE5NjA3OTAyIDAuOTAxOTYwNzkwMiAwLjkwMTk2MDc5MDIAA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="508467924"/>
+										<object class="NSCustomResource" key="IBUINormalImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">settings2.png</string>
+										</object>
 										<reference key="IBUIFontDescription" ref="468244832"/>
 										<reference key="IBUIFont" ref="970598397"/>
 									</object>
@@ -4662,6 +4664,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 							<object class="NSNull" id="4"/>
 							<reference ref="4"/>
 						</array>
+						<object class="NSColor" key="IBTintColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC41MDE5NjA4MTQgMC41MDE5NjA4MTQgMC41MDE5NjA4MTQAA</bytes>
+						</object>
 					</object>
 					<object class="IBUIView" id="521950849">
 						<reference key="NSNextResponder" ref="300106164"/>
@@ -4897,9 +4903,9 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<int key="objectID">16</int>
 						<reference key="object" ref="300106164"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="1020397126"/>
 							<reference ref="789142460"/>
 							<reference ref="521950849"/>
+							<reference ref="1020397126"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -5083,6 +5089,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="Close-button.png">{29, 29}</string>
 			<string key="right.png">{100, 100}</string>
+			<string key="settings2.png">{32, 32}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

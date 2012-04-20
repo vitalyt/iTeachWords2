@@ -95,11 +95,11 @@
     UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Add word", @"")
                                                        action:@selector(parceTranslateWord)] autorelease];
     UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
-                                                                action:@selector(parseText)] autorelease];
+                                                                action:@selector(parseText:)] autorelease];
     UIMenuItem *menuTextTranslateItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
-                                                                    action:@selector(translateText)] autorelease];
+                                                                    action:@selector(translateText:)] autorelease];
     UIMenuItem *menuTextPlayItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Play text", @"")
-                                                                    action:@selector(playText)] autorelease];
+                                                               action:@selector(playText:)] autorelease];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];
     [menuItemsMutableArray addObject:menuTextTranslateItem];

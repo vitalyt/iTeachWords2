@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0CC1A0153F0EE600E7EA24 /* stock_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0CC19F153F0EE600E7EA24 /* stock_example.png */; };
+		1C0CC1A1153F0EE600E7EA24 /* stock_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0CC19F153F0EE600E7EA24 /* stock_example.png */; };
 		1C110C5215234D3E0075F444 /* Circle_Grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C110C5115234D3E0075F444 /* Circle_Grey.png */; };
 		1C110C5315234D3E0075F444 /* Circle_Grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C110C5115234D3E0075F444 /* Circle_Grey.png */; };
 		1C1D04A415248DE30055EB2C /* Search 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1D04A315248DE30055EB2C /* Search 24x24.png */; };
 		1C1D04A515248DE30055EB2C /* Search 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1D04A315248DE30055EB2C /* Search 24x24.png */; };
+		1C2981DF1541A92A00DDDA15 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */; };
+		1C2981E01541A92A00DDDA15 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */; };
+		1C2981E71541B1D500DDDA15 /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981E61541B1D500DDDA15 /* settingsIcon.png */; };
+		1C2981E81541B1D500DDDA15 /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981E61541B1D500DDDA15 /* settingsIcon.png */; };
+		1C2981EE1541B47D00DDDA15 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981ED1541B47C00DDDA15 /* settings.png */; };
+		1C2981EF1541B47D00DDDA15 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981ED1541B47C00DDDA15 /* settings.png */; };
+		1C2981F11541B4D700DDDA15 /* settings2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981F01541B4D600DDDA15 /* settings2.png */; };
+		1C2981F21541B4D700DDDA15 /* settings2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981F01541B4D600DDDA15 /* settings2.png */; };
 		1C6F17F1152DD3A70008A075 /* WW.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F17F0152DD3A70008A075 /* WW.png */; };
 		1C6F17F2152DD3A70008A075 /* WW.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F17F0152DD3A70008A075 /* WW.png */; };
 		1C6FF4821523307E00705E51 /* ThemeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6FF4801523307E00705E51 /* ThemeDetailView.m */; };
@@ -682,8 +692,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C0CC19F153F0EE600E7EA24 /* stock_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock_example.png; sourceTree = "<group>"; };
 		1C110C5115234D3E0075F444 /* Circle_Grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle_Grey.png; sourceTree = "<group>"; };
 		1C1D04A315248DE30055EB2C /* Search 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search 24x24.png"; sourceTree = "<group>"; };
+		1C2981DD1541A92A00DDDA15 /* CustomGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGradientButton.h; sourceTree = "<group>"; };
+		1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGradientButton.m; sourceTree = "<group>"; };
+		1C2981E61541B1D500DDDA15 /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
+		1C2981ED1541B47C00DDDA15 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		1C2981F01541B4D600DDDA15 /* settings2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings2.png; sourceTree = "<group>"; };
 		1C6F17F0152DD3A70008A075 /* WW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WW.png; sourceTree = "<group>"; };
 		1C6FF47F1523307E00705E51 /* ThemeDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDetailView.h; sourceTree = "<group>"; };
 		1C6FF4801523307E00705E51 /* ThemeDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDetailView.m; sourceTree = "<group>"; };
@@ -1220,6 +1236,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C2981DB1541A8F900DDDA15 /* CustomGradientButton */ = {
+			isa = PBXGroup;
+			children = (
+				1C2981DD1541A92A00DDDA15 /* CustomGradientButton.h */,
+				1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */,
+			);
+			name = CustomGradientButton;
+			sourceTree = "<group>";
+		};
 		1C6FF47D1523305D00705E51 /* ThemeDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,6 +1297,7 @@
 		2811984214A093B200399D44 /* Siri */ = {
 			isa = PBXGroup;
 			children = (
+				1C2981F01541B4D600DDDA15 /* settings2.png */,
 				2866E1ED14A099B4002823E6 /* Recognizer */,
 				2811984514A093CC00399D44 /* Vocalizer */,
 			);
@@ -1528,6 +1554,9 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1C2981ED1541B47C00DDDA15 /* settings.png */,
+				1C2981E61541B1D500DDDA15 /* settingsIcon.png */,
+				1C0CC19F153F0EE600E7EA24 /* stock_example.png */,
 				843373AD152A22DC005747E4 /* ExpandingImage */,
 				28E32ED6140F9FDA00ABC7D5 /* Flags */,
 				1C7FEB3B1529F54000491143 /* select-all.png */,
@@ -1784,6 +1813,7 @@
 		284092EC1381244A00864711 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1C2981DB1541A8F900DDDA15 /* CustomGradientButton */,
 				84FE20A21527A7B9007567A1 /* EMHint */,
 				286401F714BC7B0000591679 /* CustomBadge */,
 				2823B8A314B6FA4500FDB12D /* RepeatModel */,
@@ -2628,6 +2658,10 @@
 				1C6F17F1152DD3A70008A075 /* WW.png in Resources */,
 				847FF17D1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */,
 				847FF17F1530ACDE00BBAA27 /* Arrow up 24x24.png in Resources */,
+				1C0CC1A0153F0EE600E7EA24 /* stock_example.png in Resources */,
+				1C2981E71541B1D500DDDA15 /* settingsIcon.png in Resources */,
+				1C2981EE1541B47D00DDDA15 /* settings.png in Resources */,
+				1C2981F11541B4D700DDDA15 /* settings2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2824,6 +2858,10 @@
 				1C6F17F2152DD3A70008A075 /* WW.png in Resources */,
 				847FF17E1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */,
 				847FF1801530ACDE00BBAA27 /* Arrow up 24x24.png in Resources */,
+				1C0CC1A1153F0EE600E7EA24 /* stock_example.png in Resources */,
+				1C2981E81541B1D500DDDA15 /* settingsIcon.png in Resources */,
+				1C2981EF1541B47D00DDDA15 /* settings.png in Resources */,
+				1C2981F21541B4D700DDDA15 /* settings2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2961,6 +2999,7 @@
 				843373A5152A1A7B005747E4 /* RNExpandingButtonBar.m in Sources */,
 				843373AB152A214C005747E4 /* ExpandingBarViewController.m in Sources */,
 				1CACB3911535C85800956445 /* OSDNUITableCellView.m in Sources */,
+				1C2981DF1541A92A00DDDA15 /* CustomGradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3099,6 +3138,7 @@
 				843373A6152A1A7B005747E4 /* RNExpandingButtonBar.m in Sources */,
 				843373AC152A214C005747E4 /* ExpandingBarViewController.m in Sources */,
 				1CACB3921535C85800956445 /* OSDNUITableCellView.m in Sources */,
+				1C2981E01541A92A00DDDA15 /* CustomGradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3302,7 +3342,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					i386,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3321,8 +3361,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49E7925F-02CE-45C6-9254-32C21AE668E1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";

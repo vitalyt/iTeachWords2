@@ -33,16 +33,20 @@
     [recordView release];
     if (tableHeadView) {
         [tableHeadView release];
+        tableHeadView = nil;
     }
     if (wordTypePicker) {
         [wordTypePicker release];
+        wordTypePicker = nil;
     }
     if (toolsView) {
         [toolsView release];
+        toolsView = nil;
     }
     if (multiPlayer) {
         [multiPlayer closePlayer];
         [multiPlayer release];
+        multiPlayer = nil;
     }
     [currentSelectedWordPathIndex release];
     [playImg release];
@@ -162,6 +166,12 @@
 }
 
 #pragma mark - View lifecycle
+
+- (void)viewDidUnload{
+    [tableHeadView release];
+    tableHeadView = nil;
+    [super viewDidUnload];
+}
 
 - (void)viewDidLoad
 {
