@@ -463,7 +463,6 @@
 		285B827F14E4079E001C977D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2872FE5C14C4754F0010AFA1 /* DetailViewController.xib */; };
 		285B828014E4079E001C977D /* Close-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2862E3C314C58162003CC14C /* Close-button.png */; };
 		285B828114E4079E001C977D /* Microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A014CDA50B0003C5BF /* Microphone.png */; };
-		285B828214E4079E001C977D /* siri-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A114CDA50B0003C5BF /* siri-icon.png */; };
 		285B828314E4079E001C977D /* VoiceRecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */; };
 		285B828414E4079E001C977D /* MyRecognizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287340E314CEA2010085B72C /* MyRecognizerViewController.xib */; };
 		285B828614E4079E001C977D /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28914B5014D151DB004E702A /* ButtonView.xib */; };
@@ -495,7 +494,6 @@
 		28914B5114D151DB004E702A /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28914B4F14D151DB004E702A /* ButtonView.m */; };
 		28914B5214D151DB004E702A /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28914B5014D151DB004E702A /* ButtonView.xib */; };
 		289C63A214CDA50B0003C5BF /* Microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A014CDA50B0003C5BF /* Microphone.png */; };
-		289C63A314CDA50B0003C5BF /* siri-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A114CDA50B0003C5BF /* siri-icon.png */; };
 		289C63A914CDA5BF0003C5BF /* VoiceRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289C63A714CDA5BF0003C5BF /* VoiceRecordingViewController.m */; };
 		289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */; };
 		28A0882B1421CDBF00F292F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28A088291421CDBF00F292F9 /* Localizable.strings */; };
@@ -977,7 +975,6 @@
 		28914B4F14D151DB004E702A /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		28914B5014D151DB004E702A /* ButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
 		289C63A014CDA50B0003C5BF /* Microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Microphone.png; sourceTree = "<group>"; };
-		289C63A114CDA50B0003C5BF /* siri-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "siri-icon.png"; sourceTree = "<group>"; };
 		289C63A614CDA5BF0003C5BF /* VoiceRecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecordingViewController.h; sourceTree = "<group>"; };
 		289C63A714CDA5BF0003C5BF /* VoiceRecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceRecordingViewController.m; sourceTree = "<group>"; };
 		289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceRecordingViewController.xib; sourceTree = "<group>"; };
@@ -1577,7 +1574,6 @@
 				2834E92F14D18960008229F3 /* right.png */,
 				2834E93014D18960008229F3 /* stop.png */,
 				289C63A014CDA50B0003C5BF /* Microphone.png */,
-				289C63A114CDA50B0003C5BF /* siri-icon.png */,
 				2862E3C314C58162003CC14C /* Close-button.png */,
 				281A7FC11498C2EE0055B55F /* glasses.png */,
 				281A7FB91498BEC80055B55F /* line-globe.png */,
@@ -2604,7 +2600,6 @@
 				2872FE5E14C4754F0010AFA1 /* DetailViewController.xib in Resources */,
 				2862E3C414C58162003CC14C /* Close-button.png in Resources */,
 				289C63A214CDA50B0003C5BF /* Microphone.png in Resources */,
-				289C63A314CDA50B0003C5BF /* siri-icon.png in Resources */,
 				289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */,
 				287340E514CEA2010085B72C /* MyRecognizerViewController.xib in Resources */,
 				28914B5214D151DB004E702A /* ButtonView.xib in Resources */,
@@ -2807,7 +2802,6 @@
 				285B827F14E4079E001C977D /* DetailViewController.xib in Resources */,
 				285B828014E4079E001C977D /* Close-button.png in Resources */,
 				285B828114E4079E001C977D /* Microphone.png in Resources */,
-				285B828214E4079E001C977D /* siri-icon.png in Resources */,
 				285B828314E4079E001C977D /* VoiceRecordingViewController.xib in Resources */,
 				285B828414E4079E001C977D /* MyRecognizerViewController.xib in Resources */,
 				285B828614E4079E001C977D /* ButtonView.xib in Resources */,
