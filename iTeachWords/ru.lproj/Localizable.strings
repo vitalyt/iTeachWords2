@@ -6,6 +6,7 @@
   Copyright 2011 OSDN. All rights reserved.
 */
 
+"iStudyWords"   = "iStudyWords";
 "Back"          = "Назад";
 "Menu"          = "Меню";
 "Word book"     = "Упражнения";
@@ -43,6 +44,7 @@
 "Do you want to save canges?"                                   = "Вы хотите сохранить изменения?";
 "Save changes"              = "Сохранить изменения";
 "Delete canges"             = "Удалить изменения";
+"Delete words"              = "Удалить слова";
 "Use as translate"          = "Использовать как перевод";
 "Don't show anymore"        = "Больше не спрашивать";
 "Data is not saved."        = "Інформация не была сохранена.";
@@ -98,7 +100,7 @@
 "Buy"                     = "Купить";
 "No results found"        = "Ничего не найдено";
 "The list of words is blank"   = "В словаре слишком мало слов для прохождение этого упражнения";
-"Are you sure you want to delete the word?" = "Вы действительно хотите удалить слово?";
+"Are you sure you want to delete the word?" = "Вы действительно хотите удалить выделенные слова?";
 "Tap to find more translations" = "Нажмите, для поиска дополнительных переводов";
 "GeneralInfo"        = "GeneralInfo";
 "Help"               = "Режим обучения";

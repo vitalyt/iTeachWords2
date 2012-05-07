@@ -75,7 +75,6 @@
     NSLog(@"url->%@",url);
     WBRequest * _request = [WBRequest getRequestWithURL:url delegate:self];
     [wbEngine performRequest:_request];
-    [UIAlertView removeMessage];
     [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Loading...", @"")];
 }
 

@@ -35,7 +35,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self.navigationItem setTitle:NSLocalizedString(@"Menu", @"")];
+        [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
         // Custom initialization
     }
     return self;
@@ -287,6 +287,7 @@
 //    }
 
     WorldTableToolsController *myTableView = [[WorldTableToolsController alloc] initWithNibName:@"WorldTableViewController" bundle:nil];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:myTableView animated:YES];
     [myTableView release];
@@ -294,6 +295,7 @@
 
 - (void)showAddingWordView{
     AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
     [self.navigationController pushViewController:myAddWordView animated:YES];
     [myAddWordView release]; 
@@ -301,6 +303,7 @@
 
 - (void)showTextParserView{
     TextViewController *myTextView = [[TextViewController alloc] initWithNibName:@"TextViewController" bundle:nil];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionReveal];
     [self.navigationController pushViewController:myTextView animated:YES];
     [myTextView release];
@@ -308,6 +311,7 @@
 
 - (void)showDictionaryView{
     DictionaryViewController *dictionaryView = [[DictionaryViewController alloc] initWithNibName:@"DictionaryViewController" bundle:nil];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:dictionaryView animated:YES];
     [dictionaryView release];
@@ -315,6 +319,7 @@
 
 - (void)showSettingsView{
     SettingsViewController *languageView = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromTop];
     [languageView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self.navigationController pushViewController:languageView animated:YES];
@@ -329,6 +334,7 @@
     }else{
         url = @"www.yandex.com";
     }
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 	[self.navigationController pushViewController:webViewController animated:YES];
     webViewController.url = url;
 	[webViewController release];
@@ -337,6 +343,7 @@
 
 - (void)showVocalizerView{
     DMVocalizerViewController *vocalizerView = [[DMVocalizerViewController alloc] initWithNibName:@"DMVocalizerViewController" bundle:nil];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
     [self.navigationController pushViewController:vocalizerView animated:YES];
     [vocalizerView release];
 }
@@ -349,6 +356,7 @@
 
 - (void)showRecognizerView{
     DMRecognizerViewController *recognizerView = [[DMRecognizerViewController alloc] initWithNibName:@"DMRecognizerViewController" bundle:nil];
+    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
     [self.navigationController pushViewController:recognizerView animated:YES];
     [recognizerView release];
 }

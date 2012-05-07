@@ -6,6 +6,7 @@
   Copyright 2011 OSDN. All rights reserved.
 */
 
+"iStudyWords"   = "iStudyWords";
 "Back"          = "Back";
 "Menu"          = "Menu";
 "Word book"     = "Exercises";
@@ -43,6 +44,7 @@
 "Do you want to save canges?"                                 = "Do you want to save canges?";
 "Save changes"              = "Save changes";
 "Delete canges"             = "Delete canges";
+"Delete words"              = "Delete words";
 "Use as translate"          = "Use as translate";
 "Don't show anymore"        = "Don't show anymore";
 "Data is not saved."        = "Data is not saved.";

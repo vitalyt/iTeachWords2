@@ -131,10 +131,10 @@
             return NSLocalizedString(@"RecognizerInfo", @"");
             break;
         case TEST1:
-            return NSLocalizedString(@"Instructie", @"");
+            return NSLocalizedString(@"ExercisesInfo", @"");
             break;
         case TESTGAME:
-            return NSLocalizedString(@"Instructie", @"");
+            return NSLocalizedString(@"ExercisesInfo", @"");
             break;
         case NOTIFICATION:
             return NSLocalizedString(@"RepeatInfo", @"");

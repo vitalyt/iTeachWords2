@@ -55,6 +55,7 @@
 		1CB6EACA1521E87B001A4F49 /* ThemesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EAC81521E87A001A4F49 /* ThemesCell.m */; };
 		1CB6EACC1521E89D001A4F49 /* ThemesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */; };
 		1CB6EACD1521E89D001A4F49 /* ThemesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */; };
+		1CB9CC9C1558080500CBE5F6 /* ExercisesInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 1CB9CC9B1558080500CBE5F6 /* ExercisesInfo.html */; };
 		280318B71439923A00E87F1F /* HeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280318B51439923A00E87F1F /* HeadViewController.m */; };
 		280318B81439923A00E87F1F /* HeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280318B61439923A00E87F1F /* HeadViewController.xib */; };
 		280318D41439D19000E87F1F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280318D31439D19000E87F1F /* SettingsViewController.m */; };
@@ -724,6 +725,7 @@
 		1CB6EAC71521E87A001A4F49 /* ThemesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesCell.h; sourceTree = "<group>"; };
 		1CB6EAC81521E87A001A4F49 /* ThemesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesCell.m; sourceTree = "<group>"; };
 		1CB6EACB1521E89D001A4F49 /* ThemesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesCell.xib; sourceTree = "<group>"; };
+		1CB9CC9B1558080500CBE5F6 /* ExercisesInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExercisesInfo.html; sourceTree = "<group>"; };
 		280318B41439923A00E87F1F /* HeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadViewController.h; sourceTree = "<group>"; };
 		280318B51439923A00E87F1F /* HeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadViewController.m; sourceTree = "<group>"; };
 		280318B61439923A00E87F1F /* HeadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadViewController.xib; sourceTree = "<group>"; };
@@ -2030,6 +2032,7 @@
 				2850557414FFC36800B03DF1 /* styles.css */,
 				846B4B4A150A687A003F50F7 /* GeneralInfo.html */,
 				2850557114FFC21100B03DF1 /* RepeatInfo.html */,
+				1CB9CC9B1558080500CBE5F6 /* ExercisesInfo.html */,
 				84A198D71508059400EADF65 /* RecognizerInfo.html */,
 			);
 			name = WEB;
@@ -2856,6 +2859,7 @@
 				1C2981E81541B1D500DDDA15 /* settingsIcon.png in Resources */,
 				1C2981EF1541B47D00DDDA15 /* settings.png in Resources */,
 				1C2981F21541B4D700DDDA15 /* settings2.png in Resources */,
+				1CB9CC9C1558080500CBE5F6 /* ExercisesInfo.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3371,8 +3375,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3392,6 +3396,8 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
+				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -3406,7 +3412,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3426,6 +3432,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
+				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -3442,7 +3449,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3462,6 +3469,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
+				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
