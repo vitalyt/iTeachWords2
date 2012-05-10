@@ -38,6 +38,13 @@
         [[NSUserDefaults standardUserDefaults] setBool:boolValue forKey:_key];
     }
     [self.table reloadData];
+    [self addInfoButton];
+}
+
+- (void)addInfoButton{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [btn addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
 }
 
 - (NSString*)keyForIndexPath:(NSIndexPath*)indexPath{
@@ -218,7 +225,8 @@
 - (void)showInfoView{
     DetailViewController *infoView = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     [self.navigationController presentModalViewController:infoView animated:YES];
-    [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
+    [infoView loadContentByFile:@"RepeatInfo"];
+//    [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
     //    [self.navigationController pushViewController:infoView animated:YES];
     [infoView release];
 }

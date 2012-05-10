@@ -17,5 +17,6 @@
 
 - (void)changedNotification;
 - (void)showInfoView;
+- (void)addInfoButton;
 
 @end

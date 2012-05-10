@@ -17,6 +17,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 @implementation EMHint
 @synthesize hintDelegate;
+@synthesize _modalView;
 
 #pragma mark ---------------------------------->> 
 #pragma mark -------------->>private
@@ -94,9 +95,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     [presentationPlace addSubview:_modalView];
     
     UIView *v = nil;
+    UIView *vInfo = nil;
     if ([[self hintDelegate] respondsToSelector:@selector(hintStateViewForDialog:)]) {
         v = [self.hintDelegate hintStateViewForDialog:self];
+        vInfo = [self.hintDelegate infoLabel];
+        [vInfo setFrame:CGRectMake(0, 44, _modalView.frame.size.width, 40)];
         [_modalView addSubview:v];
+        [_modalView addSubview:vInfo];
     }
     
     if(v==nil)//no custom subview

@@ -25,7 +25,7 @@ typedef enum
 @protocol EMHintDelegate <NSObject>
 
 @optional
-
+- (UIView*)infoLabel;
 -(BOOL)hintStateHasDefaultTapGestureRecognizer:(id)hintState ;
 
 
@@ -80,7 +80,9 @@ typedef enum
 {
     EMHintsView *_modalView;//our transparent hint window with lablel and spotlight
 }
+
 @property (nonatomic,assign) id<EMHintDelegate> hintDelegate;
+@property (nonatomic,assign) EMHintsView *_modalView;
 
 -(UIView*)modalView; // accessor to the modal view (use spareingly)
 -(void)clear;//instant removal of modal view
