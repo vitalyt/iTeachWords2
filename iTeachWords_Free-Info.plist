@@ -48,5 +48,7 @@
 	<string>iTeachWordDataBase</string>
 	<key>myResource</key>
 	<string>/Documents/</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 </dict>
 </plist>

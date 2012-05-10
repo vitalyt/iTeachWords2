@@ -8,6 +8,7 @@
 
 "iStudyWords"   = "iStudyWords";
 "Back"          = "Назад";
+"Close"         = "Закрыть";
 "Menu"          = "Меню";
 "Word book"     = "Упражнения";
 "Lessons"       = "Уроки";
@@ -35,6 +36,8 @@
 "There is problem with saving data."           = "Проблемы с сохранением данных";
 "Select"                    = "Отметить слова";
 "Cancel"                    = "Отменить";
+"NO"                        = "Нет";
+"YES"                        = "Да";
 "All words"                 = "Все слова";
 "Learned words"             = "Выученные слова";
 "Use words"                 = "Запомнить слова";

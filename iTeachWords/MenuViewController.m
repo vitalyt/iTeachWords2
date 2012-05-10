@@ -80,6 +80,7 @@
     NSLog(@"%@",NATIVE_LANGUAGE_CODE);
     if (!NATIVE_LANGUAGE_CODE || !TRANSLATE_LANGUAGE_CODE){
         LanguagePickerController *languageView = [[LanguagePickerController alloc] initWithNibName:@"LanguagePickerController" bundle:nil];
+        [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
         [self.navigationController pushViewController:languageView animated:YES];
         [languageView release];
     }

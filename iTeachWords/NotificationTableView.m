@@ -200,7 +200,7 @@
     NSString *key = @"isRepeatOptionOn";
     bool _value = onOffSwitcher.on;
     if (!_value) {
-        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", @"") message:NSLocalizedString(@"Disabling of this feature is not recommended", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Show detail info", @""), nil];
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", @"") message:NSLocalizedString(@"Disabling of this feature is not recommended", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Show detail info", @"") otherButtonTitles:NSLocalizedString(@"YES", @""), NSLocalizedString(@"NO", @""), nil];
         [alert show];
         [alert autorelease];
     }
@@ -213,8 +213,12 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
-        case 1:
+        case 0:
             [self showInfoView];
+            break;
+        case 2:
+            [onOffSwitcher setOn:YES];
+            [self changedNotification];
             break;
             
         default:
