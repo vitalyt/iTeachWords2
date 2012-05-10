@@ -217,7 +217,7 @@
             [table reloadData];	
         }else{
             AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil]; 
-            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"") style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
+            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
             [[self navigationItem] setBackBarButtonItem: newBackButton];
             [self.navigationController pushViewController:myAddWordView animated:YES];
             [myAddWordView setText:[sortedKeys objectAtIndex:indexPath.row]];

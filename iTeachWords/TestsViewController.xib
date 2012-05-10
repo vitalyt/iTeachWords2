@@ -52,12 +52,23 @@
 								<string key="NSFrameSize">{248, 44}</string>
 								<reference key="NSSuperview" ref="697445538"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIBarStyle">2</int>
 								<object class="NSMutableArray" key="IBUIItems">
 									<bool key="EncodedWithXMLCoder">YES</bool>
+									<object class="IBUIBarButtonItem" id="884494425">
+										<int key="IBUITag">2</int>
+										<object class="NSCustomResource" key="IBUIImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">Outdent 16x16.png</string>
+										</object>
+										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										<int key="IBUIStyle">1</int>
+										<reference key="IBUIToolbar" ref="187035686"/>
+									</object>
 									<object class="IBUIBarButtonItem" id="832988714">
 										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
@@ -77,16 +88,6 @@
 										<int key="IBUIStyle">1</int>
 										<reference key="IBUIToolbar" ref="187035686"/>
 									</object>
-									<object class="IBUIBarButtonItem" id="884494425">
-										<int key="IBUITag">2</int>
-										<object class="NSCustomResource" key="IBUIImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">Outdent 16x16.png</string>
-										</object>
-										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<int key="IBUIStyle">1</int>
-										<reference key="IBUIToolbar" ref="187035686"/>
-									</object>
 									<object class="IBUIBarButtonItem" id="473351889">
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<reference key="IBUIToolbar" ref="187035686"/>
@@ -96,7 +97,7 @@
 										<int key="IBUITag">3</int>
 										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">Statistic bar 16x16.png</string>
+											<string key="NSResourceName">Chart 24x24.png</string>
 										</object>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBUIStyle">1</int>
@@ -239,8 +240,8 @@
 							<reference ref="813726624"/>
 							<reference ref="832988714"/>
 							<reference ref="23549121"/>
-							<reference ref="884494425"/>
 							<reference ref="389888552"/>
+							<reference ref="884494425"/>
 							<reference ref="473351889"/>
 						</object>
 						<reference key="parent" ref="697445538"/>
@@ -426,14 +427,14 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>Chart 24x24.png</string>
 				<string>Edit 16x16.png</string>
 				<string>Keyboard 16x16.png</string>
 				<string>Outdent 16x16.png</string>
-				<string>Statistic bar 16x16.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{16, 16}</string>
+				<string>{24, 24}</string>
 				<string>{16, 16}</string>
 				<string>{16, 16}</string>
 				<string>{16, 16}</string>

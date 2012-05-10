@@ -36,7 +36,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
-                                              initWithTitle:NSLocalizedString(@"Menu", @"") style:UIBarButtonItemStyleBordered
+                                              initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
                                               target:self action:@selector(back)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow down 24x24"] style:UIBarButtonItemStylePlain target:self action:@selector(showAddWordView:)] autorelease];
     [self.navigationItem.rightBarButtonItem setTag:4];

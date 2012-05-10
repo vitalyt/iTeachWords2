@@ -39,6 +39,12 @@
 		1C85EF00152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */; };
 		1C85EF03152C4B53007A5D45 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EF02152C4B53007A5D45 /* sound.png */; };
 		1C85EF04152C4B53007A5D45 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EF02152C4B53007A5D45 /* sound.png */; };
+		1C86E269155BEA1200898E88 /* SearchWight 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E268155BEA1200898E88 /* SearchWight 24x24.png */; };
+		1C86E26A155BEA1200898E88 /* SearchWight 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E268155BEA1200898E88 /* SearchWight 24x24.png */; };
+		1C86E26C155BED0400898E88 /* Shuffle Shuffle 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */; };
+		1C86E26D155BED0400898E88 /* Shuffle Shuffle 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */; };
+		1C86E26F155BEEB000898E88 /* Chart 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E26E155BEEA700898E88 /* Chart 24x24.png */; };
+		1C86E270155BEEB000898E88 /* Chart 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E26E155BEEA700898E88 /* Chart 24x24.png */; };
 		1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
@@ -711,6 +717,9 @@
 		1C832651152983AD00ED9191 /* BaseHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHelpViewController.m; sourceTree = "<group>"; };
 		1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleMultiPlayer.xib; sourceTree = "<group>"; };
 		1C85EF02152C4B53007A5D45 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
+		1C86E268155BEA1200898E88 /* SearchWight 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchWight 24x24.png"; sourceTree = "<group>"; };
+		1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shuffle Shuffle 24x24.png"; sourceTree = "<group>"; };
+		1C86E26E155BEEA700898E88 /* Chart 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chart 24x24.png"; sourceTree = "<group>"; };
 		1C89F0311525982D00A1E5EA /* QQQSeparateTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateTransparentView.h; sourceTree = "<group>"; };
 		1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateTransparentView.m; sourceTree = "<group>"; };
 		1C89F03515259E4300A1E5EA /* QQQSeparateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateView.h; sourceTree = "<group>"; };
@@ -1553,6 +1562,9 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1C86E26E155BEEA700898E88 /* Chart 24x24.png */,
+				1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */,
+				1C86E268155BEA1200898E88 /* SearchWight 24x24.png */,
 				1C2981ED1541B47C00DDDA15 /* settings.png */,
 				1C2981E61541B1D500DDDA15 /* settingsIcon.png */,
 				1C0CC19F153F0EE600E7EA24 /* stock_example.png */,
@@ -2660,6 +2672,9 @@
 				1C2981E71541B1D500DDDA15 /* settingsIcon.png in Resources */,
 				1C2981EE1541B47D00DDDA15 /* settings.png in Resources */,
 				1C2981F11541B4D700DDDA15 /* settings2.png in Resources */,
+				1C86E269155BEA1200898E88 /* SearchWight 24x24.png in Resources */,
+				1C86E26C155BED0400898E88 /* Shuffle Shuffle 24x24.png in Resources */,
+				1C86E26F155BEEB000898E88 /* Chart 24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2860,6 +2875,9 @@
 				1C2981EF1541B47D00DDDA15 /* settings.png in Resources */,
 				1C2981F21541B4D700DDDA15 /* settings2.png in Resources */,
 				1CB9CC9C1558080500CBE5F6 /* ExercisesInfo.html in Resources */,
+				1C86E26A155BEA1200898E88 /* SearchWight 24x24.png in Resources */,
+				1C86E26D155BED0400898E88 /* Shuffle Shuffle 24x24.png in Resources */,
+				1C86E270155BEEB000898E88 /* Chart 24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
