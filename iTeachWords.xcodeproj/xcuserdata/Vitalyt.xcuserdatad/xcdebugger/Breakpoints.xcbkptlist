@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddWord.m"
-         timestampString = "356438747.944192"
+         timestampString = "358436392.243655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "181"
-         endingLineNumber = "181"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddWord.m"
-         timestampString = "356438749.098448"
+         timestampString = "358436392.243655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "166"
-         endingLineNumber = "166"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -144,19 +144,6 @@
          startingLineNumber = "199"
          endingLineNumber = "199"
          landmarkName = "-changedNotification"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/DMRecognizerViewController.m"
-         timestampString = "358430539.265055"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "277"
-         endingLineNumber = "277"
-         landmarkName = "-recognizer:didFinishWithError:suggestion:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

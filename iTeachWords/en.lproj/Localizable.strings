@@ -113,3 +113,4 @@
 "Suggestion"            = "Suggestion";
 "Sorry, speech not recognized. Please try again." = "Sorry, speech not recognized. Please try again.";
 "Alternatives"          = "Alternatives";
+"Query cancelled."        = "Query cancelled.";

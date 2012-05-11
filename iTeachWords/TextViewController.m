@@ -18,7 +18,7 @@
 #import "QQQInAppStore.h"
 #endif
 
-#define radius 13
+#define radius 10
 #define textFieldHieght 371
 
 @implementation TextViewController
@@ -91,7 +91,7 @@
     frame.origin.x = 0.0;
     frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
     [pagesScrollView.view setFrame:frame];
-    [myTextView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dask.png"]]];
+    [myTextView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"board.png"]]];
 }
 
 

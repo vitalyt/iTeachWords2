@@ -265,23 +265,26 @@
     [recordButton setTitle:NSLocalizedString(@"Record", @"") forState:UIControlStateNormal];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     
-    CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Error"
-                                                    message:[error localizedDescription]
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];        
-    [alert show];
-    [alert release];
-    
-    if (suggestion) {
-        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion", @"")
-                                                        message:suggestion
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];        
+    if ([error code] != 5) {
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"")
+                                                                message:NSLocalizedString([error localizedDescription], @"")
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil]; 
         [alert show];
         [alert release];
+        NSLog(@"%d",[error code]);
         
+        if (suggestion) {
+            CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion", @"")
+                                                                    message:suggestion
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];        
+            [alert show];
+            [alert release];
+            
+        }
     }
     
 	[voiceSearch release];

@@ -112,3 +112,4 @@
 "Suggestion"            = "Предложение";
 "Sorry, speech not recognized. Please try again." = "К сожалению, речь не была распознана. Пожалуйста, попробуйте еще раз.";
 "Alternatives"          = "Альтернативы";
+"Query cancelled."        = "Запрос отменен.";

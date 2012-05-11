@@ -47,6 +47,8 @@
 		1C86E270155BEEB000898E88 /* Chart 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E26E155BEEA700898E88 /* Chart 24x24.png */; };
 		1C86E29F155D449300898E88 /* dask.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E29E155D449200898E88 /* dask.png */; };
 		1C86E2A0155D449300898E88 /* dask.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E29E155D449200898E88 /* dask.png */; };
+		1C86E2A5155D538B00898E88 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E2A4155D538A00898E88 /* board.png */; };
+		1C86E2A6155D538B00898E88 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E2A4155D538A00898E88 /* board.png */; };
 		1C89F0331525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F0341525982D00A1E5EA /* QQQSeparateTransparentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */; };
 		1C89F03715259E4300A1E5EA /* QQQSeparateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03615259E4300A1E5EA /* QQQSeparateView.m */; };
@@ -723,6 +725,7 @@
 		1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shuffle Shuffle 24x24.png"; sourceTree = "<group>"; };
 		1C86E26E155BEEA700898E88 /* Chart 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chart 24x24.png"; sourceTree = "<group>"; };
 		1C86E29E155D449200898E88 /* dask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dask.png; sourceTree = "<group>"; };
+		1C86E2A4155D538A00898E88 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
 		1C89F0311525982D00A1E5EA /* QQQSeparateTransparentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateTransparentView.h; sourceTree = "<group>"; };
 		1C89F0321525982D00A1E5EA /* QQQSeparateTransparentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQQSeparateTransparentView.m; sourceTree = "<group>"; };
 		1C89F03515259E4300A1E5EA /* QQQSeparateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQQSeparateView.h; sourceTree = "<group>"; };
@@ -1335,6 +1338,7 @@
 				28122CFB1396752E00D5F906 /* TextViewController.h */,
 				28122CFC1396752E00D5F906 /* TextViewController.m */,
 				28122CFA1396752E00D5F906 /* TextViewController.xib */,
+				1C86E2A4155D538A00898E88 /* board.png */,
 			);
 			name = TextParser;
 			sourceTree = "<group>";
@@ -2680,6 +2684,7 @@
 				1C86E26C155BED0400898E88 /* Shuffle Shuffle 24x24.png in Resources */,
 				1C86E26F155BEEB000898E88 /* Chart 24x24.png in Resources */,
 				1C86E29F155D449300898E88 /* dask.png in Resources */,
+				1C86E2A5155D538B00898E88 /* board.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2884,6 +2889,7 @@
 				1C86E26D155BED0400898E88 /* Shuffle Shuffle 24x24.png in Resources */,
 				1C86E270155BEEB000898E88 /* Chart 24x24.png in Resources */,
 				1C86E2A0155D449300898E88 /* dask.png in Resources */,
+				1C86E2A6155D538B00898E88 /* board.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

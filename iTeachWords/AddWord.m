@@ -39,8 +39,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    loadWebButtonView.layer.cornerRadius = 10;
-    myWebView.layer.cornerRadius = 10;
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -51,6 +49,11 @@
     [self.view addSubview:wordsView.view];
     [searchTranslateLbl setText:NSLocalizedString(@"Tap to find more translations", @"")];
     [wordsView.view setFrame:CGRectMake(.0, 44, wordsView.view.frame.size.width,wordsView.view.frame.size.height)];
+    
+    loadWebButtonView.layer.cornerRadius = 10;
+    loadWebButtonView.layer.borderWidth = 1;
+    loadWebButtonView.layer.borderColor = [[UIColor grayColor] CGColor];
+    myWebView.layer.cornerRadius = 10;
     //[wordsView loadData];
 }
 

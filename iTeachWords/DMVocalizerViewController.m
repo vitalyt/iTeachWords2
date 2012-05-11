@@ -195,10 +195,11 @@ const unsigned char SpeechKitApplicationKey[] = {SPEECH_APP_KEY};
     [speakButton setImage:[UIImage imageNamed:@"right.png"] forState:UIControlStateNormal];
     isSpeaking = NO;
 //    [speakButton setTitle:@"Read It" forState:UIControlStateNormal];
-	if (error !=nil)
+    
+	if (error !=nil && [error code] != 5)
 	{
-		CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Error"
-														message:[error localizedDescription]
+		CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"")
+														message:NSLocalizedString([error localizedDescription], @"")
 													   delegate:nil
 											  cancelButtonTitle:@"OK"
 											  otherButtonTitles:nil];        
