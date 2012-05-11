@@ -233,13 +233,14 @@
     }
     
     if (results.suggestion) {
-        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Suggestion"
-                                                        message:results.suggestion
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion", @"")
+                                                        message:NSLocalizedString(results.suggestion, @"")
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];        
         [alert show];
         [alert release];
+        NSLog(@"%@",results.suggestion);
         
     }
     

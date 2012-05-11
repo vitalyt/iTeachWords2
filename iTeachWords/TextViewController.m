@@ -18,8 +18,8 @@
 #import "QQQInAppStore.h"
 #endif
 
-#define radius 10
-#define textFieldHieght 372
+#define radius 13
+#define textFieldHieght 371
 
 @implementation TextViewController
 @synthesize array;
@@ -60,6 +60,8 @@
 - (void) loadView{
     [super loadView];
     myTextView.layer.cornerRadius = radius;
+    myTextView.layer.borderWidth = 2.0f;
+    myTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     pagesScrollView = [[PagesScrollView alloc] initWithNibName:@"PagesScrollView" bundle:nil];
     [pagesScrollView setDelegate:self];
 }
@@ -89,6 +91,7 @@
     frame.origin.x = 0.0;
     frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
     [pagesScrollView.view setFrame:frame];
+    [myTextView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dask.png"]]];
 }
 
 
@@ -249,11 +252,11 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if (textView.frame.size.height>195.0) {
+    if (textView.frame.size.height>199.0) {
         [UIView beginAnimations:@"Changing size of textView" context:nil];
         [UIView setAnimationDuration:0.3];
         [UIView setAnimationBeginsFromCurrentState:YES];
-        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width, 195.0)];
+        [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width, 199.0)];
         [UIView commitAnimations];
         [self.bar setHidden:NO];
         [self.bar showButtonsAnimated:YES];

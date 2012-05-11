@@ -495,7 +495,7 @@
         isDataChanged = NO;
     }else{
         [saveButton setHidden:NO];
-        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,87,35,35)]; 
+        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,90,35,35)]; 
     }
 }
 

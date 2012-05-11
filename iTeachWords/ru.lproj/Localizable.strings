@@ -109,3 +109,6 @@
 "Help"               = "Система помощи";
 "Connection to the server failed. Please try again later."  = "Не удалось загрузить данные. Пожалуйста, попробуйте еще раз позже.";
 "Connection Problem"    = "Проблема соединения";
+"Suggestion"            = "Предложение";
+"Sorry, speech not recognized. Please try again." = "К сожалению, речь не была распознана. Пожалуйста, попробуйте еще раз.";
+"Alternatives"          = "Альтернативы";

@@ -236,9 +236,8 @@
 - (IBAction) help{
     for (int i=1;i<[contentArray count];i++){
         if([WORD(contentArray,i) isEqual:WORD(contentArray,0)]){
-            
             [table selectRowAtIndexPath:[NSIndexPath indexPathForRow:i-1 inSection:1] animated:YES scrollPosition:UITableViewScrollPositionNone];
-            [self checkingWord:WORD(contentArray,0) success:YES];
+            [self checkingWord:WORD(contentArray,0) success:NO];
 //            [self playSoundWithIndex:0];
             [self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
         }
