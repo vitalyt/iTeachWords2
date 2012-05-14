@@ -249,7 +249,17 @@
 
 - (void) deleteWord
 {
-    UIActionSheet *actionSheet = [[[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Are you sure you want to delete the word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete words", @"") otherButtonTitles: nil] autorelease];
+    int selectedCount = 0;
+    for(Words *word in self.data) {
+        if ([word.isSelected boolValue]) {
+           selectedCount++;
+        }
+    }
+    if (selectedCount == 0) {
+        [UIAlertView displayError:@""];
+        return;
+    }
+    UIActionSheet *actionSheet = [[[UIActionSheet alloc]initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Are you sure you want to delete the (%d) word?", @""),selectedCount] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete words", @"") otherButtonTitles: nil] autorelease];
     [actionSheet showInView:self.view];
 }
 

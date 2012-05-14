@@ -104,7 +104,7 @@
 "Buy"                     = "Buy";
 "No results found"        = "No results found";
 "The list of words is blank"   = "The list of words is blank";
-"Are you sure you want to delete the word?" = "Are you sure you want to delete the word?";
+"Are you sure you want to delete the (%d) word?" = "Are you sure you want to delete the (%d) word?";
 "Tap to find more translations" = "Tap to find more translations";
 "GeneralInfo"        = "GeneralInfo";
 "Help"               = "Training mode";

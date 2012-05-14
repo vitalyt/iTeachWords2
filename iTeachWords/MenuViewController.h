@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseHelpViewController.h"
+#import "InfoViewController.h"
 
 @class CustomBadge;
-@interface MenuViewController : BaseHelpViewController {
+@interface MenuViewController : InfoViewController {
 @private
     IBOutlet UILabel *titleLbl1;
     IBOutlet UILabel *titleLbl2;

@@ -34,6 +34,7 @@
 + (void)displayErrorWithResponce:(NSDictionary *)dict;
 + (void)displayError:(NSString *)message title:(NSString *)title;
 + (void)displayMessage:(NSString *)message;
++ (void)displayMessage:(NSString *)message title:(NSString *)title;
 + (UIAlertView *)showAlert:(NSString *)message withActivity:(BOOL)activity;
 + (void)displayMessage:(NSString *)message withDelegate:(id)delegate;
 

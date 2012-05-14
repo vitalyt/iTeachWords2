@@ -53,12 +53,12 @@
 
 #pragma mark my functions
 
-- (void)addInfoButton{
-    UIImage *icon = [UIImage imageNamed:@"Mail 24x24.png"];
+- (void)addMailButton{
+    UIImage *icon = [UIImage imageNamed:@"mailIcon.png"];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [btn setImage:icon forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(sendMessageView) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
 }
 
 - (void)sendMessageView{
@@ -88,12 +88,11 @@
 // Displays an email composition interface inside the application. Populates all the Mail fields. 
 -(void)displayComposerSheet 
 {
+    [UIAlertView displayMessage:@"Всем нам очень важно услышать, насколько наша работа отвечает Вашим ожиданиям.\nИменно Вы и ваше мнение решает какой будет следующая версия продукта." title:@"Ваше мнение очень важно для нас!"];
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
+	[picker setSubject:@"iStudyWords"];
 	
-	[picker setSubject:@"Hello from California!"];
-	
-    
 	// Set up recipients
     NSString *feedbackMail = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"FeedbackMailAddress"];
     if (feedbackMail) {
@@ -113,7 +112,7 @@
 //	[picker addAttachmentData:myData mimeType:@"image/png" fileName:@"rainy"];
 	
 	// Fill out the email body text
-	NSString *emailBody = @"It is raining in sunny California!";
+	NSString *emailBody = @"Ваши впечатления и предложения.";
 	[picker setMessageBody:emailBody isHTML:NO];
 	
     picker.navigationBar.barStyle = UIBarStyleBlack;
@@ -161,9 +160,9 @@
 {
     NSString *feedbackMail = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"FeedbackMailAddress"];
     if (feedbackMail) {
-        NSString *recipients = [NSString stringWithFormat:@"mailto:%@&subject=Hello from California!",feedbackMail];
+        NSString *recipients = [NSString stringWithFormat:@"mailto:%@&subject=iStudyWords",feedbackMail];
         
-        NSString *body = @"&body=It is raining in sunny California!";
+        NSString *body = @"&body=Ваши впечатления и предложения.";
         
         NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
         email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

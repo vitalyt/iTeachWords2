@@ -39,6 +39,14 @@
 		1C85EF00152C437B007A5D45 /* SimpleMultiPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */; };
 		1C85EF03152C4B53007A5D45 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EF02152C4B53007A5D45 /* sound.png */; };
 		1C85EF04152C4B53007A5D45 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C85EF02152C4B53007A5D45 /* sound.png */; };
+		1C86CE0D156140820010B2F6 /* DictionaryCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C86CE0C156140820010B2F6 /* DictionaryCellViewController.m */; };
+		1C86CE0E156140820010B2F6 /* DictionaryCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C86CE0C156140820010B2F6 /* DictionaryCellViewController.m */; };
+		1C86CE10156140950010B2F6 /* DictionaryCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C86CE0F156140950010B2F6 /* DictionaryCellViewController.xib */; };
+		1C86CE11156140950010B2F6 /* DictionaryCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C86CE0F156140950010B2F6 /* DictionaryCellViewController.xib */; };
+		1C86CE13156144970010B2F6 /* Cut 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86CE12156144970010B2F6 /* Cut 16x16.png */; };
+		1C86CE14156144970010B2F6 /* Cut 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86CE12156144970010B2F6 /* Cut 16x16.png */; };
+		1C86CE1C156152E20010B2F6 /* mailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86CE1B156152E20010B2F6 /* mailIcon.png */; };
+		1C86CE1D156152E20010B2F6 /* mailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86CE1B156152E20010B2F6 /* mailIcon.png */; };
 		1C86E269155BEA1200898E88 /* SearchWight 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E268155BEA1200898E88 /* SearchWight 24x24.png */; };
 		1C86E26A155BEA1200898E88 /* SearchWight 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E268155BEA1200898E88 /* SearchWight 24x24.png */; };
 		1C86E26C155BED0400898E88 /* Shuffle Shuffle 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */; };
@@ -721,6 +729,11 @@
 		1C832651152983AD00ED9191 /* BaseHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHelpViewController.m; sourceTree = "<group>"; };
 		1C85EEFE152C437B007A5D45 /* SimpleMultiPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleMultiPlayer.xib; sourceTree = "<group>"; };
 		1C85EF02152C4B53007A5D45 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
+		1C86CE0B156140820010B2F6 /* DictionaryCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryCellViewController.h; sourceTree = "<group>"; };
+		1C86CE0C156140820010B2F6 /* DictionaryCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryCellViewController.m; sourceTree = "<group>"; };
+		1C86CE0F156140950010B2F6 /* DictionaryCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DictionaryCellViewController.xib; sourceTree = "<group>"; };
+		1C86CE12156144970010B2F6 /* Cut 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cut 16x16.png"; sourceTree = "<group>"; };
+		1C86CE1B156152E20010B2F6 /* mailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mailIcon.png; sourceTree = "<group>"; };
 		1C86E268155BEA1200898E88 /* SearchWight 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchWight 24x24.png"; sourceTree = "<group>"; };
 		1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shuffle Shuffle 24x24.png"; sourceTree = "<group>"; };
 		1C86E26E155BEEA700898E88 /* Chart 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chart 24x24.png"; sourceTree = "<group>"; };
@@ -1499,6 +1512,7 @@
 				28296B1B13812F15000129E8 /* MyMenu.h */,
 				28296B1C13812F15000129E8 /* MyMenu.m */,
 				28296B1D13812F15000129E8 /* MyMenu.xib */,
+				1C86CE1B156152E20010B2F6 /* mailIcon.png */,
 				28FAAB4F14A9FA9E001F9214 /* MenuViewController.h */,
 				28FAAB5014A9FA9E001F9214 /* MenuViewController.m */,
 				28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */,
@@ -1569,6 +1583,7 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1C86CE12156144970010B2F6 /* Cut 16x16.png */,
 				1C86E29E155D449200898E88 /* dask.png */,
 				1C86E26E155BEEA700898E88 /* Chart 24x24.png */,
 				1C86E26B155BECFC00898E88 /* Shuffle Shuffle 24x24.png */,
@@ -1706,6 +1721,9 @@
 				282CB7E01397BD7A008A1032 /* DictionaryViewController.h */,
 				282CB7E11397BD7A008A1032 /* DictionaryViewController.m */,
 				282CB7E21397BD7A008A1032 /* DictionaryViewController.xib */,
+				1C86CE0B156140820010B2F6 /* DictionaryCellViewController.h */,
+				1C86CE0C156140820010B2F6 /* DictionaryCellViewController.m */,
+				1C86CE0F156140950010B2F6 /* DictionaryCellViewController.xib */,
 			);
 			name = Dictionary;
 			sourceTree = "<group>";
@@ -2685,6 +2703,9 @@
 				1C86E26F155BEEB000898E88 /* Chart 24x24.png in Resources */,
 				1C86E29F155D449300898E88 /* dask.png in Resources */,
 				1C86E2A5155D538B00898E88 /* board.png in Resources */,
+				1C86CE10156140950010B2F6 /* DictionaryCellViewController.xib in Resources */,
+				1C86CE13156144970010B2F6 /* Cut 16x16.png in Resources */,
+				1C86CE1C156152E20010B2F6 /* mailIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2890,6 +2911,9 @@
 				1C86E270155BEEB000898E88 /* Chart 24x24.png in Resources */,
 				1C86E2A0155D449300898E88 /* dask.png in Resources */,
 				1C86E2A6155D538B00898E88 /* board.png in Resources */,
+				1C86CE11156140950010B2F6 /* DictionaryCellViewController.xib in Resources */,
+				1C86CE14156144970010B2F6 /* Cut 16x16.png in Resources */,
+				1C86CE1D156152E20010B2F6 /* mailIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3028,6 +3052,7 @@
 				843373AB152A214C005747E4 /* ExpandingBarViewController.m in Sources */,
 				1CACB3911535C85800956445 /* OSDNUITableCellView.m in Sources */,
 				1C2981DF1541A92A00DDDA15 /* CustomGradientButton.m in Sources */,
+				1C86CE0D156140820010B2F6 /* DictionaryCellViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3167,6 +3192,7 @@
 				843373AC152A214C005747E4 /* ExpandingBarViewController.m in Sources */,
 				1CACB3921535C85800956445 /* OSDNUITableCellView.m in Sources */,
 				1C2981E01541A92A00DDDA15 /* CustomGradientButton.m in Sources */,
+				1C86CE0E156140820010B2F6 /* DictionaryCellViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3479,8 +3505,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vitalii Todorovych";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitalii Todorovych";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3499,8 +3525,8 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E9EB951-38AF-4865-9DE7-1F8BF50F8474";
+				PROVISIONING_PROFILE = "C42850B3-BF3A-4173-8599-689A673BF8A2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C42850B3-BF3A-4173-8599-689A673BF8A2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";

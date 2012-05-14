@@ -82,7 +82,7 @@
             }    
             [self incrementFileIndex];
             if (currentSoundType == TRANSLATE) {
-                [self performSelector:@selector(playNextSound) withObject:nil afterDelay:.5];
+                [self performSelector:@selector(playNextSound) withObject:nil afterDelay:.0];
                 return;
             }
             [self startTimer];
@@ -156,11 +156,11 @@
 }
 
 - (IBAction) onStopClick:(id)sender{
+    if (flgTimer) {
+        [timer invalidate];
+        flgTimer = NO;
+    }
 	if (player != nil) {
-        if (flgTimer) {
-            [timer invalidate];
-            flgTimer = NO;
-        }
 		[player stop];
 	}  
     if (delegate && [(id)delegate respondsToSelector:@selector(playerDidClose:)]){

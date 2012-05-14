@@ -57,6 +57,16 @@
 	[alert release];	
 }
 
++ (void)displayMessage:(NSString *)message title:(NSString *)title{
+	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:title
+                                                            message:message
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+	[alert show];
+	[alert release];	
+}
+
 + (void)displayMessage:(NSString *)message withDelegate:(id)delegate {
 	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:nil
 													message:message

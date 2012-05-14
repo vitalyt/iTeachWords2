@@ -91,6 +91,7 @@
     [super viewDidLoad];
     [self setTitles];
     [self addInfoButton];
+    [self addMailButton];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
 
     // Do any additional setup after loading the view from its nib.

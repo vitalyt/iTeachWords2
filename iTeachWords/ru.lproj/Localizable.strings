@@ -104,7 +104,7 @@
 "Buy"                     = "Купить";
 "No results found"        = "Ничего не найдено";
 "The list of words is blank"   = "В словаре слишком мало слов для прохождение этого упражнения";
-"Are you sure you want to delete the word?" = "Вы действительно хотите удалить выделенные слова?";
+"Are you sure you want to delete the (%d) word?" = "Вы действительно хотите удалить  отмеченные слова?\n(количество отмеченных слов %d)";
 "Tap to find more translations" = "Нажмите, для поиска дополнительных переводов";
 "GeneralInfo"        = "GeneralInfo";
 "Help"               = "Система помощи";

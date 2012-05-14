@@ -13,7 +13,6 @@
 		<string></string>
 		<string>test.png</string>
 		<string>test@2x.png</string>
-		<string>test@2x.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -23,7 +22,6 @@
 			<array>
 				<string></string>
 				<string>test.png</string>
-				<string>test@2x.png</string>
 				<string>test@2x.png</string>
 			</array>
 		</dict>
@@ -55,6 +53,8 @@
 	<key>TranslateAppId</key>
 	<string>519419FC66883A8820ED0F76C5AC4B9E70F63425</string>
 	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>

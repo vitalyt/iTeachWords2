@@ -18,5 +18,6 @@
 - (void)sendMessageView;
 -(void)displayComposerSheet;
 -(void)launchMailAppOnDevice;
+- (void)addMailButton;
 
 @end
