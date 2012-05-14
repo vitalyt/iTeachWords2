@@ -13,6 +13,7 @@
 
 @interface TestOneOfSix : ExersiceBasicClass {
     IBOutlet UITableView *table;
+    NSInteger rowCount;
     
     NSMutableArray      *contentArray;
     BOOL                flgChange;
@@ -22,6 +23,7 @@
 @property (nonatomic,retain) NSMutableArray                 *contentArray;
 
 - (NSMutableArray *) mixingArray:(NSArray *)_array count:(int)_count;
--(int) randomFrom:(int)from to:(int)to;
+- (int)randomFrom:(int)from to:(int)to;
+- (void)determineRowCounts;
 
 @end

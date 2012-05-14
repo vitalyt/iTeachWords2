@@ -78,6 +78,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [doneButton setTitle:NSLocalizedString(@"Done", @"") forState:UIControlStateNormal];
     words = [[NSMutableArray alloc] initWithArray:self.data];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"?" style:UIBarButtonItemStyleBordered target:self action:@selector(help)] autorelease];
     [self createStatisticsView];

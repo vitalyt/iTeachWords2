@@ -552,7 +552,6 @@
         case 100:
             message = NSLocalizedString(@"Озвучивание слова", @"");
             break;
-            
         default:
             break;
     }

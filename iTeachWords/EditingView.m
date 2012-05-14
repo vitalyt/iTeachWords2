@@ -89,13 +89,13 @@
     int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:
-            message = NSLocalizedString(@"Удалить выбранные слова", @"");
+            message = NSLocalizedString(@"Удаление отмеченных слов", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"Переназначить выбранные слова в другой словарь", @"");
+            message = NSLocalizedString(@"Переназначение отмеченных слов в другой словарь", @"");
             break;
         case 3:
-            message = NSLocalizedString(@"Выбрать все слова", @"");
+            message = NSLocalizedString(@"Отметить все слова", @"");
             break;
             
         default:

@@ -137,16 +137,16 @@
     int index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:
-            message = NSLocalizedString(@"Правописание", @"");
+            message = NSLocalizedString(@"Упражнение \"Выбор слова\"", @"");
             break;
         case 2:
-            message = NSLocalizedString(@"Правописание", @"");
+            message = NSLocalizedString(@"Упражнение \"Буквы\"", @"");
             break;
         case 3:
-            message = NSLocalizedString(@"Правописание", @"");
+            message = NSLocalizedString(@"Упражнение \"Написание\"", @"");
             break;
         case 4:
-            message = NSLocalizedString(@"Статистика изучения", @"");
+            message = NSLocalizedString(@"Статистика успеваемости", @"");
             break;
             
         default:

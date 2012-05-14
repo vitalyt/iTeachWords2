@@ -102,10 +102,8 @@
 
 - (void)updatePlayButtonImage{
     NSString *imageName;
-	if (player != nil && ![player isPlaying]) {
-        imageName = @"Play 16x16.png";
-        
-	}else if(player != nil){
+    imageName = @"Play 16x16.png";
+	if(player != nil && [player isPlaying]){
         imageName = @"Pause 16x16.png";
     }
     if (playBtn) {

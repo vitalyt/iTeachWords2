@@ -43,15 +43,15 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "356438757.560013"
+         timestampString = "358675135.419683"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "581"
-         endingLineNumber = "581"
+         startingLineNumber = "580"
+         endingLineNumber = "580"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddNewWordViewController.m"
-         timestampString = "356438759.77037"
+         timestampString = "358675135.419683"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "599"
-         endingLineNumber = "599"
+         startingLineNumber = "598"
+         endingLineNumber = "598"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -144,6 +144,32 @@
          startingLineNumber = "199"
          endingLineNumber = "199"
          landmarkName = "-changedNotification"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/TestOneOfSix.m"
+         timestampString = "358676979.952062"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "190"
+         endingLineNumber = "190"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/TestOneOfSix.m"
+         timestampString = "358677034.244774"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-getRandomWordsWithCount:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

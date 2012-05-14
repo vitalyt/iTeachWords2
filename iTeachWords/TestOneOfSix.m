@@ -123,6 +123,9 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Words" inManagedObjectContext:CONTEXT];
     [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type!=nil"];
+    [request setPredicate:predicate];
+    
     // Assumes that you know the number of objects per entity, and that your order starts at zero.
     //    [request setFetchLimit:1];
     NSError *error = nil;
