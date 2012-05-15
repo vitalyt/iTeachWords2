@@ -15,7 +15,7 @@
 }
 
 - (NSString *)getSelectedText;
-- (void)addWebView;
+- (void)addWordView;
 - (void)showAddWordView:(id)sender;
 - (void)createMenu;
 

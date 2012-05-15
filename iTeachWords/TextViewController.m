@@ -92,6 +92,9 @@
     frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
     [pagesScrollView.view setFrame:frame];
     [myTextView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"board.png"]]];
+    
+    //    [myTextView setText:@"<H1>header</H1>"];
+//    [myTextView setContentToHTMLString:@"<H1>header</H1>"];
 }
 
 

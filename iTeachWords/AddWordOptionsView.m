@@ -40,14 +40,14 @@
                                               target:self action:@selector(back)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow down 24x24"] style:UIBarButtonItemStylePlain target:self action:@selector(showAddWordView:)] autorelease];
     [self.navigationItem.rightBarButtonItem setTag:4];
-    [self addWebView];
+    [self performSelector:@selector(addWordView) withObject:nil afterDelay:0.1];
 }
 
 - (void) back{
 	[wordsView back];
 }
 
-- (void)addWebView{
+- (void)addWordView{
     if (!wordsView) {
         wordsView = [[AddNewWordViewController alloc] initWithNibName:@"AddNewWordViewController" bundle:nil];
         [wordsView setDelegate:self];

@@ -33,7 +33,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     
     [UIView animateWithDuration:0.6 delay:0.0 options:UIViewAnimationOptionCurveEaseOut 
-                     animations:^(){
+                     animations:^(void){
                          [_modalView setAlpha:0.0];
                      } 
                      completion:^(BOOL finished){
@@ -43,9 +43,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                          {
                              [self.hintDelegate hintStateDidClose:self];
                          }
-
                      }];
-    
+//    [_modalView setAlpha:0.0];
+//    [_modalView removeFromSuperview];
+//    _modalView = nil;
+//    if ([self.hintDelegate respondsToSelector:@selector(hintStateDidClose:)])
+//    {
+//        [self.hintDelegate hintStateDidClose:self];
+//    }
 }
 
 -(void)_addTap

@@ -57,6 +57,9 @@
 
 - (void) loadData{ 
 	self.data = [MyPickerViewContrller loadAllTheme];
+    if ([self.data count] == 0) {
+        [UIAlertView displayMessage:NSLocalizedString(@"The list of dictionaries is empty. First of all create a theme.", @"") title:NSLocalizedString(@"Suggestion", @"")];
+    }
     if (rows) {
         [rows release];
     }

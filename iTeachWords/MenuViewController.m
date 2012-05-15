@@ -83,6 +83,7 @@
         [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
         [self.navigationController pushViewController:languageView animated:YES];
         [languageView release];
+        [UIAlertView displayMessage:NSLocalizedString(@"This is your first launch iStudyWords.\nPlease, choose the languages that you will use.", @"") title:NSLocalizedString(@"Suggestion", @"")];
     }
 }
 
@@ -222,6 +223,10 @@
 }
 
 - (IBAction)showOptionView:(id)sender {
+    if (MESS_HELP_MODE && !IS_HELP_MODE) {
+        [UIAlertView displayMessage:NSLocalizedString(@"If you will have a problem with value of buttons you can make available a help mode within the Settings view.", @"") title:NSLocalizedString(@"Suggestion", @"")];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"messHelpMode"];
+    }
     int selectedButtonIndex = (sender)?((UIButton*)sender).tag:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastItem"];
     [[NSUserDefaults standardUserDefaults] setInteger:selectedButtonIndex forKey:@"lastItem"];
     switch (selectedButtonIndex) {
