@@ -179,7 +179,7 @@
 	}
     indexFileArray = 0;
     [self playNextSound];
-    [self updatePlayButtonImage];
+    [self performSelector:@selector(updatePlayButtonImage) withObject:nil afterDelay:.2];
 }
 
 - (void)dealloc {

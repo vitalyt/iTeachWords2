@@ -46,10 +46,11 @@ typedef enum {
 @property (nonatomic,retain) WordTypes *wordType;
 @property (nonatomic) ShowingWordType   showingType;
 
-- (void) playSoundWithIndex:(NSIndexPath *)indexPath;
-- (void) showMyPickerView:(id)sender;
-- (void) showToolsView;
-- (void) showTableHeadView;
+- (void)playSoundWithIndex:(NSIndexPath *)indexPath;
+- (void)showMyPickerView:(id)sender;
+- (void)showToolsView;
+- (void)showTableHeadView;
+- (void)showEditingViewForWord:(Words*)_word;
 
 - (void)checkDelayedThemes;
 - (void)showTableAlertViewWithElements:(NSArray *)elements;

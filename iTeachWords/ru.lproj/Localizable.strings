@@ -117,3 +117,5 @@
 "This is your first launch iStudyWords.\nPlease, choose the languages that you will use."   = "Это Ваш первый запуск iStudyWords.\nПожалуйста, укажите языки которые будете изпользовать.";
 "If you will have a problem with value of buttons you can make available a help mode within the Settings view." = "Если у вас возникнут проблемы со значением кнопок, Вы можете активировать \"Систему помощи\" в настройках.";
 "The list of dictionaries is empty. First of all create a theme." = "Список словарей пуст.\nДля продолжения работы создайте словарь.";
+"Shoose a dictionary." = "Список словарей пуст.\nДля продолжения работы создайте словарь.";
+"Select the dictionary to which you want to move the marked words." = "Укажите словарь, в который вы хотите переместить отмеченные слова";

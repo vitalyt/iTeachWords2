@@ -8,8 +8,6 @@
 	<string>${PRODUCT_NAME}(Free)</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>test.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string></string>

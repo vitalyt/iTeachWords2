@@ -286,15 +286,25 @@
             [cell.btn setImage:LoadRecordImg forState:UIControlStateNormal];
         }
         
-       //changing image of selecting button  
-        if ([word.isSelected boolValue])
+        if (table.isEditing)
         {
-            indicator.image = isSelectedImg;
-            [cell setSelected:YES];
-        }else{
-            indicator.image = notSelectedImg;
-            [cell setSelected:NO];
+            //changing image of selecting button  
+            if ([word.isSelected boolValue])
+            {
+                indicator.image = isSelectedImg;
+                [cell setSelected:YES];
+            }else{
+                indicator.image = notSelectedImg;
+                [cell setSelected:NO];
+            }
+            
+            [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+            cell.btn.hidden = YES;
+        }else {
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+            cell.btn.hidden = NO;
         }
+        
         if(isStatisticShowing){
             [((TableCellController *)cell) generateStatisticView];
             [((TableCellController *)cell).statisticViewController setWord:word];
@@ -310,7 +320,6 @@
 
 
 #pragma mark - Table view delegate
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -363,7 +372,6 @@
         return;
     }
     [table setScrollEnabled:NO];
-//    [table performSelectorOnMainThread:@selector(setScrollEnabled:) withObject:NO waitUntilDone:YES];
     int index;
     if ([multiPlayer.words count] > 1) {
         NSIndexPath *scrollingIndex = [NSIndexPath indexPathForRow:(soundIndex>0)?soundIndex-1:0 inSection:0];
@@ -372,8 +380,7 @@
     }else{
         index = currentSelectedWordPathIndex.row;
     }
-//    UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
-//    [cell setSelected:YES animated:YES];
+
 }
 
 - (void)scrollTableToIndexPath:(NSIndexPath*)indexPath{
@@ -387,11 +394,6 @@
     }else{
         index = currentSelectedWordPathIndex.row;
     }
-//    [table setScrollEnabled:YES];
-//    
-//    UITableViewCell *cell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] ];
-//    [cell setSelected:NO animated:YES];
-//      [table reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentSelectedWordPathIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)playerDidFinishPlaying:(id)sender{

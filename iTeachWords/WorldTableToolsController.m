@@ -196,18 +196,28 @@
     
 }
 
+#pragma matk Editing word
+
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath  
 { 
     if (!tableView.isEditing){
-        AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
-        [myAddWordView setWord:[self.data objectAtIndex:indexPath.row]];
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
-        [[self navigationItem] setBackBarButtonItem: newBackButton];
-        [self.navigationController pushViewController:myAddWordView animated:YES];
-        [myAddWordView release]; 
-        [newBackButton release];
+        [self showEditingViewForWord:[self.data objectAtIndex:indexPath.row]];
     }
     return UITableViewCellEditingStyleNone;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    [self showEditingViewForWord:[self.data objectAtIndex:indexPath.row]];
+}
+
+- (void)showEditingViewForWord:(Words*)_word{
+    AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
+    [myAddWordView setWord:_word];
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
+    [[self navigationItem] setBackBarButtonItem: newBackButton];
+    [self.navigationController pushViewController:myAddWordView animated:YES];
+    [myAddWordView release]; 
+    [newBackButton release];
 }
 
 - (void) reassignWord
