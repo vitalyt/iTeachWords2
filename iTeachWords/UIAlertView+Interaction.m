@@ -8,6 +8,7 @@
 
 #import "UIAlertView+Interaction.h"
 #import "CustomAlertView.h"
+#import "OsdnUtilHash.h"
 
 @implementation UIAlertView (Interaction)
 
@@ -57,7 +58,22 @@
 	[alert release];	
 }
 
-+ (void)displayMessage:(NSString *)message title:(NSString *)title{
++ (void)displayGuideMessage:(NSString *)message title:(NSString *)title{
+    NSString *key = [OsdnUtilHash md5:[NSString stringWithFormat:@"%@%@",title,message]];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:title
+                                                                message:message
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:key];
+    }
+}
+
++ (void)displayInfoMessage:(NSString *)message title:(NSString *)title{
 	CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:title
                                                             message:message
                                                            delegate:nil
