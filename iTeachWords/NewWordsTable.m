@@ -92,8 +92,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
-    limit = 50;
-    offset = 50;
+    limit = 100;
+    offset = 100;
     cellStyle = UITableViewCellStyleValue1;
     [self showToolsView];
     
@@ -190,6 +190,8 @@
     }else{
         [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
         cell.textLabel.text = [NSString stringWithFormat:@"next %d words",offset];
+        [cell setSelected:NO];
+        [cell setEditing:NO];
     }
 }
 

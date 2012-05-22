@@ -65,11 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/NewWordsTable.m"
-         timestampString = "354140217.978899"
+         timestampString = "359401835.925079"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "326"
-         endingLineNumber = "326"
+         startingLineNumber = "328"
+         endingLineNumber = "328"
          landmarkName = "-loadLocalTranslateWords:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -79,11 +79,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/NewWordsTable.m"
-         timestampString = "354140217.978899"
+         timestampString = "359401835.925079"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "347"
-         endingLineNumber = "347"
+         startingLineNumber = "349"
+         endingLineNumber = "349"
          landmarkName = "-addWords:withTranslate:toWordType:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -485,11 +485,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
-         timestampString = "359390764.008915"
+         timestampString = "359399425.287658"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "365"
-         endingLineNumber = "365"
+         startingLineNumber = "355"
+         endingLineNumber = "355"
          landmarkName = "+saveDB"
          landmarkType = "5">
       </FileBreakpoint>
@@ -505,6 +505,20 @@
          startingLineNumber = "158"
          endingLineNumber = "158"
          landmarkName = "-editThemeName:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/NewWordsTable.m"
+         timestampString = "359401865.884685"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
+         landmarkName = "-tableView:cellIdentifierForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
