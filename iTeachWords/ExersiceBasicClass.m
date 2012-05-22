@@ -10,7 +10,7 @@
 #import "StatisticViewController.h"
 #import "Statistic.h"
 #import "RepeatModel.h"
-
+#import "CustomAlertView.h"
 #define WORD(array,index) ((Words *)[array objectAtIndex:index])
 
 @implementation ExersiceBasicClass
@@ -103,10 +103,42 @@
     
 }
 
-- (void) back{ 
-    [self registerRepeat];
+- (void) back{
+    if (statisticView.index > 0) {
+        [self showQuestionsAlert];
+        return;
+    }
     [self performTransition];
-	[self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)showQuestionsAlert{
+    int progres = (int)((1.0 - (float)(statisticView.index - statisticView.right)/statisticView.index)*100);
+    int total = (int)((1.0 - (float)(statisticView.total - statisticView.totalQuestions)/statisticView.total)*100);
+    if (total<0) {
+        total=0;
+    }
+    if (progres<0) {
+        progres=0;
+    }
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Done: %d %%\n Progress: %d %%\nMark the dictionary as learned?", @""),total,progres];
+    CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Results", @"")
+                                                            message:message
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"Not sure", @"")
+                                                  otherButtonTitles:NSLocalizedString(@"YES", @""),nil];
+	[alert show];
+	[alert release];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [self registerRepeat];
+    }else if(buttonIndex == 0){
+        
+    }
+    [self performTransition];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)registerRepeat{
@@ -125,12 +157,12 @@
     }
 }
 
-- (void) playSoundWithIndex:(int)index{
+- (void) playSoundWithIndex:(int)_index{
     if (multiPlayer) {
         [multiPlayer closePlayer];
         [multiPlayer release];
     }
-    NSArray *sounds = [[NSArray alloc] initWithObjects:[self.data objectAtIndex:index], nil];
+    NSArray *sounds = [[NSArray alloc] initWithObjects:[self.data objectAtIndex:_index], nil];
     multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];

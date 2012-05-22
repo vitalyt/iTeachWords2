@@ -87,8 +87,8 @@
     NSArray *statistic = [self getStatisticIndexesArrayWithWords:oldArray];
     //set major word
     int randomIndexMajor = [self randomFrom:0 to:[statistic count]];
-    int index = [[statistic objectAtIndex:randomIndexMajor] intValue];
-    [newArray addObject:[_array objectAtIndex:index]];
+    int _index = [[statistic objectAtIndex:randomIndexMajor] intValue];
+    [newArray addObject:[_array objectAtIndex:_index]];
     //
     
     BOOL flgExistMajor = NO;
@@ -106,13 +106,13 @@
     //	}
     //and translate
     for (int i=1; i<[newArray count]; i++) {
-        if([[newArray objectAtIndex:i] isEqual:[_array objectAtIndex:index]]){
+        if([[newArray objectAtIndex:i] isEqual:[_array objectAtIndex:_index]]){
             flgExistMajor = YES;
         }
     }
     if(!flgExistMajor){
         int randomIndex = [self randomFrom:1 to:[newArray count]];
-        [newArray replaceObjectAtIndex:randomIndex withObject:[_array objectAtIndex:index]];
+        [newArray replaceObjectAtIndex:randomIndex withObject:[_array objectAtIndex:_index]];
     }
 	[oldArray release];
 	return [newArray autorelease];
@@ -223,12 +223,12 @@
     return 50;
 }
 
-- (void) playSoundWithIndex:(int)index{
+- (void) playSoundWithIndex:(int)_index{
     if (multiPlayer) {
         [multiPlayer closePlayer];
         [multiPlayer release];
     }
-    NSArray *sounds = [[NSArray alloc] initWithObjects:WORD(contentArray,index), nil];
+    NSArray *sounds = [[NSArray alloc] initWithObjects:WORD(contentArray,_index), nil];
     multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];

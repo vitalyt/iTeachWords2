@@ -20,6 +20,9 @@
 
 - (IBAction) help{
 	textBox.text = CURRENTWORD.text;
+    statisticView.total = [words count];
+    statisticView.totalQuestions++;
+    statisticView.index++;
 }
 
 - (IBAction) nextWord{
@@ -35,6 +38,7 @@
     statisticView.total = [words count];
     statisticView.index++;
 }
+
 - (void) playSoundWithIndex:(int)_index{
     if (multiPlayer) {
         [multiPlayer closePlayer];
@@ -47,7 +51,6 @@
 	[multiPlayer playList:sounds];
     [sounds release];
 }
-
 
 - (void)playerDidFinishPlayingList:(id)sender{
     [self createWord];
@@ -64,15 +67,19 @@
         [self showTestMessageResultat:YES];
 		return YES;
 	}else{
-        [self checkingWord:CURRENTWORD success:NO];
         [self showTestMessageResultat:NO];
     }
-    if (index+1 >= [words count]) {
-		[words addObject:CURRENTWORD];
-    }else{
-		[words insertObject:CURRENTWORD atIndex:index+2];
-		[words addObject:CURRENTWORD];
-    }
+    
+    if ([words lastObject] != CURRENTWORD) {
+        [self checkingWord:CURRENTWORD success:NO];
+        if (index+1 >= [words count]) {
+            [words addObject:CURRENTWORD];
+        }else{
+            [words insertObject:CURRENTWORD atIndex:index+2];
+            [words addObject:CURRENTWORD];
+        }
+    } 
+
 	return NO;
 }
 
@@ -84,6 +91,7 @@
     [self createStatisticsView];
     statisticView.total = [words count];
 	[self createWord];
+    [textBox performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:.5];
 }
 
 - (void)viewDidUnload{

@@ -25,5 +25,6 @@
 - (NSMutableArray *) mixingArray:(NSArray *)_array count:(int)_count;
 - (int)randomFrom:(int)from to:(int)to;
 - (void)determineRowCounts;
+- (NSArray*)getRandomWordsWithCount:(int)_count;
 
 @end

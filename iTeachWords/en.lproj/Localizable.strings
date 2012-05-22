@@ -122,3 +122,7 @@
 "You are in able to change the schedule of repetition." = "You are in able to change the schedule of repetition";
 "Language not available. For a list of available languages, please see the Dragon Mobile SDK website."  = "Language not available. For a list of available languages, please see the Dragon Mobile SDK website.";
 "There is not selected words."  = "There is not selected words.";
+"Results"               = "Results";
+"Not sure"              = "Not sure";
+"Done: %d %%\n Progress: %d %%\nMark the dictionary as learned?"  = "Done: %d %%\n Progress: %d %%\nMark the dictionary as learned?";
+

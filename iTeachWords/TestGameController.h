@@ -11,12 +11,13 @@
 
 @interface TestGameController : ExersiceBasicClass {
 	Words		*word;
-	int         index;
+    bool        endFlg;
 }
 
 - (NSString *)	QQQ:(NSString *) _word charIn:(const char)ch;
 - (void)		setText:(NSString *)str;
 - (void)		capitalizeText: (NSNotification*)notification;
 - (void)		onHideKeyboard:(id)notification;
-
+- (void)stopObserverWithNotification:(NSNotification*)notification;
+- (void)startObserverWithNotification:(NSNotification*)notification;
 @end

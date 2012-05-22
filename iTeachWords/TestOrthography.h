@@ -12,7 +12,6 @@
 
 @interface TestOrthography : ExersiceBasicClass <UITextFieldDelegate> {
     NSMutableArray  *words;
-	int             index;
 }
 
 - (IBAction) nextWord;

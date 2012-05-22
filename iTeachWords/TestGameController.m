@@ -33,6 +33,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(capitalizeText:) name:@"UITextViewTextDidChangeNotification" object:nil];
     [self createStatisticsView];
     statisticView.total = [data count];
+    [textBox performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:.5];
 }
 
 - (void)viewDidUnload{
@@ -40,7 +41,9 @@
 }
 
 - (void) createWord{
-
+    if (endFlg) {
+        return;
+    }
 	if(index<[self.data count]){
 		lblWordEng.text = @"";
 		word = [self.data objectAtIndex:index];
@@ -53,6 +56,7 @@
 		}
 		lblWordRus.text = word.translate;
 	}else{
+        endFlg = YES;
         [self back];
     }
 }
@@ -74,7 +78,9 @@
 	if (!flg) {
         [self checkingWord:word success:NO];
         [self showTestMessageResultat:NO];
-		[self.data addObject:word];
+        if ([self.data lastObject] != word) {
+            [self.data addObject:word];
+        }
         statisticView.total = [data count];
         statisticView.index++;
 	}
@@ -94,6 +100,7 @@
 }
 
 - (void) nextWord{
+    statisticView.total = [data count];
 	const char *cWord = (char *)[lblWordEng.text UTF8String];
 	BOOL flg = NO;
 	for (int i = 0; i < [lblWordEng.text length]; i++) {
@@ -113,7 +120,13 @@
             return;
         }
         else {
-            [self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
+            if(index<[self.data count]){
+                [self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
+            }else{  
+                [textBox resignFirstResponder];
+                endFlg = YES;
+                [self back];
+            }
         }
 	}
 }
@@ -121,6 +134,10 @@
 - (IBAction) help{
 	lblWordEng.text = word.text;
 	[self.data addObject:word];
+    statisticView.totalQuestions++;
+    statisticView.index++; 
+    index++;
+    [self performSelector:@selector(createWord) withObject:nil afterDelay:1.5f];
 }
 
 - (void)onHideKeyboard:(id)notification

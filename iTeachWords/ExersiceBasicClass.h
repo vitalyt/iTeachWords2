@@ -1,12 +1,11 @@
 //
-//  ExersiceBasicClass.h
+//  ;
 //  iTeachWords
 //
 //  Created by Vitaly Todorovych on 5/23/11.
 //  Copyright 2011 OSDN. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <iAd/iAd.h>
 #import "Words.h"
 #import "MyPlayerProtocol.h"
@@ -14,7 +13,7 @@
 
 @class StatisticViewController,MultiPlayer,WordTypes;
 
-@interface ExersiceBasicClass : UIViewController <UITextFieldDelegate,MyPlayerProtocol,ADBannerViewDelegate> {
+@interface ExersiceBasicClass : UIViewController <UITextFieldDelegate,MyPlayerProtocol,ADBannerViewDelegate,UIAlertViewDelegate> {
 	IBOutlet UITextField *textBox;
 	IBOutlet UILabel	*lblWordEng;
 	IBOutlet UILabel	*lblWordRus;
@@ -24,6 +23,8 @@
     WordTypes           *wordType;
     StatisticViewController *statisticView;
     MultiPlayer             *multiPlayer;
+	int             index;
+    bool            isAnimation;
     
     ADBannerView *adView;
     BOOL bannerIsVisible;
@@ -48,5 +49,6 @@
 - (void)moveViewObjects;
 - (void)registerRepeat;
 
--(void)performTransition;
+- (void)performTransition;
+- (void)showQuestionsAlert;
 @end
