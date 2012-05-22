@@ -222,13 +222,6 @@
 
 - (void) reassignWord
 {
-    int selectedCount = [self getSelectedWordsCount];
-    if (selectedCount==0) {
-        [UIAlertView displayError:NSLocalizedString(@"There is not selected words.", @"")];
-        return;
-    }else {
-        [UIAlertView displayGuideMessage:NSLocalizedString(@"Select the dictionary to which you want to move the marked words.", @"") title:NSLocalizedString(@"Suggestion", @"")];        
-    }
     [self showMyPickerView:nil];
 }
 
@@ -266,9 +259,14 @@
 
 - (void) deleteWord
 {
-    int selectedCount = [self getSelectedWordsCount];
+    int selectedCount = 0;
+    for(Words *word in self.data) {
+        if ([word.isSelected boolValue]) {
+           selectedCount++;
+        }
+    }
     if (selectedCount == 0) {
-        [UIAlertView displayError:NSLocalizedString(@"There is not selected words.", @"")];
+        [UIAlertView displayError:@""];
         return;
     }
     UIActionSheet *actionSheet = [[[UIActionSheet alloc]initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Are you sure you want to delete the (%d) word?", @""),selectedCount] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete words", @"") otherButtonTitles: nil] autorelease];
@@ -284,16 +282,6 @@
         default:
             break;
     }
-}
-
-- (int)getSelectedWordsCount{
-    int selectedCount = 0;
-    for(Words *word in self.data) {
-        if ([word.isSelected boolValue]) {
-            selectedCount++;
-        }
-    }
-    return selectedCount;
 }
 
 - (void) reassignSelectedWordsToTheme:(WordTypes *)_wordType{

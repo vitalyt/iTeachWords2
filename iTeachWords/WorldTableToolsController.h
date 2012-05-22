@@ -24,5 +24,4 @@
 - (void)generateThemeStatistic;
 - (void)performTransition;
 - (void)deselectAllWords;
-- (int)getSelectedWordsCount;
 @end

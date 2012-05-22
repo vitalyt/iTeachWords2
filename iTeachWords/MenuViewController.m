@@ -223,8 +223,9 @@
 }
 
 - (IBAction)showOptionView:(id)sender {
-    if (!IS_HELP_MODE) {
-        [UIAlertView displayGuideMessage:NSLocalizedString(@"If you will have a problem with value of buttons you can make available a help mode within the Settings view.", @"") title:NSLocalizedString(@"Suggestion", @"")];
+    if (MESS_HELP_MODE && !IS_HELP_MODE) {
+        [UIAlertView displayMessage:NSLocalizedString(@"If you will have a problem with value of buttons you can make available a help mode within the Settings view.", @"") title:NSLocalizedString(@"Suggestion", @"")];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"messHelpMode"];
     }
     int selectedButtonIndex = (sender)?((UIButton*)sender).tag:[[NSUserDefaults standardUserDefaults] integerForKey:@"lastItem"];
     [[NSUserDefaults standardUserDefaults] setInteger:selectedButtonIndex forKey:@"lastItem"];
