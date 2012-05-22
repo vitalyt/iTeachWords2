@@ -150,7 +150,7 @@
 }
 
 - (void)showTableAlertViewWithElements:(NSArray *)elements{
-    AlertTableView *alertTableView = [[AlertTableView alloc] initWithCaller:self data:elements title:@"Please repeat the themes from the list" andContext:@"context identificator"];
+    AlertTableView *alertTableView = [[AlertTableView alloc] initWithCaller:self data:elements title:NSLocalizedString(@"Please repeat the themes from the list", @"") andContext:@"context identificator"];
     [alertTableView show];
     [alertTableView autorelease];
 }
@@ -162,6 +162,8 @@
         wordType = [_wordType retain];
         [[NSUserDefaults standardUserDefaults] setObject:_wordType.name forKey:@"lastTheme"];
         [self loadData];
+        
+        [UIAlertView displayMessage:NSLocalizedString(@"To view studying Dictionary - Complete one of the exercises.", @"") title:NSLocalizedString(@"Suggestion", @"")];
     }
 }
 
@@ -215,6 +217,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [table setScrollEnabled:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 

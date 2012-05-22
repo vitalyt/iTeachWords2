@@ -176,9 +176,14 @@
     NSString *typeName = [NSString stringWithString:themeEditingFlt.text];
     [typeName removeSpaces];
     if ([typeName length] == 0) {
-        [UIAlertView displayError:@"Please enter the name of the theme."];
+        [UIAlertView displayError:NSLocalizedString(@"Please enter the name of the theme.", @"")];
         return;
     }
+    if ([self isThemeAvailability:typeName]) {
+        [UIAlertView displayError:NSLocalizedString(@"The theme with current name already exist.", @"")];
+        return;
+    }
+    
     WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
     [wordType setName:themeEditingFlt.text];
     [iTeachWordsAppDelegate saveUndoBranch];
@@ -187,6 +192,14 @@
     [[NSUserDefaults standardUserDefaults] setValue:typeName forKey:@"lastTheme"];
     [self loadData];
     isAdding = NO;
+}
+
+- (bool)isThemeAvailability:(NSString*)themeName{
+    NSPredicate *_predicate = [NSPredicate predicateWithFormat:@"nativeCountryCode = %@ && translateCountryCode = %@ && name = %@",NATIVE_LANGUAGE_CODE, TRANSLATE_LANGUAGE_CODE,themeName];
+    if ([[MyPickerViewContrller loadAllThemeWithPredicate:_predicate] count]>0) {
+        return YES;
+    }
+    return NO;
 }
 
 - (IBAction) cansel

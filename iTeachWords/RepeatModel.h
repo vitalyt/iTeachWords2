@@ -23,15 +23,15 @@
 - (StatisticLearning *) createStatisticLearningWithRepeatStatus:(int)_repeatStatus;
 - (void)setNewRepeatStatusToStatisticLearning:(StatisticLearning*)statisticLearning;
 - (void)saveChanges;
-- (int)getRepeatStatusByIntervalSeconds:(int)intervalSeconds;
++ (int)getRepeatStatusByIntervalSeconds:(int)intervalSeconds;
 
 - (NSArray*)getDelayedTheme;
 - (NSDate *)getLastThemeLearningDateWithStatisticsArray:(NSArray*)_statisticsLearningArray;
-- (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray;
++ (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray;
 
 - (NSArray*)loadAllThemes;
-- (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType;
++ (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType;
 
-- (NSString*)keyForStatus:(int)status;
-- (BOOL)getRepeatTimeIntervalAvailableWithStatus:(int)status;
++ (NSString*)keyForStatus:(int)status;
++ (BOOL)getRepeatTimeIntervalAvailableWithStatus:(int)status;
 @end

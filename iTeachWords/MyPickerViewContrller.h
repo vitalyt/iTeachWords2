@@ -49,6 +49,7 @@
 - (void)showThemeDetail:(WordTypes*)_wordType;
 - (void)closeEditingField;
 - (void)saveEditingField;
+- (bool)isThemeAvailability:(NSString*)themeName;
 
 - (CATransition*)cretePushAnimation;
 - (CATransition*)cretePopAnimation;

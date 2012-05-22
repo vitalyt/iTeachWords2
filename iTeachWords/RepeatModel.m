@@ -36,7 +36,7 @@
     if (_wordType != wordType) {
         [wordType release];
         wordType = [_wordType retain];
-        statisticsLearningArray = [[self loadAllStatisticsLearningWithWordType:wordType] retain];
+        statisticsLearningArray = [[RepeatModel loadAllStatisticsLearningWithWordType:wordType] retain];
 //        lastThemeLearningDate = [[self getLastThemeLearningDate] retain];
     }
 }
@@ -51,10 +51,11 @@
     return companies;
 }
 
-- (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType{
++ (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType{
     NSArray *_statisticLearningArray = [NSArray arrayWithArray:[_wordType.statisticLearning allObjects]];
     NSSortDescriptor *status = [[NSSortDescriptor alloc] initWithKey:@"repeatStatus" ascending:YES];
     _statisticLearningArray = [_statisticLearningArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:status, nil]]; 
+    [status release];
     return _statisticLearningArray;
 }
 
@@ -104,7 +105,7 @@
         NSLog(@"lastLearningDate->%@",_lastThemeLearningDate);
         NSLog(@"currentDate->%@",currentDate);
         NSLog(@"interval->%d",intervall);
-        int _repeatStatus = [self getRepeatStatusByIntervalSeconds:intervall];
+        int _repeatStatus = [RepeatModel getRepeatStatusByIntervalSeconds:intervall];
         NSLog(@"new status->%d",_repeatStatus);
         if (_repeatStatus > statisticLearning.repeatStatus.intValue) {
             statisticLearning = [self createStatisticLearningWithRepeatStatus:_repeatStatus];
@@ -112,7 +113,7 @@
     }
 }
 
-- (int)getRepeatStatusByIntervalSeconds:(int)intervalSeconds{
++ (int)getRepeatStatusByIntervalSeconds:(int)intervalSeconds{
     NSLog(@"interval->%d",intervalSeconds);    
     int _repeatStatus = 0;
     if (0<intervalSeconds && intervalSeconds<=900) {//<15 min
@@ -126,7 +127,7 @@
     }else if (2592000<intervalSeconds) {//>1 m
         _repeatStatus = 5;
     }
-    bool availability = [self getRepeatTimeIntervalAvailableWithStatus:_repeatStatus];
+    bool availability = [RepeatModel getRepeatTimeIntervalAvailableWithStatus:_repeatStatus];
 
     if (!availability) {
         return 0;
@@ -134,7 +135,7 @@
     return _repeatStatus;
 }
 
-- (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray{
++ (int)getTimeIntervalToNexLearning:(NSArray *)_statisticsLearningArray{
     StatisticLearning *_statisticLearning = [_statisticsLearningArray lastObject];
     int intervallToNextRepeat = 0;
     if (_statisticLearning) {
@@ -185,8 +186,8 @@
     NSMutableArray *content = [[NSMutableArray alloc] init];
     for (int i=0;i<[themes count];i++){
         WordTypes *_wordType = [themes objectAtIndex:i];
-        NSArray *_statisticsLearningArray = [self loadAllStatisticsLearningWithWordType:_wordType];
-        int intervalToNexLearning = [self getTimeIntervalToNexLearning:_statisticsLearningArray];
+        NSArray *_statisticsLearningArray = [RepeatModel loadAllStatisticsLearningWithWordType:_wordType];
+        int intervalToNexLearning = [RepeatModel getTimeIntervalToNexLearning:_statisticsLearningArray];
         NSLog(@"intervalToNexLearning->%d",intervalToNexLearning);
         
         if (intervalToNexLearning>0) {
@@ -207,7 +208,7 @@
 }
 
 
-- (NSString*)keyForStatus:(int)status{
++ (NSString*)keyForStatus:(int)status{
     NSString *key = @"";
     switch (status) {
         case 2:
@@ -229,11 +230,11 @@
     return key;
 }
 
-- (BOOL)getRepeatTimeIntervalAvailableWithStatus:(int)status{
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:[self keyForStatus:status]]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[self keyForStatus:status]];
++ (BOOL)getRepeatTimeIntervalAvailableWithStatus:(int)status{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:[RepeatModel keyForStatus:status]]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[RepeatModel keyForStatus:status]];
     }
-    return [[NSUserDefaults standardUserDefaults] boolForKey:[self keyForStatus:status]];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:[RepeatModel keyForStatus:status]];
 }
 
 - (void)dealloc {

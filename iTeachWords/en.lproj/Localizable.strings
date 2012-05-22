@@ -125,4 +125,20 @@
 "Results"               = "Results";
 "Not sure"              = "Not sure";
 "Done: %d %%\n Progress: %d %%\nMark the dictionary as learned?"  = "Done: %d %%\n Progress: %d %%\nMark the dictionary as learned?";
+"The theme with current name already exist." = "The theme with current name already exist.";
+"Please enter the name of the theme."   = "Please enter the name of the theme.";
+"Please repeat the themes from the list"    = "Please repeat the themes from the list";
+"To view studying Dictionary - Complete one of the exercises."  = "To view studying Dictionary - Complete one of the exercises.";
+"Unfortunately, this functionality is not yet available in this version of the program."    = "Unfortunately, this functionality is not yet available in this version of the program.";
+
+
+
+
+
+
+
+
+
+
+
 

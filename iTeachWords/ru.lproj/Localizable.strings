@@ -110,7 +110,7 @@
 "Help"               = "Система помощи";
 "Connection to the server failed. Please try again later."  = "Не удалось загрузить данные. Пожалуйста, попробуйте еще раз позже.";
 "Connection Problem"    = "Проблема соединения";
-"Suggestion"            = "Предложение";
+"Suggestion"            = "Совет";
 "Sorry, speech not recognized. Please try again." = "К сожалению, речь не была распознана. Пожалуйста, попробуйте еще раз.";
 "Alternatives"          = "Альтернативы";
 "Query cancelled."        = "Запрос отменен.";
@@ -125,3 +125,29 @@
 "Results"               = "Ваши результаты";
 "Not sure"              = "Не уверен";
 "Done: %d %%\n Progress: %d %%\nMark the dictionary as learned?"  = "Пройденно: %d %%\nУспеваемость: %d %%\nОбозначить словарь как изучен?";
+"The theme with current name already exist." = "Словарь с таким именем уже существует.";
+"Please enter the name of the theme."   = "Введите название словаря.";
+"Please repeat the themes from the list"    = "Следующие словари нуждаються в повторении.";
+"To view studying Dictionary - Complete one of the exercises."  = "Чтобы словарь считался изученным - пройдите одно из упражнений.";
+"Unfortunately, this functionality is not yet available in this version of the program."      = "К сожалению, этот функционал пока недоступен в данной версии программы.";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

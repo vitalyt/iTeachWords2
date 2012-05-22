@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYRateView.h"
 
 @class WordTypes,DetailStatisticViewController;
 @interface ThemeDetailView : UIViewController{
@@ -31,4 +32,6 @@
 - (void)setTheme:(WordTypes*)_wordTheme;
 - (void)generateStatisticView;
 - (void)fillData;
+- (void)setUpRightAlignedRateViewWith:(WordTypes*)_wordTheme;
+
 @end

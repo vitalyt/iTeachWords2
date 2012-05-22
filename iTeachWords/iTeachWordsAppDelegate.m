@@ -174,16 +174,6 @@
 -(NSArray*)loadRepeatDelayedTheme{
     RepeatModel *repeatModel = [[RepeatModel alloc] init];
     NSArray *delayedTheme = [[repeatModel getDelayedTheme] retain];
-//    if ([delayedTheme count]>0) {
-//        for (int i=0;i<[delayedTheme count];i++){
-//            NSDictionary *dict = [delayedTheme objectAtIndex:i];
-//           // NSLog(@"%@", dict);    
-//            NSDate *currentDate = [NSDate date];
-//            int interval = [[dict objectForKey:@"intervalToNexLearning"] intValue];
-//            //NSDate *newDate = [currentDate dateByAddingTimeInterval:interval];
-//            //NSLog(@"%@",newDate);
-//        }
-//    }
     [repeatModel release];
     return [delayedTheme autorelease];
 }
