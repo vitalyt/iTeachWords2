@@ -27,8 +27,7 @@
 #pragma mark loading funktions
 
 - (void) loadData{    
-    [self.navigationItem setTitle:NSLocalizedString(@"The repeat notification system",@"")];
-    titles = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"You are in able to change the schedule of repetition.", @""), nil];
+    titles = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"The repeat notification system", @""), nil];
     NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"20 min",@""),NSLocalizedString(@"1 day",@""),NSLocalizedString(@"1 month",@""),NSLocalizedString(@"3 month",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
     [elements release];
@@ -115,7 +114,7 @@
     v.backgroundColor = [UIColor clearColor];
     NSString *tite = [titles objectAtIndex:section];
     float width ;
-    width = tableView.frame.size.width - 40 ;//- 79;
+    width = tableView.frame.size.width - 40 - 79;
 
     CGSize detailSize = [tite sizeWithFont:FONT_OF_HEAD_LABEL constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
     UILabel *header = [[UILabel alloc] initWithFrame: CGRectMake(20, 10.0, width, detailSize.height)];
@@ -125,17 +124,17 @@
     header.font = FONT_OF_HEAD_LABEL; 
     header.text = tite;
     
-//    if (!onOffSwitcher) {
-//        onOffSwitcher = [[UISwitch alloc] initWithFrame: CGRectZero];
-//        [onOffSwitcher addTarget: self action: @selector(changedNotification) forControlEvents: UIControlEventValueChanged];
-//        [onOffSwitcher setOn:IS_REPEAT_OPTION_ON];
-//    }
-//    
-//    CGRect SwicherFrame = CGRectMake( tableView.frame.size.width - 30 - 79, 10+header.frame.size.height/2-14, 79, 27);
-//    [onOffSwitcher setFrame:SwicherFrame];
-//    
-//    // Set the desired frame location of onoff here
-//    [v addSubview: onOffSwitcher];
+    if (!onOffSwitcher) {
+        onOffSwitcher = [[UISwitch alloc] initWithFrame: CGRectZero];
+        [onOffSwitcher addTarget: self action: @selector(changedNotification) forControlEvents: UIControlEventValueChanged];
+        [onOffSwitcher setOn:IS_REPEAT_OPTION_ON];
+    }
+    
+    CGRect SwicherFrame = CGRectMake( tableView.frame.size.width - 30 - 79, 10+header.frame.size.height/2-14, 79, 27);
+    [onOffSwitcher setFrame:SwicherFrame];
+    
+    // Set the desired frame location of onoff here
+    [v addSubview: onOffSwitcher];
     
     [v addSubview:header];
     [header release];

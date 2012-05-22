@@ -84,7 +84,6 @@
     [self createStatisticsView];
     statisticView.total = [words count];
 	[self createWord];
-    [textBox performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:.5];
 }
 
 - (void)viewDidUnload{

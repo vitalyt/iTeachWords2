@@ -47,7 +47,7 @@
     }else{
         [self createMenu];
     }
-    [saveButton setEnabled:NO];
+    [saveButton setHidden:YES];
     [textFld setDelegate:self];
     [translateFid setDelegate:self];   
     [textFld setFont:FONT_TEXT];
@@ -120,7 +120,7 @@
 }
 
 - (void)setWord:(Words *)_word{
-    [saveButton setEnabled:NO];
+    [saveButton setHidden:YES];
     [dataModel setWord:_word];
 }
 
@@ -332,7 +332,7 @@
 - (void)removeChanges{
     [self clear];
     isDataChanged = NO;
-    [saveButton setEnabled:NO];
+    [saveButton setHidden:YES];
     self.flgSave = YES;
     [dataModel removeChanges];
 }
@@ -372,7 +372,7 @@
     [recButton setEnabled:NO];
     recButton = ((UIButton*)translateFid.rightView);
     [recButton setEnabled:NO];
-    [saveButton setEnabled:NO];
+    [saveButton setHidden:YES];
 }
 
 #pragma mark textField delegate
@@ -491,10 +491,10 @@
     translate = [NSString removeSpaces:translate];
     
     if ([translate length]==0 && [text length]==0) {
-        [saveButton setEnabled:NO];
+        [saveButton setHidden:YES];
         isDataChanged = NO;
     }else{
-        [saveButton setEnabled:YES];
+        [saveButton setHidden:NO];
         [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,90,35,35)]; 
     }
 }
