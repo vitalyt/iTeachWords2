@@ -135,7 +135,7 @@
                 return @"SwitchingCell";
                 break;
             case 4:
-                return nil;
+                return @"SwitchingCell";
                 break;
             default:
                 break;
@@ -197,7 +197,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         [((TextFieldCell *)cell).textField becomeFirstResponder];
-    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 4) {
+    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 4 && IS_REPEAT_OPTION_ON) {
         [self showNotificationTableView];
     }
 }
@@ -256,6 +256,9 @@
         NSLog(@"%d",_value);
         NSLog(@"%@",key);
         [_cell.switcher setOn:_value];
+        if (indexPath.row == 4 && IS_REPEAT_OPTION_ON) {
+            [_cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        }
         //[self.values setValue:[NSNumber numberWithInt:value] forKey:key];
     }else if([cell isMemberOfClass:[UITableViewCell class]]){
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -343,10 +346,21 @@
         _cell.titleLabel.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         [_cell setDelegate:self];
         bool _value = _cell.switcher.on;
+        
+#ifdef FREE_VERSION
+        if (indexPath.row == 4 && _value && ![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:NOTIFICATION]]) {
+            [self showPurchaseInfoView];
+            return;
+        }
+#endif
+
         [values setObject:[NSNumber numberWithBool:_value] forKey:key];
         [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
+        if (indexPath.row == 4 && IS_REPEAT_OPTION_ON) {
+            [_cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        }
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];

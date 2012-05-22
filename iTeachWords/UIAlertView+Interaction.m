@@ -58,6 +58,16 @@
 	[alert release];	
 }
 
++ (void)displayMessage:(NSString *)message title:(NSString *)title{
+    CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:title
+                                                            message:message
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+    [alert show];
+    [alert release];	
+}
+
 + (void)displayGuideMessage:(NSString *)message title:(NSString *)title{
     NSString *key = [OsdnUtilHash md5:[NSString stringWithFormat:@"%@%@",title,message]];
     if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {

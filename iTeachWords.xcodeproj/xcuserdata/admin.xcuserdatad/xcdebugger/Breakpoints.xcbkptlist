@@ -14,8 +14,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "93"
          endingLineNumber = "93"
-         landmarkName = "@implementation TextViewController"
-         landmarkType = "3">
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -60,20 +60,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "iTeachWords/NewWordsTable.m"
-         timestampString = "354140217.978899"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "232"
-         endingLineNumber = "232"
-         landmarkName = "-stripDoubleSpaceFrom:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -84,7 +70,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "326"
          endingLineNumber = "326"
-         landmarkName = "-loadTranslateWords:"
+         landmarkName = "-loadLocalTranslateWords:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -134,20 +120,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "iTeachWords/NewWordsTable.m"
-         timestampString = "354140217.978899"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "250"
-         endingLineNumber = "250"
-         landmarkName = "-translateWords"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "iTeachWords/MenuViewController.m"
          timestampString = "354056192.259638"
          startingColumnNumber = "9223372036854775807"
@@ -168,7 +140,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "300"
          endingLineNumber = "300"
-         landmarkName = "-showAddingWordView"
+         landmarkName = "-showTeachView"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -182,8 +154,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "14"
          endingLineNumber = "14"
-         landmarkName = "+displayError:"
-         landmarkType = "5">
+         landmarkName = "@implementation UIAlertView(Interaction)"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -196,7 +168,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "23"
          endingLineNumber = "23"
-         landmarkName = "+displayErrorWithResponce:"
+         landmarkName = "+displayError:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -205,12 +177,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iTeachWords/NotificationTableView.m"
-         timestampString = "354134594.624438"
+         timestampString = "359363500.836363"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "195"
-         endingLineNumber = "195"
-         landmarkName = "-changedNotification"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -256,7 +228,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -266,7 +238,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "95"
          endingLineNumber = "95"
-         landmarkName = "-viewDidUnload"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -365,6 +337,34 @@
          startingLineNumber = "389"
          endingLineNumber = "389"
          landmarkName = "-hintStateViewToHint:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/SettingsViewController.m"
+         timestampString = "359363255.556961"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "260"
+         endingLineNumber = "260"
+         landmarkName = "-configureCell:forRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "iTeachWords/MenuViewController.m"
+         timestampString = "359363800.658021"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
+         landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
