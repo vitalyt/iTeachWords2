@@ -118,4 +118,5 @@
 "If you will have a problem with value of buttons you can make available a help mode within the Settings view." = "Если у вас возникнут проблемы со значением кнопок, Вы можете активировать \"Систему помощи\" в настройках.";
 "The list of dictionaries is empty. First of all create a theme." = "Список словарей пуст.\nДля продолжения работы создайте словарь.";
 "Shoose a dictionary." = "Список словарей пуст.\nДля продолжения работы создайте словарь.";
-"Select the dictionary to which you want to move the marked words." = "Укажите словарь, в который вы хотите переместить отмеченные слова";
+"Select the dictionary to which you want to move the marked words." = "Укажите словарь, в который вы хотите переместить отмеченные слова.";
+"There is not selected words."  = "Вы не отметили ни одного слова.";
