@@ -135,7 +135,7 @@
                 return @"SwitchingCell";
                 break;
             case 4:
-                return nil;
+                return @"SwitchingCell";
                 break;
             default:
                 break;
@@ -197,13 +197,14 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         [((TextFieldCell *)cell).textField becomeFirstResponder];
-    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 4) {
+    }else if ([cell isKindOfClass:[UITableViewCell class]] && indexPath.row == 4 && IS_REPEAT_OPTION_ON) {
         [self showNotificationTableView];
     }
 }
 
 - (void) configureCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath {
     NSString *titleText = [[data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
     if ([cell isKindOfClass:[TextFieldCell class]]) {
         TextFieldCell* _cell = (TextFieldCell *)cell;
         _cell.textField.placeholder = NSLocalizedString(@"Touch to change", @""); 
@@ -256,6 +257,9 @@
         NSLog(@"%d",_value);
         NSLog(@"%@",key);
         [_cell.switcher setOn:_value];
+        if (indexPath.row == 4 && IS_REPEAT_OPTION_ON) {
+            [_cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        }
         //[self.values setValue:[NSNumber numberWithInt:value] forKey:key];
     }else if([cell isMemberOfClass:[UITableViewCell class]]){
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -338,6 +342,12 @@
             }
         }
     }else if([cell isKindOfClass:[SwitchingCell class]]){
+#ifdef FREE_VERSION
+        if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:NOTIFICATION]]) {
+            [self showPurchaseInfoView];
+            return;
+        }
+#endif
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         SwitchingCell* _cell = (SwitchingCell *)cell; 
         _cell.titleLabel.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
@@ -347,6 +357,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
+        [table reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationNone];
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];

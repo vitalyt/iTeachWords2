@@ -33,6 +33,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(capitalizeText:) name:@"UITextViewTextDidChangeNotification" object:nil];
     [self createStatisticsView];
     statisticView.total = [data count];
+    [textBox performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:.5];
 }
 
 - (void)viewDidUnload{
@@ -120,7 +121,11 @@
 
 - (IBAction) help{
 	lblWordEng.text = word.text;
-	[self.data addObject:word];
+	[self.data addObject:word];  
+    statisticView.totalQuestions++;
+    statisticView.index++;  
+    index++;
+    [self performSelector:@selector(createWord) withObject:nil afterDelay:1.0];
 }
 
 - (void)onHideKeyboard:(id)notification
