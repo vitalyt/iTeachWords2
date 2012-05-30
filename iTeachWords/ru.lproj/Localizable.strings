@@ -123,7 +123,7 @@
 "Language not available. For a list of available languages, please see the Dragon Mobile SDK website."  = "К сожалению, для выбранного языка эта функция пока недоступна.";
 "There is not selected words."  = "Вы не отметили ни одного слова.";
 "Results"               = "Ваши результаты";
-"Not sure"              = "Не уверен";
+"Not sure"              = "Нет";
 "Done: %d %%\n Progress: %d %%\nMark the dictionary as learned?"  = "Пройденно: %d %%\nУспеваемость: %d %%\nОбозначить словарь как изучен?";
 "The theme with current name already exist." = "Словарь с таким именем уже существует.";
 "Please enter the name of the theme."   = "Введите название словаря.";

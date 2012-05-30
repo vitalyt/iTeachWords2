@@ -163,7 +163,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:_wordType.name forKey:@"lastTheme"];
         [self loadData];
         
-        [UIAlertView displayMessage:NSLocalizedString(@"To view studying Dictionary - Complete one of the exercises.", @"") title:NSLocalizedString(@"Suggestion", @"")];
+        [UIAlertView displayGuideMessage:NSLocalizedString(@"To view studying Dictionary - Complete one of the exercises.", @"") title:NSLocalizedString(@"Suggestion", @"")];
     }
 }
 

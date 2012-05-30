@@ -3404,7 +3404,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D2D3FBB6-DCB9-49B3-8EC4-7FDDDFB49240";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -3483,7 +3483,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3518,7 +3518,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;

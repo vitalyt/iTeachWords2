@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYRateView.h"
 
+@class WordTypes;
 @interface AlertTableCell : UITableViewCell{
     
     IBOutlet UILabel *titleLbl;
+    DYRateView *rateView ;
 }
 
 @property (nonatomic,retain)IBOutlet UILabel *titleLbl;
+
+- (void)setTheme:(WordTypes*)_wordTheme;
+- (void)setUpRightAlignedRateViewWith:(WordTypes*)_wordTheme ;
 
 @end

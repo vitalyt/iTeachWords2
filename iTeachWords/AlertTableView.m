@@ -10,6 +10,7 @@
 #import "MyUIViewWhiteClass.h"
 #import "WordTypes.h"
 #import "StatisticLearning.h"
+#import "AlertTableCell.h"
 
 #define FONT_REPAT_TIME [UIFont fontWithName:@"Helvetica" size:12]
 
@@ -109,13 +110,29 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"QQQ"];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"QQQ"] autorelease];
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
-        cell.textLabel.numberOfLines = 2;
-    }
+    NSString *cellIdentifier = [self tableView:tableView cellIdentifierForRowAtIndexPath:indexPath];
+    
+    UITableViewCell *theCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (nil == theCell) {
+		if (nil == cellIdentifier)
+			theCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"default"] autorelease];
+		else {
+			NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
+			theCell = [items objectAtIndex:0];
+		}
+//        theCell.backgroundView = [self cellBackgroundViewWithFrame:theCell.frame];
+//        theCell.selectedBackgroundView = [self cellSelectedBackgroundViewWithIndexPath:indexPath];
+	}
+	[self configureCell:theCell forRowAtIndexPath:indexPath];
+	return theCell;
+}
+
+- (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath {
+    return @"AlertTableCell";
+}
+
+- (void) configureCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath {
+	// Overrided by subclasses
     NSDictionary *dict = [data objectAtIndex:indexPath.row];
     WordTypes *_wordType = [dict objectForKey:@"wordType"];
     cell.textLabel.text = _wordType.name;
@@ -124,8 +141,7 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[newDate stringWithFormat:@"dd.MM.YYYY  HH:mm"]];
     [cell.detailTextLabel setTextColor:[UIColor redColor]];
     [cell.detailTextLabel setFont:FONT_REPAT_TIME];
-    
-    return cell;
+    [((AlertTableCell*)cell) setTheme:_wordType];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
