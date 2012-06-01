@@ -34,9 +34,7 @@
 		1C4B7F5615663E6A00065295 /* saveIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4B7F5515663E6A00065295 /* saveIcon.png */; };
 		1C4B7F5715663E6A00065295 /* saveIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4B7F5515663E6A00065295 /* saveIcon.png */; };
 		1C5478231562A6C700DC617F /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5478221562A6C700DC617F /* test@2x.png */; };
-		1C5478261562A6CA00DC617F /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5478251562A6CA00DC617F /* test.png */; };
 		1C5478271562A6D500DC617F /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5478221562A6C700DC617F /* test@2x.png */; };
-		1C5478281562A6D800DC617F /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5478251562A6CA00DC617F /* test.png */; };
 		1C5478291562A8EC00DC617F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1D9EAD1562A4020082F42D /* MessageUI.framework */; };
 		1C54782A1562A8EC00DC617F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1D9EAB1562A3FC0082F42D /* AVFoundation.framework */; };
 		1C54782B1562A8EC00DC617F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1D9EA91562A3F40082F42D /* UIKit.framework */; };
@@ -54,6 +52,8 @@
 		1C6FF4851523307E00705E51 /* ThemeDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6FF4811523307E00705E51 /* ThemeDetailView.xib */; };
 		1C6FF486152330C900705E51 /* ThemeEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */; };
 		1C6FF487152330F700705E51 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
+		1C7630C11578F130008C91D5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7630BF1578F056008C91D5 /* icon.png */; };
+		1C7630C21578F173008C91D5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7630BF1578F056008C91D5 /* icon.png */; };
 		1C7F370F1522FDF100F11594 /* ThemeEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */; };
 		1C7F37101522FDF100F11594 /* ThemeEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */; };
 		1C7FEB3C1529F54000491143 /* select-all.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FEB3B1529F54000491143 /* select-all.png */; };
@@ -752,12 +752,12 @@
 		1C4B7F5215663C8400065295 /* Circle_Grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle_Grey.png; sourceTree = "<group>"; };
 		1C4B7F5515663E6A00065295 /* saveIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveIcon.png; sourceTree = "<group>"; };
 		1C5478221562A6C700DC617F /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
-		1C5478251562A6CA00DC617F /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		1C5478331562AAE200DC617F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = iTeachWords/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1C6F17F0152DD3A70008A075 /* WW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WW.png; sourceTree = "<group>"; };
 		1C6FF47F1523307E00705E51 /* ThemeDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDetailView.h; sourceTree = "<group>"; };
 		1C6FF4801523307E00705E51 /* ThemeDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDetailView.m; sourceTree = "<group>"; };
 		1C6FF4811523307E00705E51 /* ThemeDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeDetailView.xib; sourceTree = "<group>"; };
+		1C7630BF1578F056008C91D5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		1C7F370C1522FDF100F11594 /* ThemeEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeEditingViewController.h; sourceTree = "<group>"; };
 		1C7F370D1522FDF100F11594 /* ThemeEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeEditingViewController.m; sourceTree = "<group>"; };
 		1C7F370E1522FDF100F11594 /* ThemeEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeEditingViewController.xib; sourceTree = "<group>"; };
@@ -1805,8 +1805,8 @@
 		284092BC1381242700864711 = {
 			isa = PBXGroup;
 			children = (
+				1C7630BF1578F056008C91D5 /* icon.png */,
 				1C5478321562AAE200DC617F /* InfoPlist.strings */,
-				1C5478251562A6CA00DC617F /* test.png */,
 				1C5478221562A6C700DC617F /* test@2x.png */,
 				284092D11381242700864711 /* iTeachWords */,
 				284092CA1381242700864711 /* Frameworks */,
@@ -2776,7 +2776,6 @@
 				1C86CE13156144970010B2F6 /* Cut 16x16.png in Resources */,
 				1C86CE1C156152E20010B2F6 /* mailIcon.png in Resources */,
 				1C5478271562A6D500DC617F /* test@2x.png in Resources */,
-				1C5478281562A6D800DC617F /* test.png in Resources */,
 				1C4B7F5315663C8400065295 /* Circle_Grey.png in Resources */,
 				1C4B7F5615663E6A00065295 /* saveIcon.png in Resources */,
 				843C2BB0156BF81400AF0F92 /* StarEmpty.png in Resources */,
@@ -2787,6 +2786,7 @@
 				843C2BBA156BF81400AF0F92 /* StarFull@2x.png in Resources */,
 				843C2BBC156BF81400AF0F92 /* StarFullLarge.png in Resources */,
 				843C2BBE156BF81400AF0F92 /* StarFullLarge@2x.png in Resources */,
+				1C7630C21578F173008C91D5 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2995,7 +2995,6 @@
 				1C86CE14156144970010B2F6 /* Cut 16x16.png in Resources */,
 				1C86CE1D156152E20010B2F6 /* mailIcon.png in Resources */,
 				1C5478231562A6C700DC617F /* test@2x.png in Resources */,
-				1C5478261562A6CA00DC617F /* test.png in Resources */,
 				1C4B7F5415663C8400065295 /* Circle_Grey.png in Resources */,
 				1C4B7F5715663E6A00065295 /* saveIcon.png in Resources */,
 				843C2BB1156BF81400AF0F92 /* StarEmpty.png in Resources */,
@@ -3006,6 +3005,7 @@
 				843C2BBB156BF81400AF0F92 /* StarFull@2x.png in Resources */,
 				843C2BBD156BF81400AF0F92 /* StarFullLarge.png in Resources */,
 				843C2BBF156BF81400AF0F92 /* StarFullLarge@2x.png in Resources */,
+				1C7630C11578F130008C91D5 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

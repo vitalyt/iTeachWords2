@@ -53,7 +53,7 @@
         successLbl.text = @"0";
         progress.progress = 0.0;
     }
-    progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(progress.progress*100)];
+    [progressLabel setText:[NSString stringWithFormat:@"%d%%",(int)(progress.progress*100)]];
 }
 
 - (void) generateStatisticByWords:(NSSet *)words{
@@ -89,6 +89,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [progressLbl setText:NSLocalizedString(@"progress", @"")];
 }
 
 - (void)dealloc
@@ -97,12 +98,15 @@
         [word release];
     }
     
+    [progressLbl release];
     [super dealloc];
 }
 
 - (void)viewDidUnload {
     [successLbl release];
     [totalLbl release];
+    [progressLbl release];
+    progressLbl = nil;
     [super viewDidUnload];
 }
 @end

@@ -11,8 +11,8 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string></string>
-		<string>test.png</string>
 		<string>test@2x.png</string>
+		<string>icon.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -21,8 +21,8 @@
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string></string>
-				<string>test.png</string>
 				<string>test@2x.png</string>
+				<string>icon.png</string>
 			</array>
 		</dict>
 	</dict>

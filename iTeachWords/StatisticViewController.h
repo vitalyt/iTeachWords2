@@ -14,6 +14,8 @@
     IBOutlet UIProgressView *progress;
     IBOutlet UILabel        *progressTotalLabel;
     IBOutlet UILabel        *progressLabel;
+    IBOutlet UILabel        *progressLbl;
+    IBOutlet UILabel        *totalLbl;
     
     int                     total;
     int                     index;

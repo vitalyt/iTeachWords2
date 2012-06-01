@@ -29,6 +29,12 @@
     return self;
 }
 
+- (void) viewDidLoad{
+    [super viewDidLoad];
+    [totalLbl setText:NSLocalizedString(@"total", @"")];
+    [progressLbl setText:NSLocalizedString(@"progress", @"")];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     SEL selector = (SEL)context;
@@ -62,8 +68,17 @@
 }
 
 - (void)dealloc {
+    [progressLbl release];
+    [totalLbl release];
     [super dealloc];
 }
 
 
+- (void)viewDidUnload {
+    [progressLbl release];
+    progressLbl = nil;
+    [totalLbl release];
+    totalLbl = nil;
+    [super viewDidUnload];
+}
 @end

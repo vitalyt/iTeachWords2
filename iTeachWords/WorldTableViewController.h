@@ -41,6 +41,7 @@ typedef enum {
     RecordingWordViewController *recordView;
     
     UIImage                 *playImg,*LoadRecordImg;
+    int                     selectedWordsCount;
 }
 
 @property (nonatomic,retain) WordTypes *wordType;
@@ -58,5 +59,5 @@ typedef enum {
 - (void) showRecordViewWithIndexPath:(NSIndexPath*)indexPath;
 - (void)btnActionClickWithCell:(id)_cell;
 - (void)scrollTableToIndexPath:(NSIndexPath*)indexPath;
-
+- (void)updateSelectedLabel;
 @end

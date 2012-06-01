@@ -367,7 +367,8 @@
         [self.view addSubview:themeDetailView.view];
         [themeDetailView.view setFrame:CGRectMake(0, 259, themeDetailView.view.frame.size.width, themeDetailView.view.frame.size.height)];
     }
-    [themeDetailView setTheme:_wordType];
+    [themeDetailView performSelectorInBackground:@selector(setTheme:) withObject:_wordType];
+//    [themeDetailView setTheme:_wordType];
 }
 
 - (void)viewDidUnload {

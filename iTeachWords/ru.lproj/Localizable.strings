@@ -130,6 +130,10 @@
 "Please repeat the themes from the list"    = "Следующие словари нуждаються в повторении.";
 "To view studying Dictionary - Complete one of the exercises."  = "Чтобы словарь считался изученным - пройдите одно из упражнений.";
 "Unfortunately, this functionality is not yet available in this version of the program."      = "К сожалению, этот функционал пока недоступен в данной версии программы.";
+"total"                 = "Пройдено";
+"progress"              = "Прогресс";
+"total count"           = "Всего";
+"total selected"        = "Отмечено";
 
 
 

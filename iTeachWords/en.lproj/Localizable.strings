@@ -130,9 +130,10 @@
 "Please repeat the themes from the list"    = "Please repeat the themes from the list";
 "To view studying Dictionary - Complete one of the exercises."  = "To view studying Dictionary - Complete one of the exercises.";
 "Unfortunately, this functionality is not yet available in this version of the program."    = "Unfortunately, this functionality is not yet available in this version of the program.";
-
-
-
+"total"                 = "total";
+"progress"              = "progress";
+"total count"           = "total count";
+"total selected"        = "total selected";
 
 
 

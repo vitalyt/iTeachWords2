@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1181</string>
@@ -90,9 +90,10 @@
 					<object class="IBUILabel" id="133176890">
 						<reference key="NSNextResponder" ref="736648409"/>
 						<int key="NSvFlags">304</int>
-						<string key="NSFrame">{{145, 4}, {35, 10}}</string>
+						<string key="NSFrame">{{155, 4}, {25, 10}}</string>
 						<reference key="NSSuperview" ref="736648409"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -122,7 +123,7 @@
 					<object class="IBUILabel" id="392344042">
 						<reference key="NSNextResponder" ref="736648409"/>
 						<int key="NSvFlags">304</int>
-						<string key="NSFrame">{{107, -2}, {26, 21}}</string>
+						<string key="NSFrame">{{100, -2}, {54, 21}}</string>
 						<reference key="NSSuperview" ref="736648409"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="133176890"/>
@@ -154,7 +155,7 @@
 					<object class="IBUILabel" id="506699862">
 						<reference key="NSNextResponder" ref="736648409"/>
 						<int key="NSvFlags">304</int>
-						<string key="NSFrame">{{17, -2}, {43, 21}}</string>
+						<string key="NSFrame">{{10, -2}, {54, 21}}</string>
 						<reference key="NSSuperview" ref="736648409"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="904553644"/>
@@ -174,7 +175,7 @@
 					<object class="IBUILabel" id="904553644">
 						<reference key="NSNextResponder" ref="736648409"/>
 						<int key="NSvFlags">304</int>
-						<string key="NSFrame">{{60, 4}, {30, 10}}</string>
+						<string key="NSFrame">{{63, 4}, {25, 10}}</string>
 						<reference key="NSSuperview" ref="736648409"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="392344042"/>
@@ -248,6 +249,22 @@
 						<reference key="destination" ref="133176890"/>
 					</object>
 					<int key="connectionID">34</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">progressLbl</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="506699862"/>
+					</object>
+					<int key="connectionID">36</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">totalLbl</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="392344042"/>
+					</object>
+					<int key="connectionID">37</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -360,7 +377,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">35</int>
+			<int key="maxID">37</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -378,8 +395,10 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="progress">UIProgressView</string>
 						<string key="progressLabel">UILabel</string>
+						<string key="progressLbl">UILabel</string>
 						<string key="progressTotal">UIProgressView</string>
 						<string key="progressTotalLabel">UILabel</string>
+						<string key="totalLbl">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="progress">
@@ -390,12 +409,20 @@
 							<string key="name">progressLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="progressLbl">
+							<string key="name">progressLbl</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="progressTotal">
 							<string key="name">progressTotal</string>
 							<string key="candidateClassName">UIProgressView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="progressTotalLabel">
 							<string key="name">progressTotalLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="totalLbl">
+							<string key="name">totalLbl</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>

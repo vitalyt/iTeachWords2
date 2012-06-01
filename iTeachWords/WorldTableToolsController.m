@@ -65,10 +65,13 @@
         [table setEditing:YES animated:YES];
         self.navigationItem.rightBarButtonItem.enabled = NO;
         [self deselectAllWords];
+        tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"%@: %d",NSLocalizedString(@"total selected", @""),0];
     }else{
         [table setAllowsSelectionDuringEditing:NO];
         [table setEditing:NO animated:YES];
         self.navigationItem.rightBarButtonItem.enabled = YES;
+        
+        tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"%@: %d",NSLocalizedString(@"total count", @""),[self.data count]];
     }
     [table reloadData];
 }
@@ -236,15 +239,26 @@
     for (int i=0; i<[data count]; i++) {
         Words *word = [data objectAtIndex:i];
         [word setIsSelected:[NSNumber numberWithInt:0]];
+        selectedWordsCount = 0;
+        [self updateSelectedLabel];
     }
 }
 
 - (void) selectAll{
+    selectedWordsCount = 0;
     for (int i=0; i<[data count]; i++) {
         Words *word = [data objectAtIndex:i];
         [word setIsSelected:[NSNumber numberWithInt:(![word.isSelected boolValue])?1:0]];
+        if ([word.isSelected boolValue]) {
+            ++selectedWordsCount;
+        }
     }
+    [self updateSelectedLabel];
     [table reloadData];	
+}
+
+- (void)updateSelectedLabel{
+    tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"%@: %d",NSLocalizedString(@"total selected", @""),selectedWordsCount];
 }
 
 - (void) deleteSelectedWords{

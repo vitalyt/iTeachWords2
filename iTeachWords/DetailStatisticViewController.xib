@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1181</string>
@@ -85,7 +85,7 @@
 							<object class="IBUILabel" id="805901785">
 								<reference key="NSNextResponder" ref="15882439"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{12, -6}, {43, 21}}</string>
+								<string key="NSFrame">{{12, -6}, {105, 21}}</string>
 								<reference key="NSSuperview" ref="15882439"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="100291143"/>
@@ -262,6 +262,14 @@
 					</object>
 					<int key="connectionID">21</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">progressLbl</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="805901785"/>
+					</object>
+					<int key="connectionID">22</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -402,7 +410,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">21</int>
+			<int key="maxID">22</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -416,12 +424,14 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>progress</string>
 							<string>progressLabel</string>
+							<string>progressLbl</string>
 							<string>successLbl</string>
 							<string>totalLbl</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIProgressView</string>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
@@ -433,6 +443,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>progress</string>
 							<string>progressLabel</string>
+							<string>progressLbl</string>
 							<string>successLbl</string>
 							<string>totalLbl</string>
 						</object>
@@ -444,6 +455,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">progressLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">progressLbl</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">

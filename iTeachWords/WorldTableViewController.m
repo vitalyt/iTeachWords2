@@ -187,13 +187,6 @@
     offset = 100;
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMyPickerView:)] autorelease];
     [self.navigationItem.rightBarButtonItem setTag:1];
-//    UIImage *image = [UIImage imageNamed:@"bookmark.png"];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    button.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );    
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(showMyPickerView:) forControlEvents:UIControlEventTouchUpInside];    
-    //self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-    
     [self showToolsView];
     [table setAllowsSelectionDuringEditing:YES];
     showingType = 1;
@@ -330,23 +323,23 @@
         Words *word = [data objectAtIndex:indexPath.row];
         if (tableView.isEditing)
         {
-            //[(TableCellController *)tableView.delegate updateSelectionCount];
             TableCellController *cell = (TableCellController *) [table cellForRowAtIndexPath:indexPath];
             UIImageView *indicator = (UIImageView *)[cell.contentView viewWithTag:SELECTION_INDICATOR_TAG];
             if (![word.isSelected boolValue]){
                 indicator.image = isSelectedImg;
                 cell.selected = YES;
                 [word setIsSelected:[NSNumber numberWithInt:1]];
+                ++selectedWordsCount;
+                
             }else{
                 indicator.image = notSelectedImg;
                 cell.selected = NO;
                 [word setIsSelected:[NSNumber numberWithInt:0]];
+                --selectedWordsCount;
             }
             [table deselectRowAtIndexPath:indexPath animated:YES];
             [table reloadData];	
-        }else{
-
-//            [table deselectRowAtIndexPath:indexPath animated:YES];
+            [self updateSelectedLabel];
         }
     }else{
         limit += offset;
@@ -420,7 +413,7 @@
     }
     self.navigationItem.titleView = tableHeadView.view;
     tableHeadView.titleLabel.text = wordType.name;
-    tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"total: %d",[self.data count]];
+    tableHeadView.subTitleLabel.text = [NSString stringWithFormat:@"%@: %d",NSLocalizedString(@"total count", @""),[self.data count]];
 }
 
 #pragma  mark picker protokol

@@ -15,6 +15,7 @@
     IBOutlet UILabel        *progressLabel;
     IBOutlet UILabel        *successLbl;
     IBOutlet UILabel        *totalLbl;
+    IBOutlet UILabel *progressLbl;
     Words                   *word;
 }
 
