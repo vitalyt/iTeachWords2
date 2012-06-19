@@ -103,7 +103,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="954746425"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">Search 24x24.png</string>
+									<string key="NSResourceName">Search 24x24-white.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="455416970"/>
 								<reference key="IBUIFont" ref="349429876"/>
@@ -138,6 +138,7 @@
 								<string key="NSFrame">{{55, 55}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<int key="IBUITag">3</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -689,14 +690,14 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>Play 24x24.png</string>
 				<string>Record 24x24.png</string>
-				<string>Search 24x24.png</string>
+				<string>Search 24x24-white.png</string>
 				<string>Wrong 24x24.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{24, 24}</string>
 				<string>{24, 24}</string>
-				<string>{24, 24}</string>
+				<string>{16, 16}</string>
 				<string>{24, 24}</string>
 			</object>
 		</object>

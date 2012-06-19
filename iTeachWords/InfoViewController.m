@@ -54,7 +54,7 @@
 #pragma mark my functions
 
 - (void)addMailButton{
-    UIImage *icon = [UIImage imageNamed:@"mailIcon.png"];
+    UIImage *icon = [UIImage imageNamed:@"Send 32x32-2.png"];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [btn setImage:icon forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(sendMessageView) forControlEvents:UIControlEventTouchUpInside];
