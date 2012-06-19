@@ -9,6 +9,7 @@
 #import "RecognizerAlertTableCell.h"
 
 @implementation RecognizerAlertTableCell
+@synthesize detailText;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,4 +27,9 @@
     // Configure the view for the selected state
 }
 
+- (void)dealloc {
+    [detailText release];
+    [super dealloc];
+}
 @end
+

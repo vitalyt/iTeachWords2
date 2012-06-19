@@ -37,6 +37,7 @@
     self.titleLbl = nil;
     [rateView release];
     rateView = nil;
+    [subTitleLbl release];
     [super dealloc];
 }
 

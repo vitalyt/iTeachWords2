@@ -10,4 +10,5 @@
 
 @interface RecognizerAlertTableCell : UITableViewCell
 
+@property (retain, nonatomic) IBOutlet UILabel *detailText;
 @end

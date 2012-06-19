@@ -13,6 +13,7 @@
 @interface AlertTableCell : UITableViewCell{
     
     IBOutlet UILabel *titleLbl;
+    IBOutlet UILabel *subTitleLbl;
     DYRateView *rateView ;
 }
 

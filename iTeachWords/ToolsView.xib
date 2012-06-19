@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1181</string>
@@ -71,7 +71,7 @@
 												<int key="IBUITag">1</int>
 												<object class="NSCustomResource" key="IBUIImage">
 													<string key="NSClassName">NSImage</string>
-													<string key="NSResourceName">stock_example.png</string>
+													<string key="NSResourceName">grad-cap-transparant 32x32.png</string>
 												</object>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 												<int key="IBUIStyle">1</int>
@@ -469,7 +469,7 @@
 			<string key="Tools 24x24.png">{24, 24}</string>
 			<string key="Voice 24x24.png">{24, 24}</string>
 			<string key="glasses.png">{32, 32}</string>
-			<string key="stock_example.png">{16, 16}</string>
+			<string key="grad-cap-transparant 32x32.png">{32, 16}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

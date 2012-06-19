@@ -263,8 +263,8 @@
 - (NSMutableArray*)contentData{
     static NSMutableArray *_contentData = nil;
     if (_contentData == nil) {
-        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"CenterButtonIconPaw",@"name",[NSNumber numberWithInt:0],@"type", nil];
-        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"CenterButtonIconHeart",@"name",[NSNumber numberWithInt:1],@"type", nil];
+        NSDictionary *object = [NSDictionary dictionaryWithObjectsAndKeys:@"micIcon2",@"name",[NSNumber numberWithInt:0],@"type", nil];
+        NSDictionary *object1 = [NSDictionary dictionaryWithObjectsAndKeys:@"voiceIcon2",@"name",[NSNumber numberWithInt:1],@"type", nil];
         _contentData = [[NSMutableArray alloc] initWithObjects:object1,object, nil];
     }
     return _contentData;

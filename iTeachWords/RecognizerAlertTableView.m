@@ -7,7 +7,7 @@
 //
 
 #import "RecognizerAlertTableView.h"
-#import "AlertTableCell.h"
+#import "RecognizerAlertTableCell.h"
 
 
 @implementation RecognizerAlertTableView
@@ -52,13 +52,11 @@
 
 - (void) configureCell: (UITableViewCell*)theCell forRowAtIndexPath: (NSIndexPath*)indexPath {
 	// Overrided by subclasses
-    
-    ((AlertTableCell*)theCell).titleLbl.text = [NSString stringWithFormat:@"%@",[data objectAtIndex:indexPath.row]];
-
+    ((RecognizerAlertTableCell*)theCell).detailText.text = [NSString stringWithFormat:@"%@",[data objectAtIndex:indexPath.row]];
 }
 
 - (NSString*) tableView: (UITableView*)tableView cellIdentifierForRowAtIndexPath: (NSIndexPath*)indexPath {
-    return @"AlertTableCell";
+    return @"RecognizerAlertTableCell";
 }
 
 
