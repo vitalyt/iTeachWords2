@@ -16,7 +16,7 @@ documentsDirectory = [paths objectAtIndex:0];
 }
 
 - (id)initWithFrame:(CGRect)frame{
-    [self initWithUrl: @""];
+	self = [super init];
     if (!_webView) {
         _webView = [[UIWebView alloc] initWithFrame:frame];
         _webView.delegate = self;
@@ -26,7 +26,7 @@ documentsDirectory = [paths objectAtIndex:0];
 
 - (UIWebView*)webView{
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height-44)];
+        _webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, 0.0, 320, 480)];
         _webView.delegate = self;
     }
     return _webView;
@@ -68,6 +68,7 @@ documentsDirectory = [paths objectAtIndex:0];
 -(void)viewDidLoad 
 {
 	[super viewDidLoad];
+//    _webView.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height-44);
     [self.view addSubview:[self webView]];
 //    [self loadContent];
 }

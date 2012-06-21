@@ -27,6 +27,7 @@
 #import "CustomBadge.h"
 
 #import "ThemesTableView.h"
+#import "PurchaseStoreMenuView.h"
 
 #import "PurchasesDetailViewController.h"
 @implementation MenuViewController
@@ -77,7 +78,6 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSLog(@"%@",NATIVE_LANGUAGE_CODE);
     if (!NATIVE_LANGUAGE_CODE || !TRANSLATE_LANGUAGE_CODE){
         LanguagePickerController *languageView = [[LanguagePickerController alloc] initWithNibName:@"LanguagePickerController" bundle:nil];
         [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
@@ -95,6 +95,7 @@
     [self addMailButton];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
 
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -374,6 +375,13 @@
     transition.type = type;
     transition.subtype = subType;
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
+}
+
+- (void)showPurchasePagesView{
+    PurchaseStoreMenuView *purchaseStoreMenu = [[PurchaseStoreMenuView alloc] initWithNibName:@"PurchaseStoreMenuView" bundle:nil];
+    [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:purchaseStoreMenu animated:YES];
+    [purchaseStoreMenu release];
 }
 
 @end

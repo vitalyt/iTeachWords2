@@ -43,13 +43,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    // start of your application:didFinishLaunchingWithOptions 
-    // ...
-//    NSString *testTeamToken = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"TestTeamToken"];
-//    NSLog(@"TestTeamToken is %@",testTeamToken);
-//    [TestFlight takeOff:testTeamToken];
-    // The rest of your application:didFinishLaunchingWithOptions method
-    
     [self activateNotification];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
@@ -57,41 +50,8 @@
     [self checkDatabase];
     [self updateData];
     [self showMenuView];
-    navigationController.delegate = self;
-    self.window.rootViewController = navigationController;
-    [self.window makeKeyAndVisible];
     self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
-//    NSThread *progressThread = [[NSThread alloc] initWithTarget:self selector:@selector(qqq) object:nil];
-//    [progressThread start];
-    //[self doRegistrationProcess];
-//    [UIAlertView displayError:@"The closes of this funtionality is not recomended" title:@"Tile"];
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    /*
-     Called when the application is about to terminate.
-     Save data if appropriate.
-     See also applicationDidEnterBackground:.
-     */
 }
 
 - (void)updateData{
@@ -185,12 +145,18 @@
     navigationController = [[UINavigationController alloc] initWithRootViewController:myMenu];
     //navigationController.navigationBar.delegate = self;
     [navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
-    [myMenu release];
-    
+    navigationController.delegate = self;
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+#ifdef FREE_VERSION
+    [myMenu showPurchasePagesView];
+    return;
+#endif
     if (!isUpdating && (NATIVE_LANGUAGE_CODE && TRANSLATE_LANGUAGE_CODE))
     {
         [myMenu performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
     }
+    [myMenu release];
 }
 
 #pragma mark -

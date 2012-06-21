@@ -47,6 +47,7 @@
 - (void)showRecognizerView;
 
 - (void)showThemes;
+- (void)showPurchasePagesView;
 
 - (void)checkDelayedThemes;
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame;

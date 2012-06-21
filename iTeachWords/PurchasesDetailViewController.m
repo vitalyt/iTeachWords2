@@ -16,6 +16,9 @@
     self = [super initWithNibName:@"DetailViewController" bundle:nil];
     if (self) {
         purchaseType = _purchaseType;
+        if ([QQQInAppStore sharedStore].storeManager.delegate == self) {
+            [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
+        }
     }
     return self;
 }
@@ -75,7 +78,7 @@
 //    [self setUrl:[self urlByPurchaseType:purchaseType]];
     
     [self.view addSubview:buyButton];
-    [UIAlertView displayMessage:NSLocalizedString(@"Unfortunately, this functionality is not yet available in this version of the program.", @"") title:NSLocalizedString(@"", @"")];
+//    [UIAlertView displayMessage:NSLocalizedString(@"Unfortunately, this functionality is not yet available in this version of the program.", @"") title:NSLocalizedString(@"", @"")];
 }
 
 
