@@ -307,11 +307,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/PagesViewController.m"
-         timestampString = "361978881.52656"
+         timestampString = "362063447.329009"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "@implementation PagesViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -320,11 +320,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/PurchaseStoreMenuView.m"
-         timestampString = "361980029.576942"
+         timestampString = "362047226.198153"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "142"
-         endingLineNumber = "142"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-loadContentOfPage:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -332,26 +332,26 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/PagesViewController.m"
-         timestampString = "361972209.878087"
+         filePath = "iTeachWords/PurchaseStoreMenuView.m"
+         timestampString = "362047069.333124"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
-         landmarkName = "-loadData"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "-showDetailInfo:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/PurchaseStoreMenuView.m"
-         timestampString = "361979636.553836"
+         filePath = "iTeachWords/PagesViewController.m"
+         timestampString = "362063447.329009"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-buyAction:"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
+         landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

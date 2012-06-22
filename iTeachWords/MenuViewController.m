@@ -379,7 +379,7 @@
 
 - (void)showPurchasePagesView{
     PurchaseStoreMenuView *purchaseStoreMenu = [[PurchaseStoreMenuView alloc] initWithNibName:@"PurchaseStoreMenuView" bundle:nil];
-    [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [purchaseStoreMenu setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:purchaseStoreMenu animated:YES];
     [purchaseStoreMenu release];
 }

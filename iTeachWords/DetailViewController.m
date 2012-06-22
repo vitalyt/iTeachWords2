@@ -73,6 +73,16 @@
     CGRect webViewFrame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
     [contentView addSubview:[self webView]];
     [[self webView] setFrame:webViewFrame];
+    
+    [self webView].opaque = NO;
+    [self webView].backgroundColor = [UIColor clearColor];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:webViewFrame];
+    imageView.image = [UIImage imageNamed:@"Web Empty Designe"];
+    imageView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    imageView.frame = [self webView].bounds;
+    [[self webView] insertSubview:imageView atIndex:0];
 }
 
 - (IBAction)close:(id)sender{

@@ -6,7 +6,7 @@
 	BOOL	flgLoad;
 	BOOL	flgInternalLink;
 @private
-    UIWebView *_webView;
+    IBOutlet UIWebView *_webView;
 	UIActivityIndicatorView *progressView;
 }
 

@@ -11,7 +11,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string></string>
-		<string>test@2x.png</string>
+		<string>Icon@2x.png</string>
 		<string>Default.png</string>
 		<string>Default@2x.png</string>
 		<string>icon.png</string>
@@ -23,7 +23,7 @@
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string></string>
-				<string>test@2x.png</string>
+				<string>Icon@2x.png</string>
 				<string>Default.png</string>
 				<string>Default@2x.png</string>
 				<string>icon.png</string>
@@ -57,8 +57,6 @@
 	<key>TranslateAppId</key>
 	<string>519419FC66883A8820ED0F76C5AC4B9E70F63425</string>
 	<key>UIFileSharingEnabled</key>
-	<true/>
-	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>

@@ -92,6 +92,13 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    [sv release];
+    sv = nil;
+    [viewStore removeAllObjects];
+    [viewStore release];
+    viewStore = nil;
+    [sourceData release];
+    sourceData = nil;
 }
 
 #pragma mark - Tips view functions

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PagesViewController.h"
+#import "QQQInAppStore.h"
 
 @class PurchasesDetailViewController;
 @interface PurchaseStoreMenuView : PagesViewController{
@@ -15,6 +16,9 @@
 }
 
 - (IBAction)closeMyself:(id)sender;
+- (IBAction)showDetailInfo:(id)sender;
 - (IBAction)buyAction:(id)sender;
+
+- (PurchaseType)getCurrentPurchaseType;
 
 @end

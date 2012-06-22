@@ -60,23 +60,15 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (IBAction)showDetailInfo:(id)sender {
+    PurchaseType purchaseType = [self getCurrentPurchaseType];
+    PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:purchaseType];
+    [self presentModalViewController:infoView animated:YES];
+    [infoView release];
+}
+
 - (IBAction)buyAction:(id)sender {
-    PurchaseType purchaseType;
-    int index = [self currentPage];
-    switch (index) {
-        case 0:
-            purchaseType = VOCALIZER;
-            break;
-        case 1:
-            purchaseType = TESTGAME;
-            break;
-        case 2:
-            purchaseType = NOTIFICATION;
-            break;
-            
-        default:
-            break;
-    }
+    PurchaseType purchaseType = [self getCurrentPurchaseType];
     if (!purchasesController) {
         [purchasesController release];
     }
@@ -87,24 +79,34 @@
     }
 }
 
-- (void)showPurchaseInfoView{
-    PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:NOTIFICATION];
-    [self.navigationController presentModalViewController:infoView animated:YES];
-    [infoView release];
+- (PurchaseType)getCurrentPurchaseType{
+    int index = [self currentPage];
+    if (index>=[sourceData count]) {
+        return 0;
+    }
+    return [[[sourceData objectAtIndex:index] objectForKey:@"purchaseType"] intValue];
 }
+
 - (void)loadData{
     if (!sourceData) {
         sourceData = [[NSMutableArray alloc] init];
     }
-    NSDictionary *recognizerDict = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Repeat", @""),@"title",
-                                NSLocalizedString(@"Recognizer Empty Designe", @""),@"fileName",nil];
-    NSDictionary *repeatDict = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Exercises", @""),@"title",
-                                   NSLocalizedString(@"Repetition Empty Designe", @""),@"fileName",nil];
-    NSDictionary *exercisesDict = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Recognizer", @""),@"title",
-                                   NSLocalizedString(@"Education Empty Designe", @""),@"fileName",nil];
+    NSDictionary *recognizerDict = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Recognizer", @""),@"title",
+                                    NSLocalizedString(@"Web Smaller Recognizer Empty Designe", @""),@"fileName",
+                                    [NSNumber numberWithInt:VOCALIZER],@"purchaseType",nil];
+    NSDictionary *repeatDict = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Repeat", @""),@"title",
+                                NSLocalizedString(@"Web Smaller Repetition Empty Designe", @""),@"fileName",
+                                [NSNumber numberWithInt:NOTIFICATION],@"purchaseType",nil];
+    NSDictionary *exercisesDict = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Exercises", @""),@"title",
+                                   NSLocalizedString(@"Web Smaller Education Empty Designe", @""),@"fileName",
+                                   [NSNumber numberWithInt:TESTGAME],@"purchaseType",nil];
+    NSDictionary *exercisesDict1 = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Exercises", @""),@"title",
+                                   NSLocalizedString(@"Web Smaller Education Empty Designe", @""),@"fileName",
+                                   [NSNumber numberWithInt:TEST1],@"purchaseType",nil];
     
     [sourceData addObject:recognizerDict];
     [sourceData addObject:exercisesDict];
+    [sourceData addObject:exercisesDict1];
     [sourceData addObject:repeatDict];
     
     [repeatDict release];
@@ -121,27 +123,19 @@
 	sv.contentSize = CGSizeMake(pageControl.numberOfPages * self.view.frame.size.width, BASEHEIGHT);
     
     PurchaseImageView *purchaseImageView = [[PurchaseImageView alloc] initWithNibName:@"PurchaseImageView" bundle:nil];    
-    
-//    CGRect frame = CGRectMake(0, 0, 320, BASEHEIGHT-40);
-//    SimpleWebViewController *webViewController = [[SimpleWebViewController alloc] initWithFrame:frame];
-//    NSDictionary *dict = [self.sourceData objectAtIndex:index];
-//    webViewController.title = [dict objectForKey:@"title"];
-    
 	[sv addSubview:purchaseImageView.view];    
     [viewStore addObject:purchaseImageView];   
     [purchaseImageView.view setFrame:CGRectMake(pageControl.currentPage * self.view.frame.size.width, 0.0f, self.view.frame.size.width, BASEHEIGHT-40)];   
-//    [webViewController.view setFrame:CGRectMake(pageControl.currentPage * self.view.frame.size.width, 0.0f, self.view.frame.size.width, BASEHEIGHT-40)];
-//    [webViewController release];
     [purchaseImageView release];
     if (index == 0) {
         [self loadContentOfPage:index];
     }
+    [self.view insertSubview:sv aboveSubview:pageControl];
 }
 
 
 - (void)loadContentOfPage:(int)index{
     if (index<[viewStore count]) {
-        
         PurchaseImageView *purchaseImageView = (PurchaseImageView*)[viewStore objectAtIndex:index];
         if (!purchaseImageView.imageView.image) {
             NSDictionary *dict = [self.sourceData objectAtIndex:index];

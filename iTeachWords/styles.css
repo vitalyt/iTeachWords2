@@ -44,7 +44,8 @@ html {
 body {
 	font: 400 9px/1.35 Helvetica Neue;
 	font-size: small;
-	color: #4c5e66;
+	/*color: #4c5e66;*/
+    color: #ffffff;
 	margin: 14px 11px;
 }
 h1, h2, h3, h4 {
