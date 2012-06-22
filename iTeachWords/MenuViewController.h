@@ -47,7 +47,10 @@
 - (void)showRecognizerView;
 
 - (void)showThemes;
+
+#ifdef FREE_VERSION
 - (void)showPurchasePagesView;
+#endif
 
 - (void)checkDelayedThemes;
 - (void)addCustomBadgeWithCount:(int)badgeCount toObjectWithFrame:(CGRect)objectFrame;

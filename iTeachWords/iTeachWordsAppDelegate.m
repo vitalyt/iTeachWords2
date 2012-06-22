@@ -149,7 +149,7 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 #ifdef FREE_VERSION
-    [myMenu showPurchasePagesView];
+    [myMenu performSelector:@selector(showPurchasePagesView) withObject:nil afterDelay:.5];
     return;
 #endif
     if (!isUpdating && (NATIVE_LANGUAGE_CODE && TRANSLATE_LANGUAGE_CODE))

@@ -27,7 +27,10 @@
 #import "CustomBadge.h"
 
 #import "ThemesTableView.h"
+
+#ifdef FREE_VERSION
 #import "PurchaseStoreMenuView.h"
+#endif
 
 #import "PurchasesDetailViewController.h"
 @implementation MenuViewController
@@ -377,11 +380,13 @@
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
 }
 
+#ifdef FREE_VERSION
 - (void)showPurchasePagesView{
     PurchaseStoreMenuView *purchaseStoreMenu = [[PurchaseStoreMenuView alloc] initWithNibName:@"PurchaseStoreMenuView" bundle:nil];
     [purchaseStoreMenu setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:purchaseStoreMenu animated:YES];
     [purchaseStoreMenu release];
 }
+#endif
 
 @end
