@@ -227,7 +227,7 @@
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
-    return l;
+    return [l autorelease];
 }
 
 - (NSString*)helpMessageForButton:(id)_button{

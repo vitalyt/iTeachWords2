@@ -51,7 +51,6 @@
 - (void)dealloc {
     [loadingView release];
     [pagesScrollView release];
-    [[self currentTextLanguage] release];
     [myTextView release];
 	[array release];
     [super dealloc];
@@ -124,7 +123,10 @@
 	[self saveText];
 	NewWordsTable *table = [[NewWordsTable alloc] initWithNibName:@"NewWordsTable" bundle:nil];
     [self.navigationController pushViewController:table animated:YES];
-    [table loadDataWithString:myTextView.text];
+    NSString *loadedText = [[[NSString alloc] initWithString:myTextView.text] autorelease];
+    loadedText = [NSString removeNumbers:loadedText];
+    [table loadDataWithString:loadedText];
+    [table release];
 }
 
 #pragma mark MyRecognize functions

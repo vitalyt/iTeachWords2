@@ -18,7 +18,7 @@
 - (void) dealloc
 {
 	[responder release];
-	[self.values release];
+	[values release];
     [titles release];
 	[super dealloc];
 }

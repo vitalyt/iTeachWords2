@@ -174,7 +174,7 @@
 
 - (void)saveEditingField{
     NSString *typeName = [NSString stringWithString:themeEditingFlt.text];
-    [typeName removeSpaces];
+    typeName = [NSString removeSpaces:typeName];
     if ([typeName length] == 0) {
         [UIAlertView displayError:NSLocalizedString(@"Please enter the name of the theme.", @"")];
         return;

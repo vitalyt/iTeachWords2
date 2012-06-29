@@ -80,15 +80,10 @@
 }
 
 -(void) createUrls{
-//	url = [[NSString alloc] initWithFormat: @"https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=%@&langpair=%@|%@",currentWord.text,
-//          TRANSLATE_LANGUAGE_CODE,
-//          NATIVE_LANGUAGE_CODE];
-    
-    self.urlShow = [[NSString alloc] initWithFormat: @"http://translate.google.com/?hl=%@&sl=%@&tl=%@&ie=UTF-8&prev=_m&q=%@",
+    self.urlShow = [[[NSString alloc] initWithFormat: @"http://translate.google.com/?hl=%@&sl=%@&tl=%@&ie=UTF-8&prev=_m&q=%@",
                NATIVE_LANGUAGE_CODE,
            TRANSLATE_LANGUAGE_CODE,
-           NATIVE_LANGUAGE_CODE,currentWord.text];
-//    NSLog(@"%@",urlShow);
+           NATIVE_LANGUAGE_CODE,currentWord.text] autorelease];
 }
 
 #pragma loading translate

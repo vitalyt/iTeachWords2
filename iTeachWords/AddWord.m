@@ -140,6 +140,7 @@
 
 - (void)parceTranslateWord{
     NSString *selectedText = [myWebView stringByEvaluatingJavaScriptFromString:@"window.getSelection().toString()"];
+    selectedText = [NSString removeSpaces:selectedText];
     [wordsView setTranslate:selectedText];
 }
 

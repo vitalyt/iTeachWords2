@@ -30,7 +30,7 @@
 	//NSArray	*wordArray = [text componentsSeparatedByString:@" "];
 	arrayWords = [[NSMutableDictionary alloc] init];
 	for (NSString *word in wordArray){
-        [word removeSpaces];
+        word = [NSString removeSpaces:word];
         if ([word length]==0) {
             continue;
         }
@@ -54,15 +54,15 @@
     self.caller = _caller;
     NSString *wordsRequestString = [[NSString alloc] initWithFormat:@"%@",
                                     [wordsArray componentsJoinedByString:translateSlash]];
-    [wordsRequestString removeSpaces];
-    NSLog(@"%@",wordsRequestString);
-    [self sendRequestWitchText:[wordsRequestString autorelease]];
+    wordsRequestString = [NSString removeSpaces:[wordsRequestString autorelease]];
+    [self sendRequestWitchText:[[wordsRequestString retain] autorelease]];
 }
 
 #pragma mark loading data functions
 
 - (void)sendRequestWitchText:(NSString*)wordsText
 {
+    [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Loading...", @"")];
     if (!wbEngine) {
         wbEngine = [[WBEngine alloc] init];
     }
@@ -75,7 +75,6 @@
     NSLog(@"url->%@",url);
     WBRequest * _request = [WBRequest getRequestWithURL:url delegate:self];
     [wbEngine performRequest:_request];
-    [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Loading...", @"")];
 }
 
 

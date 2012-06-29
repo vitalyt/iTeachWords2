@@ -48,6 +48,7 @@
     NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
 	NSArray *companies = [fetches fetchedObjects];
 	companies = [companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:date, nil]];
+    [date release];
     return companies;
 }
 
@@ -188,7 +189,7 @@
         WordTypes *_wordType = [themes objectAtIndex:i];
         NSArray *_statisticsLearningArray = [RepeatModel loadAllStatisticsLearningWithWordType:_wordType];
         int intervalToNexLearning = [RepeatModel getTimeIntervalToNexLearning:_statisticsLearningArray];
-        NSLog(@"intervalToNexLearning->%d",intervalToNexLearning);
+//        NSLog(@"intervalToNexLearning->%d",intervalToNexLearning);
         
         if (intervalToNexLearning>0) {
             NSDate *currentDate = [NSDate date];

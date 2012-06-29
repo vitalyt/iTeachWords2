@@ -345,6 +345,8 @@
 }
 
 - (void)addWords:(NSArray*)words withTranslate:(NSArray*)translates toWordType:(WordTypes*)_wordType{
+    
+    [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Loading...", @"")];
     [translates retain];
     [words retain];
     NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
@@ -356,8 +358,9 @@
                 NSString *text = [words objectAtIndex:i];
                 NSString *translate = [NSString stringWithString:[translates objectAtIndex:i]];
                 [text removeSpaces];
+                text = [NSString removeSpaces:text];
                 NSLog(@"%@",translate);
-                [translate removeSpaces];
+                translate = [NSString removeSpaces:translate];
                 NSLog(@"%@",translate);
                 Words *currentWord = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
                                                                    inManagedObjectContext:CONTEXT];
@@ -383,6 +386,7 @@
         [pool drain];
         [translates release];
         [words release];
+        [UIAlertView removeMessage];
     }
 
 }

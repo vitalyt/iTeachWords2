@@ -125,6 +125,7 @@
         [self showAddWordView:nil];
     }
     NSString *selectedText = [self getSelectedText];
+    selectedText = [NSString removeSpaces:selectedText];
     [wordsView setText:selectedText];
     [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:TRANSLATE_LANGUAGE_CODE toLanguageCode:NATIVE_LANGUAGE_CODE withDelegate:wordsView];
     //[self translateText];
@@ -190,8 +191,11 @@
     [wordsView removeChanges];
 	NewWordsTable *parsedWordTableView = [[NewWordsTable alloc] initWithNibName:@"NewWordsTable" bundle:nil];
     [self.navigationController pushViewController:parsedWordTableView animated:YES];
-    [parsedWordTableView loadDataWithString:[self getSelectedText]];
+    
+    NSString *loadedText = [[NSString alloc] initWithString:[NSString removeNumbers:[self getSelectedText]]];
+    [parsedWordTableView loadDataWithString:loadedText];
     [parsedWordTableView release];
+    [loadedText release];
 }
 
 -(UIView*)hintStateViewForDialog:(id)hintState

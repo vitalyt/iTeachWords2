@@ -68,6 +68,7 @@
         [defaultButton setImage:selectedImage forState:UIControlEventTouchDown];
         [defaultButton addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchUpInside];
         [self setButton:defaultButton];
+        [defaultButton autorelease];
         
         UIButton *toggledButton = [[UIButton alloc] initWithFrame:buttonFrame];
         [toggledButton setCenter:buttonCenter];
@@ -93,6 +94,7 @@
                 
         [self addSubview:[self button]];
         [self addSubview:[self toggledButton]];
+        [toggledButton autorelease];
     }
     return self;
 }

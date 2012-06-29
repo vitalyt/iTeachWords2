@@ -408,7 +408,7 @@
 
 - (void) textFieldDidEndEditing:(UITextField *)textField{
     NSString *text = [NSString stringWithString:textField.text];
-    [text removeSpaces];
+    text = [NSString removeSpaces:text];
     if ([text length] == 0) {
         return;
     }

@@ -100,6 +100,34 @@
     return [str autorelease];
 }
 
++ (NSString*) removeNumbers:(NSString*)originalString{
+    NSString *str = [[[NSString alloc] initWithString:originalString] autorelease];
+    NSString *numbers = @"0123456789";
+    for (int i = 0; i < [numbers length] ; i++) {
+        str = [str stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%c",[numbers characterAtIndex:i]] withString:@""];
+        NSLog(@"%@",originalString);
+    }
+    return str;
+    
+//    NSMutableString *strippedString = [NSMutableString 
+//                                       stringWithCapacity:originalString.length];
+//    
+//    NSScanner *scanner = [NSScanner scannerWithString:originalString];
+//    NSCharacterSet *numbers = [NSCharacterSet 
+//                               characterSetWithCharactersInString:@"0123456789"];
+//    
+//    while ([scanner isAtEnd] == NO) {
+//        NSString *buffer;
+//        if ([scanner scanCharactersFromSet:numbers intoString:&buffer]) {
+//            [strippedString appendString:buffer];
+//        } else {
+//            [scanner setScanLocation:([scanner scanLocation] + 1)];
+//        }
+//    }
+//    NSLog(@"%@", strippedString);
+//    return strippedString;
+}
+
 - (NSString *) translateString{
     if ([iTeachWordsAppDelegate isNetwork]) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

@@ -150,6 +150,7 @@
     [self.window makeKeyAndVisible];
 #ifdef FREE_VERSION
     [myMenu performSelector:@selector(showPurchasePagesView) withObject:nil afterDelay:.5];
+    [myMenu release];
     return;
 #endif
     if (!isUpdating && (NATIVE_LANGUAGE_CODE && TRANSLATE_LANGUAGE_CODE))
@@ -361,6 +362,7 @@
     NSLog(@"Using File called: %@",recordedTmpFile);
     
     NSData *data = [[NSData alloc] initWithContentsOfURL:recordedTmpFile];
+    [recordedTmpFile release];
     NSString* requestDataLengthString = [[NSString alloc] initWithFormat:@"%d", [data length]];
 
 	NSMutableString *params = [[NSMutableString alloc] init];
@@ -385,8 +387,10 @@
 	NSAssert(nil != connection, NSLocalizedString(@"The connection cannot be created!", @""));
     [connection release];
     [params release];
+    [request release];
     [requestDataLengthString release];
     
+    [data release];
 }
 
 
@@ -395,6 +399,9 @@
 - (void)connection:(NSURLConnection *)connection 
 	didReceiveData:(NSData *)data
 {
+    if (!_mutableData) {
+        _mutableData = [[NSMutableData alloc] init];
+    }
 	[_mutableData appendData: data];
 }
 
@@ -409,7 +416,11 @@
     NSString *information = [[NSString alloc] initWithData:_mutableData encoding:NSUTF8StringEncoding];
     NSLog(@"%@",information);
     [UIAlertView displayMessage:information];
-	[_mutableData release];
+    [information release];
+    if (_mutableData) {
+        [_mutableData release];
+        _mutableData = nil;
+    }
     
     NSString *_fileName;
     NSURL           *recordedTmpFile;
@@ -427,6 +438,7 @@
     _data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
     [self playSound:_data inView:nil];
     [_data release];
+    [recordedTmpFile release];
 }
 
 

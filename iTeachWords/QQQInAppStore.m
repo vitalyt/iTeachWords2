@@ -38,8 +38,8 @@ static QQQInAppStore* _sharedInAppStore; // self
 //			NSMutableArray *fullIDs = [[NSMutableArray alloc] init];
 //            [fullIDs addObject: @"qqq.vitalyt.iteachwords.free.textGame"];
             //            [fullIDs addObject: @"com.myBundleIdentifier.f2"];
-            _sharedInAppStore.costDictionary = [[NSMutableDictionary alloc] init];
-            _sharedInAppStore.storeManager = [[MKStoreManager alloc] initWithFeatureSet:nil];
+            _sharedInAppStore.costDictionary = [[[NSMutableDictionary alloc] init] autorelease];
+            _sharedInAppStore.storeManager = [[[MKStoreManager alloc] initWithFeatureSet:nil] autorelease];
 //            [_sharedInAppStore.storeManager setDelegate:_sharedInAppStore];
 //            [fullIDs release];
         }

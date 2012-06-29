@@ -54,6 +54,7 @@
 	NSSortDescriptor *createDate = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
     
     NSArray *context = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:createDate, nil]];
+    [createDate release];
     if (!content) {
         content = [[NSMutableArray alloc] initWithCapacity:[context count]];
     }

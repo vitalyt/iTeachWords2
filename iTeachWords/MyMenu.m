@@ -145,6 +145,7 @@
         case 1:{
             MenuLessons *lessonMenu = [[MenuLessons alloc] initWithNibName:@"MenuLessons" bundle:nil];
             [self.navigationController pushViewController:lessonMenu animated:YES];
+            [lessonMenu release];
 //            LM7 *lessonMaker = [[LM7 alloc] initWithNibName:@"LM7" bundle:nil];
 //            [self.navigationController pushViewController:lessonMaker animated:YES];
 //            lessonMaker.textContent = @"Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user. Quits the application and it begins the transition to the background state.";

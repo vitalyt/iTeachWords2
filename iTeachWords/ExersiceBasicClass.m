@@ -34,7 +34,8 @@
     [lblWordRus release];
     [textBox release];
     [doneButton release];
-    [self.data release];
+    [data release];
+    data = nil;
     if (statisticView) {
         [statisticView release];
     }

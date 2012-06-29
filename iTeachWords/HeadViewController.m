@@ -43,26 +43,26 @@
 
 - (void)generateStatisticViewWithWords:(NSSet*)words{
     if(self.statisticViewController == nil){
-        self.statisticViewController = [[DetailStatisticViewController alloc] initWithNibName:@"DetailStatisticViewController" bundle:nil];
-        [self.view addSubview:self.statisticViewController.view];
+        statisticViewController = [[DetailStatisticViewController alloc] initWithNibName:@"DetailStatisticViewController" bundle:nil];
+        [self.view addSubview:statisticViewController.view];
         CGRect frame = CGRectMake(14, 23, 100, 20);
-        [self.statisticViewController.view setFrame:frame];
+        [statisticViewController.view setFrame:frame];
     }
-    [self.statisticViewController generateStatisticByWords:words];
+    [statisticViewController generateStatisticByWords:words];
 }
 
 - (void)removeStatisticView{
-    [self.statisticViewController.view removeFromSuperview];
-    [self.statisticViewController release];
-    self.statisticViewController = nil;
+    [statisticViewController.view removeFromSuperview];
+    [statisticViewController release];
+    statisticViewController = nil;
 }
 
 - (void)viewDidUnload
 {
     [titleLabel release];
     [subTitleLabel release];
-    if (self.statisticViewController) {
-        [self.statisticViewController release];
+    if (statisticViewController) {
+        [statisticViewController release];
     }
     [super viewDidUnload];
     // Release any retained subviews of the main view.

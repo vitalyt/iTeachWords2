@@ -35,7 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeMyself)]];
+    [self.navigationController.navigationItem setLeftBarButtonItem:
+     [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeMyself)] autorelease] 
+    ];
     
     [self.navigationController.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
@@ -111,6 +113,7 @@
     
     [repeatDict release];
     [exercisesDict release];
+    [exercisesDict1 release];
     [recognizerDict release];
     
     [super loadData];

@@ -37,7 +37,7 @@
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:@"I am the info button!"];
-    return l;
+    return [l autorelease];
 }
 #pragma mark ---------------------------------->> 
 #pragma mark -------------->>private
@@ -65,7 +65,7 @@
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor grayColor]];
     [l setText:@"Чтобы отключить систему помощи воспользуйтесь настройками"];
-    return l;
+    return [l autorelease];
 }
 
 - (NSString*)helpMessageForButton:(id)_button{

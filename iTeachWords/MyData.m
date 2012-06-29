@@ -27,12 +27,14 @@
 	for (int i = 0; i < [engWords count]; i++) {
 		NSMutableDictionary *_dict = [[NSMutableDictionary alloc] init];
 		if ([[engWords objectAtIndex:i] length] == 0) {
+            [_dict release];
 			break;
 		}
 		if (   [engWords count] > i) {
 			[_dict setObject:[engWords objectAtIndex:i] forKey:@"engWord"];
 		}
 		else {
+            [_dict release];
 			break;
 		}
 
@@ -40,6 +42,7 @@
 			[_dict setObject:[rusWords objectAtIndex:i] forKey:@"rusWord"];
 		}
 		else {
+            [_dict release];
 			break;
 		}
 		if (   [engTranscriptions count] > i) {

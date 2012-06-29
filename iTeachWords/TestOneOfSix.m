@@ -137,6 +137,7 @@
         [results removeObjectAtIndex:randomIndex];
     }
     [results release];
+    [request release];
     return [ar autorelease];
 }
 

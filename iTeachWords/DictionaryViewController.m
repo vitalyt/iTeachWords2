@@ -33,13 +33,6 @@
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -65,27 +58,19 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 -(void)loadData { 
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     if ([mySearchBar.text length] > 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text BEGINSWITH[cd] %@", mySearchBar.text];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text BEGINSWITH[cd] %@ AND type!=nil", mySearchBar.text];
         [self loadDataWithPredicate:predicate];
         [table reloadData];
         return;
     }
     NSError *error;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type!=nil"];
     NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
     [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
+    [request setPredicate:predicate];
 //    [request setFetchLimit:limit];  
 //    [request setFetchOffset:0];
     //[request setFetchBatchSize:10];
@@ -97,15 +82,9 @@
     NSArray *context = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:name, nil]];
     [self performSelectorOnMainThread:@selector(setDataContent:) withObject:context waitUntilDone:YES];
     self.searchedData = [NSMutableArray arrayWithArray:data];
-    NSLog(@"%@",searchedData);
 	[table reloadData];
+    [name release];
     [pool release];
-}
-
-- (void)setDataContent:(NSArray *)_data{
-    self.data = _data;
-    self.searchedData = [NSMutableArray arrayWithArray:data];
-	[table reloadData];
 }
 
 -(void)loadDataWithPredicate:(NSPredicate *)predicate {
@@ -115,10 +94,10 @@
     NSString *textS = [NSString stringWithCString:[mySearchBar.text UTF8String] encoding:NSUTF8StringEncoding];
     if ([currentKeyboardLanguage isEqualToString:nativeLanguage]) {
         key = @"translate";
-        predicate = [NSPredicate predicateWithFormat:@"translate BEGINSWITH[cd] %@", textS];
+        predicate = [NSPredicate predicateWithFormat:@"translate BEGINSWITH[cd] %@ AND type!=nil", textS];
     }else{
         key = @"text";
-        predicate = [NSPredicate predicateWithFormat:@"text BEGINSWITH[cd] %@", textS];
+        predicate = [NSPredicate predicateWithFormat:@"text BEGINSWITH[cd] %@ AND type!=nil", textS];
     }
     NSError *error;
     NSFetchRequest * request = [NSFetchRequest new];
@@ -136,6 +115,12 @@
     self.searchedData = [NSMutableArray arrayWithArray:data];
     [name release];
     [request release];
+	[table reloadData];
+}
+
+- (void)setDataContent:(NSArray *)_data{
+    self.data = _data;
+    self.searchedData = [NSMutableArray arrayWithArray:data];
 	[table reloadData];
 }
 
