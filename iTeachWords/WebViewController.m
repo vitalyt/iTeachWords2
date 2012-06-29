@@ -82,11 +82,14 @@ documentsDirectory = [paths objectAtIndex:0];
 {
 	[super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
-    //self.url = [[NSUserDefaults standardUserDefaults] setValue:_url forKey:@"LastUrl"];
+//    if (urlFld) {
+//        self.url = [[NSUserDefaults standardUserDefaults] setValue:_url forKey:@"LastUrl"];
+//    }
+
     if (!webView) {
         webView = [[UIWebView alloc] initWithFrame: CGRectMake(0.0, 44+urlToolbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
-        webView.delegate = self;
     }
+    webView.delegate = self;
     [urlFld setDelegate:self];
     [toolbar setFrame:CGRectMake(0, self.view.frame.size.height-toolbar.frame.size.height, toolbar.frame.size.width, toolbar.frame.size.height)];
     [urlToolbar setFrame:CGRectMake(0, 44, urlToolbar.frame.size.width, urlToolbar.frame.size.height)];
