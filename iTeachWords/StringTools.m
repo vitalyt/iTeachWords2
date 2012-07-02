@@ -89,9 +89,7 @@
     {
         NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
         if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
-            NSLog(@"%@",[result objectForKey:@"string"]);
             NSString *translateText = [[result objectForKey:@"string"] objectForKey:@"text"];
-            NSLog(@"%@",translateText);
             [caller didLoadTranslate:[translateText componentsSeparatedByString:translateSlash]];
         }else{
             CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"", @"") 

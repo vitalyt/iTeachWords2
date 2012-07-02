@@ -193,6 +193,8 @@
     [self.navigationController pushViewController:parsedWordTableView animated:YES];
     
     NSString *loadedText = [[NSString alloc] initWithString:[NSString removeNumbers:[self getSelectedText]]];
+    loadedText = [[[NSString removeChars:@"~%()" from:loadedText] retain] autorelease];
+    NSLog(@"%@",loadedText);
     [parsedWordTableView loadDataWithString:loadedText];
     [parsedWordTableView release];
     [loadedText release];

@@ -125,6 +125,8 @@
     [self.navigationController pushViewController:table animated:YES];
     NSString *loadedText = [[[NSString alloc] initWithString:myTextView.text] autorelease];
     loadedText = [NSString removeNumbers:loadedText];
+    loadedText = [NSString removeChars:@"-',!." from:loadedText];
+    NSLog(@"%@",loadedText);
     [table loadDataWithString:loadedText];
     [table release];
 }
