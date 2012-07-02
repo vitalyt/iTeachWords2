@@ -3810,8 +3810,8 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
+				PROVISIONING_PROFILE = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -3846,8 +3846,8 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
+				PROVISIONING_PROFILE = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
@@ -3863,8 +3863,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vitalii Todorovych";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitalii Todorovych";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3883,8 +3883,8 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "C42850B3-BF3A-4173-8599-689A673BF8A2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C42850B3-BF3A-4173-8599-689A673BF8A2";
+				PROVISIONING_PROFILE = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";

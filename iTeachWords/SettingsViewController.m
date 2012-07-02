@@ -13,7 +13,7 @@
 #import "NotificationTableView.h"
 
 #ifdef FREE_VERSION
-#import "PurchasesDetailViewController.h";
+#import "PurchasesDetailViewController.h"
 #import "QQQInAppStore.h"
 #endif
 

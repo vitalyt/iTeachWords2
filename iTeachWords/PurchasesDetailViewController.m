@@ -43,6 +43,8 @@
     if ([QQQInAppStore sharedStore].storeManager.delegate == self) {
         [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
     }
+    [loadingView release];
+    loadingView = nil;
     [buyButton release];
     [super dealloc];
 }
@@ -154,6 +156,7 @@
 
 - (void)showLoadingView{
     //    UIActivityIndicatorView *activityIndicatorView;
+    [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Loading...", @"")];
     if (!loadingView) {
         CGRect frame = self.view.frame;
         frame.origin.y = 0;
@@ -171,6 +174,7 @@
 }
 
 - (void)hideLoadingView{
+    [UIAlertView removeMessage];
     if (loadingView) {
         [loadingView setHidden:YES];
     }

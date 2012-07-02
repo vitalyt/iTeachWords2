@@ -72,13 +72,16 @@
 - (IBAction)buyAction:(id)sender {
     PurchaseType purchaseType = [self getCurrentPurchaseType];
     if (!purchasesController) {
+        [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
         [purchasesController release];
+        purchasesController = nil;
     }
     purchasesController = [[PurchasesDetailViewController alloc] initWithPurchaseType:purchaseType];
-    
+//    [[QQQInAppStore sharedStore].storeManager setDelegate:self];
     if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:purchaseType]]) {
         [purchasesController buyFuture:nil];
     }
+    [[QQQInAppStore sharedStore].storeManager setDelegate:purchasesController];
 }
 
 - (PurchaseType)getCurrentPurchaseType{
