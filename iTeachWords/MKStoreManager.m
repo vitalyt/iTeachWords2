@@ -45,11 +45,11 @@ static MKStoreManager* _sharedStoreManager; // self
         if (_sharedStoreManager == nil) {
 			
             [[self alloc] init]; // assignment not done here
-			_sharedStoreManager.purchasableObjects = [[[NSMutableArray alloc] init] autorelease];			
+			_sharedStoreManager.purchasableObjects = [[NSMutableArray alloc] init];			
 			[_sharedStoreManager requestProductData];
 			
 //			[MKStoreManager loadPurchases];
-			_sharedStoreManager.storeObserver = [[[MKStoreObserver alloc] init] autorelease];
+			_sharedStoreManager.storeObserver = [[MKStoreObserver alloc] init];
 			[[SKPaymentQueue defaultQueue] addTransactionObserver:_sharedStoreManager.storeObserver];
         }
     }

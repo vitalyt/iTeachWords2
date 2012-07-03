@@ -20,6 +20,7 @@
 - (void)dealloc
 {
     [purchasesController release];
+    purchasesController = nil;
     [super dealloc];
 }
 
@@ -58,6 +59,7 @@
 }
 
 - (IBAction)closeMyself:(id)sender {
+    [UIAlertView removeMessage];
     [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -71,7 +73,7 @@
 
 - (IBAction)buyAction:(id)sender {
     PurchaseType purchaseType = [self getCurrentPurchaseType];
-    if (!purchasesController) {
+    if (purchasesController) {
         [[QQQInAppStore sharedStore].storeManager setDelegate:nil];
         [purchasesController release];
         purchasesController = nil;
@@ -110,7 +112,7 @@
                                    [NSNumber numberWithInt:TEST1],@"purchaseType",nil];
     
     [sourceData addObject:recognizerDict];
-    [sourceData addObject:exercisesDict];
+//    [sourceData addObject:exercisesDict];
     [sourceData addObject:exercisesDict1];
     [sourceData addObject:repeatDict];
     
