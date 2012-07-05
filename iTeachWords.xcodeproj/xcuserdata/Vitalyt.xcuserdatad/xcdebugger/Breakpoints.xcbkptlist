@@ -757,5 +757,31 @@
          landmarkName = "-buyAction:"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/AddNewWordViewController.m"
+         timestampString = "363163364.240892"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "498"
+         endingLineNumber = "498"
+         landmarkName = "-showSaveButton"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/AddNewWordViewController.m"
+         timestampString = "363163805.152015"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "507"
+         endingLineNumber = "507"
+         landmarkName = "-hiddeSaveButton"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
