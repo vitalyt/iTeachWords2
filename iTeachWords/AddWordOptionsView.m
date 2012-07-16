@@ -190,6 +190,7 @@
 - (void) showParsedWordTable{
     [wordsView removeChanges];
 	NewWordsTable *parsedWordTableView = [[NewWordsTable alloc] initWithNibName:@"NewWordsTable" bundle:nil];
+    [self.navigationItem setBackBarButtonItem:BACK_BUTTON ];
     [self.navigationController pushViewController:parsedWordTableView animated:YES];
     
     NSString *loadedText = [[NSString alloc] initWithString:[NSString removeNumbers:[self getSelectedText]]];

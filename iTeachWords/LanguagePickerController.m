@@ -112,6 +112,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     [self createFlagsView];
     [self loadData];
     [pickerView reloadAllComponents];

@@ -44,6 +44,11 @@ NSString *const kARFontPickerViewControllerCellIdentifier = @"ARFontPickerViewCo
 
 @synthesize delegate = _delegate;
 
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
+}
+
 #pragma mark -
 #pragma mark UITableViewController methods
 

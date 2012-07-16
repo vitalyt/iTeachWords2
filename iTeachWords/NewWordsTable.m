@@ -91,6 +91,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     limit = 100;
     offset = 100;

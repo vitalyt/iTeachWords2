@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     searchBar.placeholder = NSLocalizedString(@"Touch to search", @"");
     [[NSNotificationCenter defaultCenter] addObserver:self

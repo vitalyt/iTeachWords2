@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C0BF32B15824C9800910ED4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0BF32A15824C9800910ED4 /* icon.png */; };
-		1C0BF32C15824C9D00910ED4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0BF32A15824C9800910ED4 /* icon.png */; };
 		1C0CC1A0153F0EE600E7EA24 /* stock_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0CC19F153F0EE600E7EA24 /* stock_example.png */; };
 		1C0CC1A1153F0EE600E7EA24 /* stock_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0CC19F153F0EE600E7EA24 /* stock_example.png */; };
 		1C1D9EAF1562A4600082F42D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1D9EAD1562A4020082F42D /* MessageUI.framework */; };
@@ -107,7 +105,6 @@
 		1C89F03B1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */; };
 		1C89F03C1525A27C00A1E5EA /* QQQSeparateSpeakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C89F03A1525A27C00A1E5EA /* QQQSeparateSpeakingView.m */; };
 		1C986220159462FD00F8E1D1 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C98621F159462FD00F8E1D1 /* info.png */; };
-		1C98622415946A2E00F8E1D1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DD91590C5E80046D28B /* Icon@2x.png */; };
 		1C986236159482C400F8E1D1 /* SimpleWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C986235159482C400F8E1D1 /* SimpleWebViewController.xib */; };
 		1C986237159482C400F8E1D1 /* SimpleWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C986235159482C400F8E1D1 /* SimpleWebViewController.xib */; };
 		1C98624115949F7A00F8E1D1 /* Web Smaller Education Empty Designe.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C98623E15949F7900F8E1D1 /* Web Smaller Education Empty Designe.png */; };
@@ -121,6 +118,10 @@
 		1C9862581594A9E800F8E1D1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C9862571594A9E700F8E1D1 /* Default@2x.png */; };
 		1C9862591594A9EE00F8E1D1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C9862551594A9E300F8E1D1 /* Default.png */; };
 		1C98625A1594A9F100F8E1D1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C9862571594A9E700F8E1D1 /* Default@2x.png */; };
+		1C9CC97515AC7CA400EDF818 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C9CC97415AC7CA400EDF818 /* Icon@2x.png */; };
+		1C9CC97715AC7CB700EDF818 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C9CC97615AC7CB700EDF818 /* icon.png */; };
+		1C9CC97815AC7CBF00EDF818 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C9CC97615AC7CB700EDF818 /* icon.png */; };
+		1C9CC97915AC7CC200EDF818 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C9CC97415AC7CA400EDF818 /* Icon@2x.png */; };
 		1CACB3911535C85800956445 /* OSDNUITableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACB3901535C85800956445 /* OSDNUITableCellView.m */; };
 		1CACB3921535C85800956445 /* OSDNUITableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACB3901535C85800956445 /* OSDNUITableCellView.m */; };
 		1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
@@ -140,7 +141,6 @@
 		1CCE5DD11590C3A60046D28B /* grad-cap-transparant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DCF1590C3A60046D28B /* grad-cap-transparant.png */; };
 		1CCE5DD31590C46E0046D28B /* grad-cap-transparant 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DD21590C46E0046D28B /* grad-cap-transparant 32x32.png */; };
 		1CCE5DD41590C46E0046D28B /* grad-cap-transparant 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DD21590C46E0046D28B /* grad-cap-transparant 32x32.png */; };
-		1CCE5DDA1590C5E80046D28B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DD91590C5E80046D28B /* Icon@2x.png */; };
 		1CCE5DE11590D1CB0046D28B /* Save 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DE01590D1CA0046D28B /* Save 32x32.png */; };
 		1CCE5DE21590D1CB0046D28B /* Save 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DE01590D1CA0046D28B /* Save 32x32.png */; };
 		1CCE5DE51590D39C0046D28B /* Search 24x24-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DE41590D39B0046D28B /* Search 24x24-white.png */; };
@@ -754,7 +754,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C0BF32A15824C9800910ED4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		1C0CC19F153F0EE600E7EA24 /* stock_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock_example.png; sourceTree = "<group>"; };
 		1C1D9E9E1562A3B70082F42D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1C1D9EA11562A3C40082F42D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -827,6 +826,8 @@
 		1C9862481594A26600F8E1D1 /* Web Empty Designe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Web Empty Designe@2x.png"; sourceTree = "<group>"; };
 		1C9862551594A9E300F8E1D1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1C9862571594A9E700F8E1D1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1C9CC97415AC7CA400EDF818 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		1C9CC97615AC7CB700EDF818 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		1CACB38F1535C85800956445 /* OSDNUITableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDNUITableCellView.h; sourceTree = "<group>"; };
 		1CACB3901535C85800956445 /* OSDNUITableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSDNUITableCellView.m; sourceTree = "<group>"; };
 		1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableView.h; sourceTree = "<group>"; };
@@ -841,7 +842,6 @@
 		1CCE5DCC1590BF050046D28B /* RecognizerAlertTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecognizerAlertTableCell.xib; sourceTree = "<group>"; };
 		1CCE5DCF1590C3A60046D28B /* grad-cap-transparant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grad-cap-transparant.png"; sourceTree = "<group>"; };
 		1CCE5DD21590C46E0046D28B /* grad-cap-transparant 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grad-cap-transparant 32x32.png"; sourceTree = "<group>"; };
-		1CCE5DD91590C5E80046D28B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		1CCE5DE01590D1CA0046D28B /* Save 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Save 32x32.png"; sourceTree = "<group>"; };
 		1CCE5DE41590D39B0046D28B /* Search 24x24-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search 24x24-white.png"; sourceTree = "<group>"; };
 		1CCE5DE71590D4170046D28B /* Search 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search 24x24.png"; sourceTree = "<group>"; };
@@ -1886,10 +1886,10 @@
 		284092BC1381242700864711 = {
 			isa = PBXGroup;
 			children = (
+				1C9CC97615AC7CB700EDF818 /* icon.png */,
+				1C9CC97415AC7CA400EDF818 /* Icon@2x.png */,
 				1C9862571594A9E700F8E1D1 /* Default@2x.png */,
 				1C9862551594A9E300F8E1D1 /* Default.png */,
-				1C0BF32A15824C9800910ED4 /* icon.png */,
-				1CCE5DD91590C5E80046D28B /* Icon@2x.png */,
 				1C5478321562AAE200DC617F /* InfoPlist.strings */,
 				284092D11381242700864711 /* iTeachWords */,
 				284092CA1381242700864711 /* Frameworks */,
@@ -2853,7 +2853,6 @@
 				843C2BBA156BF81400AF0F92 /* StarFull@2x.png in Resources */,
 				843C2BBC156BF81400AF0F92 /* StarFullLarge.png in Resources */,
 				843C2BBE156BF81400AF0F92 /* StarFullLarge@2x.png in Resources */,
-				1C0BF32C15824C9D00910ED4 /* icon.png in Resources */,
 				1C34772E158F7D4B0090D755 /* micIcon2.png in Resources */,
 				1C347731158F7E6D0090D755 /* voiceIcon2.png in Resources */,
 				1C347737158F8AF40090D755 /* search@2x.png in Resources */,
@@ -2863,7 +2862,6 @@
 				1CCE5DCD1590BF050046D28B /* RecognizerAlertTableCell.xib in Resources */,
 				1CCE5DD01590C3A60046D28B /* grad-cap-transparant.png in Resources */,
 				1CCE5DD31590C46E0046D28B /* grad-cap-transparant 32x32.png in Resources */,
-				1CCE5DDA1590C5E80046D28B /* Icon@2x.png in Resources */,
 				1CCE5DE11590D1CB0046D28B /* Save 32x32.png in Resources */,
 				1CCE5DE51590D39C0046D28B /* Search 24x24-white.png in Resources */,
 				1CCE5DE81590D41A0046D28B /* Search 24x24.png in Resources */,
@@ -2878,6 +2876,8 @@
 				1CFBFAAB15A1D2BE00FED38C /* Template - WithMasks.png in Resources */,
 				1CFBFAD315A1DF4B00FED38C /* Template - Masks.png in Resources */,
 				1CFBFADC15A2E4E700FED38C /* Template -MicMasks.png in Resources */,
+				1C9CC97515AC7CA400EDF818 /* Icon@2x.png in Resources */,
+				1C9CC97715AC7CB700EDF818 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3071,7 +3071,6 @@
 				843C2BBB156BF81400AF0F92 /* StarFull@2x.png in Resources */,
 				843C2BBD156BF81400AF0F92 /* StarFullLarge.png in Resources */,
 				843C2BBF156BF81400AF0F92 /* StarFullLarge@2x.png in Resources */,
-				1C0BF32B15824C9800910ED4 /* icon.png in Resources */,
 				1C34772F158F7D4B0090D755 /* micIcon2.png in Resources */,
 				1C347732158F7E6D0090D755 /* voiceIcon2.png in Resources */,
 				1C347738158F8AF40090D755 /* search@2x.png in Resources */,
@@ -3101,7 +3100,6 @@
 				1C849EE315934F53004BCEC0 /* close.png in Resources */,
 				1C849EE71593536B004BCEC0 /* unlock.png in Resources */,
 				1C986220159462FD00F8E1D1 /* info.png in Resources */,
-				1C98622415946A2E00F8E1D1 /* Icon@2x.png in Resources */,
 				1C986237159482C400F8E1D1 /* SimpleWebViewController.xib in Resources */,
 				1C98624115949F7A00F8E1D1 /* Web Smaller Education Empty Designe.png in Resources */,
 				1C98624215949F7A00F8E1D1 /* Web Smaller Recognizer Empty Designe.png in Resources */,
@@ -3113,6 +3111,8 @@
 				1CFBFAAC15A1D2BE00FED38C /* Template - WithMasks.png in Resources */,
 				1CFBFAD415A1DF4B00FED38C /* Template - Masks.png in Resources */,
 				1CFBFADD15A2E4E700FED38C /* Template -MicMasks.png in Resources */,
+				1C9CC97815AC7CBF00EDF818 /* icon.png in Resources */,
+				1C9CC97915AC7CC200EDF818 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3509,14 +3509,14 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "iTeachWords/iTeachWords-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D2D3FBB6-DCB9-49B3-8EC4-7FDDDFB49240";
-				SDKROOT = iphoneos5.1;
+				SDKROOT = iphoneos4.0;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -3588,14 +3588,14 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "iTeachWords/iTeachWords-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				SDKROOT = iphoneos5.1;
+				SDKROOT = iphoneos4.0;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3623,14 +3623,14 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "iTeachWords/iTeachWords-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iTeachWords\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				SDKROOT = iphoneos5.1;
+				SDKROOT = iphoneos4.0;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;

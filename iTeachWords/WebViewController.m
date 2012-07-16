@@ -81,6 +81,8 @@ documentsDirectory = [paths objectAtIndex:0];
 -(void)viewDidLoad 
 {
 	[super viewDidLoad];
+    
+    [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
 //    if (urlFld) {
 //        self.url = [[NSUserDefaults standardUserDefaults] setValue:_url forKey:@"LastUrl"];

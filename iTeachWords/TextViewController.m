@@ -76,6 +76,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     [self createMenu];
     [self.view bringSubviewToFront:self.bar];
     CGRect barFrame = self.bar.frame;
@@ -122,6 +123,7 @@
 - (IBAction) showTable{
 	[self saveText];
 	NewWordsTable *table = [[NewWordsTable alloc] initWithNibName:@"NewWordsTable" bundle:nil];
+    [self.navigationItem setBackBarButtonItem:BACK_BUTTON];
     [self.navigationController pushViewController:table animated:YES];
     NSString *loadedText = [[[NSString alloc] initWithString:myTextView.text] autorelease];
     loadedText = [NSString removeNumbers:loadedText];

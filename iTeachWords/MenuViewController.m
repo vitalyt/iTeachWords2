@@ -81,7 +81,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if (!NATIVE_LANGUAGE_CODE || !TRANSLATE_LANGUAGE_CODE){
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"nativeCountryCode"] || ![[NSUserDefaults standardUserDefaults] objectForKey:@"translateCountryCode"]){
         LanguagePickerController *languageView = [[LanguagePickerController alloc] initWithNibName:@"LanguagePickerController" bundle:nil];
         [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
         [self.navigationController pushViewController:languageView animated:YES];

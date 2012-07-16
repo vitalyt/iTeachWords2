@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+    [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     [messageLbl setText:NSLocalizedString(@"Tap to record", @"")];
     [SpeechKit setupWithID:SPEECH_ID
                       host:@"sandbox.nmdp.nuancemobility.net"
