@@ -714,6 +714,18 @@
 		84728F6715167A910024FACF /* weDict2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F5D15167A910024FACF /* weDict2.png */; };
 		84728F6F15167AF50024FACF /* TuneWiki1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6C15167AF50024FACF /* TuneWiki1.png */; };
 		84728F7015167AF50024FACF /* TuneWiki1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84728F6C15167AF50024FACF /* TuneWiki1.png */; };
+		847BF3C915BC09C90067D522 /* NSString+Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3C415BC09C90067D522 /* NSString+Gender.m */; };
+		847BF3CA15BC09C90067D522 /* NSString+Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3C415BC09C90067D522 /* NSString+Gender.m */; };
+		847BF3CB15BC09C90067D522 /* Vkontakte.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3C615BC09C90067D522 /* Vkontakte.m */; };
+		847BF3CC15BC09C90067D522 /* Vkontakte.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3C615BC09C90067D522 /* Vkontakte.m */; };
+		847BF3CD15BC09C90067D522 /* VkontakteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3C815BC09C90067D522 /* VkontakteViewController.m */; };
+		847BF3CE15BC09C90067D522 /* VkontakteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3C815BC09C90067D522 /* VkontakteViewController.m */; };
+		847BF3D315BC0A7F0067D522 /* SocialSharingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3D115BC0A7F0067D522 /* SocialSharingViewController.m */; };
+		847BF3D415BC0A7F0067D522 /* SocialSharingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3D115BC0A7F0067D522 /* SocialSharingViewController.m */; };
+		847BF3D515BC0A7F0067D522 /* SocialSharingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847BF3D215BC0A7F0067D522 /* SocialSharingViewController.xib */; };
+		847BF3D615BC0A7F0067D522 /* SocialSharingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847BF3D215BC0A7F0067D522 /* SocialSharingViewController.xib */; };
+		847BF3DA15BC0B340067D522 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3D915BC0B340067D522 /* MBProgressHUD.m */; };
+		847BF3DB15BC0B340067D522 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 847BF3D915BC0B340067D522 /* MBProgressHUD.m */; };
 		847FF17D1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FF17B1530ACC700BBAA27 /* Arrow down 24x24.png */; };
 		847FF17E1530ACDE00BBAA27 /* Arrow down 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FF17B1530ACC700BBAA27 /* Arrow down 24x24.png */; };
 		847FF17F1530ACDE00BBAA27 /* Arrow up 24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 847FF17C1530ACD200BBAA27 /* Arrow up 24x24.png */; };
@@ -1245,6 +1257,17 @@
 		84728F5C15167A910024FACF /* TextEdit2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextEdit2.png; sourceTree = "<group>"; };
 		84728F5D15167A910024FACF /* weDict2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weDict2.png; sourceTree = "<group>"; };
 		84728F6C15167AF50024FACF /* TuneWiki1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TuneWiki1.png; sourceTree = "<group>"; };
+		847BF3C315BC09C90067D522 /* NSString+Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Gender.h"; path = "SocialSharingSource/Vkontakte/NSString+Gender.h"; sourceTree = SOURCE_ROOT; };
+		847BF3C415BC09C90067D522 /* NSString+Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Gender.m"; path = "SocialSharingSource/Vkontakte/NSString+Gender.m"; sourceTree = SOURCE_ROOT; };
+		847BF3C515BC09C90067D522 /* Vkontakte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Vkontakte.h; path = SocialSharingSource/Vkontakte/Vkontakte.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		847BF3C615BC09C90067D522 /* Vkontakte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = Vkontakte.m; path = SocialSharingSource/Vkontakte/Vkontakte.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		847BF3C715BC09C90067D522 /* VkontakteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VkontakteViewController.h; path = SocialSharingSource/Vkontakte/VkontakteViewController.h; sourceTree = SOURCE_ROOT; };
+		847BF3C815BC09C90067D522 /* VkontakteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VkontakteViewController.m; path = SocialSharingSource/Vkontakte/VkontakteViewController.m; sourceTree = SOURCE_ROOT; };
+		847BF3D015BC0A7F0067D522 /* SocialSharingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSharingViewController.h; sourceTree = "<group>"; };
+		847BF3D115BC0A7F0067D522 /* SocialSharingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SocialSharingViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		847BF3D215BC0A7F0067D522 /* SocialSharingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialSharingViewController.xib; sourceTree = "<group>"; };
+		847BF3D815BC0B340067D522 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = SocialSharingSource/MBProgressHud/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
+		847BF3D915BC0B340067D522 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = SocialSharingSource/MBProgressHud/MBProgressHUD.m; sourceTree = SOURCE_ROOT; };
 		847FF17B1530ACC700BBAA27 /* Arrow down 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow down 24x24.png"; sourceTree = "<group>"; };
 		847FF17C1530ACD200BBAA27 /* Arrow up 24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow up 24x24.png"; sourceTree = "<group>"; };
 		84A198D71508059400EADF65 /* RecognizerInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RecognizerInfo.html; sourceTree = "<group>"; };
@@ -1934,6 +1957,7 @@
 		284092D11381242700864711 /* iTeachWords */ = {
 			isa = PBXGroup;
 			children = (
+				847BF3B515BC097C0067D522 /* SocialSharing */,
 				844D777914E6995A00AE0F86 /* InAppPurchase */,
 				2821ECC41484DED80025621D /* TestFlight */,
 				281F88E5139E0ADA00431DAD /* Network */,
@@ -2451,6 +2475,40 @@
 			name = MKStoreKit;
 			sourceTree = "<group>";
 		};
+		847BF3B515BC097C0067D522 /* SocialSharing */ = {
+			isa = PBXGroup;
+			children = (
+				847BF3CF15BC0A4C0067D522 /* Vkontakte */,
+				847BF3D015BC0A7F0067D522 /* SocialSharingViewController.h */,
+				847BF3D115BC0A7F0067D522 /* SocialSharingViewController.m */,
+				847BF3D215BC0A7F0067D522 /* SocialSharingViewController.xib */,
+			);
+			name = SocialSharing;
+			sourceTree = "<group>";
+		};
+		847BF3CF15BC0A4C0067D522 /* Vkontakte */ = {
+			isa = PBXGroup;
+			children = (
+				847BF3D715BC0AEC0067D522 /* MBProgressHud */,
+				847BF3C315BC09C90067D522 /* NSString+Gender.h */,
+				847BF3C415BC09C90067D522 /* NSString+Gender.m */,
+				847BF3C515BC09C90067D522 /* Vkontakte.h */,
+				847BF3C615BC09C90067D522 /* Vkontakte.m */,
+				847BF3C715BC09C90067D522 /* VkontakteViewController.h */,
+				847BF3C815BC09C90067D522 /* VkontakteViewController.m */,
+			);
+			name = Vkontakte;
+			sourceTree = "<group>";
+		};
+		847BF3D715BC0AEC0067D522 /* MBProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				847BF3D815BC0B340067D522 /* MBProgressHUD.h */,
+				847BF3D915BC0B340067D522 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHud;
+			sourceTree = "<group>";
+		};
 		84FE20A21527A7B9007567A1 /* EMHint */ = {
 			isa = PBXGroup;
 			children = (
@@ -2878,6 +2936,7 @@
 				1CFBFADC15A2E4E700FED38C /* Template -MicMasks.png in Resources */,
 				1C9CC97515AC7CA400EDF818 /* Icon@2x.png in Resources */,
 				1C9CC97715AC7CB700EDF818 /* icon.png in Resources */,
+				847BF3D515BC0A7F0067D522 /* SocialSharingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3113,6 +3172,7 @@
 				1CFBFADD15A2E4E700FED38C /* Template -MicMasks.png in Resources */,
 				1C9CC97815AC7CBF00EDF818 /* icon.png in Resources */,
 				1C9CC97915AC7CC200EDF818 /* Icon@2x.png in Resources */,
+				847BF3D615BC0A7F0067D522 /* SocialSharingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3254,6 +3314,11 @@
 				1C86CE0D156140820010B2F6 /* DictionaryCellViewController.m in Sources */,
 				843C2BA5156BF69800AF0F92 /* DYRateView.m in Sources */,
 				1CCE5DC91590BEEB0046D28B /* RecognizerAlertTableCell.m in Sources */,
+				847BF3C915BC09C90067D522 /* NSString+Gender.m in Sources */,
+				847BF3CB15BC09C90067D522 /* Vkontakte.m in Sources */,
+				847BF3CD15BC09C90067D522 /* VkontakteViewController.m in Sources */,
+				847BF3D315BC0A7F0067D522 /* SocialSharingViewController.m in Sources */,
+				847BF3DA15BC0B340067D522 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3399,6 +3464,11 @@
 				1CCE5E3E15930C5A0046D28B /* PurchaseStoreMenuView.m in Sources */,
 				1CCE5E4815930C960046D28B /* PagesViewController.m in Sources */,
 				1C849EDC1593345C004BCEC0 /* PurchaseImageView.m in Sources */,
+				847BF3CA15BC09C90067D522 /* NSString+Gender.m in Sources */,
+				847BF3CC15BC09C90067D522 /* Vkontakte.m in Sources */,
+				847BF3CE15BC09C90067D522 /* VkontakteViewController.m in Sources */,
+				847BF3D415BC0A7F0067D522 /* SocialSharingViewController.m in Sources */,
+				847BF3DB15BC0B340067D522 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

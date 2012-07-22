@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "SimpleWebViewController.h"
 
-@class MyUIViewClass;
+@class MyUIViewClass,SocialSharingViewController;
 @interface DetailViewController : SimpleWebViewController{
+    SocialSharingViewController *socialSharingViewController;
     @public
     IBOutlet MyUIViewClass *contentView;
     IBOutlet UIButton *closeBtn;
 }
 
 - (void)showWebView;
+- (void)showSocialSaringView;
 - (IBAction)close:(id)sender;
 
 @end

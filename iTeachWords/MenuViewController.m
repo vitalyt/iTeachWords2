@@ -204,10 +204,10 @@
 
 - (void)showInfoView{
     DetailViewController *infoView = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+//    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
+//    [self.navigationController pushViewController:infoView animated:YES];
     [self.navigationController presentModalViewController:infoView animated:YES];
     [infoView loadContentByFile:NSLocalizedString(@"GeneralInfo", @"")];
-//    [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
-    //    [self.navigationController pushViewController:infoView animated:YES];
     [infoView release];
 }
 

@@ -11,6 +11,8 @@
 #import "MyUIViewClass.h"
 #import "SimpleWebViewController.h"
 
+#import "SocialSharingViewController.h"
+
 @implementation DetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,8 +38,15 @@
 {
     [super viewDidLoad];
     [self showWebView];
+    [self showSocialSaringView];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+//    [self.navigationController.navigationBar setHidden:YES];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
@@ -88,10 +97,24 @@
 - (IBAction)close:(id)sender{
     
     [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.75]];
+//    [self.navigationController ];
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)showSocialSaringView{
+    if (!socialSharingViewController) {
+        socialSharingViewController = [[SocialSharingViewController alloc] initWithNibName:@"SocialSharingViewController" bundle:nil];
+    }
+    [socialSharingViewController setDelegate:self];
+    [self.view addSubview:socialSharingViewController.view];
+    [socialSharingViewController.view setFrame:CGRectMake(300, 0, socialSharingViewController.view.frame.size.width, socialSharingViewController.view.frame.size.height)];
+}
+
 - (void)dealloc {
+    if (socialSharingViewController) {
+        [socialSharingViewController release];
+        socialSharingViewController = nil;
+    }
     [contentView release];
     [closeBtn release];
     [super dealloc];
