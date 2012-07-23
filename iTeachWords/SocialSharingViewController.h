@@ -8,15 +8,26 @@
 
 #import <UIKit/UIKit.h>
 #import "Vkontakte.h"
+#import "SA_OAuthTwitterController.h"
 
-@interface SocialSharingViewController : UIViewController <VkontakteDelegate>{
+@protocol SocialSharingProtocol <NSObject>
+@required
+- (void)showAuthController:(UIViewController *)controller;
+- (void)authControllerDidCancelled;
+
+@end
+
+@interface SocialSharingViewController : UIViewController <VkontakteDelegate,SA_OAuthTwitterControllerDelegate>{
     id delegate; 
     
+    SA_OAuthTwitterEngine				*_engine;
     Vkontakte *_vkontakte; 
     UIViewController *vkontakteRegistrationView; 
 }
 
 @property (nonatomic, assign) id delegate;
+
+- (void)authControllerDidCancelled;
 
 //vkontakte mode functions
 - (IBAction)postVkontakte:(id)sender;
@@ -30,4 +41,8 @@
 
 - (void)refreshVkontakteState;
 - (void)hideControls:(BOOL)hide;
+
+//twitter mode functions
+- (IBAction)postToTwitterWall:(id)sender;
+- (NSString*)twitterMesageText;
 @end

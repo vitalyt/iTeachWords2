@@ -34,7 +34,7 @@ extern NSString * const vkRedirectUrl;
     BOOL _isCaptcha;
 }
 
-@property (nonatomic, weak) id <VkontakteDelegate> delegate;
+@property (nonatomic, assign) id <VkontakteDelegate> delegate;
 
 + (id)sharedInstance;
 - (BOOL)isAuthorized;

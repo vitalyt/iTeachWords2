@@ -26,7 +26,7 @@
     NSString *_userEmail;
 }
 
-@property (nonatomic, weak) id <VkontakteViewControllerDelegate> delegate;  
+@property (nonatomic, assign) id <VkontakteViewControllerDelegate> delegate;  
 
 - (id)initWithAuthLink:(NSURL *)link;
 

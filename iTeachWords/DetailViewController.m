@@ -107,7 +107,7 @@
     }
     [socialSharingViewController setDelegate:self];
     [self.view addSubview:socialSharingViewController.view];
-    [socialSharingViewController.view setFrame:CGRectMake(300, 0, socialSharingViewController.view.frame.size.width, socialSharingViewController.view.frame.size.height)];
+    [socialSharingViewController.view setFrame:CGRectMake(200, 0, socialSharingViewController.view.frame.size.width, socialSharingViewController.view.frame.size.height)];
 }
 
 - (void)dealloc {
