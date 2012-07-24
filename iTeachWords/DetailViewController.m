@@ -39,6 +39,7 @@
     [super viewDidLoad];
     [self showWebView];
     [self showSocialSaringView];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -50,7 +51,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+    [self showSocialSaringView];
     //[imageView release];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -63,6 +66,7 @@
 
 - (void)viewDidUnload
 {
+    [[self getScrollViewFromWebView:[self webView]] setDelegate:nil];
     [contentView release];
     contentView = nil;
     [closeBtn release];
@@ -78,11 +82,32 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (UIScrollView *)getScrollViewFromWebView: (UIWebView*) webView {
+    UIScrollView *scrollView = nil;
+    
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+    if ([currSysVer compare:@"5.0" options:NSNumericSearch] != NSOrderedAscending) {
+        return webView.scrollView;
+    }
+    else {
+        for (UIView *subview in [webView subviews]) {
+            if ([subview isKindOfClass:[UIScrollView class]]) {
+                scrollView = (UIScrollView *)subview;
+            }
+        }
+        
+        if (scrollView == nil) {
+            NSLog(@"Couldn’t get default scrollview!");
+        }
+    }
+    return scrollView;
+}
+
 - (void)showWebView{
     CGRect webViewFrame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
     [contentView addSubview:[self webView]];
+    [[self getScrollViewFromWebView:[self webView]] setDelegate:self];
     [[self webView] setFrame:webViewFrame];
-    
     [self webView].opaque = NO;
     [self webView].backgroundColor = [UIColor clearColor];
     
@@ -105,9 +130,27 @@
     if (!socialSharingViewController) {
         socialSharingViewController = [[SocialSharingViewController alloc] initWithNibName:@"SocialSharingViewController" bundle:nil];
     }
+    [socialSharingViewController.view setHidden:YES];
     [socialSharingViewController setDelegate:self];
     [self.view addSubview:socialSharingViewController.view];
-    [socialSharingViewController.view setFrame:CGRectMake(200, 0, socialSharingViewController.view.frame.size.width, socialSharingViewController.view.frame.size.height)];
+    [socialSharingViewController.view setFrame:CGRectMake(198, (contentView.frame.origin.y+contentView.frame.size.height)-socialSharingViewController.view.frame.size.height, socialSharingViewController.view.frame.size.width, socialSharingViewController.view.frame.size.height)];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.y>10) {
+        [socialSharingViewController.view setHidden:NO];
+    }else {
+        [socialSharingViewController.view setHidden:YES];
+    }
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    [socialSharingViewController.view setHidden:YES];
+    
 }
 
 - (void)dealloc {

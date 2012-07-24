@@ -10,7 +10,7 @@
 #import "SimpleWebViewController.h"
 
 @class MyUIViewClass,SocialSharingViewController;
-@interface DetailViewController : SimpleWebViewController{
+@interface DetailViewController : SimpleWebViewController <UIScrollViewDelegate>{
     SocialSharingViewController *socialSharingViewController;
     @public
     IBOutlet MyUIViewClass *contentView;

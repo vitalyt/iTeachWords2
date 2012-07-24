@@ -38,7 +38,7 @@
 					<object class="IBUIButton" id="978234164">
 						<reference key="NSNextResponder" ref="311951785"/>
 						<int key="NSvFlags">278</int>
-						<string key="NSFrameSize">{50, 50}</string>
+						<string key="NSFrame">{{40, 0}, {32, 32}}</string>
 						<reference key="NSSuperview" ref="311951785"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="527275165"/>
@@ -61,7 +61,7 @@
 						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">twitterIcon.png</string>
+							<string key="NSResourceName">twitter-icon.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="836405824">
 							<int key="type">2</int>
@@ -76,10 +76,10 @@
 					<object class="IBUIButton" id="527275165">
 						<reference key="NSNextResponder" ref="311951785"/>
 						<int key="NSvFlags">275</int>
-						<string key="NSFrame">{{58, 0}, {50, 50}}</string>
+						<string key="NSFrameSize">{32, 32}</string>
 						<reference key="NSSuperview" ref="311951785"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="706380275"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -93,13 +93,37 @@
 						<reference key="IBUINormalTitleShadowColor" ref="543068463"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">facebookIcon.png</string>
+							<string key="NSResourceName">facebook-icon.png</string>
+						</object>
+						<reference key="IBUIFontDescription" ref="836405824"/>
+						<reference key="IBUIFont" ref="496805000"/>
+					</object>
+					<object class="IBUIButton" id="706380275">
+						<reference key="NSNextResponder" ref="311951785"/>
+						<int key="NSvFlags">275</int>
+						<string key="NSFrame">{{80, 0}, {32, 32}}</string>
+						<reference key="NSSuperview" ref="311951785"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<reference key="IBUIHighlightedTitleColor" ref="666866516"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="543068463"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">vkontakte-icon.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="836405824"/>
 						<reference key="IBUIFont" ref="496805000"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{108, 50}</string>
+				<string key="NSFrameSize">{112, 32}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="978234164"/>
@@ -142,6 +166,15 @@
 					</object>
 					<int key="connectionID">10</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">postVkontakte:</string>
+						<reference key="source" ref="706380275"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">14</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -166,8 +199,9 @@
 						<int key="objectID">7</int>
 						<reference key="object" ref="311951785"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="527275165"/>
 							<reference ref="978234164"/>
+							<reference ref="706380275"/>
+							<reference ref="527275165"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -181,6 +215,11 @@
 						<reference key="object" ref="978234164"/>
 						<reference key="parent" ref="311951785"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">13</int>
+						<reference key="object" ref="706380275"/>
+						<reference key="parent" ref="311951785"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -188,6 +227,7 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -196,7 +236,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">14</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -263,8 +303,9 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="facebookIcon.png">{32, 32}</string>
-			<string key="twitterIcon.png">{32, 32}</string>
+			<string key="facebook-icon.png">{48, 48}</string>
+			<string key="twitter-icon.png">{48, 48}</string>
+			<string key="vkontakte-icon.png">{48, 48}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

@@ -170,6 +170,12 @@
 		1C9F6B2715BD24C700C3F448 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9F6B2515BD24BD00C3F448 /* libxml2.dylib */; };
 		1CACB3911535C85800956445 /* OSDNUITableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACB3901535C85800956445 /* OSDNUITableCellView.m */; };
 		1CACB3921535C85800956445 /* OSDNUITableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACB3901535C85800956445 /* OSDNUITableCellView.m */; };
+		1CB3EC2915BEC247005D8EC9 /* vkontakte-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3EC2715BEC247005D8EC9 /* vkontakte-icon.png */; };
+		1CB3EC2A15BEC247005D8EC9 /* vkontakte-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3EC2715BEC247005D8EC9 /* vkontakte-icon.png */; };
+		1CB3EC2B15BEC247005D8EC9 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3EC2815BEC247005D8EC9 /* facebook-icon.png */; };
+		1CB3EC2C15BEC247005D8EC9 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3EC2815BEC247005D8EC9 /* facebook-icon.png */; };
+		1CB3EC2E15BEC535005D8EC9 /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3EC2D15BEC535005D8EC9 /* twitter-icon.png */; };
+		1CB3EC2F15BEC535005D8EC9 /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3EC2D15BEC535005D8EC9 /* twitter-icon.png */; };
 		1CB6EABD1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABE1521E7B8001A4F49 /* ThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */; };
 		1CB6EABF1521E7B8001A4F49 /* ThemesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */; };
@@ -946,6 +952,9 @@
 		1C9F6B2515BD24BD00C3F448 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1CACB38F1535C85800956445 /* OSDNUITableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDNUITableCellView.h; sourceTree = "<group>"; };
 		1CACB3901535C85800956445 /* OSDNUITableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSDNUITableCellView.m; sourceTree = "<group>"; };
+		1CB3EC2715BEC247005D8EC9 /* vkontakte-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vkontakte-icon.png"; sourceTree = "<group>"; };
+		1CB3EC2815BEC247005D8EC9 /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
+		1CB3EC2D15BEC535005D8EC9 /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
 		1CB6EABA1521E7B8001A4F49 /* ThemesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesTableView.h; sourceTree = "<group>"; };
 		1CB6EABB1521E7B8001A4F49 /* ThemesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesTableView.m; sourceTree = "<group>"; };
 		1CB6EABC1521E7B8001A4F49 /* ThemesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemesTableView.xib; sourceTree = "<group>"; };
@@ -1509,6 +1518,9 @@
 		1C849ED815933426004BCEC0 /* ImageView */ = {
 			isa = PBXGroup;
 			children = (
+				1CB3EC2715BEC247005D8EC9 /* vkontakte-icon.png */,
+				1CB3EC2815BEC247005D8EC9 /* facebook-icon.png */,
+				1CB3EC2D15BEC535005D8EC9 /* twitter-icon.png */,
 				1C98621F159462FD00F8E1D1 /* info.png */,
 				1C849EE215934F53004BCEC0 /* close.png */,
 				1C849EE61593536B004BCEC0 /* unlock.png */,
@@ -3157,6 +3169,9 @@
 				1C9F6B2215BD23DE00C3F448 /* twitter_load.png in Resources */,
 				1C1D9A3215BD8231009CC3A5 /* twitterIcon.png in Resources */,
 				1C1D9A3415BD8231009CC3A5 /* facebookIcon.png in Resources */,
+				1CB3EC2915BEC247005D8EC9 /* vkontakte-icon.png in Resources */,
+				1CB3EC2B15BEC247005D8EC9 /* facebook-icon.png in Resources */,
+				1CB3EC2E15BEC535005D8EC9 /* twitter-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3398,6 +3413,9 @@
 				1C9F6B2315BD23DE00C3F448 /* twitter_load.png in Resources */,
 				1C1D9A3315BD8231009CC3A5 /* twitterIcon.png in Resources */,
 				1C1D9A3515BD8231009CC3A5 /* facebookIcon.png in Resources */,
+				1CB3EC2A15BEC247005D8EC9 /* vkontakte-icon.png in Resources */,
+				1CB3EC2C15BEC247005D8EC9 /* facebook-icon.png in Resources */,
+				1CB3EC2F15BEC535005D8EC9 /* twitter-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
