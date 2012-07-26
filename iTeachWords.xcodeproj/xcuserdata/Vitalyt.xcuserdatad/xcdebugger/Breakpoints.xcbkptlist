@@ -814,11 +814,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/SocialSharingViewController.m"
-         timestampString = "364743381.08066"
+         timestampString = "365001298.334053"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
          landmarkName = "-authControllerDidCancelled"
          landmarkType = "5">
       </FileBreakpoint>

@@ -8,7 +8,11 @@
 
 #import "SocialSharingViewController.h"
 #import "NSString+Gender.h"
+
 #import "SA_OAuthTwitterEngine.h"
+
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 #define kOAuthConsumerKey				@"DJ8d2jw1EAzOAmKBSN8C0g"		//REPLACE ME
 #define kOAuthConsumerSecret			@"bPFqYtJJ7YpZFbdsvQ1Mv2vcIHkcsUNqPQx9ExZDoU"		//REPLACE ME
@@ -16,8 +20,18 @@
 @implementation SocialSharingViewController
 
 @synthesize delegate;
+@synthesize session = _session;
+@synthesize posting = _posting;
+
 
 - (void)dealloc {
+    [_session release];
+	_session = nil;
+    [_facebookName release];
+	_facebookName = nil;
+    self.loginDialog = nil;
+    self.accessToken = nil;
+    
 	[_engine release];
     delegate = nil;
     [super dealloc];
@@ -261,6 +275,115 @@
 
 - (NSString*)twitterMesageText{
     return [NSString stringWithFormat: @"Already Updated. %@", [NSDate date]];
+}
+
+
+//Facebook posting
+
+- (void)refresh {
+    if (_loginState == LoginStateStartup || _loginState == LoginStateLoggedOut) {
+    } else if (_loginState == LoginStateLoggingIn) {
+    } else if (_loginState == LoginStateLoggedIn) {
+    }   
+}
+
+#pragma mark FBFunLoginDialogDelegate
+
+- (void)accessTokenFound:(NSString *)accessToken {
+    NSLog(@"Access token found: %@", accessToken);
+    self.accessToken = accessToken;
+    _loginState = LoginStateLoggedIn;
+ 
+    //    [self showLikeButton];
+    [self refresh];
+}
+
+- (void)closeTapped {
+    [self authControllerDidCancelled];
+    _loginState = LoginStateLoggedOut;        
+    [_loginDialog logout];
+    [self refresh];
+}
+
+- (void)displayRequired {
+    [self showAuthController:_loginDialog];
+}
+
+- (IBAction)postToFacebookWall:(id)sender {
+    if (_loginState == LoginStateStartup || _loginState == LoginStateLoggedOut) {
+        [self loginButtonTapped:nil];
+    } else if (_loginState == LoginStateLoggingIn) {
+    } else if (_loginState == LoginStateLoggedIn) {
+        //        [self rateTapped:nil];
+        [self postToWall];
+        
+    }   
+	// Otherwise, we don't have a name yet, just wait for that to come through.
+}
+
+
+#pragma mark FBSessionDelegate methods
+
+- (void)session:(FBSession*)session didLogin:(FBUID)uid {
+	[self getFacebookName];
+}
+
+- (void)session:(FBSession*)session willLogout:(FBUID)uid {
+	_facebookName = nil;
+}
+
+#pragma mark Get Facebook Name Helper
+
+- (void)getFacebookName {
+	NSString* fql = [NSString stringWithFormat:
+					 @"select uid,name from user where uid == %lld", _session.uid];
+	NSDictionary* params = [NSDictionary dictionaryWithObject:fql forKey:@"query"];
+	[[FBRequest requestWithDelegate:self] call:@"facebook.fql.query" params:params];
+}
+
+#pragma mark FBRequestDelegate methods
+
+- (void)request:(FBRequest*)request didLoad:(id)result {
+	if ([request.method isEqualToString:@"facebook.fql.query"]) {
+		NSArray* users = result;
+		NSDictionary* user = [users objectAtIndex:0];
+		NSString* name = [user objectForKey:@"name"];
+		if (_posting) {
+			[self postToWall];
+			_posting = NO;
+		}
+	}
+}
+
+#pragma mark Post to Wall Helper
+
+- (void)postToWall{
+    [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Posting To Facebook...", @"")];
+    NSDictionary *infoDict = nil;
+    if ([delegate respondsToSelector:@selector(facebookMesageText)]) {
+        infoDict = [delegate facebookMesageText];
+    }
+    if (!infoDict) {
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/feed?access_token=%@", [_accessToken stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    
+    ASIFormDataRequest *newRequest = [ASIFormDataRequest requestWithURL:url];
+    //    [newRequest setPostValue:@"I'm learning how to post to Facebook from an iPhone app!" forKey:@"message"];
+    [newRequest setPostValue:([infoDict objectForKey:@"title"])?[infoDict objectForKey:@"title"]:[NSString stringWithFormat:@""] forKey:@"name"];
+    [newRequest setPostValue:([infoDict objectForKey:@"title"])?[infoDict objectForKey:@"description"]:[NSString stringWithFormat:@""] forKey:@"description"];
+    [newRequest setPostValue:([infoDict objectForKey:@"actionLinks"])?
+     [infoDict objectForKey:@"actionLinks"]:@"http://www.osdn.nl" forKey:@"link"];
+    if ([infoDict objectForKey:@"imageUrl"]) {
+        [newRequest setPostValue:[infoDict objectForKey:@"imageUrl"] forKey:@"picture"];
+    }else {
+        [newRequest setPostValue:@"http://www.umbc.edu/studentlife/orgs/freedom/resources/news.jpg" forKey:@"picture"];
+    }
+    [newRequest setDidFinishSelector:@selector(postToWallFinished:)];
+    
+    [newRequest setDelegate:self];
+    [newRequest startAsynchronous]; 
 }
 
 @end

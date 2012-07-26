@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBConnect/FBConnect.h"
 #import "Vkontakte.h"
 #import "SA_OAuthTwitterController.h"
+#import "FBFunLoginDialog.h"
+#import "FBFunViewController.h"
 
 @protocol SocialSharingProtocol <NSObject>
 @required
@@ -17,15 +20,25 @@
 
 @end
 
-@interface SocialSharingViewController : UIViewController <VkontakteDelegate,SA_OAuthTwitterControllerDelegate>{
+
+@interface SocialSharingViewController : FBFunViewController <VkontakteDelegate,SA_OAuthTwitterControllerDelegate>{
     id delegate; 
     
     SA_OAuthTwitterEngine				*_engine;
     Vkontakte *_vkontakte; 
     UIViewController *vkontakteRegistrationView; 
+    
+    FBSession* _session;
+	NSString *_facebookName;
+	BOOL _posting;
 }
 
+@property (nonatomic, retain) FBSession *session;
 @property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) BOOL posting;
+
+
+@property (retain) FBFunLoginDialog *loginDialog;
 
 - (void)authControllerDidCancelled;
 
