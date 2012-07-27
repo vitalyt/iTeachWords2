@@ -2276,9 +2276,6 @@
 		284092BC1381242700864711 = {
 			isa = PBXGroup;
 			children = (
-				1CCD196715C17353006068D4 /* MobileCoreServices.framework */,
-				1CCD196215C1729A006068D4 /* libz.1.2.5.dylib */,
-				1C9F6B2515BD24BD00C3F448 /* libxml2.dylib */,
 				1C9CC97615AC7CB700EDF818 /* icon.png */,
 				1C9CC97415AC7CA400EDF818 /* Icon@2x.png */,
 				1C9862571594A9E700F8E1D1 /* Default@2x.png */,
@@ -2302,6 +2299,9 @@
 		284092CA1381242700864711 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CCD196715C17353006068D4 /* MobileCoreServices.framework */,
+				1CCD196215C1729A006068D4 /* libz.1.2.5.dylib */,
+				1C9F6B2515BD24BD00C3F448 /* libxml2.dylib */,
 				1C1D9EAD1562A4020082F42D /* MessageUI.framework */,
 				1C1D9EAB1562A3FC0082F42D /* AVFoundation.framework */,
 				1C1D9EA91562A3F40082F42D /* UIKit.framework */,

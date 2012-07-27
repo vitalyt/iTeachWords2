@@ -52,7 +52,7 @@ extern NSString * const vkRedirectUrl;
 @protocol VkontakteDelegate <NSObject>
 @required
 - (void)vkontakteDidFailedWithError:(NSError *)error;
-- (void)showVkontakteAuthController:(UIViewController *)controller;
+- (void)showAuthController:(UIViewController *)controller;
 - (void)vkontakteAuthControllerDidCancelled;
 @optional
 - (void)vkontakteDidFinishLogin:(Vkontakte *)vkontakte;

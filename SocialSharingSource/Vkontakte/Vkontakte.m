@@ -219,6 +219,12 @@ NSString * const vkRedirectUrl = @"http://oauth.vk.com/blank.html";
 
 @synthesize delegate;
 
+- (void)dealloc
+{
+    delegate = nil;
+    [super dealloc];
+}
+
 #pragma mark - Initialize
 
 + (id)sharedInstance
@@ -272,9 +278,9 @@ NSString * const vkRedirectUrl = @"http://oauth.vk.com/blank.html";
     vkontakteViewController.delegate = self;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vkontakteViewController];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(showVkontakteAuthController:)]) 
+    if (self.delegate && [self.delegate respondsToSelector:@selector(showAuthController:)]) 
     {
-        [self.delegate showVkontakteAuthController:navController];
+        [self.delegate showAuthController:navController];
     }
 }
 

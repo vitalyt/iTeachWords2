@@ -14,8 +14,8 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 
-#define kOAuthConsumerKey				@"DJ8d2jw1EAzOAmKBSN8C0g"		//REPLACE ME
-#define kOAuthConsumerSecret			@"bPFqYtJJ7YpZFbdsvQ1Mv2vcIHkcsUNqPQx9ExZDoU"		//REPLACE ME
+#define kOAuthConsumerKey				@"hcOXnIqFaUCIcXOAQkILg"		//REPLACE ME
+#define kOAuthConsumerSecret			@"lFtotIK1hTA80oQJBcOjCd0nDXj7GpbMkwBJvvlhm4"		//REPLACE ME
 
 @implementation SocialSharingViewController
 
@@ -25,6 +25,8 @@
 
 
 - (void)dealloc {
+    
+    _vkontakte.delegate = nil;
     [_session release];
 	_session = nil;
     [_facebookName release];
@@ -58,13 +60,9 @@
 {
     if (![_vkontakte isAuthorized]) 
     {
-//        [_loginB setTitle:@"Login" forState:UIControlStateNormal];
-        [self hideControls:YES];
     } 
     else 
     {
-//        [_loginB setTitle:@"Logout" forState:UIControlStateNormal];
-        [self hideControls:NO];
         [_vkontakte getUserInfo];
     }
 }
@@ -72,6 +70,8 @@
 
 - (IBAction)postVkontakte:(id)sender
 {
+    _vkontakte = [Vkontakte sharedInstance];
+    _vkontakte.delegate = self;
     if (![_vkontakte isAuthorized]) 
     {
         [_vkontakte authenticate];
@@ -97,37 +97,39 @@
 
 - (IBAction)postMessagePressed:(id)sender
 {
-    [_vkontakte postMessageToWall:@"Vkontakte iOS SDK"];
+    [_vkontakte postMessageToWall:APP_DESCRIPTION_FOR_POSTING];
 }
 
 - (IBAction)postImagePressed:(id)sender
 {
-    [_vkontakte postImageToWall:[UIImage imageNamed:@"iTunesArtwork"]];
+    [_vkontakte postImageToWall:[UIImage imageNamed:@"Icon@2x.png"]];
 }
 
 - (IBAction)postMessageWithLinkPressed:(id)sender
 {
-    [_vkontakte postMessageToWall:@"Vkontakte iOS SDK" 
-                             link:[NSURL URLWithString:@"https://github.com/StonerHawk/Vkontakte-iOS-SDK"]];
+    [_vkontakte postMessageToWall:APP_DESCRIPTION_FOR_POSTING 
+                             link:[NSURL URLWithString:APP_WEB_URL]];
 }
 
 - (IBAction)postImageWithTextPressed:(id)sender
 {
-    [_vkontakte postImageToWall:[UIImage imageNamed:@"iTunesArtwork"] 
-                           text:@"Vkontakte iOS SDK"];
+    [_vkontakte postImageToWall:[UIImage imageNamed:@"Icon@2x.png"] 
+                           text:APP_DESCRIPTION_FOR_POSTING];
 }
 
 - (IBAction)postImageWithTextAndLinkPressed:(id)sender
 {
-    [_vkontakte postImageToWall:[UIImage imageNamed:@"iTunesArtwork"] 
-                           text:@"Vkontakte iOS SDK" 
-                           link:[NSURL URLWithString:@"https://github.com/StonerHawk/Vkontakte-iOS-SDK"]];
+    [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Posting To vkontakte...", @"")];
+    [_vkontakte postImageToWall:[UIImage imageNamed:@"Icon@2x.png"] 
+                           text:APP_DESCRIPTION_FOR_POSTING 
+                           link:[NSURL URLWithString:APP_WEB_URL]];
 }
 
 #pragma mark - VkontakteDelegate
 
 - (void)vkontakteDidFailedWithError:(NSError *)error
 {
+    [UIAlertView removeMessage];
     [self vkontakteAuthControllerDidCancelled];
 }
 
@@ -144,6 +146,7 @@
 
 - (void)vkontakteAuthControllerDidCancelled
 {
+    [UIAlertView removeMessage];
     if ([delegate respondsToSelector:@selector(presentingViewController)]) {
         [((UIViewController*)delegate).presentingViewController dismissModalViewControllerAnimated:YES]; // for IOS 5+
     } else {
@@ -153,6 +156,7 @@
 
 - (void)authControllerDidCancelled
 {
+    [UIAlertView removeMessage];
     if ([delegate respondsToSelector:@selector(presentingViewController)]) {
         [((UIViewController*)delegate).presentingViewController dismissModalViewControllerAnimated:YES]; // for IOS 5+
     } else {
@@ -162,8 +166,10 @@
 
 - (void)vkontakteDidFinishLogin:(Vkontakte *)vkontakte
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [UIAlertView removeMessage];
+    [self vkontakteAuthControllerDidCancelled];
     [self refreshVkontakteState];
+    [self postVkontakte:nil];
 }
 
 - (void)vkontakteDidFinishLogOut:(Vkontakte *)vkontakte
@@ -188,11 +194,9 @@
 
 - (void)vkontakteDidFinishPostingToWall:(NSDictionary *)responce
 {
+    [UIAlertView removeMessage];
     NSLog(@"%@", responce);
 }
-
-
-
 
 
 
@@ -274,9 +278,8 @@
 }
 
 - (NSString*)twitterMesageText{
-    return [NSString stringWithFormat: @"Already Updated. %@", [NSDate date]];
+    return [NSString stringWithFormat:@"%@\nДержи ссылку и радуйся %@",APP_DESCRIPTION_FOR_POSTING,APP_WEB_URL];
 }
-
 
 //Facebook posting
 
@@ -284,6 +287,7 @@
     if (_loginState == LoginStateStartup || _loginState == LoginStateLoggedOut) {
     } else if (_loginState == LoginStateLoggingIn) {
     } else if (_loginState == LoginStateLoggedIn) {
+        [self postToWall];
     }   
 }
 
@@ -300,8 +304,6 @@
 
 - (void)closeTapped {
     [self authControllerDidCancelled];
-    _loginState = LoginStateLoggedOut;        
-    [_loginDialog logout];
     [self refresh];
 }
 
@@ -360,8 +362,8 @@
 - (void)postToWall{
     [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Posting To Facebook...", @"")];
     NSDictionary *infoDict = nil;
-    if ([delegate respondsToSelector:@selector(facebookMesageText)]) {
-        infoDict = [delegate facebookMesageText];
+    if ([self respondsToSelector:@selector(facebookMesageText)]) {
+        infoDict = [self facebookMesageText];
     }
     if (!infoDict) {
         return;
@@ -384,6 +386,14 @@
     
     [newRequest setDelegate:self];
     [newRequest startAsynchronous]; 
+}
+
+- (NSDictionary*)facebookMesageText{
+    NSMutableDictionary   *infoDict = [[NSMutableDictionary alloc] init];
+    [infoDict setValue:NSLocalizedString(@"iStudyWords", @"") forKey:@"title"];
+    [infoDict setValue:APP_DESCRIPTION_FOR_POSTING forKey:@"description"];
+    [infoDict setValue:APP_WEB_URL forKey:@"actionLinks"];
+    return [infoDict autorelease];
 }
 
 @end

@@ -58,4 +58,7 @@
 //twitter mode functions
 - (IBAction)postToTwitterWall:(id)sender;
 - (NSString*)twitterMesageText;
+
+
+- (NSDictionary*)facebookMesageText;
 @end

@@ -61,7 +61,7 @@
 
 - (IBAction)loginButtonTapped:(id)sender {
     
-    NSString *appId = @"207459929376099";
+    NSString *appId = @"285539161553774";
     NSString *permissions = @"publish_stream";
     
     if (_loginDialog == nil) {
@@ -85,7 +85,7 @@
 - (void)showLikeButton {
     
     // Source: http://developers.facebook.com/docs/reference/plugins/like-box
-    NSString *likeButtonIframe = @"<iframe src=\"http://www.facebook.com/plugins/likebox.php?id=207459929376099&amp;width=292&amp;connections=0&amp;stream=false&amp;header=false&amp;height=62\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:282px; height:62px;\" allowTransparency=\"true\"></iframe>";
+    NSString *likeButtonIframe = @"<iframe src=\"http://www.facebook.com/plugins/likebox.php?id=285539161553774&amp;width=292&amp;connections=0&amp;stream=false&amp;header=false&amp;height=62\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:282px; height:62px;\" allowTransparency=\"true\"></iframe>";
     NSString *likeButtonHtml = [NSString stringWithFormat:@"<HTML><BODY>%@</BODY></HTML>", likeButtonIframe];
     
     [_webView loadHTMLString:likeButtonHtml baseURL:[NSURL URLWithString:@""]];
