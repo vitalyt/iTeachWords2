@@ -229,6 +229,14 @@
 		1CCD196F15C179DB006068D4 /* FBFunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD196C15C179DB006068D4 /* FBFunViewController.m */; };
 		1CCD197015C179DB006068D4 /* FBFunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD196D15C179DB006068D4 /* FBFunViewController.xib */; };
 		1CCD197115C179DB006068D4 /* FBFunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD196D15C179DB006068D4 /* FBFunViewController.xib */; };
+		1CCD199815C67DAB006068D4 /* SE.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD199715C67DA7006068D4 /* SE.png */; };
+		1CCD199915C67DAB006068D4 /* SE.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD199715C67DA7006068D4 /* SE.png */; };
+		1CCD199C15C67E68006068D4 /* NO.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD199B15C67E67006068D4 /* NO.png */; };
+		1CCD199D15C67E68006068D4 /* NO.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD199B15C67E67006068D4 /* NO.png */; };
+		1CCD199F15C67ED6006068D4 /* IN.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD199E15C67ED4006068D4 /* IN.png */; };
+		1CCD19A015C67ED6006068D4 /* IN.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD199E15C67ED4006068D4 /* IN.png */; };
+		1CCD19A215C68014006068D4 /* BE.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD19A115C68013006068D4 /* BE.png */; };
+		1CCD19A315C68014006068D4 /* BE.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD19A115C68013006068D4 /* BE.png */; };
 		1CCE5DC91590BEEB0046D28B /* RecognizerAlertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE5DC81590BEEA0046D28B /* RecognizerAlertTableCell.m */; };
 		1CCE5DCA1590BEEB0046D28B /* RecognizerAlertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE5DC81590BEEA0046D28B /* RecognizerAlertTableCell.m */; };
 		1CCE5DCD1590BF050046D28B /* RecognizerAlertTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE5DCC1590BF050046D28B /* RecognizerAlertTableCell.xib */; };
@@ -1050,6 +1058,10 @@
 		1CCD196B15C179DB006068D4 /* FBFunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFunViewController.h; sourceTree = "<group>"; };
 		1CCD196C15C179DB006068D4 /* FBFunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFunViewController.m; sourceTree = "<group>"; };
 		1CCD196D15C179DB006068D4 /* FBFunViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FBFunViewController.xib; sourceTree = "<group>"; };
+		1CCD199715C67DA7006068D4 /* SE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SE.png; sourceTree = "<group>"; };
+		1CCD199B15C67E67006068D4 /* NO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NO.png; sourceTree = "<group>"; };
+		1CCD199E15C67ED4006068D4 /* IN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IN.png; sourceTree = "<group>"; };
+		1CCD19A115C68013006068D4 /* BE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BE.png; sourceTree = "<group>"; };
 		1CCE5DC71590BEEA0046D28B /* RecognizerAlertTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognizerAlertTableCell.h; sourceTree = "<group>"; };
 		1CCE5DC81590BEEA0046D28B /* RecognizerAlertTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognizerAlertTableCell.m; sourceTree = "<group>"; };
 		1CCE5DCC1590BF050046D28B /* RecognizerAlertTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecognizerAlertTableCell.xib; sourceTree = "<group>"; };
@@ -2702,6 +2714,9 @@
 		28E32ED6140F9FDA00ABC7D5 /* Flags */ = {
 			isa = PBXGroup;
 			children = (
+				1CCD19A115C68013006068D4 /* BE.png */,
+				1CCD199E15C67ED4006068D4 /* IN.png */,
+				1CCD199B15C67E67006068D4 /* NO.png */,
 				1C6F17F0152DD3A70008A075 /* WW.png */,
 				28C61EF9146BCCEC0065E75A /* Mail 24x24.png */,
 				282E99841410C4D1009FE9E7 /* No_flag.png */,
@@ -2723,6 +2738,7 @@
 				28E32F19140F9FDA00ABC7D5 /* GF.png */,
 				28E32F1F140F9FDA00ABC7D5 /* GR.png */,
 				28E32F25140F9FDA00ABC7D5 /* HR.png */,
+				1CCD199715C67DA7006068D4 /* SE.png */,
 				28E32F28140F9FDA00ABC7D5 /* IC.png */,
 				28E32F29140F9FDA00ABC7D5 /* ID.png */,
 				28E32F2B140F9FDA00ABC7D5 /* IL.png */,
@@ -3327,6 +3343,10 @@
 				1C4F5A4F15C04B0700A50A6D /* FBConnect.bundle in Resources */,
 				1C4F5A7A15C126FA00A50A6D /* FBFunLoginDialog.xib in Resources */,
 				1CCD197015C179DB006068D4 /* FBFunViewController.xib in Resources */,
+				1CCD199815C67DAB006068D4 /* SE.png in Resources */,
+				1CCD199C15C67E68006068D4 /* NO.png in Resources */,
+				1CCD199F15C67ED6006068D4 /* IN.png in Resources */,
+				1CCD19A215C68014006068D4 /* BE.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3574,6 +3594,10 @@
 				1C4F5A5015C04B0700A50A6D /* FBConnect.bundle in Resources */,
 				1C4F5A7B15C126FA00A50A6D /* FBFunLoginDialog.xib in Resources */,
 				1CCD197115C179DB006068D4 /* FBFunViewController.xib in Resources */,
+				1CCD199915C67DAB006068D4 /* SE.png in Resources */,
+				1CCD199D15C67E68006068D4 /* NO.png in Resources */,
+				1CCD19A015C67ED6006068D4 /* IN.png in Resources */,
+				1CCD19A315C68014006068D4 /* BE.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

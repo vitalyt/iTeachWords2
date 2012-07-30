@@ -105,9 +105,7 @@
     [flagView1 release];
     [flagView2 release];
     //flagView = flagsView;
-
 }
-
 
 - (void)viewDidLoad
 {

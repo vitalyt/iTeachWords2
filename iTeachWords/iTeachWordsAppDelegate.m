@@ -149,9 +149,12 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 #ifdef FREE_VERSION
-    [myMenu performSelector:@selector(showPurchasePagesView) withObject:nil afterDelay:.5];
-    [myMenu release];
-    return;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"nativeCountryCode"] && 
+        [[NSUserDefaults standardUserDefaults] objectForKey:@"translateCountryCode"]) {
+        [myMenu performSelector:@selector(showPurchasePagesView) withObject:nil afterDelay:.5];
+        [myMenu release];
+        return;
+    }
 #endif
     if (!isUpdating && (NATIVE_LANGUAGE_CODE && TRANSLATE_LANGUAGE_CODE))
     {
