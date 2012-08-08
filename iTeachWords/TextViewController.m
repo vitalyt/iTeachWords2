@@ -49,6 +49,8 @@
 }
 
 - (void)dealloc {
+    [navSC release];
+    navSC = nil;
     [loadingView release];
     [pagesScrollView release];
     [myTextView release];
@@ -100,6 +102,8 @@
 
 - (void)viewDidUnload
 {
+    [navSC release];
+    navSC = nil;
     [loadingView release];
     loadingView = nil;
     [myTextView release];
@@ -156,9 +160,6 @@
     }
     [myTextView selectAll:self];
     [[UIMenuController sharedMenuController] setIsAccessibilityElement:NO];
-//    [UIMenuController can]
-//    [UIMenuController sharedMenuController].menuVisible = YES;
-//    [myTextView setSelectedRange:NSRangeFromString(myTextView.text)];
 }
 
 - (IBAction)clearAll:(id)sender {
@@ -224,7 +225,7 @@
         [wordsView.dataModel loadTranslateText:selectedText fromLanguageCode:[self currentTextLanguage] toLanguageCode:translateLangusgeCode withDelegate:self];    }
 }
 
--(void) playText{
+-(void) playText:(id)sender{
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
@@ -257,6 +258,24 @@
 //    return YES;
 //}
 
+- (void)showLanguageSegment{
+    if (!navSC) {
+        navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:TRANSLATE_LANGUAGE_CODE, NATIVE_LANGUAGE_CODE, nil]];
+        navSC.center = CGPointMake(400, 220);
+    }
+    navSC.changeHandler = ^(NSUInteger newIndex) {
+        [self setCurrentTextLanguage:(newIndex == 0)?TRANSLATE_LANGUAGE_CODE:NATIVE_LANGUAGE_CODE];
+    };
+    [self.view addSubview:navSC];
+    
+    [UIView beginAnimations:@"Changing size of textView" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+	navSC.center = CGPointMake((myTextView.isFirstResponder)?260:400,220);
+    [UIView commitAnimations];
+	navSC.tag = 1;
+}
+
 #pragma mark textview delegate functions
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -269,6 +288,9 @@
         [UIView commitAnimations];
         [self.bar setHidden:NO];
         [self.bar showButtonsAnimated:YES];
+        if ([UITextInputMode currentInputMode] == nil) {
+            [self showLanguageSegment];
+        }
     }
 }
 
@@ -281,6 +303,9 @@
         [myTextView setFrame:CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width,  textFieldHieght)];
         [UIView commitAnimations];
 //        [self.bar setHidden:YES];
+    }
+    if ([UITextInputMode currentInputMode] == nil) {
+        [self showLanguageSegment];
     }
 }
 

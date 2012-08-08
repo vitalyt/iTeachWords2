@@ -13,6 +13,8 @@
 #import "MyVocalizerViewController.h"
 #import "ButtonView.h"
 
+#import "SVSegmentedControl.h"
+
 @class PagesScrollView;
 @interface TextViewController : AddWordOptionsView <
 UITextViewDelegate, 
@@ -22,7 +24,7 @@ ButtonViewProtocol,
 MyVocalizerDelegate
 >{
     IBOutlet UITextView *myTextView;
-    
+    SVSegmentedControl *navSC;
     PagesScrollView *pagesScrollView;
     
     NSRange             range;
@@ -47,6 +49,8 @@ MyVocalizerDelegate
 - (NSString*)detectCurrentTextLanguage;
 - (void)setCurrentTextLanguage:(NSString*)_textLanguage;
 - (NSString*)currentTextLanguage;
+- (void)showLanguageSegment;
+
 
 #ifdef FREE_VERSION
 - (void)showPurchaseInfoView;

@@ -265,6 +265,10 @@
 		1CCE9FD315CFB4E20050762D /* select-all.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE9FD115CFB4E20050762D /* select-all.png */; };
 		1CCE9FD515CFB8110050762D /* select-all-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE9FD415CFB8110050762D /* select-all-1.png */; };
 		1CCE9FD615CFB8110050762D /* select-all-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCE9FD415CFB8110050762D /* select-all-1.png */; };
+		1CDB78DE15D2916C00727155 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB78DB15D2916C00727155 /* SVSegmentedControl.m */; };
+		1CDB78DF15D2916C00727155 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB78DB15D2916C00727155 /* SVSegmentedControl.m */; };
+		1CDB78E015D2916C00727155 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB78DD15D2916C00727155 /* SVSegmentedThumb.m */; };
+		1CDB78E115D2916C00727155 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB78DD15D2916C00727155 /* SVSegmentedThumb.m */; };
 		1CFBFAAB15A1D2BE00FED38C /* Template - WithMasks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CFBFAAA15A1D2BE00FED38C /* Template - WithMasks.png */; };
 		1CFBFAAC15A1D2BE00FED38C /* Template - WithMasks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CFBFAAA15A1D2BE00FED38C /* Template - WithMasks.png */; };
 		1CFBFAD315A1DF4B00FED38C /* Template - Masks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CFBFAD215A1DF4B00FED38C /* Template - Masks.png */; };
@@ -1086,6 +1090,10 @@
 		1CCE5E4715930C960046D28B /* PagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagesViewController.xib; sourceTree = "<group>"; };
 		1CCE9FD115CFB4E20050762D /* select-all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select-all.png"; sourceTree = "<group>"; };
 		1CCE9FD415CFB8110050762D /* select-all-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select-all-1.png"; sourceTree = "<group>"; };
+		1CDB78DA15D2916C00727155 /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
+		1CDB78DB15D2916C00727155 /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
+		1CDB78DC15D2916C00727155 /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
+		1CDB78DD15D2916C00727155 /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
 		1CFBFAAA15A1D2BE00FED38C /* Template - WithMasks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Template - WithMasks.png"; sourceTree = "<group>"; };
 		1CFBFAD215A1DF4B00FED38C /* Template - Masks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Template - Masks.png"; sourceTree = "<group>"; };
 		1CFBFADB15A2E4E700FED38C /* Template -MicMasks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Template -MicMasks.png"; sourceTree = "<group>"; };
@@ -1826,6 +1834,17 @@
 			name = PagesBaseView;
 			sourceTree = "<group>";
 		};
+		1CDB78D815D2916100727155 /* SVSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				1CDB78DA15D2916C00727155 /* SVSegmentedControl.h */,
+				1CDB78DB15D2916C00727155 /* SVSegmentedControl.m */,
+				1CDB78DC15D2916C00727155 /* SVSegmentedThumb.h */,
+				1CDB78DD15D2916C00727155 /* SVSegmentedThumb.m */,
+			);
+			name = SVSegmentedControl;
+			sourceTree = "<group>";
+		};
 		280318A914398E1B00E87F1F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2393,6 +2412,7 @@
 		284092EC1381244A00864711 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1CDB78D815D2916100727155 /* SVSegmentedControl */,
 				843C2BA1156BF68200AF0F92 /* Rating */,
 				1C2981DB1541A8F900DDDA15 /* CustomGradientButton */,
 				84FE20A21527A7B9007567A1 /* EMHint */,
@@ -3791,6 +3811,8 @@
 				1C4F5A6115C04B0700A50A6D /* FBXMLHandler.m in Sources */,
 				1C4F5A7815C126FA00A50A6D /* FBFunLoginDialog.m in Sources */,
 				1CCD196E15C179DB006068D4 /* FBFunViewController.m in Sources */,
+				1CDB78DE15D2916C00727155 /* SVSegmentedControl.m in Sources */,
+				1CDB78E015D2916C00727155 /* SVSegmentedThumb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3974,6 +3996,8 @@
 				1C4F5A6215C04B0700A50A6D /* FBXMLHandler.m in Sources */,
 				1C4F5A7915C126FA00A50A6D /* FBFunLoginDialog.m in Sources */,
 				1CCD196F15C179DB006068D4 /* FBFunViewController.m in Sources */,
+				1CDB78DF15D2916C00727155 /* SVSegmentedControl.m in Sources */,
+				1CDB78E115D2916C00727155 /* SVSegmentedThumb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
