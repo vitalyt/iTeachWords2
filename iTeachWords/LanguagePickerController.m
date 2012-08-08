@@ -49,11 +49,8 @@
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)] autorelease];
     NSString *pathOfResource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/CountryNameCode2.txt"];
     NSString *countryNameCode = [[NSString alloc] initWithContentsOfFile:pathOfResource encoding:NSUTF8StringEncoding error:nil];
-    
     NSArray *countries = [[NSArray alloc] initWithArray:[countryNameCode componentsSeparatedByString:@"\r"]];
     [countryNameCode release];
-
-    
     for (int i=0;i<[countries count];i++){
         NSString *country = [countries objectAtIndex:i];
         NSArray *elements = [country componentsSeparatedByString:@"\t"];
