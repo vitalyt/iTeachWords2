@@ -226,6 +226,12 @@
 }
 
 -(void) playText:(id)sender{
+#ifdef FREE_VERSION
+    if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:VOCALIZER]]) {
+        [self showPurchaseInfoView];
+        return;
+    }
+#endif
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];

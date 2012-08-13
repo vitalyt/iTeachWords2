@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddWordOptionsView.m"
-         timestampString = "364135270.371597"
+         timestampString = "366197691.571526"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
          landmarkName = "-addWordView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -411,11 +411,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddWordOptionsView.m"
-         timestampString = "364135270.371597"
+         timestampString = "366197691.571526"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "190"
-         endingLineNumber = "190"
+         startingLineNumber = "205"
+         endingLineNumber = "205"
          landmarkName = "-showParsedWordTable"
          landmarkType = "5">
       </FileBreakpoint>
@@ -489,11 +489,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "365329290.656498"
+         timestampString = "366543616.92193"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "339"
-         endingLineNumber = "339"
+         startingLineNumber = "343"
+         endingLineNumber = "343"
          landmarkName = "-showWebView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -736,11 +736,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/AddWordOptionsView.m"
-         timestampString = "364135270.371597"
+         timestampString = "366197691.571526"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "194"
-         endingLineNumber = "194"
+         startingLineNumber = "209"
+         endingLineNumber = "209"
          landmarkName = "-showParsedWordTable"
          landmarkType = "5">
       </FileBreakpoint>
@@ -892,11 +892,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "365329290.656498"
+         timestampString = "366543616.92193"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "384"
-         endingLineNumber = "384"
+         startingLineNumber = "388"
+         endingLineNumber = "388"
          landmarkName = "-showPurchasePagesView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -911,6 +911,19 @@
          startingLineNumber = "147"
          endingLineNumber = "147"
          landmarkName = "-pickerView:didSelectRow:inComponent:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/MenuViewController.m"
+         timestampString = "366543578.590712"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
+         landmarkName = "-showOptionView:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

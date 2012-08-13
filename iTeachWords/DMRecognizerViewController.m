@@ -168,7 +168,7 @@
         width = 0;
     
     CGRect frame = vuMeter.frame;
-    frame.size.width = width+10;
+    frame.size.width = (width<140)?width+5:140;
     vuMeter.frame = frame;
 }
 

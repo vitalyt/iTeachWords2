@@ -227,6 +227,10 @@
 }
 
 - (IBAction)showOptionView:(id)sender {
+    if ([iTeachWordsAppDelegate isAppHacked]) {
+        [UIAlertView displayError:NSLocalizedString(@"You are using a hacked app!!!", @"")];
+        return;
+    }
     if (!IS_HELP_MODE) {
         [UIAlertView displayGuideMessage:NSLocalizedString(@"If you will have a problem with value of buttons you can make available a help mode within the Settings view.", @"") title:NSLocalizedString(@"Suggestion", @"")];
     }

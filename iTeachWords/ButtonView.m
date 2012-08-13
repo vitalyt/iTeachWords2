@@ -26,8 +26,25 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [scrollImage setHidden:YES];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"scrollImageWasShowed"]) {
+        [scrollImage setHidden:NO];
+    }
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    [scrollImage setHidden:YES];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"scrollImageWasShowed"]) {
+        [scrollImage setHidden:NO];
+    }
+}
+
 - (void)dealloc {
     [button release];
+    [scrollImage release];
     [super dealloc];
 }
 
@@ -44,6 +61,8 @@
     [button release];
     button = nil;
     delegate = nil;
+    [scrollImage release];
+    scrollImage = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

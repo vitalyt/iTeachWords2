@@ -10,6 +10,7 @@
 #import "AddNewWordViewController.h"
 #import "TextViewController.h"
 #import "NewWordsTable.h"
+#import "PurchasesDetailViewController.h"
 
 @implementation AddWordOptionsView
 
@@ -161,6 +162,12 @@
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view];
         return;
     }
+#ifdef FREE_VERSION
+    if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:VOCALIZER]]) {
+        [self showPurchaseInfoView];
+        return;
+    }
+#endif
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
         MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
@@ -169,6 +176,14 @@
         [voiceView release];
     }
 }
+
+#ifdef FREE_VERSION
+- (void)showPurchaseInfoView{
+    PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:VOCALIZER];
+    [self.navigationController presentModalViewController:infoView animated:YES];
+    [infoView release];
+}
+#endif
 
 #pragma mark loadingTranslate delegate functions
 

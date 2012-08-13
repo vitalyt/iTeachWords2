@@ -52,4 +52,5 @@
 + (void)saveUndoBranch;
 + (void)remoneUndoBranch;
 
++ (BOOL)isAppHacked;
 @end

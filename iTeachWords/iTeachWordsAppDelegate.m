@@ -478,4 +478,63 @@
     return [dict autorelease];
 }
 
++ (BOOL)isAppHacked{
+    
+#if !TARGET_IPHONE_SIMULATOR
+    int root = getgid();
+    if (root <= 10) {
+        return YES;
+    }
+#endif
+    
+    
+    //Проверка даты
+    NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
+    NSString* path = [NSString stringWithFormat:@"%@/Info.plist", bundlePath];
+    NSString* path2 = [NSString stringWithFormat:@"%@/AppName", bundlePath];
+    NSDate* infoModifiedDate = [[[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil] fileModificationDate];
+    NSDate* infoModifiedDate2 = [[[NSFileManager defaultManager] attributesOfItemAtPath:path2 error:nil] fileModificationDate];
+    NSDate* pkgInfoModifiedDate = [[[NSFileManager defaultManager] attributesOfItemAtPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"PkgInfo"] error:nil] fileModificationDate];
+    if([infoModifiedDate timeIntervalSinceReferenceDate] > [pkgInfoModifiedDate timeIntervalSinceReferenceDate]) {	
+        return YES;
+    }
+    if([infoModifiedDate2 timeIntervalSinceReferenceDate] > [pkgInfoModifiedDate timeIntervalSinceReferenceDate]) {	
+        return YES;
+    }
+    
+    
+#if !TARGET_IPHONE_SIMULATOR
+    //Проверка файлов
+    bundlePath = [[NSBundle mainBundle] bundlePath];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:([NSString stringWithFormat:@"%@/_CodeSignature", bundlePath])];
+    if (!fileExists) {
+        return YES;
+    }
+    BOOL fileExists2 = [[NSFileManager defaultManager] fileExistsAtPath:([NSString stringWithFormat:@"%@/CodeResources", bundlePath])];
+    if (!fileExists2) {
+        return YES;
+    }
+    BOOL fileExists3 = [[NSFileManager defaultManager] fileExistsAtPath:([NSString stringWithFormat:@"%@/ResourceRules.plist", bundlePath])];
+    if (!fileExists3) {
+        return YES;
+    }
+#endif
+    
+    
+    //Проверка на JailBreak №2
+    NSError *error;
+    //Строка для записи
+    NSString *str = @"Проверка записи. Если вы это сможете прочитать, то у вас джейлбрейк!";
+    
+    //Пробуем записать файл в системный раздел
+    [str writeToFile:@"/private/test_jail.txt" atomically:YES 
+            encoding:NSUTF8StringEncoding error:&error];
+    //Если записалось без ошибок
+    if(error==nil){
+        return YES;
+    }
+    
+    return NO;
+}
+
 @end

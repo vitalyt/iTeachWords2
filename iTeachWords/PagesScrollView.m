@@ -145,6 +145,10 @@
     [self tilePages];
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"scrollImageWasShowed"];
+}
+
 #pragma mark -
 #pragma mark Tiling and page configuration
 
