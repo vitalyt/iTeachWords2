@@ -45,7 +45,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FeedbackMailAddress</key>
-	<string>vitaly.todorovych@yandex.ru</string>
+	<string>istudywords@yandex.ru</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LessonResouce</key>
@@ -68,11 +68,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>appWebUrl</key>
+	<string>http://www.istudywords.com</string>
 	<key>dataBaseName</key>
 	<string>iTeachWordDataBase</string>
 	<key>myResource</key>
 	<string>/Documents/</string>
-	<key>appWebUrl</key>
-	<string>http://www.istudywords.com</string>
 </dict>
 </plist>

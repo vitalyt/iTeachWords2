@@ -280,32 +280,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/PurchaseStoreMenuView.m"
-         timestampString = "362998981.476312"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
-         landmarkName = "-showDetailInfo:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/PagesViewController.m"
-         timestampString = "362063948.245203"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "92"
-         endingLineNumber = "92"
-         landmarkName = "-viewDidUnload"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "iTeachWords/DictionaryViewController.m"
          timestampString = "364134176.608388"
          startingColumnNumber = "9223372036854775807"
@@ -541,11 +515,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/PurchasesDetailViewController.m"
-         timestampString = "362923333.622911"
+         timestampString = "368459464.141907"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "159"
-         endingLineNumber = "159"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
          landmarkName = "-showLoadingView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -554,11 +528,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/PurchasesDetailViewController.m"
-         timestampString = "362923382.666462"
+         timestampString = "368459464.141907"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "177"
-         endingLineNumber = "177"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
          landmarkName = "-hideLoadingView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -567,11 +541,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/PurchasesDetailViewController.m"
-         timestampString = "362923420.507121"
+         timestampString = "368459464.141907"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "184"
-         endingLineNumber = "184"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
          landmarkName = "-productPurchased"
          landmarkType = "5">
       </FileBreakpoint>
@@ -580,11 +554,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/PurchasesDetailViewController.m"
-         timestampString = "362923421.412501"
+         timestampString = "368459464.141907"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "189"
-         endingLineNumber = "189"
+         startingLineNumber = "183"
+         endingLineNumber = "183"
          landmarkName = "-failed"
          landmarkType = "5">
       </FileBreakpoint>
@@ -618,19 +592,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/PurchaseStoreMenuView.m"
-         timestampString = "362999889.746597"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
-         landmarkName = "-buyAction:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "iTeachWords/MKStoreManager.m"
          timestampString = "362998842.838086"
          startingColumnNumber = "9223372036854775807"
@@ -644,19 +605,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/MKStoreObserver.m"
-         timestampString = "362999566.252163"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "-restoreTransaction:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "iTeachWords/MKStoreManager.m"
          timestampString = "362999807.621991"
          startingColumnNumber = "9223372036854775807"
@@ -664,45 +612,6 @@
          startingLineNumber = "24"
          endingLineNumber = "24"
          landmarkName = "-dealloc"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/PurchaseStoreMenuView.m"
-         timestampString = "362999822.214788"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
-         landmarkName = "-viewDidUnload"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/QQQInAppStore.m"
-         timestampString = "362999897.155675"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "23"
-         endingLineNumber = "23"
-         landmarkName = "-dealloc"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/PurchaseStoreMenuView.m"
-         timestampString = "362999971.697486"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
-         landmarkName = "-buyAction:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -917,13 +826,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "366543578.590712"
+         filePath = "iTeachWords/iTeachWordsAppDelegate.m"
+         timestampString = "368524528.038539"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "231"
-         endingLineNumber = "231"
-         landmarkName = "-showOptionView:"
+         startingLineNumber = "486"
+         endingLineNumber = "486"
+         landmarkName = "+isAppHacked"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/iTeachWordsAppDelegate.m"
+         timestampString = "368534832.494728"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "534"
+         endingLineNumber = "534"
+         landmarkName = "+isAppHacked"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

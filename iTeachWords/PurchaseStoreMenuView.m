@@ -109,7 +109,7 @@
                                    [NSNumber numberWithInt:TESTGAME],@"purchaseType",nil];
     NSDictionary *exercisesDict1 = [[NSDictionary alloc] initWithObjectsAndKeys:NSLocalizedString(@"Exercises", @""),@"title",
                                    NSLocalizedString(@"Web Smaller Education Empty Designe", @""),@"fileName",
-                                   [NSNumber numberWithInt:TEST1],@"purchaseType",nil];
+                                   [NSNumber numberWithInt:TESTGAME],@"purchaseType",nil];
     
     [sourceData addObject:recognizerDict];
 //    [sourceData addObject:exercisesDict];

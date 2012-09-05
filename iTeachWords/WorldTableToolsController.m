@@ -145,8 +145,8 @@
 
 - (void) clickTest1{
 #ifdef FREE_VERSION
-    if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:TEST1]]) {
-        PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:TEST1];
+    if (![MKStoreManager isCurrentItemPurchased:[QQQInAppStore purchaseIDByType:TESTGAME]]) {
+        PurchasesDetailViewController *infoView = [[PurchasesDetailViewController alloc] initWithPurchaseType:TESTGAME];
         [self.navigationController presentModalViewController:infoView animated:YES];
         [infoView release];
         return;

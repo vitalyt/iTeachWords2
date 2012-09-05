@@ -63,7 +63,7 @@
 - (NSDate *)getLastThemeLearningDateWithStatisticsArray:(NSArray*)_statisticsLearningArray{
     if (_statisticsLearningArray) {
         NSDate *_lastThemeLearningDate = ((StatisticLearning *)[_statisticsLearningArray lastObject]).lastLearningDate; 
-        NSLog(@"lastLearningDate->%@",_lastThemeLearningDate);
+//        NSLog(@"lastLearningDate->%@",_lastThemeLearningDate);
         return _lastThemeLearningDate;
     } 
     return nil;
@@ -195,7 +195,7 @@
             NSDate *currentDate = [NSDate date];
             NSDate *_lastThemeLearningDate = [self getLastThemeLearningDateWithStatisticsArray:_statisticsLearningArray];
             int currentIntervall = (int) [currentDate timeIntervalSinceDate:_lastThemeLearningDate];//interval is in secconds
-            NSLog(@"realCurrentIntervall->%d",currentIntervall);
+//            NSLog(@"realCurrentIntervall->%d",currentIntervall);
             
             NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
             [dict setObject:_wordType forKey:@"wordType"];

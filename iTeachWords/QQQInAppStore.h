@@ -10,7 +10,6 @@
 
 typedef enum {
 	VOCALIZER = 0,
-	TEST1,
     TESTGAME,
     NOTIFICATION
 }PurchaseType;

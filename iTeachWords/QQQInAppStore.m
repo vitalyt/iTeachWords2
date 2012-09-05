@@ -13,10 +13,9 @@
 @synthesize storeManager;
 @synthesize costDictionary;
 
-#define textVocalizerID @"qqq.vitalyt.iteachwords.free.textrecognizer"
-#define test1ID @"qqq.vitalyt.iteachwords.free.test1";
-#define testGameID @"qqq.vitalyt.iteachwords.free.testGame";
-#define notificationID @"qqq.vitalyt.iteachwords.free.notification";
+#define textVocalizerID @"qqq.vitalyt.iteachwords.lite.voicerecognizer"
+#define testGameID @"qqq.vitalyt.iteachwords.lite.extratestes";
+#define notificationID @"qqq.vitalyt.iteachwords.lite.notification";
 
 static QQQInAppStore* _sharedInAppStore; // self
 
@@ -51,9 +50,6 @@ static QQQInAppStore* _sharedInAppStore; // self
     switch (_purchaseType) {
         case VOCALIZER:
             return textVocalizerID;
-            break;
-        case TEST1:
-            return test1ID;
             break;
         case TESTGAME:
             return testGameID;

@@ -5,12 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>iStudyWords</string>
+	<string>iStudyWords(Lite)</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon-lite.png</string>
+		<string>Icon-lite@2x.png</string>
 		<string>Default.png</string>
 		<string>Default@2x.png</string>
 	</array>
@@ -42,7 +43,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FeedbackMailAddress</key>
-	<string>vitaly.todorovych@yandex.ru</string>
+	<string>istudywords@yandex.ru</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LessonResouce</key>

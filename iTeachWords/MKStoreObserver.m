@@ -43,7 +43,7 @@
 {	
     if (transaction.error.code != SKErrorPaymentCancelled)		
     {		
-        NSLog(@"%@",transaction.error.code);
+        NSLog(@"%d",transaction.error.code);
         // Optionally, display an error here.		
     }	
 	[[MKStoreManager sharedManager] paymentCanceled];

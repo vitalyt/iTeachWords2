@@ -181,36 +181,36 @@
     [self addingNameForLesson];
 }
 
--(void) addingNameForLesson{
-    CustomAlertView *nameAllert = [[CustomAlertView alloc]initWithTitle:NSLocalizedString(@"Error", @"") message:NSLocalizedString(@"Enter name for lesson", @"") delegate:self cancelButtonTitle:@"Cansel" otherButtonTitles:@"Ok", nil];
-    NSString *text = @"";
-    if (lessonName) {
-        text = lessonName;
-    }
-    [nameAllert addTextFieldWithValue:text label:@"Lesson name"];
-    //UITextField *nameField = [[UITextField alloc]initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
-    //[nameAllert addSubview:nameField];
-    [nameAllert show];
-    //[nameField release];
-    [nameAllert release];
-}
-
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1) {
-        lessonName = [[NSString stringWithFormat:@"%@",((UITextField*)[alertView textField]).text] retain];
-        NSLog(@"%@",lessonName);
-        
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *pathOfDocuments = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"LessonResouce"]];
-        NSString *lessonFolder = [pathOfDocuments stringByAppendingPathComponent:lessonName];
-        
-        if (![fileManager fileExistsAtPath:lessonFolder]){
-            //[fileManager createDirectoryAtPath:lessonFolder attributes:nil];
-            [fileManager createDirectoryAtPath:lessonFolder withIntermediateDirectories:YES attributes:nil error:nil];
-        }
-        [self createModelFile];
-    }
-}
+//-(void) addingNameForLesson{
+//    CustomAlertView *nameAllert = [[CustomAlertView alloc]initWithTitle:NSLocalizedString(@"Error", @"") message:NSLocalizedString(@"Enter name for lesson", @"") delegate:self cancelButtonTitle:@"Cansel" otherButtonTitles:@"Ok", nil];
+//    NSString *text = @"";
+//    if (lessonName) {
+//        text = lessonName;
+//    }
+////    [nameAllert addTextFieldWithValue:text label:@"Lesson name"];
+//    //UITextField *nameField = [[UITextField alloc]initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+//    //[nameAllert addSubview:nameField];
+//    [nameAllert show];
+//    //[nameField release];
+//    [nameAllert release];
+//}
+//
+//- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+//    if (buttonIndex == 1) {
+//        lessonName = [[NSString stringWithFormat:@"%@",((UITextField*)[alertView textField]).text] retain];
+//        NSLog(@"%@",lessonName);
+//        
+//        NSFileManager *fileManager = [NSFileManager defaultManager];
+//        NSString *pathOfDocuments = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"LessonResouce"]];
+//        NSString *lessonFolder = [pathOfDocuments stringByAppendingPathComponent:lessonName];
+//        
+//        if (![fileManager fileExistsAtPath:lessonFolder]){
+//            //[fileManager createDirectoryAtPath:lessonFolder attributes:nil];
+//            [fileManager createDirectoryAtPath:lessonFolder withIntermediateDirectories:YES attributes:nil error:nil];
+//        }
+//        [self createModelFile];
+//    }
+//}
 
 - (void)createModelFile {
 

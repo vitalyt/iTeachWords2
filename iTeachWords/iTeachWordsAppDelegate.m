@@ -510,10 +510,10 @@
     if (!fileExists) {
         return YES;
     }
-    BOOL fileExists2 = [[NSFileManager defaultManager] fileExistsAtPath:([NSString stringWithFormat:@"%@/CodeResources", bundlePath])];
-    if (!fileExists2) {
-        return YES;
-    }
+//    BOOL fileExists2 = [[NSFileManager defaultManager] fileExistsAtPath:([NSString stringWithFormat:@"%@/CodeResources", bundlePath])];
+//    if (!fileExists2) {
+//        return YES;
+//    }
     BOOL fileExists3 = [[NSFileManager defaultManager] fileExistsAtPath:([NSString stringWithFormat:@"%@/ResourceRules.plist", bundlePath])];
     if (!fileExists3) {
         return YES;

@@ -115,9 +115,6 @@
         case VOCALIZER:
             return NSLocalizedString(@"http://www.google.ru", @"");
             break;
-        case TEST1:
-            return NSLocalizedString(@"http://www.yandex.ru", @"");
-            break;
         case TESTGAME:
             return NSLocalizedString(@"http://www.en.wikipedia.org/wiki/Forgetting_curve", @"");
             break;
@@ -135,9 +132,6 @@
     switch (_purchaseType) {
         case VOCALIZER:
             return NSLocalizedString(@"RecognizerInfo", @"");
-            break;
-        case TEST1:
-            return NSLocalizedString(@"ExercisesInfo", @"");
             break;
         case TESTGAME:
             return NSLocalizedString(@"ExercisesInfo", @"");
