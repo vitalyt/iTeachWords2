@@ -68,5 +68,7 @@
 	<string>iTeachWordDataBase</string>
 	<key>myResource</key>
 	<string>/Documents/</string>
+	<key>appWebUrl</key>
+	<string>http://www.istudywords.com</string>
 </dict>
 </plist>

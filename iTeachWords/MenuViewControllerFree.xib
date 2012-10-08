@@ -45,6 +45,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{75, 62}, {60, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="148347779"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">1</int>
@@ -65,7 +66,7 @@
 						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Template - Masks.png</string>
+							<string key="NSResourceName">exercises-icon.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="528255991">
 							<int key="type">2</int>
@@ -82,6 +83,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{185, 62}, {60, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="60675060"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">2</int>
@@ -96,7 +98,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="335192602"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">weDict2.png</string>
+							<string key="NSResourceName">seatch-icon.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="528255991"/>
 						<reference key="IBUIFont" ref="462941770"/>
@@ -106,6 +108,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{62, 128}, {86, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="385277020"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -137,6 +140,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{172, 128}, {86, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="327592110"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -159,6 +163,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 202}, {60, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="137273042"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">4</int>
@@ -173,7 +178,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="335192602"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">TextEdit2.png</string>
+							<string key="NSResourceName">new-icon.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="528255991"/>
 						<reference key="IBUIFont" ref="462941770"/>
@@ -183,6 +188,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{130, 202}, {60, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="28037836"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">5</int>
@@ -197,7 +203,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="335192602"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">TuneWiki1.png</string>
+							<string key="NSResourceName">mic-icon.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="528255991"/>
 						<reference key="IBUIFont" ref="462941770"/>
@@ -207,6 +213,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{240, 202}, {60, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="752243085"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">6</int>
@@ -221,7 +228,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="335192602"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Safari.png</string>
+							<string key="NSResourceName">web-icon.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="528255991"/>
 						<reference key="IBUIFont" ref="462941770"/>
@@ -231,6 +238,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{7, 268}, {86, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="634375644"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -253,6 +261,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{117, 268}, {86, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="884722634"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -275,6 +284,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{227, 268}, {86, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="635378151"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -297,6 +307,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{130, 341}, {60, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="167061842"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">7</int>
@@ -311,7 +322,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="335192602"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">SMBPrefs.png</string>
+							<string key="NSResourceName">settings-icon.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="528255991"/>
 						<reference key="IBUIFont" ref="462941770"/>
@@ -321,6 +332,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{117, 407}, {86, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -340,6 +352,7 @@
 				</object>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="751247174"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -768,12 +781,12 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>SMBPrefs.png</string>
-				<string>Safari.png</string>
-				<string>Template - Masks.png</string>
-				<string>TextEdit2.png</string>
-				<string>TuneWiki1.png</string>
-				<string>weDict2.png</string>
+				<string>exercises-icon.png</string>
+				<string>mic-icon.png</string>
+				<string>new-icon.png</string>
+				<string>seatch-icon.png</string>
+				<string>settings-icon.png</string>
+				<string>web-icon.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>

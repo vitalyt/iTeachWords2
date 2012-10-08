@@ -124,15 +124,6 @@
     [dataModel setWord:_word];
 }
 
-- (void)inputModeDidChange:(NSNotification*)notification
-{
-    id obj = [notification object];
-    if ([obj respondsToSelector:@selector(inputModeLastUsedPreference)]) {
-        id mode = [obj performSelector:@selector(inputModeLastUsedPreference)];
-        NSLog(@"mode: %@", mode);
-    }
-}
-
 - (void) setImageFlag{
     [self addRecButtonOnTextField:textFld];
     [self addRecButtonOnTextField:translateFid];

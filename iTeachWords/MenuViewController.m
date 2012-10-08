@@ -93,6 +93,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Web Empty Designe"]]];
     [self setTitles];
     [self addInfoButton];
     [self addMailButton];

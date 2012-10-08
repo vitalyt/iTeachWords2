@@ -23,7 +23,6 @@
 
 @interface SocialSharingViewController : FBFunViewController <VkontakteDelegate,SA_OAuthTwitterControllerDelegate>{
     id delegate; 
-    
     SA_OAuthTwitterEngine				*_engine;
     Vkontakte *_vkontakte; 
     UIViewController *vkontakteRegistrationView; 

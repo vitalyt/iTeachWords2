@@ -41,10 +41,6 @@
     [self.navigationItem setTitle:NSLocalizedString(@"iStudyWords", @"")];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
     searchBar.placeholder = NSLocalizedString(@"Touch to search", @"");
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(inputModeDidChange:)
-                                                 name:@"UIKeyboardCurrentInputModeDidChangeNotification"
-                                               object:nil];
     cellStyle = UITableViewCellStyleSubtitle;
     [self loadData];
     // Do any additional setup after loading the view from its nib.
@@ -137,15 +133,6 @@
     NSString *nativeLanguage = [NATIVE_LANGUAGE_CODE lowercaseString];
     NSString *currentKeyboardLanguage = [self currentTextLanguage];
     return ([currentKeyboardLanguage isEqualToString:nativeLanguage])?YES:NO;
-}
-
-- (void)inputModeDidChange:(NSNotification*)notification
-{
-    id obj = [notification object];
-    if ([obj respondsToSelector:@selector(inputModeLastUsedPreference)]) {
-        id mode = [obj performSelector:@selector(inputModeLastUsedPreference)];
-        NSLog(@"mode: %@", mode);
-    }
 }
 
 - (void) loadLocalData{

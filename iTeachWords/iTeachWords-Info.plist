@@ -10,7 +10,6 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string></string>
 		<string>Default.png</string>
 		<string>Default@2x.png</string>
 		<string>Icon@2x.png</string>
@@ -22,7 +21,6 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string></string>
 				<string>Default.png</string>
 				<string>Default@2x.png</string>
 				<string>Icon@2x.png</string>
@@ -31,7 +29,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>qqq.vitalyt.demo</string>
+	<string>qqq.vitalyt.istudywords.full</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

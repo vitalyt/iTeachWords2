@@ -37,7 +37,6 @@
 @property (nonatomic, retain)  AddWordModel            *dataModel;
 @property (nonatomic, assign)  id            delegate;
 
-- (void)inputModeDidChange:(NSNotification*)notificationl;
 - (void)     loadData;
 - (IBAction) showMyPickerView:(id)sender;
 

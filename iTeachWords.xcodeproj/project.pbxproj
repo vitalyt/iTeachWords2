@@ -23,6 +23,13 @@
 		1C1D9EB61562A4600082F42D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1D9E9E1562A3B70082F42D /* CFNetwork.framework */; };
 		1C1D9EB71562A4600082F42D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243714E9097F0014CBCB /* StoreKit.framework */; };
 		1C1D9EB81562A4600082F42D /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243414E907300014CBCB /* SpeechKit.framework */; };
+		1C257C341612D37B00FAE627 /* MenuViewControllerFree.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C331612D37B00FAE627 /* MenuViewControllerFree.xib */; };
+		1C257C3C1612E06600FAE627 /* exercises-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C361612E06600FAE627 /* exercises-icon.png */; };
+		1C257C3D1612E06600FAE627 /* mic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C371612E06600FAE627 /* mic-icon.png */; };
+		1C257C3E1612E06600FAE627 /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C381612E06600FAE627 /* new-icon.png */; };
+		1C257C3F1612E06600FAE627 /* seatch-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C391612E06600FAE627 /* seatch-icon.png */; };
+		1C257C401612E06600FAE627 /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C3A1612E06600FAE627 /* settings-icon.png */; };
+		1C257C411612E06600FAE627 /* web-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C3B1612E06600FAE627 /* web-icon.png */; };
 		1C2981DF1541A92A00DDDA15 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */; };
 		1C2981E01541A92A00DDDA15 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */; };
 		1C2981E71541B1D500DDDA15 /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981E61541B1D500DDDA15 /* settingsIcon.png */; };
@@ -895,6 +902,13 @@
 		1C1D9EA91562A3F40082F42D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1C1D9EAB1562A3FC0082F42D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1C1D9EAD1562A4020082F42D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1C257C331612D37B00FAE627 /* MenuViewControllerFree.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewControllerFree.xib; sourceTree = "<group>"; };
+		1C257C361612E06600FAE627 /* exercises-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exercises-icon.png"; sourceTree = "<group>"; };
+		1C257C371612E06600FAE627 /* mic-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mic-icon.png"; sourceTree = "<group>"; };
+		1C257C381612E06600FAE627 /* new-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-icon.png"; sourceTree = "<group>"; };
+		1C257C391612E06600FAE627 /* seatch-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seatch-icon.png"; sourceTree = "<group>"; };
+		1C257C3A1612E06600FAE627 /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
+		1C257C3B1612E06600FAE627 /* web-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-icon.png"; sourceTree = "<group>"; };
 		1C2981DD1541A92A00DDDA15 /* CustomGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGradientButton.h; sourceTree = "<group>"; };
 		1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGradientButton.m; sourceTree = "<group>"; };
 		1C2981E61541B1D500DDDA15 /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
@@ -1624,6 +1638,19 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		1C257C351612DFE400FAE627 /* MenuFreeIcons */ = {
+			isa = PBXGroup;
+			children = (
+				1C257C361612E06600FAE627 /* exercises-icon.png */,
+				1C257C371612E06600FAE627 /* mic-icon.png */,
+				1C257C381612E06600FAE627 /* new-icon.png */,
+				1C257C391612E06600FAE627 /* seatch-icon.png */,
+				1C257C3A1612E06600FAE627 /* settings-icon.png */,
+				1C257C3B1612E06600FAE627 /* web-icon.png */,
+			);
+			name = MenuFreeIcons;
+			sourceTree = "<group>";
+		};
 		1C2981DB1541A8F900DDDA15 /* CustomGradientButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -2073,6 +2100,7 @@
 				1C86CE1B156152E20010B2F6 /* mailIcon.png */,
 				28FAAB4F14A9FA9E001F9214 /* MenuViewController.h */,
 				28FAAB5014A9FA9E001F9214 /* MenuViewController.m */,
+				1C257C331612D37B00FAE627 /* MenuViewControllerFree.xib */,
 				28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */,
 			);
 			name = Menu;
@@ -2141,6 +2169,7 @@
 		28296B4213814999000129E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1C257C351612DFE400FAE627 /* MenuFreeIcons */,
 				1C309D5415DA6AF0009889AF /* Arrow left 24x24.png */,
 				1C309D5515DA6AF0009889AF /* Arrow right 24x24.png */,
 				1CFBFADB15A2E4E700FED38C /* Template -MicMasks.png */,
@@ -2330,7 +2359,6 @@
 				1C9CC97415AC7CA400EDF818 /* Icon@2x.png */,
 				1C50673915D2719F00A8C85C /* Icon-lite.png */,
 				1C50673A15D2719F00A8C85C /* Icon-lite@2x.png */,
-				1C5478321562AAE200DC617F /* InfoPlist.strings */,
 				1CF4E64115F763C3001CFF0B /* Default@2x.png */,
 				1CF4E64215F763C3001CFF0B /* Default.png */,
 				284092D11381242700864711 /* iTeachWords */,
@@ -2408,6 +2436,7 @@
 				2866E1F314A09F91002823E6 /* sounds */,
 				28296B4213814999000129E8 /* images */,
 				28A088291421CDBF00F292F9 /* Localizable.strings */,
+				1C5478321562AAE200DC617F /* InfoPlist.strings */,
 				282E99791410C014009FE9E7 /* CountryNameCode2.txt */,
 				284092D31381242700864711 /* iTeachWords-Info.plist */,
 				28B143B81504EE8900E66A88 /* iTeachWords_Free-Info.plist */,
@@ -3650,6 +3679,13 @@
 				1C309D5915DA6AF0009889AF /* Arrow right 24x24.png in Resources */,
 				1CF4E64915F763E1001CFF0B /* Default@2x.png in Resources */,
 				1CF4E64A15F763E4001CFF0B /* Default.png in Resources */,
+				1C257C341612D37B00FAE627 /* MenuViewControllerFree.xib in Resources */,
+				1C257C3C1612E06600FAE627 /* exercises-icon.png in Resources */,
+				1C257C3D1612E06600FAE627 /* mic-icon.png in Resources */,
+				1C257C3E1612E06600FAE627 /* new-icon.png in Resources */,
+				1C257C3F1612E06600FAE627 /* seatch-icon.png in Resources */,
+				1C257C401612E06600FAE627 /* settings-icon.png in Resources */,
+				1C257C411612E06600FAE627 /* web-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4028,6 +4064,7 @@
 				1C5478331562AAE200DC617F /* en */,
 			);
 			name = InfoPlist.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2813D5E01421EAA5009BC8DA /* TestOrthography.xib */ = {
@@ -4113,8 +4150,8 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					i386,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vitalii Todorovych";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitalii Todorovych";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4138,8 +4175,8 @@
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
+				PROVISIONING_PROFILE = "852A5197-A4B4-4BFB-9FF9-8FFE799D447C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "852A5197-A4B4-4BFB-9FF9-8FFE799D447C";
 				SDKROOT = iphoneos4.0;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";
@@ -4198,8 +4235,8 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					i386,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4224,8 +4261,8 @@
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76663C28-8DD4-44D7-A240-B9E6D724265A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76663C28-8DD4-44D7-A240-B9E6D724265A";
+				PROVISIONING_PROFILE = "35A5402D-40AF-44FB-A18F-4D8D61FEB380";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "35A5402D-40AF-44FB-A18F-4D8D61FEB380";
 				SDKROOT = iphoneos4.0;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -4283,8 +4320,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vitalii Todorovych (6EM64P252H)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4302,15 +4339,15 @@
 				);
 				INFOPLIST_FILE = "iTeachWords_Free-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iTeachWords\"",
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "75FD971A-6794-4119-9EBC-360973FBCB01";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "75FD971A-6794-4119-9EBC-360973FBCB01";
+				PROVISIONING_PROFILE = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E827989-7F8F-456A-A5BA-DB52C237DEC8";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
@@ -4325,7 +4362,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vitalii Todorovych";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4343,14 +4380,14 @@
 				);
 				INFOPLIST_FILE = "iTeachWords_Free-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iTeachWords\"",
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "75FD971A-6794-4119-9EBC-360973FBCB01";
+				PROVISIONING_PROFILE = "9640FD1D-8598-487B-9979-0BCA1944A392";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "35A5402D-40AF-44FB-A18F-4D8D61FEB380";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -4367,8 +4404,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Edwin Zuydendorp (SJPR779W7G)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vitalii Todorovych";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vitalii Todorovych";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4385,15 +4422,15 @@
 				);
 				INFOPLIST_FILE = "iTeachWords_Free-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iTeachWords\"",
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "75FD971A-6794-4119-9EBC-360973FBCB01";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "75FD971A-6794-4119-9EBC-360973FBCB01";
+				PROVISIONING_PROFILE = "9640FD1D-8598-487B-9979-0BCA1944A392";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9640FD1D-8598-487B-9979-0BCA1944A392";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7";

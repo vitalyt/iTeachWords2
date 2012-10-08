@@ -141,7 +141,11 @@
 #pragma mark shoving functions
 
 - (void) showMenuView{
-    MenuViewController *myMenu = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:nil];
+    NSString *menuXibFileName = @"MenuViewController";
+#ifdef FREE_VERSION
+    menuXibFileName = @"MenuViewControllerFree";
+#endif
+    MenuViewController *myMenu = [[MenuViewController alloc] initWithNibName:menuXibFileName bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:myMenu];
     //navigationController.navigationBar.delegate = self;
     [navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];

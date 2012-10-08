@@ -19,9 +19,7 @@
 @property (nonatomic,retain) NSMutableArray *searchedData;
 @property (nonatomic,retain) NSString *searchedText;
 
-- (void)inputModeDidChange:(NSNotification*)notification;
 - (void) loadLocalData;
-- (void)inputModeDidChange:(NSNotification*)notification;
 - (NSString *)currentTextLanguage;
 - (bool)isNativeKeyboardLanguage;
 @end

@@ -463,11 +463,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "366543616.92193"
+         timestampString = "370332851.648017"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "343"
-         endingLineNumber = "343"
+         startingLineNumber = "344"
+         endingLineNumber = "344"
          landmarkName = "-showWebView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -680,19 +680,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iTeachWords/SocialSharingViewController.m"
-         timestampString = "365083776.057257"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "280"
-         endingLineNumber = "280"
-         landmarkName = "-twitterMesageText"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -788,11 +775,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/SocialSharingViewController.m"
-         timestampString = "365083776.057257"
+         timestampString = "368628102.713546"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "339"
-         endingLineNumber = "339"
+         startingLineNumber = "340"
+         endingLineNumber = "340"
          landmarkName = "-getFacebookName"
          landmarkType = "5">
       </FileBreakpoint>
@@ -801,11 +788,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/MenuViewController.m"
-         timestampString = "366543616.92193"
+         timestampString = "370332851.648017"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "388"
-         endingLineNumber = "388"
+         startingLineNumber = "389"
+         endingLineNumber = "389"
          landmarkName = "-showPurchasePagesView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -823,15 +810,15 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
-         timestampString = "368524528.038539"
+         timestampString = "370336062.692204"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "486"
-         endingLineNumber = "486"
+         startingLineNumber = "490"
+         endingLineNumber = "490"
          landmarkName = "+isAppHacked"
          landmarkType = "5">
       </FileBreakpoint>
@@ -840,12 +827,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iTeachWords/iTeachWordsAppDelegate.m"
-         timestampString = "368534832.494728"
+         timestampString = "370336062.692204"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "534"
-         endingLineNumber = "534"
+         startingLineNumber = "538"
+         endingLineNumber = "538"
          landmarkName = "+isAppHacked"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iTeachWords/SocialSharingViewController.m"
+         timestampString = "368624429.835307"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "257"
+         endingLineNumber = "257"
+         landmarkName = "-postToTwitterWall:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

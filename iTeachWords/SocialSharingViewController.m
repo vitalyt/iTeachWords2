@@ -278,7 +278,8 @@
 }
 
 - (NSString*)twitterMesageText{
-    return [NSString stringWithFormat:@"%@\nДержи ссылку и радуйся %@",APP_DESCRIPTION_FOR_POSTING,APP_WEB_URL];
+    NSString *message = [[NSString alloc] initWithFormat:@"%@\nДержи ссылку и радуйся %@",APP_DESCRIPTION_FOR_POSTING,APP_WEB_URL];
+    return [message autorelease];
 }
 
 //Facebook posting
