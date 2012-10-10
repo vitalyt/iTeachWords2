@@ -542,8 +542,8 @@ static CGFloat kBorderWidth = 10;
       [_delegate dialogDidSucceed:self];
     }
   } else {
-    if ([_delegate respondsToSelector:@selector(dialogDidCancel:)]) {
-      [_delegate dialogDidCancel:self];
+    if ([_delegate respondsToSelector:@selector(dialogDidClose:)]) {
+      [_delegate dialogDidClose:self];
     }
   }
 

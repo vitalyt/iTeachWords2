@@ -115,7 +115,7 @@
 /**
  * Called when the dialog is cancelled and is about to be dismissed.
  */
-- (void)dialogDidCancel:(FBDialog*)dialog;
+- (void)dialogDidClose:(FBDialog*)dialog;
 
 /**
  * Called when dialog failed to load due to an error.

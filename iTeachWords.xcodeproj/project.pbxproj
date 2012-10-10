@@ -105,6 +105,8 @@
 		1C54782F1562A8EC00DC617F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1D9EA11562A3C40082F42D /* Security.framework */; };
 		1C5478301562A8EC00DC617F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1D9E9E1562A3B70082F42D /* CFNetwork.framework */; };
 		1C5478311562A8EC00DC617F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243714E9097F0014CBCB /* StoreKit.framework */; };
+		1C58E7141622BE5E009D4B59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C58E7121622BE5E009D4B59 /* Localizable.strings */; };
+		1C58E7151622BE5E009D4B59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C58E7121622BE5E009D4B59 /* Localizable.strings */; };
 		1C6F17F1152DD3A70008A075 /* WW.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F17F0152DD3A70008A075 /* WW.png */; };
 		1C6F17F2152DD3A70008A075 /* WW.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F17F0152DD3A70008A075 /* WW.png */; };
 		1C6FF4821523307E00705E51 /* ThemeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6FF4801523307E00705E51 /* ThemeDetailView.m */; };
@@ -635,7 +637,6 @@
 		285B825314E4079E001C977D /* UK.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32F9B140F9FDA00ABC7D5 /* UK.png */; };
 		285B825414E4079E001C977D /* US.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32F9C140F9FDA00ABC7D5 /* US.png */; };
 		285B826314E4079E001C977D /* No_flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 282E99841410C4D1009FE9E7 /* No_flag.png */; };
-		285B826414E4079E001C977D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28A088291421CDBF00F292F9 /* Localizable.strings */; };
 		285B826514E4079E001C977D /* HeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280318B61439923A00E87F1F /* HeadViewController.xib */; };
 		285B826614E4079E001C977D /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28CA77511456ABD60046259F /* TextFieldCell.xib */; };
 		285B826714E4079E001C977D /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E0E1CF146013CD005BFB0E /* SettingsViewController.xib */; };
@@ -690,7 +691,6 @@
 		289C63A214CDA50B0003C5BF /* Microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A014CDA50B0003C5BF /* Microphone.png */; };
 		289C63A914CDA5BF0003C5BF /* VoiceRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289C63A714CDA5BF0003C5BF /* VoiceRecordingViewController.m */; };
 		289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */; };
-		28A0882B1421CDBF00F292F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28A088291421CDBF00F292F9 /* Localizable.strings */; };
 		28A194A114862FDD005B343A /* SpeachView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A194A014862FDD005B343A /* SpeachView.m */; };
 		28B143B91504EE8900E66A88 /* iTeachWords_Free-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28B143B81504EE8900E66A88 /* iTeachWords_Free-Info.plist */; };
 		28B143CB1504F00B00E66A88 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 28B143CA1504F00B00E66A88 /* img */; };
@@ -966,6 +966,8 @@
 		1C50673915D2719F00A8C85C /* Icon-lite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-lite.png"; sourceTree = "<group>"; };
 		1C50673A15D2719F00A8C85C /* Icon-lite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-lite@2x.png"; sourceTree = "<group>"; };
 		1C5478331562AAE200DC617F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = iTeachWords/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1C58E7131622BE5E009D4B59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1C58E7161622BE71009D4B59 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1C6F17F0152DD3A70008A075 /* WW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WW.png; sourceTree = "<group>"; };
 		1C6FF47F1523307E00705E51 /* ThemeDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDetailView.h; sourceTree = "<group>"; };
 		1C6FF4801523307E00705E51 /* ThemeDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDetailView.m; sourceTree = "<group>"; };
@@ -1140,8 +1142,6 @@
 		28122D09139676C900D5F906 /* LanguagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguagePickerController.h; sourceTree = "<group>"; };
 		28122D0A139676C900D5F906 /* LanguagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LanguagePickerController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		28122D0B139676C900D5F906 /* LanguagePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguagePickerController.xib; sourceTree = "<group>"; };
-		2813D5D91421D3D1009BC8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2813D5DC1421D4ED009BC8DA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2813D5DF1421EAA5009BC8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TestOrthography.xib; sourceTree = "<group>"; };
 		2813D5E21421EAA8009BC8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StatisticViewController.xib; sourceTree = "<group>"; };
 		2816F9E01385378600AFB8F5 /* MultiPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPlayer.h; sourceTree = "<group>"; };
@@ -1359,8 +1359,6 @@
 		289C63A614CDA5BF0003C5BF /* VoiceRecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecordingViewController.h; sourceTree = "<group>"; };
 		289C63A714CDA5BF0003C5BF /* VoiceRecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceRecordingViewController.m; sourceTree = "<group>"; };
 		289C63A814CDA5BF0003C5BF /* VoiceRecordingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceRecordingViewController.xib; sourceTree = "<group>"; };
-		28A0882A1421CDBF00F292F9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		28A0882C1421CE2000F292F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28A1949F14862FDD005B343A /* SpeachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeachView.h; sourceTree = "<group>"; };
 		28A194A014862FDD005B343A /* SpeachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeachView.m; sourceTree = "<group>"; };
 		28B143B81504EE8900E66A88 /* iTeachWords_Free-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iTeachWords_Free-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -2435,7 +2433,6 @@
 				28B143CD1504F10600E66A88 /* WEB */,
 				2866E1F314A09F91002823E6 /* sounds */,
 				28296B4213814999000129E8 /* images */,
-				28A088291421CDBF00F292F9 /* Localizable.strings */,
 				1C5478321562AAE200DC617F /* InfoPlist.strings */,
 				282E99791410C014009FE9E7 /* CountryNameCode2.txt */,
 				284092D31381242700864711 /* iTeachWords-Info.plist */,
@@ -2445,6 +2442,7 @@
 				284092D81381242700864711 /* main.m */,
 				28296B2A13814109000129E8 /* iTeachWordsDataModel.xcdatamodeld */,
 				282CB7C013978A73008A1032 /* enrus.txt */,
+				1C58E7121622BE5E009D4B59 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -3289,7 +3287,6 @@
 				28E3306F140F9FDA00ABC7D5 /* UK.png in Resources */,
 				28E33070140F9FDA00ABC7D5 /* US.png in Resources */,
 				282E99851410C4D1009FE9E7 /* No_flag.png in Resources */,
-				28A0882B1421CDBF00F292F9 /* Localizable.strings in Resources */,
 				280318B81439923A00E87F1F /* HeadViewController.xib in Resources */,
 				28CA77531456ABD60046259F /* TextFieldCell.xib in Resources */,
 				28E0E1D0146013CD005BFB0E /* SettingsViewController.xib in Resources */,
@@ -3422,6 +3419,7 @@
 				1C309D5815DA6AF0009889AF /* Arrow right 24x24.png in Resources */,
 				1CF4E64715F763D5001CFF0B /* Default.png in Resources */,
 				1CF4E64815F763D8001CFF0B /* Default@2x.png in Resources */,
+				1C58E7141622BE5E009D4B59 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3529,7 +3527,6 @@
 				285B825314E4079E001C977D /* UK.png in Resources */,
 				285B825414E4079E001C977D /* US.png in Resources */,
 				285B826314E4079E001C977D /* No_flag.png in Resources */,
-				285B826414E4079E001C977D /* Localizable.strings in Resources */,
 				285B826514E4079E001C977D /* HeadViewController.xib in Resources */,
 				285B826614E4079E001C977D /* TextFieldCell.xib in Resources */,
 				285B826714E4079E001C977D /* SettingsViewController.xib in Resources */,
@@ -3686,6 +3683,7 @@
 				1C257C3F1612E06600FAE627 /* seatch-icon.png in Resources */,
 				1C257C401612E06600FAE627 /* settings-icon.png in Resources */,
 				1C257C411612E06600FAE627 /* web-icon.png in Resources */,
+				1C58E7151622BE5E009D4B59 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4067,6 +4065,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		1C58E7121622BE5E009D4B59 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C58E7131622BE5E009D4B59 /* en */,
+				1C58E7161622BE71009D4B59 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		2813D5E01421EAA5009BC8DA /* TestOrthography.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -4105,17 +4112,6 @@
 				284092E41381242700864711 /* en */,
 			);
 			name = iTeachWordsViewController.xib;
-			sourceTree = "<group>";
-		};
-		28A088291421CDBF00F292F9 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28A0882A1421CDBF00F292F9 /* nl */,
-				28A0882C1421CE2000F292F9 /* en */,
-				2813D5D91421D3D1009BC8DA /* ru */,
-				2813D5DC1421D4ED009BC8DA /* de */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -4429,7 +4425,7 @@
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
 				PRODUCT_NAME = iTeachWords_Free;
-				PROVISIONING_PROFILE = "9640FD1D-8598-487B-9979-0BCA1944A392";
+				PROVISIONING_PROFILE = "C42850B3-BF3A-4173-8599-689A673BF8A2";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9640FD1D-8598-487B-9979-0BCA1944A392";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
