@@ -9,6 +9,7 @@
 //#import <UIKit/UIKit.h>
 //#import <AVFoundation/AVFoundation.h>
 //#import <CoreAudio/CoreAudioTypes.h>
+#import <iAd/iAd.h>
 #import "MyPlayer.h"
 
 #import "EditTableViewController.h"
@@ -27,7 +28,7 @@ typedef enum {
 @class MyPickerViewContrller,WordTypes,ToolsViewController,MultiPlayer;
 @class HeadViewController,AlertTableViewDelegate;
 
-@interface WorldTableViewController : EditTableViewController <MyPickerViewProtocol,MyPlayerProtocol,AlertTableViewDelegate,AlertTableViewDelegate,RecordingViewProtocol,TableCellProtocol> {
+@interface WorldTableViewController : EditTableViewController <ADBannerViewDelegate,MyPickerViewProtocol,MyPlayerProtocol,AlertTableViewDelegate,AlertTableViewDelegate,RecordingViewProtocol,TableCellProtocol> {
     MyPickerViewContrller   *wordTypePicker;
     WordTypes               *wordType;
     ToolsViewController     *toolsView; 

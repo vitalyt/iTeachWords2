@@ -10,7 +10,7 @@
 #import "TextViewController.h"
 #import "LM15.h"
 #import "LM7.h"
-#import "AddWord.h"
+#import "TranslateViewController.h"
 #import "WorldTableToolsController.h"
 #import "DictionaryViewController.h"
 #import "MenuLessons.h"
@@ -309,7 +309,7 @@
 }
 
 - (void)showAddingWordView{
-    AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
+    TranslateViewController *myAddWordView = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
     [self.navigationController pushViewController:myAddWordView animated:YES];

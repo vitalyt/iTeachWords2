@@ -12,7 +12,7 @@
 #import "TextViewController.h"
 #import "LM15.h"
 #import "LM7.h"
-#import "AddWord.h"
+#import "TranslateViewController.h"
 #import "WorldTableToolsController.h"
 #import "DictionaryViewController.h"
 #import "MenuLessons.h"
@@ -202,7 +202,7 @@
 }
 
 - (void)showAddingWordView{
-    AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
+    TranslateViewController *myAddWordView = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
     
     UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
     [[self navigationItem] setBackBarButtonItem: newBackButton];

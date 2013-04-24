@@ -771,6 +771,12 @@
 		28E33070140F9FDA00ABC7D5 /* US.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E32F9C140F9FDA00ABC7D5 /* US.png */; };
 		28FAAB5214A9FA9F001F9214 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FAAB5014A9FA9E001F9214 /* MenuViewController.m */; };
 		28FAAB5314A9FA9F001F9214 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */; };
+		671DA1241725CB3B00F77558 /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671DA1221725CB3B00F77558 /* TranslateViewController.m */; };
+		671DA1251725CB3B00F77558 /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671DA1221725CB3B00F77558 /* TranslateViewController.m */; };
+		671DA1261725CB3B00F77558 /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671DA1231725CB3B00F77558 /* TranslateViewController.xib */; };
+		671DA1271725CB3B00F77558 /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671DA1231725CB3B00F77558 /* TranslateViewController.xib */; };
+		671DA12A1725CB5C00F77558 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 671DA1291725CB5C00F77558 /* UIViewController+KNSemiModal.m */; };
+		671DA12B1725CB5C00F77558 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 671DA1291725CB5C00F77558 /* UIViewController+KNSemiModal.m */; };
 		8425C0021527714F007F3C12 /* AlertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425C0011527714F007F3C12 /* AlertTableCell.m */; };
 		8425C0031527714F007F3C12 /* AlertTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425C0011527714F007F3C12 /* AlertTableCell.m */; };
 		8425C0051527716F007F3C12 /* AlertTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8425C0041527716F007F3C12 /* AlertTableCell.xib */; };
@@ -1466,6 +1472,11 @@
 		28FAAB4F14A9FA9E001F9214 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		28FAAB5014A9FA9E001F9214 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MenuViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		28FAAB5114A9FA9F001F9214 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		671DA1211725CB3B00F77558 /* TranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateViewController.h; sourceTree = "<group>"; };
+		671DA1221725CB3B00F77558 /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewController.m; sourceTree = "<group>"; };
+		671DA1231725CB3B00F77558 /* TranslateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
+		671DA1281725CB5C00F77558 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
+		671DA1291725CB5C00F77558 /* UIViewController+KNSemiModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KNSemiModal.m"; sourceTree = "<group>"; };
 		8425C0001527714F007F3C12 /* AlertTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertTableCell.h; sourceTree = "<group>"; };
 		8425C0011527714F007F3C12 /* AlertTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertTableCell.m; sourceTree = "<group>"; };
 		8425C0041527716F007F3C12 /* AlertTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertTableCell.xib; sourceTree = "<group>"; };
@@ -2140,6 +2151,9 @@
 			isa = PBXGroup;
 			children = (
 				2863B2FB139F744600B40EE5 /* Model */,
+				671DA1211725CB3B00F77558 /* TranslateViewController.h */,
+				671DA1221725CB3B00F77558 /* TranslateViewController.m */,
+				671DA1231725CB3B00F77558 /* TranslateViewController.xib */,
 				283FF865148D05C4006CCD22 /* AddNewWordViewController.h */,
 				283FF866148D05C4006CCD22 /* AddNewWordViewController.m */,
 				283FF867148D05C5006CCD22 /* AddNewWordViewController.xib */,
@@ -2488,6 +2502,8 @@
 		284092F71381251200864711 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				671DA1281725CB5C00F77558 /* UIViewController+KNSemiModal.h */,
+				671DA1291725CB5C00F77558 /* UIViewController+KNSemiModal.m */,
 				28296B0C13812C2F000129E8 /* NSManagedObjectContext+Interaction.h */,
 				28296B0D13812C2F000129E8 /* NSManagedObjectContext+Interaction.m */,
 				28C61F1A146BDBD60065E75A /* UIAlertView+Interaction.h */,
@@ -3420,6 +3436,7 @@
 				1CF4E64715F763D5001CFF0B /* Default.png in Resources */,
 				1CF4E64815F763D8001CFF0B /* Default@2x.png in Resources */,
 				1C58E7141622BE5E009D4B59 /* Localizable.strings in Resources */,
+				671DA1261725CB3B00F77558 /* TranslateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3684,6 +3701,7 @@
 				1C257C401612E06600FAE627 /* settings-icon.png in Resources */,
 				1C257C411612E06600FAE627 /* web-icon.png in Resources */,
 				1C58E7151622BE5E009D4B59 /* Localizable.strings in Resources */,
+				671DA1271725CB3B00F77558 /* TranslateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3865,6 +3883,8 @@
 				1CCD196E15C179DB006068D4 /* FBFunViewController.m in Sources */,
 				1CDB78DE15D2916C00727155 /* SVSegmentedControl.m in Sources */,
 				1CDB78E015D2916C00727155 /* SVSegmentedThumb.m in Sources */,
+				671DA1241725CB3B00F77558 /* TranslateViewController.m in Sources */,
+				671DA12A1725CB5C00F77558 /* UIViewController+KNSemiModal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4050,6 +4070,8 @@
 				1CCD196F15C179DB006068D4 /* FBFunViewController.m in Sources */,
 				1CDB78DF15D2916C00727155 /* SVSegmentedControl.m in Sources */,
 				1CDB78E115D2916C00727155 /* SVSegmentedThumb.m in Sources */,
+				671DA1251725CB3B00F77558 /* TranslateViewController.m in Sources */,
+				671DA12B1725CB5C00F77558 /* UIViewController+KNSemiModal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

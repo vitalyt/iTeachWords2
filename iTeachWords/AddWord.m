@@ -68,24 +68,15 @@
 
 //#pragma mark Alert functions
 //
-//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-//	if (buttonIndex == 1) {
-//		[wordsView save];
-//	}
-//	else if (buttonIndex == 0){
-//        [wordsView.dataModel.wordType removeWordsObject:wordsView.dataModel.currentWord];
-//        NSError *_error;
-//        if (![CONTEXT save:&_error]) {
-//            [UIAlertView displayError:@"Data is not saved."];
-//        }
-//        
-//        self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-//        [self.navigationController popViewControllerAnimated:YES];
-//	}
-//	else if (buttonIndex == 0){
-//		return;
-//	}
-//}
+- (IBAction) loadWebViewWithUrl:(NSString*)url
+{
+    [self clearWebViewContent];
+    [loadWebButtonView setHidden:YES];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:[url  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    //NSLog(@"%@",dataModel.urlShow);
+    myWebView.delegate = self;
+    [myWebView loadRequest:requestObj];
+}
 
 - (void)setThemeName{
     [self.navigationItem setPrompt:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),wordsView.dataModel.wordType.name]];

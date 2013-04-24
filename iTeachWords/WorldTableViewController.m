@@ -101,21 +101,8 @@
     self.data = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:date, name, nil]];
     [name release];
     [date release];
-//    suonds = [[NSMutableArray alloc]init];
-//    for(Words *word in data){
-//        [suonds addObject:word.text];
-//    }
-//    if ([suonds count] > 0) {
-//        predicate = [NSPredicate predicateWithFormat:@"descriptionStr IN %@", suonds];
-//        NSFetchedResultsController *fetches = [NSManagedObjectContext 
-//                                               getEntities:@"Sounds" sortedBy:@"changeDate" withPredicate:predicate];
-//        
-//        suonds = [fetches fetchedObjects];
-//    }
-//    NSLog(@"%@",suonds);
     [table reloadData];
     [self showTableHeadView];
-//    [self performSelector:@selector(showHelpCellView) withObject:nil afterDelay:1.0];
 }
 
 - (void) pickerDone:(WordTypes *)_wordType{
@@ -128,8 +115,6 @@
 # pragma mark alert table functions
 
 - (void)checkDelayedThemes{
-//    NSLog(@"%d",[[NSUserDefaults standardUserDefaults] boolForKey:@"isNotShowRepeatList"]);
-//    NSLog(@"%d",IS_REPEAT_OPTION_ON);
     if (IS_REPEAT_OPTION_ON && (![[NSUserDefaults standardUserDefaults] boolForKey:@"isNotShowRepeatList"])) {
         NSMutableArray *delayedElements = [[NSMutableArray alloc] init];
         NSArray *_repeatDelayedThemes = [[NSArray alloc] initWithArray:[[iTeachWordsAppDelegate sharedDelegate] loadRepeatDelayedTheme]];
@@ -191,8 +176,8 @@
     [self showToolsView];
     [table setAllowsSelectionDuringEditing:YES];
     showingType = 1;
-    
     [self performSelector:@selector(checkDelayedThemes) withObject:nil afterDelay:.01];
+    [self createBunnerView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -558,5 +543,8 @@
     [buttonView setFrame:CGRectMake(frame.origin.x, frame.origin.y+yOffset, frame.size.width, frame.size.height)];
     return buttonView;
 }
+
+
+ADBannerView *adView;
 
 @end

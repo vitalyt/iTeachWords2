@@ -21,8 +21,8 @@
     IBOutlet UILabel *themeLbl;
     IBOutlet UIButton *saveButton;
     IBOutlet UIButton *themeButton;
-	MyPickerViewContrller	*myPicker;
     IBOutlet UIButton       *recordButtonView;
+	MyPickerViewContrller	*myPicker;
     RecordingWordViewController *recordView;
     
     id                      delegate;

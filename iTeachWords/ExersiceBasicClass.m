@@ -60,7 +60,7 @@
     //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"grnd.png"]]];
 	[textBox setReturnKeyType:UIReturnKeyNext];
 	textBox.delegate = self;
-//    [self createBunnerView];
+    [self createBunnerView];
 }
 
 - (void)didReceiveMemoryWarning {
