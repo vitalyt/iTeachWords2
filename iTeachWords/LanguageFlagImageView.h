@@ -15,8 +15,10 @@
     UIImage *image;
 }
 
+@property (nonatomic,retain) IBOutlet UIImageView *imageView;
 @property (nonatomic,retain) UIImage *image;
 
-- (void) setCountryCode:(NSString *) _countryCode;
++ (int)cornerRadius;
+- (void)setCountryCode:(NSString *) _countryCode;
 
 @end

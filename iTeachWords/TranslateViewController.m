@@ -8,13 +8,14 @@
 
 #import "TranslateViewController.h"
 #import "UIViewController+KNSemiModal.h"
-#import "AddWord.h"
+#import "SemiWebViewController.h"
 #import "JSON.h"
 #import "MyPickerViewContrller.h"
 #import "WordTypes.h"
 #import "Words.h"
 #import "RecordingWordViewController.h"
 #import "WebViewController.h"
+#import "LanguageFlagImageView.h"
 
 #define DELEGATE ((UIViewController*)_delegate)
 #define OFFSET_VALUE 50
@@ -49,7 +50,7 @@
         [recordView release];
         recordView = nil;
     }
-    [translateViewController release];
+    [semiWebViewController release];
     [_engTextView release];
     [_rusTextView release];
     [scrollView release];
@@ -95,6 +96,8 @@
     [saveButton setHidden:YES];
     [self.engTextView setFont:FONT_TEXT];
     [self.rusTextView setFont:FONT_TEXT];
+    self.engTextView.contentInset = UIEdgeInsetsMake(25,0,0,0);
+    self.rusTextView.contentInset = UIEdgeInsetsMake(25,0,0,0);
 //    self.engTextView.placeholder = [[NSUserDefaults standardUserDefaults] objectForKey:@"translateCountry"];
 //    self.rusTextView.placeholder = [[NSUserDefaults standardUserDefaults] objectForKey:@"nativeCountry"];
 //    [self.engTextView addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -115,8 +118,10 @@
 
 - (void)createFlagsView{
     //set images
-    [engFlagImageView setImage:[UIImage imageNamed:@"US"]];
-    [rusFlagImageView setImage:[UIImage imageNamed:@"RU"]];
+    NSDictionary *translateCountryInfo = TRANSLATE_COUNTRY_INFO;
+    NSDictionary *nativeCountryInfo = NATIVE_COUNTRY_INFO;
+    [engFlagImageView setCountryCode:[translateCountryInfo objectForKey:@"firstCode"]];
+    [engFlagImageView setCountryCode:[nativeCountryInfo objectForKey:@"firstCode"]];
     [self customiseFlagImageView:engFlagImageView];
     [self customiseFlagImageView:rusFlagImageView];
 }
@@ -132,17 +137,19 @@
 //    self.rusTextView.layer.shadowRadius = 5.0f;
 }
 
-- (void)customiseFlagImageView:(UIImageView*)flagImageView{
+- (void)customiseFlagImageView:(UIView*)flagImageView{
     //add cornerRadius
 //    flagImageView.layer.masksToBounds = YES;
 //    flagImageView.layer.cornerRadius = 3.0;
     
     //add shadew
-//    flagImageView.layer.shadowRadius = 3.0;
+    [flagImageView setBackgroundColor:[UIColor clearColor]];
+    flagImageView.layer.shadowRadius = 3.0;
     flagImageView.clipsToBounds = NO;
     flagImageView.layer.shadowColor = [UIColor blackColor].CGColor;
     flagImageView.layer.shadowOffset = CGSizeMake(0, 1);
     flagImageView.layer.shadowOpacity = 1;
+    flagImageView.layer.shadowRadius = [LanguageFlagImageView cornerRadius];
 }
 
 - (void)customiseControlButtons{
@@ -165,6 +172,7 @@
         self.flgSave = NO;
         isDataChanged = YES;
     }
+    [recordView saveSound:nil];
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
@@ -178,6 +186,9 @@
     }else if (textView == self.rusTextView) {
         [_dataModel.currentWord setTranslate:text];
     }
+    if (textView == self.rusTextView || textView == self.engTextView) {
+        [self resetTextViewsReplacement];
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -189,9 +200,6 @@
         return YES;
     }
     if([text isEqualToString:@"\n"]) {
-        if (textView == self.rusTextView || textView == self.engTextView) {
-            [self resetTextViewsReplacement];
-        }
         [textView resignFirstResponder];
         return NO;
     }
@@ -219,11 +227,11 @@
     isReplasmentViewsMode = !isReplasmentViewsMode;
 }
 
--(AddWord*)webView{
-    if (!translateViewController) {
-        translateViewController = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
+-(SemiWebViewController*)webView{
+    if (!semiWebViewController) {
+        semiWebViewController = [[SemiWebViewController alloc] initWithNibName:@"SemiWebViewController" bundle:nil];
     }
-    return translateViewController;
+    return semiWebViewController;
 }
 
 - (IBAction)searchClicked:(id)sender {
@@ -252,9 +260,8 @@
     [self.view endEditing:YES];
 }
 
-- (IBAction)recordClicked:(id)sender {
+- (void)showWordsUseVariants:(id)sender{
     [self.view endEditing:YES];
-
     NSString *nativeLaguage = @"";
     NSString *learningLaguage = @"";
     NSString *textLnguage = @"";
@@ -301,6 +308,7 @@
     @catch (NSException *exception) {
         [[self webView] dismissSemiModalView];
     }
+
 }
 
 - (void)changeTextViewsPositionIfNeedWithEditingTextView:(UITextView*)editingTextView{
@@ -637,7 +645,7 @@
         isDataChanged = NO;
     }else{
         [saveButton setHidden:NO];
-        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,87,41,41)];
+        [saveButton setFrame:CGRectMake(self.view.frame.size.width/4*3-18,1,41,41)];
     }
 }
 
@@ -700,8 +708,6 @@
 
 -(UIView*)hintStateViewToHint:(id)hintState
 {
-    NSLog(@"%@",usedObjects);
-    NSLog(@"%@",_currentSelectedObject);
     [usedObjects addObject:_currentSelectedObject];
     UIView *buttonView = nil;
     UIView *view = _currentSelectedObject;

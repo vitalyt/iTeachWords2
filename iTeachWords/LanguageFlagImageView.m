@@ -18,20 +18,38 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @implementation LanguageFlagImageView
 
 @synthesize image;
+@synthesize imageView;
+
++ (int)cornerRadius{
+    return 3;
+}
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    [self initialize];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
-        imageView.tag = IMAGEVIEWTAG;
-        NSString *path = [NSString stringWithFormat:@"Flags/UA.png"];
-        [imageView setImage:[UIImage imageNamed:path]];
-        [self addSubview:imageView];
-        [imageView release];
         // Custom initializati
+        [self initialize];
     }
     return self;
+}
+
+- (void)initialize{
+    CGRect frame = CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height);
+    if (!self.imageView) {
+        self.imageView = [[UIImageView alloc]initWithFrame:frame];
+    }else{
+        [self.imageView setFrame:frame];
+    }
+    self.imageView.tag = IMAGEVIEWTAG;
+    NSString *path = [NSString stringWithFormat:@"Flags/UA.png"];
+    [self.imageView setImage:[UIImage imageNamed:path]];
+    [self addSubview:self.imageView];
 }
 
 - (void) setCountryCode:(NSString *) _countryCode {
@@ -40,11 +58,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if (!im){
         im = [UIImage imageNamed:@"No_flag.png"];
     }
-    [((UIImageView *)[self viewWithTag:IMAGEVIEWTAG]) setImage:im];
+    [self.imageView setImage:im];
 }
 
 - (void)dealloc
 {
+    [imageView release];
     [image release];
     [super dealloc];
 }
@@ -53,8 +72,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 	[super drawRect:rect];
 	self.layer.borderWidth = 1.5;
 	self.layer.borderColor = UIColorFromRGB(0x888888).CGColor; 
-	self.layer.cornerRadius = 13;
+	self.layer.cornerRadius = [LanguageFlagImageView cornerRadius];
 	self.layer.masksToBounds = YES;
+	self.imageView.layer.borderWidth = 1.5;
+	self.imageView.layer.cornerRadius = [LanguageFlagImageView cornerRadius];
+	self.imageView.layer.masksToBounds = NO;
 }
 
 #pragma mark - View lifecycle

@@ -394,6 +394,7 @@
     }
     self.flgSave = NO;
     isDataChanged = YES;
+    [recordView close:nil];
 }
 
 

@@ -36,6 +36,7 @@
 - (void)setTranslate:(NSString*)text;
 - (void)setWord:(Words *)_word;
 
+- (IBAction) loadWebViewWithHtml:(NSString*)html;
 - (IBAction) loadWebViewWithUrl:(NSString*)url;
 
 @end

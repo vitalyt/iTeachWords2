@@ -310,6 +310,7 @@
 
 - (void)showAddingWordView{
     TranslateViewController *myAddWordView = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
+    [myAddWordView setDelegate:self];
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
     [self.navigationController pushViewController:myAddWordView animated:YES];

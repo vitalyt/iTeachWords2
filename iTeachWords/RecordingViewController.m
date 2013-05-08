@@ -139,7 +139,6 @@
     if(isRecording == YES){
         [self record:nil];
     }
-    NSLog(@"%@",isRecording);
     if ((self.toolsViewDelegate)&&([(id)self.toolsViewDelegate respondsToSelector:@selector(optionsSubViewDidClose:)])) {
 		[self.toolsViewDelegate optionsSubViewDidClose:self];
 	}

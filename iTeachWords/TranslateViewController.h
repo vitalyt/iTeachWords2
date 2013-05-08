@@ -12,14 +12,15 @@
 #import "RecordModel.h"
 #import "BaseHelpViewController.h"
 
-@class AddWord;
+@class SemiWebViewController;
+@class LanguageFlagImageView;
 @class MyPickerViewContrller,MyUIViewClass,RecordingWordViewController,AddWordModel,WBEngine;
 @interface TranslateViewController : BaseHelpViewController <UITextViewDelegate,RecordingViewProtocol, UIActionSheetDelegate>{
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIView *engContainerView;
     IBOutlet UIView *rusContainerView;
-    IBOutlet UIImageView *engFlagImageView;
-    IBOutlet UIImageView *rusFlagImageView;
+    IBOutlet LanguageFlagImageView *engFlagImageView;
+    IBOutlet LanguageFlagImageView *rusFlagImageView;
     IBOutlet UIButton *engRecordBtn;
     IBOutlet UIButton *rusRecordBtn;
     IBOutlet UIButton *engSearchBtn;
@@ -32,7 +33,7 @@
     BOOL isReplasmentViewsMode;
     float interfaceOffset;
     
-    AddWord *translateViewController;
+    SemiWebViewController *semiWebViewController;
 	MyPickerViewContrller	*myPicker;
     RecordingWordViewController *recordView;
 }
@@ -46,14 +47,12 @@
 
 - (IBAction)makeReplacementTextViews:(id)sender;
 - (IBAction)searchClicked:(id)sender;
-- (IBAction)recordClicked:(id)sender;
-
+- (IBAction) showMyPickerView:(id)sender;
+- (IBAction) recordPressed:(id)sender;
+- (IBAction) save:(id)sender;
 
 - (void)     loadData;
-- (IBAction) showMyPickerView:(id)sender;
 - (void)     back;
-- (IBAction) save:(id)sender;
-- (IBAction) recordPressed:(id)sender;
 - (void)     clear;
 - (void)setWord:(Words *)_word;
 - (void)setText:(NSString*)text;

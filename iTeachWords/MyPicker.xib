@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<int key="IBDocument.SystemTarget">1536</int>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3081</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1181</string>
+			<string key="NS.object.0">2080</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
-			<string>IBUIView</string>
-			<string>IBUIBarButtonItem</string>
 			<string>IBProxyObject</string>
-			<string>IBUIToolbar</string>
-			<string>IBUITextField</string>
-			<string>IBUIPickerView</string>
+			<string>IBUIBarButtonItem</string>
 			<string>IBUIButton</string>
+			<string>IBUIPickerView</string>
+			<string>IBUITextField</string>
+			<string>IBUIToolbar</string>
+			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -44,6 +44,7 @@
 						<int key="NSvFlags">258</int>
 						<string key="NSFrame">{{0, 44}, {320, 216}}</string>
 						<reference key="NSSuperview" ref="186330223"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="834148003"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -56,6 +57,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="186330223"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="376798971"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -86,6 +88,7 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{140, 259}, {38, 41}}</string>
 						<reference key="NSSuperview" ref="186330223"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="101694357"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">1</int>
@@ -125,6 +128,8 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{186, 259}, {38, 41}}</string>
 						<reference key="NSSuperview" ref="186330223"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">2</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -147,6 +152,7 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{104, 266}, {29, 29}}</string>
 						<reference key="NSSuperview" ref="186330223"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="580577067"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -167,6 +173,7 @@
 						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{20, 136}, {280, 31}}</string>
 						<reference key="NSSuperview" ref="186330223"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1045435452"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -201,6 +208,7 @@
 				</array>
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="252208074"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -259,6 +267,15 @@
 						<reference key="destination" ref="834148003"/>
 					</object>
 					<int key="connectionID">53</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">cansel</string>
+						<reference key="source" ref="186330223"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">62</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -428,20 +445,108 @@
 				<real value="0.0" key="50.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="59.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="7.CustomClassName">UIControl</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">61</int>
+			<int key="maxID">62</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">BaseHelpViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseHelpViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MyPickerViewContrller</string>
+					<string key="superclassName">BaseHelpViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="cansel">id</string>
+						<string key="deleteType">id</string>
+						<string key="done">id</string>
+						<string key="editThemeName:">id</string>
+						<string key="remove:">id</string>
+						<string key="showAddView:">id</string>
+						<string key="showThemesTableView:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="cansel">
+							<string key="name">cansel</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="deleteType">
+							<string key="name">deleteType</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="done">
+							<string key="name">done</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="editThemeName:">
+							<string key="name">editThemeName:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="remove:">
+							<string key="name">remove:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showAddView:">
+							<string key="name">showAddView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showThemesTableView:">
+							<string key="name">showThemesTableView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="addButton">UIButton</string>
+						<string key="leftButton">UIBarButtonItem</string>
+						<string key="pickerView">UIPickerView</string>
+						<string key="rightButton">UIBarButtonItem</string>
+						<string key="themeEditingFlt">UITextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="addButton">
+							<string key="name">addButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="leftButton">
+							<string key="name">leftButton</string>
+							<string key="candidateClassName">UIBarButtonItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="pickerView">
+							<string key="name">pickerView</string>
+							<string key="candidateClassName">UIPickerView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="rightButton">
+							<string key="name">rightButton</string>
+							<string key="candidateClassName">UIBarButtonItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="themeEditingFlt">
+							<string key="name">themeEditingFlt</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MyPickerViewContrller.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
+			<real value="1536" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
@@ -449,6 +554,6 @@
 			<string key="Circle_Grey.png">{24, 24}</string>
 			<string key="deleteImg.png">{29, 29}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">1181</string>
+		<string key="IBCocoaTouchPluginVersion">2080</string>
 	</data>
 </archive>
