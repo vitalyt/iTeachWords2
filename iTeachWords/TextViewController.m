@@ -75,6 +75,20 @@
     [super viewWillDisappear:animated];
 }
 
+- (void)customizeTextView:(UITextView*)textView{
+    CGRect frame = CGRectMake(10.0f/21.0f, 10.0f/21.0f, 1.0f/21.0f, 1.0f/21.0f);
+    textView.layer.contents = (id)[UIImage imageNamed: @"innershadow.png"].CGImage;
+    textView.layer.contentsCenter = frame;
+    textView.layer.cornerRadius = 5.0;
+    textView.clipsToBounds = YES;
+    [textView setFont:FONT_TEXT];
+    [textView setTextColor:[UIColor blackColor]];
+    //    self.rusTextView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    //    self.rusTextView.layer.shadowOffset = CGSizeMake(1.0f, .0f);
+    //    self.rusTextView.layer.shadowOpacity = 1.0f;
+    //    self.rusTextView.layer.shadowRadius = 5.0f;
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,7 +99,6 @@
     [self.bar setFrame:CGRectMake(barFrame.origin.x, 200.0, barFrame.size.width, barFrame.size.height)];
     [self.bar setHidden:YES];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
-    [myTextView setFont:FONT_TEXT];
 	myTextView.text = [self loadText];
     
     [self.view addSubview:pagesScrollView.view];
@@ -93,8 +106,9 @@
     frame.origin.x = 0.0;
     frame.origin.y = frame.size.height - pagesScrollView.view.frame.size.height;
     [pagesScrollView.view setFrame:frame];
-    [myTextView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"board.png"]]];
+//    [myTextView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"board.png"]]];
     
+    [self customizeTextView:myTextView];
     //    [myTextView setText:@"<H1>header</H1>"];
 //    [myTextView setContentToHTMLString:@"<H1>header</H1>"];
 }

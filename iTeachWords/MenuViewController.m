@@ -22,7 +22,7 @@
 #import "DMVocalizerViewController.h"
 #import "DMRecognizerViewController.h"
 #import "WordTypes.h"
-
+#import "AddWord.h"
 #import "RepeatModel.h"
 #import "CustomBadge.h"
 
@@ -309,12 +309,18 @@
 }
 
 - (void)showAddingWordView{
-    TranslateViewController *myAddWordView = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
-    [myAddWordView setDelegate:self];
+    AddWord *myAddWordView = [[AddWord alloc] initWithNibName:@"AddWord" bundle:nil];
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
-//    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
+    //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
     [self.navigationController pushViewController:myAddWordView animated:YES];
-    [myAddWordView release]; 
+    [myAddWordView release];
+    
+//    TranslateViewController *myAddWordView = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
+//    [myAddWordView setDelegate:self];
+//    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
+////    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
+//    [self.navigationController pushViewController:myAddWordView animated:YES];
+//    [myAddWordView release]; 
 }
 
 - (void)showTextParserView{

@@ -125,7 +125,7 @@
     sortedKeys = [[NSMutableArray alloc] initWithArray:[contentArray keysSortedByValueUsingSelector:@selector(compare:)]];
     [table reloadData];
     table.hidden = NO;
-    [string release];
+//    [string release];
 }
 
 #pragma mark - Table view data source

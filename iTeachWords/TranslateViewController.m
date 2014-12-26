@@ -83,10 +83,6 @@
     }else{
         [self createMenu];
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
     interfaceOffset = 0.0;
     [self customizeViews];
 }
@@ -111,7 +107,8 @@
 
 #pragma mark customization
 - (void)customizeViews{
-    [self customizeTextViews];
+    [self customizeTextView:self.engTextView];
+    [self customizeTextView:self.rusTextView];
     [self createFlagsView];
     [self customiseControlButtons];
 }
@@ -120,17 +117,24 @@
     //set images
     NSDictionary *translateCountryInfo = TRANSLATE_COUNTRY_INFO;
     NSDictionary *nativeCountryInfo = NATIVE_COUNTRY_INFO;
+    [rusFlagImageView setCountryCode:[nativeCountryInfo objectForKey:@"firstCode"]];
     [engFlagImageView setCountryCode:[translateCountryInfo objectForKey:@"firstCode"]];
-    [engFlagImageView setCountryCode:[nativeCountryInfo objectForKey:@"firstCode"]];
     [self customiseFlagImageView:engFlagImageView];
     [self customiseFlagImageView:rusFlagImageView];
 }
 
-- (void)customizeTextViews{
-    self.engTextView.layer.cornerRadius = 5.0;
-    self.engTextView.clipsToBounds = YES;
-    self.rusTextView.layer.cornerRadius = 5.0;
-    self.rusTextView.clipsToBounds = YES;    
+- (void)customizeTextView:(UITextView*)textView{
+    CGRect frame = CGRectMake(10.0f/21.0f, 10.0f/21.0f, 1.0f/21.0f, 1.0f/21.0f);
+    textView.layer.contents = (id)[UIImage imageNamed: @"innershadow.png"].CGImage;
+    textView.layer.contentsCenter = frame;
+    textView.layer.cornerRadius = 5.0;
+    textView.clipsToBounds = YES;
+    
+//    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, textView.frame.size.width, 40)];
+//    [topView setBackgroundColor:[UIColor whiteColor]];
+//    [textView insertSubview:topView atIndex:0];
+//    [topView release];
+    
 //    self.rusTextView.layer.shadowColor = [[UIColor blackColor] CGColor];
 //    self.rusTextView.layer.shadowOffset = CGSizeMake(1.0f, .0f);
 //    self.rusTextView.layer.shadowOpacity = 1.0f;

@@ -1,14 +1,14 @@
 //
-//  QQQBaseTransparentView.m
+//  QQQTranslateTransparentView.m
 //  iTeachWords
 //
-//  Created by admin on 29.03.12.
-//  Copyright (c) 2012 OSDN. All rights reserved.
+//  Created by Vitalii Todorovych on 10.05.13.
+//  Copyright (c) 2013 OSDN. All rights reserved.
 //
 
-#import "QQQBaseTransparentView.h"
+#import "QQQTranslateTransparentView.h"
 
-@implementation QQQBaseTransparentView
+@implementation QQQTranslateTransparentView
 
 - (void)drawRect:(CGRect)rect {
 	//////////////GET REFERENCE TO CURRENT GRAPHICS CONTEXT
@@ -16,8 +16,8 @@
 	
     //////////////CREATE BASE SHAPE WITH ROUNDED CORNERS FROM BOUNDS
 	CGRect activeBounds = self.bounds;
-	CGFloat cornerRadius = 10.0f;	
-	CGFloat inset = 0.5f;	
+	CGFloat cornerRadius = 0.0f;
+	CGFloat inset = 0.0f;
 	CGFloat originX = activeBounds.origin.x + inset;
 	CGFloat originY = activeBounds.origin.y + inset;
 	CGFloat width = activeBounds.size.width - (inset*2.0f);
@@ -29,7 +29,7 @@
 	//////////////CREATE BASE SHAPE WITH FILL AND SHADOW
 	CGContextAddPath(context, path);
 	CGContextSetFillColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
-//	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
+    //	CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
     CGContextDrawPath(context, kCGPathFill);
 	
 	//////////////CLIP STATE
@@ -40,8 +40,8 @@
 	//////////////DRAW GRADIENT
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	size_t count = 3;
-	CGFloat locations[3] = {0.0f, 0.57f, 1.0f}; 
-	CGFloat components[12] = 
+	CGFloat locations[3] = {0.0f, 0.57f, 1.0f};
+	CGFloat components[12] =
 	{	70.0f/255.0f, 70.0f/255.0f, 70.0f/255.0f, 1.0f,     //1
 		55.0f/255.0f, 55.0f/255.0f, 55.0f/255.0f, 1.0f,     //2
 		40.0f/255.0f, 40.0f/255.0f, 40.0f/255.0f, 1.0f};	//3
@@ -63,7 +63,6 @@
     
     
 }
-
 
 
 @end
