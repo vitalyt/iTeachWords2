@@ -66,7 +66,6 @@
         else{
             [self undoChngesWord];
         }
-        [data  release];
     }
     @catch (NSException *exception) {
         
@@ -89,7 +88,6 @@
     NSData *data;
     data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
     [[iTeachWordsAppDelegate sharedDelegate] playSound:data inView:self.view];
-    [data release];
 }
 
 - (void)saveCanges{    
@@ -100,17 +98,6 @@
 - (void)undoChngesWord{
     isSaved = YES;
     [iTeachWordsAppDelegate remoneUndoBranch];
-}
-
-- (void)dealloc
-{    
-    if (!isSaved) {
-        [self undoChngesWord];
-    }
-    if (wbEngine) {
-        [wbEngine release];
-    }
-    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -223,11 +210,11 @@
     CGRect frame = self.view.superview.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20, frame.size.height/3)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
-    return [l autorelease];
+    return l;
 }
 
 - (NSString*)helpMessageForButton:(id)_button{
@@ -259,7 +246,7 @@
     UIView *buttonView = nil;
     UIView *view = _currentSelectedObject;
     CGRect frame = view.frame;
-    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:CGRectMake(frame.origin.x+self.view.frame.origin.x, frame.origin.y+self.view.frame.origin.y, frame.size.width, frame.size.height)];
     return buttonView;
 }

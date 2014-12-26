@@ -35,12 +35,7 @@
 }
 
 - (void)dealloc {
-	[lblEng release];
-	[lblRus release];
-	[lblEngH release];
-	[lblRusH release];
     [self removeStatisticView];
-    [super dealloc];
 }
 
 - (IBAction)btnActionClick:(id)sender{

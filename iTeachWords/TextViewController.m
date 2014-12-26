@@ -22,17 +22,15 @@
 #define textFieldHieght 371
 
 @implementation TextViewController
-@synthesize array;
-@synthesize arrayCount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self  = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                    initWithTitle:NSLocalizedString(@"Parse text", @"") style:UIBarButtonItemStyleBordered 
                                                    target:self 
-                                                   action:@selector(showTable)] autorelease];
+                                                   action:@selector(showTable)];
         [self createMenu];
     }
     return self;
@@ -46,16 +44,6 @@
 		self.tabBarItem.image = [UIImage imageNamed:@"40-inbox.png"];
 	}
 	return self;
-}
-
-- (void)dealloc {
-    [navSC release];
-    navSC = nil;
-    [loadingView release];
-    [pagesScrollView release];
-    [myTextView release];
-	[array release];
-    [super dealloc];
 }
 
 - (void) loadView{
@@ -113,21 +101,6 @@
 //    [myTextView setContentToHTMLString:@"<H1>header</H1>"];
 }
 
-
-- (void)viewDidUnload
-{
-    [navSC release];
-    navSC = nil;
-    [loadingView release];
-    loadingView = nil;
-    [myTextView release];
-    myTextView = nil;
-    [pagesScrollView release];
-    pagesScrollView  = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
 	return NO;
@@ -143,27 +116,24 @@
 	NewWordsTable *table = [[NewWordsTable alloc] initWithNibName:@"NewWordsTable" bundle:nil];
     [self.navigationItem setBackBarButtonItem:BACK_BUTTON];
     [self.navigationController pushViewController:table animated:YES];
-    NSString *loadedText = [[[NSString alloc] initWithString:myTextView.text] autorelease];
+    NSString *loadedText = [[NSString alloc] initWithString:myTextView.text];
     loadedText = [NSString removeNumbers:loadedText];
     loadedText = [NSString removeChars:@"-',!." from:loadedText];
     NSLog(@"%@",loadedText);
     [table loadDataWithString:loadedText];
-    [table release];
 }
 
 #pragma mark MyRecognize functions
 
 - (IBAction) showVoiceRecordView{
-	MyRecognizerViewController *voiceView = [[MyRecognizerViewController alloc] initWithDelegate:self];
-    [self.navigationController presentModalViewController:voiceView animated:YES];
-    [voiceView release];
+//	MyRecognizerViewController *voiceView = [[MyRecognizerViewController alloc] initWithDelegate:self];
+//    [self.navigationController presentModalViewController:voiceView animated:YES];
 }
 
 - (IBAction) showVocalizerView{
-    MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
-    [voiceView setText:myTextView.text withLanguageCode:[self currentTextLanguage]];
-    [self.navigationController presentModalViewController:voiceView animated:YES];
-    [voiceView release];
+//    MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
+//    [voiceView setText:myTextView.text withLanguageCode:[self currentTextLanguage]];
+//    [self.navigationController presentModalViewController:voiceView animated:YES];
 }
 
 - (IBAction)selectAll:(id)sender {
@@ -191,13 +161,12 @@
 - (NSString *) loadText{
 	NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"myResource"]];
 	path = [path stringByAppendingPathComponent:@"myText.doc"];
-    NSError *_error = nil;
-	NSString *_str = [NSString stringWithContentsOfFile:(NSString *)path encoding:NSUTF8StringEncoding error:(NSError **)_error];
-	if (_error)
-	{
-		NSLog(@"Error writing file at path: %@; error was %@", path, _error);
-		return [NSString stringWithFormat:@"Error writing file at path: %@; error was %@", path, _error];
-	}
+	NSString *_str = [NSString stringWithContentsOfFile:(NSString *)path encoding:NSUTF8StringEncoding error:nil];
+//	if (_error)
+//	{
+//		NSLog(@"Error writing file at path: %@; error was %@", path, _error);
+//		return [NSString stringWithFormat:@"Error writing file at path: %@; error was %@", path, _error];
+//	}
     return _str;
 }
 					 
@@ -248,10 +217,9 @@
 #endif
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
-        MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
-        [voiceView setText:selectedText withLanguageCode:[self currentTextLanguage]];
-        [self.navigationController presentModalViewController:voiceView animated:YES];
-        [voiceView release];
+//        MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
+//        [voiceView setText:selectedText withLanguageCode:[self currentTextLanguage]];
+//        [self.navigationController presentModalViewController:voiceView animated:YES];
     }
 }
 
@@ -340,11 +308,8 @@
 }
 
 - (void)setCurrentTextLanguage:(NSString*)_textLanguage{
-    if (_textLanguage != currentTextLanguage) {
-        if (currentTextLanguage) {
-            [currentTextLanguage release];
-        }
-        currentTextLanguage = [_textLanguage retain];
+    if (_textLanguage != self.currentTextLanguage) {
+        self.currentTextLanguage = _textLanguage;
     }
 }
 
@@ -435,7 +400,7 @@
 -(UIView*)hintStateViewToHint:(id)hintState
 {
     
-    int index = ((UIBarButtonItem*)_currentSelectedObject).tag;
+    NSInteger index = ((UIBarButtonItem*)_currentSelectedObject).tag;
 //    
     if(index<100){
         return [super hintStateViewToHint:hintState];
@@ -447,7 +412,7 @@
         CGRect frame = view.frame;
         CGRect buttonFrame;
         buttonFrame = CGRectMake(frame.origin.x+pagesScrollView.view.frame.origin.x, frame.origin.y+pagesScrollView.view.frame.origin.y, frame.size.width, frame.size.height);
-        UIView *buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+        UIView *buttonView = [[UIView alloc] initWithFrame:frame];
         [buttonView setFrame:buttonFrame];
         return buttonView;
     }

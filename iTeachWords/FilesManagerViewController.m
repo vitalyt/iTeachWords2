@@ -69,42 +69,30 @@
 {
 	if(searchProgress < 1.0)
 	{
-		// здесь делаем наши действия и нотифицируем подписчиков об изменении прогресса
-		// проверяем, находимся ли мы в Main потоке
-		if( !pthread_main_np() )
-		{
-			// если нет, то нам сделать расширенную нотификацию
-			// создаем массив аргументов нотификации
-			NSMutableDictionary *info = [[NSMutableDictionary allocWithZone:nil] init];
-			// имя нотификации
-			[info setObject:@"progressChanged" forKey:@"name"];
-			//значение для UIProgressView
-			[info setObject:[NSString stringWithFormat:@"%f", searchProgress] forKey:@"object"];
-			// вызываем обработчик запуска нотификации из основного потока
-			[[self class] performSelectorOnMainThread:@selector(_postNotificationName:) withObject:info waitUntilDone:YES];
-			[info release];
-		}
-		else
-		{
-			// если мы в основном потоке, то вызываем обычную нотификацию
-			NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-			[nc postNotificationName:@"progressChanged" object:[NSString stringWithFormat:@"%f", searchProgress]];
-		}
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // если нет, то нам сделать расширенную нотификацию
+            // создаем массив аргументов нотификации
+            NSMutableDictionary *info = [[NSMutableDictionary allocWithZone:nil] init];
+            // имя нотификации
+            [info setObject:@"progressChanged" forKey:@"name"];
+            //значение для UIProgressView
+            [info setObject:[NSString stringWithFormat:@"%f", searchProgress] forKey:@"object"];
+            // вызываем обработчик запуска нотификации из основного потока
+            [[self class] performSelectorOnMainThread:@selector(_postNotificationName:) withObject:info waitUntilDone:YES];
+            
+        });
+    
 		return;
 	}
 	// нотифицируем об окончании обработки поиска
-	if( !pthread_main_np() )
-	{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
 		NSMutableDictionary *info = [[NSMutableDictionary allocWithZone:nil] init];
 		[info setObject:@"copyEnd" forKey:@"name"];
 		[[self class] performSelectorOnMainThread:@selector(_postNotificationName:) withObject:info waitUntilDone:YES];
-		[info release];
-	}
-	else
-	{
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"copyEnd" object:nil];
-	}
-	[NSThread exit];
+    });
 }
 
 + (void) _postNotificationName:(NSDictionary *) info {
@@ -137,26 +125,17 @@
 	NSLog(@"files:%@",files2);
 //    [loadingView setTotal:[files2 count]];
 	for (int i=0; i<[files2 count]; i++) {
-        NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
-        
         [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
         loadingView.total = [files2 count];
 //        [loadingView performSelectorOnMainThread:@selector(setTotal:) withObject:[NSNumber numberWithInt:[files2 count]] waitUntilDone:YES];
         [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
         
 		[self reviewFile:[files2 objectAtIndex:i]inFolder:(NSString *)pathOfResource2];
-//		searchProgress = (float)i/([files2 count]-1);
-//		if (i+1<[files2 count]) {
-//			file = [files2 objectAtIndex:i+1];
-//		}
-//		[self doMessage:nil];
-        [pool drain];
 	}
     
     [loadingView closeLoadingView];
-    SEL selector = @selector(dataDidUpdate);
-	if ([delegate respondsToSelector:selector]) {
-		[delegate performSelector:selector];
+	if ([delegate respondsToSelector:@selector(dataDidUpdate)]) {
+		[delegate performSelector:@selector(dataDidUpdate)];
 	}
 }
 
@@ -247,7 +226,6 @@
                name:NSManagedObjectContextDidSaveNotification
              object:ctx];
 
-    NSAutoreleasePool *poolRoot= [[NSAutoreleasePool alloc] init];
     bool returnValue = YES;
     [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
     NSString *text = [[NSString alloc]initWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
@@ -273,7 +251,7 @@
         NSString *globalSlash = mutStr;
         NSArray *wordsArray = [[NSArray alloc] initWithArray:[text componentsSeparatedByString:globalSlash]];
         loadingView.total = [wordsArray count];
-        NSDate *createDate = [[NSDate date] retain];
+        NSDate *createDate = [NSDate date];
         NSString *themeName = [wordsArray objectAtIndex:2];
         NSString *slash = [wordsArray objectAtIndex:3];
         NSArray *languageObjects = [[wordsArray objectAtIndex:4] componentsSeparatedByString:slash];
@@ -294,7 +272,7 @@
                                        themeName];
             NSArray *allTheme = [MyPickerViewContrller loadAllThemeWithPredicate:_predicate];
             if ([allTheme count]>0) {
-                themeName = [NSString stringWithFormat:@"%@ (%d)",themeName,[allTheme count]];
+                themeName = [NSString stringWithFormat:@"%@ (%ld)",themeName,[allTheme count]];
             } else{
                 break;
             }
@@ -313,7 +291,7 @@
         @try {   
             NSMutableSet* wordsAr = [[NSMutableSet alloc]init];
             
-            int linesCount = [wordsArray count];
+            NSInteger linesCount = [wordsArray count];
             int breakPoints = ((linesCount<1000)?(linesCount/10):1000);
             for (int i = 5 ; i< linesCount; i++) {
                 NSArray *ar2 = [NSArray arrayWithArray:[[wordsArray objectAtIndex:i] componentsSeparatedByString:slash]];
@@ -346,8 +324,6 @@
                     
                     //                    [iTeachWordsAppDelegate performSelectorOnMainThread:@selector(saveDB) withObject:nil waitUntilDone:YES];
                     //                    [iTeachWordsAppDelegate saveDB];
-                    [poolRoot drain];
-                    poolRoot= [[NSAutoreleasePool alloc] init];
                 }
             }
             [_wordType addWords:wordsAr];
@@ -360,11 +336,6 @@
             }
             
             [ctx reset];
-            
-            // Release context
-            [ctx release];
-            [wordsAr release];
-            
         }
         @catch (NSException *exception) {
             returnValue = NO;
@@ -375,8 +346,6 @@
             if (!returnValue) {
                 [CONTEXT rollback];
             }
-            [wordsArray release];
-            [createDate release];
         }
         
     }
@@ -386,16 +355,13 @@
         [UIAlertView displayError:NSLocalizedString(@"There was some error within parse options informdtion (line 1->4)", @"")];
     }
     @finally {
-        [text release];
         [loadingView closeLoadingView];
-        [poolRoot drain];
     }
     return returnValue;
 }
 
 - (bool) addSoundWithFile:(NSString *)_fileName{
     
-    NSAutoreleasePool *poolRoot= [[NSAutoreleasePool alloc] init];
     NSMutableString *fileName = [NSMutableString stringWithString:_fileName];
     [fileName replaceCharactersInRange:[[fileName lowercaseString] rangeOfString:@".wav"] withString:@""];
     
@@ -412,19 +378,12 @@
         NSError *error;
         if (![CONTEXT save:&error]) {
             [UIAlertView displayError:@"There is problem with updating data"];
-            [soundData release];
-            [data release];
             return NO;
         }
     }else{
-        [soundData release];
-        [data release];
         return NO;
     }
     
-    [soundData release];
-    [data release];
-    [poolRoot drain];
     return YES;
 }
 
@@ -452,7 +411,6 @@
     NSString *path = [RESOUCE stringByAppendingPathComponent:fileName];
     NSString *stringContent = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSArray *ar = [stringContent componentsSeparatedByString:@"\n"];
-    [stringContent release];
     
     for (NSString *el in ar) {
         Words *words =  [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
@@ -464,8 +422,7 @@
             [words setTranslate:(NSString *)[arr objectAtIndex:1]];
         }
         [wordType addWordsObject:words];
-        [box release];
-    }    
+    }
 }
 
 
@@ -474,7 +431,6 @@
     //NSString *path=[NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/05.02.10.txt"];
     NSString *stringContent = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSArray *ar = [stringContent componentsSeparatedByString:@"\n"];
-    [stringContent release];
     
     for (NSString *el in ar) {
         NSMutableDictionary *box = [[NSMutableDictionary alloc] initWithCapacity:2];
@@ -484,13 +440,11 @@
             [box setObject:[NSString stringWithString:(NSString *)[arr objectAtIndex:1]] forKey:@"rusWord"];
         }
         [_content addObject:box];
-        [box release];
     }
     
     if ([_content count] > 0) {
         [_content writeToFile:_outFileName atomically:YES];
     }
-    [_content release];
 }
 
 
@@ -533,14 +487,5 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-
-- (void)dealloc {
-    [loadingView release];
-	[myLabel release];
-	[myProgressView release];
-    [super dealloc];
-}
-
 
 @end

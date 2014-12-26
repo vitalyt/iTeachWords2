@@ -61,13 +61,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [self.imageView setImage:im];
 }
 
-- (void)dealloc
-{
-    [imageView release];
-    [image release];
-    [super dealloc];
-}
-
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
 	self.layer.borderWidth = 1.5;

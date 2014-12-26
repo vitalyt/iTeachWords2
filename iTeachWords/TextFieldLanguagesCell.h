@@ -11,10 +11,9 @@
 #import "TextFieldCell.h"
 
 @interface TextFieldLanguagesCell : TextFieldCell {
-	UITextField *textField2;
-    IBOutlet UILabel *titleLabel2;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *textField2;
 @property (nonatomic, retain) IBOutlet UILabel *titleLabel2;
+
 @end

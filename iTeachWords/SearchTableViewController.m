@@ -20,11 +20,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -65,14 +60,13 @@
 
 -(void)loadDataWithPredicate:(NSPredicate *)predicate {
     NSError *error;
-    NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
     [request setPredicate:predicate];
     
 	NSSortDescriptor *name = [[NSSortDescriptor alloc] initWithKey:@"text" ascending:YES 
                                                           selector:@selector(caseInsensitiveCompare:)];
     self.data = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:name, nil]];
-    [name release];
 	[table reloadData];
 }
 

@@ -11,8 +11,6 @@
 #import "MyUIViewClass.h"
 #import "SimpleWebViewController.h"
 
-#import "SocialSharingViewController.h"
-
 @implementation DetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,19 +59,6 @@
     
     // remove our image view containing a picture of the parent view at the back of our view's subview stack...
     [[self.view.subviews objectAtIndex:0] removeFromSuperview];
-}
-
-
-- (void)viewDidUnload
-{
-    [[self getScrollViewFromWebView:[self webView]] setDelegate:nil];
-    [contentView release];
-    contentView = nil;
-    [closeBtn release];
-    closeBtn = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -126,40 +111,26 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)showSocialSaringView{
-    if (!socialSharingViewController) {
-        socialSharingViewController = [[SocialSharingViewController alloc] initWithNibName:@"SocialSharingViewController" bundle:nil];
-    }
-    [socialSharingViewController.view setHidden:YES];
-    [socialSharingViewController setDelegate:self];
-    [self.view addSubview:socialSharingViewController.view];
-    [socialSharingViewController.view setFrame:CGRectMake(198, (contentView.frame.origin.y+contentView.frame.size.height)-socialSharingViewController.view.frame.size.height, socialSharingViewController.view.frame.size.width, socialSharingViewController.view.frame.size.height)];
-}
+//- (void)showSocialSaringView{
+//    if (!socialSharingViewController) {
+//        socialSharingViewController = [[SocialSharingViewController alloc] initWithNibName:@"SocialSharingViewController" bundle:nil];
+//    }
+//    [socialSharingViewController.view setHidden:YES];
+//    [socialSharingViewController setDelegate:self];
+//    [self.view addSubview:socialSharingViewController.view];
+//    [socialSharingViewController.view setFrame:CGRectMake(198, (contentView.frame.origin.y+contentView.frame.size.height)-socialSharingViewController.view.frame.size.height, socialSharingViewController.view.frame.size.width, socialSharingViewController.view.frame.size.height)];
+//}
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y>10) {
-        [socialSharingViewController.view setHidden:NO];
-    }else {
-        [socialSharingViewController.view setHidden:YES];
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    if (scrollView.contentOffset.y>10) {
+//        [socialSharingViewController.view setHidden:NO];
+//    }else {
+//        [socialSharingViewController.view setHidden:YES];
+//    }
+//}
 
-- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
-    [socialSharingViewController.view setHidden:YES];
-    
-}
-
-- (void)dealloc {
-    if (socialSharingViewController) {
-        [socialSharingViewController release];
-        socialSharingViewController = nil;
-    }
-    [contentView release];
-    [closeBtn release];
-    [super dealloc];
-}
 @end

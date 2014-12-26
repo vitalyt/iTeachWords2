@@ -113,13 +113,10 @@ documentsDirectory = [paths objectAtIndex:0];
     if (url == _url) {
         return;
     }
-    if (url) {
-        [url release];
-    }
     if (![_url hasPrefix:@"http://"]) {
         _url = [NSString stringWithFormat:@"http://%@",_url];
     }
-    url = [_url retain];
+    url = _url;
     [self loadContent];
 }
 
@@ -214,32 +211,4 @@ documentsDirectory = [paths objectAtIndex:0];
     return YES;
 }
 
-- (void)dealloc 
-{
-    if (progressView) {
-        [progressView release];
-    }
-    [modifiedDatetime release];
-	[url release];
-	[title release];
-	[webView release];
-    [urlToolbar release];
-    [urlFld release];
-    [forwardBtn release];
-    [backBtn release];
-    [super dealloc];
-}
-
-
-- (void)viewDidUnload {
-    [urlToolbar release];
-    urlToolbar = nil;
-    [urlFld release];
-    urlFld = nil;
-    [forwardBtn release];
-    forwardBtn = nil;
-    [backBtn release];
-    backBtn = nil;
-    [super viewDidUnload];
-}
 @end

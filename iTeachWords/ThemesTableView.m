@@ -37,14 +37,13 @@
 }
 
 - (void)createNavigationButtons{
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit:)] autorelease];
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(back:)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(back:)];
 }
 
 -(void)loadData { 
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSError *error;
-    NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"WordTypes" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
     //    [request setFetchLimit:limit];  
     //    [request setFetchOffset:0];
@@ -54,18 +53,15 @@
 	NSSortDescriptor *createDate = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
     
     NSArray *context = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:createDate, nil]];
-    [createDate release];
     if (!content) {
         content = [[NSMutableArray alloc] initWithCapacity:[context count]];
     }
-    [content release];
-    content = [[NSMutableArray arrayWithArray:context] retain];
+    content = [NSMutableArray arrayWithArray:context];
 //    self.data = [NSMutableArray arrayWithArray:context];
-    [pool release];
 }
 
 #pragma mark search bar funktions
-- (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [content count];
 }
 
@@ -73,7 +69,7 @@
     return @"ThemesCell";
 }
 
-- (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 90;
 }
 
@@ -134,19 +130,13 @@
     }
     isEditingMode = !isEditingMode;
     [table setEditing:isEditingMode];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:(isEditingMode)?UIBarButtonSystemItemDone:UIBarButtonSystemItemEdit target:self action:@selector(edit:)]  autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(isEditingMode)?UIBarButtonSystemItemDone:UIBarButtonSystemItemEdit target:self action:@selector(edit:)];
     [table reloadData];
 }
 
 - (void)showThemeEditingView{
     ThemeEditingViewController *themeEditingView = [[ThemeEditingViewController alloc] initWithNibName:@"ThemeEditingViewController" bundle:nil];
     [self.navigationController pushViewController:themeEditingView animated:YES];
-    [themeEditingView release];
-}
-
-- (void)dealloc {
-    delegate = nil;
-    [super dealloc];
 }
 - (void)viewDidUnload {
     [super viewDidUnload];

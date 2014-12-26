@@ -23,12 +23,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [sentences release];
-    [textContent release];
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -63,11 +57,11 @@
     [self becomeFirstResponder];
     
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:@"Add word"
-                                                       action:@selector(firstAction)] autorelease];
+    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"Add word"
+                                                       action:@selector(firstAction)];
     
-    UIMenuItem *menuItem2 = [[[UIMenuItem alloc] initWithTitle:@"Second Action"
-                                                        action:@selector(secondAction)] autorelease];
+    UIMenuItem *menuItem2 = [[UIMenuItem alloc] initWithTitle:@"Second Action"
+                                                        action:@selector(secondAction)];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuItem2];
     
@@ -80,7 +74,6 @@
     
     [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
     
-    [menuItemsMutableArray release];
 }
 - (void) firstAction{
     range = myTextView.selectedRange;
@@ -151,11 +144,9 @@
     [content appendFormat:@"\n"];
     
     NSString *pathOfDocuments = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"LessonResouce"]];
-    NSString *lessonFolder = [pathOfDocuments stringByAppendingPathComponent:lessonName];
+    NSString *lessonFolder = [pathOfDocuments stringByAppendingPathComponent:self.lessonName];
     NSString *path = [lessonFolder stringByAppendingPathComponent:@"1.txt"];
     
     [content writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"%@\n",content);
-    [content release];
 }
 @end

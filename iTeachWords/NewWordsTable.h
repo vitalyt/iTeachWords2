@@ -22,11 +22,12 @@
     ToolsViewController *toolsView;
     IBOutlet UIActivityIndicatorView *loadingViewAnimation;
     
-    WordTypes   *wordType;
     StringTools *stringTools;
 }
 
-@property (nonatomic,retain) NSDictionary   *contentArray;
+@property (nonatomic,strong) WordTypes   *wordType;
+@property (nonatomic,strong) NSDictionary   *contentArray;
+
 - (void) showMyPickerView;
 - (void) translateWords;
 - (void) showToolsView;

@@ -30,12 +30,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [barItem release];
-    [super dealloc];
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -44,17 +38,8 @@
     
     table.backgroundColor = [UIColor clearColor];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
-    [TestFlight passCheckpoint:@"User gone to the Settings view"];
-    [TestFlight openFeedbackView];
     barItem.frame = CGRectMake(0, self.view.frame.size.height+barItem.frame.size.height, barItem.frame.size.width, barItem.frame.size.height);
     [self.view addSubview:barItem];
-}
-
-- (void)viewDidUnload
-{
-    [barItem release];
-    barItem = nil;
-    [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -81,12 +66,10 @@
     [self.values setObject:[NSNumber numberWithBool:isRepeatNotifications] forKey:@"isRepeatOptionOn"];
     [self.values setObject:[NSNumber numberWithBool:isHelpMode] forKey:@"isHelpMode"];
     
-    titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
+    self.titles = [[NSMutableArray alloc] initWithObjects:@"", nil];
     NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Language",@""),NSLocalizedString(@"Font size",@""),NSLocalizedString(@"Font name",@""),NSLocalizedString(@"Help",@""),NSLocalizedString(@"Notification",@""), nil];
     NSArray *elements1 = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Password",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
-    [elements release];
-    [elements1 release];
     [self.table reloadData];
 }
 
@@ -152,7 +135,7 @@
 }
 
 - (NSInteger) numberOfSectionsInTableView: (UITableView*)tableView {
-    return [titles count];
+    return [self.titles count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -162,9 +145,9 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     //    if (section == 1) {
-    UIView *v=[[[UIView alloc] init] autorelease];
+    UIView *v = [[UIView alloc] init];
     v.backgroundColor = [UIColor clearColor];
-    NSString *tite = [titles objectAtIndex:section];
+    NSString *tite = [self.titles objectAtIndex:section];
     float width ;
     width = self.view.frame.size.width - 40;
     if (section == 1) {
@@ -178,12 +161,11 @@
     header.font = FONT_OF_HEAD_LABEL; 
     header.text = tite;
     [v addSubview:header];
-    [header release];
     return v;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-	NSString *tite = [titles objectAtIndex:section];
+	NSString *tite = [self.titles objectAtIndex:section];
     float width = self.view.frame.size.width - 40;
     if (section == 1) {
         width = self.view.frame.size.width - 140;
@@ -281,12 +263,10 @@
 	[_cell.textField setLeftViewMode:UITextFieldViewModeAlways];
     objImageEng.layer.cornerRadius = 10.0;
     objImageRus.layer.cornerRadius = 5.0;
-	[objImageRus release];
-	[objImageEng release];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [titles objectAtIndex:section];
+    return [self.titles objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
@@ -354,7 +334,7 @@
         }
 #endif
 
-        [values setObject:[NSNumber numberWithBool:_value] forKey:key];
+        [self.values setObject:[NSNumber numberWithBool:_value] forKey:key];
         [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
@@ -371,7 +351,6 @@
     LanguagePickerController *languagePicker = [[LanguagePickerController alloc]initWithNibName:@"LanguagePickerController" bundle:nil];  
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON]; 
     [self.navigationController pushViewController:languagePicker animated:YES];
-    [languagePicker release];
 }
 
 - (IBAction)closeView:(id)sender {
@@ -399,8 +378,6 @@
     // Pass the selected object to the new view controller.
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
      [self.navigationController pushViewController:notificationViewController animated:YES];
-     [notificationViewController release];
-     
 }
 
 #ifdef FREE_VERSION
@@ -440,7 +417,6 @@
     //	[self presentModalViewController:controller animated:YES];
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
     [self.navigationController pushViewController:controller animated:YES];
-	[controller release];
 }
 
 - (void)fontPickerViewController:(ARFontPickerViewController *)fontPicker didSelectFont:(NSString *)fontName {

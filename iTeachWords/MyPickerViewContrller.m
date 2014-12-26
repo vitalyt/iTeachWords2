@@ -30,16 +30,6 @@
     [self loadData];
 }
 
-- (void)dealloc {
-	delegate = nil;
-	[pickerView release];
-	[data release];
-    [rows release];
-    rows = nil;
-    [themeEditingFlt release];
-    [super dealloc];
-}
-
 + (NSArray*)loadAllThemeWithPredicate:(NSPredicate*)_predicate{
     NSLog(@"%@",_predicate);
     NSFetchedResultsController *_fetches = [NSManagedObjectContext 
@@ -47,7 +37,7 @@
     
 	NSSortDescriptor *_data = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
 	NSArray *_companies = [_fetches fetchedObjects];
-    return [_companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:[_data autorelease], nil]];
+    return [_companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:_data, nil]];
 }
 
 + (NSArray*)loadAllTheme{
@@ -60,16 +50,12 @@
     if ([self.data count] == 0) {
         [UIAlertView displayMessage:NSLocalizedString(@"The list of dictionaries is empty. First of all create a theme.", @"") title:NSLocalizedString(@"Suggestion", @"")];
     }
-    if (rows) {
-        [rows release];
-    }
     rows = [[NSMutableArray alloc] initWithCapacity:[self.data count]];
     for (int i=0; i<[self.data count]; i++) {
         ThemeDetailView *pickerRowView = [[ThemeDetailView alloc] initWithNibName:@"ThemeDetailView" bundle:nil];
         [pickerRowView.view setFrame:CGRectMake(0, 0, pickerView.frame.size.width, PICKER_ROW_HEIGHT)];
         [rows addObject:pickerRowView];
         [pickerRowView setTheme:[data objectAtIndex:i]];
-        [pickerRowView release];
     }
 
     
@@ -276,7 +262,7 @@
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
     }
-    CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:@"Removing" message:@"Are you sure you want to delete this theme?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil]  autorelease];
+    CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@"Removing" message:@"Are you sure you want to delete this theme?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     [alert show];
 }
 
@@ -310,19 +296,17 @@
     ThemesTableView *themesTableView = [[ThemesTableView alloc] initWithNibName:@"ThemesTableView" bundle:nil];
     [((UIViewController*)self.delegate).navigationController pushViewController:themesTableView animated:YES];
     [themesTableView setDelegate:self.delegate];
-    [themesTableView release];
     [self cansel];    
 }
 
 - (IBAction) deleteType{
-    int selectedIndex = [pickerView selectedRowInComponent:0];
+    NSInteger selectedIndex = [pickerView selectedRowInComponent:0];
     WordTypes *wordType = [data objectAtIndex:selectedIndex];
     [iTeachWordsAppDelegate createUndoBranch];
     [CONTEXT deleteObject:wordType];
     [iTeachWordsAppDelegate saveUndoBranch];
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:data];
     [array removeObjectAtIndex:selectedIndex];
-    [data release];
     data = array;
 	[self loadData];
 //    [pickerView reloadAllComponents];
@@ -372,7 +356,6 @@
 }
 
 - (void)viewDidUnload {
-    [themeEditingFlt release];
     themeEditingFlt = nil;
     [super viewDidUnload];
 }
@@ -380,9 +363,9 @@
 -(UIView*)hintStateViewForDialog:(id)hintState
 {
     CGRect frame = self.view.superview.frame;
-    UILabel *l = [[[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/4)] autorelease];
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/4)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -391,7 +374,7 @@
 
 - (NSString*)helpMessageForButton:(id)_button{
     NSString *message = nil;
-    int index = ((UIBarButtonItem*)_button).tag+1;
+    NSInteger index = ((UIBarButtonItem*)_button).tag+1;
     switch (index) {
         case 1:
             message = NSLocalizedString(@"Добавление нового словаря", @"");
@@ -414,7 +397,7 @@
     UIView *buttonView = nil;
     UIView *view = (UIView *)_currentSelectedObject;
     CGRect frame = view.frame;
-    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:CGRectMake(frame.origin.x, frame.origin.y+20, frame.size.width, frame.size.height)];
     return buttonView;
 }

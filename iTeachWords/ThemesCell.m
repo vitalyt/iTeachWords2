@@ -44,12 +44,4 @@
         self.statisticViewController = nil;
     }
 }
-
-- (void)dealloc
-{
-    [self removeStatisticView];
-    self.nameLbl = nil;
-    self.subtitleLbl = nil;
-    [super dealloc];
-}
 @end

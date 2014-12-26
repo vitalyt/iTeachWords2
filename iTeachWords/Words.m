@@ -31,7 +31,6 @@
     [self willChangeValueForKey:@"statistics" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"statistics"] addObject:value];
     [self didChangeValueForKey:@"statistics" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)removeStatisticsObject:(NSManagedObject *)value {
@@ -39,7 +38,6 @@
     [self willChangeValueForKey:@"statistics" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"statistics"] removeObject:value];
     [self didChangeValueForKey:@"statistics" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)addStatistics:(NSSet *)value {    
@@ -61,7 +59,6 @@
     [self willChangeValueForKey:@"sounds" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"sounds"] addObject:value];
     [self didChangeValueForKey:@"sounds" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)removeSoundsObject:(Sounds *)value {
@@ -69,7 +66,6 @@
     [self willChangeValueForKey:@"sounds" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"sounds"] removeObject:value];
     [self didChangeValueForKey:@"sounds" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)addSounds:(NSSet *)value {    

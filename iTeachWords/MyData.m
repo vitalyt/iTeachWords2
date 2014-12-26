@@ -23,18 +23,16 @@
 
 - (NSArray *) convertData{
 	
-	NSMutableArray *_array = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *_array = [[NSMutableArray alloc] init];
 	for (int i = 0; i < [engWords count]; i++) {
 		NSMutableDictionary *_dict = [[NSMutableDictionary alloc] init];
 		if ([[engWords objectAtIndex:i] length] == 0) {
-            [_dict release];
 			break;
 		}
 		if (   [engWords count] > i) {
 			[_dict setObject:[engWords objectAtIndex:i] forKey:@"engWord"];
 		}
 		else {
-            [_dict release];
 			break;
 		}
 
@@ -42,7 +40,6 @@
 			[_dict setObject:[rusWords objectAtIndex:i] forKey:@"rusWord"];
 		}
 		else {
-            [_dict release];
 			break;
 		}
 		if (   [engTranscriptions count] > i) {
@@ -53,7 +50,6 @@
 		}		
 
 		[_array addObject:_dict];
-		[_dict release];
 	}
 	//NSLog(@"%@",_array);
 	return _array;
@@ -67,7 +63,6 @@
 	NSLog(@"path->%@",path);
 	NSLog(@"str->%@",str);
 	NSArray *chapters = [str componentsSeparatedByString: @"<"];
-    [str release];
 	for (int i = 0; i < [chapters count]; i++) {
 		if ([[chapters objectAtIndex:i] length] <= 0) {
 			continue;
@@ -92,7 +87,6 @@
 						//NSLog(@"engWords->%@",s);
 						[engWords replaceObjectAtIndex:i withObject:s];
 					}
-					[s release];
 				}
 				
 				break;
@@ -109,7 +103,6 @@
 						[s deleteCharactersInRange:subRange]; 
 						[rusWords replaceObjectAtIndex:i withObject:s];
 					}
-					[s release];
 				}
 				break;
 			case 'I':

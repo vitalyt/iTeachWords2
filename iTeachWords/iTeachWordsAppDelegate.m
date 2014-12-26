@@ -25,27 +25,12 @@
 
 @synthesize viewController=_viewController;
 
-
-- (void)dealloc
-{
-    if (player) {
-        [player release];
-    }
-    [managedObjectContext release];
-    [managedObjectModel release];
-    [persistentStoreCoordinator release];
-    
-    [_window release];
-    [_viewController release];
-    [super dealloc];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
     [self activateNotification];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     player = [[MyPlayer alloc] initWithNibName:@"MyPlayer" bundle:nil];
     [self checkDatabase];
     [self updateData];
@@ -60,7 +45,6 @@
 	if ([files count]>0) {
 		FilesManagerViewController *progressView = [[FilesManagerViewController alloc] initWithNibName:@"FilesManagerViewController" bundle:nil];
         [progressView onCopy];
-		[progressView release];
 	}
 }
 
@@ -100,11 +84,8 @@
                 notification.userInfo = infoDict; 
                 
                 [app scheduleLocalNotification:notification];
-                [notification release];
             }
         }
-        
-        [repeatDelayedThemes release];
     }
 }
 
@@ -133,9 +114,8 @@
 
 -(NSArray*)loadRepeatDelayedTheme{
     RepeatModel *repeatModel = [[RepeatModel alloc] init];
-    NSArray *delayedTheme = [[repeatModel getDelayedTheme] retain];
-    [repeatModel release];
-    return [delayedTheme autorelease];
+    NSArray *delayedTheme = [repeatModel getDelayedTheme];
+    return delayedTheme;
 }
 
 #pragma mark shoving functions
@@ -164,7 +144,6 @@
     {
         [myMenu performSelector:@selector(showLastItem) withObject:nil afterDelay:0.5];
     }
-    [myMenu release];
 }
 
 #pragma mark -
@@ -283,7 +262,6 @@
     }else{
         um = [[NSUndoManager  alloc] init];
         [CONTEXT setUndoManager:um];
-        [um release];
     }
 }
 
@@ -292,7 +270,6 @@
     if (!um){
         um = [[NSUndoManager  alloc] init];
         [CONTEXT setUndoManager:um];
-        [um release];
     }
     [CONTEXT processPendingChanges];
     [um beginUndoGrouping];
@@ -369,7 +346,7 @@
     NSLog(@"Using File called: %@",recordedTmpFile);
     
     NSData *data = [[NSData alloc] initWithContentsOfURL:recordedTmpFile];
-    [recordedTmpFile release];
+    recordedTmpFile;
     NSString* requestDataLengthString = [[NSString alloc] initWithFormat:@"%d", [data length]];
 
 	NSMutableString *params = [[NSMutableString alloc] init];
@@ -392,12 +369,6 @@
 	
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest: request delegate:self];
 	NSAssert(nil != connection, NSLocalizedString(@"The connection cannot be created!", @""));
-    [connection release];
-    [params release];
-    [request release];
-    [requestDataLengthString release];
-    
-    [data release];
 }
 
 
@@ -423,12 +394,7 @@
     NSString *information = [[NSString alloc] initWithData:_mutableData encoding:NSUTF8StringEncoding];
     NSLog(@"%@",information);
     [UIAlertView displayMessage:information];
-    [information release];
-    if (_mutableData) {
-        [_mutableData release];
-        _mutableData = nil;
-    }
-    
+
     NSString *_fileName;
     NSURL           *recordedTmpFile;
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:
@@ -444,8 +410,7 @@
     NSData *_data;
     _data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
     [self playSound:_data inView:nil];
-    [_data release];
-    [recordedTmpFile release];
+
 }
 
 
@@ -453,7 +418,6 @@
     static NSDictionary *languageSettings;
     if (!languageSettings) {
         languageSettings = [self loadLanguageSettings];
-        [languageSettings retain];
     }
     return languageSettings;
 }
@@ -479,7 +443,7 @@
         [dict setValue:translateCountryFlagm forKey:@"translateCountryFlag"];
     }
     NSLog(@"%@",dict);
-    return [dict autorelease];
+    return dict;
 }
 
 + (BOOL)isAppHacked{

@@ -34,12 +34,12 @@ typedef enum {
 
 
 @interface DYRateView : UIView {
-    UIImage *_fullStarImage;
-    UIImage *_emptyStarImage;
     CGPoint _origin;
     NSInteger _numOfStars;
 }
 
+@property(nonatomic, strong) UIImage *fullStarImage;
+@property(nonatomic, strong) UIImage *emptyStarImage;
 @property(nonatomic, assign) RateViewAlignment alignment;
 @property(nonatomic, assign) CGFloat rate;
 @property(nonatomic, assign) CGFloat padding;

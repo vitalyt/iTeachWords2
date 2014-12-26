@@ -28,10 +28,9 @@
 #pragma mark loading funktions
 
 - (void) loadData{    
-    titles = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"You are in able to change the schedule of repetition.", @""), nil];
+    self.titles = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"You are in able to change the schedule of repetition.", @""), nil];
     NSArray *elements = [[NSArray alloc] initWithObjects:NSLocalizedString(@"20 min",@""),NSLocalizedString(@"1 day",@""),NSLocalizedString(@"1 month",@""),NSLocalizedString(@"3 month",@""), nil];
     self.data = [NSArray arrayWithObjects:elements, nil];
-    [elements release];
     for (int i=0;i<[elements count];i++){
         NSString *_key = [self keyForIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         bool boolValue = ([[NSUserDefaults standardUserDefaults] objectForKey:_key])?[[NSUserDefaults standardUserDefaults] boolForKey:_key]:YES;
@@ -45,7 +44,7 @@
 - (void)addInfoButton{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [btn addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
 - (NSString*)keyForIndexPath:(NSIndexPath*)indexPath{
@@ -80,7 +79,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger) numberOfSectionsInTableView: (UITableView*)tableView {
-    return [titles count];
+    return [self.titles count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -101,7 +100,7 @@
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [titles objectAtIndex:section];
+    return [self.titles objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
@@ -111,9 +110,9 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     //    if (section == 1) {
-    UIView *v=[[[UIView alloc] init] autorelease];
+    UIView *v=[[UIView alloc] init];
     v.backgroundColor = [UIColor clearColor];
-    NSString *tite = [titles objectAtIndex:section];
+    NSString *tite = [self.titles objectAtIndex:section];
     float width ;
     width = tableView.frame.size.width - 40;// - 79;
 
@@ -138,14 +137,13 @@
 //    [v addSubview: onOffSwitcher];
     
     [v addSubview:header];
-    [header release];
     return v;
     //    }
     //    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-	NSString *tite = [titles objectAtIndex:section];
+	NSString *tite = [self.titles objectAtIndex:section];
     float width = tableView.frame.size.width - 40 - 79;
 
 	CGSize detailSize = [tite sizeWithFont:FONT_OF_HEAD_LABEL constrainedToSize:CGSizeMake(width, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
@@ -181,7 +179,7 @@
         _cell.titleLabel.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         [_cell setDelegate:self];
         bool _value = _cell.switcher.on;
-        [values setObject:[NSNumber numberWithBool:_value] forKey:key];
+        [self.values setObject:[NSNumber numberWithBool:_value] forKey:key];
         [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[iTeachWordsAppDelegate sharedDelegate] activateNotification];
@@ -203,7 +201,6 @@
     if (!_value) {
         CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Are you sure?", @"") message:NSLocalizedString(@"Disabling of this feature is not recommended", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Show detail info", @"") otherButtonTitles:NSLocalizedString(@"YES", @""), NSLocalizedString(@"NO", @""), nil];
         [alert show];
-        [alert autorelease];
     }
     [[NSUserDefaults standardUserDefaults] setBool:_value forKey:key]; 
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -233,11 +230,6 @@
     [infoView loadContentByFile:@"RepeatInfo"];
 //    [infoView setUrl:NSLocalizedString(@"http://en.wikipedia.org/wiki/Forgetting_curve", @"")];
     //    [self.navigationController pushViewController:infoView animated:YES];
-    [infoView release];
 }
 
-- (void)dealloc {
-    [onOffSwitcher release];
-    [super dealloc];
-}
 @end

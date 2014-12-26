@@ -39,14 +39,6 @@
     [self.view setBackgroundColor:[UIColor clearColor]];
 }
 
-- (void)viewDidUnload
-{
-    [recordingView release];
-    recordingView = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -80,17 +72,10 @@
     imageView.image = parentViewImage;
     [self.view insertSubview:imageView atIndex:0];
     [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.9]];
-    [imageView release];
     
 //    [self record:nil];
     // Do any additional setup after loading the view from its nib.
 }
-
-- (void)dealloc {
-    [recordingView release];
-    [super dealloc];
-}
-
 
 - (IBAction)close:(id)sender {
     if(isRecording){

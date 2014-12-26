@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SwitchingCell : UITableViewCell {
-	IBOutlet UISwitch *switcher;
-	id delegate;
-    IBOutlet UILabel *titleLabel;
-    
+@interface SwitchingCell : UITableViewCell {    
 }
 
 @property (nonatomic, retain) UISwitch *switcher;

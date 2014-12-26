@@ -58,7 +58,7 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [btn setImage:icon forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(sendMessageView) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
 - (void)sendMessageView{
@@ -117,7 +117,6 @@
 	
     picker.navigationBar.barStyle = UIBarStyleBlack;
 	[self presentModalViewController:picker animated:YES];
-    [picker release];
 }
 
 

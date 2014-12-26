@@ -10,15 +10,12 @@
 #import "TextFieldCell.h"
 
 @interface InputTableController : TableViewController {
-	NSMutableDictionary *values;
-    NSMutableArray      *titles;
-	UITextField         *responder;
     UITextField         *currentTextField;
 }
 
-@property (nonatomic, retain) NSMutableDictionary *values;
-@property (nonatomic, retain) NSMutableArray *titles;
-@property (nonatomic, retain) UIResponder *responder;
+@property (nonatomic, strong) NSMutableDictionary *values;
+@property (nonatomic, strong) NSMutableArray *titles;
+@property (nonatomic, strong) UIResponder *responder;
 
 -(void)cellDidBeginEditing:(TextFieldCell *)cell ;
 -(void)cellDidEndEditing:(UITableViewCell *)cell;

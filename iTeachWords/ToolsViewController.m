@@ -23,7 +23,7 @@
     CGRect frame = ((UIViewController*)delegate).view.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -307,7 +307,7 @@
     CGRect frame = view.frame;
     UIView *buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:CGRectMake(frame.origin.x, frame.origin.y+self.view.frame.origin.y, frame.size.width, frame.size.height)];
-    return [buttonView autorelease];
+    return buttonView;
 }
 
 - (void) toolbarAddSubView:(UIView *)_subView after:(id)sender{
@@ -315,14 +315,12 @@
         return;
     }
     NSMutableArray *items = [[toolbar items] mutableCopy];
-    int index = [items indexOfObject:sender]+1;
+    NSInteger index = [items indexOfObject:sender]+1;
     
     UIBarButtonItem *recordingButton = [[UIBarButtonItem alloc] initWithCustomView:_subView];
     [recordingButton setTag:index];
     [_subView setTag:index];
-    NSLog(@"%d",[items indexOfObject:sender]+1);
     [items insertObject:recordingButton atIndex:[items indexOfObject:sender]+1];
-    [recordingButton release];
     ((UIBarButtonItem *)sender).enabled = NO;
     [toolbar setItems:nil];
     
@@ -338,7 +336,6 @@
     if (offset > 0.0) {
         scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x + (_subView.frame.origin.x+_subView.frame.size.width - scrollView.contentOffset.x - 320.0)  , 0.0);
     }
-    [items release];
 }
 
 - (void)changeSize{
@@ -365,7 +362,6 @@
         }
     }
     [toolbar setItems:items animated:YES];
-    [items release];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -382,23 +378,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-    [closeBtn release];
-    closeBtn = nil;
-    [super viewDidUnload];
-    
-    [recordingView release];
-    recordingView = nil;
-    [testsView release];
-    testsView = nil;
-    [editingView release];
-    editingView = nil;
-    [managerView release];
-    managerView = nil;
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (void) clickStatistic{
     
 }
@@ -406,22 +385,5 @@
 - (IBAction) clickEdit{
     
 }
-
-- (void)dealloc {
-    [editingView release];
-    [managerView release];
-    if(recordingView != nil){
-        [recordingView release];
-        recordingView = nil;
-    }
-    if(testsView != nil){
-        [testsView release];
-        testsView = nil;
-    }
-    [mySlider release];
-    [closeBtn release];
-    [super dealloc];
-}
-
 
 @end

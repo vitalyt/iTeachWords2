@@ -12,13 +12,6 @@
 
 @synthesize delegate,toolsViewDelegate;
 
-- (void)dealloc {
-    [activityIndicatorView release];
-    [recordButton release];
-    [vuMeter release];
-    [super dealloc];
-}
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -36,20 +29,6 @@
         materWidth = vuMeter.frame.size.width;
     }
     return materWidth;
-}
-
-- (void)viewDidUnload
-{
-    [activityIndicatorView release];
-    activityIndicatorView = nil;
-    [recordButton release];
-    recordButton = nil;
-    [vuMeter release];
-    vuMeter = nil;
-    [super viewDidUnload];
-    
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -132,7 +111,6 @@
     NSData *data;
     data = [[NSData alloc]initWithContentsOfURL:recordedTmpFile];
     [[iTeachWordsAppDelegate sharedDelegate] playSound:data inView:self.view];
-    [data release];
 }
 
 - (IBAction)close:(id)sender {
@@ -153,7 +131,7 @@
     CGRect frame = ((UIViewController*)delegate).view.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -194,7 +172,7 @@
     }
     CGRect frame = view.frame;
     ToolsViewController *toolsView =  ((ToolsViewController*)toolsViewDelegate);
-    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:CGRectMake(frame.origin.x+self.view.frame.origin.x-toolsView.scrollView.contentOffset.x, frame.origin.y+((UIViewController*)toolsViewDelegate).view.frame.origin.y, frame.size.width, frame.size.height)];
     return buttonView;
 }

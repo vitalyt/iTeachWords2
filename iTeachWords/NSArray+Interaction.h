@@ -9,7 +9,7 @@
 
 @interface NSArray (NSArray_Interaction)
 
-- (void) mixArray;
-+ (NSArray *) mixArray:(NSArray *)array;
+- (NSArray*) mixArray;
++ (NSArray*) mixArray:(NSArray *)array;
 
 @end

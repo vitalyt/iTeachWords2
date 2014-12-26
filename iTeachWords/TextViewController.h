@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AddWordOptionsView.h"
-#import "MyRecognizerViewController.h"
-#import "MyVocalizerViewController.h"
 #import "ButtonView.h"
 
 #import "SVSegmentedControl.h"
@@ -20,8 +18,7 @@
 UITextViewDelegate, 
 UIAlertViewDelegate, 
 RecordingViewProtocol,
-ButtonViewProtocol,
-MyVocalizerDelegate
+ButtonViewProtocol
 >{
     IBOutlet UITextView *myTextView;
     SVSegmentedControl *navSC;
@@ -35,8 +32,8 @@ MyVocalizerDelegate
     UIView              *loadingView;
 }
 
-@property (nonatomic, retain) NSArray *array;
-@property (nonatomic, retain) NSDictionary *arrayCount;
+@property (nonatomic, strong) NSArray *array;
+@property (nonatomic, strong) NSDictionary *arrayCount;
 
 - (IBAction)showTable;
 - (IBAction)showVoiceRecordView;

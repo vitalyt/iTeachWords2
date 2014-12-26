@@ -44,7 +44,6 @@
 	
 	NSMutableDictionary *lesson = nil;
 	NSMutableDictionary *progressArray = [NSMutableDictionary dictionaryWithContentsOfFile:path];
-	[progressArray retain];
 	if (progressArray == nil) {
 		progressArray = [[NSMutableDictionary alloc] init];
 	}
@@ -59,8 +58,6 @@
 	
 	[progressArray setObject:lesson forKey:lessKey];
 	[progressArray writeToFile:path atomically:YES];
-	[progressArray release];
-	[num release];
 }
 
 - (IBAction) nextWord{
@@ -138,39 +135,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(back)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"?" style:UIBarButtonItemStyleDone target:self action:@selector(help)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"?" style:UIBarButtonItemStyleDone target:self action:@selector(help)];
     statisticView = [[StatisticViewController alloc] initWithNibName:@"StatisticViewController" bundle:NULL];
     statisticView.total = [words count];
     self.navigationItem.titleView = statisticView.view;
 	[self createWord];
-}
-
-
-/*
- // Override to allow orientations other than the default portrait orientation.
- - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations
- return (interfaceOrientation == UIInterfaceOrientationPortrait);
- }
- */
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-    [statisticView release];
-	[words release];
-    [super dealloc];
 }
 
 @end

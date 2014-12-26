@@ -20,15 +20,13 @@
 	IBOutlet UIBarButtonItem    *leftButton;
     IBOutlet UIButton		*addButton;
 	NSArray                 *data;
-	id <MyPickerViewProtocol>   delegate;
-    
     ThemeDetailView         *themeDetailView;
     NSMutableArray          *rows;
     BOOL                    isAdding;
 }
 
 @property (nonatomic, retain) IBOutlet UIPickerView	*pickerView;
-@property (nonatomic, assign) id                    delegate;
+@property (nonatomic, weak) id                    delegate;
 @property (nonatomic, retain) NSArray               *data;
 
 - (WordTypes *) getType;

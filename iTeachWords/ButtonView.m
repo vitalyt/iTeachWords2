@@ -42,30 +42,11 @@
     }
 }
 
-- (void)dealloc {
-    [button release];
-    [scrollImage release];
-    [super dealloc];
-}
-
 - (IBAction)buttonAction:(id)sender {
-    
     SEL selector = @selector(buttonDidClick: withIndex:);
     if ([delegate respondsToSelector:selector]) {
         [delegate performSelector:selector withObject:sender withObject:[NSNumber numberWithInteger:type]];
     }
-}
-
-- (void)viewDidUnload
-{
-    [button release];
-    button = nil;
-    delegate = nil;
-    [scrollImage release];
-    scrollImage = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)changeButtonImage:(UIImage*)_image{

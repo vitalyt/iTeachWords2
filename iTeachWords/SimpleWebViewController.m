@@ -7,9 +7,6 @@ documentsDirectory = [paths objectAtIndex:0];
 
 @implementation SimpleWebViewController
 
-@synthesize url;
-
-
 -init
 {
 	return [self initWithUrl: @""];
@@ -73,18 +70,15 @@ documentsDirectory = [paths objectAtIndex:0];
 //    [self loadContent];
 }
 
-- (void)setUrl:(NSString *)_url{
-    if (url == _url) {
+- (void)setUrl:(NSString *)url{
+    if (self.url == url) {
         return;
     }
-    if (url) {
-        [url release];
+    if (![url hasPrefix:@"http://"]) {
+        url = [NSString stringWithFormat:@"http://%@",_url];
     }
-    if (![_url hasPrefix:@"http://"]) {
-        _url = [NSString stringWithFormat:@"http://%@",_url];
-    }
-    NSLog(@"Loading->%@",_url);
-    url = [_url retain];
+    NSLog(@"Loading->%@",url);
+    _url = url;
     [self loadContent];
 }
 
@@ -94,7 +88,7 @@ documentsDirectory = [paths objectAtIndex:0];
     [[self webView] stopLoading];
     [self clearContent];
     NSURLRequest *requestObj;
-    requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:[self.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     [[self webView] loadRequest:requestObj];
 }
 
@@ -124,16 +118,4 @@ documentsDirectory = [paths objectAtIndex:0];
 {
 	[self dismissModalViewControllerAnimated:YES];
 }
-
-- (void)dealloc 
-{
-    if (progressView) {
-        [progressView release];
-    }
-	[url release];
-	[_webView release];
-    [super dealloc];
-}
-
-
 @end

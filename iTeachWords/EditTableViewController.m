@@ -28,12 +28,12 @@
     UITableViewCell *theCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == theCell) {
 		if (nil == cellIdentifier){
-			theCell = [[[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:@"default"] autorelease];
+			theCell = [[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:@"default"];
         }else{
             NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
             theCell = [items objectAtIndex:0];
         }
-        indicator = [[[UIImageView alloc] initWithImage:notSelectedImg] autorelease];
+        indicator = [[UIImageView alloc] initWithImage:notSelectedImg];
         const NSInteger IMAGE_SIZE = 30;
         const NSInteger SIDE_PADDING = 5;
         
@@ -52,7 +52,7 @@
 }
 
 - (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
-    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] initWithRountRect:5] autorelease];
+    OSDNUITableCellView *v = [[OSDNUITableCellView alloc] initWithRountRect:5];
     
     v.fillColor = [UIColor colorWithRed:0.25f green:0.47f blue:0.44f alpha:1.0f];
     v.borderColor = [UIColor darkGrayColor];

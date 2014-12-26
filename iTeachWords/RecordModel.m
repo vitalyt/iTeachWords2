@@ -28,7 +28,6 @@
     path = [path stringByAppendingPathComponent:
             [NSString stringWithFormat: @"%@.%@", _fileName, @"caf"]  ];
     if(recordedTmpFile != nil){
-        [recordedTmpFile release];
         recordedTmpFile = nil;
     }
     recordedTmpFile = [[NSURL alloc] initFileURLWithPath:path];
@@ -50,29 +49,14 @@
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
     if(recorder != nil){
-        [recorder release];
         recorder = nil;
     }
     recorder = [[ AVAudioRecorder alloc] initWithURL:recordedTmpFile 
-                                            settings:recordSetting error:&error];
-    [recordSetting release];
+                                            settings:recordSetting error:nil];
     [recorder setDelegate:self];
     [recorder setMeteringEnabled:YES];
     [recorder prepareToRecord];
     [recorder record];	
-}
-
-- (void)dealloc
-{
-    if(recordedTmpFile != nil){
-        [recordedTmpFile release];
-        recordedTmpFile = nil;
-    }
-    if(recorder != nil){
-        [recorder release];
-        recorder = nil;
-    } 
-    [super dealloc];
 }
 
 @end

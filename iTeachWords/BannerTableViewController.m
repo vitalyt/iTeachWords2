@@ -60,7 +60,6 @@
 {
     if (adView) {
         adView.delegate = nil;
-        [adView release];
     }
     [super viewDidUnload];
     // Release any retained subviews of the main view.

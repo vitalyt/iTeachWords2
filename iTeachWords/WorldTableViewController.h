@@ -29,23 +29,21 @@ typedef enum {
 @class HeadViewController,AlertTableViewDelegate;
 
 @interface WorldTableViewController : EditTableViewController <ADBannerViewDelegate,MyPickerViewProtocol,MyPlayerProtocol,AlertTableViewDelegate,AlertTableViewDelegate,RecordingViewProtocol,TableCellProtocol> {
-    MyPickerViewContrller   *wordTypePicker;
-    WordTypes               *wordType;
-    ToolsViewController     *toolsView; 
-    MultiPlayer             *multiPlayer;
-    NSIndexPath             *currentSelectedWordPathIndex;
+    ToolsViewController     *toolsView;
     bool                    isStatisticShowing;
-    ShowingWordType         showingType;
     
     NSString                *nativeCountry,*translateCountry;
     HeadViewController      *tableHeadView;
     RecordingWordViewController *recordView;
-    
-    UIImage                 *playImg,*LoadRecordImg;
+
     int                     selectedWordsCount;
 }
 
-@property (nonatomic,retain) WordTypes *wordType;
+@property (nonatomic,strong) MyPickerViewContrller *wordTypePicker;
+@property (nonatomic,strong) NSIndexPath *currentSelectedWordPathIndex;
+@property (nonatomic,strong) MultiPlayer *multiPlayer;
+@property (nonatomic,strong) UIImage *playImg,*LoadRecordImg;
+@property (nonatomic,strong) WordTypes *wordType;
 @property (nonatomic) ShowingWordType   showingType;
 
 - (void)playSoundWithIndex:(NSIndexPath *)indexPath;

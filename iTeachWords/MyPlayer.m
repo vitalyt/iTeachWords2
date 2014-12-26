@@ -10,8 +10,6 @@
 
 @implementation MyPlayer
 
-@synthesize delegate;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
     }
@@ -43,13 +41,13 @@
 	[self.view.superview.layer addAnimation:myTransition forKey:nil];
 
 	[self.view removeFromSuperview];
-    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidClose:)]){
+    if (_delegate && [(id)_delegate respondsToSelector:@selector(playerDidClose:)]){
             [self.delegate playerDidClose:self] ;
     }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)_player successfully:(BOOL)flag{
-    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlaying:)]){
+    if (_delegate && [(id)_delegate respondsToSelector:@selector(playerDidFinishPlaying:)]){
         [self.delegate playerDidFinishPlaying:self] ;
     }
     [self closePlayer];
@@ -60,8 +58,6 @@
         NSError *error;
         if (player) {
             [player stop];
-            [player release];
-            player = nil;
         }
         player = [[AVAudioPlayer alloc] initWithData:_data error:&error];
         if (player != nil){
@@ -119,17 +115,7 @@
 
 }
 
-- (void)dealloc {
-    if (player != nil) {
-		[player release];
-        player = nil;
-	}
-    [playBtn release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
-    [playBtn release];
-    playBtn = nil;
     [super viewDidUnload];
 }
 @end

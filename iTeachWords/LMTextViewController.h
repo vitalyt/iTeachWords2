@@ -17,16 +17,14 @@
     
     bool                flgTableShowing;
     LMTableViewController   *myTableView;
-    
-    NSString        *textContent;
-    NSString        *lessonName;
+
     NSMutableArray  *sentences;
     NSMutableArray  *wordsInSentence;
     int             sentenceIndex;
 }
 
-@property (nonatomic,retain) NSString *lessonName; 
-@property (nonatomic,retain, setter = setTextContent:) NSString        *textContent; 
+@property (nonatomic,strong) NSString *lessonName;
+@property (nonatomic,strong, setter = setTextContent:) NSString        *textContent;
 
 - (void) createMenu;
 - (void) firstAction;

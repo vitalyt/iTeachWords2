@@ -37,7 +37,6 @@
 		[myDict setObject:(NSDate *)today  forKey:@"date"];
 		[myDict setObject:(NSData *)_data  forKey:@"data"];
 		[myDict writeToFile:path atomically:YES];
-        [myDict release];
 
         [OSDNHash registerItem:fhash withURL:_url];
 	//}
@@ -57,15 +56,13 @@
 }
 
 + (BOOL) validCurrentDate:(NSString *)_currentDateStr toDate:(NSString*)_dateTestStr{ 
-    NSDate *currentDate = [[_currentDateStr dateWithFormat:@"yyyy-MM-dd HH:mm:ss"] retain];
-    NSDate *dateTest = [[_dateTestStr dateWithFormat:@"yyyy-MM-dd HH:mm:ss"] retain];
+    NSDate *currentDate = [_currentDateStr dateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *dateTest = [_dateTestStr dateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
 	int intervall = (int) [currentDate timeIntervalSinceDate:dateTest];
     bool returnValue = NO;
 	if (intervall > 0) {
 		returnValue = YES;
 	}
-    [currentDate release];
-    [dateTest release];
 	return returnValue;
 }
 
@@ -131,7 +128,6 @@
         }
     }
     [hashDB removeObjectsForKeys:removedFiles];
-    [removedFiles release];
     [hashDB writeToFile:pathOfHashDB atomically:YES];
 }
 
@@ -165,7 +161,7 @@
 	NSDictionary *myDict;
 	myDict = [NSDictionary dictionaryWithContentsOfFile:path];
 	if (myDict != nil) {
-		data = [[[NSData alloc] initWithData:[myDict objectForKey:@"data"]] autorelease];
+		data = [[NSData alloc] initWithData:[myDict objectForKey:@"data"]];
 	}
 	return data;
 }
@@ -173,7 +169,7 @@
 
 + (void) registerItem:(NSString*)path{
     NSMutableDictionary *hashDB;
-    hashDB = [[NSMutableDictionary dictionaryWithContentsOfFile:pathOfHashDB] retain];
+    hashDB = [NSMutableDictionary dictionaryWithContentsOfFile:pathOfHashDB];
     if (!hashDB) {
         hashDB = [[NSMutableDictionary alloc] init];
     }
@@ -182,13 +178,11 @@
     [content setObject:(NSDate *)today  forKey:@"createDate"];
     [hashDB setObject:content  forKey:path];
     [hashDB writeToFile:pathOfHashDB atomically:YES];
-    [hashDB release];
-    [content release];
 }
 
 + (void) registerItem:(NSString*)path withURL:(NSString*)url{
     NSMutableDictionary *hashDB;
-    hashDB = [[NSMutableDictionary dictionaryWithContentsOfFile:pathOfHashDB] retain];
+    hashDB = [NSMutableDictionary dictionaryWithContentsOfFile:pathOfHashDB];
     if (!hashDB) {
         hashDB = [[NSMutableDictionary alloc] init];
     }
@@ -196,7 +190,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     //[dateFormatter setTimeZone:[NSTimeZone  timeZoneForSecondsFromGMT:([AppDelegate timezone] * 3600)]];
     NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
-    [dateFormatter release]; dateFormatter = nil;
+    dateFormatter = nil;
     
     NSMutableDictionary *content = [[NSMutableDictionary alloc] init];
     [content setObject:currentTime  forKey:@"createDate"];
@@ -204,8 +198,6 @@
     [hashDB setObject:content  forKey:path];
     NSLog(@"%@",content);
     [hashDB writeToFile:pathOfHashDB atomically:YES];
-    [hashDB release];
-    [content release]; 
     
   }
 @end

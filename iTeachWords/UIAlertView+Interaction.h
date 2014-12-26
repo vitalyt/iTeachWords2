@@ -19,7 +19,7 @@
 #define DEFAULT_FONTNAME		@"Helvetica-Bold"
 #define DEFAULT_FONTSIZE		15.0f
 #define DEFAULT_TEXTCOLOR		whiteColor
-#define DEFAULT_TEXTALIGNMENT	UITextAlignmentCenter
+#define DEFAULT_TEXTALIGNMENT	NSTextAlignmentCenter
 #define DEFAULT_VTEXTOFFSET		10.0f
 #define DEFAULT_HTEXTOFFSET		10.0f
 #define DEFAULT_RADIUS			8.0f

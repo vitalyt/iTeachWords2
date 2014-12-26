@@ -128,7 +128,7 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 	}
 }
 
--(void)setPositionCredentialsRow:(int)row count:(int)count
+-(void)setPositionCredentialsRow:(NSInteger)row count:(NSInteger)count
 {
     if (roundSize != 0) {
         position = CustomCellBackgroundViewPositionSingle;

@@ -2,7 +2,6 @@
 
 @interface SimpleWebViewController : UIViewController < UIWebViewDelegate>
 {
-	NSString *url;
 	BOOL	flgLoad;
 	BOOL	flgInternalLink;
 @private
@@ -10,7 +9,7 @@
 	UIActivityIndicatorView *progressView;
 }
 
-@property (nonatomic,retain) NSString *url;
+@property (nonatomic,strong) NSString *url;
 
 - (id)initWithFrame:(CGRect)frame;
 -(void) hideAlert:(id)sender;

@@ -33,14 +33,6 @@
     // Configure the view for the selected state
 }
 
-- (void)dealloc {
-    self.titleLbl = nil;
-    [rateView release];
-    rateView = nil;
-    [subTitleLbl release];
-    [super dealloc];
-}
-
 - (void)setTheme:(WordTypes*)_wordTheme{
     if (_wordTheme) {
     [self setUpRightAlignedRateViewWith:_wordTheme];

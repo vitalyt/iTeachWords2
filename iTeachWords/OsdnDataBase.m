@@ -28,7 +28,7 @@
 	NSDictionary *myDict;
 	myDict = [NSDictionary dictionaryWithContentsOfFile:path];
 	if (myDict != nil) {
-		data = [[[NSData alloc] initWithData:[myDict objectForKey:@"data"]] autorelease];
+		data = [[NSData alloc] initWithData:[myDict objectForKey:@"data"]];
 	}
 	return data;
 }
@@ -50,7 +50,6 @@
 		[myDict setObject:(NSData *)_data  forKey:@"data"];
 		
 		[myDict writeToFile:path atomically:YES];
-		[myDict release];
         
         [OsdnDataBase registerItem:fhash];
 	}
@@ -68,7 +67,6 @@
         if ([fileManager fileExistsAtPath:path] == NO){
             NSData *_dataString=[[NSData alloc] initWithContentsOfURL:_data];
             [_dataString writeToFile:path atomically:NO];
-            [_dataString release];
         }
         
         [OsdnDataBase registerItem:fhash];
@@ -94,7 +92,7 @@
     if(![fm fileExistsAtPath:path]){
 		return data;
     }
-	data = [[[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil] autorelease];
+	data = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	
 	//data = [[NSString alloc] initWithContentsOfFile:path];
 	return data;

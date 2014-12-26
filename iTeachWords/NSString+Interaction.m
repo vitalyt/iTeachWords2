@@ -7,8 +7,7 @@
 //
 
 #import "NSString+Interaction.h"
-#import "JSON.h"
-#import "XMLReader.h"
+//#import "XMLReader.h"
 
 @implementation NSString (Interaction)
 
@@ -41,7 +40,7 @@
     return [test evaluateWithObject:self];
 }
 
-- (void) removeSpaces{
+- (NSString *) removeSpaces{
     NSMutableString *str = [[NSMutableString alloc]initWithString:self];
     while ([str hasPrefix:@"\n"]) {
         NSRange range;
@@ -67,8 +66,7 @@
         range.length = 1;
         [str replaceCharactersInRange:range withString:@""];
     } 
-    self = [NSString stringWithFormat:@"%@",str];
-    [str release];
+    return [NSString stringWithFormat:@"%@",str];
 }
 
 + (NSString*) removeSpaces:(NSString*)_str{
@@ -97,7 +95,7 @@
         range.length = 1;
         [str replaceCharactersInRange:range withString:@""];
     } 
-    return [str autorelease];
+    return str;
 }
 
 + (NSString*)removeNumbers:(NSString*)originalString{
@@ -112,7 +110,7 @@
 }
 
 + (NSString*)removeChars:(NSString*)chars from:(NSString*)baseString{
-    NSString *str = [[[NSString alloc] initWithString:baseString] autorelease];
+    NSString *str = [[NSString alloc] initWithString:baseString];
     for (int i = 0; i < [chars length] ; i++) {
         str = [str stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%c",[chars characterAtIndex:i]] withString:@""];
     }
@@ -133,14 +131,13 @@
         NSLog(@"responseText->%@",response);
         @try
         {
-            NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
-            if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
-                return [[result objectForKey:@"string"] objectForKey:@"text"];
-            }
+//            NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
+//            if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
+//                return [[result objectForKey:@"string"] objectForKey:@"text"];
+//            }
         }
         @finally
         {
-            [response release];
         }
         return NSLocalizedString(@"", @"");
     }
@@ -167,14 +164,13 @@
         NSLog(@"responseText->%@",response);
         @try
         {
-            NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
-            if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
-                return [[result objectForKey:@"string"] objectForKey:@"text"];
-            }
+//            NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
+//            if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
+//                return [[result objectForKey:@"string"] objectForKey:@"text"];
+//            }
         }
         @finally
         {
-            [response release];
         }
         return NSLocalizedString(@"", @"");
     }
@@ -186,12 +182,11 @@
     [df setDateFormat:format]; 
    // NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:[iTeachWordsAppDelegate timezone]];
    // [df setTimeZone:timeZone];
-	NSDate *date = [[[NSDate alloc] init] autorelease];
+	NSDate *date = [[NSDate alloc] init];
 	date = [df dateFromString:self];
 	if (date == nil) {
 		date = [NSDate date];
 	}
-	[df release];
     NSLog(@"%@",date);
     return date;
 }

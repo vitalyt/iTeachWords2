@@ -26,7 +26,6 @@ static id _param2;
     _selector2 = selector2;
     alert = [[CustomAlertView alloc] initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
     [alert show];
-    [alert autorelease];
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

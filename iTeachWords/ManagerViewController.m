@@ -23,12 +23,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [segmentControll release];
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -98,7 +92,7 @@
     CGRect frame = ((UIViewController*)managerViewDelegate).view.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/2)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -139,7 +133,7 @@
     }
     CGRect frame = view.frame;
     ToolsViewController *toolsView =  ((ToolsViewController*)toolsViewDelegate);
-    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:CGRectMake(frame.origin.x+self.view.frame.origin.x-toolsView.scrollView.contentOffset.x, frame.origin.y+((UIViewController*)toolsViewDelegate).view.frame.origin.y, frame.size.width, frame.size.height)];
     return buttonView;
 }

@@ -17,12 +17,11 @@
 	float searchProgress;
     
     LoadingViewController   *loadingView;
-    id                      delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UIProgressView	*myProgressView;
 @property (nonatomic, retain) IBOutlet UILabel			*myLabel;
-@property (nonatomic, assign) id                        delegate;
+@property (nonatomic, weak) id                        delegate;
 
 - (void) threadStart;
 - (void) updateProgress:(NSNotification *)progressNotification;

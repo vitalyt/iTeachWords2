@@ -12,8 +12,6 @@
 @interface ThemesTableView : TableViewController{
     BOOL    isEditingMode;
     NSMutableArray *content;
-    
-	id <MyPickerViewProtocol>   delegate;
 }
 
 @property (nonatomic, assign) id  delegate;

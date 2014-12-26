@@ -27,9 +27,5 @@
     // Configure the view for the selected state
 }
 
-- (void)dealloc {
-    [detailText release];
-    [super dealloc];
-}
 @end
 

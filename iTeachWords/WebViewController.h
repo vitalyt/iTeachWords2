@@ -14,7 +14,6 @@
 	BOOL	flgInternalLink;
 	@protected
 	NSMutableArray *textZoomer;
-	IBOutlet UIWebView *webView;
 	UIActivityIndicatorView *progressView;
     NSString *modifiedDatetime;
     bool isUpdatedData;

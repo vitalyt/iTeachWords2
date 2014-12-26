@@ -19,7 +19,7 @@ typedef enum
 @property(nonatomic) CustomCellBackgroundViewPosition position;
 @property(nonatomic,retain) UIColor *borderColor, *fillColor;
 
--(void)setPositionCredentialsRow:(int)row count:(int)count;
+-(void)setPositionCredentialsRow:(NSInteger)row count:(NSInteger)count;
 - (id)initWithRountRect:(float)_roundSize;
 
 @end

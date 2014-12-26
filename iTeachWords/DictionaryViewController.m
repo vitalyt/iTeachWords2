@@ -25,14 +25,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [searchedText release];
-    [searchedData release];
-    [searchBar release];
-    [super dealloc];
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -56,7 +48,6 @@
 }
 
 -(void)loadData { 
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     if ([mySearchBar.text length] > 0) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text BEGINSWITH[cd] %@ AND type!=nil", mySearchBar.text];
         [self loadDataWithPredicate:predicate];
@@ -65,7 +56,7 @@
     }
     NSError *error;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type!=nil"];
-    NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
     [request setPredicate:predicate];
 //    [request setFetchLimit:limit];  
@@ -80,8 +71,6 @@
     [self performSelectorOnMainThread:@selector(setDataContent:) withObject:context waitUntilDone:YES];
     self.searchedData = [NSMutableArray arrayWithArray:data];
 	[table reloadData];
-    [name release];
-    [pool release];
 }
 
 -(void)loadDataWithPredicate:(NSPredicate *)predicate {
@@ -110,8 +99,6 @@
                                                           selector:@selector(caseInsensitiveCompare:)];
     self.data = [[[iTeachWordsAppDelegate sharedContext] executeFetchRequest:request error:&error] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:name, nil]];
     self.searchedData = [NSMutableArray arrayWithArray:data];
-    [name release];
-    [request release];
 	[table reloadData];
 }
 
@@ -235,7 +222,7 @@
 - (id)cellBackgroundViewWithFrame:(CGRect)frame{
     UIView *bg = [[QQQSeparateView alloc] initWithFrame:frame];
     bg.backgroundColor = [UIColor clearColor]; // or any color
-    return [bg autorelease];
+    return bg;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -247,8 +234,6 @@
         UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
         [[self navigationItem] setBackBarButtonItem: newBackButton];
         [self.navigationController pushViewController:myAddWordView animated:YES];
-        [myAddWordView release]; 
-        [newBackButton release];
     }else{
         limit += offset;
         if ([mySearchBar.text length] > 0) {
@@ -263,7 +248,6 @@
     [mySearchBar resignFirstResponder];
 }
 - (void)viewDidUnload {
-    [searchBar release];
     searchBar = nil;
     [super viewDidUnload];
 }

@@ -35,21 +35,6 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)viewDidUnload
-{
-    [nameLbl release];
-    nameLbl = nil;
-    [createDateLdl release];
-    createDateLdl = nil;
-    [changeDateLbl release];
-    changeDateLbl = nil;
-    [wordsCountLbl release];
-    wordsCountLbl = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -60,21 +45,6 @@
     createDateLdl.text = createDate;
     changeDateLbl.text = changeDate;
     wordsCountLbl.text = wordsCount;
-}
-
-- (void)dealloc {
-    [nameLbl release];
-    [createDateLdl release];
-    [changeDateLbl release];
-    [wordsCountLbl release];
-    [name release];
-    [createDate release];
-    [changeDate release];
-    [wordsCount release];
-    [statisticViewController.view removeFromSuperview];
-    [statisticViewController release];
-    statisticViewController = nil;
-    [super dealloc];
 }
 
 - (void)setTheme:(WordTypes*)_wordTheme{
@@ -116,7 +86,6 @@
     rateView.rate = (_repeatStatus==0)?_repeatStatus:_repeatStatus - 1;
     rateView.alignment = RateViewAlignmentRight;
     [self.view addSubview:rateView];
-    [rateView release];
 }
 
 @end

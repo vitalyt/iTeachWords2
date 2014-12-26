@@ -200,7 +200,7 @@
 	for(NSString *titleString in self.titlesArray) {
         CGRect labelRect = CGRectMake((self.segmentWidth*i), posY, self.segmentWidth, self.font.pointSize);
         //CGContextFillRect(context, labelRect);
-		[titleString drawInRect:labelRect withFont:self.font lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
+		[titleString drawInRect:labelRect withFont:self.font lineBreakMode:UILineBreakModeClip alignment:NSTextAlignmentCenter];
 		i++;
 	}
 }

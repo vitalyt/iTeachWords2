@@ -19,7 +19,6 @@
 										  cancelButtonTitle:@"OK"
 										  otherButtonTitles:nil];
 	[alert show];
-	[alert release];	
 }
 + (void)displayErrorWithResponce:(NSDictionary *)dict{
     NSString *message; 
@@ -34,7 +33,6 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        [alert release];
     }
 }
 
@@ -45,7 +43,6 @@
 										  cancelButtonTitle:@"OK"
 										  otherButtonTitles:nil];
 	[alert show];
-	[alert release];	
 }
 
 + (void)displayMessage:(NSString *)message {
@@ -55,7 +52,6 @@
 										  cancelButtonTitle:@"OK"
 										  otherButtonTitles:nil];
 	[alert show];
-	[alert release];	
 }
 
 + (void)displayMessage:(NSString *)message title:(NSString *)title{
@@ -65,7 +61,6 @@
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
     [alert show];
-    [alert release];	
 }
 
 + (void)displayGuideMessage:(NSString *)message title:(NSString *)title{
@@ -77,7 +72,6 @@
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
         [alert show];
-        [alert release];
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:key];
     }
@@ -90,7 +84,6 @@
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
 	[alert show];
-	[alert release];	
 }
 
 + (void)displayMessage:(NSString *)message withDelegate:(id)delegate {
@@ -100,7 +93,6 @@
 										  cancelButtonTitle:@"OK"
 										  otherButtonTitles:nil];
 	[alert show];
-	[alert release];	
 }
 
 + (UIAlertView *)showAlert:(NSString *)message withActivity:(BOOL)activity {
@@ -116,15 +108,13 @@
 		activityView.frame = CGRectMake(139.0f-18.0f, 80.0f, 37.0f, 37.0f);
 		[alertView addSubview:activityView];
 		[activityView startAnimating];
-		[activityView release];
 	} else {
 		UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(30.0f, 80.0f, 225.0f, 90.0f)];
 		[alertView addSubview:progressView];
 		[progressView setProgressViewStyle: UIProgressViewStyleBar];
-		[progressView release];
 	}
 	[alertView show];
-	return [alertView autorelease];
+	return alertView;
 }
 
 
@@ -218,9 +208,7 @@
 	//Compose views
 	messageLabel.center = CGPointMake(messageSize.width/2.0f, messageSize.height/2.0f);
 	[content addSubview:messageLabel];
-	[messageLabel release];
 	[rootView addSubview:content];
-	[content release];
 	
 	//Animation
 	rootView.alpha = 0.0f;
@@ -262,7 +250,6 @@
                                                                    }
                                                                    completion:^(BOOL completed) {
                                                                        [rootView removeFromSuperview];
-                                                                       [rootView release];
                                                                    }];
                                               }];
                          }];
@@ -271,7 +258,7 @@
 }
 
 + (void)showLoadingViewWithMwssage:(NSString*)message{
-    [UIAlertView showMessage:message textAlignment:UITextAlignmentCenter withDuration:.0 andDelay:20 backgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.75f] borderColor:[UIColor grayColor] shadowColor:[UIColor clearColor] massageOffsetSize:CGSizeMake(0, 0) borderWidth:2.0 shadowRadius:DEFAULT_RADIUS cornerRadius:DEFAULT_RADIUS startScale:DEFAULT_STARTSCALE middleScale:DEFAULT_MIDDLESCALE endScale:DEFAULT_ENDSCALE activityView:YES inView:nil];
+    [UIAlertView showMessage:message textAlignment:NSTextAlignmentCenter withDuration:.0 andDelay:20 backgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.75f] borderColor:[UIColor grayColor] shadowColor:[UIColor clearColor] massageOffsetSize:CGSizeMake(0, 0) borderWidth:2.0 shadowRadius:DEFAULT_RADIUS cornerRadius:DEFAULT_RADIUS startScale:DEFAULT_STARTSCALE middleScale:DEFAULT_MIDDLESCALE endScale:DEFAULT_ENDSCALE activityView:YES inView:nil];
 }
 
 + (void) showMessage:(NSString *)message
@@ -345,21 +332,19 @@
 	}
 	content.layer.shadowPath = [UIBezierPath bezierPathWithRect:messageRect].CGPath;
 	//Root view
-	UIView *rootView = [[[UIView alloc] init] autorelease];
+	UIView *rootView = [[UIView alloc] init];
     [rootView setBackgroundColor:[UIColor clearColor]];
 	rootView.tag = DEFAULT_VIEWTAG;
 	rootView.frame = messageRect;
 	//Compose views
 	//messageLabel.center = CGPointMake(messageSize.width/2.0f, messageSize.height/2.0f);
 	[content addSubview:messageLabel];
-	[messageLabel release];
 	[rootView addSubview:content];
-	[content release];
 	
     //ActivityView
     UIActivityIndicatorView *activityView;
     if (isActivity) {
-        activityView = [[[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(messageLabel.frame.origin.x-20-DEFAULT_ACTIVITYOFFSET, content.frame.size.height/2-10, 20, 20)] autorelease];
+        activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(messageLabel.frame.origin.x-20-DEFAULT_ACTIVITYOFFSET, content.frame.size.height/2-10, 20, 20)];
         [activityView setCenter:CGPointMake(activityView.center.x, activityView.center.y)];
         [activityView startAnimating];
         [content addSubview:activityView];

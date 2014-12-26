@@ -23,7 +23,6 @@
     [self willChangeValueForKey:@"statistics" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"statistics"] addObject:value];
     [self didChangeValueForKey:@"statistics" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)removeStatisticsObject:(Statistic *)value {
@@ -31,7 +30,6 @@
     [self willChangeValueForKey:@"statistics" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"statistics"] removeObject:value];
     [self didChangeValueForKey:@"statistics" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [changedObjects release];
 }
 
 - (void)addStatistics:(NSSet *)value {    

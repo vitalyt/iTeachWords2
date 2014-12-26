@@ -58,7 +58,7 @@
     
     if(label == nil) {
         label = [[UILabel alloc] initWithFrame:self.bounds];
-		label.textAlignment = UITextAlignmentCenter;
+		label.textAlignment = NSTextAlignmentCenter;
 		label.font = self.font;
 		label.backgroundColor = [UIColor clearColor];
 		[self addSubview:label];
@@ -71,7 +71,7 @@
     
     if(secondLabel == nil) {
 		secondLabel = [[UILabel alloc] initWithFrame:self.bounds];
-		secondLabel.textAlignment = UITextAlignmentCenter;
+		secondLabel.textAlignment = NSTextAlignmentCenter;
 		secondLabel.font = self.font;
 		secondLabel.backgroundColor = [UIColor clearColor];
 		[self addSubview:secondLabel];

@@ -45,13 +45,6 @@
 	}
 }
 
-- (void)dealloc
-{
-    [detailLabel release];
-    [textLabel release];
-    [super dealloc];
-}
-
 - (NSString *) reuseIdentifier {
 	return @"NewTableCell";
 }

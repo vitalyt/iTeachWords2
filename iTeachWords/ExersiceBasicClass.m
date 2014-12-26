@@ -23,32 +23,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(back)] autorelease];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(back)];
     }
     return self;
 }
 
 - (void) dealloc{
-    [wordType release];
-    [lblWordEng release];
-    [lblWordRus release];
-    [textBox release];
-    [doneButton release];
-    [data release];
-    data = nil;
-    if (statisticView) {
-        [statisticView release];
-    }
-    if (multiPlayer) {
-        [multiPlayer setDelegate:nil];
-        [multiPlayer closePlayer];
-        [multiPlayer release];
-    }
-    if (adView) {
-        adView.delegate = nil;
-        [adView release];
-    }
-    [super dealloc];
+    [multiPlayer closePlayer];
 }
 
 - (void)viewDidLoad {
@@ -65,14 +46,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    if (adView) {
-        adView.delegate = nil;
-        [adView release];
-    }
-    [super viewDidUnload];
 }
 
 
@@ -129,7 +102,6 @@
                                                   cancelButtonTitle:NSLocalizedString(@"Not sure", @"")
                                                   otherButtonTitles:NSLocalizedString(@"YES", @""),nil];
 	[alert show];
-	[alert release];
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -146,7 +118,6 @@
     if (wordType) {
         RepeatModel *repeatModel = [[RepeatModel alloc] initWithWordType:wordType];
         [repeatModel registerRepeat];
-        [repeatModel release];
     }
 }
 
@@ -161,14 +132,12 @@
 - (void) playSoundWithIndex:(int)_index{
     if (multiPlayer) {
         [multiPlayer closePlayer];
-        [multiPlayer release];
     }
     NSArray *sounds = [[NSArray alloc] initWithObjects:[self.data objectAtIndex:_index], nil];
     multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];
 	[multiPlayer playList:sounds];
-    [sounds release];
 }
 
 - (void)playerDidFinishPlayingList:(id)sender{
@@ -214,7 +183,6 @@
         }
     }
     
-    [indexesArray autorelease];
     return [NSArray mixArray:indexesArray];
 }
 

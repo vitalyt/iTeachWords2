@@ -10,13 +10,6 @@
 @implementation CustomAlertView
 
 #pragma mark -
-#pragma mark Memory management
-- (void)dealloc 
-{
-    [super dealloc];
-}
-
-#pragma mark -
 #pragma mark UIView Overrides
 - (void)layoutSubviews
 {

@@ -9,6 +9,6 @@
 
 @interface NSNumber (Interaction)
 
-+ (int) randomFrom:(int)from to:(int)to;
++ (NSInteger) randomFrom:(NSInteger)from to:(NSInteger)to;
 
 @end

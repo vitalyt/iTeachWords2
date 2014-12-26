@@ -27,15 +27,6 @@
     return self;
 }
 
-
-- (void)dealloc
-{
-    [content release];
-    [leftLbl release];
-    [rightLbl release];
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -46,11 +37,10 @@
 
 - (void) loadData
 {
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     NSString *pathOfResource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"/CountryNameCode2.txt"];
     NSString *countryNameCode = [[NSString alloc] initWithContentsOfFile:pathOfResource encoding:NSUTF8StringEncoding error:nil];
     NSArray *countries = [[NSArray alloc] initWithArray:[countryNameCode componentsSeparatedByString:@"\r"]];
-    [countryNameCode release];
     for (int i=0;i<[countries count];i++){
         NSString *country = [countries objectAtIndex:i];
         NSArray *elements = [country componentsSeparatedByString:@"\t"];
@@ -70,7 +60,6 @@
             NSDictionary *country_code = [[NSDictionary alloc] initWithObjectsAndKeys:
                                           _counry,@"country",_code, @"code",_firstCode, @"firstCode", _codeExpended, @"codeExpended",nil]; 
             [content addObject:country_code];
-            [country_code release];
         }
     }
     for (int i=0;i<[content count];i++){
@@ -84,7 +73,6 @@
             [self setFlagIconsCountry:_code inComponent:1];
         }
     }
-    [countries release];
 }
 
 #pragma mark - View lifecycle
@@ -99,9 +87,6 @@
     LanguageFlagImageView *flagView2 = [[LanguageFlagImageView alloc] initWithFrame:CGRectMake(280, y, 40.0, flagHight)];
     flagView2.tag = LFLAGVIEWTAG;
     [self.view addSubview:flagView2];
-    [flagView1 release];
-    [flagView2 release];
-    //flagView = flagsView;
 }
 
 - (void)viewDidLoad
@@ -115,19 +100,6 @@
     searchBarLeft.placeholder = NSLocalizedString(@"Touch to search", @"");
     leftLbl.text = NSLocalizedString(@"Native language", @"");
     rightLbl.text = NSLocalizedString(@"Diffrent language", @"");
-}
-
-- (void)viewDidUnload
-{
-    [searchBarLeft release];
-    [searchBarRight release];
-    [leftLbl release];
-    leftLbl = nil;
-    [rightLbl release];
-    rightLbl = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 #pragma mark - Picker delegate functions
@@ -156,7 +128,7 @@
 - (UIView *)pickerView:(UIPickerView *)_pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
     UILabel *retval = (id)view;
     if (!retval) {
-        retval= [[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width-10, [_pickerView rowSizeForComponent:component].height)] autorelease];
+        retval= [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width-10, [_pickerView rowSizeForComponent:component].height)];
     }
     [retval setBackgroundColor:[UIColor clearColor]];
     NSDictionary *dict = [content objectAtIndex:row];
@@ -212,13 +184,13 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     isSearching = YES;
     pickerView.userInteractionEnabled = NO;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeSearchBar)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeSearchBar)];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     isSearching = NO;
     pickerView.userInteractionEnabled = YES;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText

@@ -42,14 +42,12 @@
 - (void) playSoundWithIndex:(int)_index{
     if (multiPlayer) {
         [multiPlayer closePlayer];
-        [multiPlayer release];
     }
     NSArray *sounds = [[NSArray alloc] initWithObjects:[words objectAtIndex:_index], nil];
     multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];
 	[multiPlayer playList:sounds];
-    [sounds release];
 }
 
 - (void)playerDidFinishPlayingList:(id)sender{
@@ -87,7 +85,7 @@
     [super viewDidLoad];
     [doneButton setTitle:NSLocalizedString(@"Done", @"") forState:UIControlStateNormal];
     words = [[NSMutableArray alloc] initWithArray:self.data];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"?" style:UIBarButtonItemStyleBordered target:self action:@selector(help)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"?" style:UIBarButtonItemStyleBordered target:self action:@selector(help)];
     [self createStatisticsView];
     statisticView.total = [words count];
 	[self createWord];
@@ -113,12 +111,5 @@
         [self back];
     }
 }
-
-- (void)dealloc {
-    [words release];
-    [super dealloc];
-}
-
-
 
 @end

@@ -15,10 +15,6 @@
 @interface ButtonView : UIViewController{
     IBOutlet UIButton *button;
     IBOutlet UIImageView *scrollImage;
-    
-    NSInteger   index;
-    NSInteger   type;
-    id  delegate;
 }
 
 

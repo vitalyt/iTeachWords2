@@ -40,7 +40,6 @@
 @end
 
 @interface ARFontPickerViewController : UITableViewController {
-	id<ARFontPickerViewControllerDelegate>	_delegate;
 }
 
 @property(nonatomic,assign)	id<ARFontPickerViewControllerDelegate> delegate;

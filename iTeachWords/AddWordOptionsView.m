@@ -36,10 +36,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
-                                              target:self action:@selector(back)] autorelease];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow down 24x24"] style:UIBarButtonItemStylePlain target:self action:@selector(showAddWordView:)] autorelease];
+                                              target:self action:@selector(back)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Arrow down 24x24"] style:UIBarButtonItemStylePlain target:self action:@selector(showAddWordView:)];
     [self.navigationItem.rightBarButtonItem setTag:4];
     [self performSelector:@selector(addWordView) withObject:nil afterDelay:0.1];
 }
@@ -79,12 +79,12 @@
     [wordsView.view setFrame:frame];
     [UIView commitAnimations];
     isWordsViewShowing = !isWordsViewShowing;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                initWithImage:[UIImage imageNamed:(!isWordsViewShowing)?@"Arrow down 24x24":@"Arrow up 24x24"] 
                                                style:UIBarButtonItemStylePlain 
                                                target:self 
                                                action:@selector(showAddWordView:)
-                                               ] autorelease];
+                                               ];
     [self.navigationItem.rightBarButtonItem setTag:4];
 }
 
@@ -93,14 +93,14 @@
 - (void)createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Add word", @"")
-                                                       action:@selector(parceTranslateWord)] autorelease];
-    UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
-                                                                action:@selector(parseText:)] autorelease];
-    UIMenuItem *menuTextTranslateItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
-                                                                    action:@selector(translateText:)] autorelease];
-    UIMenuItem *menuTextPlayItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Play text", @"")
-                                                               action:@selector(playText:)] autorelease];
+    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Add word", @"")
+                                                       action:@selector(parceTranslateWord)];
+    UIMenuItem *menuTextParseItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
+                                                                action:@selector(parseText:)];
+    UIMenuItem *menuTextTranslateItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Translate", @"")
+                                                                    action:@selector(translateText:)];
+    UIMenuItem *menuTextPlayItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Play text", @"")
+                                                               action:@selector(playText:)];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];
     [menuItemsMutableArray addObject:menuTextTranslateItem];
@@ -112,7 +112,6 @@
     [menuController setMenuVisible:YES
                           animated:YES];
     [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
-    [menuItemsMutableArray release];
 }
 
 //needs to be redirect in delegate
@@ -170,10 +169,9 @@
 #endif
     NSString *selectedText = [self getSelectedText];
     if (selectedText.length > 0) {
-        MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
-        [voiceView setText:selectedText withLanguageCode:TRANSLATE_LANGUAGE_CODE];
-        [self.navigationController presentModalViewController:voiceView animated:YES];
-        [voiceView release];
+ //       MyVocalizerViewController *voiceView = [[MyVocalizerViewController alloc] initWithDelegate:self];
+   //     [voiceView setText:selectedText withLanguageCode:TRANSLATE_LANGUAGE_CODE];
+     //   [self.navigationController presentViewController:voiceView animated:YES completion:nil];
     }
 }
 
@@ -198,7 +196,6 @@
 	if (!wordsView.flgSave) {
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:NSLocalizedString(@"Do you want save word?", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cansel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete canges", @"") otherButtonTitles: NSLocalizedString(@"Save changes", @""), nil];
         [actionSheet showInView:self.view];
-        [actionSheet autorelease];
 	}
 }
 
@@ -209,19 +206,17 @@
     [self.navigationController pushViewController:parsedWordTableView animated:YES];
     
     NSString *loadedText = [[NSString alloc] initWithString:[NSString removeNumbers:[self getSelectedText]]];
-    loadedText = [[[NSString removeChars:@"~%()" from:loadedText] retain] autorelease];
+    loadedText = [NSString removeChars:@"~%()" from:loadedText];
     NSLog(@"%@",loadedText);
     [parsedWordTableView loadDataWithString:loadedText];
-    [parsedWordTableView release];
-    [loadedText release];
 }
 
 -(UIView*)hintStateViewForDialog:(id)hintState
 {
     CGRect frame = self.view.superview.frame;
-    UILabel *l = [[[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/4)] autorelease];
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4, frame.size.width-20, frame.size.height/4)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -244,12 +239,6 @@
 
 - (IBAction) showVocalizerView{
     
-}
-
-- (void)dealloc{
-    [wordsView release];
-    wordsView = nil;
-    [super dealloc];
 }
 
 @end

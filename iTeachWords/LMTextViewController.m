@@ -12,8 +12,6 @@
 
 @implementation LMTextViewController
 
-@synthesize textContent,lessonName;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -21,20 +19,9 @@
         // Custom initialization
         sentences       = [[NSMutableArray alloc] init];
         wordsInSentence = [[NSMutableArray alloc] init];
-        lessonName      = [[NSString alloc] init];
+        self.lessonName      = [[NSString alloc] init];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [lessonName release];
-    if (sentences) {
-        //[sentences release];
-    }
-    [wordsInSentence release];
-    [myTableView release];
-    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,18 +35,16 @@
 
 - (void)setTextContent:(NSString *)_str
 {
-    if (textContent != _str) {
-        [textContent release];
-        textContent = [_str retain];
+    if (_textContent != _str) {
+        self.textContent = _str;
         [sentences removeAllObjects];
         [wordsInSentence removeAllObjects];
         sentenceIndex = 0;
         
-        [sentences setArray:[textContent componentsSeparatedByString:@"."]];
+        [sentences setArray:[_textContent componentsSeparatedByString:@"."]];
         for (int i = 0; i < [sentences count]; i++) {
             NSMutableDictionary *ar = [[NSMutableDictionary alloc] init];
             [wordsInSentence addObject:ar];
-            [ar release];
         }
         myTextView.text = [sentences objectAtIndex:sentenceIndex];
     }
@@ -126,11 +111,11 @@
 - (void) createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:@"First Action"
-                                                       action:@selector(firstAction)] autorelease];
+    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:@"First Action"
+                                                       action:@selector(firstAction)];
     
-    UIMenuItem *menuItem2 = [[[UIMenuItem alloc] initWithTitle:@"Second Action"
-                                                        action:@selector(secondAction)] autorelease];
+    UIMenuItem *menuItem2 = [[UIMenuItem alloc] initWithTitle:@"Second Action"
+                                                        action:@selector(secondAction)];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuItem2];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
@@ -140,7 +125,6 @@
     [menuController setMenuVisible:YES
                           animated:YES];
     [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
-    [menuItemsMutableArray release];
 }
 
 - (BOOL) canBecomeFirstResponder{

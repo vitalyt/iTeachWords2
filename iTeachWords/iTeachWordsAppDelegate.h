@@ -37,7 +37,7 @@
 - (void)updateData;
 + (NSManagedObjectContext *) sharedContext;
 + (void)clearUdoManager;
-+ (iTeachWordsViewController *) sharedDelegate;
++ (iTeachWordsAppDelegate *) sharedDelegate;
 - (NSManagedObjectContext *) managedObjectContext;
 + (NSDictionary *)sharedSettings;
 + (NSDictionary *)loadLanguageSettings;

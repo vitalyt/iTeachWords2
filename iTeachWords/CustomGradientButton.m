@@ -58,8 +58,6 @@
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"highlighted"];
-    
-    [super dealloc];
 }
 
 

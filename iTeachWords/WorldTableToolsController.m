@@ -27,26 +27,18 @@
 
 @implementation WorldTableToolsController
 
-- (void)dealloc
-{
-    [loadingView release];
-    [super dealloc];
-}
-
 #pragma mark - basic tools delegate
 
 - (void) mixArray{
 	NSMutableArray *newArray = [[NSMutableArray alloc] init];
 	NSMutableArray *oldArray = [[NSMutableArray alloc] initWithArray:self.data];
-    int count = [oldArray count];
+    NSInteger count = [oldArray count];
 	for (int i=0; i< count; i++) {
-		int randomIndex = [NSNumber randomFrom:0 to:[oldArray count]];
+		NSInteger randomIndex = [NSNumber randomFrom:0 to:[oldArray count]];
 		[newArray addObject:[oldArray objectAtIndex:randomIndex]];
 		[oldArray removeObjectAtIndex:randomIndex];
 	}
     self.data = [NSArray arrayWithArray:newArray];
-    [newArray release];
-    [oldArray release];
     
 }
 
@@ -77,14 +69,13 @@
 }
 
 - (void) showPlayerView{
-	if (multiPlayer) {
-        [multiPlayer closePlayer];
-        [multiPlayer release];
+	if (self.multiPlayer) {
+        [self.multiPlayer closePlayer];
     }
-    multiPlayer = [[MultiPlayer alloc] initWithNibName:@"MultiPlayer" bundle:nil];
-	multiPlayer.delegate = self;
-	[multiPlayer openViewWithAnimation:self.view];
-	[multiPlayer playList:self.data];
+    self.multiPlayer = [[MultiPlayer alloc] initWithNibName:@"MultiPlayer" bundle:nil];
+	self.multiPlayer.delegate = self;
+	[self.multiPlayer openViewWithAnimation:self.view];
+	[self.multiPlayer playList:self.data];
 }
 
 #pragma mark exercise funktions
@@ -118,15 +109,14 @@
         return;
     }
 	TestGameController *testController = [[TestGameController alloc] initWithNibName:@"TestGameController" bundle:nil];
-    testController.wordType = wordType;
-    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
+    testController.wordType = self.wordType;
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
 //    [self.navigationController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self performTransition];
 	[self.navigationController pushViewController:testController animated:YES];
 	testController.data = [NSMutableArray arrayWithArray:self.data];
 	[testController createWord];
-	[testController release];
 }
 
 
@@ -136,11 +126,10 @@
         return;
     }
 	TestOneOfSix *testController = [[TestOneOfSix alloc] initWithNibName:@"TestOneOfSix" bundle:nil];
-    testController.wordType = wordType;
+    testController.wordType = self.wordType;
     testController.data = [NSMutableArray arrayWithArray:self.data];
     [self performTransition];
 	[self.navigationController pushViewController:testController animated:YES ];
-	[testController release];
 }
 
 - (void) clickTest1{
@@ -157,15 +146,14 @@
         return;
     }
 	TestOrthography *testOrthographyView = [[TestOrthography alloc] initWithNibName:@"TestOrthography" bundle:nil];
-    testOrthographyView.wordType = wordType;
+    testOrthographyView.wordType = self.wordType;
 	testOrthographyView.data = [NSMutableArray arrayWithArray:self.data];
 	//testOrthographyView.lessonName = lessonName;
 	//testOrthographyView.exerciseIndex = exerciseIndex;
-    UIBarButtonItem *newBackButton = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil] autorelease];
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style: UIBarButtonItemStyleBordered target: nil action: nil];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
     [self performTransition];
     [self.navigationController pushViewController:testOrthographyView animated:YES ];
-	[testOrthographyView release];
 }
 
 #pragma mark - Alert view delegate 
@@ -219,8 +207,6 @@
     UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
     [self.navigationController pushViewController:myAddWordView animated:YES];
-    [myAddWordView release]; 
-    [newBackButton release];
 }
 
 - (void) reassignWord
@@ -269,11 +255,9 @@
             [word setIsSelected:[NSNumber numberWithInt:0]];
         }
     }
-    [wordType removeWords:ar];
-    [ar release];
+    [self.wordType removeWords:ar];
     [iTeachWordsAppDelegate saveDB];
-    [wordType release];
-    wordType = nil;  
+    self.wordType = nil;
     [self loadData];
 }
 
@@ -285,7 +269,7 @@
         [UIAlertView displayError:NSLocalizedString(@"There is not selected words.", @"")];
         return;
     }
-    UIActionSheet *actionSheet = [[[UIActionSheet alloc]initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Are you sure you want to delete the (%d) word?", @""),selectedCount] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete words", @"") otherButtonTitles: nil] autorelease];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Are you sure you want to delete the (%d) word?", @""),selectedCount] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:NSLocalizedString(@"Delete words", @"") otherButtonTitles: nil];
     [actionSheet showInView:self.view];
 }
 
@@ -311,27 +295,24 @@
 }
 
 - (void) reassignSelectedWordsToTheme:(WordTypes *)_wordType{
-    [_wordType retain];
     NSMutableSet *ar = [[NSMutableSet alloc] init];
-    for(Words *word in wordType.words) {
+    for(Words *word in self.wordType.words) {
         if ([word.isSelected boolValue]) {
             [ar addObject:word];
             [word setIsSelected:[NSNumber numberWithInt:0]];
         }
     }
     [_wordType addWords:ar];
-    [wordType removeWords:ar];
-    [ar release];
-    [_wordType release];
+    [self.wordType removeWords:ar];
     [iTeachWordsAppDelegate saveDB];
 }
 
 #pragma mark - piker delegate
-- (void) pickerDone:(WordTypes *)_wordType{
+- (void) pickerDone:(WordTypes *)wordType{
     if ([table isEditing]) {
-        [self reassignSelectedWordsToTheme:_wordType];
+        [self reassignSelectedWordsToTheme:wordType];
     }else{
-        wordType = [_wordType retain];
+        self.wordType = wordType;
         [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithString:wordType.name] forKey:@"lastTheme"];
         self.title = wordType.name;
     }
@@ -348,7 +329,7 @@
 }
 - (IBAction)selectedLanguage:(id)sender{
     UISegmentedControl *segment = (UISegmentedControl*)sender;
-    showingType = segment.selectedSegmentIndex;
+    self.showingType = segment.selectedSegmentIndex;
     [table reloadData];
 }
 
@@ -356,7 +337,7 @@
 - (void) showTableHeadView{
     [super showTableHeadView];
     if (isStatisticShowing) {
-        [tableHeadView generateStatisticViewWithWords:wordType.words];
+        [tableHeadView generateStatisticViewWithWords:self.wordType.words];
     }else{
         [tableHeadView removeStatisticView];
     }

@@ -14,8 +14,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
-                                                   initWithTitle:@"?" style:UIBarButtonItemStyleBordered target:self action:@selector(help)] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                   initWithTitle:@"?" style:UIBarButtonItemStyleBordered target:self action:@selector(help)];
     }
     return self;
 }
@@ -28,7 +28,7 @@
     [super viewDidLoad];
 	[textBox setClearButtonMode:UITextFieldViewModeWhileEditing];
     [textBox setOpaque:YES];	
-    [textBox addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:textBox];
+    [textBox addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:(__bridge void *)(textBox)];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(capitalizeText:) name:@"UITextFieldTextDidChangeNotification" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(capitalizeText:) name:@"UITextViewTextDidChangeNotification" object:nil];
     [self createStatisticsView];
@@ -161,7 +161,6 @@
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter]removeObserver: self name: @"UITextFieldTextDidChangeNotification" object: nil];
 	[[NSNotificationCenter defaultCenter]removeObserver: self name: @"UITextViewTextDidChangeNotification" object: nil];
-    [super dealloc];
 }
 
 

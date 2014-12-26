@@ -25,8 +25,6 @@
 	MyPickerViewContrller	*myPicker;
     RecordingWordViewController *recordView;
     
-    id                      delegate;
-    
     AddWordModel            *dataModel;
     bool                    flgSave;
     bool                    isDataChanged;

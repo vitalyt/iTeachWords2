@@ -19,8 +19,6 @@
 #import "InfoViewController.h"
 #import "SpeachView.h"
 #import "WebViewController.h"
-#import "DMVocalizerViewController.h"
-#import "DMRecognizerViewController.h"
 #import "WordTypes.h"
 #import "AddWord.h"
 #import "RepeatModel.h"
@@ -44,25 +42,6 @@
     }
     return self;
 }
-
-- (void)dealloc
-{
-    [titleLbl1 release];
-    [titleLbl2 release];
-    [titleLbl4 release];
-    [titleLbl5 release];
-    [titleLbl6 release];
-    [titleLbl7 release];
-    [titleLbl8 release];
-    [titleLbl9 release];
-    [menuBtn1 release];
-    if (customBadge1) {
-        [customBadge1 removeFromSuperview];
-        customBadge1 = nil;
-    }
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -85,7 +64,6 @@
         LanguagePickerController *languageView = [[LanguagePickerController alloc] initWithNibName:@"LanguagePickerController" bundle:nil];
         [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
         [self.navigationController pushViewController:languageView animated:YES];
-        [languageView release];
         [UIAlertView displayMessage:NSLocalizedString(@"This is your first launch iStudyWords.\nPlease, choose the languages that you will use.", @"") title:NSLocalizedString(@"Suggestion", @"")];
     }
 }
@@ -101,31 +79,6 @@
 
     
     // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [titleLbl1 release];
-    titleLbl1 = nil;
-    [titleLbl2 release];
-    titleLbl2 = nil;
-    [titleLbl4 release];
-    titleLbl4 = nil;
-    [titleLbl5 release];
-    titleLbl5 = nil;
-    [titleLbl6 release];
-    titleLbl6 = nil;
-    [titleLbl7 release];
-    titleLbl7 = nil;
-    [titleLbl8 release];
-    titleLbl8 = nil;
-    [titleLbl9 release];
-    titleLbl9 = nil;
-    [menuBtn1 release];
-    menuBtn1 = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -152,7 +105,6 @@
         [customBadge1 setTag:111];
         [customBadge1 setFrame:CGRectMake(objectFrame.origin.x+objectFrame.size.width-customBadge1.frame.size.width/2, objectFrame.origin.y-customBadge1.frame.size.height/2, customBadge1.frame.size.width, customBadge1.frame.size.height)];
         [self.view addSubview:customBadge1];
-        [customBadge1 retain];
     }
 }
 
@@ -180,7 +132,6 @@
             app.applicationIconBadgeNumber = repeatDelayedThemesCount;
             [self addCustomBadgeWithCount:repeatDelayedThemesCount toObjectWithFrame:menuBtn1.frame];
         } 
-        [repeatDelayedThemes release];
     }
     
 }
@@ -188,7 +139,7 @@
 - (void)addInfoButton{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [btn addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
 - (void)setTitles{
@@ -209,7 +160,6 @@
 //    [self.navigationController pushViewController:infoView animated:YES];
     [self.navigationController presentModalViewController:infoView animated:YES];
     [infoView loadContentByFile:NSLocalizedString(@"GeneralInfo", @"")];
-    [infoView release];
 }
 
 - (void)showLastItem{
@@ -305,7 +255,6 @@
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:myTableView animated:YES];
-    [myTableView release];
 }
 
 - (void)showAddingWordView{
@@ -313,7 +262,6 @@
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
     //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromLeft];
     [self.navigationController pushViewController:myAddWordView animated:YES];
-    [myAddWordView release];
     
 //    TranslateViewController *myAddWordView = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
 //    [myAddWordView setDelegate:self];
@@ -328,7 +276,6 @@
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionReveal];
     [self.navigationController pushViewController:myTextView animated:YES];
-    [myTextView release];
 }
 
 - (void)showDictionaryView{
@@ -336,7 +283,6 @@
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromBottom];
     [self.navigationController pushViewController:dictionaryView animated:YES];
-    [dictionaryView release];
 }
 
 - (void)showSettingsView{
@@ -345,7 +291,6 @@
 //    [self performTransitionType:kCATransitionPush subType:kCATransitionFromTop];
     [languageView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self.navigationController pushViewController:languageView animated:YES];
-    [languageView release];
 }
 
 - (void)showWebView {
@@ -359,28 +304,24 @@
     [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
 	[self.navigationController pushViewController:webViewController animated:YES];
     webViewController.url = url;
-	[webViewController release];
 
 }
 
 - (void)showVocalizerView{
-    DMVocalizerViewController *vocalizerView = [[DMVocalizerViewController alloc] initWithNibName:@"DMVocalizerViewController" bundle:nil];
-    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
-    [self.navigationController pushViewController:vocalizerView animated:YES];
-    [vocalizerView release];
+//    DMVocalizerViewController *vocalizerView = [[DMVocalizerViewController alloc] initWithNibName:@"DMVocalizerViewController" bundle:nil];
+//    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
+//    [self.navigationController pushViewController:vocalizerView animated:YES];
 }
 
 - (void)showThemes{
     ThemesTableView *themesTableView = [[ThemesTableView alloc] initWithNibName:@"ThemesTableView" bundle:nil];
     [self.navigationController pushViewController:themesTableView animated:YES];
-    [themesTableView release];
 }
 
 - (void)showRecognizerView{
-    DMRecognizerViewController *recognizerView = [[DMRecognizerViewController alloc] initWithNibName:@"DMRecognizerViewController" bundle:nil];
-    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
-    [self.navigationController pushViewController:recognizerView animated:YES];
-    [recognizerView release];
+//    DMRecognizerViewController *recognizerView = [[DMRecognizerViewController alloc] initWithNibName:@"DMRecognizerViewController" bundle:nil];
+//    [self.navigationItem setBackBarButtonItem: BACK_BUTTON];
+//    [self.navigationController pushViewController:recognizerView animated:YES];
 }
 
 -(void)performTransitionType:(NSString*)type subType:(NSString*)subType {

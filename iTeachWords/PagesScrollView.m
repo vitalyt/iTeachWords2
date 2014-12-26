@@ -40,12 +40,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)dealloc {
-    [pagingScrollView release];
-    [pageControl release];
-    [super dealloc];
-}
-
 #pragma mark - View lifecycle
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -78,26 +72,6 @@
     
     [self pageTurn:pageControl];
 //    [self tilePages];
-}
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    [pagingScrollView release];
-    pagingScrollView = nil;
-    [pageControl release];
-    pageControl = nil;
-    [recycledPages release];
-    recycledPages = nil;
-    [visiblePages release];
-    visiblePages = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -178,7 +152,7 @@
         if (![self isDisplayingPageForIndex:index]) {
             ButtonView *page = [self dequeueRecycledPage];
             if (page == nil) { 
-                page = [[[ButtonView alloc] initWithNibName:@"ButtonView" bundle:nil] autorelease];
+                page = [[ButtonView alloc] initWithNibName:@"ButtonView" bundle:nil];
                 [page setDelegate:delegate];
             }
             [self configurePage:page forIndex:index];
@@ -192,7 +166,6 @@
 {
     ButtonView *page = [recycledPages anyObject];
     if (page) {
-        [[page retain] autorelease];
         [recycledPages removeObject:page];
     }
     return page;

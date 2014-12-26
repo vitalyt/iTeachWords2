@@ -39,7 +39,7 @@
     UITableViewCell *theCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == theCell) {
 		if (nil == cellIdentifier)
-			theCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"default"] autorelease];
+			theCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"default"];
 		else {
 			NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
 			theCell = [items objectAtIndex:0];

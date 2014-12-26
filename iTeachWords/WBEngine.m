@@ -47,7 +47,6 @@
 		NSString *response = [[NSString alloc] initWithData:connection.data
 												   encoding:NSUTF8StringEncoding];
 		NSLog(@"Received: \n%@", response);
-		[response release];
 	#endif
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -114,29 +113,16 @@
 		NSString *body = [[NSString alloc] initWithData:[request HTTPBody]
 											   encoding:NSUTF8StringEncoding];
 		NSLog(@"Sent: %@\n\n%@", [request URL], body);
-		[body release];
 	#endif
 
 	success = YES;
 	WBConnection *connection = [[WBConnection alloc] initWithRequest:request
 															delegate:self];
 	[connection start];
-	[connection autorelease];
 	
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	return success;
-}
-
--(void)dealloc
-{
-	//[information release];
-	//[url release];
-    if (loadingView) {
-        [loadingView release];
-    }
-    [errorMessage release];
-	[super dealloc];
 }
 
 @end

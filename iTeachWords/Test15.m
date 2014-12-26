@@ -84,7 +84,6 @@
 	textBox.text = _str;
 	NSString *obj = [NSString stringWithFormat:@"%@",[[[[words objectAtIndex:index] objectForKey:@"rusWord"] componentsSeparatedByString: @"^"] objectAtIndex:0]];
 	[[words objectAtIndex:index] setValue:obj forKey:@"engWord"];
-	[_str release];
 }
 
 
@@ -94,7 +93,4 @@
 	return  !(toInterfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 @end

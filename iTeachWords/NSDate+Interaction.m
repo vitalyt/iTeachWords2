@@ -18,7 +18,6 @@
     //[df setTimeZone:timeZone];
     [df setDateFormat:format];
 	NSString *dob = [df stringFromDate:self];
-	[df release];
     NSLog(@"%@",dob);
 	return dob;
 }

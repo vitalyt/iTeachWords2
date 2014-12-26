@@ -11,7 +11,6 @@
 
 @implementation LMModel
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(LMModel);
 
 @synthesize wordsStore;
 
@@ -37,10 +36,5 @@ static LMModel *sharedLMModel = nil;
 	return sharedLMModel; 
 }
 */
-- (void)dealloc
-{
-    [wordsStore release];
-    [super dealloc];
-}
 
 @end

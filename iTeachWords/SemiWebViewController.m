@@ -20,7 +20,7 @@
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
                                         initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered
                                         target:self action:@selector(back)];
-        self.navigationItem.leftBarButtonItem = [backButton autorelease];
+        self.navigationItem.leftBarButtonItem = backButton;
     }
     return self;
 }
@@ -78,8 +78,8 @@
 - (void)createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
-                                                       action:@selector(parceTranslateWord)] autorelease];
+    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
+                                                       action:@selector(parceTranslateWord)];
     [menuItemsMutableArray addObject:menuItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
     [menuController setTargetRect: CGRectMake(0, 0, 320, 200)
@@ -88,7 +88,6 @@
     [menuController setMenuVisible:YES
                           animated:YES];
     [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
-    [menuItemsMutableArray release];
 }
 
 - (void)showWebLoadingView{
@@ -96,30 +95,5 @@
         [loadWebButtonView setHidden:NO];
         [myWebView stopLoading];
     }
-}
-
-- (void)dealloc {
-    if (myWebView) {
-        myWebView.delegate = nil;
-        [myWebView release];
-        myWebView = nil;
-    }
-    [loadWebButtonView release];
-    [animationView release];
-    [searchingTranslateBtn release];
-    [searchTranslateLbl release];
-    [super dealloc];
-}
-
-- (void)viewDidUnload {
-    [loadWebButtonView release];
-    loadWebButtonView = nil;
-    [animationView release];
-    animationView = nil;
-    [searchingTranslateBtn release];
-    searchingTranslateBtn = nil;
-    [searchTranslateLbl release];
-    searchTranslateLbl = nil;
-    [super viewDidUnload];
 }
 @end

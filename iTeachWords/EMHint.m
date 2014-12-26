@@ -16,8 +16,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #import "EMHint.h"
 
 @implementation EMHint
-@synthesize hintDelegate;
-@synthesize _modalView;
 
 #pragma mark ---------------------------------->> 
 #pragma mark -------------->>private
@@ -57,7 +55,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     UITapGestureRecognizer *tap = tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onTap:)];
     [_modalView addGestureRecognizer:tap]; 
-    [tap release];
 }
 
 #pragma mark ---------------------------------->> 
@@ -132,7 +129,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         [label setNumberOfLines:0];
         [label setLineBreakMode:UILineBreakModeWordWrap];
         [_modalView addSubview:label];
-        [label release];
     }
     
     if ([[self hintDelegate] respondsToSelector:@selector(hintStateHasDefaultTapGestureRecognizer:)]) {
@@ -146,11 +142,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
    
                                    
-}
-#pragma mark ---------------------------------->> 
-#pragma mark -------------->>cleanup
-- (void)dealloc {
-    [_modalView release];
-    [super dealloc];
 }
 @end

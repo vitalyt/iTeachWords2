@@ -26,9 +26,6 @@
 - (void)dealloc
 {
     [self closeLoadingView];
-    [titleLabel release];
-    [myProgressView release];
-    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

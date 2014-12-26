@@ -17,9 +17,6 @@
     bool    isRecording;
     
     NSTimer *meterTimer;
-    
-    id	<RecordingViewProtocol> delegate;
-    id	<ToolsViewProtocol> toolsViewDelegate;
 }
 
 @property (nonatomic,assign) id <RecordingViewProtocol>  delegate;

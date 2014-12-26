@@ -7,22 +7,13 @@
 //
 
 #import "WBRequest.h"
-#import "JSON.h"
+//#import "JSONKit.h"
 
 @implementation WBRequest
 
 @synthesize delegate = _delegate;
 @synthesize tag;
 @synthesize parserFile;
-
-#pragma mark -
-#pragma mark NSObject
-- (void) dealloc
-{
-	[parserFile release];
-	[_delegate release];
-	[super dealloc];
-}
 
 #pragma mark -
 + (id) getRequestWithURL: (NSString*)url delegate: (id)delegate
@@ -64,7 +55,6 @@
 		}
 		NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
 		[request setHTTPBody:data];
-		[string release];
 	}
 	return request;
 }

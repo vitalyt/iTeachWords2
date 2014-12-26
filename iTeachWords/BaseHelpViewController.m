@@ -37,7 +37,7 @@
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:@"I am the info button!"];
-    return [l autorelease];
+    return l;
 }
 #pragma mark ---------------------------------->> 
 #pragma mark -------------->>private
@@ -60,24 +60,17 @@
 - (UIView*)infoLabel{
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width - 40, 40)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setFont:[UIFont fontWithName:@"Helvetica" size:12]];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor grayColor]];
     [l setText:@"Чтобы отключить систему помощи воспользуйтесь настройками"];
-    return [l autorelease];
+    return l;
 }
 
 - (NSString*)helpMessageForButton:(id)_button{
     return @"";
 }
 
-- (void)dealloc{
-    [unUsedObjects release];
-    unUsedObjects = nil;
-    [usedObjects release];
-    usedObjects = nil;
-    [super dealloc];
-}
 
 @end

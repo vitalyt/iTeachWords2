@@ -12,57 +12,64 @@
 //  appreciated but not required.
 //
 
-#define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
- \
+#if __has_feature(objc_arc)
+#define SYNTHESIZE_SINGLETON_FOR_CLASS(classname, accessorname) \
++ (classname *)accessorname\
+{\
+static classname *accessorname = nil;\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+accessorname = [[classname alloc] init];\
+});\
+return accessorname;\
+}
+#else
+#define SYNTHESIZE_SINGLETON_FOR_CLASS(classname, accessorname) \
 static classname *shared##classname = nil; \
- \
-+ (classname *)shared##classname \
++ (void)cleanupFromTerminate \
 { \
-	@synchronized(self) \
-	{ \
-		if (shared##classname == nil) \
-		{ \
-			shared##classname = [[self alloc] init]; \
-		} \
-	} \
-	 \
-	return shared##classname; \
+classname *temp = shared##classname; \
+shared##classname = nil; \
+[temp dealloc]; \
 } \
- \
++ (void)registerForCleanup \
+{ \
+[[NSNotificationCenter defaultCenter] addObserver:self \
+selector:@selector(cleanupFromTerminate) \
+name:UIApplicationWillTerminateNotification \
+object:nil]; \
+} \
++ (classname *)accessorname \
+{ \
+static dispatch_once_t p; \
+dispatch_once(&p, \
+^{ \
+if (shared##classname == nil) \
+{ \
+NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; \
+shared##classname = [[self alloc] init]; \
+[self registerForCleanup]; \
+[pool drain]; \
+} \
+}); \
+return shared##classname; \
+} \
 + (id)allocWithZone:(NSZone *)zone \
 { \
-	@synchronized(self) \
-	{ \
-		if (shared##classname == nil) \
-		{ \
-			shared##classname = [super allocWithZone:zone]; \
-			return shared##classname; \
-		} \
-	} \
-	 \
-	return nil; \
-} \
- \
-- (id)copyWithZone:(NSZone *)zone \
+static dispatch_once_t p; \
+__block classname* temp = nil; \
+dispatch_once(&p, \
+^{ \
+if (shared##classname == nil) \
 { \
-	return self; \
+temp = shared##classname = [super allocWithZone:zone]; \
 } \
- \
-- (id)retain \
-{ \
-	return self; \
+}); \
+return temp; \
 } \
- \
-- (NSUInteger)retainCount \
-{ \
-	return NSUIntegerMax; \
-} \
- \
-- (void)release \
-{ \
-} \
- \
-- (id)autorelease \
-{ \
-	return self; \
-}
+- (id)copyWithZone:(NSZone *)zone { return self; } \
+- (id)retain { return self; } \
+- (NSUInteger)retainCount { return NSUIntegerMax; } \
+- (oneway void)release { } \
+- (id)autorelease { return self; }
+#endif

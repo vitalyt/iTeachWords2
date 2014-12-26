@@ -12,17 +12,6 @@
 
 @implementation InputTableController
 
-@synthesize values,titles;
-@synthesize responder;
-
-- (void) dealloc
-{
-	[responder release];
-	[values release];
-    [titles release];
-	[super dealloc];
-}
-
 #pragma mark -
 #pragma mark InputCellDelegate
 
@@ -51,7 +40,7 @@
     UITableViewCell *theCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == theCell) {
 		if (nil == cellIdentifier)
-			theCell = [[[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:@"default"] autorelease];
+			theCell = [[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:@"default"];
 		else {
 			NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
 			theCell = [items objectAtIndex:0];
@@ -63,7 +52,7 @@
 }
 
 - (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
-    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] init] autorelease];
+    OSDNUITableCellView *v = [[OSDNUITableCellView alloc] init];
     
     v.fillColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:.75f];
     v.borderColor = [UIColor darkGrayColor];

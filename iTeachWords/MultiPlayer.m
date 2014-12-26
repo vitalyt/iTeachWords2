@@ -36,7 +36,7 @@
 - (void) playNextSound{
     isPlaying = YES;
     if (indexFileArray >= [words count]) {
-        if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlayingList:)]){
+        if (self.delegate && [(id)self.delegate respondsToSelector:@selector(playerDidFinishPlayingList:)]){
             [self.delegate playerDidFinishPlayingList:self] ;
         }
         [self closePlayer];
@@ -59,7 +59,7 @@
     if (description) {
         NSError *error;
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"descriptionStr == %@", [description lowercaseString]];
-        NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
+        NSFetchRequest * request = [[NSFetchRequest alloc] init];
         [request setEntity:[NSEntityDescription entityForName:@"Sounds" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
         [request setFetchLimit:1];  
         [request setFetchOffset:0];
@@ -72,12 +72,12 @@
         //_data = sound.data;
         if (sound && [sound.data length]>0) {
             _data = sound.data;
-            if (delegate && [(id)delegate respondsToSelector:@selector(playerDidStartPlayingSound:)]){
+            if (self.delegate && [(id)self.delegate respondsToSelector:@selector(playerDidStartPlayingSound:)]){
                 [self.delegate playerDidStartPlayingSound:indexFileArray] ;
             }
             [self startPlayWithData:_data];
         }else{
-            if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlayingSound:)]){
+            if (self.delegate && [(id)self.delegate respondsToSelector:@selector(playerDidFinishPlayingSound:)]){
                 [self.delegate playerDidFinishPlayingSound:indexFileArray] ;
             }    
             [self incrementFileIndex];
@@ -140,7 +140,7 @@
 #pragma mark - Player functioons
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)_player successfully:(BOOL)flag{
-    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidFinishPlayingSound:)]){
+    if (self.delegate && [(id)self.delegate respondsToSelector:@selector(playerDidFinishPlayingSound:)]){
         [self.delegate playerDidFinishPlayingSound:indexFileArray] ;
     }
     [self incrementFileIndex];
@@ -163,7 +163,7 @@
 	if (player != nil) {
 		[player stop];
 	}  
-    if (delegate && [(id)delegate respondsToSelector:@selector(playerDidClose:)]){
+    if (self.delegate && [(id)self.delegate respondsToSelector:@selector(playerDidClose:)]){
         [self.delegate playerDidClose:self] ;
     }
     [self updatePlayButtonImage];
@@ -180,11 +180,6 @@
     indexFileArray = 0;
     [self playNextSound];
     [self performSelector:@selector(updatePlayButtonImage) withObject:nil afterDelay:.2];
-}
-
-- (void)dealloc {
-    [words release];
-    [super dealloc];
 }
 
 @end

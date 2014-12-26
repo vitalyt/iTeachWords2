@@ -21,18 +21,15 @@
 	BOOL					isNeedToSave;
 	CustomAlertView				*alert;
 	//Variables setup for access in the class:
-    WordTypes               *wordType;
-    Words                   *currentWord;
-    
-    NSString        *currentTranslateLanguageCode;
+
     WBEngine        *wbEngine;
-    id              delegate;
 }
 
-@property (nonatomic, retain) NSString *urlShow;
-@property (nonatomic, retain) WordTypes *wordType;
-@property (nonatomic, retain) Words     *currentWord;
-@property (nonatomic, retain) id        delegate;
+@property (nonatomic, strong) NSString *currentTranslateLanguageCode;
+@property (nonatomic, strong) NSString *urlShow;
+@property (nonatomic, strong) WordTypes *wordType;
+@property (nonatomic, strong) Words     *currentWord;
+@property (nonatomic, strong) id        delegate;
 
 //- (id)initWithDelegate:(id)_delegate;
 - (void)     createWord;

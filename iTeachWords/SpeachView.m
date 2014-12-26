@@ -80,11 +80,6 @@
     CFRelease(imageMasked);
     CFRelease(color);
     [self addSubview:imView];
-    [imView release];
-}
-- (void)dealloc
-{
-    [super dealloc];
 }
 
 @end

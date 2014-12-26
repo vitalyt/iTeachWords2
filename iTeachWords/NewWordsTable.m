@@ -26,8 +26,6 @@
 
 @implementation NewWordsTable
 
-@synthesize contentArray;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,34 +34,6 @@
         cellStyle = UITableViewCellStyleValue1;
     }
     return self;
-}
- 
-- (void)dealloc
-{
-    if (loadingView) {
-        [loadingView release];
-    }
-    if (workingThread) {
-        [workingThread release];
-    }
-    if (wordType) {
-        [wordType release];
-    }
-    if (wordTypePicker) {
-        [wordTypePicker release];
-        wordTypePicker = nil;
-    }
-    if (sortedKeys) {
-        [sortedKeys release];
-    }
-    if (toolsView) {
-        [toolsView closeView];
-        [toolsView release];
-    }
-    [stringTools release];
-    [selectedWords release];
-    [contentArray release];
-    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,7 +85,6 @@
 }
 
 - (void) loadDataWithString:(NSString *)string{
-    [string retain];
     table.hidden = YES;
     if (!stringTools) {
         stringTools = [[StringTools alloc] init];
@@ -157,11 +126,11 @@
 - (id)cellBackgroundViewWithFrame:(CGRect)frame{
     UIView *bg = [[QQQBaseTransparentView alloc] initWithFrame:frame];
     bg.backgroundColor = [UIColor clearColor]; // or any color
-    return [bg autorelease];
+    return bg;
 }
 
 - (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
-    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] initWithRountRect:10] autorelease];
+    OSDNUITableCellView *v = [[OSDNUITableCellView alloc] initWithRountRect:10];
     
     v.fillColor = [UIColor colorWithRed:22/255.0f green:22/255.0f blue:22/255.0f alpha:.5f];
     v.borderColor = [UIColor darkGrayColor];
@@ -224,8 +193,6 @@
             [[self navigationItem] setBackBarButtonItem: newBackButton];
             [self.navigationController pushViewController:myAddWordView animated:YES];
             [myAddWordView setText:[sortedKeys objectAtIndex:indexPath.row]];
-            [myAddWordView release]; 
-            [newBackButton release];
         }
     }else{
         limit += offset;
@@ -253,16 +220,16 @@
 }
 
 - (void) translateWords{
-    if (!wordType) {
+    if (!self.wordType) {
         [self showMyPickerView];
         return;
     }
     if ([iTeachWordsAppDelegate isNetwork]) {
-        CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:@"" 
+        CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:@""
                                                          message:NSLocalizedString(@"Where do you want to search translations?", @"")
                                                         delegate:self 
                                                cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
-                                               otherButtonTitles:NSLocalizedString(@"In my database", @""),NSLocalizedString(@"In the network", @""), nil] autorelease];
+                                               otherButtonTitles:NSLocalizedString(@"In my database", @""),NSLocalizedString(@"In the network", @""), nil];
         [alert setTag:666];
         [alert show];
     }else{
@@ -274,28 +241,25 @@
 
 
 - (void)loadLocalTranslateWords:(NSArray*)wordsArray{
-    NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
     NSMutableSet *ar = [[NSMutableSet alloc] init];
     [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:YES];
-    int count = [selectedWords count];
+    NSInteger count = [selectedWords count];
     [loadingView setTotal:count];
     
     [iTeachWordsAppDelegate createUndoBranch];
     @try {
         for (int i = 0; i < count; i++) {
             if ((i%100) == 0) {
-                [wordType addWords:ar];
+                [self.wordType addWords:ar];
                 [ar removeAllObjects];
                 [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
                 
                 [iTeachWordsAppDelegate saveUndoBranch];
                 [iTeachWordsAppDelegate createUndoBranch];
-                [pool drain];
-                pool= [[NSAutoreleasePool alloc] init];
             }
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text = %@", [[selectedWords objectAtIndex:i] lowercaseString]];
             NSError *error;
-            NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
+            NSFetchRequest * request = [[NSFetchRequest alloc] init];
             [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
             //[request setPropertiesToFetch:[NSArray arrayWithObjects:@"text", nil]];
             [request setPredicate:predicate];
@@ -304,7 +268,7 @@
             
             if ([_data count] > 0) {
                 Words *_word = ((Words*)[_data objectAtIndex:0]);  
-                [_word setType:wordType];
+                [_word setType:self.wordType];
                 [ar addObject:_word];
                 [sortedKeys removeObject:[selectedWords objectAtIndex:i]];
                 [selectedWords removeObjectAtIndex:i];
@@ -316,22 +280,20 @@
             }
             [loadingView performSelectorOnMainThread:@selector(updateDataCurrentIndex:) withObject:[NSNumber numberWithInt:i] waitUntilDone:YES];
         }
-        [wordType addWords:ar];
+        [self.wordType addWords:ar];
         [iTeachWordsAppDelegate saveUndoBranch];
     }
     @catch (NSException *exception) {
         [iTeachWordsAppDelegate remoneUndoBranch];
     }
     @finally {
-        [ar release];
-        [pool drain];
         [loadingView closeLoadingView];
     }
     [table reloadData];
 }
 
 - (void)loadTranslateWords:(NSArray*)wordsArray{
-    if (!wordType) {
+    if (!self.wordType) {
         [self showMyPickerView];
         return;
     }
@@ -342,15 +304,12 @@
 }
 
 -(void)didLoadTranslate:(NSArray*)translate{
-    [self addWords:selectedWords withTranslate:translate toWordType:wordType];
+    [self addWords:selectedWords withTranslate:translate toWordType:self.wordType];
 }
 
 - (void)addWords:(NSArray*)words withTranslate:(NSArray*)translates toWordType:(WordTypes*)_wordType{
     
     [UIAlertView showLoadingViewWithMwssage:NSLocalizedString(@"Loading...", @"")];
-    [translates retain];
-    [words retain];
-    NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
     NSMutableSet *ar = [[NSMutableSet alloc] init];
     [iTeachWordsAppDelegate createUndoBranch];
     @try {
@@ -358,7 +317,7 @@
             if ([translates count]>i) {
                 NSString *text = [words objectAtIndex:i];
                 NSString *translate = [NSString stringWithString:[translates objectAtIndex:i]];
-                [text removeSpaces];
+                text = [text removeSpaces];
                 text = [NSString removeSpaces:text];
                 NSLog(@"%@",translate);
                 translate = [NSString removeSpaces:translate];
@@ -366,8 +325,8 @@
                 Words *currentWord = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
                                                                    inManagedObjectContext:CONTEXT];
                 [currentWord setCreateDate:[NSDate date]];
-                [currentWord setType:_wordType];
-                [currentWord setTypeID:_wordType.typeID];
+                [currentWord setType:self.wordType];
+                [currentWord setTypeID:self.wordType.typeID];
                 [currentWord setChangeDate:[NSDate date]];
                 [currentWord setText:text];
                 [currentWord setTranslate:translate];
@@ -375,7 +334,7 @@
                 [ar addObject:currentWord];
             }
         }
-        [_wordType addWords:ar];
+        [self.wordType addWords:ar];
         [iTeachWordsAppDelegate saveUndoBranch];
     }
     @catch (NSException *exception) {
@@ -383,24 +342,17 @@
         
     }
     @finally {
-        [ar release];
-        [pool drain];
-        [translates release];
-        [words release];
         [UIAlertView removeMessage];
     }
 
 }
 
 -(void) filteringList{
-    NSAutoreleasePool *pool= [[NSAutoreleasePool alloc] init];
-    
-    int count = [selectedWords count];
+    NSInteger count = [selectedWords count];
     for (int i = 0; i < count; i++) {
-        NSAutoreleasePool *pool1= [[NSAutoreleasePool alloc] init];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"text = %@", [[selectedWords objectAtIndex:i] lowercaseString]];
         NSError *error;
-        NSFetchRequest * request = [[[NSFetchRequest alloc] init] autorelease];
+        NSFetchRequest * request = [[NSFetchRequest alloc] init];
         [request setEntity:[NSEntityDescription entityForName:@"Words" inManagedObjectContext:[iTeachWordsAppDelegate sharedContext]]];
         //[request setPropertiesToFetch:[NSArray arrayWithObjects:@"text", nil]];
         [request setPredicate:predicate];
@@ -433,9 +385,7 @@
         }
         --count;
         --i;
-        [pool1 drain];
     }
-    [pool drain];
 }
 
 #pragma mark tools view delegate
@@ -445,11 +395,11 @@
         [self deselectAllWords];
         return;
     }
-    CustomAlertView *alert = [[[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Select", @"")
+    CustomAlertView *alert = [[CustomAlertView alloc] initWithTitle:NSLocalizedString(@"Select", @"")
                                                      message:@""
                                                     delegate:self 
                                            cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
-                                           otherButtonTitles:NSLocalizedString(@"All words", @""),NSLocalizedString(@"Learned words", @""), nil] autorelease];
+                                           otherButtonTitles:NSLocalizedString(@"All words", @""),NSLocalizedString(@"Learned words", @""), nil];
     [alert setTag:555];
     [alert show];
 }
@@ -469,7 +419,6 @@
 - (void) showMyPickerView
 {
     if (wordTypePicker) {
-        [wordTypePicker release];
         wordTypePicker = nil;
     }
     wordTypePicker = [[MyPickerViewContrller alloc] initWithNibName:@"MyPicker" bundle:nil];
@@ -538,8 +487,8 @@
 
 #pragma mark picker protocol
 
-- (void) pickerDone:(WordTypes *)_wordType{
-    wordType = [_wordType retain];
+- (void) pickerDone:(WordTypes *)wordType{
+    self.wordType = wordType;
     [self translateWords];
 }
 
@@ -560,10 +509,10 @@
         [table setAllowsSelectionDuringEditing:YES];
         [table setEditing:YES animated:YES];
         self.navigationItem.rightBarButtonItem =
-        [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Use words", @"")
+        [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Use words", @"")
                                           style: UIBarButtonItemStyleBordered
                                          target:self
-                                         action:@selector(showMyPickerView)] autorelease];
+                                         action:@selector(showMyPickerView)];
         self.navigationItem.rightBarButtonItem.enabled = ([selectedWords count]<=0)?NO:YES;
     }else{
         [table setAllowsSelectionDuringEditing:NO];

@@ -76,10 +76,7 @@
         [self reloadStatisticView];
         return;
     }
-    if (word) {
-        [word release];
-    }
-    word = [_word retain];
+    word = _word;
     [self reloadStatisticView];
 }
 
@@ -92,21 +89,4 @@
     [progressLbl setText:NSLocalizedString(@"progress", @"")];
 }
 
-- (void)dealloc
-{
-    if (word) {
-        [word release];
-    }
-    
-    [progressLbl release];
-    [super dealloc];
-}
-
-- (void)viewDidUnload {
-    [successLbl release];
-    [totalLbl release];
-    [progressLbl release];
-    progressLbl = nil;
-    [super viewDidUnload];
-}
 @end

@@ -11,13 +11,8 @@
 
 @implementation NSNumber (Interaction)
 
-+ (int) randomFrom:(int)from to:(int)to{
-	srandom((unsigned)(mach_absolute_time() & 0xFFFFFFFF));    
-    int randomValue = 0;
-    if ((to - from) != 0) {
-        randomValue = from+ (random() % (to - from));
-    }
-	return randomValue;
++ (NSInteger) randomFrom:(NSInteger)min to:(NSInteger)max{
+	return rand() % (max - min) + min;
 }
 
 @end

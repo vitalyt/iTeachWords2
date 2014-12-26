@@ -12,7 +12,7 @@
 - (NSString *)flattenHTML;
 - (BOOL) validateEmail;
 - (BOOL) validateAlphanumeric;
-- (void) removeSpaces;
+- (NSString *) removeSpaces;
 + (NSString*) removeSpaces:(NSString*)_str;
 + (NSString*) removeNumbers:(NSString*)originalString;
 + (NSString*)removeChars:(NSString*)chars from:(NSString*)baseString;

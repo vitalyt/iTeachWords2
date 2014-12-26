@@ -146,7 +146,7 @@
     }
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, messageHeight/4, frame.size.width-20, messageHeight/2)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -199,7 +199,7 @@
         return _currentSelectedObject;
     }
     CGRect frame = view.frame;
-    UIView *buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    UIView *buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:CGRectMake(frame.origin.x+self.bar.frame.origin.x, frame.origin.y+self.bar.frame.origin.y, frame.size.width, frame.size.height)];
     return buttonView;
 }

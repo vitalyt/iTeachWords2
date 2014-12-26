@@ -11,18 +11,14 @@
 
 
 @interface Test7 : TestControllerProtocol <UITableViewDelegate> {
-	NSMutableArray		*optionArray;
-	NSMutableArray		*optionIndexArray;
-
-	NSMutableArray		*wordsArray;
-	int					indexRight;
+	NSInteger					indexRight;
 }
 
 @property (nonatomic,retain) NSMutableArray *optionArray,*wordsArray,*optionIndexArray;
 
 - (IBAction)	help;
-- (IBAction)	nextWord:(int)row;
+- (IBAction)	nextWord:(NSInteger)row;
 - (void)		createWord;
-- (BOOL)		test:(int)_tag;
+- (BOOL)		test:(NSInteger)_tag;
 - (void)		loadStrWithArray;
 @end

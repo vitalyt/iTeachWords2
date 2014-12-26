@@ -21,11 +21,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -90,22 +85,19 @@
         }
     }
     [content appendFormat:@"\n"];
-    [ar release];
     
     NSString *pathOfDocuments = [NSHomeDirectory() stringByAppendingPathComponent:[[[NSBundle mainBundle] infoDictionary] objectForKey: @"LessonResouce"]];
-    NSString *lessonFolder = [pathOfDocuments stringByAppendingPathComponent:lessonName];
+    NSString *lessonFolder = [pathOfDocuments stringByAppendingPathComponent:self.lessonName];
     NSString *path = [lessonFolder stringByAppendingPathComponent:@"1.txt"];
     
     [content writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"%@\n",content);
-    [content release];
 }
 
 - (void)setTextContent:(NSString *)_str
 {
-    if (textContent != _str) {
-        [textContent release];
-        textContent = [_str retain];
+    if (self.textContent != _str) {
+        self.textContent = _str;
         [sentences removeAllObjects];
         [wordsInSentence removeAllObjects];
         sentenceIndex = 0;
@@ -116,7 +108,7 @@
 //            [wordsInSentence addObject:ar];
 //            [ar release];
 //        }
-        myTextView.text = textContent;
+        myTextView.text = self.textContent;
     }
 }
 @end

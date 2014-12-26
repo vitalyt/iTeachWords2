@@ -20,14 +20,6 @@
     }
     return self;
 }
-
-
-- (void)dealloc
-{
-    [myTable release];
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -90,7 +82,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     NSString *title = [NSString stringWithFormat:@"%i %@",indexPath.row+1,[model.wordsStore objectAtIndex:indexPath.row]];
     cell.textLabel.text = title;

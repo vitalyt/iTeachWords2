@@ -34,9 +34,8 @@
 
 - (void)setWordType:(WordTypes*)_wordType{
     if (_wordType != wordType) {
-        [wordType release];
-        wordType = [_wordType retain];
-        statisticsLearningArray = [[RepeatModel loadAllStatisticsLearningWithWordType:wordType] retain];
+        wordType = _wordType;
+        statisticsLearningArray = [RepeatModel loadAllStatisticsLearningWithWordType:wordType];
 //        lastThemeLearningDate = [[self getLastThemeLearningDate] retain];
     }
 }
@@ -48,15 +47,13 @@
     NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
 	NSArray *companies = [fetches fetchedObjects];
 	companies = [companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:date, nil]];
-    [date release];
     return companies;
 }
 
 + (NSArray*)loadAllStatisticsLearningWithWordType:(WordTypes*)_wordType{
     NSArray *_statisticLearningArray = [NSArray arrayWithArray:[_wordType.statisticLearning allObjects]];
     NSSortDescriptor *status = [[NSSortDescriptor alloc] initWithKey:@"repeatStatus" ascending:YES];
-    _statisticLearningArray = [_statisticLearningArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:status, nil]]; 
-    [status release];
+    _statisticLearningArray = [_statisticLearningArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:status, nil]];
     return _statisticLearningArray;
 }
 
@@ -201,11 +198,9 @@
             [dict setObject:_wordType forKey:@"wordType"];
             [dict setObject:[NSNumber numberWithInt:intervalToNexLearning-currentIntervall] forKey:@"intervalToNexLearning"];
             [content addObject:dict];
-            [dict release];
         }
     }
-    [themes release];
-    return [content autorelease];
+    return content;
 }
 
 
@@ -236,13 +231,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[RepeatModel keyForStatus:status]];
     }
     return [[NSUserDefaults standardUserDefaults] boolForKey:[RepeatModel keyForStatus:status]];
-}
-
-- (void)dealloc {
-    statisticsLearningArray = nil;
-    wordType = nil;
-//    lastThemeLearningDate = nil;
-    [super dealloc];
 }
 
 @end

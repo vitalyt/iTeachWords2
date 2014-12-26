@@ -22,10 +22,4 @@
     }
     return self;
 }
-
-- (void)dealloc {
-    [contentView release];
-    [super dealloc];
-}
-
 @end

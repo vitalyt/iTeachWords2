@@ -12,12 +12,9 @@
 #import "WBConnection.h"
 #import "WBRequest.h"
 #import "WBEngine.h"
-#import "XMLReader.h"
+//#import "XMLReader.h"
 
 @implementation AddWordModel
-@synthesize urlShow;
-@synthesize wordType,currentWord;
-@synthesize delegate;
 
 //- (id)initWithDelegate:(id)_delegate {
 //    self = [super init];
@@ -26,38 +23,27 @@
 //    }
 //    return self;
 //}
-
-- (void)dealloc {
-    self.delegate = nil;
-    [wbEngine release];
-    [currentTranslateLanguageCode release];
-    [urlShow release];
-    [wordType release];
-    [currentWord release];
-    [super dealloc];
-}
-
 - (void) setWord:(Words *)_word{
-    if (currentWord != _word) {
+    if (_currentWord != _word) {
         [self createUndoBranch];
-        currentWord = [_word retain];
-        wordType = [_word.type retain];
+        self.currentWord = _word;
+        self.wordType = _word.type;
     }
 }
 
 - (void) createWord{
-    if (!currentWord) {
+    if (!_currentWord) {
         //        [iTeachWordsAppDelegate clearUdoManager];
 //        [[CONTEXT undoManager] removeAllActions];
         [self createUndoBranch];
         self.currentWord = [NSEntityDescription insertNewObjectForEntityForName:@"Words" 
                                                     inManagedObjectContext:CONTEXT];
-        [currentWord setCreateDate:[NSDate date]];
-        [wordType addWordsObject:currentWord];
+        [_currentWord setCreateDate:[NSDate date]];
+        [_wordType addWordsObject:_currentWord];
     }
-    [currentWord setType:wordType];
-    [currentWord setTypeID:wordType.typeID];
-    [currentWord setChangeDate:[NSDate date]];
+    [_currentWord setType:_wordType];
+    [_currentWord setTypeID:_wordType.typeID];
+    [_currentWord setChangeDate:[NSDate date]];
 }
 
 - (void)createUndoBranch{
@@ -72,18 +58,17 @@
     [iTeachWordsAppDelegate saveUndoBranch];
 }
 
-- (void)setCurrentTranslateLanguageCode:(NSString *)_currentTranslateLanguageCode{
-    if (currentTranslateLanguageCode != _currentTranslateLanguageCode) {
-        [currentTranslateLanguageCode release];
-        currentTranslateLanguageCode = [_currentTranslateLanguageCode retain];
+- (void)setCurrentTranslateLanguageCode:(NSString *)currentTranslateLanguageCode{
+    if (_currentTranslateLanguageCode != currentTranslateLanguageCode) {
+        self.currentTranslateLanguageCode = currentTranslateLanguageCode;
     }
 }
 
 -(void) createUrls{
-    self.urlShow = [[[NSString alloc] initWithFormat: @"http://translate.google.com/?hl=%@&sl=%@&tl=%@&ie=UTF-8&prev=_m&q=%@",
+    self.urlShow = [[NSString alloc] initWithFormat: @"http://translate.google.com/?hl=%@&sl=%@&tl=%@&ie=UTF-8&prev=_m&q=%@",
                NATIVE_LANGUAGE_CODE,
            TRANSLATE_LANGUAGE_CODE,
-           NATIVE_LANGUAGE_CODE,currentWord.text] autorelease];
+           NATIVE_LANGUAGE_CODE,_currentWord.text];
 }
 
 #pragma loading translate
@@ -127,23 +112,23 @@
     NSString *response = [[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding];
     @try
     {
-        NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
-        NSLog(@"%@",result);
-        SEL selector = @selector(translateDidLoad:byLanguageCode:);
-        if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
-            if ([delegate respondsToSelector:selector]) {
-                NSString *_translate = [[result objectForKey:@"string"] objectForKey:@"text"];
-                [delegate performSelector:selector withObject:_translate withObject:currentTranslateLanguageCode];
-            }
-        }else{
-            if ([delegate respondsToSelector:selector]) {
-                [delegate performSelector:selector withObject:nil withObject:currentTranslateLanguageCode];
-            }
-        }
+//        NSDictionary *result = [XMLReader dictionaryForXMLString:response error:nil];
+//        NSLog(@"%@",result);
+//        SEL selector = @selector(translateDidLoad:byLanguageCode:);
+//        if (!result || ![result objectForKey:@"string"] || [[result objectForKey:@"string"] objectForKey:@"text"]) {
+//            if ([_delegate respondsToSelector:selector]) {
+//                NSString *_translate = [[result objectForKey:@"string"] objectForKey:@"text"];
+//                [(id)_delegate performSelector:selector withObject:_translate withObject:
+//                 _currentTranslateLanguageCode];
+//            }
+//        }else{
+//            if ([_delegate respondsToSelector:selector]) {
+//                [(id)_delegate performSelector:selector withObject:nil withObject:_currentTranslateLanguageCode];
+//            }
+//        }
     }
     @finally
     {
-        [response release];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }
 }

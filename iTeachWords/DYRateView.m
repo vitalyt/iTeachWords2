@@ -52,8 +52,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         self.opaque = NO;
         self.backgroundColor = [UIColor clearColor];
 
-        _fullStarImage = [fullStarImage retain];
-        _emptyStarImage = [emptyStarImage retain];
+        self.fullStarImage = fullStarImage;
+        self.emptyStarImage = emptyStarImage;
         _padding = 4;
         _numOfStars = 5;
         self.alignment = RateViewAlignmentLeft;
@@ -61,13 +61,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     }
     return self;
 }
-
-- (void)dealloc {
-    [_fullStarImage release]; _fullStarImage = nil;
-    [_emptyStarImage release]; _emptyStarImage = nil;
-    [super dealloc];
-}
-
 
 - (void)drawRect:(CGRect)rect
 {

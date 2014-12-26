@@ -18,7 +18,6 @@
 	NSSortDescriptor *dateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
 	NSArray *sortDescriptors = [NSArray arrayWithObjects:dateDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
-	[dateDescriptor release];
 	
 	[request setPredicate:predicate];
 	
@@ -26,8 +25,6 @@
 									managedObjectContext:CONTEXT sectionNameKeyPath:nil cacheName:nil];
 	[fetchResults performFetch:nil];
 	NSArray *results = [fetchResults fetchedObjects];
-	[request release];
-	[fetchResults release];
 	return [results lastObject];
 }
 
@@ -49,15 +46,12 @@
 	NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:sortString ascending:ascending];
 	NSArray *sortDescriptors = [NSArray arrayWithObjects:descriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
-	[descriptor release];
 	
 	if (predicate) [request setPredicate:predicate];
 	
 	NSFetchedResultsController *fetchResults = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
 										managedObjectContext:CONTEXT sectionNameKeyPath:sectionName cacheName:nil];
 	[fetchResults performFetch:nil];
-	[request release];
-	[fetchResults autorelease];
 	return fetchResults;
 }
 
@@ -77,7 +71,6 @@
 	NSFetchRequest *request = [NSFetchRequest new];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:CONTEXT];
 	[request setEntity:entity];
-	[request autorelease];
 	if (predicate) [request setPredicate:predicate];
 	return [CONTEXT countForFetchRequest:request error:nil];
 }

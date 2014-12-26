@@ -68,7 +68,7 @@ NSString *const kARFontPickerViewControllerCellIdentifier = @"ARFontPickerViewCo
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kARFontPickerViewControllerCellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kARFontPickerViewControllerCellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kARFontPickerViewControllerCellIdentifier];
     }
     
     NSString *familyName = [self _fontFamilyForSection:indexPath.section];

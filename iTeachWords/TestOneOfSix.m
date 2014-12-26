@@ -28,8 +28,8 @@
         contentArray = [[NSMutableArray alloc] init];
         statisticView = [[StatisticViewController alloc] initWithNibName:@"StatisticViewController" bundle:nil];
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
-                                                   initWithTitle:@"?" style:UIBarButtonItemStyleBordered target:self action:@selector(help)] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                   initWithTitle:@"?" style:UIBarButtonItemStyleBordered target:self action:@selector(help)];
     }
     return self;
 }
@@ -55,25 +55,16 @@
     if([self randomFrom:0 to:2]>0){
         flgChange = YES;
     }
-    int _count = 6;
+    NSInteger _count = 6;
     if ([self.data count]<6) {
 		_count = [self.data count]-1;
 	}
-    if (contentArray) {
-        
-        [contentArray release];
-    }
-    contentArray = [(NSMutableArray *) [self mixingArray:self.data count:_count] retain] ;
+    contentArray = (NSMutableArray *) [self mixingArray:self.data count:_count] ;
     [self.table reloadData];
 }
 
--(int) randomFrom:(int)from to:(int)to{
-	srandom((unsigned)(mach_absolute_time() & 0xFFFFFFFF));
-    int randomValue = 0;
-    if ((to - from) != 0) {
-        randomValue = from+ (random() % (to - from));
-    }
-	return randomValue;
+-(NSInteger) randomFrom:(NSInteger)from to:(NSInteger)to{
+	return [NSNumber randomFrom:from to:to];
 }
 
 - (NSMutableArray *) mixingArray:(NSArray *)_array count:(int)_count{
@@ -111,14 +102,13 @@
         }
     }
     if(!flgExistMajor){
-        int randomIndex = [self randomFrom:1 to:[newArray count]];
+        NSInteger randomIndex = [self randomFrom:1 to:[newArray count]];
         [newArray replaceObjectAtIndex:randomIndex withObject:[_array objectAtIndex:_index]];
     }
-	[oldArray release];
-	return [newArray autorelease];
+	return newArray;
 }
 
-- (NSArray*)getRandomWordsWithCount:(int)_count{
+- (NSArray*)getRandomWordsWithCount:(NSInteger)_count{
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Words" inManagedObjectContext:CONTEXT];
@@ -132,13 +122,11 @@
     NSMutableArray *results = [[NSMutableArray alloc] initWithArray:[CONTEXT executeFetchRequest:request error:&error]];
     NSMutableArray *ar = [[NSMutableArray alloc] init];
     for (int i=0; i<_count; i++) {
-        int randomIndex = [self randomFrom:1 to:[results count]];
+        NSInteger randomIndex = [self randomFrom:1 to:[results count]];
         [ar addObject:[results objectAtIndex:randomIndex]];
         [results removeObjectAtIndex:randomIndex];
     }
-    [results release];
-    [request release];
-    return [ar autorelease];
+    return ar;
 }
 
 
@@ -169,13 +157,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.textLabel.numberOfLines = 2;
     [cell.textLabel setFont:FONT_TEXT];
     if(indexPath.section == 0){
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		cell.textLabel.textAlignment =  UITextAlignmentCenter;
+		cell.textLabel.textAlignment =  NSTextAlignmentCenter;
         if(flgChange){
             cell.textLabel.text = WORD(contentArray,0).text;
         }else{
@@ -184,7 +172,7 @@
     }
     else{
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-		cell.textLabel.textAlignment =  UITextAlignmentCenter;
+		cell.textLabel.textAlignment =  NSTextAlignmentCenter;
         if(!flgChange){
             cell.textLabel.text = WORD(contentArray,indexPath.row+1).text;
         }else{
@@ -227,14 +215,12 @@
 - (void) playSoundWithIndex:(int)_index{
     if (multiPlayer) {
         [multiPlayer closePlayer];
-        [multiPlayer release];
     }
     NSArray *sounds = [[NSArray alloc] initWithObjects:WORD(contentArray,_index), nil];
     multiPlayer = [[MultiPlayer alloc] initWithNibName:@"SimpleMultiPlayer" bundle:nil];
 	multiPlayer.delegate = self;
 	[multiPlayer openViewWithAnimation:self.view];
 	[multiPlayer playList:sounds];
-    [sounds release];
 }
 
 - (IBAction) help{
@@ -290,17 +276,6 @@
         self.bannerIsVisible = NO;
     }
 }
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)dealloc {
-    if (contentArray) {
-        [contentArray release];
-    }
-    [super dealloc];
-}
-
 
 @end
 

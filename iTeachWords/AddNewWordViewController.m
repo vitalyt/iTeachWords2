@@ -72,7 +72,7 @@
                                                getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:predicate];
         NSArray *types = [fetches fetchedObjects];
         if (types && [types count]>0) {
-            dataModel.wordType = [[types objectAtIndex:0] retain];
+            dataModel.wordType = [types objectAtIndex:0];
             [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),dataModel.wordType.name]];
             [dataModel createWord];
             if (dataModel.currentWord) {
@@ -142,8 +142,6 @@
 	[translateFid setLeftViewMode:UITextFieldViewModeAlways];
     objImageEng.layer.cornerRadius = 10.0;
     objImageRus.layer.cornerRadius = 5.0;
-	[objImageRus release];
-	[objImageEng release];
 } 
 
 - (void)addRecButtonOnTextField:(UITextField*)textField{
@@ -194,7 +192,6 @@
     }
     if (recordView) {
         [recordView saveSound:nil];
-        [recordView release];
         recordView = nil;
     }
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
@@ -231,7 +228,6 @@
     
 - (void) recordViewDidClose:(id)sender{
     if (recordView) {
-        [recordView release];
         recordView = nil;
     }
 }
@@ -310,7 +306,6 @@
         //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         if (recordView) {
             [recordView saveSound:nil];
-            [recordView release];
             recordView = nil;
         }
         [DELEGATE.navigationController popViewControllerAnimated:YES];
@@ -468,10 +463,10 @@
 - (void)createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
-                                                       action:@selector(parceTranslateWord)] autorelease];
-    UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
-                                                                action:@selector(parseText:)] autorelease];
+    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
+                                                       action:@selector(parceTranslateWord)];
+    UIMenuItem *menuTextParseItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
+                                                                action:@selector(parseText:)];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
@@ -481,7 +476,6 @@
     [menuController setMenuVisible:YES
                           animated:YES];
     [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
-    [menuItemsMutableArray release];
 }
 
 - (void)showSaveButton{
@@ -528,7 +522,7 @@
     CGRect frame = self.view.superview.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4*2, frame.size.width-20, frame.size.height/4)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -572,50 +566,9 @@
     if (index == 2 || index == 100 || index == 101) {
         buttonFrame = CGRectMake(frame.origin.x+self.view.frame.origin.x+view.superview.frame.origin.x, frame.origin.y+self.view.frame.origin.y+view.superview.frame.origin.y, frame.size.width, frame.size.height);
     }
-    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:buttonFrame];
     return buttonView;
 }
 
-- (void)viewDidUnload
-{
-    delegate = nil;
-    [textFld release];
-    textFld = nil;
-    [translateFid release];
-    translateFid = nil;
-    [themeLbl release];
-    themeLbl = nil;
-    [saveButton release];
-    saveButton = nil;
-    [themeButton release];
-    themeButton = nil;
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)dealloc {
-    [myPicker release];
-    myPicker = nil;
-    if (recordView) {
-        [recordView undoChngesWord];
-        [recordView release];
-        recordView = nil;
-    }
-    [dataModel release];
-    dataModel = nil;
-    delegate = nil;
-    [textFld release];
-    textFld = nil;
-    [translateFid release];
-    translateFid = nil;
-    [themeLbl release];
-    themeLbl = nil;
-    [saveButton release];
-    saveButton = nil;
-    [themeButton release];
-    themeButton = nil;
-    [super dealloc];
-}
 @end

@@ -16,15 +16,6 @@
 @synthesize data;
 
 #pragma mark -
-#pragma mark NSObject
-- (void) dealloc
-{
-	[data release];
-	[table release];
-	[super dealloc];
-}
-
-#pragma mark -
 #pragma mark UIViewController
 - (void) viewDidUnload
 {
@@ -77,7 +68,7 @@
     UITableViewCell *theCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == theCell) {
 		if (nil == cellIdentifier)
-			theCell = [[[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:@"default"] autorelease];
+			theCell = [[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:@"default"];
 		else {
 			NSArray *items = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
 			theCell = [items objectAtIndex:0];
@@ -114,11 +105,11 @@
 - (id)cellBackgroundViewWithFrame:(CGRect)frame{
     UIView *bg = [[MenuView alloc] initWithFrame:frame];
     bg.backgroundColor = [UIColor clearColor]; // or any color
-    return [bg autorelease];
+    return bg;
 }
 
 - (id)cellSelectedBackgroundViewWithIndexPath:(NSIndexPath*)indexPath{
-    OSDNUITableCellView *v = [[[OSDNUITableCellView alloc] initWithRountRect:5] autorelease];
+    OSDNUITableCellView *v = [[OSDNUITableCellView alloc] initWithRountRect:5];
 //    70.0f/255.0f, 70.0f/255.0f, 70.0f/255.0f, 1.0f
     v.fillColor = [UIColor colorWithRed:22/255.0f green:22/255.0f blue:22/255.0f alpha:.5f];
     v.borderColor = [UIColor darkGrayColor];

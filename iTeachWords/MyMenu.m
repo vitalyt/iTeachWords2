@@ -21,8 +21,6 @@
 #import "InfoViewController.h"
 #import "SpeachView.h"
 #import "WebViewController.h"
-#import "DMVocalizerViewController.h"
-#import "DMRecognizerViewController.h"
 
 @implementation MyMenu
 
@@ -41,12 +39,6 @@
     }
     return self;
 }
-
-- (void)dealloc {
-    [contentImageArray release];
-    [super dealloc];
-}
-
 
 #pragma mark -
 #pragma mark Memory management
@@ -77,13 +69,12 @@
 - (void)addInfoButton{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [btn addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
 - (void)showInfoView{
     InfoViewController *infoView = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
     [self.navigationController pushViewController:infoView animated:YES];
-    [infoView release];
 }
 
 - (void)showLastItem{
@@ -108,7 +99,6 @@
     if (!NATIVE_LANGUAGE_CODE || !TRANSLATE_LANGUAGE_CODE){
         LanguagePickerController *languageView = [[LanguagePickerController alloc] initWithNibName:@"LanguagePickerController" bundle:nil];
         [self.navigationController pushViewController:languageView animated:YES];
-        [languageView release];
     }
 }
 
@@ -145,7 +135,6 @@
         case 1:{
             MenuLessons *lessonMenu = [[MenuLessons alloc] initWithNibName:@"MenuLessons" bundle:nil];
             [self.navigationController pushViewController:lessonMenu animated:YES];
-            [lessonMenu release];
 //            LM7 *lessonMaker = [[LM7 alloc] initWithNibName:@"LM7" bundle:nil];
 //            [self.navigationController pushViewController:lessonMaker animated:YES];
 //            lessonMaker.textContent = @"Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user. Quits the application and it begins the transition to the background state.";
@@ -198,7 +187,6 @@
 - (void)showTeachView{
     WorldTableToolsController *myTableView = [[WorldTableToolsController alloc] initWithNibName:@"WorldTableViewController" bundle:nil];
     [self.navigationController pushViewController:myTableView animated:YES];
-    [myTableView release];
 }
 
 - (void)showAddingWordView{
@@ -207,26 +195,21 @@
     UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: myAddWordView action:@selector(back)];
     [[self navigationItem] setBackBarButtonItem: newBackButton];
     [self.navigationController pushViewController:myAddWordView animated:YES];
-    [myAddWordView release]; 
-    [newBackButton release];
 }
 
 - (void)showTextParserView{
     TextViewController *myTextView = [[TextViewController alloc] initWithNibName:@"TextViewController" bundle:nil];
     [self.navigationController pushViewController:myTextView animated:YES];
-    [myTextView release];
 }
 
 - (void)showDictionaryView{
     DictionaryViewController *dictionaryView = [[DictionaryViewController alloc] initWithNibName:@"DictionaryViewController" bundle:nil];
     [self.navigationController pushViewController:dictionaryView animated:YES];
-    [dictionaryView release];
 }
 
 - (void)showSettingsView{
     SettingsViewController *languageView = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
     [self.navigationController pushViewController:languageView animated:YES];
-    [languageView release];
 }
 
 - (void)showWebView {
@@ -237,19 +220,16 @@
     }
     webViewController.url = url;
 	[self.navigationController pushViewController:webViewController animated:YES];
-	[webViewController release];
 }
 
 - (void)showVocalizerView{
-    DMVocalizerViewController *vocalizerView = [[DMVocalizerViewController alloc] initWithNibName:@"DMVocalizerViewController" bundle:nil];
-    [self.navigationController pushViewController:vocalizerView animated:YES];
-    [vocalizerView release];
+   // DMVocalizerViewController *vocalizerView = [[DMVocalizerViewController alloc] initWithNibName:@"DMVocalizerViewController" bundle:nil];
+    //[self.navigationController pushViewController:vocalizerView animated:YES];
 }
 
 - (void)showRecognizerView{
-    DMRecognizerViewController *recognizerView = [[DMRecognizerViewController alloc] initWithNibName:@"DMRecognizerViewController" bundle:nil];
-    [self.navigationController pushViewController:recognizerView animated:YES];
-    [recognizerView release];
+   // DMRecognizerViewController *recognizerView = [[DMRecognizerViewController alloc] initWithNibName:@"DMRecognizerViewController" bundle:nil];
+   // [self.navigationController pushViewController:recognizerView animated:YES];
 }
 
 

@@ -14,14 +14,6 @@
 @synthesize delegate;
 @synthesize titleLabel;
 
-- (void)dealloc
-{
-    [switcher release];
-    [titleLabel release];
-    [super dealloc];
-}
-
-
 - (IBAction)changing:(id)sender {
     SEL selector = @selector(cellChanged:);
 	if ([delegate respondsToSelector:selector]) {

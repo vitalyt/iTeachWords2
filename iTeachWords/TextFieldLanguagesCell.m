@@ -10,50 +10,41 @@
 
 @implementation TextFieldLanguagesCell
 
-@synthesize textField2;
-@synthesize titleLabel2;
-
-- (void) dealloc{
-	[textField2 release];
-    [titleLabel2 release];
-    [super dealloc];
-}
-
 - (void) didChangedPickerData{
   	SEL selector = @selector(cellChanged:);
-	if ([delegate respondsToSelector:selector]) {
-		[delegate performSelector:selector withObject:self afterDelay:0.01f];
+	if ([self.delegate respondsToSelector:selector]) {
+		[self.delegate performSelector:selector withObject:self afterDelay:0.01f];
 	}
     
 }
 
 - (void)    didClosePicker{
     SEL selector = @selector(cellDidEndEditing:);
-	if ([delegate respondsToSelector:selector]) {
-		[delegate performSelector:selector withObject:self afterDelay:0.01f];
+	if ([self.delegate respondsToSelector:selector]) {
+		[self.delegate performSelector:selector withObject:self afterDelay:0.01f];
 	}
 }
 
 - (void)    didCanselPicker{
     SEL selector = @selector(cellDidEndEditing:);
-	if ([delegate respondsToSelector:selector]) {
-		[delegate performSelector:selector withObject:self afterDelay:0.01f];
+	if ([self.delegate respondsToSelector:selector]) {
+		[self.delegate performSelector:selector withObject:self afterDelay:0.01f];
 	}  
 }
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     SEL selector = @selector(cellDidBeginEditing:);
-	if ([delegate respondsToSelector:selector]) {
-		[delegate performSelector:selector withObject:self];
+	if ([self.delegate respondsToSelector:selector]) {
+		[self.delegate performSelector:selector withObject:self];
 	}
     return NO;
 }
 
 - (BOOL)textFieldDidBeginEditing:(UITextField *)field {
 	SEL selector = @selector(cellDidBeginEditing:);
-	if ([delegate respondsToSelector:selector]) {
-		[delegate performSelector:selector withObject:self];
+	if ([self.delegate respondsToSelector:selector]) {
+		[self.delegate performSelector:selector withObject:self];
 	}
 	return YES;
 }

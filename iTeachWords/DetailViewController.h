@@ -11,7 +11,7 @@
 
 @class MyUIViewClass,SocialSharingViewController;
 @interface DetailViewController : SimpleWebViewController <UIScrollViewDelegate>{
-    SocialSharingViewController *socialSharingViewController;
+//    SocialSharingViewController *socialSharingViewController;
     @public
     IBOutlet MyUIViewClass *contentView;
     IBOutlet UIButton *closeBtn;

@@ -22,7 +22,6 @@
 	IBOutlet UILabel *lblRusH;
 	IBOutlet UIButton *btn;
     DetailStatisticViewController    *statisticViewController;
-    id delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *lblEng,*lblRus,*lblEngH,*lblRusH;

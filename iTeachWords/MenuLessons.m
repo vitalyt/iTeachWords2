@@ -20,14 +20,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLesson)] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLesson)];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,9 +66,7 @@
 - (void) addLesson{
     LM15 *lessonMaker = [[LM15 alloc] initWithNibName:@"LM15" bundle:nil];
     [self.navigationController pushViewController:lessonMaker animated:YES];
-    lessonMaker.textContent = @"Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user. Quits the application and it begins the transition to the background state.";
-    [lessonMaker release];
-    
+    lessonMaker.textContent = @"Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user. Quits the application and it begins the transition to the background state.";    
     
 //    LM7 *lessonMaker = [[LM7 alloc] initWithNibName:@"LM7" bundle:nil];
 //    [self.navigationController pushViewController:lessonMaker animated:YES];
@@ -102,7 +95,6 @@
             test15.words = [[NSMutableArray alloc] initWithArray:[_data convertData]];
             test15.lessonName = lessonName;
             [self.navigationController pushViewController:test15 animated:YES];
-            [test15 release];
         }
 			break;
 		case 7:
@@ -111,7 +103,6 @@
             test7.words = [[NSMutableArray alloc] initWithArray:[_data convertData]];
             test7.lessonName = lessonName;
             [self.navigationController pushViewController:test7 animated:YES];
-            [test7 release];
         }
 			break;
 		default:
@@ -119,7 +110,6 @@
 			break;
 	}
 	NSMutableArray *_array = (NSMutableArray *)[_data convertData];
-    [_data release];
 	return _array;
 }
 

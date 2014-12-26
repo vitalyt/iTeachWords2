@@ -19,12 +19,6 @@
     }
     return self;
 }
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -53,22 +47,8 @@
 
 - (void)removeStatisticView{
     [statisticViewController.view removeFromSuperview];
-    [statisticViewController release];
     statisticViewController = nil;
 }
-
-- (void)viewDidUnload
-{
-    [titleLabel release];
-    [subTitleLabel release];
-    if (statisticViewController) {
-        [statisticViewController release];
-    }
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

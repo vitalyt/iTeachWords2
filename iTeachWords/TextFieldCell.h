@@ -8,9 +8,6 @@
 
 
 @interface TextFieldCell : UITableViewCell {
-	UITextField *textField;
-    IBOutlet UILabel *titleLabel;
-	id delegate;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *textField;

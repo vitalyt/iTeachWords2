@@ -9,7 +9,6 @@
 #import "TranslateViewController.h"
 #import "UIViewController+KNSemiModal.h"
 #import "SemiWebViewController.h"
-#import "JSON.h"
 #import "MyPickerViewContrller.h"
 #import "WordTypes.h"
 #import "Words.h"
@@ -27,43 +26,6 @@
 @end
 
 @implementation TranslateViewController
-
-@synthesize delegate = _delegate;
-@synthesize flgSave = _flgSave;
-@synthesize editingWord = _editingWord;
-@synthesize dataModel = _dataModel;
-
-- (void)dealloc {
-    _delegate = nil;
-    [_dataModel release];
-    _dataModel = nil;
-    [themeLbl release];
-    themeLbl = nil;
-    [saveButton release];
-    saveButton = nil;
-    [themeButton release];
-    themeButton = nil;
-    [myPicker release];
-    myPicker = nil;
-    if (recordView) {
-        [recordView undoChngesWord];
-        [recordView release];
-        recordView = nil;
-    }
-    [semiWebViewController release];
-    [_engTextView release];
-    [_rusTextView release];
-    [scrollView release];
-    [engContainerView release];
-    [rusContainerView release];
-    [engFlagImageView release];
-    [rusFlagImageView release];
-    [engRecordBtn release];
-    [rusRecordBtn release];
-    [engSearchBtn release];
-    [rusSearchBtn release];
-    [super dealloc];
-}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -256,10 +218,10 @@
         learningLaguage = @"en";
         textLnguage = self.rusTextView.text;
     }
-    NSString *urlShow = [[[NSString alloc] initWithFormat: @"http://translate.google.com/?hl=%@&sl=%@&tl=%@&ie=UTF-8&prev=_m&q=%@",
+    NSString *urlShow = [[NSString alloc] initWithFormat: @"http://translate.google.com/?hl=%@&sl=%@&tl=%@&ie=UTF-8&prev=_m&q=%@",
                           learningLaguage,
                           nativeLaguage,
-                          learningLaguage,textLnguage] autorelease];
+                          learningLaguage,textLnguage];
     [[self webView] loadWebViewWithUrl:urlShow];
     [self.view endEditing:YES];
 }
@@ -284,8 +246,8 @@
         if (!responseString) {
             return;
         }
-        NSMutableArray *luckyNumbers = [responseString JSONValue];
-        [responseString release];
+        NSMutableArray *luckyNumbers;
+        //= [responseString JSONValue];
         
         NSMutableString *mutableHtmlStr = [[NSMutableString alloc] init];
         [mutableHtmlStr appendFormat:@"<HTML><BODY>"];
@@ -307,7 +269,6 @@
          KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
          }];
         [[self webView] loadWebViewWithHtml:mutableHtmlStr];
-        [mutableHtmlStr release];
     }
     @catch (NSException *exception) {
         [[self webView] dismissSemiModalView];
@@ -365,7 +326,7 @@
                                                getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:predicate];
         NSArray *types = [fetches fetchedObjects];
         if (types && [types count]>0) {
-            _dataModel.wordType = [[types objectAtIndex:0] retain];
+            _dataModel.wordType = [types objectAtIndex:0];
             [themeLbl setText:[NSString stringWithFormat:NSLocalizedString(@"Current theme is %@", @""),_dataModel.wordType.name]];
             [_dataModel createWord];
             if (_dataModel.currentWord) {
@@ -446,7 +407,6 @@
     }
     if (recordView) {
         [recordView saveSound:nil];
-        [recordView release];
         recordView = nil;
     }
     recordView = [[RecordingWordViewController alloc] initWithNibName:@"RecordFullView" bundle:nil] ;
@@ -486,7 +446,6 @@
 
 - (void) recordViewDidClose:(id)sender{
     if (recordView) {
-        [recordView release];
         recordView = nil;
     }
 }
@@ -565,7 +524,6 @@
         //DELEGATE.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         if (recordView) {
             [recordView saveSound:nil];
-            [recordView release];
             recordView = nil;
         }
         [DELEGATE.navigationController popViewControllerAnimated:YES];
@@ -622,10 +580,10 @@
 - (void)createMenu{
     [self becomeFirstResponder];
     NSMutableArray *menuItemsMutableArray = [NSMutableArray new];
-    UIMenuItem *menuItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
-                                                       action:@selector(parceTranslateWord)] autorelease];
-    UIMenuItem *menuTextParseItem = [[[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
-                                                                action:@selector(parseText:)] autorelease];
+    UIMenuItem *menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Use as translate", @"")
+                                                       action:@selector(parceTranslateWord)];
+    UIMenuItem *menuTextParseItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Parse text", @"")
+                                                                action:@selector(parseText:)];
     [menuItemsMutableArray addObject:menuItem];
     [menuItemsMutableArray addObject:menuTextParseItem];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
@@ -635,7 +593,6 @@
     [menuController setMenuVisible:YES
                           animated:YES];
     [[UIMenuController sharedMenuController] setMenuItems:menuItemsMutableArray];
-    [menuItemsMutableArray release];
 }
 
 - (void)showSaveButton{
@@ -680,7 +637,7 @@
     CGRect frame = self.view.superview.frame;
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height/4*2, frame.size.width-20, frame.size.height/4)];
     l.numberOfLines = 4;
-    [l setTextAlignment:UITextAlignmentCenter];
+    [l setTextAlignment:NSTextAlignmentCenter];
     [l setBackgroundColor:[UIColor clearColor]];
     [l setTextColor:[UIColor whiteColor]];
     [l setText:[self helpMessageForButton:_currentSelectedObject]];
@@ -722,7 +679,7 @@
     if (index == 2 || index == 100 || index == 101) {
         buttonFrame = CGRectMake(frame.origin.x+self.view.frame.origin.x+view.superview.frame.origin.x, frame.origin.y+self.view.frame.origin.y+view.superview.frame.origin.y, frame.size.width, frame.size.height);
     }
-    buttonView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    buttonView = [[UIView alloc] initWithFrame:frame];
     [buttonView setFrame:buttonFrame];
     return buttonView;
 }

@@ -17,13 +17,11 @@
         EditingView,
         ManagerViewController;
 @interface ToolsViewController : BaseHelpViewController <RecordingViewProtocol,TestsViewProtocol,ToolsViewProtocol> {
-	id	<ToolsViewProtocol> delegate;
 	IBOutlet UISlider       *mySlider;
     IBOutlet UIScrollView   *scrollView;
     IBOutlet UIToolbar      *toolbar; 
 	BOOL                    visible;
     IBOutlet UIBarButtonItem *testItemsButton;
-    IBOutlet UIBarButtonItem *closeBtn;
     RecordingViewController  *recordingView;
     TestsViewController      *testsView;
     EditingView              *editingView;

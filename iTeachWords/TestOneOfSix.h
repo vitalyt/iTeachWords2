@@ -22,9 +22,9 @@
 @property (nonatomic,retain)IBOutlet UITableView             *table;
 @property (nonatomic,retain) NSMutableArray                 *contentArray;
 
-- (NSMutableArray *) mixingArray:(NSArray *)_array count:(int)_count;
-- (int)randomFrom:(int)from to:(int)to;
+- (NSMutableArray *) mixingArray:(NSArray *)_array count:(NSInteger)_count;
+- (NSInteger)randomFrom:(NSInteger)from to:(NSInteger)to;
 - (void)determineRowCounts;
-- (NSArray*)getRandomWordsWithCount:(int)_count;
+- (NSArray*)getRandomWordsWithCount:(NSInteger)_count;
 
 @end
