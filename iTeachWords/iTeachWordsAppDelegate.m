@@ -98,7 +98,7 @@
     if(state == UIApplicationStateInactive){
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"lastItem"];
         [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithString:[notif.userInfo objectForKey:@"themeName"]] forKey:@"lastTheme"];
-        NSLog(@"%d",[navigationController.viewControllers count]);
+
         for (int i=0;i<[navigationController.viewControllers count];i++){
             if ([[navigationController.viewControllers objectAtIndex:i] isKindOfClass:[MenuViewController class]]) {
                 MenuViewController *menuView = [navigationController.viewControllers objectAtIndex:i];
@@ -444,7 +444,7 @@
     }
     NSLog(@"%@",dict);
     return dict;
-}
+} 
 
 + (BOOL)isAppHacked{
     

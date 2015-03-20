@@ -20,12 +20,6 @@
 		1C1D9EB71562A4600082F42D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243714E9097F0014CBCB /* StoreKit.framework */; };
 		1C1D9EB81562A4600082F42D /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D3243414E907300014CBCB /* SpeechKit.framework */; };
 		1C257C341612D37B00FAE627 /* MenuViewControllerFree.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C331612D37B00FAE627 /* MenuViewControllerFree.xib */; };
-		1C257C3C1612E06600FAE627 /* exercises-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C361612E06600FAE627 /* exercises-icon.png */; };
-		1C257C3D1612E06600FAE627 /* mic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C371612E06600FAE627 /* mic-icon.png */; };
-		1C257C3E1612E06600FAE627 /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C381612E06600FAE627 /* new-icon.png */; };
-		1C257C3F1612E06600FAE627 /* seatch-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C391612E06600FAE627 /* seatch-icon.png */; };
-		1C257C401612E06600FAE627 /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C3A1612E06600FAE627 /* settings-icon.png */; };
-		1C257C411612E06600FAE627 /* web-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C257C3B1612E06600FAE627 /* web-icon.png */; };
 		1C2981DF1541A92A00DDDA15 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */; };
 		1C2981E01541A92A00DDDA15 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */; };
 		1C2981E71541B1D500DDDA15 /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2981E61541B1D500DDDA15 /* settingsIcon.png */; };
@@ -664,6 +658,18 @@
 		671DA12A1725CB5C00F77558 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 671DA1291725CB5C00F77558 /* UIViewController+KNSemiModal.m */; };
 		671DA12B1725CB5C00F77558 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 671DA1291725CB5C00F77558 /* UIViewController+KNSemiModal.m */; };
 		67AE6F1C1A4D8A8500F53EA0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67AE6F1B1A4D8A8500F53EA0 /* Default-568h@2x.png */; };
+		67BF646E1ABC9FAF007C8C8C /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF64681ABC9FAF007C8C8C /* settings-icon.png */; };
+		67BF646F1ABC9FAF007C8C8C /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF64681ABC9FAF007C8C8C /* settings-icon.png */; };
+		67BF64701ABC9FAF007C8C8C /* mic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF64691ABC9FAF007C8C8C /* mic-icon.png */; };
+		67BF64711ABC9FAF007C8C8C /* mic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF64691ABC9FAF007C8C8C /* mic-icon.png */; };
+		67BF64721ABC9FAF007C8C8C /* web-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646A1ABC9FAF007C8C8C /* web-icon.png */; };
+		67BF64731ABC9FAF007C8C8C /* web-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646A1ABC9FAF007C8C8C /* web-icon.png */; };
+		67BF64741ABC9FAF007C8C8C /* exercises-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646B1ABC9FAF007C8C8C /* exercises-icon.png */; };
+		67BF64751ABC9FAF007C8C8C /* exercises-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646B1ABC9FAF007C8C8C /* exercises-icon.png */; };
+		67BF64761ABC9FAF007C8C8C /* seatch-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646C1ABC9FAF007C8C8C /* seatch-icon.png */; };
+		67BF64771ABC9FAF007C8C8C /* seatch-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646C1ABC9FAF007C8C8C /* seatch-icon.png */; };
+		67BF64781ABC9FAF007C8C8C /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646D1ABC9FAF007C8C8C /* new-icon.png */; };
+		67BF64791ABC9FAF007C8C8C /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BF646D1ABC9FAF007C8C8C /* new-icon.png */; };
 		67F702BA173CDB16006D6B9B /* innershadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F702B9173CDB16006D6B9B /* innershadow.png */; };
 		67F702BB173CDB16006D6B9B /* innershadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F702B9173CDB16006D6B9B /* innershadow.png */; };
 		67F702BD173CDCEA006D6B9B /* innershadow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F702BC173CDCEA006D6B9B /* innershadow1.png */; };
@@ -793,12 +799,6 @@
 		1C1D9EAB1562A3FC0082F42D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1C1D9EAD1562A4020082F42D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1C257C331612D37B00FAE627 /* MenuViewControllerFree.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewControllerFree.xib; sourceTree = "<group>"; };
-		1C257C361612E06600FAE627 /* exercises-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exercises-icon.png"; sourceTree = "<group>"; };
-		1C257C371612E06600FAE627 /* mic-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mic-icon.png"; sourceTree = "<group>"; };
-		1C257C381612E06600FAE627 /* new-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-icon.png"; sourceTree = "<group>"; };
-		1C257C391612E06600FAE627 /* seatch-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seatch-icon.png"; sourceTree = "<group>"; };
-		1C257C3A1612E06600FAE627 /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
-		1C257C3B1612E06600FAE627 /* web-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-icon.png"; sourceTree = "<group>"; };
 		1C2981DD1541A92A00DDDA15 /* CustomGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGradientButton.h; sourceTree = "<group>"; };
 		1C2981DE1541A92A00DDDA15 /* CustomGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGradientButton.m; sourceTree = "<group>"; };
 		1C2981E61541B1D500DDDA15 /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
@@ -1241,6 +1241,12 @@
 		671DA1281725CB5C00F77558 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
 		671DA1291725CB5C00F77558 /* UIViewController+KNSemiModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KNSemiModal.m"; sourceTree = "<group>"; };
 		67AE6F1B1A4D8A8500F53EA0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		67BF64681ABC9FAF007C8C8C /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-icon.png"; path = "../../../../../Desktop/settings-icon.png"; sourceTree = "<group>"; };
+		67BF64691ABC9FAF007C8C8C /* mic-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mic-icon.png"; path = "../../../../../Desktop/mic-icon.png"; sourceTree = "<group>"; };
+		67BF646A1ABC9FAF007C8C8C /* web-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "web-icon.png"; path = "../../../../../Desktop/web-icon.png"; sourceTree = "<group>"; };
+		67BF646B1ABC9FAF007C8C8C /* exercises-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "exercises-icon.png"; path = "../../../../../Desktop/exercises-icon.png"; sourceTree = "<group>"; };
+		67BF646C1ABC9FAF007C8C8C /* seatch-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seatch-icon.png"; path = "../../../../../Desktop/seatch-icon.png"; sourceTree = "<group>"; };
+		67BF646D1ABC9FAF007C8C8C /* new-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-icon.png"; path = "../../../../../Desktop/new-icon.png"; sourceTree = "<group>"; };
 		67F702B9173CDB16006D6B9B /* innershadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = innershadow.png; sourceTree = "<group>"; };
 		67F702BC173CDCEA006D6B9B /* innershadow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = innershadow1.png; sourceTree = "<group>"; };
 		67F702BF173CDD1B006D6B9B /* innershadow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = innershadow2.png; sourceTree = "<group>"; };
@@ -1398,12 +1404,12 @@
 		1C257C351612DFE400FAE627 /* MenuFreeIcons */ = {
 			isa = PBXGroup;
 			children = (
-				1C257C361612E06600FAE627 /* exercises-icon.png */,
-				1C257C371612E06600FAE627 /* mic-icon.png */,
-				1C257C381612E06600FAE627 /* new-icon.png */,
-				1C257C391612E06600FAE627 /* seatch-icon.png */,
-				1C257C3A1612E06600FAE627 /* settings-icon.png */,
-				1C257C3B1612E06600FAE627 /* web-icon.png */,
+				67BF64681ABC9FAF007C8C8C /* settings-icon.png */,
+				67BF64691ABC9FAF007C8C8C /* mic-icon.png */,
+				67BF646A1ABC9FAF007C8C8C /* web-icon.png */,
+				67BF646B1ABC9FAF007C8C8C /* exercises-icon.png */,
+				67BF646C1ABC9FAF007C8C8C /* seatch-icon.png */,
+				67BF646D1ABC9FAF007C8C8C /* new-icon.png */,
 			);
 			name = MenuFreeIcons;
 			sourceTree = "<group>";
@@ -2713,6 +2719,7 @@
 				284092DF1381242700864711 /* MainWindow.xib in Resources */,
 				284092E51381242700864711 /* iTeachWordsViewController.xib in Resources */,
 				28296B1F13812F15000129E8 /* MyMenu.xib in Resources */,
+				67BF64741ABC9FAF007C8C8C /* exercises-icon.png in Resources */,
 				28296B25138132F5000129E8 /* FilesManagerViewController.xib in Resources */,
 				28296B3A1381494E000129E8 /* AddWord.xib in Resources */,
 				28296B4113814978000129E8 /* MyPicker.xib in Resources */,
@@ -2721,6 +2728,7 @@
 				28296B5713814C77000129E8 /* Play 16x16.png in Resources */,
 				28296B5813814C77000129E8 /* Record 16x16.png in Resources */,
 				28296B5A13814C82000129E8 /* Stop 16x16.png in Resources */,
+				67BF64781ABC9FAF007C8C8C /* new-icon.png in Resources */,
 				28296B6213814E40000129E8 /* ToolsView.xib in Resources */,
 				283B1F0E1383EDA9004EB5D4 /* RecordFullView.xib in Resources */,
 				283B1F2D1384EE01004EB5D4 /* WorldTableViewController.xib in Resources */,
@@ -2765,6 +2773,7 @@
 				CE9FDBD213AE1FBF0001CC6F /* LM15.xib in Resources */,
 				CE9FDBD713AE1FD50001CC6F /* List 16x16.png in Resources */,
 				CE9FDBD813AE1FD50001CC6F /* Ordered list 16x16a.png in Resources */,
+				67BF64761ABC9FAF007C8C8C /* seatch-icon.png in Resources */,
 				CE96159B13C067BD004096C7 /* MenuLessons.xib in Resources */,
 				CE9615B413C09CF0004096C7 /* Test7.xib in Resources */,
 				CE6C773913C0C79E00ACDC2E /* Test15.xib in Resources */,
@@ -2829,6 +2838,7 @@
 				2862E3C414C58162003CC14C /* Close-button.png in Resources */,
 				289C63A214CDA50B0003C5BF /* Microphone.png in Resources */,
 				289C63AA14CDA5BF0003C5BF /* VoiceRecordingViewController.xib in Resources */,
+				67BF64701ABC9FAF007C8C8C /* mic-icon.png in Resources */,
 				28914B5214D151DB004E702A /* ButtonView.xib in Resources */,
 				2866F79114D161BF00BBE17B /* PagesScrollView.xib in Resources */,
 				2834E93114D18960008229F3 /* right.png in Resources */,
@@ -2858,6 +2868,7 @@
 				843373C4152A2301005747E4 /* next.png in Resources */,
 				843373C6152A2301005747E4 /* voice@2x.png in Resources */,
 				843373C8152A2301005747E4 /* red_plus_down.png in Resources */,
+				67BF646E1ABC9FAF007C8C8C /* settings-icon.png in Resources */,
 				843373CA152A2301005747E4 /* red_plus_down@2x.png in Resources */,
 				843373CC152A2301005747E4 /* red_plus_up.png in Resources */,
 				843373CE152A2301005747E4 /* red_plus_up@2x.png in Resources */,
@@ -2918,6 +2929,7 @@
 				1CB3EC2E15BEC535005D8EC9 /* twitter-icon.png in Resources */,
 				1CCD199815C67DAB006068D4 /* SE.png in Resources */,
 				1CCD199C15C67E68006068D4 /* NO.png in Resources */,
+				67BF64721ABC9FAF007C8C8C /* web-icon.png in Resources */,
 				1CCD199F15C67ED6006068D4 /* IN.png in Resources */,
 				1CCD19A215C68014006068D4 /* BE.png in Resources */,
 				1CCE9FD215CFB4E20050762D /* select-all.png in Resources */,
@@ -2968,7 +2980,9 @@
 				285B816014E4079E001C977D /* EditingView.xib in Resources */,
 				285B816114E4079E001C977D /* Trash 16x16.png in Resources */,
 				285B816214E4079E001C977D /* Conversation 16x16.png in Resources */,
+				67BF64751ABC9FAF007C8C8C /* exercises-icon.png in Resources */,
 				285B816314E4079E001C977D /* NotSelected.png in Resources */,
+				67BF64731ABC9FAF007C8C8C /* web-icon.png in Resources */,
 				285B816414E4079E001C977D /* IsSelected.png in Resources */,
 				285B816514E4079E001C977D /* TableCell.xib in Resources */,
 				285B816614E4079E001C977D /* DetailStatisticViewController.xib in Resources */,
@@ -2995,6 +3009,7 @@
 				285B818114E4079E001C977D /* NewTableCell.xib in Resources */,
 				285B818214E4079E001C977D /* LMTableViewController.xib in Resources */,
 				285B818314E4079E001C977D /* LM7.xib in Resources */,
+				67BF646F1ABC9FAF007C8C8C /* settings-icon.png in Resources */,
 				285B818414E4079E001C977D /* LM15.xib in Resources */,
 				285B818514E4079E001C977D /* List 16x16.png in Resources */,
 				285B818614E4079E001C977D /* Ordered list 16x16a.png in Resources */,
@@ -3017,6 +3032,7 @@
 				285B81BF14E4079E001C977D /* DK.png in Resources */,
 				285B81C714E4079E001C977D /* ES.png in Resources */,
 				285B81C914E4079E001C977D /* FI.png in Resources */,
+				67BF64711ABC9FAF007C8C8C /* mic-icon.png in Resources */,
 				285B81CD14E4079E001C977D /* FR.png in Resources */,
 				285B81D114E4079E001C977D /* GF.png in Resources */,
 				285B81D714E4079E001C977D /* GR.png in Resources */,
@@ -3024,6 +3040,7 @@
 				285B81E014E4079E001C977D /* IC.png in Resources */,
 				285B81E114E4079E001C977D /* ID.png in Resources */,
 				285B81E314E4079E001C977D /* IL.png in Resources */,
+				67BF64771ABC9FAF007C8C8C /* seatch-icon.png in Resources */,
 				285B81E814E4079E001C977D /* IT.png in Resources */,
 				285B81EB14E4079E001C977D /* JP.png in Resources */,
 				285B81F314E4079E001C977D /* KR.png in Resources */,
@@ -3044,6 +3061,7 @@
 				285B826514E4079E001C977D /* HeadViewController.xib in Resources */,
 				285B826614E4079E001C977D /* TextFieldCell.xib in Resources */,
 				285B826714E4079E001C977D /* SettingsViewController.xib in Resources */,
+				67BF64791ABC9FAF007C8C8C /* new-icon.png in Resources */,
 				285B826814E4079E001C977D /* TextFieldLanguagesCell.xib in Resources */,
 				285B826914E4079E001C977D /* InfoViewController.xib in Resources */,
 				285B826A14E4079E001C977D /* Mail 24x24.png in Resources */,
@@ -3177,12 +3195,6 @@
 				1CF4E64915F763E1001CFF0B /* Default@2x.png in Resources */,
 				1CF4E64A15F763E4001CFF0B /* Default.png in Resources */,
 				1C257C341612D37B00FAE627 /* MenuViewControllerFree.xib in Resources */,
-				1C257C3C1612E06600FAE627 /* exercises-icon.png in Resources */,
-				1C257C3D1612E06600FAE627 /* mic-icon.png in Resources */,
-				1C257C3E1612E06600FAE627 /* new-icon.png in Resources */,
-				1C257C3F1612E06600FAE627 /* seatch-icon.png in Resources */,
-				1C257C401612E06600FAE627 /* settings-icon.png in Resources */,
-				1C257C411612E06600FAE627 /* web-icon.png in Resources */,
 				1C58E7151622BE5E009D4B59 /* Localizable.strings in Resources */,
 				671DA1271725CB3B00F77558 /* TranslateViewController.xib in Resources */,
 				6714C30F172BFA36004305BA /* SemiWebViewController.xib in Resources */,
@@ -3768,6 +3780,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = iTeachWords_Free;
 				PROVISIONING_PROFILE = "667F0D7D-15EE-46F0-8D80-09001BF78847";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "667F0D7D-15EE-46F0-8D80-09001BF78847";
@@ -3805,6 +3818,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = iTeachWords_Free;
 				PROVISIONING_PROFILE = "9640FD1D-8598-487B-9979-0BCA1944A392";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "35A5402D-40AF-44FB-A18F-4D8D61FEB380";
@@ -3843,6 +3857,7 @@
 					"\"$(SRCROOT)/iTeachWords\"",
 					"\"$(SRCROOT)/SocialSharingSource/Twitter+OAuth/Libraries & Headers\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = iTeachWords_Free;
 				PROVISIONING_PROFILE = "C42850B3-BF3A-4173-8599-689A673BF8A2";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9640FD1D-8598-487B-9979-0BCA1944A392";

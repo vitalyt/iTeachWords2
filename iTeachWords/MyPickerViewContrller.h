@@ -14,20 +14,18 @@
 
 @class AddWord,WordTypes,ThemeDetailView;
 @interface MyPickerViewContrller : BaseHelpViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate,UIScrollViewDelegate> {
-	IBOutlet UIPickerView	*pickerView;
     IBOutlet UITextField    *themeEditingFlt;
 	IBOutlet UIBarButtonItem    *rightButton;
 	IBOutlet UIBarButtonItem    *leftButton;
     IBOutlet UIButton		*addButton;
-	NSArray                 *data;
     ThemeDetailView         *themeDetailView;
     NSMutableArray          *rows;
     BOOL                    isAdding;
 }
 
-@property (nonatomic, retain) IBOutlet UIPickerView	*pickerView;
+@property (nonatomic, strong) IBOutlet UIPickerView	*pickerView;
 @property (nonatomic, weak) id                    delegate;
-@property (nonatomic, retain) NSArray               *data;
+@property (nonatomic, strong) NSArray               *data;
 
 - (WordTypes *) getType;
 + (NSArray*)loadAllThemeWithPredicate:(NSPredicate*)_predicate;

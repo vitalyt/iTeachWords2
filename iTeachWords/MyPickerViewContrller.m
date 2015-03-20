@@ -15,8 +15,6 @@
 #define PICKER_ROW_HEIGHT 50
 
 @implementation MyPickerViewContrller
-@synthesize pickerView;
-@synthesize delegate,data;
 
 - (void) initArray{
 	if (self != nil) {
@@ -35,9 +33,9 @@
     NSFetchedResultsController *_fetches = [NSManagedObjectContext 
                                             getEntities:@"WordTypes" sortedBy:@"createDate" withPredicate:_predicate];
     
-	NSSortDescriptor *_data = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
+	NSSortDescriptor *data = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:NO];
 	NSArray *_companies = [_fetches fetchedObjects];
-    return [_companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:_data, nil]];
+    return [_companies sortedArrayUsingDescriptors:[NSArray arrayWithObjects:data, nil]];
 }
 
 + (NSArray*)loadAllTheme{
@@ -53,21 +51,21 @@
     rows = [[NSMutableArray alloc] initWithCapacity:[self.data count]];
     for (int i=0; i<[self.data count]; i++) {
         ThemeDetailView *pickerRowView = [[ThemeDetailView alloc] initWithNibName:@"ThemeDetailView" bundle:nil];
-        [pickerRowView.view setFrame:CGRectMake(0, 0, pickerView.frame.size.width, PICKER_ROW_HEIGHT)];
+        [pickerRowView.view setFrame:CGRectMake(0, 0, _pickerView.frame.size.width, PICKER_ROW_HEIGHT)];
         [rows addObject:pickerRowView];
-        [pickerRowView setTheme:[data objectAtIndex:i]];
+        [pickerRowView setTheme:[_data objectAtIndex:i]];
     }
 
     
-	[pickerView reloadAllComponents];
+	[_pickerView reloadAllComponents];
     
     NSString *lastTheme  = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastTheme"];
     if (lastTheme){
         int i = 0;
-        for (WordTypes *types in data) {
+        for (WordTypes *types in _data) {
             if ([types.name isEqualToString:lastTheme]){
-                [pickerView selectRow:i inComponent:0 animated:YES];
-                [self pickerView:pickerView didSelectRow:i inComponent:0];
+                [_pickerView selectRow:i inComponent:0 animated:YES];
+                [self pickerView:_pickerView didSelectRow:i inComponent:0];
             }
             ++i;
         }
@@ -76,16 +74,16 @@
 
 - (NSString *) getTextPicker
 {
-	if ([data count] > 0) {
-		return [NSString stringWithFormat:@"%@",[[data objectAtIndex:[pickerView selectedRowInComponent:0]] name]];
+	if ([_data count] > 0) {
+		return [NSString stringWithFormat:@"%@",[[_data objectAtIndex:[_pickerView selectedRowInComponent:0]] name]];
 	}
 	return @"";
 }
 
 - (WordTypes *) getType
 {
-	if ([data count] > 0) {
-		return [data objectAtIndex:[pickerView selectedRowInComponent:0]];
+	if ([_data count] > 0) {
+		return [_data objectAtIndex:[_pickerView selectedRowInComponent:0]];
 	}
 	return nil;
 }
@@ -113,7 +111,7 @@
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
     }
-    [pickerView setUserInteractionEnabled:NO];
+    [_pickerView setUserInteractionEnabled:NO];
     isAdding = YES;
     WordTypes *wordType;
     [iTeachWordsAppDelegate createUndoBranch];
@@ -127,7 +125,7 @@
 //    [iTeachWordsAppDelegate saveUndoBranch];
     [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"lastTheme"];
     [self loadData];
-    [pickerView selectRow:0 inComponent:0 animated:YES];
+    [_pickerView selectRow:0 inComponent:0 animated:YES];
     [self performSelector:@selector(editThemeName:)withObject:nil afterDelay:.3];
 }
 
@@ -137,14 +135,14 @@
         [_hint presentModalMessage:[self helpMessageForButton:sender] where:self.view.superview];
         return;
     }
-    [pickerView setUserInteractionEnabled:NO];
+    [_pickerView setUserInteractionEnabled:NO];
     [themeEditingFlt setText:@""];
 	[themeEditingFlt.layer addAnimation:[self cretePushAnimation] forKey:nil];
     if (!isAdding) {
         [iTeachWordsAppDelegate createUndoBranch];
     }
     [themeEditingFlt setHidden:NO];
-    WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
+    WordTypes *wordType = [_data objectAtIndex:[_pickerView selectedRowInComponent:0]];
     [themeEditingFlt performSelector:@selector(setText:) withObject:wordType.name afterDelay:.25];
     [themeEditingFlt becomeFirstResponder];
 }
@@ -170,7 +168,7 @@
         return;
     }
     
-    WordTypes *wordType = [data objectAtIndex:[pickerView selectedRowInComponent:0]];
+    WordTypes *wordType = [_data objectAtIndex:[_pickerView selectedRowInComponent:0]];
     [wordType setName:themeEditingFlt.text];
     [iTeachWordsAppDelegate saveUndoBranch];
     [themeEditingFlt setHidden:YES];
@@ -190,7 +188,7 @@
 
 - (IBAction) cansel
 {    
-    [pickerView setUserInteractionEnabled:YES];
+    [_pickerView setUserInteractionEnabled:YES];
     if (!themeEditingFlt.hidden) {
         [self closeEditingField];
         return;
@@ -226,13 +224,13 @@
 
 - (IBAction) done
 {
-    [pickerView setUserInteractionEnabled:YES];
+    [_pickerView setUserInteractionEnabled:YES];
     if (!themeEditingFlt.hidden) {
         [self saveEditingField];
         return;
     }
-    [pickerView setUserInteractionEnabled:YES];
-    if ([data count] <= [pickerView selectedRowInComponent:0]) {
+    [_pickerView setUserInteractionEnabled:YES];
+    if ([_data count] <= [_pickerView selectedRowInComponent:0]) {
         [UIAlertView displayError:@"No selected theme."];
         return;
     }
@@ -240,7 +238,7 @@
 		[self.delegate setTextFromPicker: [self getTextPicker]];
 	}
     if (self.delegate && [self.delegate respondsToSelector:@selector(pickerDone:)]) {
-		[self.delegate pickerDone:[data objectAtIndex:[pickerView selectedRowInComponent:0]]];
+		[self.delegate pickerDone:[_data objectAtIndex:[_pickerView selectedRowInComponent:0]]];
 	}
     
     CGRect frame = self.view.frame;
@@ -300,17 +298,17 @@
 }
 
 - (IBAction) deleteType{
-    NSInteger selectedIndex = [pickerView selectedRowInComponent:0];
-    WordTypes *wordType = [data objectAtIndex:selectedIndex];
+    NSInteger selectedIndex = [_pickerView selectedRowInComponent:0];
+    WordTypes *wordType = [_data objectAtIndex:selectedIndex];
     [iTeachWordsAppDelegate createUndoBranch];
     [CONTEXT deleteObject:wordType];
     [iTeachWordsAppDelegate saveUndoBranch];
-    NSMutableArray *array = [[NSMutableArray alloc] initWithArray:data];
+    NSMutableArray *array = [[NSMutableArray alloc] initWithArray:_data];
     [array removeObjectAtIndex:selectedIndex];
-    data = array;
+    self.data = array;
 	[self loadData];
 //    [pickerView reloadAllComponents];
-    [pickerView selectRow:((selectedIndex==0)?0:selectedIndex-1) inComponent:0 animated:YES];
+    [_pickerView selectRow:((selectedIndex==0)?0:selectedIndex-1) inComponent:0 animated:YES];
     
 }
 
@@ -319,17 +317,17 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-	return [data count];
+	return [_data count];
 }
 
 - (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    WordTypes *wordType = [data objectAtIndex:row];
+    WordTypes *wordType = [_data objectAtIndex:row];
 	return [wordType name];
 }
 
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     if ([self.delegate respondsToSelector:@selector(pickerDidChooseType:)]) {
-		[self.delegate pickerDidChooseType:[data objectAtIndex:row]];
+		[self.delegate pickerDidChooseType:[_data objectAtIndex:row]];
 	}
 //    [self showThemeDetail:[data objectAtIndex:row]];
 }

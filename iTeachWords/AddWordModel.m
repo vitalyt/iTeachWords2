@@ -60,7 +60,7 @@
 
 - (void)setCurrentTranslateLanguageCode:(NSString *)currentTranslateLanguageCode{
     if (_currentTranslateLanguageCode != currentTranslateLanguageCode) {
-        self.currentTranslateLanguageCode = currentTranslateLanguageCode;
+        _currentTranslateLanguageCode = currentTranslateLanguageCode;
     }
 }
 

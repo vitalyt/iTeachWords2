@@ -10,28 +10,12 @@
 
 @implementation MKStoreManager
 
-@synthesize purchasableObjects;
-@synthesize storeObserver;
-@synthesize delegate;
-
 // all your features should be managed one and only by StoreManager
 //static NSString *featureAId = @"com.luxuryecards.test2";
 
 //BOOL featureAPurchased;
 
 static MKStoreManager* _sharedStoreManager; // self
-
-- (void)dealloc {
-	
-	[_sharedStoreManager release];
-	[storeObserver release];
-	[purchasableObjects release];
-	
-	[featureAId release];
-	[localSet release];
-	 
-	[super dealloc];
-}
 
 - (BOOL) isFeatureAPurchased {
 	
@@ -93,22 +77,6 @@ static MKStoreManager* _sharedStoreManager; // self
     return self;	
 }
 
-- (id)retain
-{	
-    return self;	
-}
-
-- (unsigned)retainCount
-{
-    return UINT_MAX;  //denotes an object that cannot be released
-}
-
-- (id)autorelease
-{
-    return self;	
-}
-
-
 - (void) requestProductData
 {
 	SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:localSet];
@@ -143,8 +111,6 @@ static MKStoreManager* _sharedStoreManager; // self
 //        [[appDelegate costDictionary] setObject:formattedString forKey:[product productIdentifier]]; //costDictionary is an NSMutableDictionary object, declared in AppDelegate.h
         
 	}
-	
-	[request autorelease];
 }
 
 - (void) buyFeature:(NSString*) featureId

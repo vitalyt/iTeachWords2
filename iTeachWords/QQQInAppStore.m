@@ -69,19 +69,4 @@ static QQQInAppStore* _sharedInAppStore; // self
     return self;	
 }
 
-- (id)retain
-{	
-    return self;	
-}
-
-- (unsigned)retainCount
-{
-    return UINT_MAX;  //denotes an object that cannot be released
-}
-
-- (id)autorelease
-{
-    return self;	
-}
-
 @end

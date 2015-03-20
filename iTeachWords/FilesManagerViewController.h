@@ -19,9 +19,9 @@
     LoadingViewController   *loadingView;
 }
 
-@property (nonatomic, retain) IBOutlet UIProgressView	*myProgressView;
-@property (nonatomic, retain) IBOutlet UILabel			*myLabel;
-@property (nonatomic, weak) id                        delegate;
+@property (nonatomic, strong) IBOutlet UIProgressView	*myProgressView;
+@property (nonatomic, strong) IBOutlet UILabel			*myLabel;
+@property (nonatomic, weak) id                          delegate;
 
 - (void) threadStart;
 - (void) updateProgress:(NSNotification *)progressNotification;

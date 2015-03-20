@@ -17,9 +17,6 @@
 
 @implementation FilesManagerViewController
 
-@synthesize myProgressView,myLabel,delegate;
-
-
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
@@ -49,8 +46,8 @@
 	// получаем объект, переданный в нотификации, этот объект - значение для прогресс-бара
 	NSString * sval = [progressNotification object];
 	// устанавливаем значение.
-	myProgressView.progress = [sval floatValue];
-	myLabel.text = file;
+	_myProgressView.progress = [sval floatValue];
+	_myLabel.text = file;
 	// передать простой тип данных через нотификацию не удается, посему я передал его как указатель на строку
 }
 
@@ -134,8 +131,8 @@
 	}
     
     [loadingView closeLoadingView];
-	if ([delegate respondsToSelector:@selector(dataDidUpdate)]) {
-		[delegate performSelector:@selector(dataDidUpdate)];
+	if ([_delegate respondsToSelector:@selector(dataDidUpdate)]) {
+		[_delegate performSelector:@selector(dataDidUpdate)];
 	}
 }
 

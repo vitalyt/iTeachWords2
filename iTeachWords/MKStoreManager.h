@@ -27,7 +27,7 @@
 	BOOL featureAPurchased;
 }
 
-@property (nonatomic, retain) id<MKStoreKitDelegate> delegate;
+@property (nonatomic, weak) id<MKStoreKitDelegate> delegate;
 @property (nonatomic, retain) NSMutableArray *purchasableObjects;
 @property (nonatomic, retain) MKStoreObserver *storeObserver;
 

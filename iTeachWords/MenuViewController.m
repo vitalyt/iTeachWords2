@@ -54,7 +54,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  //  self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     [self checkDelayedThemes];
 }
 
@@ -73,12 +73,10 @@
     [super viewDidLoad];
 //    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Web Empty Designe"]]];
     [self setTitles];
-    [self addInfoButton];
-    [self addMailButton];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wallpaper"]];
+//    [self addInfoButton];
+//    [self addMailButton];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Web Empty Designe"]];
 
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
